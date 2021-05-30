@@ -53,8 +53,8 @@ describe('[EditText]', () => {
 
         container = await waitFor(() => testingLib.getByTestId('container-id'));
 
-        const containerChildViewCustomStyle = container.findByType(View)
-          .instance.props.style[1][1];
+        const containerChildViewCustomStyle =
+          container.findByType(View).instance.props.style[1][1];
 
         expect(containerChildViewCustomStyle).toEqual({
           backgroundColor: 'green',

@@ -80,9 +80,7 @@ export function getChangedDistanceRatio({
   return endDist / startDist;
 }
 
-export function getTwoFingerStartEndPositions(
-  inputs: GestureHandlerInput[],
-): {
+export function getTwoFingerStartEndPositions(inputs: GestureHandlerInput[]): {
   start: TwoPosition;
   end: TwoPosition;
 } {

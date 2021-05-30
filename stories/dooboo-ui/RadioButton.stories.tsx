@@ -79,9 +79,8 @@ const Normal = (): React.ReactElement => {
 };
 
 const StandAlone = (): React.ReactElement => {
-  const [selectedStandAlone, setSelectedStandAlone] = React.useState<string>(
-    '',
-  );
+  const [selectedStandAlone, setSelectedStandAlone] =
+    React.useState<string>('');
 
   return (
     <View>
@@ -158,9 +157,8 @@ const Controllable = (): React.ReactElement => {
 };
 
 function LabelPlacement(): React.ReactElement {
-  const [selectedLabelPlacement, setSelectedLabelPlacement] = React.useState(
-    'top',
-  );
+  const [selectedLabelPlacement, setSelectedLabelPlacement] =
+    React.useState('top');
 
   return (
     <View>

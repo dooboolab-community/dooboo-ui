@@ -34,8 +34,7 @@ function Default(): React.ReactElement {
         <Card
           containerStyle={{marginBottom: 30}}
           image={{
-            uri:
-              'https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png',
+            uri: 'https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png',
           }}
           title="Title"
           subTitle="subTitle">
@@ -45,8 +44,7 @@ function Default(): React.ReactElement {
         <Card
           containerStyle={{marginBottom: 30}}
           image={{
-            uri:
-              'https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png',
+            uri: 'https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png',
           }}
         />
         <Title>{'Title'}</Title>
@@ -83,8 +81,7 @@ function Style(): React.ReactElement {
         <Card
           containerStyle={{marginBottom: 30}}
           image={{
-            uri:
-              'https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png',
+            uri: 'https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png',
           }}
           title="Title"
           subTitle="subTitle">
@@ -94,8 +91,7 @@ function Style(): React.ReactElement {
         <Card
           containerStyle={{marginBottom: 30}}
           image={{
-            uri:
-              'https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png',
+            uri: 'https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png',
           }}
           title="Title"
           subTitle="subTitle"
@@ -106,8 +102,7 @@ function Style(): React.ReactElement {
         <Card
           containerStyle={{marginBottom: 30}}
           image={{
-            uri:
-              'https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png',
+            uri: 'https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png',
           }}
           title="Title"
           subTitle="subTitle"

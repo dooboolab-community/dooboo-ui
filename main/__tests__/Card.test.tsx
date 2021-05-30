@@ -40,8 +40,7 @@ describe('[Card]', () => {
     rendered = renderer.create(
       component({
         image: {
-          uri:
-            'https://image.shutterstock.com/z/stock-vector-api-application-programming-interface-software-integration-vector-illustration-1079814893.jpg',
+          uri: 'https://image.shutterstock.com/z/stock-vector-api-application-programming-interface-software-integration-vector-illustration-1079814893.jpg',
         },
       }),
     );
