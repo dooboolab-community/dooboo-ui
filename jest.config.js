@@ -1,37 +1,34 @@
-const {defaults: tsJestConfig} = require('ts-jest/presets');
+const expoPreset = require('jest-expo/jest-preset');
 
 process.env.TZ = 'Asia/Seoul';
 
 module.exports = {
-  ...tsJestConfig,
+  clearMocks: true,
   preset: 'react-native',
+  transform: {
+    '\\.js$': '<rootDir>/node_modules/react-native/jest/preprocessor.js',
+  },
   transformIgnorePatterns: ['node_modules/(?!(.*-)?react-(.*-)?native(-.*)?)'],
   modulePaths: ['<rootDir>'],
   moduleDirectories: ['node_modules'],
-  testMatch: ['**/__tests__/**/*test.ts?(x)', '**/?(*.)+(spec|test).ts?(x)'],
+  testRegex: '(/__tests__/.*|\\.(test|spec))\\.(ts|tsx|js)$',
   moduleFileExtensions: ['js', 'ts', 'tsx'],
   globals: {
     'ts-jest': {
+      babelConfig: true,
       tsconfig: {
         jsx: 'react',
       },
       diagnostics: false,
     },
   },
-  transform: {
-    '^.+\\.(js|jsx)$': 'babel-jest',
-    '\\.(ts|tsx)$': 'ts-jest',
-  },
-  // 'testRegex': '(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$',
   cacheDirectory: '.jest/cache',
-  // moduleNameMapper: {
-  //   '\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|
-  //     webm|wav|mp3|m4a|aac|oga)$': '<rootDir>/test/assetsTransformer.js'
-  // },
+  setupFiles: [...expoPreset.setupFiles, '<rootDir>/test/setupTest.ts'],
   coveragePathIgnorePatterns: [
     '.example.',
     '__assets__',
     '__tests__',
     './main/theme',
+    '/node_modules/',
   ],
 };

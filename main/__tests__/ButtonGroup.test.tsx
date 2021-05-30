@@ -2,7 +2,7 @@ import 'react-native';
 
 import * as React from 'react';
 
-import {RenderAPI, act, fireEvent, render} from '@testing-library/react-native';
+import {RenderAPI, fireEvent, render} from '@testing-library/react-native';
 
 import {ButtonGroup} from '../../main';
 
@@ -41,9 +41,7 @@ describe('[ButtonGroup] render', () => {
     it('should simulate onPress', () => {
       const btn1 = testingLib.queryByTestId('CHILD_1');
 
-      act(() => {
-        fireEvent.press(btn1);
-      });
+      if (btn1) fireEvent.press(btn1);
     });
   });
 });
