@@ -16,14 +16,17 @@ jobs:
       - name: Install modules
         run: yarn
 
+      - name: Lerna init
+        run: yarn pre
+
       - name: Check linting
         run: yarn lint
 
       - name: Build typescript
         run: yarn tsc
 
-      - name: Remove dist
-        run: rm -rf ./dist
+      - name: Build
+        run: yarn build
 
       - name: Test
         run: yarn test --coverage
