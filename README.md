@@ -27,7 +27,7 @@ Current project is forked from [dooboo-ui-legacy](https://github.com/dooboolab/d
 
 ## Documentation
 
-- Hosted in [github pages](https://dooboolab.github.io/dooboo-ui)
+Hosted in [github pages](https://dooboolab.github.io/dooboo-ui)
 
 ## Contributing to `dooboo-ui`
 
@@ -55,7 +55,7 @@ Follow the [README_THEME](./README_THEME.md)
 | package      | version |
 | ------------ | ------- |
 | react        | >=16.13 |
-| react-native | >=0.62  |
+| react-native | >=0.58  |
 | emotion      | \*      |
 
 ## List of independent components in `@dooboo-ui/*`
@@ -120,4 +120,4 @@ Thank you to all the people who helped to maintain and upgrade this project!
 
 ## License
 
-[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fdooboolab%2Fdooboolab-community.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Fdooboolab%2Fdooboolab-community?ref=badge_large)
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fdooboolab%2Fdooboo-ui.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Fdooboolab%2Fdooboo-ui?ref=badge_shield)
