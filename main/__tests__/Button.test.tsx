@@ -1,4 +1,4 @@
-import {act, fireEvent, render, waitFor} from '@testing-library/react-native';
+import {act, fireEvent, render} from '@testing-library/react-native';
 
 import {Button} from '../../main';
 import type {ButtonProps} from '../Button';
