@@ -20,6 +20,10 @@
 
 We love [react-hooks](https://code.fb.com/open-source/react-hooks) and willing to share our [react-native](https://facebook.github.io/react-native) ui components built in [functional components](https://logrocket.com/blog/pure-functional-components) using hooks. Also the `dooboo-ui` is built on top of our favorite stacks like [emotion](https://emotion.sh/docs/@emotion/native), [typescript](https://typescript.org), [jest](https://jestjs.io), [react-testing-library](https://testing-library.com/docs/react-testing-library/intro), [expo](https://expo.io), [storybook](https://storybook.js.org), and so on.
 
+## Notice
+
+Current project is forked from [dooboo-ui-legacy](https://github.com/dooboolab/dooboo-ui-legacy) to renew the project. We've made this decision because one of our sponsors wanted to rebrand this awesome project with better communication design and features. We are very happy to continue this project aggregating the aspiration of various people. The version of current project will start from `dooboo-ui@0.1.0` in [npm registry](https://www.npmjs.com).
+
 ## Documentation
 
 - Hosted in [github pages](https://dooboolab.github.io/dooboo-ui)
