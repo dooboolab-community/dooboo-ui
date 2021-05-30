@@ -34,14 +34,8 @@ interface Props {
 }
 
 function LoadingIndicator(props: Props): ReactElement {
-  const {
-    containerStyle,
-    renderCustomElement,
-    style,
-    size,
-    color,
-    imgSource,
-  } = props;
+  const {containerStyle, renderCustomElement, style, size, color, imgSource} =
+    props;
 
   const handleImgSize = (imgSize: number | string | undefined): ImageStyle => {
     if (imgSize === 'large')

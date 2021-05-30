@@ -41,8 +41,9 @@ const Accordion: FC<Props> = (props) => {
     bodyContainerStyle,
   } = props;
 
-  const dropDownAnimValueList = useRef(data.map(() => new Animated.Value(0)))
-    .current;
+  const dropDownAnimValueList = useRef(
+    data.map(() => new Animated.Value(0)),
+  ).current;
 
   return (
     <Container>

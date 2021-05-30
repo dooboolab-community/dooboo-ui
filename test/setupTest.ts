@@ -1,1 +1,1 @@
-import '@testing-library/jest-native/extend-expect';
+jest.setTimeout(30000);

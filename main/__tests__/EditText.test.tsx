@@ -24,6 +24,8 @@ const component = (editProps?: EditTextProps): React.ReactElement => {
 };
 
 describe('[EditText]', () => {
+  jest.spyOn(console, 'error').mockImplementation(() => {});
+
   describe('interactions', () => {
     beforeAll(() => {
       testingLib = render(
@@ -53,8 +55,8 @@ describe('[EditText]', () => {
 
         container = await waitFor(() => testingLib.getByTestId('container-id'));
 
-        const containerChildViewCustomStyle = container.findByType(View)
-          .instance.props.style[1][1];
+        const containerChildViewCustomStyle =
+          container.findByType(View).instance.props.style[1][1];
 
         expect(containerChildViewCustomStyle).toEqual({
           backgroundColor: 'green',
@@ -195,9 +197,7 @@ describe('[EditText]', () => {
 
         expect(input).toBeTruthy();
 
-        act(() => {
-          fireEvent(input, 'focus');
-        });
+        fireEvent(input, 'focus');
       });
 
       describe('onBlur (focused === false)', () => {
@@ -215,9 +215,7 @@ describe('[EditText]', () => {
 
           expect(input).toBeTruthy();
 
-          act(() => {
-            fireEvent(input, 'blur');
-          });
+          fireEvent(input, 'blur');
         });
 
         it('should trigger blur with errorText', async () => {
@@ -234,9 +232,7 @@ describe('[EditText]', () => {
 
           expect(input).toBeTruthy();
 
-          act(() => {
-            fireEvent(input, 'blur');
-          });
+          fireEvent(input, 'blur');
         });
       });
     });

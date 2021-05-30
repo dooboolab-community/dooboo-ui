@@ -100,20 +100,16 @@ describe('[Accordion] event test', () => {
     const {getByTestId} = testingLib;
     const itemTitle = getByTestId('body_0');
 
-    act(() => {
-      fireEvent(itemTitle, 'layout', {
-        nativeEvent: {
-          layout: {
-            height: 300,
-          },
+    fireEvent(itemTitle, 'layout', {
+      nativeEvent: {
+        layout: {
+          height: 300,
         },
-      });
+      },
     });
   });
 
   it('should trigger press event when clicking title', () => {
-    act(() => {
-      fireEvent.press(testingLib.getByTestId('title_0'));
-    });
+    fireEvent.press(testingLib.getByTestId('title_0'));
   });
 });
