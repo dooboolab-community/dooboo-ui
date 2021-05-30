@@ -1,0 +1,292 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`[RadioButton] render [RadioButton] Interaction should simulate props 1`] = `
+<View
+  accessible={true}
+  focusable={true}
+  onClick={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Object {
+      "alignItems": "center",
+      "flexDirection": "column",
+      "justifyContent": "center",
+      "opacity": 1,
+      "paddingBottom": 8,
+      "paddingLeft": 0,
+      "paddingRight": 0,
+      "paddingTop": 8,
+    }
+  }
+>
+  <Text
+    disabled={false}
+    style={
+      Array [
+        Object {
+          "color": "#000000",
+        },
+        undefined,
+      ]
+    }
+  >
+    
+  </Text>
+  <View
+    borderRadius={12}
+    borderWidth={2.4}
+    color="rgba(0, 0, 0, 0.54)"
+    innerSize={16}
+    size={24}
+    style={
+      Array [
+        Object {
+          "alignItems": "center",
+          "borderBottomColor": "rgba(0, 0, 0, 0.54)",
+          "borderLeftColor": "rgba(0, 0, 0, 0.54)",
+          "borderRightColor": "rgba(0, 0, 0, 0.54)",
+          "borderTopColor": "rgba(0, 0, 0, 0.54)",
+          "justifyContent": "center",
+          "marginBottom": 7,
+          "marginLeft": 7,
+          "marginRight": 7,
+          "marginTop": 7,
+        },
+        false,
+      ]
+    }
+  >
+    <View
+      style={
+        Object {
+          "backgroundColor": "rgba(0, 0, 0, 0.54)",
+          "borderRadius": 12,
+          "height": 16,
+          "width": 16,
+        }
+      }
+    />
+  </View>
+</View>
+`;
+
+exports[`[RadioButton] render [RadioButton] Interaction should simulate props 2`] = `
+<View
+  accessible={true}
+  focusable={true}
+  onClick={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Object {
+      "alignItems": "center",
+      "flexDirection": "row",
+      "justifyContent": "flex-start",
+      "opacity": 1,
+      "paddingBottom": 8,
+      "paddingLeft": 0,
+      "paddingRight": 0,
+      "paddingTop": 8,
+    }
+  }
+>
+  <View
+    borderRadius={12}
+    borderWidth={2.4}
+    color="#E0E0E0"
+    innerSize={16}
+    size={24}
+    style={
+      Array [
+        Object {
+          "alignItems": "center",
+          "borderBottomColor": "#E0E0E0",
+          "borderLeftColor": "#E0E0E0",
+          "borderRightColor": "#E0E0E0",
+          "borderTopColor": "#E0E0E0",
+          "justifyContent": "center",
+          "marginBottom": 7,
+          "marginLeft": 7,
+          "marginRight": 7,
+          "marginTop": 7,
+        },
+        Object {
+          "backgroundColor": "#E0E0E0",
+        },
+      ]
+    }
+  >
+    <View
+      style={
+        Object {
+          "backgroundColor": "#E0E0E0",
+          "borderRadius": 12,
+          "height": 16,
+          "width": 16,
+        }
+      }
+    />
+  </View>
+  <Text
+    disabled={true}
+    style={
+      Array [
+        Object {
+          "color": "#969696",
+        },
+        undefined,
+      ]
+    }
+  >
+    
+  </Text>
+</View>
+`;
+
+exports[`[RadioButton] render [RadioButton] Interaction should simulate props 3`] = `
+<View
+  accessible={true}
+  focusable={true}
+  onClick={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Object {
+      "alignItems": "center",
+      "flexDirection": "row",
+      "justifyContent": "flex-start",
+      "opacity": 1,
+      "paddingBottom": 8,
+      "paddingLeft": 0,
+      "paddingRight": 0,
+      "paddingTop": 8,
+    }
+  }
+>
+  <View
+    borderRadius={12}
+    borderWidth={2.4}
+    color="rgba(0, 0, 0, 0.54)"
+    innerSize={16}
+    size={24}
+    style={
+      Array [
+        Object {
+          "alignItems": "center",
+          "borderBottomColor": "rgba(0, 0, 0, 0.54)",
+          "borderLeftColor": "rgba(0, 0, 0, 0.54)",
+          "borderRightColor": "rgba(0, 0, 0, 0.54)",
+          "borderTopColor": "rgba(0, 0, 0, 0.54)",
+          "justifyContent": "center",
+          "marginBottom": 7,
+          "marginLeft": 7,
+          "marginRight": 7,
+          "marginTop": 7,
+        },
+        false,
+      ]
+    }
+  />
+  <Text
+    disabled={false}
+    style={
+      Array [
+        Object {
+          "color": "#000000",
+        },
+        undefined,
+      ]
+    }
+  >
+    
+  </Text>
+</View>
+`;
+
+exports[`[RadioButton] render renders without crashing 1`] = `
+<View
+  accessible={true}
+  focusable={true}
+  onClick={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Object {
+      "alignItems": "center",
+      "flexDirection": "row",
+      "justifyContent": "flex-start",
+      "opacity": 1,
+      "paddingBottom": 8,
+      "paddingLeft": 0,
+      "paddingRight": 0,
+      "paddingTop": 8,
+    }
+  }
+>
+  <View
+    borderRadius={12}
+    borderWidth={2.4}
+    color="rgba(0, 0, 0, 0.54)"
+    innerSize={16}
+    size={24}
+    style={
+      Array [
+        Object {
+          "alignItems": "center",
+          "borderBottomColor": "rgba(0, 0, 0, 0.54)",
+          "borderLeftColor": "rgba(0, 0, 0, 0.54)",
+          "borderRightColor": "rgba(0, 0, 0, 0.54)",
+          "borderTopColor": "rgba(0, 0, 0, 0.54)",
+          "justifyContent": "center",
+          "marginBottom": 7,
+          "marginLeft": 7,
+          "marginRight": 7,
+          "marginTop": 7,
+        },
+        false,
+      ]
+    }
+  >
+    <View
+      style={
+        Object {
+          "backgroundColor": "rgba(0, 0, 0, 0.54)",
+          "borderRadius": 12,
+          "height": 16,
+          "width": 16,
+        }
+      }
+    />
+  </View>
+  <Text
+    disabled={false}
+    style={
+      Array [
+        Object {
+          "color": "#000000",
+        },
+        undefined,
+      ]
+    }
+  >
+    
+  </Text>
+</View>
+`;

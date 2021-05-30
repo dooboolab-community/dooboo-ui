@@ -1,0 +1,31 @@
+{
+  "compilerOptions": {
+    "jsx": "react-native",
+    "noResolve": false,
+    "noImplicitAny": false,
+    "removeComments": false,
+    "sourceMap": false,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "target": "esnext",
+    "incremental": true,
+    "outDir": "./lib",
+    "skipLibCheck": true,
+    "allowSyntheticDefaultImports": true,
+    "declaration": true
+  },
+  "exclude": [
+    "node_modules",
+    "lib",
+    "**/**/*/__tests__",
+    "dist",
+    "**/*.example.*"
+  ],
+  "include": [
+    "main"
+  ],
+  "files": [
+    "environment.d.ts",
+    "main/theme/styled.d.ts"
+  ]
+}

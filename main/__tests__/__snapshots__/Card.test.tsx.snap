@@ -1,0 +1,99 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`[Card] should render without crashing 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "alignItems": "flex-start",
+        "backgroundColor": "#fff",
+        "elevation": 5,
+        "flexDirection": "column",
+        "shadowColor": "#000",
+        "shadowOffset": Object {
+          "height": 2,
+          "width": 0,
+        },
+        "shadowOpacity": 0.25,
+        "shadowRadius": 4,
+        "width": 256,
+      },
+      undefined,
+    ]
+  }
+/>
+`;
+
+exports[`[Card] should simulate props 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "alignItems": "flex-start",
+        "backgroundColor": "#fff",
+        "elevation": 5,
+        "flexDirection": "column",
+        "shadowColor": "#000",
+        "shadowOffset": Object {
+          "height": 2,
+          "width": 0,
+        },
+        "shadowOpacity": 0.25,
+        "shadowRadius": 4,
+        "width": 256,
+      },
+      undefined,
+    ]
+  }
+/>
+`;
+
+exports[`[Card] should simulate props 2`] = `
+<View
+  raised={true}
+  style={
+    Array [
+      Object {
+        "alignItems": "flex-start",
+        "backgroundColor": "#fff",
+        "elevation": 10,
+        "flexDirection": "column",
+        "shadowColor": "#000",
+        "shadowOffset": Object {
+          "height": 6,
+          "width": 0,
+        },
+        "shadowOpacity": 0.35,
+        "shadowRadius": 6.25,
+        "width": 256,
+      },
+      undefined,
+    ]
+  }
+/>
+`;
+
+exports[`[Card] should simulate props 3`] = `
+<View
+  outlined={true}
+  style={
+    Array [
+      Object {
+        "alignItems": "flex-start",
+        "backgroundColor": "#fff",
+        "borderBottomColor": "#ccc",
+        "borderBottomWidth": 1,
+        "borderLeftColor": "#ccc",
+        "borderLeftWidth": 1,
+        "borderRightColor": "#ccc",
+        "borderRightWidth": 1,
+        "borderTopColor": "#ccc",
+        "borderTopWidth": 1,
+        "flexDirection": "column",
+        "width": 256,
+      },
+      undefined,
+    ]
+  }
+/>
+`;
