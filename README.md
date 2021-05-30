@@ -105,6 +105,7 @@ You need to set webpack for using "dooboo-ui" in expo-web.
 
 Support this project by becoming a sponsor. Your logo will show up here with
 a link to your website. \[[Become a sponsor](https://opencollective.com/dooboolab-community#sponsor)\]
+<a href="https://opencollective.com/dooboolab-community#sponsors" target="_blank"><img src="https://opencollective.com/dooboolab-community/sponsors.svg?width=890"></a>
 
 ### Backers
 
