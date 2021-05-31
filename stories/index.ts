@@ -1,9 +1,7 @@
-import './dooboo-ui/Accordion.stories';
-import './dooboo-ui/Button.stories';
-import './dooboo-ui/ButtonGroup.stories';
-import './dooboo-ui/EditText.stories';
-import './dooboo-ui/LoadingIndicator.stories';
-import './dooboo-ui/SearchInput.stories';
-import './packages/Snackbar.stories';
-import './packages/CalendarCarousel.stories';
-import './dooboo-ui/PinchZoom.stories';
+import './dooboo-ui/AccordionStories';
+import './dooboo-ui/ButtonStories';
+import './dooboo-ui/ButtonGroupStories';
+import './dooboo-ui/EditTextStories';
+import './dooboo-ui/LoadingIndicatorStories';
+import './packages/CalendarCarouselStories';
+import './packages/PinzoomStories';

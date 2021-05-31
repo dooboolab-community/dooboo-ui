@@ -1,8 +1,8 @@
-import {ArrowDown, IC_MAGNIFIER} from '../Icon';
+import {ArrowDown, IC_MAGNIFIER} from '../../Icon';
 import React, {Fragment, ReactElement} from 'react';
 
-import {Accordion} from '../../main';
-import {ContainerDeco} from '../../storybook/decorators';
+import {Accordion} from '../../../main';
+import {ContainerDeco} from '../../../storybook/decorators';
 import {SafeAreaView} from 'react-native';
 import {storiesOf} from '@storybook/react-native';
 import styled from '@emotion/native';

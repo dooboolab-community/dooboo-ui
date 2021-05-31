@@ -6,7 +6,7 @@ import {
   ImageProps,
   ImageSourcePropType,
 } from 'react-native';
-import {PinchZoom, PinchZoomRef} from '../../../main';
+import {PinchZoom, PinchZoomRef} from '../../../packages/PinchZoom';
 import React, {ReactElement} from 'react';
 
 import styled from '@emotion/native';
