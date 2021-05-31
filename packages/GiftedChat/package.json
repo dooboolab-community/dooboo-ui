@@ -39,7 +39,7 @@
     "gifted-chat",
     "react-hook",
     "react-native",
-    "dooboo-ui/native",
+    "dooboo-ui",
     "dooboolab"
   ]
 }

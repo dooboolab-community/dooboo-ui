@@ -10,6 +10,7 @@ package-lock.json
 
 # Expo
 .expo/*
+**/.expo
 web-build/
 
 # Storybook build
@@ -25,8 +26,3 @@ storybook
 
 # Coverage
 coverage
-
-**/.expo
-
-# gh-pages
-doc-build

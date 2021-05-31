@@ -1,3 +1,4 @@
+import './dooboo-ui/TypographyStories';
 import './dooboo-ui/AccordionStories';
 import './dooboo-ui/ButtonStories';
 import './dooboo-ui/ButtonGroupStories';

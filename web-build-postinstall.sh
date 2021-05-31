@@ -1,0 +1,1 @@
+sed -i 's/\/dooboo-ui/./g' web-build/index.html
