@@ -1,20 +1,20 @@
 {
   "files": {
-    "app.js": "/dooboo-ui/static/js/app.ad9559d7.chunk.js",
-    "app.js.map": "/dooboo-ui/static/js/app.ad9559d7.chunk.js.map",
+    "app.js": "/dooboo-ui/static/js/app.121c5982.chunk.js",
+    "app.js.map": "/dooboo-ui/static/js/app.121c5982.chunk.js.map",
     "runtime~app.js": "/dooboo-ui/static/js/runtime~app.551cd881.js",
     "runtime~app.js.map": "/dooboo-ui/static/js/runtime~app.551cd881.js.map",
-    "static/js/2.a7455977.chunk.js": "/dooboo-ui/static/js/2.a7455977.chunk.js",
-    "static/js/2.a7455977.chunk.js.map": "/dooboo-ui/static/js/2.a7455977.chunk.js.map",
+    "static/js/2.f0ffe1d1.chunk.js": "/dooboo-ui/static/js/2.f0ffe1d1.chunk.js",
+    "static/js/2.f0ffe1d1.chunk.js.map": "/dooboo-ui/static/js/2.f0ffe1d1.chunk.js.map",
     "index.html": "/dooboo-ui/index.html",
     "manifest.json": "/dooboo-ui/manifest.json",
     "serve.json": "/dooboo-ui/serve.json",
-    "static/js/2.a7455977.chunk.js.LICENSE.txt": "/dooboo-ui/static/js/2.a7455977.chunk.js.LICENSE.txt",
+    "static/js/2.f0ffe1d1.chunk.js.LICENSE.txt": "/dooboo-ui/static/js/2.f0ffe1d1.chunk.js.LICENSE.txt",
     "static/media/magnifier.png": "/dooboo-ui/static/media/magnifier.9f82873e.png"
   },
   "entrypoints": [
     "static/js/runtime~app.551cd881.js",
-    "static/js/2.a7455977.chunk.js",
-    "static/js/app.ad9559d7.chunk.js"
+    "static/js/2.f0ffe1d1.chunk.js",
+    "static/js/app.121c5982.chunk.js"
   ]
 }
