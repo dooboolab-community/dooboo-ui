@@ -5,9 +5,12 @@ exports[`PinchZoom of ImageSlider should renders without crashing 1`] = `
   style={
     Array [
       Object {
+        "alignSelf": "stretch",
+        "backgroundColor": "#000",
         "flexBasis": 0,
         "flexGrow": 1,
         "flexShrink": 1,
+        "justifyContent": "center",
         "paddingBottom": 10,
         "paddingLeft": 10,
         "paddingRight": 10,
@@ -23,11 +26,10 @@ exports[`PinchZoom of ImageSlider should renders without crashing 1`] = `
     style={
       Array [
         Object {
-          "backgroundColor": "#000",
+          "alignSelf": "center",
           "flexBasis": 0,
           "flexGrow": 1,
           "flexShrink": 1,
-          "height": 400,
           "justifyContent": "center",
           "overflow": "hidden",
           "width": 300,
