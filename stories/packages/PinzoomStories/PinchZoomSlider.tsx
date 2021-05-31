@@ -13,17 +13,19 @@ import styled from '@emotion/native';
 
 const Container = styled.View`
   flex: 1;
+  align-self: stretch;
+  justify-content: center;
   padding: 10px;
+  background-color: #000;
 `;
 
 const ImageSliderContainer = styled.View`
   flex: 1;
+  align-self: center;
   width: 300px;
-  height: 400px;
   justify-content: center;
   max-width: ${(): number => Dimensions.get('screen').width}px;
   overflow: hidden;
-  background-color: #000;
 `;
 
 const ItemContainer = styled.View`
