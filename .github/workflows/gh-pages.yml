@@ -1,4 +1,5 @@
-name: Deploy Website
+name: gh-pages
+
 on:
   workflow_dispatch:
   push:
@@ -17,6 +18,14 @@ jobs:
         uses: actions/setup-node@master
         with:
           node-version: 14.x
+
+      - name: Setup expo cli
+        uses: expo/expo-github-action@v5
+        with:
+          expo-version: 4.x
+
+      - name: Lerna setup for packages
+        run: yarn pre
 
       - name: Install packages and build storybook
         run: |
