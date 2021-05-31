@@ -1,0 +1,32 @@
+name: Deploy Website
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - master
+    paths:
+      - 'stories/**'
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+
+      - name: Set up Node.js
+        uses: actions/setup-node@master
+        with:
+          node-version: 14.x
+
+      - name: Install packages and build storybook
+        run: |
+          yarn install --ignore-engines
+          yarn build:storybook
+
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v2.5.0
+        env:
+          PERSONAL_TOKEN: ${{secrets.GH_TOKEN}}
+          PUBLISH_BRANCH: gh-pages
+          PUBLISH_DIR: ./web-build
+          SCRIPT_MODE: true
