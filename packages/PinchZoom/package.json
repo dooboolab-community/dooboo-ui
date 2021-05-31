@@ -1,0 +1,44 @@
+{
+  "name": "@dooboo-ui/pinch-zoom",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "version": "0.1.0",
+  "license": "MIT",
+  "postinstall": "tsc",
+  "scripts": {
+    "build": "tsc",
+    "watch": "tsc -w"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dooboolab/dooboo-ui.git",
+    "directory": "packages/PinchZoom"
+  },
+  "bugs": {
+    "url": "https://github.com/dooboolab/dooboo-ui/issues"
+  },
+  "homepage": "https://github.com/dooboolab/dooboo-ui#readme",
+  "dependencies": {
+    "dooboolab-welcome": "^1.3.1"
+  },
+  "devDependencies": {
+    "@emotion/native": "^11.0.0",
+    "@emotion/react": "^11.4.0",
+    "typescript": "^4.3.2"
+  },
+  "peerDependencies": {
+    "react": ">=16.9",
+    "react-native": ">=0.58",
+    "@emotion/native": "^11.0.0",
+    "@emotion/react": "^11.4.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "keywords": [
+    "pinchzoom",
+    "pinch-zoom",
+    "dooboo-ui",
+    "dooboolab"
+  ]
+}
