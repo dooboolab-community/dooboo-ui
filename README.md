@@ -38,7 +38,7 @@ Hosted in [github pages](https://dooboolab.github.io/dooboo-ui)
   - dooboolab's [code of conduct](https://github.com/dooboolab/dooboolab.com/blob/master/code-of-conduct.md)
 - [Contributing](CONTRIBUTING.md)
   - Please run `yarn pre` so that the packages are prepared.
-    - If you are having trouble, try to run `yarn install-packages`.
+    - If you are having trouble, try to run `yarn install:packages`.
   - Try to make awesome UI components and test them in `storybook`. Ensure to test in platforms we provide which are `iOS`, `android` and `web`. Then it's all good to go for `pull request`. Give it a try :blossom:.
 - While implementing UI components you should run `yarn watch` in order to build typescript files dynamically while implementing. This is currently the best solution to sync with your typescript code using `package.json`. If you find something more efficient, please give a pull request.
 
