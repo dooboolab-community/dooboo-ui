@@ -16,7 +16,7 @@ const Container = styled.View`
   flex-direction: column;
 `;
 
-function Default(): React.ReactElement {
+function TypographyDefault(): React.ReactElement {
   return (
     <Container>
       <Typography.Title>Title</Typography.Title>
@@ -59,7 +59,7 @@ export default {
   title: 'LoadingIndicator',
 };
 
-export const toStorybook = (): ReactElement => <Default />;
+export const toStorybook = (): ReactElement => <TypographyDefault />;
 
 toStorybook.story = {
   name: 'default',
@@ -70,15 +70,10 @@ toStorybook.story = {
  */
 storiesOf('Typography', module)
   .addDecorator(ContainerDeco)
-  .add('default', () => (
+  .add('light theme - default', () => (
     <>
-      <Default />
+      <TypographyDefault />
     </>
-  ))
-  .add('light theme', () => (
-    <ThemeProvider initialThemeType={ThemeType.LIGHT}>
-      <TypographyWithTheme />
-    </ThemeProvider>
   ))
   .add('dark theme', () => (
     <View

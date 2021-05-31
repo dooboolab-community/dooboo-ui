@@ -32,7 +32,7 @@ Hosted in [github pages](https://dooboolab.github.io/dooboo-ui)
 
 ## Contributing to `dooboo-ui`
 
-![dooboo-ui](https://user-images.githubusercontent.com/27461460/73331047-ea876400-42a5-11ea-9c9c-1c997eb961be.png)
+![dooboo-ui](https://user-images.githubusercontent.com/27461460/120172586-2a65af00-c23e-11eb-9f61-0edd9f588964.png)
 
 - See also
   - dooboolab's [vision-and-mission](https://github.com/dooboolab/dooboolab.com/blob/master/vision-and-mission.md)
