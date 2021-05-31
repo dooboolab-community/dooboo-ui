@@ -1,11 +1,11 @@
 import React, {ReactElement} from 'react';
 
-import {ContainerDeco} from '../../storybook/decorators';
-import EditTextColumn from './EditTextStories/EditTextColumnStory';
-import EditTextRow from './EditTextStories/EditTextRowStory';
-import EditTextRowWithTheme from './EditTextStories/EditTextWithThemeStory';
-import {ThemeProvider} from '../../main/theme/ThemeProvider';
-import {ThemeType} from '../../main/theme';
+import {ContainerDeco} from '../../../storybook/decorators';
+import EditTextColumn from './EditTextColumnStory';
+import EditTextRow from './EditTextRowStory';
+import EditTextRowWithTheme from './EditTextWithThemeStory';
+import {ThemeProvider} from '../../../main/theme/ThemeProvider';
+import {ThemeType} from '../../../main/theme';
 import {storiesOf} from '@storybook/react-native';
 
 /**

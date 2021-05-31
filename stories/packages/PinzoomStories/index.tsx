@@ -1,5 +1,5 @@
-import {ContainerDeco} from '../../storybook/decorators';
-import {ImageSlider} from './PinchZoomStories/PinchZoomSlider';
+import {ContainerDeco} from '../../../storybook/decorators';
+import {ImageSlider} from './PinchZoomSlider';
 import React from 'react';
 import {storiesOf} from '@storybook/react-native';
 

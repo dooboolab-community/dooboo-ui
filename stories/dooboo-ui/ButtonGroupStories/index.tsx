@@ -1,8 +1,8 @@
 import React, {ReactElement, useState} from 'react';
 import {Text, View} from 'react-native';
 
-import {ButtonGroup} from '../../main';
-import {ContainerDeco} from '../../storybook/decorators';
+import {ButtonGroup} from '../../../main';
+import {ContainerDeco} from '../../../storybook/decorators';
 import {storiesOf} from '@storybook/react-native';
 import styled from '@emotion/native';
 

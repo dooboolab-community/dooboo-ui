@@ -35,8 +35,11 @@
   "include": [
     "src/**/*.ts",
     "src/**/*.tsx",
-    "stories/**/*.ts",
-    "stories/**/*.tsx"
+    "stories/dooboo-ui/**/*.ts",
+    "stories/dooboo-ui/**/*.tsx",
+    "stories/packages/**/*.ts",
+    "stories/packages/**/*.tsx"
+
   ],
   "exclude": [
     "node_modules",

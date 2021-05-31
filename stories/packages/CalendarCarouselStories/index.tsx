@@ -3,8 +3,8 @@ import 'intl/locale-data/jsonp/en';
 
 import React, {ReactElement, useState} from 'react';
 
-import CalendarCarousel from '../../packages/CalendarCarousel';
-import {ContainerDeco} from '../../storybook/decorators';
+import CalendarCarousel from '../../../packages/CalendarCarousel/lib';
+import {ContainerDeco} from '../../../storybook/decorators';
 import {storiesOf} from '@storybook/react-native';
 import styled from '@emotion/native';
 

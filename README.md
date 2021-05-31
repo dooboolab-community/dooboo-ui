@@ -63,11 +63,9 @@ Follow the [README_THEME](./README_THEME.md)
 > Below elements are not included in `dooboo-ui` package since it depends on other packages that may overload its package.
 
 - [CalendarCarousel](https://github.com/dooboolab/dooboo-ui/tree/master/packages/CalendarCarousel)
-- [Charts](https://github.com/dooboolab/dooboo-ui/tree/master/packages/Charts)
-- [GiftedChat](https://github.com/dooboolab/dooboo-ui/tree/master/packages/GiftedChat)
+- [PinchZoom](https://github.com/dooboolab/dooboo-ui/tree/master/packages/PinchZoom)
 - [Snackbar](https://github.com/dooboolab/dooboo-ui/tree/master/packages/Snackbar)
 - [theme](https://github.com/dooboolab/dooboo-ui/tree/master/packages/theme)
-- [TinderCard](https://github.com/dooboolab/dooboo-ui/tree/master/packages/TinderCard)
 
 ## Troubleshoot
 
