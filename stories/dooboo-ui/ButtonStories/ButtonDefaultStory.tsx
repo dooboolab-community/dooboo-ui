@@ -1,19 +1,18 @@
 import {IC_FACEBOOK, IC_GOOGLE} from '../../Icon';
-import {Image, View} from 'react-native';
+import {Image, Text, View} from 'react-native';
 import React, {useState} from 'react';
+import styled, {css} from '@emotion/native';
 
 import {Button} from '../../../main';
 import type {FC} from 'react';
 import {action} from '@storybook/addon-actions';
-import styled from '@emotion/native';
-import {text} from '@storybook/addon-knobs';
 
 const ScrollContainer = styled.ScrollView`
   width: 100%;
 `;
 
 const Container = styled.View`
-  background-color: transparent;
+  background-color: ${({theme}) => theme.background};
   align-items: center;
   justify-content: center;
   width: 100%;
@@ -28,49 +27,71 @@ const ButtonDefault: FC = () => {
 
   return (
     <ScrollContainer>
-      <Container>
-        <Button
-          loading={false}
-          text="😀 😎 👍 💯"
-          onPress={action('Clicked')}
-          style={{marginVertical: 40}}
-          styles={{
-            container: {
-              borderRadius: 20,
-              borderWidth: 0.5,
-              backgroundColor: 'white',
-            },
-          }}
-        />
-        <Button
-          styles={{
-            container: {
-              borderRadius: 20,
-              paddingVertical: 11,
-              paddingHorizontal: 52,
-            },
-            text: {
-              fontSize: 16,
-            },
-          }}
-          onPress={action('Clicked')}
-          text={'Hovered button in web'}
-        />
+      <Container style={{paddingVertical: 60}}>
+        <Text style={{fontSize: 18, marginBottom: 8}}>Basic Styles</Text>
+        <View
+          style={{
+            marginBottom: 40,
 
-        <Button
-          style={{marginVertical: 40}}
-          styles={{
-            container: {
-              borderWidth: 0.5,
-            },
-          }}
-          onPress={action('Clicked')}
-          text={'Outlined button'}
-        />
-        <Button
-          disabled={true}
-          text={text('button text', 'this is disabled')}
-        />
+            flexDirection: 'row',
+            flexWrap: 'wrap',
+            justifyContent: 'center',
+          }}>
+          <Button type="primary" text="Primary" style={{padding: 8}} />
+          <Button type="secondary" text="Secondary" style={{padding: 8}} />
+          <Button type="danger" text="Danger" style={{padding: 8}} />
+          <Button type="warning" text="Warning" style={{padding: 8}} />
+          <Button type="info" text="Info" style={{padding: 8}} />
+        </View>
+        <Text style={{fontSize: 18, marginBottom: 8}}>Outlined Styles</Text>
+        <View
+          style={{
+            marginBottom: 40,
+
+            flexDirection: 'row',
+            flexWrap: 'wrap',
+            justifyContent: 'center',
+          }}>
+          <Button type="primary" text="Primary" outlined style={{padding: 8}} />
+          <Button
+            type="secondary"
+            text="Secondary"
+            outlined
+            style={{padding: 8}}
+          />
+          <Button type="danger" text="Danger" outlined style={{padding: 8}} />
+          <Button type="warning" text="Warning" outlined style={{padding: 8}} />
+          <Button type="info" text="Info" outlined style={{padding: 8}} />
+        </View>
+        <Text style={{fontSize: 18, marginBottom: 8}}>Aspect of sizes</Text>
+        <View
+          style={{
+            marginBottom: 20,
+
+            flexDirection: 'row',
+            flexWrap: 'wrap',
+            justifyContent: 'center',
+            alignItems: 'center',
+          }}>
+          <Button
+            type="primary"
+            size="large"
+            text="Primary"
+            style={{padding: 8}}
+          />
+          <Button
+            type="primary"
+            size="medium"
+            text="Primary"
+            style={{padding: 8}}
+          />
+          <Button
+            type="primary"
+            size="small"
+            text="Primary"
+            style={{padding: 8}}
+          />
+        </View>
         <Button
           leftElement={
             <View style={{marginRight: 12}}>
@@ -80,15 +101,16 @@ const ButtonDefault: FC = () => {
           loading={googleLoading}
           style={{marginBottom: 20, marginTop: 30}}
           styles={{
-            container: {
-              height: 52,
-              width: 300,
-              borderWidth: 0.5,
-              borderRadius: 40,
-            },
+            container: css`
+              border-radius: 80px;
+              border-width: 0.5px;
+              width: 300px;
+              height: 52px;
+            `,
           }}
           onPress={(): void => {
             setGoogleLoading(true);
+            action('google btn clicked');
 
             const timeout = setTimeout(() => {
               setGoogleLoading(false);
@@ -110,15 +132,16 @@ const ButtonDefault: FC = () => {
           }
           loading={facebookLoading}
           styles={{
-            container: {
-              height: 52,
-              width: 300,
-              borderWidth: 0.5,
-              borderRadius: 40,
-            },
+            container: css`
+              border-radius: 80px;
+              border-width: 0.5px;
+              width: 300px;
+              height: 52px;
+            `,
           }}
           onPress={(): void => {
             setFacebookLoading(true);
+            action('facebook btn clicked');
 
             const timeout = setTimeout(() => {
               setFacebookLoading(false);

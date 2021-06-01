@@ -1,5 +1,9 @@
 import 'react-native';
 
+import React, {ReactElement} from 'react';
+
+import {ThemeProvider} from '../main';
+
 export const createTestProps = (
   obj?: Record<string, unknown>,
 ): Record<string, unknown> | unknown | any => ({
@@ -9,3 +13,7 @@ export const createTestProps = (
   },
   ...obj,
 });
+
+export const createComponent = (children?: ReactElement): ReactElement => {
+  return <ThemeProvider>{children}</ThemeProvider>;
+};

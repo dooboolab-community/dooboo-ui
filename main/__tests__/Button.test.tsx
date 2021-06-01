@@ -7,6 +7,7 @@ import React from 'react';
 import type {ReactElement} from 'react';
 import type {RenderAPI} from '@testing-library/react-native';
 import {Text} from 'react-native';
+import {createComponent} from '../../test/testUtils';
 
 let testingLib: RenderAPI;
 
@@ -14,9 +15,8 @@ jest.mock('react-native-web-hooks', () => ({
   useHover: () => true,
 }));
 
-const Component = (props?: ButtonProps): ReactElement => {
-  return <Button {...props} />;
-};
+const Component = (props?: ButtonProps): ReactElement =>
+  createComponent(<Button {...props} />);
 
 describe('[Button]', () => {
   it('should render without crashing', () => {
@@ -111,7 +111,7 @@ describe('[Button]', () => {
         }),
       );
 
-      // const button = testingLib.getByTestId('button-view');
+      // const button = testingLib.getByTestId('button-container');
       // const disabledButtonStyle = button.props.style[3];
 
       // expect(disabledButtonStyle).toEqual({
@@ -130,7 +130,7 @@ describe('[Button]', () => {
         }),
       );
 
-      const button = testingLib.getByTestId('button-view');
+      const button = testingLib.getByTestId('button-container');
       const buttonContainerStyle = button.props.style[1];
 
       expect(buttonContainerStyle[0]).toEqual({
@@ -143,7 +143,7 @@ describe('[Button]', () => {
     it('should trigger onLayout then set loading-view layout', async () => {
       testingLib = render(Component());
 
-      const button = testingLib.getByTestId('button-view');
+      const button = testingLib.getByTestId('button-container');
 
       act(() => {
         button.props.onLayout({
@@ -178,7 +178,7 @@ describe('[Button]', () => {
       Component({leftElement: <Text />, rightElement: <Text />}),
     );
 
-    const button = testingLib.getByTestId('button-view');
+    const button = testingLib.getByTestId('button-container');
 
     expect(button.findAllByType(Text)).toHaveLength(3);
   });
@@ -193,7 +193,7 @@ describe('[Button]', () => {
         }),
       );
 
-      const button = testingLib.getByTestId('button-view');
+      const button = testingLib.getByTestId('button-container');
 
       fireEvent.press(button);
 

@@ -1,5 +1,7 @@
 import * as React from 'react';
 
+import {createComponent, createTestProps} from '../../test/testUtils';
+
 import {LoadingIndicator} from '../../main';
 import {View} from 'react-native';
 import renderer from 'react-test-renderer';
@@ -7,19 +9,11 @@ import renderer from 'react-test-renderer';
 let props: any;
 let component: React.ReactElement;
 
-const createTestProps = (
-  obj?: Record<string, unknown>,
-): Record<string, unknown> => ({
-  navigation: {
-    navigate: jest.fn(),
-  },
-  ...obj,
-});
-
 describe('[LoadingIndicator] render', () => {
   beforeEach(() => {
     props = createTestProps();
-    component = <LoadingIndicator {...props} />;
+
+    component = createComponent(<LoadingIndicator {...props} />);
   });
 
   it('should render without crashing', () => {

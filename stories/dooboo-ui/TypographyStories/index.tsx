@@ -1,7 +1,7 @@
 import React, {ReactElement} from 'react';
-import {ThemeProvider, ThemeType} from '../../../main/theme';
 
 import {ContainerDeco} from '../../../storybook/decorators';
+import {ThemeProvider} from '../../../main/theme';
 import {Typography} from '../../../main';
 import {View} from 'react-native';
 import {storiesOf} from '@storybook/react-native';
@@ -10,7 +10,7 @@ import styled from '@emotion/native';
 const Container = styled.View`
   flex: 1;
   width: 100%;
-  background-color: transparent;
+  background-color: ${({theme}) => theme.background};
 
   align-items: center;
   justify-content: center;
@@ -72,7 +72,7 @@ toStorybook.story = {
 storiesOf('Typography', module)
   .addDecorator(ContainerDeco)
   .add('text - light', () => (
-    <ThemeProvider>
+    <ThemeProvider initialThemeType="light">
       <TypographyDefault />
     </ThemeProvider>
   ))
@@ -83,7 +83,7 @@ storiesOf('Typography', module)
         flex: 1,
         alignSelf: 'stretch',
       }}>
-      <ThemeProvider initialThemeType={ThemeType.DARK}>
+      <ThemeProvider initialThemeType="dark">
         <TypographyWithTheme />
       </ThemeProvider>
     </View>

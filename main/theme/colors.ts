@@ -1,9 +1,6 @@
 import {Theme} from '@emotion/react';
 
-export enum ThemeType {
-  LIGHT = 'light',
-  DARK = 'dark',
-}
+export type ThemeType = 'light' | 'dark';
 
 export const colors = {
   black: 'black',
@@ -81,9 +78,9 @@ export const createDoobooTheme = ({
   themes?: ThemeParam;
 }): Partial<Theme> => {
   switch (type) {
-    case ThemeType.DARK:
+    case 'dark':
       return {...theme.dark, ...themes?.dark};
-    case ThemeType.LIGHT:
+    case 'light':
     default:
       return {...theme.light, ...themes?.light};
   }

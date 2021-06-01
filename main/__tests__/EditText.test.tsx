@@ -1,3 +1,4 @@
+import React, {ReactElement} from 'react';
 import {
   RenderAPI,
   act,
@@ -9,9 +10,9 @@ import {
 import {EditText} from '../../main';
 import type {EditTextProps} from '../../main/EditText';
 import RNWebHooks from 'react-native-web-hooks';
-import React from 'react';
 import {ReactTestInstance} from 'react-test-renderer';
 import {View} from 'react-native';
+import {createComponent} from '../../test/testUtils';
 
 jest.mock('react-native-web-hooks', () => ({
   useHover: () => false,
@@ -19,9 +20,8 @@ jest.mock('react-native-web-hooks', () => ({
 
 let testingLib: RenderAPI;
 
-const component = (editProps?: EditTextProps): React.ReactElement => {
-  return <EditText {...editProps} />;
-};
+const component = (editProps?: EditTextProps): ReactElement =>
+  createComponent(<EditText {...editProps} />);
 
 describe('[EditText]', () => {
   jest.spyOn(console, 'error').mockImplementation(() => {});

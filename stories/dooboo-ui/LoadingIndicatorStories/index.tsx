@@ -1,4 +1,4 @@
-import {LoadingIndicator, ThemeProvider, ThemeType} from '../../../main';
+import {LoadingIndicator, ThemeProvider} from '../../../main';
 import React, {ReactElement} from 'react';
 
 import {ContainerDeco} from '../../../storybook/decorators';
@@ -64,7 +64,7 @@ storiesOf('LoadingIndicator', module)
     </ThemeProvider>
   ))
   .add('imgVersion', () => (
-    <ThemeProvider initialThemeType={ThemeType.DARK}>
+    <ThemeProvider initialThemeType="dark">
       <ImgVersion />
     </ThemeProvider>
   ));

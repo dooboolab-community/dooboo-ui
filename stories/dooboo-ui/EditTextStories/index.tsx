@@ -1,10 +1,10 @@
 import React, {ReactElement} from 'react';
-import {ThemeProvider, ThemeType} from '../../../main/theme';
 
 import {ContainerDeco} from '../../../storybook/decorators';
 import EditTextColumn from './EditTextColumnStory';
 import EditTextRow from './EditTextRowStory';
 import EditTextRowWithTheme from './EditTextWithThemeStory';
+import {ThemeProvider} from '../../../main/theme';
 import {storiesOf} from '@storybook/react-native';
 
 /**
@@ -35,7 +35,7 @@ storiesOf('EditText', module)
   .add(
     toStorybook1.story.name,
     () => (
-      <ThemeProvider initialThemeType={ThemeType.LIGHT}>
+      <ThemeProvider initialThemeType="light">
         <EditTextColumn />
       </ThemeProvider>
     ),
@@ -47,7 +47,7 @@ storiesOf('EditText', module)
     notes: toStorybook2.story.notes,
   })
   .add('with dark theme', () => (
-    <ThemeProvider initialThemeType={ThemeType.DARK}>
+    <ThemeProvider initialThemeType="dark">
       <EditTextRowWithTheme />
     </ThemeProvider>
   ));

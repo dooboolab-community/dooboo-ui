@@ -41,24 +41,20 @@ function ThemeProvider({
   const isDesktop = useMediaQuery({minWidth: 992});
   const colorScheme = useColorScheme();
 
-  const [themeType, setThemeType] = useState(
-    initialThemeType ||
-      (colorScheme === 'light' ? ThemeType.LIGHT : ThemeType.DARK),
-  );
+  const [themeType, setThemeType] = useState(initialThemeType || colorScheme);
 
   useEffect(() => {
     if (!initialThemeType) setThemeType(colorScheme);
   }, [colorScheme, initialThemeType]);
 
   const changeThemeType = (): void => {
-    const newThemeType =
-      themeType === ThemeType.LIGHT ? ThemeType.DARK : ThemeType.LIGHT;
+    const newThemeType = themeType;
 
     setThemeType(newThemeType);
   };
 
   const defaultTheme =
-    themeType === ThemeType.DARK
+    themeType === 'dark'
       ? {...dark, ...customTheme?.dark}
       : {...light, ...customTheme?.light};
 
