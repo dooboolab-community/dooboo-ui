@@ -47,7 +47,17 @@ Hosted in [github pages](https://dooboolab.github.io/dooboo-ui)
 
 We aim to support `react-native` ui components in all platforms and we are currently targeting `iOS`, `android` and `web`. If you read [issue on plan for unifying dooboo-ui-legacy](https://github.com/dooboolab/dooboo-ui-legacy/issues/194), you can see in more detail how we want to drive this project.
 
-## Thememing
+From version `0.1.0`, we recommend you to wrap your App with `ThemeProvider` in order to apply colors correctly.
+
+```tsx
+import {ThemeProvider} from 'dooboo-ui';
+
+<ThemeProvider>
+  <App/>
+</ThemeRpvoider>
+```
+
+## Theming
 
 Follow the [README_THEME](./README_THEME.md)
 

@@ -62,7 +62,7 @@ const EditTextRow = (): React.ReactElement => {
             type="row"
             labelText="email"
             placeholder="your@email.com"
-            placeholderTextColor="#ADB5BD"
+            placeholderColor="#ADB5BD"
             value={email}
             onChangeText={(text: string): void => onTextChanged('EMAIL', text)}
             style={{marginTop: 50}}
@@ -79,7 +79,7 @@ const EditTextRow = (): React.ReactElement => {
             secureTextEntry={true}
             labelText="Password"
             placeholder="Write your password"
-            placeholderTextColor="#ADB5BD"
+            placeholderColor="#ADB5BD"
             value={password}
             onChangeText={(text: string): void =>
               onTextChanged('PASSWORD', text)

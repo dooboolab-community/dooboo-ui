@@ -5,7 +5,6 @@ import React, {useState} from 'react';
 import {Button} from '../../../main';
 import type {FC} from 'react';
 import {action} from '@storybook/addon-actions';
-import {light} from '../../../main/theme';
 import styled from '@emotion/native';
 import {text} from '@storybook/addon-knobs';
 
@@ -23,7 +22,7 @@ const Container = styled.View`
   flex-direction: column;
 `;
 
-const Default: FC = () => {
+const ButtonDefault: FC = () => {
   const [facebookLoading, setFacebookLoading] = useState<boolean>(false);
   const [googleLoading, setGoogleLoading] = useState<boolean>(false);
 
@@ -85,9 +84,7 @@ const Default: FC = () => {
               height: 52,
               width: 300,
               borderWidth: 0.5,
-              borderColor: light.dialog,
               borderRadius: 40,
-              backgroundColor: light.googleBackground,
             },
           }}
           onPress={(): void => {
@@ -106,7 +103,7 @@ const Default: FC = () => {
             <View
               style={{
                 position: 'absolute',
-                left: 24,
+                left: 28,
               }}>
               <Image style={{width: 15, height: 28}} source={IC_FACEBOOK} />
             </View>
@@ -117,9 +114,7 @@ const Default: FC = () => {
               height: 52,
               width: 300,
               borderWidth: 0.5,
-              borderColor: light.dialog,
               borderRadius: 40,
-              backgroundColor: light.secondary,
             },
           }}
           onPress={(): void => {
@@ -137,4 +132,4 @@ const Default: FC = () => {
   );
 };
 
-export default Default;
+export default ButtonDefault;

@@ -4,6 +4,7 @@ import {
   Platform,
   TouchableOpacity,
 } from 'react-native';
+import {DoobooTheme, light, withTheme} from './theme';
 import React, {useRef, useState} from 'react';
 import type {
   StyleProp,
@@ -12,12 +13,10 @@ import type {
   TouchableOpacityProps,
   ViewStyle,
 } from 'react-native';
-import {DoobooTheme, light} from './theme';
 
 import type {FC} from 'react';
 import styled from '@emotion/native';
 import {useHover} from 'react-native-web-hooks';
-import {withTheme} from './theme/ThemeProvider';
 
 type Styles = {
   container?: StyleProp<ViewStyle>;
@@ -58,14 +57,14 @@ export interface ButtonProps {
   textProps?: Partial<TextProps>;
 }
 
-const Component: FC<ButtonProps & {theme: DoobooTheme}> = ({
+const StyledButton: FC<ButtonProps & {theme: DoobooTheme}> = ({
   testID,
   theme,
   disabled,
   loading,
   style,
   styles,
-  indicatorColor = theme.contrastText,
+  indicatorColor = theme.disabled,
   leftElement,
   rightElement,
   activeOpacity = 0.7,
@@ -80,11 +79,11 @@ const Component: FC<ButtonProps & {theme: DoobooTheme}> = ({
 
   const compositeStyles: Styles = {
     disabledButton: {
-      backgroundColor: theme.disabled,
+      backgroundColor: theme.primary,
       borderColor: theme.primary,
     },
     disabledText: {
-      color: theme.disabledText,
+      color: theme.primary,
     },
     hovered: {
       borderColor: theme.primary,
@@ -152,6 +151,6 @@ const Component: FC<ButtonProps & {theme: DoobooTheme}> = ({
   );
 };
 
-Component.defaultProps = {theme: light};
+StyledButton.defaultProps = {theme: light};
 
-export const Button = withTheme(Component);
+export const Button = withTheme(StyledButton);

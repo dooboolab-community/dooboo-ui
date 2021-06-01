@@ -6,21 +6,21 @@
 
 ## Props
 
-|                      | necessary | types               | default |
-| -------------------- | --------- | ------------------- | ------- |
-| chats                |           | any[]               |         |
-| borderColor          |           | string              |         |
-| backgroundColor      |           | string              |         |
-| fontColor            |           | string              |         |
-| keyboardOffset       |           | number              |         |
-| renderItem           |           | ListRenderItem<any> |         |
-| emptyItem            |           | ReactElement        |         |
-| renderViewMenu       |           | () => ReactElement  |         |
-| optionView           |           | ReactElement        |         |
-| onChangeMessage      |           | Function            |         |
-| placeholder          |           | string              |         |
-| placeholderTextColor |           | string              |         |
-| renderSendButton     |           | () => ReactElement  |         |
+|                  | necessary | types               | default |
+| ---------------- | --------- | ------------------- | ------- |
+| chats            |           | any[]               |         |
+| borderColor      |           | string              |         |
+| backgroundColor  |           | string              |         |
+| fontColor        |           | string              |         |
+| keyboardOffset   |           | number              |         |
+| renderItem       |           | ListRenderItem<any> |         |
+| emptyItem        |           | ReactElement        |         |
+| renderViewMenu   |           | () => ReactElement  |         |
+| optionView       |           | ReactElement        |         |
+| onChangeMessage  |           | Function            |         |
+| placeholder      |           | string              |         |
+| placeholderColor |           | string              |         |
+| renderSendButton |           | () => ReactElement  |         |
 
 ## Installation
 
@@ -156,7 +156,7 @@ yarn add @dooboo-ui/gifted-chat
           keyboardOffset={Constants.statusBarHeight + Header.HEIGHT}
           message={message}
           placeholder={getString('WRITE_MESSAGE')}
-          placeholderTextColor={theme.status}
+          placeholderColor={theme.status}
           onChangeMessage={(text: string): void => setMessage(text)}
           renderItem={({
             item,

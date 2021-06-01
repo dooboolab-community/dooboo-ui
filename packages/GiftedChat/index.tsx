@@ -75,7 +75,7 @@ interface Props<T> {
   message?: string;
   onChangeMessage?: (text: string) => void;
   placeholder?: string;
-  placeholderTextColor?: string;
+  placeholderColor?: string;
   renderSendButton?: () => React.ReactElement;
 }
 
@@ -96,7 +96,7 @@ function Shared<T>(props: Props<T>): React.ReactElement {
     message,
     onChangeMessage,
     placeholder,
-    placeholderTextColor,
+    placeholderColor,
     renderSendButton,
     onEndReached,
   } = props;
@@ -192,7 +192,7 @@ function Shared<T>(props: Props<T>): React.ReactElement {
               onFocus={(): void => setShowMenu(false)}
               multiline={true}
               placeholder={placeholder}
-              placeholderTextColor={placeholderTextColor}
+              placeholderColor={placeholderColor}
               value={message}
               defaultValue={message}
               onChangeText={onChangeMessage}
@@ -235,7 +235,7 @@ function Shared<T>(props: Props<T>): React.ReactElement {
               }}
               multiline={true}
               placeholder={placeholder}
-              placeholderTextColor={placeholderTextColor}
+              placeholderColor={placeholderColor}
               value={message}
               defaultValue={message}
             />

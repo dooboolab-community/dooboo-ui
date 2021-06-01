@@ -1,12 +1,11 @@
+import {Colors, ThemeParam, ThemeType, colors, dark, light} from './colors';
 import {
   Theme as DefaultTheme,
   ThemeProvider as OriginalThemeProvider,
   withTheme,
 } from '@emotion/react';
 import React, {useState} from 'react';
-import {ThemeParam, ThemeType, colors, dark, light} from './index';
 
-import type {Colors} from './index';
 import createCtx from './createCtx';
 import useColorScheme from './useColorScheme';
 import {useMediaQuery} from 'react-responsive';
@@ -81,4 +80,4 @@ function ThemeProvider({
   );
 }
 
-export {useCtx as useTheme, ThemeProvider, ThemeType, withTheme};
+export {useCtx as useTheme, ThemeProvider, withTheme};

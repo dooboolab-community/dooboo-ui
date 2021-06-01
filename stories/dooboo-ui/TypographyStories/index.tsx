@@ -1,7 +1,8 @@
 import React, {ReactElement} from 'react';
-import {ThemeProvider, ThemeType, Typography} from '../../../main';
+import {ThemeProvider, ThemeType} from '../../../main/theme';
 
 import {ContainerDeco} from '../../../storybook/decorators';
+import {Typography} from '../../../main';
 import {View} from 'react-native';
 import {storiesOf} from '@storybook/react-native';
 import styled from '@emotion/native';
@@ -70,12 +71,12 @@ toStorybook.story = {
  */
 storiesOf('Typography', module)
   .addDecorator(ContainerDeco)
-  .add('light theme - default', () => (
-    <>
+  .add('default - light', () => (
+    <ThemeProvider>
       <TypographyDefault />
-    </>
+    </ThemeProvider>
   ))
-  .add('dark theme', () => (
+  .add('default - dark', () => (
     <View
       style={{
         backgroundColor: 'black',
