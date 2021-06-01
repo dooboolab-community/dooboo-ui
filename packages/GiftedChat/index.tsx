@@ -96,7 +96,6 @@ function Shared<T>(props: Props<T>): React.ReactElement {
     message,
     onChangeMessage,
     placeholder,
-    placeholderColor,
     renderSendButton,
     onEndReached,
   } = props;
@@ -192,7 +191,6 @@ function Shared<T>(props: Props<T>): React.ReactElement {
               onFocus={(): void => setShowMenu(false)}
               multiline={true}
               placeholder={placeholder}
-              placeholderColor={placeholderColor}
               value={message}
               defaultValue={message}
               onChangeText={onChangeMessage}
@@ -235,7 +233,6 @@ function Shared<T>(props: Props<T>): React.ReactElement {
               }}
               multiline={true}
               placeholder={placeholder}
-              placeholderColor={placeholderColor}
               value={message}
               defaultValue={message}
             />

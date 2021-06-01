@@ -184,7 +184,7 @@ function CalendarCarousel({
   );
 
   const scrollToMiddleCalendar = (): void => {
-    scrollRef.current.scrollTo({
+    scrollRef.current?.scrollTo({
       x: Math.floor(layoutWidth),
       animated: false,
     });
@@ -234,7 +234,7 @@ function CalendarCarousel({
       const firstWeekday = new Date(year, month, 1).getDay();
       const lastWeekday = new Date(year, month, lastDate).getDay();
 
-      const weekdays = [];
+      const weekdays: unknown[] = [];
 
       for (let idx = 0; idx <= 6; idx++) {
         const matchMonth = new Date(2020, 5, idx);
@@ -250,7 +250,7 @@ function CalendarCarousel({
         );
       }
 
-      const prevDates = [];
+      const prevDates: Date[] = [];
 
       for (let idx = 0; idx < firstWeekday; idx++) {
         // eslint-disable-next-line @typescript-eslint/no-shadow
@@ -260,18 +260,18 @@ function CalendarCarousel({
         prevDates.unshift(date);
       }
 
-      const dates = [];
+      const dates: Date[] = [];
 
       for (let idx = 1; idx <= lastDate; idx++)
         dates.push(new Date(year, month, idx));
 
-      const nextDates = [];
+      const nextDates: Date[] = [];
 
       if (6 - lastWeekday >= 1)
         for (let idx = 1; idx <= 6 - lastWeekday; idx++)
           nextDates.push(new Date(year, month + 1, idx));
 
-      const calendarDates = [...prevDates, ...dates, ...nextDates];
+      const calendarDates: Date[] = [...prevDates, ...dates, ...nextDates];
 
       const markedDates = markedDayEvents.map((markeddates) =>
         markeddates.selectedEventDate.getDate(),
@@ -335,7 +335,7 @@ function CalendarCarousel({
           return (
             <TouchableOpacity
               onPress={(): void => {
-                selectDate(setItemDay);
+                selectDate?.(setItemDay);
                 setEventDay(itemDay);
               }}>
               <View style={styles.activeView} key={itemDay}>
@@ -346,7 +346,7 @@ function CalendarCarousel({
           );
         else if (hasEvent())
           return (
-            <TouchableOpacity onPress={(): void => selectDate(setItemDay)}>
+            <TouchableOpacity onPress={(): void => selectDate?.(setItemDay)}>
               <View style={styles.defaultView} key={itemDay}>
                 <Text style={styles.notActiveText}>{`${itemDay}`}</Text>
                 <View style={styles.mark} key={itemDay} />
@@ -355,7 +355,7 @@ function CalendarCarousel({
           );
         else if (isSelected(dateItem))
           return (
-            <TouchableOpacity onPress={(): void => selectDate(setItemDay)}>
+            <TouchableOpacity onPress={(): void => selectDate?.(setItemDay)}>
               <View style={styles.activeView}>
                 <Text style={styles.activeText}>{`${itemDay}`}</Text>
               </View>
@@ -363,7 +363,7 @@ function CalendarCarousel({
           );
 
         return (
-          <TouchableOpacity onPress={(): void => selectDate(setItemDay)}>
+          <TouchableOpacity onPress={(): void => selectDate?.(setItemDay)}>
             <View style={styles.defaultView}>
               <Text style={styles.notActiveText}>{`${itemDay}`}</Text>
             </View>
@@ -388,6 +388,8 @@ function CalendarCarousel({
                 </Text>
               </View>
             );
+
+          return <View />;
         });
       };
 

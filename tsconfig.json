@@ -33,8 +33,10 @@
     "noUnusedLocals": false
   },
   "include": [
-    "src/**/*.ts",
-    "src/**/*.tsx",
+    "main/**/*.ts",
+    "main/**/*.tsx",
+    "packages/**/*.ts",
+    "packages/**/*.tsx",
     "stories/dooboo-ui/**/*.ts",
     "stories/dooboo-ui/**/*.tsx",
     "stories/packages/**/*.ts",
