@@ -71,12 +71,12 @@ toStorybook.story = {
  */
 storiesOf('Typography', module)
   .addDecorator(ContainerDeco)
-  .add('default - light', () => (
+  .add('text - light', () => (
     <ThemeProvider>
       <TypographyDefault />
     </ThemeProvider>
   ))
-  .add('default - dark', () => (
+  .add('text - dark', () => (
     <View
       style={{
         backgroundColor: 'black',

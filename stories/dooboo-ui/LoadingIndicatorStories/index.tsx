@@ -1,7 +1,7 @@
+import {LoadingIndicator, ThemeProvider, ThemeType} from '../../../main';
 import React, {ReactElement} from 'react';
 
 import {ContainerDeco} from '../../../storybook/decorators';
-import {LoadingIndicator} from '../../../main';
 import {storiesOf} from '@storybook/react-native';
 import styled from '@emotion/native';
 
@@ -20,7 +20,7 @@ const StyledText = styled.Text`
   margin-top: 120px;
 `;
 
-function Default(): React.ReactElement {
+function Spinner(): React.ReactElement {
   return (
     <Container>
       <LoadingIndicator />
@@ -47,10 +47,10 @@ export default {
   title: 'LoadingIndicator',
 };
 
-export const toStorybook = (): ReactElement => <Default />;
+export const toStorybook = (): ReactElement => <Spinner />;
 
 toStorybook.story = {
-  name: 'default',
+  name: 'spinner',
 };
 
 /**
@@ -58,13 +58,13 @@ toStorybook.story = {
  */
 storiesOf('LoadingIndicator', module)
   .addDecorator(ContainerDeco)
-  .add('default', () => (
-    <>
-      <Default />
-    </>
+  .add('spinner', () => (
+    <ThemeProvider>
+      <Spinner />
+    </ThemeProvider>
   ))
   .add('imgVersion', () => (
-    <>
+    <ThemeProvider initialThemeType={ThemeType.DARK}>
       <ImgVersion />
-    </>
+    </ThemeProvider>
   ));

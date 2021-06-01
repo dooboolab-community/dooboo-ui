@@ -4,7 +4,7 @@ import {
   Platform,
   TouchableOpacity,
 } from 'react-native';
-import {DoobooTheme, light, withTheme} from './theme';
+import {DoobooTheme, light, withTheme} from '../theme';
 import React, {useRef, useState} from 'react';
 import type {
   StyleProp,
@@ -15,6 +15,7 @@ import type {
 } from 'react-native';
 
 import type {FC} from 'react';
+import {TypographyInverted} from '../Typography';
 import styled from '@emotion/native';
 import {useHover} from 'react-native-web-hooks';
 
@@ -26,19 +27,18 @@ type Styles = {
   hovered?: StyleProp<ViewStyle>;
 };
 
-const Container = styled.View`
+type ButtonType = 'primary' | 'secondary' | 'danger' | 'warning' | 'info';
+type ButtonSize = 'small' | 'medium' | 'large';
+
+const Container = styled.View<{type: ButtonType; size?: ButtonSize}>`
   align-self: stretch;
-  padding: 8px 12px;
-  background-color: ${({theme}) => theme.primary || light.primary};
+  padding: 10px 20px;
+  background-color: ${({theme, type}) =>
+    type === 'primary' ? theme.primary : theme.secondary};
 
   flex-direction: row;
   align-items: center;
   justify-content: center;
-`;
-
-const Text = styled.Text`
-  font-size: 14px;
-  color: white;
 `;
 
 export interface ButtonProps {
@@ -55,6 +55,8 @@ export interface ButtonProps {
   onPress?: TouchableOpacityProps['onPress'];
   touchableOpacityProps?: Partial<TouchableOpacityProps>;
   textProps?: Partial<TextProps>;
+  type?: ButtonType;
+  size?: ButtonSize;
 }
 
 const StyledButton: FC<ButtonProps & {theme: DoobooTheme}> = ({
@@ -67,11 +69,13 @@ const StyledButton: FC<ButtonProps & {theme: DoobooTheme}> = ({
   indicatorColor = theme.disabled,
   leftElement,
   rightElement,
-  activeOpacity = 0.7,
+  activeOpacity = 0.6,
   text,
   onPress,
   touchableOpacityProps,
   textProps,
+  type = 'primary',
+  size,
 }) => {
   const ref = useRef<TouchableOpacity>(null);
   const hovered = useHover(ref);
@@ -79,14 +83,13 @@ const StyledButton: FC<ButtonProps & {theme: DoobooTheme}> = ({
 
   const compositeStyles: Styles = {
     disabledButton: {
-      backgroundColor: theme.primary,
-      borderColor: theme.primary,
+      backgroundColor: theme.disabled,
+      borderColor: theme.disabled,
     },
     disabledText: {
-      color: theme.primary,
+      color: theme.disabled,
     },
     hovered: {
-      borderColor: theme.primary,
       shadowColor: 'black',
       shadowOffset: {
         width: 0,
@@ -108,12 +111,14 @@ const StyledButton: FC<ButtonProps & {theme: DoobooTheme}> = ({
       })}
       activeOpacity={activeOpacity}
       onPress={onPress}
-      delayPressIn={50}
+      delayPressIn={200}
       disabled={disabled}
       style={style}
       {...touchableOpacityProps}>
       {loading ? (
         <Container
+          type={type}
+          size={size}
           testID="loading-view"
           style={[
             compositeStyles.container,
@@ -128,6 +133,8 @@ const StyledButton: FC<ButtonProps & {theme: DoobooTheme}> = ({
         </Container>
       ) : (
         <Container
+          type={type}
+          size={size}
           testID="button-view"
           style={[
             compositeStyles.container,
@@ -136,14 +143,14 @@ const StyledButton: FC<ButtonProps & {theme: DoobooTheme}> = ({
           ]}
           onLayout={(e) => setLayout(e.nativeEvent.layout)}>
           {leftElement}
-          <Text
+          <TypographyInverted.Body1
             style={[
               compositeStyles.text,
               disabled && compositeStyles.disabledText,
             ]}
             {...textProps}>
             {text}
-          </Text>
+          </TypographyInverted.Body1>
           {rightElement}
         </Container>
       )}

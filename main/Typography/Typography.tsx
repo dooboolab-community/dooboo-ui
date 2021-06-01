@@ -1,4 +1,4 @@
-import {DoobooTheme, light, withTheme} from './theme';
+import {DoobooTheme, light, withTheme} from '../theme';
 
 import styled from '@emotion/native';
 
@@ -14,7 +14,7 @@ StyledTitle.defaultProps = {
   style: {includeFontPadding: false},
 };
 
-const Title = withTheme(StyledTitle);
+export const Title = withTheme(StyledTitle);
 
 // Heading1
 const StyledHeading1 = styled.Text<{theme: DoobooTheme}>`
@@ -28,7 +28,7 @@ StyledHeading1.defaultProps = {
   style: {includeFontPadding: false},
 };
 
-const Heading1 = withTheme(StyledHeading1);
+export const Heading1 = withTheme(StyledHeading1);
 
 // Heading2
 const StyledHeading2 = styled.Text<{theme: DoobooTheme}>`
@@ -42,7 +42,7 @@ StyledHeading2.defaultProps = {
   style: {includeFontPadding: false},
 };
 
-const Heading2 = withTheme(StyledHeading2);
+export const Heading2 = withTheme(StyledHeading2);
 
 // Heading3
 const StyledHeading3 = styled.Text<{theme: DoobooTheme}>`
@@ -56,7 +56,7 @@ StyledHeading3.defaultProps = {
   style: {includeFontPadding: false},
 };
 
-const Heading3 = withTheme(StyledHeading3);
+export const Heading3 = withTheme(StyledHeading3);
 
 // Body1
 const StyledBody1 = styled.Text<{theme: DoobooTheme}>`
@@ -69,7 +69,7 @@ StyledBody1.defaultProps = {
   style: {includeFontPadding: false},
 };
 
-const Body1 = withTheme(StyledBody1);
+export const Body1 = withTheme(StyledBody1);
 
 // Body2
 const StyledBody2 = styled.Text<{theme: DoobooTheme}>`
@@ -82,13 +82,4 @@ StyledBody2.defaultProps = {
   style: {includeFontPadding: false},
 };
 
-const Body2 = withTheme(StyledBody2);
-
-export const Typography = {
-  Title,
-  Heading1,
-  Heading2,
-  Heading3,
-  Body1,
-  Body2,
-};
+export const Body2 = withTheme(StyledBody2);
