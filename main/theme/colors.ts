@@ -1,8 +1,8 @@
 import {Theme} from '@emotion/react';
 
 export enum ThemeType {
-  LIGHT = 'LIGHT',
-  DARK = 'DARK',
+  LIGHT = 'light',
+  DARK = 'dark',
 }
 
 export const colors = {
