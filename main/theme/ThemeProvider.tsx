@@ -4,7 +4,7 @@ import {
   ThemeProvider as OriginalThemeProvider,
   withTheme,
 } from '@emotion/react';
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 
 import createCtx from './createCtx';
 import useColorScheme from './useColorScheme';
@@ -45,6 +45,10 @@ function ThemeProvider({
     initialThemeType ||
       (colorScheme === 'light' ? ThemeType.LIGHT : ThemeType.DARK),
   );
+
+  useEffect(() => {
+    setThemeType(colorScheme);
+  }, [colorScheme]);
 
   const changeThemeType = (): void => {
     const newThemeType =
