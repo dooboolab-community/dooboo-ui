@@ -91,24 +91,22 @@ You need to set webpack for using "dooboo-ui" in expo-web.
 2.  Create webpack.config.js in root path and Add below code.
     See [issue](https://forums.expo.io/t/error-when-running-expo-start-web/33096/3) below for more details.
 
-        ```javascript
-        const createExpoWebpackConfigAsync = require('@expo/webpack-config');
+    ```javascript
+    const createExpoWebpackConfigAsync = require('@expo/webpack-config');
 
-        module.exports = async function(env, argv) {
-          const config = await createExpoWebpackConfigAsync(
-            {
-              ...env,
-              babel: {
-                dangerouslyAddModulePathsToTranspile: [
-                  'dooboo-ui',
-                ],
-              },
-            },
-            argv
-          );
-          return config;
-        };
-        ```
+    module.exports = async function (env, argv) {
+      const config = await createExpoWebpackConfigAsync(
+        {
+          ...env,
+          babel: {
+            dangerouslyAddModulePathsToTranspile: ['dooboo-ui'],
+          },
+        },
+        argv,
+      );
+      return config;
+    };
+    ```
 
 ## Sponsors
 

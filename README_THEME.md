@@ -14,100 +14,55 @@
 
    ```ts
    export const colors = {
-     helioTrope: '#9A77FF',
-     mauve: '#cfa7ff',
-     fuchsiaBlue: '#664acb',
-     eastBay: '#3d3f77',
-     scampi: '#6b6aa6',
-     downRiver: '#0c194b',
-     magicMint: '#a5f4cc',
-     babyBlue: '#d8ffff',
-     deYork: '#74c19b',
-     aquaMarine: '#44D1A6',
-     salmon: '#FF7676',
-     charcoalGray: '#48454D',
-     brownGray: '#999999',
-     white: '#FFFFFF',
-     black: '#000000',
-     darkGray: '#00000070',
-     mediumGray: '#00000030',
-     lightGray: '#CFCED0',
-     paleViolet: '#F2F2F2',
-     mineShaftDark: '#222222',
-     mineShaft: '#333333',
-     light: '#F3F3F3',
-     negative: '#ff7676',
+     black: 'black',
+     white: 'white',
+     charcoalGray: '#414141',
+     gray: '#6D6D6D',
+     cloud: '#C4C4C4',
+     lightGray: '#EDEDED',
+     brightTurquoise: '#00D9D5',
+     ruddy: '#FF002E',
+     yellow: '#FFEB14',
+     blueberry: '#5398FF',
      apple: '#151E22',
      google: '#E04238',
      facebook: '#345997',
+     negative: '#ff7676',
+     positive: '#00BA90',
    };
+
+   export type Colors = typeof colors;
 
    export const light = {
+     primary: colors.black,
+     disabled: colors.cloud,
      background: colors.white,
-     primary: colors.helioTrope,
-     primaryLight: colors.mauve,
-     primaryDark: colors.fuchsiaBlue,
-     secondary: colors.eastBay,
-     secondaryLight: colors.scampi,
-     secondaryDark: colors.downRiver,
-     tertiary: colors.downRiver,
-     tertiaryLight: colors.magicMint,
-     tertiaryDark: colors.babyBlue,
-     positive: colors.aquaMarine,
-     negative: colors.salmon,
-     text: colors.mineShaftDark,
-     primaryText: colors.charcoalGray,
-     secondaryText: colors.brownGray,
-     conntrastBackground: colors.darkGray,
-     contrastText: colors.white,
-     dialog: colors.lightGray,
-     disabled: colors.mediumGray,
-     placeholder: colors.lightGray,
-     paper: colors.paleViolet,
-     appleIcon: colors.apple,
-     appleText: colors.apple,
-     appleBackground: colors.light,
-     facebookIcon: colors.light,
-     facebookText: colors.light,
-     facebookBackground: colors.facebook,
-     googleIcon: colors.light,
-     googleText: colors.light,
-     googleBackground: colors.google,
+     secondary: colors.brightTurquoise,
+     danger: colors.ruddy,
+     warning: colors.yellow,
+     info: colors.blueberry,
+     textPrimary: colors.black,
+     text: colors.black,
+     placeholder: colors.gray,
+     textDisabled: colors.cloud,
+     textContrast: colors.white,
+     textDanger: colors.ruddy,
    };
 
-   export type Theme = typeof light;
-
    export const dark = {
-     background: colors.mineShaftDark,
-     primary: colors.helioTrope,
-     primaryLight: colors.fuchsiaBlue,
-     primaryDark: colors.mauve,
-     secondary: colors.downRiver,
-     secondaryLight: colors.scampi,
-     secondaryDark: colors.eastBay,
-     tertiary: colors.downRiver,
-     tertiaryLight: colors.babyBlue,
-     tertiaryDark: colors.magicMint,
-     positive: colors.aquaMarine,
-     negative: colors.salmon,
+     primary: colors.white,
+     disabled: colors.charcoalGray,
+     background: colors.black,
+     secondary: colors.brightTurquoise,
+     danger: colors.ruddy,
+     warning: colors.yellow,
+     info: colors.blueberry,
+     textPrimary: colors.white,
      text: colors.white,
-     primaryText: colors.white,
-     secondaryText: colors.brownGray,
-     contrastBackground: colors.white,
-     contrastText: colors.mineShaftDark,
-     dialog: colors.lightGray,
-     disabled: colors.mediumGray,
-     placeholder: colors.lightGray,
-     paper: colors.mineShaft,
-     appleIcon: colors.apple,
-     appleText: colors.apple,
-     appleBackground: colors.light,
-     facebookIcon: colors.light,
-     facebookText: colors.light,
-     facebookBackground: colors.facebook,
-     googleIcon: colors.light,
-     googleText: colors.light,
-     googleBackground: colors.google,
+     placeholder: colors.gray,
+     textDisabled: colors.charcoalGray,
+     textContrast: colors.black,
+     textDanger: colors.ruddy,
    };
    ```
 
@@ -120,16 +75,16 @@
 
 ## Usage
 
-1. Import `useThemeContext`
+1. Import `useTheme`
 
    ```ts
-   import {useThemeContext} from 'dooboo-ui';
+   import {useTheme} from 'dooboo-ui';
    ```
 
 2. Retrive theme.
 
    ```ts
-   const {theme} = useThemeContext();
+   const {theme} = useTheme();
    ```
 
 3. Use it in style.
@@ -151,7 +106,15 @@
    `;
    ```
 
-## Typescript with [emotion](https://emotion.sh/docs/typescript#define-a-theme
+#### With Expo
+
+If you are using expo, add below `userInterfaceStyle` to `automatic`.
+
+```ts
+userInterfaceStyle: 'automatic',
+```
+
+## Typescript with [emotion](https://emotion.sh/docs/typescript#define-a-theme)
 
 > Inside `src` dir, add `styled.d.ts`.
 
@@ -167,7 +130,7 @@ interface CustomTheme extends AllTheme {
 }
 
 declare module '@emotion/react' {
-  export interface DefaultTheme extends CustomTheme {
+  export interface Theme extends CustomTheme {
     background: string;
   }
 }
