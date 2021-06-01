@@ -106,7 +106,6 @@
    `;
    ```
 
-<<<<<<< HEAD
 #### With Expo
 
 If you are using expo, add below `userInterfaceStyle` to `automatic`.
@@ -115,8 +114,6 @@ If you are using expo, add below `userInterfaceStyle` to `automatic`.
 userInterfaceStyle: 'automatic',
 ```
 
-=======
->>>>>>> e1c8ff1... Update readme
 ## Typescript with [emotion](https://emotion.sh/docs/typescript#define-a-theme)
 
 > Inside `src` dir, add `styled.d.ts`.
