@@ -1,5 +1,5 @@
 import React, {ReactElement} from 'react';
-import {RenderAPI, act, fireEvent, render} from '@testing-library/react-native';
+import {RenderAPI, fireEvent, render} from '@testing-library/react-native';
 
 import {Accordion} from '../../main';
 

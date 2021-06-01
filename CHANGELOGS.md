@@ -32,7 +32,7 @@
 [EditText]
 
 - Added missing callBack props `onSubmitEditing`.
-- Set default `placeholderTextColor`.
+- Set default `placeholderColor`.
 - Added `labelColor`.
 - Dark mode example in story.
 

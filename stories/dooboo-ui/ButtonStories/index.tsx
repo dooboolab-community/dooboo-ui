@@ -1,9 +1,8 @@
 import React, {ReactElement} from 'react';
+import {ThemeProvider, ThemeType} from '../../../main/theme';
 
 import ButtonDefault from './ButtonDefaultStory';
 import {ContainerDeco} from '../../../storybook/decorators';
-import {ThemeProvider} from '../../../main/theme/ThemeProvider';
-import {ThemeType} from '../../../main/theme';
 import {storiesOf} from '@storybook/react-native';
 
 /**
@@ -24,12 +23,12 @@ toStorybook.story = {
  */
 storiesOf('Button', module)
   .addDecorator(ContainerDeco)
-  .add('default', () => (
-    <>
+  .add('default - light', () => (
+    <ThemeProvider>
       <ButtonDefault />
-    </>
+    </ThemeProvider>
   ))
-  .add('with dark theme', () => (
+  .add('default - dark', () => (
     <ThemeProvider initialThemeType={ThemeType.DARK}>
       <ButtonDefault />
     </ThemeProvider>

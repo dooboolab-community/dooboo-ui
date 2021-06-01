@@ -1,3 +1,4 @@
+import {DoobooTheme, light} from './theme';
 import {Platform, Text, TextInput, View} from 'react-native';
 import React, {FC, useRef, useState} from 'react';
 import type {
@@ -6,9 +7,9 @@ import type {
   TextStyle,
   ViewStyle,
 } from 'react-native';
-import {DoobooTheme, light, withTheme} from './theme';
 
 import {useHover} from 'react-native-web-hooks';
+import {withTheme} from '@emotion/react';
 
 type Styles = {
   container?: StyleProp<ViewStyle>;
@@ -31,7 +32,7 @@ export type EditTextProps = {
   onChange?: TextInputProps['onChange'];
   onChangeText?: TextInputProps['onChangeText'];
   placeholder?: TextInputProps['placeholder'];
-  placeholderTextColor?: TextInputProps['placeholderTextColor'];
+  placeholderColor?: TextInputProps['placeholderTextColor'];
   onFocus?: TextInputProps['onFocus'] | undefined;
   onBlur?: TextInputProps['onBlur'] | undefined;
   editable?: TextInputProps['editable'];
@@ -64,12 +65,12 @@ const Component: FC<EditTextProps & {theme: DoobooTheme}> = ({
   autoCapitalize = 'none',
   secureTextEntry = false,
   editable = true,
-  placeholderTextColor = theme.placeholder,
+  placeholderColor = theme.placeholder,
   focusColor = theme.primary,
-  hoverColor = theme.primaryDark,
-  errorColor = theme.negative,
+  hoverColor = theme.secondary,
+  errorColor = theme.danger,
   disableColor = theme.disabled,
-  labelColor = theme.secondaryText,
+  labelColor = theme.secondary,
   type = 'row',
 }) => {
   const [focused, setFocused] = useState(false);
@@ -78,7 +79,7 @@ const Component: FC<EditTextProps & {theme: DoobooTheme}> = ({
 
   const borderColor = disableColor;
   const hoveredColor = theme.primary;
-  const textColor = theme.text;
+  const textColor = theme.textPrimary;
 
   const compositeStyles: Styles =
     type === 'row'
@@ -255,7 +256,7 @@ const Component: FC<EditTextProps & {theme: DoobooTheme}> = ({
           }}
           value={value}
           placeholder={placeholder}
-          placeholderTextColor={placeholderTextColor}
+          placeholderColor={placeholderColor}
           onChange={onChange}
           onChangeText={onChangeText}
           onSubmitEditing={onSubmitEditing}
