@@ -1,5 +1,6 @@
 import React, {ReactElement} from 'react';
 import {RenderAPI, fireEvent, render} from '@testing-library/react-native';
+import {createComponent, createTestProps} from '../../test/testUtils';
 
 import {Accordion} from '../../main';
 
@@ -22,16 +23,12 @@ const data = [
   },
 ];
 
-const createTestProps = (
-  obj?: Record<string, unknown>,
-): Record<string, unknown> => ({
-  ...obj,
-});
-
 describe('[Accordion] render test', () => {
   it('should render without crasing', () => {
     props = createTestProps({data: data});
-    component = <Accordion {...props} />;
+
+    component = createComponent(<Accordion {...props} />);
+
     testingLib = render(component);
 
     const json = testingLib.toJSON();

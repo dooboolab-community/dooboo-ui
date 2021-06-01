@@ -23,13 +23,13 @@ toStorybook.story = {
  */
 storiesOf('Button', module)
   .addDecorator(ContainerDeco)
-  .add('default - light', () => (
-    <ThemeProvider>
+  .add('button - light', () => (
+    <ThemeProvider initialThemeType="light">
       <ButtonDefault />
     </ThemeProvider>
   ))
-  .add('default - dark', () => (
-    <ThemeProvider initialThemeType={ThemeType.DARK}>
+  .add('button - dark', () => (
+    <ThemeProvider initialThemeType="dark">
       <ButtonDefault />
     </ThemeProvider>
   ));

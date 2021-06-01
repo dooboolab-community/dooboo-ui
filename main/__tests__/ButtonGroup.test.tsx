@@ -3,6 +3,7 @@ import 'react-native';
 import * as React from 'react';
 
 import {RenderAPI, fireEvent, render} from '@testing-library/react-native';
+import {createComponent, createTestProps} from '../../test/testUtils';
 
 import {ButtonGroup} from '../../main';
 
@@ -10,19 +11,10 @@ let props: any;
 let component: React.ReactElement;
 let testingLib: RenderAPI;
 
-const createTestProps = (
-  obj: Record<string, unknown>,
-): Record<string, unknown> => ({
-  navigation: {
-    navigate: jest.fn(),
-  },
-  ...obj,
-});
-
 describe('[ButtonGroup] render', () => {
   beforeEach(() => {
     props = createTestProps({});
-    component = <ButtonGroup {...props} />;
+    component = createComponent(<ButtonGroup {...props} />);
   });
 
   it('renders without crashing', () => {

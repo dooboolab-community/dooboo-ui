@@ -1,17 +1,12 @@
-import {
-  RenderAPI,
-  act,
-  fireEvent,
-  render,
-  waitFor,
-} from '@testing-library/react-native';
+import React, {ReactElement} from 'react';
+import {RenderAPI, act, fireEvent, render} from '@testing-library/react-native';
 
 import {EditText} from '../../main';
 import type {EditTextProps} from '../../main/EditText';
 import RNWebHooks from 'react-native-web-hooks';
-import React from 'react';
 import {ReactTestInstance} from 'react-test-renderer';
 import {View} from 'react-native';
+import {createComponent} from '../../test/testUtils';
 
 jest.mock('react-native-web-hooks', () => ({
   useHover: () => false,
@@ -19,9 +14,8 @@ jest.mock('react-native-web-hooks', () => ({
 
 let testingLib: RenderAPI;
 
-const component = (editProps?: EditTextProps): React.ReactElement => {
-  return <EditText {...editProps} />;
-};
+const component = (editProps?: EditTextProps): ReactElement =>
+  createComponent(<EditText {...editProps} />);
 
 describe('[EditText]', () => {
   jest.spyOn(console, 'error').mockImplementation(() => {});
@@ -53,7 +47,8 @@ describe('[EditText]', () => {
           }),
         );
 
-        container = await waitFor(() => testingLib.getByTestId('container-id'));
+        container = testingLib.getByTestId('container-id');
+        jest.runAllTimers();
 
         const containerChildViewCustomStyle =
           container.findByType(View).instance.props.style[1][1];
@@ -71,7 +66,7 @@ describe('[EditText]', () => {
             }),
           );
 
-          const label = await waitFor(() => testingLib.getByText('label text'));
+          const label = testingLib.getByText('label text');
 
           expect(label).toBeTruthy();
         });
@@ -88,7 +83,7 @@ describe('[EditText]', () => {
             }),
           );
 
-          const label = await waitFor(() => testingLib.getByText('label text'));
+          const label = testingLib.getByText('label text');
           const labelTextStyle = label.props.style[1];
 
           expect(labelTextStyle).toEqual({color: 'green'});
@@ -112,9 +107,7 @@ describe('[EditText]', () => {
               }),
             );
 
-            const label = await waitFor(() =>
-              testingLib.getByText('label text'),
-            );
+            const label = testingLib.getByText('label text');
 
             const unhoveredTextStyle = label.props.style[2];
 
@@ -136,9 +129,7 @@ describe('[EditText]', () => {
               }),
             );
 
-            const input = await waitFor(() =>
-              testingLib.getByTestId('INPUT_TEST'),
-            );
+            const input = testingLib.getByTestId('INPUT_TEST');
 
             act(() => {
               input.props.onFocus();
@@ -166,9 +157,7 @@ describe('[EditText]', () => {
               }),
             );
 
-            const input = await waitFor(() =>
-              testingLib.getByTestId('INPUT_TEST'),
-            );
+            const input = testingLib.getByTestId('INPUT_TEST');
 
             act(() => {
               input.props.onFocus();
@@ -193,7 +182,7 @@ describe('[EditText]', () => {
           }),
         );
 
-        const input = await waitFor(() => testingLib.getByTestId('INPUT_TEST'));
+        const input = testingLib.getByTestId('INPUT_TEST');
 
         expect(input).toBeTruthy();
 
@@ -209,9 +198,7 @@ describe('[EditText]', () => {
             }),
           );
 
-          const input = await waitFor(() =>
-            testingLib.getByTestId('INPUT_TEST'),
-          );
+          const input = testingLib.getByTestId('INPUT_TEST');
 
           expect(input).toBeTruthy();
 
@@ -226,9 +213,7 @@ describe('[EditText]', () => {
             }),
           );
 
-          const input = await waitFor(() =>
-            testingLib.getByTestId('INPUT_TEST'),
-          );
+          const input = testingLib.getByTestId('INPUT_TEST');
 
           expect(input).toBeTruthy();
 

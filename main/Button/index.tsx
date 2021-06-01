@@ -4,7 +4,7 @@ import {
   Platform,
   TouchableOpacity,
 } from 'react-native';
-import {DoobooTheme, light, withTheme} from './theme';
+import {DoobooTheme, light, useTheme, withTheme} from '../theme';
 import React, {useRef, useState} from 'react';
 import type {
   StyleProp,
@@ -15,6 +15,7 @@ import type {
 } from 'react-native';
 
 import type {FC} from 'react';
+import {TypographyInverted} from '../Typography';
 import styled from '@emotion/native';
 import {useHover} from 'react-native-web-hooks';
 
@@ -26,19 +27,49 @@ type Styles = {
   hovered?: StyleProp<ViewStyle>;
 };
 
-const Container = styled.View`
+type ButtonType = 'primary' | 'secondary' | 'danger' | 'warning' | 'info';
+type ButtonSize = 'small' | 'medium' | 'large';
+
+const ButtonContainer = styled.View<{
+  type: ButtonType;
+  size?: ButtonSize;
+  outlined?: boolean;
+}>`
   align-self: stretch;
-  padding: 8px 12px;
-  background-color: ${({theme}) => theme.primary || light.primary};
+  padding: ${({size}) =>
+    size === 'large'
+      ? '14px 24px'
+      : size === 'small'
+      ? '4px 12px'
+      : '10px 20px'};
+  border-radius: ${({size}) => (size === 'large' ? '24px' : '20px')};
+  border-width: ${({outlined}) => (outlined ? '1px' : 0)};
+  background-color: ${({theme, type, outlined}) =>
+    outlined
+      ? theme.background
+      : type === 'info'
+      ? theme.info
+      : type === 'secondary'
+      ? theme.secondary
+      : type === 'danger'
+      ? theme.danger
+      : type === 'warning'
+      ? theme.warning
+      : theme.primary};
+  border-color: ${({theme, type}) =>
+    type === 'info'
+      ? theme.info
+      : type === 'secondary'
+      ? theme.secondary
+      : type === 'danger'
+      ? theme.danger
+      : type === 'warning'
+      ? theme.warning
+      : theme.primary};
 
   flex-direction: row;
   align-items: center;
   justify-content: center;
-`;
-
-const Text = styled.Text`
-  font-size: 14px;
-  color: white;
 `;
 
 export interface ButtonProps {
@@ -46,6 +77,7 @@ export interface ButtonProps {
   indicatorColor?: string;
   loading?: boolean;
   disabled?: boolean;
+  outlined?: boolean;
   style?: StyleProp<ViewStyle>;
   styles?: Styles;
   leftElement?: React.ReactElement;
@@ -55,6 +87,8 @@ export interface ButtonProps {
   onPress?: TouchableOpacityProps['onPress'];
   touchableOpacityProps?: Partial<TouchableOpacityProps>;
   textProps?: Partial<TextProps>;
+  type?: ButtonType;
+  size?: ButtonSize;
 }
 
 const StyledButton: FC<ButtonProps & {theme: DoobooTheme}> = ({
@@ -67,26 +101,40 @@ const StyledButton: FC<ButtonProps & {theme: DoobooTheme}> = ({
   indicatorColor = theme.disabled,
   leftElement,
   rightElement,
-  activeOpacity = 0.7,
+  activeOpacity = 0.6,
   text,
   onPress,
   touchableOpacityProps,
   textProps,
+  type = 'primary',
+  size,
+  outlined = false,
 }) => {
   const ref = useRef<TouchableOpacity>(null);
   const hovered = useHover(ref);
   const [layout, setLayout] = useState<LayoutRectangle>();
+  const {themeType} = useTheme();
+
+  const mainColor =
+    type === 'info'
+      ? theme.info
+      : type === 'secondary'
+      ? theme.secondary
+      : type === 'danger'
+      ? theme.danger
+      : type === 'warning'
+      ? theme.warning
+      : theme.primary;
 
   const compositeStyles: Styles = {
     disabledButton: {
-      backgroundColor: theme.primary,
-      borderColor: theme.primary,
+      backgroundColor: theme.disabled,
+      borderColor: theme.disabled,
     },
     disabledText: {
-      color: theme.primary,
+      color: theme.disabled,
     },
     hovered: {
-      borderColor: theme.primary,
       shadowColor: 'black',
       shadowOffset: {
         width: 0,
@@ -113,7 +161,7 @@ const StyledButton: FC<ButtonProps & {theme: DoobooTheme}> = ({
       style={style}
       {...touchableOpacityProps}>
       {loading ? (
-        <Container
+        <ButtonContainer
           testID="loading-view"
           style={[
             compositeStyles.container,
@@ -123,29 +171,47 @@ const StyledButton: FC<ButtonProps & {theme: DoobooTheme}> = ({
             },
             hovered && !disabled && compositeStyles.hovered,
             disabled && compositeStyles.disabledButton,
-          ]}>
+          ]}
+          type={type}
+          size={size}
+          outlined={outlined}>
           <ActivityIndicator size="small" color={indicatorColor} />
-        </Container>
+        </ButtonContainer>
       ) : (
-        <Container
-          testID="button-view"
+        <ButtonContainer
+          testID="button-container"
           style={[
             compositeStyles.container,
             hovered && !disabled && compositeStyles.hovered,
             disabled && compositeStyles.disabledButton,
           ]}
-          onLayout={(e) => setLayout(e.nativeEvent.layout)}>
+          onLayout={(e) => setLayout(e.nativeEvent.layout)}
+          type={type}
+          size={size}
+          outlined={outlined}>
           {leftElement}
-          <Text
+          <TypographyInverted.Heading3
             style={[
+              {
+                color:
+                  themeType === 'dark' && !outlined
+                    ? theme.textContrast
+                    : outlined && type === 'warning'
+                    ? theme.text
+                    : outlined
+                    ? mainColor
+                    : type !== 'primary'
+                    ? theme.text
+                    : theme.textContrast,
+              },
               compositeStyles.text,
               disabled && compositeStyles.disabledText,
             ]}
             {...textProps}>
             {text}
-          </Text>
+          </TypographyInverted.Heading3>
           {rightElement}
-        </Container>
+        </ButtonContainer>
       )}
     </TouchableOpacity>
   );
