@@ -5,6 +5,10 @@
   "types": "index.d.ts",
   "author": "dooboolab",
   "license": "MIT",
+  "scripts": {
+    "pack": "yarn pack",
+    "publish": "yarn publish <package>.tgz --tag next"
+  },
   "bugs": {
     "url": "https://github.com/dooboolab/dooboo-ui/issues"
   },
