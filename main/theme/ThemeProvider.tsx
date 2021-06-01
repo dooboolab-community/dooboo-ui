@@ -70,7 +70,7 @@ function ThemeProvider({
     <Provider
       value={{
         media,
-        themeType,
+        themeType: 'light',
         changeThemeType,
         theme: defaultTheme,
         colors,

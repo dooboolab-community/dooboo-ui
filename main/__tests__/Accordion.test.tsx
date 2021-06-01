@@ -3,7 +3,6 @@ import {RenderAPI, fireEvent, render} from '@testing-library/react-native';
 import {createComponent, createTestProps} from '../../test/testUtils';
 
 import {Accordion} from '../../main';
-import {ThemeProvider} from '../theme';
 
 let props: any;
 let component: ReactElement;

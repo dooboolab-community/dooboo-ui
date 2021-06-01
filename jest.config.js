@@ -23,7 +23,8 @@ module.exports = {
     },
   },
   cacheDirectory: '.jest/cache',
-  setupFiles: [...expoPreset.setupFiles, '<rootDir>/test/setupTest.ts'],
+  setupFiles: [...expoPreset.setupFiles],
+  setupFilesAfterEnv: ['./test/setupTest.ts'],
   coveragePathIgnorePatterns: [
     '.example.',
     '__assets__',
