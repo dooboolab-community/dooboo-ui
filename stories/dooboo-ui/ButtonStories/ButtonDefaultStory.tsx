@@ -48,6 +48,7 @@ const ButtonDefault: FC = () => {
           <Button type="danger" text="Danger" style={{padding: 8}} />
           <Button type="warning" text="Warning" style={{padding: 8}} />
           <Button type="info" text="Info" style={{padding: 8}} />
+          <Button disabled={true} text="Disabled" style={{padding: 8}} />
         </View>
         <Hr />
         <Text style={{fontSize: 18, marginTop: 24, marginBottom: 8}}>
@@ -71,6 +72,12 @@ const ButtonDefault: FC = () => {
           <Button type="danger" text="Danger" outlined style={{padding: 8}} />
           <Button type="warning" text="Warning" outlined style={{padding: 8}} />
           <Button type="info" text="Info" outlined style={{padding: 8}} />
+          <Button
+            disabled={true}
+            text="Disabled"
+            outlined
+            style={{padding: 8}}
+          />
         </View>
         <Hr />
         <Text style={{fontSize: 18, marginBottom: 8, marginTop: 16}}>
