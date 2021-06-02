@@ -1,4 +1,4 @@
-import {EditText, Hr, useTheme} from '../../../main';
+import {EditText, useTheme} from '../../../main';
 import React, {useState} from 'react';
 import {SafeAreaView, ScrollView, Text, View} from 'react-native';
 
@@ -38,13 +38,12 @@ const EditTextRow = (): React.ReactElement => {
           onChangeText={(text) => onTextChanged('EMAIL', text)}
           style={{marginTop: 20, marginBottom: 52, paddingHorizontal: 36}}
         />
-        <Hr />
         <Text
           style={{
             fontSize: 18,
             marginTop: 48,
             marginBottom: 8,
-            color: 'white',
+            color: theme.text,
           }}>
           With label
         </Text>
@@ -57,7 +56,6 @@ const EditTextRow = (): React.ReactElement => {
           onChangeText={(text) => onTextChanged('PASSWORD', text)}
           style={{marginTop: 20, marginBottom: 40, paddingHorizontal: 36}}
         />
-        <Hr />
         <Text
           style={{
             fontSize: 18,
@@ -75,7 +73,6 @@ const EditTextRow = (): React.ReactElement => {
           editable={false}
           style={{marginTop: 20, marginBottom: 40, paddingHorizontal: 36}}
         />
-        <Hr />
         <Text
           style={{
             fontSize: 18,

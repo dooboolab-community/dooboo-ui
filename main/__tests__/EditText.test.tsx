@@ -222,26 +222,7 @@ describe('[EditText]', () => {
       });
     });
 
-    describe('Type: [row] - default', () => {
-      it('should render without crashing', () => {
-        testingLib = render(component());
-
-        const json = testingLib.toJSON();
-
-        expect(json).toBeTruthy();
-
-        testingLib = render(
-          component({
-            type: 'row',
-          }),
-        );
-
-        expect(json).toMatchSnapshot();
-        expect(json).toBeTruthy();
-      });
-    });
-
-    describe('Type: [column]', () => {
+    describe('Type: [column] - default', () => {
       it('renders without crashing', () => {
         testingLib = render(
           component({
@@ -271,6 +252,116 @@ describe('[EditText]', () => {
         );
 
         const json = testingLib.toJSON();
+
+        expect(json).toMatchSnapshot();
+        expect(json).toBeTruthy();
+      });
+    });
+
+    describe('Type: [boxed]', () => {
+      it('should render without crashing', () => {
+        testingLib = render(component());
+
+        const json = testingLib.toJSON();
+
+        expect(json).toBeTruthy();
+
+        testingLib = render(
+          component({
+            type: 'boxed',
+          }),
+        );
+
+        expect(json).toMatchSnapshot();
+        expect(json).toBeTruthy();
+      });
+
+      it('should render `errorText`', () => {
+        testingLib = render(component());
+
+        const json = testingLib.toJSON();
+
+        expect(json).toBeTruthy();
+
+        testingLib = render(
+          component({
+            type: 'boxed',
+            errorText: 'error',
+          }),
+        );
+
+        expect(json).toMatchSnapshot();
+        expect(json).toBeTruthy();
+      });
+
+      it('should render `!editable` status', () => {
+        testingLib = render(component());
+
+        const json = testingLib.toJSON();
+
+        expect(json).toBeTruthy();
+
+        testingLib = render(
+          component({
+            type: 'boxed',
+            editable: false,
+          }),
+        );
+
+        expect(json).toMatchSnapshot();
+        expect(json).toBeTruthy();
+      });
+    });
+
+    describe('Type: [row]', () => {
+      it('should render without crashing', () => {
+        testingLib = render(component());
+
+        const json = testingLib.toJSON();
+
+        expect(json).toBeTruthy();
+
+        testingLib = render(
+          component({
+            type: 'row',
+          }),
+        );
+
+        expect(json).toMatchSnapshot();
+        expect(json).toBeTruthy();
+      });
+
+      it('should render `errorText`', () => {
+        testingLib = render(component());
+
+        const json = testingLib.toJSON();
+
+        expect(json).toBeTruthy();
+
+        testingLib = render(
+          component({
+            type: 'row',
+            errorText: 'error',
+          }),
+        );
+
+        expect(json).toMatchSnapshot();
+        expect(json).toBeTruthy();
+      });
+
+      it('should render `!editable` status', () => {
+        testingLib = render(component());
+
+        const json = testingLib.toJSON();
+
+        expect(json).toBeTruthy();
+
+        testingLib = render(
+          component({
+            type: 'row',
+            editable: false,
+          }),
+        );
 
         expect(json).toMatchSnapshot();
         expect(json).toBeTruthy();

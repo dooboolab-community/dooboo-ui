@@ -2,7 +2,7 @@ import {EditText, useTheme} from '../../../main';
 import React, {useState} from 'react';
 import {SafeAreaView, ScrollView, Text, View} from 'react-native';
 
-const EditTextColumn = (): React.ReactElement => {
+const EditTextRow = (): React.ReactElement => {
   const {theme} = useTheme();
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
@@ -32,11 +32,11 @@ const EditTextColumn = (): React.ReactElement => {
           Default
         </Text>
         <EditText
-          type="column"
+          type="boxed"
           placeholder="your@email.com"
           value={email}
           onChangeText={(text) => onTextChanged('EMAIL', text)}
-          style={{marginTop: 20, marginBottom: 52, paddingHorizontal: 36}}
+          style={{marginTop: 20, paddingHorizontal: 36}}
         />
         <Text
           style={{
@@ -48,13 +48,12 @@ const EditTextColumn = (): React.ReactElement => {
           With label
         </Text>
         <EditText
-          type="column"
-          secureTextEntry={true}
-          labelText="password"
-          placeholder="Write your password"
+          type="boxed"
+          labelText="Any label"
+          placeholder="Write anything"
           value={password}
           onChangeText={(text) => onTextChanged('PASSWORD', text)}
-          style={{marginTop: 20, marginBottom: 40, paddingHorizontal: 36}}
+          style={{marginTop: 20, paddingHorizontal: 36}}
         />
         <Text
           style={{
@@ -66,11 +65,12 @@ const EditTextColumn = (): React.ReactElement => {
           Disabled
         </Text>
         <EditText
-          type="column"
+          type="boxed"
+          secureTextEntry={true}
           labelText="disabled"
           value="This is disabled"
           editable={false}
-          style={{marginTop: 20, marginBottom: 40, paddingHorizontal: 36}}
+          style={{marginTop: 20, paddingHorizontal: 36}}
         />
         <Text
           style={{
@@ -82,10 +82,10 @@ const EditTextColumn = (): React.ReactElement => {
           With error
         </Text>
         <EditText
-          type="column"
+          type="boxed"
           labelText="Error example"
           value="any value"
-          style={{marginTop: 20, marginBottom: 40, paddingHorizontal: 36}}
+          style={{marginTop: 20, paddingHorizontal: 36}}
           errorText="Error occurred!"
         />
         <View style={{height: 300}} />
@@ -94,4 +94,4 @@ const EditTextColumn = (): React.ReactElement => {
   );
 };
 
-export default EditTextColumn;
+export default EditTextRow;

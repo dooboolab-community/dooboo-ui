@@ -44,7 +44,7 @@ export type EditTextProps = {
   errorColor?: string;
   disableColor?: string;
   labelColor?: string;
-  type?: 'row' | 'column';
+  type?: 'row' | 'column' | 'boxed';
 };
 
 const Component: FC<EditTextProps & {theme: DoobooTheme}> = ({
@@ -71,7 +71,7 @@ const Component: FC<EditTextProps & {theme: DoobooTheme}> = ({
   errorColor = theme.danger,
   disableColor = theme.disabled,
   labelColor = theme.placeholder,
-  type = 'row',
+  type = 'column',
 }) => {
   const [focused, setFocused] = useState(false);
   const ref = useRef<View>(null);
@@ -82,66 +82,13 @@ const Component: FC<EditTextProps & {theme: DoobooTheme}> = ({
   const textColor = theme.text;
 
   const compositeStyles: Styles =
-    type === 'row'
+    type === 'column'
       ? {
           container: [
             {
               alignSelf: 'stretch',
-              flexDirection: 'row',
-              alignItems: 'center',
               justifyContent: 'space-between',
-              borderBottomWidth: 0.5,
-              borderBottomColor: borderColor,
-            },
-            styles?.container,
-          ],
-          hovered: [
-            {
-              borderBottomColor: hoveredColor,
-              borderBottomWidth: 1,
-            },
-            styles?.hovered,
-          ],
-          labelText: [
-            {
-              fontSize: 14,
-              color: labelColor,
-              marginRight: 2,
-            },
-            styles?.labelText,
-          ],
-          labelTextHovered: [
-            {
-              color: hoveredColor,
-            },
-            styles?.labelTextHovered,
-          ],
-          input: [
-            {
-              paddingVertical: 10,
-              paddingHorizontal: 8,
-              fontSize: 14,
-              fontWeight: 'bold',
-              flex: 1,
-              // color: !editable ? disableColor : textColor,
-            },
-            styles?.input,
-          ],
-          errorText: [
-            {
-              marginTop: 4,
-              fontSize: 12,
-              color: errorColor,
-            },
-            styles?.errorText,
-          ],
-        }
-      : {
-          container: [
-            {
-              alignSelf: 'stretch',
-              justifyContent: 'space-between',
-              borderBottomWidth: focused || errorText ? 1 : 0.5,
+              borderBottomWidth: focused || errorText ? 2 : 1,
               borderBottomColor: borderColor,
 
               flexDirection: 'column',
@@ -150,7 +97,7 @@ const Component: FC<EditTextProps & {theme: DoobooTheme}> = ({
           ],
           hovered: [
             {
-              borderBottomWidth: 0.5,
+              borderBottomWidth: 2,
               borderBottomColor: hoveredColor,
             },
             styles?.hovered,
@@ -175,8 +122,116 @@ const Component: FC<EditTextProps & {theme: DoobooTheme}> = ({
               paddingHorizontal: 10,
               paddingVertical: 10,
               fontSize: 14,
-              fontWeight: 'bold',
               color: !editable ? disableColor : textColor,
+            },
+            styles?.input,
+          ],
+          errorText: [
+            {
+              marginTop: 8,
+              paddingHorizontal: 10,
+              fontSize: 12,
+              color: errorColor,
+            },
+            styles?.errorText,
+          ],
+        }
+      : type === 'row'
+      ? {
+          container: [
+            {
+              alignSelf: 'stretch',
+              flexDirection: 'row',
+              alignItems: 'center',
+              justifyContent: 'space-between',
+              borderBottomWidth: focused || errorText ? 2 : 1,
+              borderBottomColor: borderColor,
+            },
+            styles?.container,
+          ],
+          hovered: [
+            {
+              borderBottomColor: hoveredColor,
+              borderBottomWidth: 2,
+            },
+            styles?.hovered,
+          ],
+          labelText: [
+            {
+              fontSize: 14,
+              color: labelColor,
+              marginRight: 2,
+            },
+            styles?.labelText,
+          ],
+          labelTextHovered: [
+            {
+              color: hoveredColor,
+            },
+            styles?.labelTextHovered,
+          ],
+          input: [
+            {
+              paddingVertical: 10,
+              paddingHorizontal: 8,
+              fontSize: 14,
+              flex: 1,
+              color: !editable ? disableColor : textColor,
+            },
+            styles?.input,
+          ],
+          errorText: [
+            {
+              marginTop: 4,
+              fontSize: 12,
+              color: errorColor,
+            },
+            styles?.errorText,
+          ],
+        }
+      : {
+          container: [
+            {
+              alignSelf: 'stretch',
+              justifyContent: 'space-between',
+              borderWidth: focused || errorText ? 2 : 1,
+              borderColor,
+
+              flexDirection: 'column',
+            },
+            styles?.container,
+          ],
+          hovered: [
+            {
+              borderWidth: 1,
+              borderColor: hoveredColor,
+            },
+            styles?.hovered,
+          ],
+          labelText: [
+            {
+              paddingHorizontal: 8,
+              marginTop: 6,
+              fontSize: 14,
+              color: labelColor,
+            },
+            styles?.labelText,
+          ],
+          labelTextHovered: [
+            {
+              paddingHorizontal: 4,
+              color: hoveredColor,
+            },
+            styles?.labelTextHovered,
+          ],
+          input: [
+            {
+              textAlignVertical: 'top',
+              paddingHorizontal: 10,
+              paddingVertical: 10,
+              fontSize: 14,
+              color: !editable ? disableColor : textColor,
+              height: 120,
             },
             styles?.input,
           ],
@@ -213,6 +268,8 @@ const Component: FC<EditTextProps & {theme: DoobooTheme}> = ({
               : focused
               ? focusColor
               : borderColor,
+          },
+          type !== 'boxed' && {
             borderBottomColor: !editable
               ? disableColor
               : hovered
@@ -245,7 +302,6 @@ const Component: FC<EditTextProps & {theme: DoobooTheme}> = ({
           </Text>
         ) : null}
         <TextInput
-          {...textInputProps}
           testID={testID}
           autoCapitalize={autoCapitalize}
           secureTextEntry={secureTextEntry}
@@ -264,12 +320,14 @@ const Component: FC<EditTextProps & {theme: DoobooTheme}> = ({
             setFocused(false);
             onBlur?.(e);
           }}
+          multiline={type === 'boxed'}
           value={value}
           placeholder={placeholder}
           placeholderTextColor={placeholderColor}
           onChange={onChange}
           onChangeText={onChangeText}
           onSubmitEditing={onSubmitEditing}
+          {...textInputProps}
         />
       </View>
       {editable ? (
