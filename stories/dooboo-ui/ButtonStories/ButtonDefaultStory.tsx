@@ -21,6 +21,12 @@ const Container = styled.View`
   flex-direction: column;
 `;
 
+const Hr = styled.View`
+  height: 1px;
+  width: 100%;
+  background-color: ${({theme}) => theme.placeholder};
+`;
+
 const ButtonDefault: FC = () => {
   const [facebookLoading, setFacebookLoading] = useState<boolean>(false);
   const [googleLoading, setGoogleLoading] = useState<boolean>(false);
@@ -43,7 +49,10 @@ const ButtonDefault: FC = () => {
           <Button type="warning" text="Warning" style={{padding: 8}} />
           <Button type="info" text="Info" style={{padding: 8}} />
         </View>
-        <Text style={{fontSize: 18, marginBottom: 8}}>Outlined Styles</Text>
+        <Hr />
+        <Text style={{fontSize: 18, marginTop: 24, marginBottom: 8}}>
+          Outlined Styles
+        </Text>
         <View
           style={{
             marginBottom: 40,
@@ -63,7 +72,10 @@ const ButtonDefault: FC = () => {
           <Button type="warning" text="Warning" outlined style={{padding: 8}} />
           <Button type="info" text="Info" outlined style={{padding: 8}} />
         </View>
-        <Text style={{fontSize: 18, marginBottom: 8}}>Aspect of sizes</Text>
+        <Hr />
+        <Text style={{fontSize: 18, marginBottom: 8, marginTop: 16}}>
+          Aspect of sizes
+        </Text>
         <View
           style={{
             marginBottom: 20,
@@ -92,12 +104,17 @@ const ButtonDefault: FC = () => {
             style={{padding: 8}}
           />
         </View>
+        <Hr />
+        <Text style={{fontSize: 18, marginTop: 16, marginBottom: 8}}>
+          Adding elements
+        </Text>
         <Button
           leftElement={
             <View style={{marginRight: 12}}>
               <Image style={{width: 20, height: 20}} source={IC_GOOGLE} />
             </View>
           }
+          outlined
           loading={googleLoading}
           style={{marginBottom: 20, marginTop: 30}}
           styles={{
@@ -121,6 +138,7 @@ const ButtonDefault: FC = () => {
         />
         <Button
           testID="btnFacebook"
+          outlined
           leftElement={
             <View
               style={{
