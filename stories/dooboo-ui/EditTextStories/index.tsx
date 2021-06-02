@@ -3,7 +3,6 @@ import React, {ReactElement} from 'react';
 import {ContainerDeco} from '../../../storybook/decorators';
 import EditTextColumn from './EditTextColumnStory';
 import EditTextRow from './EditTextRowStory';
-import EditTextRowWithTheme from './EditTextWithThemeStory';
 import {ThemeProvider} from '../../../main/theme';
 import {storiesOf} from '@storybook/react-native';
 
@@ -14,22 +13,27 @@ export default {
   title: 'EditText',
 };
 
-export const toStorybook1 = (): ReactElement => <EditTextColumn />;
-export const toStorybook2 = (): ReactElement => <EditTextRow />;
+export const columnStory = (): ReactElement => <EditTextColumn />;
+export const rowStory = (): ReactElement => <EditTextRow />;
 
-toStorybook1.story1 = {
+columnStory.light = {
   name: 'column (default) - light',
   notes: 'Default [EditText] with light mode.',
 };
 
-toStorybook1.story2 = {
+columnStory.dark = {
   name: 'column - dark',
   notes: 'Default [EditText] with dark mode.',
 };
 
-toStorybook2.story = {
-  name: 'row',
-  notes: '[EditText] aligned in row.',
+rowStory.light = {
+  name: 'row - light',
+  notes: '[EditText] in row.',
+};
+
+rowStory.dark = {
+  name: 'row - dark',
+  notes: '[EditText] in row with dark mode.',
 };
 
 /**
@@ -38,32 +42,46 @@ toStorybook2.story = {
 storiesOf('EditText', module)
   .addDecorator(ContainerDeco)
   .add(
-    toStorybook1.story1.name,
+    columnStory.light.name,
     () => (
       <ThemeProvider initialThemeType="light">
         <EditTextColumn />
       </ThemeProvider>
     ),
     {
-      notes: toStorybook1.story1.notes,
+      notes: columnStory.light.notes,
     },
   )
   .add(
-    toStorybook1.story2.name,
+    columnStory.dark.name,
     () => (
       <ThemeProvider initialThemeType="dark">
         <EditTextColumn />
       </ThemeProvider>
     ),
     {
-      notes: toStorybook1.story2.notes,
+      notes: columnStory.dark.notes,
     },
   )
-  .add(toStorybook2.story.name, () => <EditTextRow />, {
-    notes: toStorybook2.story.notes,
-  })
-  .add('with dark theme', () => (
-    <ThemeProvider initialThemeType="dark">
-      <EditTextRowWithTheme />
-    </ThemeProvider>
-  ));
+  .add(
+    rowStory.light.name,
+    () => (
+      <ThemeProvider initialThemeType="light">
+        <EditTextRow />
+      </ThemeProvider>
+    ),
+    {
+      notes: rowStory.light.notes,
+    },
+  )
+  .add(
+    rowStory.dark.name,
+    () => (
+      <ThemeProvider initialThemeType="dark">
+        <EditTextRow />
+      </ThemeProvider>
+    ),
+    {
+      notes: rowStory.light.notes,
+    },
+  );

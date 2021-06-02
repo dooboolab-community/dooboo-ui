@@ -81,22 +81,6 @@ const Component: FC<EditTextProps & {theme: DoobooTheme}> = ({
   const hoveredColor = theme.primary;
   const textColor = theme.text;
 
-  // return (
-  //   <TextInput
-  //     value={''}
-  //     placeholder={'Environment'}
-  //     placeholderTextColor="white"
-  //     style={{
-  //       marginTop: 20,
-  //       marginBottom: 52,
-  //       paddingHorizontal: 36,
-  //       color: 'white',
-  //     }}
-  //     // style={styles.input}
-  //     // underlineColorAndroid='rgba(0,0,0,0)'
-  //   />
-  // );
-
   const compositeStyles: Styles =
     type === 'row'
       ? {
@@ -122,7 +106,7 @@ const Component: FC<EditTextProps & {theme: DoobooTheme}> = ({
             {
               fontSize: 14,
               color: labelColor,
-              width: 100,
+              marginRight: 2,
             },
             styles?.labelText,
           ],
@@ -245,17 +229,17 @@ const Component: FC<EditTextProps & {theme: DoobooTheme}> = ({
             style={[
               compositeStyles.labelText,
               styles?.labelText,
-              editable && hovered
+              hovered
                 ? [compositeStyles.labelTextHovered, styles?.labelTextHovered]
-                : {
-                    color: !editable
-                      ? disableColor
-                      : errorText
+                : editable
+                ? {
+                    color: errorText
                       ? errorColor
                       : focused
                       ? focusColor
                       : disableColor,
-                  },
+                  }
+                : {color: disableColor},
             ]}>
             {labelText}
           </Text>

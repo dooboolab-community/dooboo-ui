@@ -1,6 +1,6 @@
 import {EditText, Hr, useTheme} from '../../../main';
 import React, {useState} from 'react';
-import {SafeAreaView, ScrollView, Text} from 'react-native';
+import {SafeAreaView, ScrollView, Text, View} from 'react-native';
 
 const EditTextColumn = (): React.ReactElement => {
   const {theme} = useTheme();
@@ -51,7 +51,7 @@ const EditTextColumn = (): React.ReactElement => {
         <EditText
           type="column"
           secureTextEntry={true}
-          labelText="Password"
+          labelText="password"
           placeholder="Write your password"
           value={password}
           onChangeText={(text) => onTextChanged('PASSWORD', text)}
@@ -69,7 +69,7 @@ const EditTextColumn = (): React.ReactElement => {
         </Text>
         <EditText
           type="column"
-          labelText="Disabled"
+          labelText="disabled"
           value="This is disabled"
           editable={false}
           style={{marginTop: 20, marginBottom: 40, paddingHorizontal: 36}}
@@ -91,6 +91,7 @@ const EditTextColumn = (): React.ReactElement => {
           style={{marginTop: 20, marginBottom: 40, paddingHorizontal: 36}}
           errorText="Error occurred!"
         />
+        <View style={{height: 300}} />
       </ScrollView>
     </SafeAreaView>
   );
