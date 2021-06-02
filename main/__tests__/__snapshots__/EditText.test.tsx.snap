@@ -20,7 +20,7 @@ exports[`[EditText] interactions !editable renders \`errorText\` 1`] = `
           Object {
             "alignSelf": "stretch",
             "borderBottomColor": "black",
-            "borderBottomWidth": 1,
+            "borderBottomWidth": 2,
             "flexDirection": "column",
             "justifyContent": "space-between",
           },
@@ -28,8 +28,10 @@ exports[`[EditText] interactions !editable renders \`errorText\` 1`] = `
         ],
         false,
         Object {
-          "borderBottomColor": "#C4C4C4",
           "borderColor": "#C4C4C4",
+        },
+        Object {
+          "borderBottomColor": "#C4C4C4",
         },
       ]
     }
@@ -58,6 +60,7 @@ exports[`[EditText] interactions !editable renders \`errorText\` 1`] = `
       allowFontScaling={true}
       autoCapitalize="none"
       editable={false}
+      multiline={false}
       onBlur={[Function]}
       onFocus={[Function]}
       placeholderTextColor="#6D6D6D"
@@ -69,7 +72,6 @@ exports[`[EditText] interactions !editable renders \`errorText\` 1`] = `
             Object {
               "color": "#C4C4C4",
               "fontSize": 14,
-              "fontWeight": "bold",
               "paddingHorizontal": 10,
               "paddingVertical": 10,
             },
@@ -106,7 +108,7 @@ exports[`[EditText] interactions !editable renders \`labelText\` 1`] = `
           Object {
             "alignSelf": "stretch",
             "borderBottomColor": "black",
-            "borderBottomWidth": 0.5,
+            "borderBottomWidth": 1,
             "flexDirection": "column",
             "justifyContent": "space-between",
           },
@@ -114,8 +116,10 @@ exports[`[EditText] interactions !editable renders \`labelText\` 1`] = `
         ],
         false,
         Object {
-          "borderBottomColor": "#C4C4C4",
           "borderColor": "#C4C4C4",
+        },
+        Object {
+          "borderBottomColor": "#C4C4C4",
         },
       ]
     }
@@ -144,6 +148,7 @@ exports[`[EditText] interactions !editable renders \`labelText\` 1`] = `
       allowFontScaling={true}
       autoCapitalize="none"
       editable={false}
+      multiline={false}
       onBlur={[Function]}
       onFocus={[Function]}
       placeholderTextColor="#6D6D6D"
@@ -155,7 +160,6 @@ exports[`[EditText] interactions !editable renders \`labelText\` 1`] = `
             Object {
               "color": "#C4C4C4",
               "fontSize": 14,
-              "fontWeight": "bold",
               "paddingHorizontal": 10,
               "paddingVertical": 10,
             },
@@ -192,7 +196,7 @@ exports[`[EditText] interactions !editable renders without crashing 1`] = `
           Object {
             "alignSelf": "stretch",
             "borderBottomColor": "black",
-            "borderBottomWidth": 0.5,
+            "borderBottomWidth": 1,
             "flexDirection": "column",
             "justifyContent": "space-between",
           },
@@ -200,8 +204,10 @@ exports[`[EditText] interactions !editable renders without crashing 1`] = `
         ],
         false,
         Object {
-          "borderBottomColor": "#C4C4C4",
           "borderColor": "#C4C4C4",
+        },
+        Object {
+          "borderBottomColor": "#C4C4C4",
         },
       ]
     }
@@ -210,6 +216,7 @@ exports[`[EditText] interactions !editable renders without crashing 1`] = `
       allowFontScaling={true}
       autoCapitalize="none"
       editable={false}
+      multiline={false}
       onBlur={[Function]}
       onFocus={[Function]}
       placeholderTextColor="#6D6D6D"
@@ -221,7 +228,6 @@ exports[`[EditText] interactions !editable renders without crashing 1`] = `
             Object {
               "color": "#C4C4C4",
               "fontSize": 14,
-              "fontWeight": "bold",
               "paddingHorizontal": 10,
               "paddingVertical": 10,
             },
@@ -258,7 +264,7 @@ exports[`[EditText] interactions Type: [column] renders custom styles without cr
           Object {
             "alignSelf": "stretch",
             "borderBottomColor": "black",
-            "borderBottomWidth": 0.5,
+            "borderBottomWidth": 1,
             "flexDirection": "column",
             "justifyContent": "space-between",
           },
@@ -266,8 +272,10 @@ exports[`[EditText] interactions Type: [column] renders custom styles without cr
         ],
         false,
         Object {
-          "borderBottomColor": "black",
           "borderColor": "black",
+        },
+        Object {
+          "borderBottomColor": "black",
         },
       ]
     }
@@ -276,6 +284,7 @@ exports[`[EditText] interactions Type: [column] renders custom styles without cr
       allowFontScaling={true}
       autoCapitalize="none"
       editable={true}
+      multiline={false}
       onBlur={[Function]}
       onFocus={[Function]}
       placeholderTextColor="#6D6D6D"
@@ -287,7 +296,6 @@ exports[`[EditText] interactions Type: [column] renders custom styles without cr
             Object {
               "color": "black",
               "fontSize": 14,
-              "fontWeight": "bold",
               "paddingHorizontal": 10,
               "paddingVertical": 10,
             },
@@ -345,7 +353,7 @@ exports[`[EditText] interactions Type: [column] renders without crashing 1`] = `
           Object {
             "alignSelf": "stretch",
             "borderBottomColor": "black",
-            "borderBottomWidth": 0.5,
+            "borderBottomWidth": 1,
             "flexDirection": "column",
             "justifyContent": "space-between",
           },
@@ -353,8 +361,10 @@ exports[`[EditText] interactions Type: [column] renders without crashing 1`] = `
         ],
         false,
         Object {
-          "borderBottomColor": "black",
           "borderColor": "black",
+        },
+        Object {
+          "borderBottomColor": "black",
         },
       ]
     }
@@ -363,6 +373,7 @@ exports[`[EditText] interactions Type: [column] renders without crashing 1`] = `
       allowFontScaling={true}
       autoCapitalize="none"
       editable={true}
+      multiline={false}
       onBlur={[Function]}
       onFocus={[Function]}
       placeholderTextColor="#6D6D6D"
@@ -374,7 +385,6 @@ exports[`[EditText] interactions Type: [column] renders without crashing 1`] = `
             Object {
               "color": "black",
               "fontSize": 14,
-              "fontWeight": "bold",
               "paddingHorizontal": 10,
               "paddingVertical": 10,
             },
@@ -430,19 +440,20 @@ exports[`[EditText] interactions Type: [row] - default should render without cra
       Array [
         Array [
           Object {
-            "alignItems": "center",
             "alignSelf": "stretch",
             "borderBottomColor": "black",
-            "borderBottomWidth": 0.5,
-            "flexDirection": "row",
+            "borderBottomWidth": 1,
+            "flexDirection": "column",
             "justifyContent": "space-between",
           },
           undefined,
         ],
         false,
         Object {
-          "borderBottomColor": "black",
           "borderColor": "black",
+        },
+        Object {
+          "borderBottomColor": "black",
         },
       ]
     }
@@ -451,6 +462,7 @@ exports[`[EditText] interactions Type: [row] - default should render without cra
       allowFontScaling={true}
       autoCapitalize="none"
       editable={true}
+      multiline={false}
       onBlur={[Function]}
       onFocus={[Function]}
       placeholderTextColor="#6D6D6D"
@@ -460,10 +472,9 @@ exports[`[EditText] interactions Type: [row] - default should render without cra
         Array [
           Array [
             Object {
-              "flex": 1,
+              "color": "black",
               "fontSize": 14,
-              "fontWeight": "bold",
-              "paddingHorizontal": 8,
+              "paddingHorizontal": 10,
               "paddingVertical": 10,
             },
             undefined,
@@ -483,7 +494,8 @@ exports[`[EditText] interactions Type: [row] - default should render without cra
           Object {
             "color": "#FF002E",
             "fontSize": 12,
-            "marginTop": 4,
+            "marginTop": 8,
+            "paddingHorizontal": 10,
           },
           undefined,
         ],
@@ -519,7 +531,7 @@ exports[`[EditText] interactions web renders without crashing 1`] = `
           Object {
             "alignSelf": "stretch",
             "borderBottomColor": "black",
-            "borderBottomWidth": 0.5,
+            "borderBottomWidth": 1,
             "flexDirection": "column",
             "justifyContent": "space-between",
           },
@@ -527,8 +539,10 @@ exports[`[EditText] interactions web renders without crashing 1`] = `
         ],
         false,
         Object {
-          "borderBottomColor": "black",
           "borderColor": "black",
+        },
+        Object {
+          "borderBottomColor": "black",
         },
       ]
     }
@@ -537,6 +551,7 @@ exports[`[EditText] interactions web renders without crashing 1`] = `
       allowFontScaling={true}
       autoCapitalize="none"
       editable={true}
+      multiline={false}
       onBlur={[Function]}
       onFocus={[Function]}
       placeholderTextColor="#6D6D6D"
@@ -548,7 +563,6 @@ exports[`[EditText] interactions web renders without crashing 1`] = `
             Object {
               "color": "black",
               "fontSize": 14,
-              "fontWeight": "bold",
               "paddingHorizontal": 10,
               "paddingVertical": 10,
             },
