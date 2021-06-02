@@ -43,9 +43,12 @@ describe('[Button]', () => {
         }),
       );
 
-      // expect(
-      //   testingLib.getByTestId('loading-view').props.style[4],
-      // ).toBeTruthy();
+      const loadingView = testingLib.getByTestId('loading-view');
+
+      expect(loadingView.props.style[1][3]).toEqual({
+        backgroundColor: '#C4C4C4',
+        borderColor: '#C4C4C4',
+      });
     });
 
     it('should render disabled button style when disabled', () => {
@@ -61,12 +64,11 @@ describe('[Button]', () => {
         }),
       );
 
-      // const disabledButtonStyle = testingLib.getByTestId('loading-view').props
-      //   .style[4];
+      const loadingView = testingLib.getByTestId('loading-view');
 
-      // expect(disabledButtonStyle).toEqual({
-      //   borderColor: 'red',
-      // });
+      expect(loadingView.props.style[1][3]).toEqual({
+        borderColor: 'red',
+      });
     });
 
     it('should render custom container', () => {
@@ -82,7 +84,7 @@ describe('[Button]', () => {
         }),
       );
 
-      // expect(testingLib.getByTestId('loading-view')).toBeTruthy();
+      expect(testingLib.getByTestId('loading-view')).toBeTruthy();
     });
   });
 
@@ -111,12 +113,12 @@ describe('[Button]', () => {
         }),
       );
 
-      // const button = testingLib.getByTestId('button-container');
-      // const disabledButtonStyle = button.props.style[3];
+      const button = testingLib.getByTestId('button-container');
+      const disabledButtonStyle = button.props.style[1][2];
 
-      // expect(disabledButtonStyle).toEqual({
-      //   backgroundColor: 'yellow',
-      // });
+      expect(disabledButtonStyle).toEqual({
+        backgroundColor: 'yellow',
+      });
     });
 
     it('should render container', () => {
@@ -162,14 +164,12 @@ describe('[Button]', () => {
         }),
       );
 
-      // const loading = await waitFor(() =>
-      //   testingLib.getByTestId('loading-view'),
-      // );
+      const loadingView = testingLib.getByTestId('loading-view');
 
-      // const buttonLayoutStyle = loading.props.style[2];
+      const buttonLayoutStyle = loadingView.props.style[1][1];
 
-      // expect(buttonLayoutStyle.width).toEqual(375);
-      // expect(buttonLayoutStyle.height).toEqual(667);
+      expect(buttonLayoutStyle.width).toEqual(375);
+      expect(buttonLayoutStyle.height).toEqual(667);
     });
   });
 
