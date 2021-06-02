@@ -32,11 +32,11 @@ const EditTextRow = (): React.ReactElement => {
           Default
         </Text>
         <EditText
-          type="row"
+          type="boxed"
           placeholder="your@email.com"
           value={email}
           onChangeText={(text) => onTextChanged('EMAIL', text)}
-          style={{marginTop: 20, marginBottom: 52, paddingHorizontal: 36}}
+          style={{marginTop: 20, paddingHorizontal: 36}}
         />
         <Text
           style={{
@@ -48,13 +48,12 @@ const EditTextRow = (): React.ReactElement => {
           With label
         </Text>
         <EditText
-          type="row"
-          secureTextEntry={true}
-          labelText="password"
-          placeholder="Write your password"
+          type="boxed"
+          labelText="Any label"
+          placeholder="Write anything"
           value={password}
           onChangeText={(text) => onTextChanged('PASSWORD', text)}
-          style={{marginTop: 20, marginBottom: 40, paddingHorizontal: 36}}
+          style={{marginTop: 20, paddingHorizontal: 36}}
         />
         <Text
           style={{
@@ -66,12 +65,12 @@ const EditTextRow = (): React.ReactElement => {
           Disabled
         </Text>
         <EditText
-          type="row"
+          type="boxed"
           secureTextEntry={true}
           labelText="disabled"
           value="This is disabled"
           editable={false}
-          style={{marginTop: 20, marginBottom: 40, paddingHorizontal: 36}}
+          style={{marginTop: 20, paddingHorizontal: 36}}
         />
         <Text
           style={{
@@ -83,10 +82,10 @@ const EditTextRow = (): React.ReactElement => {
           With error
         </Text>
         <EditText
-          type="row"
+          type="boxed"
           labelText="Error example"
           value="any value"
-          style={{marginTop: 20, marginBottom: 40, paddingHorizontal: 36}}
+          style={{marginTop: 20, paddingHorizontal: 36}}
           errorText="Error occurred!"
         />
         <View style={{height: 300}} />

@@ -1,6 +1,7 @@
 import React, {ReactElement} from 'react';
 
 import {ContainerDeco} from '../../../storybook/decorators';
+import EditTextBoxed from './EditTextBoxedStory';
 import EditTextColumn from './EditTextColumnStory';
 import EditTextRow from './EditTextRowStory';
 import {ThemeProvider} from '../../../main/theme';
@@ -15,6 +16,7 @@ export default {
 
 export const columnStory = (): ReactElement => <EditTextColumn />;
 export const rowStory = (): ReactElement => <EditTextRow />;
+export const boxStory = (): ReactElement => <EditTextBoxed />;
 
 columnStory.light = {
   name: 'column (default) - light',
@@ -34,6 +36,16 @@ rowStory.light = {
 rowStory.dark = {
   name: 'row - dark',
   notes: '[EditText] in row with dark mode.',
+};
+
+boxStory.light = {
+  name: 'boxed - light',
+  notes: '[EditText] boxed',
+};
+
+boxStory.dark = {
+  name: 'boxed - dark',
+  notes: '[EditText] boxed',
 };
 
 /**
@@ -83,5 +95,27 @@ storiesOf('EditText', module)
     ),
     {
       notes: rowStory.light.notes,
+    },
+  )
+  .add(
+    boxStory.light.name,
+    () => (
+      <ThemeProvider initialThemeType="light">
+        <EditTextBoxed />
+      </ThemeProvider>
+    ),
+    {
+      notes: boxStory.light.notes,
+    },
+  )
+  .add(
+    boxStory.dark.name,
+    () => (
+      <ThemeProvider initialThemeType="dark">
+        <EditTextBoxed />
+      </ThemeProvider>
+    ),
+    {
+      notes: boxStory.light.notes,
     },
   );
