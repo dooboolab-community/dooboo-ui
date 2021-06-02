@@ -244,96 +244,7 @@ exports[`[EditText] interactions !editable renders without crashing 1`] = `
 </View>
 `;
 
-exports[`[EditText] interactions Type: [column] renders custom styles without crashing 1`] = `
-<View
-  style={
-    Array [
-      Object {
-        "alignSelf": "stretch",
-        "flexDirection": "column",
-      },
-      undefined,
-    ]
-  }
-  testID="container-id"
->
-  <View
-    style={
-      Array [
-        Array [
-          Object {
-            "alignSelf": "stretch",
-            "borderBottomColor": "black",
-            "borderBottomWidth": 1,
-            "flexDirection": "column",
-            "justifyContent": "space-between",
-          },
-          Object {},
-        ],
-        false,
-        Object {
-          "borderColor": "black",
-        },
-        Object {
-          "borderBottomColor": "black",
-        },
-      ]
-    }
-  >
-    <TextInput
-      allowFontScaling={true}
-      autoCapitalize="none"
-      editable={true}
-      multiline={false}
-      onBlur={[Function]}
-      onFocus={[Function]}
-      placeholderTextColor="#6D6D6D"
-      rejectResponderTermination={true}
-      secureTextEntry={false}
-      style={
-        Array [
-          Array [
-            Object {
-              "color": "black",
-              "fontSize": 14,
-              "paddingHorizontal": 10,
-              "paddingVertical": 10,
-            },
-            Object {},
-          ],
-          Object {},
-          false,
-        ]
-      }
-      underlineColorAndroid="transparent"
-      value=""
-    />
-  </View>
-  <Text
-    style={
-      Array [
-        Array [
-          Object {
-            "color": "#FF002E",
-            "fontSize": 12,
-            "marginTop": 8,
-            "paddingHorizontal": 10,
-          },
-          Object {},
-        ],
-        Object {},
-        Object {
-          "color": "#FF002E",
-        },
-      ]
-    }
-  >
-    
-  </Text>
-</View>
-`;
-
-exports[`[EditText] interactions Type: [column] renders without crashing 1`] = `
+exports[`[EditText] interactions Type: [boxed] should render \`!editable\` status 1`] = `
 <View
   style={
     Array [
@@ -422,7 +333,541 @@ exports[`[EditText] interactions Type: [column] renders without crashing 1`] = `
 </View>
 `;
 
-exports[`[EditText] interactions Type: [row] - default should render without crashing 1`] = `
+exports[`[EditText] interactions Type: [boxed] should render \`errorText\` 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "alignSelf": "stretch",
+        "flexDirection": "column",
+      },
+      undefined,
+    ]
+  }
+  testID="container-id"
+>
+  <View
+    style={
+      Array [
+        Array [
+          Object {
+            "alignSelf": "stretch",
+            "borderBottomColor": "black",
+            "borderBottomWidth": 1,
+            "flexDirection": "column",
+            "justifyContent": "space-between",
+          },
+          undefined,
+        ],
+        false,
+        Object {
+          "borderColor": "black",
+        },
+        Object {
+          "borderBottomColor": "black",
+        },
+      ]
+    }
+  >
+    <TextInput
+      allowFontScaling={true}
+      autoCapitalize="none"
+      editable={true}
+      multiline={false}
+      onBlur={[Function]}
+      onFocus={[Function]}
+      placeholderTextColor="#6D6D6D"
+      rejectResponderTermination={true}
+      secureTextEntry={false}
+      style={
+        Array [
+          Array [
+            Object {
+              "color": "black",
+              "fontSize": 14,
+              "paddingHorizontal": 10,
+              "paddingVertical": 10,
+            },
+            undefined,
+          ],
+          undefined,
+          false,
+        ]
+      }
+      underlineColorAndroid="transparent"
+      value=""
+    />
+  </View>
+  <Text
+    style={
+      Array [
+        Array [
+          Object {
+            "color": "#FF002E",
+            "fontSize": 12,
+            "marginTop": 8,
+            "paddingHorizontal": 10,
+          },
+          undefined,
+        ],
+        undefined,
+        Object {
+          "color": "#FF002E",
+        },
+      ]
+    }
+  >
+    
+  </Text>
+</View>
+`;
+
+exports[`[EditText] interactions Type: [boxed] should render without crashing 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "alignSelf": "stretch",
+        "flexDirection": "column",
+      },
+      undefined,
+    ]
+  }
+  testID="container-id"
+>
+  <View
+    style={
+      Array [
+        Array [
+          Object {
+            "alignSelf": "stretch",
+            "borderBottomColor": "black",
+            "borderBottomWidth": 1,
+            "flexDirection": "column",
+            "justifyContent": "space-between",
+          },
+          undefined,
+        ],
+        false,
+        Object {
+          "borderColor": "black",
+        },
+        Object {
+          "borderBottomColor": "black",
+        },
+      ]
+    }
+  >
+    <TextInput
+      allowFontScaling={true}
+      autoCapitalize="none"
+      editable={true}
+      multiline={false}
+      onBlur={[Function]}
+      onFocus={[Function]}
+      placeholderTextColor="#6D6D6D"
+      rejectResponderTermination={true}
+      secureTextEntry={false}
+      style={
+        Array [
+          Array [
+            Object {
+              "color": "black",
+              "fontSize": 14,
+              "paddingHorizontal": 10,
+              "paddingVertical": 10,
+            },
+            undefined,
+          ],
+          undefined,
+          false,
+        ]
+      }
+      underlineColorAndroid="transparent"
+      value=""
+    />
+  </View>
+  <Text
+    style={
+      Array [
+        Array [
+          Object {
+            "color": "#FF002E",
+            "fontSize": 12,
+            "marginTop": 8,
+            "paddingHorizontal": 10,
+          },
+          undefined,
+        ],
+        undefined,
+        Object {
+          "color": "#FF002E",
+        },
+      ]
+    }
+  >
+    
+  </Text>
+</View>
+`;
+
+exports[`[EditText] interactions Type: [column] - default renders custom styles without crashing 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "alignSelf": "stretch",
+        "flexDirection": "column",
+      },
+      undefined,
+    ]
+  }
+  testID="container-id"
+>
+  <View
+    style={
+      Array [
+        Array [
+          Object {
+            "alignSelf": "stretch",
+            "borderBottomColor": "black",
+            "borderBottomWidth": 1,
+            "flexDirection": "column",
+            "justifyContent": "space-between",
+          },
+          Object {},
+        ],
+        false,
+        Object {
+          "borderColor": "black",
+        },
+        Object {
+          "borderBottomColor": "black",
+        },
+      ]
+    }
+  >
+    <TextInput
+      allowFontScaling={true}
+      autoCapitalize="none"
+      editable={true}
+      multiline={false}
+      onBlur={[Function]}
+      onFocus={[Function]}
+      placeholderTextColor="#6D6D6D"
+      rejectResponderTermination={true}
+      secureTextEntry={false}
+      style={
+        Array [
+          Array [
+            Object {
+              "color": "black",
+              "fontSize": 14,
+              "paddingHorizontal": 10,
+              "paddingVertical": 10,
+            },
+            Object {},
+          ],
+          Object {},
+          false,
+        ]
+      }
+      underlineColorAndroid="transparent"
+      value=""
+    />
+  </View>
+  <Text
+    style={
+      Array [
+        Array [
+          Object {
+            "color": "#FF002E",
+            "fontSize": 12,
+            "marginTop": 8,
+            "paddingHorizontal": 10,
+          },
+          Object {},
+        ],
+        Object {},
+        Object {
+          "color": "#FF002E",
+        },
+      ]
+    }
+  >
+    
+  </Text>
+</View>
+`;
+
+exports[`[EditText] interactions Type: [column] - default renders without crashing 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "alignSelf": "stretch",
+        "flexDirection": "column",
+      },
+      undefined,
+    ]
+  }
+  testID="container-id"
+>
+  <View
+    style={
+      Array [
+        Array [
+          Object {
+            "alignSelf": "stretch",
+            "borderBottomColor": "black",
+            "borderBottomWidth": 1,
+            "flexDirection": "column",
+            "justifyContent": "space-between",
+          },
+          undefined,
+        ],
+        false,
+        Object {
+          "borderColor": "black",
+        },
+        Object {
+          "borderBottomColor": "black",
+        },
+      ]
+    }
+  >
+    <TextInput
+      allowFontScaling={true}
+      autoCapitalize="none"
+      editable={true}
+      multiline={false}
+      onBlur={[Function]}
+      onFocus={[Function]}
+      placeholderTextColor="#6D6D6D"
+      rejectResponderTermination={true}
+      secureTextEntry={false}
+      style={
+        Array [
+          Array [
+            Object {
+              "color": "black",
+              "fontSize": 14,
+              "paddingHorizontal": 10,
+              "paddingVertical": 10,
+            },
+            undefined,
+          ],
+          undefined,
+          false,
+        ]
+      }
+      underlineColorAndroid="transparent"
+      value=""
+    />
+  </View>
+  <Text
+    style={
+      Array [
+        Array [
+          Object {
+            "color": "#FF002E",
+            "fontSize": 12,
+            "marginTop": 8,
+            "paddingHorizontal": 10,
+          },
+          undefined,
+        ],
+        undefined,
+        Object {
+          "color": "#FF002E",
+        },
+      ]
+    }
+  >
+    
+  </Text>
+</View>
+`;
+
+exports[`[EditText] interactions Type: [row] should render \`!editable\` status 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "alignSelf": "stretch",
+        "flexDirection": "column",
+      },
+      undefined,
+    ]
+  }
+  testID="container-id"
+>
+  <View
+    style={
+      Array [
+        Array [
+          Object {
+            "alignSelf": "stretch",
+            "borderBottomColor": "black",
+            "borderBottomWidth": 1,
+            "flexDirection": "column",
+            "justifyContent": "space-between",
+          },
+          undefined,
+        ],
+        false,
+        Object {
+          "borderColor": "black",
+        },
+        Object {
+          "borderBottomColor": "black",
+        },
+      ]
+    }
+  >
+    <TextInput
+      allowFontScaling={true}
+      autoCapitalize="none"
+      editable={true}
+      multiline={false}
+      onBlur={[Function]}
+      onFocus={[Function]}
+      placeholderTextColor="#6D6D6D"
+      rejectResponderTermination={true}
+      secureTextEntry={false}
+      style={
+        Array [
+          Array [
+            Object {
+              "color": "black",
+              "fontSize": 14,
+              "paddingHorizontal": 10,
+              "paddingVertical": 10,
+            },
+            undefined,
+          ],
+          undefined,
+          false,
+        ]
+      }
+      underlineColorAndroid="transparent"
+      value=""
+    />
+  </View>
+  <Text
+    style={
+      Array [
+        Array [
+          Object {
+            "color": "#FF002E",
+            "fontSize": 12,
+            "marginTop": 8,
+            "paddingHorizontal": 10,
+          },
+          undefined,
+        ],
+        undefined,
+        Object {
+          "color": "#FF002E",
+        },
+      ]
+    }
+  >
+    
+  </Text>
+</View>
+`;
+
+exports[`[EditText] interactions Type: [row] should render \`errorText\` 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "alignSelf": "stretch",
+        "flexDirection": "column",
+      },
+      undefined,
+    ]
+  }
+  testID="container-id"
+>
+  <View
+    style={
+      Array [
+        Array [
+          Object {
+            "alignSelf": "stretch",
+            "borderBottomColor": "black",
+            "borderBottomWidth": 1,
+            "flexDirection": "column",
+            "justifyContent": "space-between",
+          },
+          undefined,
+        ],
+        false,
+        Object {
+          "borderColor": "black",
+        },
+        Object {
+          "borderBottomColor": "black",
+        },
+      ]
+    }
+  >
+    <TextInput
+      allowFontScaling={true}
+      autoCapitalize="none"
+      editable={true}
+      multiline={false}
+      onBlur={[Function]}
+      onFocus={[Function]}
+      placeholderTextColor="#6D6D6D"
+      rejectResponderTermination={true}
+      secureTextEntry={false}
+      style={
+        Array [
+          Array [
+            Object {
+              "color": "black",
+              "fontSize": 14,
+              "paddingHorizontal": 10,
+              "paddingVertical": 10,
+            },
+            undefined,
+          ],
+          undefined,
+          false,
+        ]
+      }
+      underlineColorAndroid="transparent"
+      value=""
+    />
+  </View>
+  <Text
+    style={
+      Array [
+        Array [
+          Object {
+            "color": "#FF002E",
+            "fontSize": 12,
+            "marginTop": 8,
+            "paddingHorizontal": 10,
+          },
+          undefined,
+        ],
+        undefined,
+        Object {
+          "color": "#FF002E",
+        },
+      ]
+    }
+  >
+    
+  </Text>
+</View>
+`;
+
+exports[`[EditText] interactions Type: [row] should render without crashing 1`] = `
 <View
   style={
     Array [
