@@ -35,6 +35,7 @@ const ButtonContainer = styled.View<{
   type: ButtonType;
   size?: ButtonSize;
   outlined?: boolean;
+  disabled?: boolean;
 }>`
   align-self: stretch;
   padding: ${({size}) =>
@@ -45,8 +46,10 @@ const ButtonContainer = styled.View<{
       : '10px 20px'};
   border-radius: ${({size}) => (size === 'large' ? '24px' : '20px')};
   border-width: ${({outlined}) => (outlined ? '1px' : 0)};
-  background-color: ${({theme, type, outlined}) =>
-    outlined
+  background-color: ${({theme, type, outlined, disabled}) =>
+    disabled
+      ? undefined
+      : outlined
       ? theme.background
       : type === 'info'
       ? theme.info
@@ -57,8 +60,10 @@ const ButtonContainer = styled.View<{
       : type === 'warning'
       ? theme.warning
       : theme.primary};
-  border-color: ${({theme, type}) =>
-    type === 'info'
+  border-color: ${({theme, type, disabled}) =>
+    disabled
+      ? undefined
+      : type === 'info'
       ? theme.info
       : type === 'secondary'
       ? theme.secondary
@@ -115,24 +120,25 @@ const StyledButton: FC<ButtonProps & {theme: DoobooTheme}> = ({
   const hovered = useHover(ref);
   const [layout, setLayout] = useState<LayoutRectangle>();
 
-  const mainColor =
-    type === 'info'
-      ? theme.info
-      : type === 'secondary'
-      ? theme.secondary
-      : type === 'danger'
-      ? theme.danger
-      : type === 'warning'
-      ? theme.warning
-      : theme.primary;
+  const mainColor = disabled
+    ? theme.disabled
+    : type === 'info'
+    ? theme.info
+    : type === 'secondary'
+    ? theme.secondary
+    : type === 'danger'
+    ? theme.danger
+    : type === 'warning'
+    ? theme.warning
+    : theme.primary;
 
   const compositeStyles: Styles = {
     disabledButton: {
-      backgroundColor: theme.disabled,
+      backgroundColor: !outlined ? theme.disabled : theme.background,
       borderColor: theme.disabled,
     },
     disabledText: {
-      color: theme.disabled,
+      color: !outlined ? theme.background : theme.textDisabled,
     },
     hovered: {
       shadowColor: 'black',
@@ -163,6 +169,7 @@ const StyledButton: FC<ButtonProps & {theme: DoobooTheme}> = ({
       {loading ? (
         <ButtonContainer
           testID="loading-view"
+          disabled
           style={[
             compositeStyles.container,
             {
@@ -188,6 +195,7 @@ const StyledButton: FC<ButtonProps & {theme: DoobooTheme}> = ({
           onLayout={(e) => setLayout(e.nativeEvent.layout)}
           type={type}
           size={size}
+          disabled={disabled}
           outlined={outlined}>
           {leftElement}
           <TypographyInverted.Heading3

@@ -1,8 +1,8 @@
 import React, {ReactElement} from 'react';
-import {ThemeProvider, ThemeType} from '../../../main/theme';
 
 import ButtonDefault from './ButtonDefaultStory';
 import {ContainerDeco} from '../../../storybook/decorators';
+import {ThemeProvider} from '../../../main/theme';
 import {storiesOf} from '@storybook/react-native';
 
 /**
