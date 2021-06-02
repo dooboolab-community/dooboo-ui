@@ -1,4 +1,5 @@
 export * from './Typography';
+export * from './Hr';
 export * from './Button';
 export * from './ButtonGroup';
 export * from './EditText';

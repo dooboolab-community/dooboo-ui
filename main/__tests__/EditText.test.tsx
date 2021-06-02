@@ -277,6 +277,53 @@ describe('[EditText]', () => {
       });
     });
 
+    describe('!editable', () => {
+      it('renders without crashing', () => {
+        testingLib = render(
+          component({
+            type: 'column',
+            editable: false,
+          }),
+        );
+
+        const json = testingLib.toJSON();
+
+        expect(json).toMatchSnapshot();
+        expect(json).toBeTruthy();
+      });
+
+      it('renders `labelText`', () => {
+        testingLib = render(
+          component({
+            type: 'column',
+            editable: false,
+            labelText: 'label',
+          }),
+        );
+
+        const json = testingLib.toJSON();
+
+        expect(json).toMatchSnapshot();
+        expect(json).toBeTruthy();
+      });
+
+      it('renders `errorText`', () => {
+        testingLib = render(
+          component({
+            type: 'column',
+            editable: false,
+            labelText: 'label',
+            errorText: 'error',
+          }),
+        );
+
+        const json = testingLib.toJSON();
+
+        expect(json).toMatchSnapshot();
+        expect(json).toBeTruthy();
+      });
+    });
+
     //? Below tests is emitting console error but this is expeted
     describe('web', () => {
       beforeAll(() => {
