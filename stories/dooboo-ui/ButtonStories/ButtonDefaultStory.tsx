@@ -1,9 +1,9 @@
+import {Button, Hr} from '../../../main';
 import {IC_FACEBOOK, IC_GOOGLE} from '../../Icon';
 import {Image, Text, View} from 'react-native';
 import React, {useState} from 'react';
 import styled, {css} from '@emotion/native';
 
-import {Button} from '../../../main';
 import type {FC} from 'react';
 import {action} from '@storybook/addon-actions';
 
@@ -19,12 +19,6 @@ const Container = styled.View`
   margin-top: 20px;
   margin-bottom: 20px;
   flex-direction: column;
-`;
-
-const Hr = styled.View`
-  height: 1px;
-  width: 100%;
-  background-color: ${({theme}) => theme.placeholder};
 `;
 
 const ButtonDefault: FC = () => {

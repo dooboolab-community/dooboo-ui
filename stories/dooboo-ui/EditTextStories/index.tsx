@@ -17,9 +17,14 @@ export default {
 export const toStorybook1 = (): ReactElement => <EditTextColumn />;
 export const toStorybook2 = (): ReactElement => <EditTextRow />;
 
-toStorybook1.story = {
-  name: 'column (default)',
-  notes: 'Default [EditText] aligned in column.',
+toStorybook1.story1 = {
+  name: 'column (default) - light',
+  notes: 'Default [EditText] with light mode.',
+};
+
+toStorybook1.story2 = {
+  name: 'column - dark',
+  notes: 'Default [EditText] with dark mode.',
 };
 
 toStorybook2.story = {
@@ -33,14 +38,25 @@ toStorybook2.story = {
 storiesOf('EditText', module)
   .addDecorator(ContainerDeco)
   .add(
-    toStorybook1.story.name,
+    toStorybook1.story1.name,
     () => (
       <ThemeProvider initialThemeType="light">
         <EditTextColumn />
       </ThemeProvider>
     ),
     {
-      notes: toStorybook1.story.notes,
+      notes: toStorybook1.story1.notes,
+    },
+  )
+  .add(
+    toStorybook1.story2.name,
+    () => (
+      <ThemeProvider initialThemeType="dark">
+        <EditTextColumn />
+      </ThemeProvider>
+    ),
+    {
+      notes: toStorybook1.story2.notes,
     },
   )
   .add(toStorybook2.story.name, () => <EditTextRow />, {
