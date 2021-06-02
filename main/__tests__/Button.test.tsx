@@ -8,6 +8,7 @@ import type {ReactElement} from 'react';
 import type {RenderAPI} from '@testing-library/react-native';
 import {Text} from 'react-native';
 import {createComponent} from '../../test/testUtils';
+import {light} from '../theme/colors';
 
 let testingLib: RenderAPI;
 
@@ -43,9 +44,12 @@ describe('[Button]', () => {
         }),
       );
 
-      // expect(
-      //   testingLib.getByTestId('loading-view').props.style[4],
-      // ).toBeTruthy();
+      const loadingView = testingLib.getByTestId('loading-view');
+
+      expect(loadingView.props.style[1][3]).toEqual({
+        backgroundColor: '#C4C4C4',
+        borderColor: '#C4C4C4',
+      });
     });
 
     it('should render disabled button style when disabled', () => {
@@ -61,12 +65,11 @@ describe('[Button]', () => {
         }),
       );
 
-      // const disabledButtonStyle = testingLib.getByTestId('loading-view').props
-      //   .style[4];
+      const loadingView = testingLib.getByTestId('loading-view');
 
-      // expect(disabledButtonStyle).toEqual({
-      //   borderColor: 'red',
-      // });
+      expect(loadingView.props.style[1][3]).toEqual({
+        borderColor: 'red',
+      });
     });
 
     it('should render custom container', () => {
@@ -82,7 +85,7 @@ describe('[Button]', () => {
         }),
       );
 
-      // expect(testingLib.getByTestId('loading-view')).toBeTruthy();
+      expect(testingLib.getByTestId('loading-view')).toBeTruthy();
     });
   });
 
@@ -111,12 +114,12 @@ describe('[Button]', () => {
         }),
       );
 
-      // const button = testingLib.getByTestId('button-container');
-      // const disabledButtonStyle = button.props.style[3];
+      const button = testingLib.getByTestId('button-container');
+      const disabledButtonStyle = button.props.style[1][2];
 
-      // expect(disabledButtonStyle).toEqual({
-      //   backgroundColor: 'yellow',
-      // });
+      expect(disabledButtonStyle).toEqual({
+        backgroundColor: 'yellow',
+      });
     });
 
     it('should render container', () => {
@@ -162,14 +165,12 @@ describe('[Button]', () => {
         }),
       );
 
-      // const loading = await waitFor(() =>
-      //   testingLib.getByTestId('loading-view'),
-      // );
+      const loadingView = testingLib.getByTestId('loading-view');
 
-      // const buttonLayoutStyle = loading.props.style[2];
+      const buttonLayoutStyle = loadingView.props.style[1][1];
 
-      // expect(buttonLayoutStyle.width).toEqual(375);
-      // expect(buttonLayoutStyle.height).toEqual(667);
+      expect(buttonLayoutStyle.width).toEqual(375);
+      expect(buttonLayoutStyle.height).toEqual(667);
     });
   });
 
@@ -198,6 +199,85 @@ describe('[Button]', () => {
       fireEvent.press(button);
 
       expect(cnt).toBe(2);
+    });
+  });
+
+  describe('[Button] type', () => {
+    it('should render [type = info] button', () => {
+      testingLib = render(Component({type: 'info'}));
+
+      const button = testingLib.getByTestId('button-container');
+      const buttonStyle = button.props.style[0];
+
+      expect(buttonStyle.backgroundColor).toEqual(light.info);
+    });
+
+    it('should render [type = secondary] button', () => {
+      testingLib = render(Component({type: 'secondary'}));
+
+      const button = testingLib.getByTestId('button-container');
+      const buttonStyle = button.props.style[0];
+
+      expect(buttonStyle.backgroundColor).toEqual(light.secondary);
+    });
+
+    it('should render [type = danger] button', () => {
+      testingLib = render(Component({type: 'danger'}));
+
+      const button = testingLib.getByTestId('button-container');
+      const buttonStyle = button.props.style[0];
+
+      expect(buttonStyle.backgroundColor).toEqual(light.danger);
+    });
+
+    it('should render [type = warning] button', () => {
+      testingLib = render(Component({type: 'warning'}));
+
+      const button = testingLib.getByTestId('button-container');
+      const buttonStyle = button.props.style[0];
+
+      expect(buttonStyle.backgroundColor).toEqual(light.warning);
+    });
+  });
+
+  describe('[Button] outlined', () => {
+    it('should render outlined button', () => {
+      testingLib = render(Component({outlined: true}));
+
+      const button = testingLib.getByTestId('button-container');
+      const buttonStyle = button.props.style[0];
+
+      expect(button.props.outlined).toBeTruthy();
+      expect(buttonStyle.backgroundColor).toEqual(light.background);
+    });
+
+    it('should render outlined button with [type = warning]', () => {
+      testingLib = render(Component({outlined: true, type: 'warning'}));
+
+      const button = testingLib.getByTestId('button-container');
+      const buttonStyle = button.props.style[0];
+
+      expect(button.props.outlined).toBeTruthy();
+      expect(buttonStyle.backgroundColor).toEqual(light.background);
+      expect(buttonStyle.borderBottomColor).toEqual(light.warning);
+    });
+  });
+
+  describe('[Button] sizes', () => {
+    it('should render [large] button', () => {
+      testingLib = render(Component({size: 'large'}));
+
+      const button = testingLib.getByTestId('button-container');
+
+      expect(button.props.size).toEqual('large');
+    });
+
+    it('should render [small] button', () => {
+      testingLib = render(Component({size: 'small'}));
+
+      const button = testingLib.getByTestId('button-container');
+
+      expect(button.props.size).toEqual('small');
     });
   });
 });

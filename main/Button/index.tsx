@@ -4,7 +4,7 @@ import {
   Platform,
   TouchableOpacity,
 } from 'react-native';
-import {DoobooTheme, light, useTheme, withTheme} from '../theme';
+import {DoobooTheme, light, withTheme} from '../theme';
 import React, {useRef, useState} from 'react';
 import type {
   StyleProp,
@@ -16,6 +16,7 @@ import type {
 
 import type {FC} from 'react';
 import {TypographyInverted} from '../Typography';
+import {colors} from '../theme/colors';
 import styled from '@emotion/native';
 import {useHover} from 'react-native-web-hooks';
 
@@ -113,7 +114,6 @@ const StyledButton: FC<ButtonProps & {theme: DoobooTheme}> = ({
   const ref = useRef<TouchableOpacity>(null);
   const hovered = useHover(ref);
   const [layout, setLayout] = useState<LayoutRectangle>();
-  const {themeType} = useTheme();
 
   const mainColor =
     type === 'info'
@@ -194,15 +194,13 @@ const StyledButton: FC<ButtonProps & {theme: DoobooTheme}> = ({
             style={[
               {
                 color:
-                  themeType === 'dark' && !outlined
-                    ? theme.textContrast
-                    : outlined && type === 'warning'
+                  outlined && type === 'warning'
                     ? theme.text
                     : outlined
                     ? mainColor
-                    : type !== 'primary'
-                    ? theme.text
-                    : theme.textContrast,
+                    : type === 'primary'
+                    ? theme.textContrast
+                    : colors.black,
               },
               compositeStyles.text,
               disabled && compositeStyles.disabledText,
