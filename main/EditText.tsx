@@ -67,7 +67,7 @@ const Component: FC<EditTextProps & {theme: DoobooTheme}> = ({
   editable = true,
   placeholderColor = theme.placeholder,
   focusColor = theme.primary,
-  hoverColor = theme.secondary,
+  hoverColor = theme.primary,
   errorColor = theme.danger,
   disableColor = theme.disabled,
   labelColor = theme.placeholder,
@@ -88,7 +88,7 @@ const Component: FC<EditTextProps & {theme: DoobooTheme}> = ({
             {
               alignSelf: 'stretch',
               justifyContent: 'space-between',
-              borderBottomWidth: focused || errorText ? 2 : 1,
+              borderBottomWidth: (focused && editable) || errorText ? 2 : 1,
               borderBottomColor: borderColor,
 
               flexDirection: 'column',
@@ -286,7 +286,7 @@ const Component: FC<EditTextProps & {theme: DoobooTheme}> = ({
             style={[
               compositeStyles.labelText,
               styles?.labelText,
-              hovered
+              hovered && editable
                 ? [compositeStyles.labelTextHovered, styles?.labelTextHovered]
                 : editable
                 ? {

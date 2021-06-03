@@ -22,15 +22,6 @@ const EditTextRow = (): React.ReactElement => {
           alignItems: 'center',
           backgroundColor: theme.background,
         }}>
-        <Text
-          style={{
-            fontSize: 18,
-            marginTop: 24,
-            marginBottom: 8,
-            color: theme.text,
-          }}>
-          Default
-        </Text>
         <EditText
           type="boxed"
           placeholder="your@email.com"
@@ -38,15 +29,6 @@ const EditTextRow = (): React.ReactElement => {
           onChangeText={(text) => onTextChanged('EMAIL', text)}
           style={{marginTop: 20, paddingHorizontal: 36}}
         />
-        <Text
-          style={{
-            fontSize: 18,
-            marginTop: 48,
-            marginBottom: 8,
-            color: theme.text,
-          }}>
-          With label
-        </Text>
         <EditText
           type="boxed"
           labelText="Any label"
@@ -55,15 +37,6 @@ const EditTextRow = (): React.ReactElement => {
           onChangeText={(text) => onTextChanged('PASSWORD', text)}
           style={{marginTop: 20, paddingHorizontal: 36}}
         />
-        <Text
-          style={{
-            fontSize: 18,
-            marginTop: 48,
-            marginBottom: 8,
-            color: theme.text,
-          }}>
-          Disabled
-        </Text>
         <EditText
           type="boxed"
           secureTextEntry={true}
@@ -72,15 +45,6 @@ const EditTextRow = (): React.ReactElement => {
           editable={false}
           style={{marginTop: 20, paddingHorizontal: 36}}
         />
-        <Text
-          style={{
-            fontSize: 18,
-            marginTop: 48,
-            marginBottom: 8,
-            color: theme.text,
-          }}>
-          With error
-        </Text>
         <EditText
           type="boxed"
           labelText="Error example"
