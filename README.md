@@ -63,7 +63,7 @@ Follow the [README_THEME](./README_THEME.md)
 
 ## Install Font
 
-> You can install our font to use in your project.
+You can install our font to use in your project.
 
 - For React Native user
 
@@ -81,7 +81,7 @@ Follow the [README_THEME](./README_THEME.md)
 
   2. Run `yarn react-native link`.
 
-     For more inforamtion [follow here](https://medium.com/@aravindmnair/add-custom-fonts-to-react-native-0-60-easily-in-3-steps-fcd71459f4c9).
+  > For more information, please read [add custom fonts to react native](https://medium.com/@aravindmnair/add-custom-fonts-to-react-native-0-60-easily-in-3-steps-fcd71459f4c9).
 
 - For Expo user
 
@@ -95,7 +95,17 @@ Follow the [README_THEME](./README_THEME.md)
      });
      ```
 
-     For more question please follow [using custom font in expo](https://docs.expo.io/guides/using-custom-fonts).
+  > For more question please follow [using custom font in expo](https://docs.expo.io/guides/using-custom-fonts).
+
+#### Using fonts
+
+```js
+import {Icon} from 'dooboo-ui';
+
+...
+
+<Icon name="like-solid" color="black" size={32} />;
+```
 
 ## Compatibility
 
