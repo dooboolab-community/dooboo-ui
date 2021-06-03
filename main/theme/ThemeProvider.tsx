@@ -6,12 +6,13 @@ import {
 } from '@emotion/react';
 import React, {useEffect, useState} from 'react';
 
+import {ColorSchemeName} from 'react-native';
 import createCtx from './createCtx';
 import useColorScheme from './useColorScheme';
 import {useMediaQuery} from 'react-responsive';
 
 interface Context {
-  themeType: ThemeType;
+  themeType: ColorSchemeName;
   media: {
     isDesktop: boolean;
     isTablet: boolean;
@@ -70,7 +71,7 @@ function ThemeProvider({
     <Provider
       value={{
         media,
-        themeType: 'light',
+        themeType,
         changeThemeType,
         theme: defaultTheme,
         colors,
