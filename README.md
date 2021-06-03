@@ -61,6 +61,42 @@ import {ThemeProvider} from 'dooboo-ui';
 
 Follow the [README_THEME](./README_THEME.md)
 
+## Install Font
+
+> You can install our font to use in your project.
+
+- For React Native user
+
+  1. Create `react-native.config.js` file and add below code.
+
+     ```js
+     module.exports = {
+       project: {
+         ios: {},
+         android: {},
+       },
+     +  assets: ['dooboo-ui/main/Icon/doobooui.ttf'],
+     };
+     ```
+
+  2. Run `yarn react-native link`.
+
+     For more inforamtion [follow here](https://medium.com/@aravindmnair/add-custom-fonts-to-react-native-0-60-easily-in-3-steps-fcd71459f4c9).
+
+- For Expo user
+
+  1. In somwhere like `App.tsx`, load our font.
+
+     ```js
+     import {useFonts} from 'expo-font';
+
+     const [fontsLoaded] = useFonts({
+       IcoMoon: require('dooboo-ui/main/Icon/doobooui.ttf'),
+     });
+     ```
+
+     For more question please follow [using custom font in expo](https://docs.expo.io/guides/using-custom-fonts).
+
 ## Compatibility
 
 | package      | version |
