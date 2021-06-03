@@ -1,6 +1,6 @@
 import {EditText, useTheme} from '../../../main';
 import React, {useState} from 'react';
-import {SafeAreaView, ScrollView, Text, View} from 'react-native';
+import {SafeAreaView, ScrollView, View} from 'react-native';
 
 const EditTextRow = (): React.ReactElement => {
   const {theme} = useTheme();
@@ -22,71 +22,33 @@ const EditTextRow = (): React.ReactElement => {
           alignItems: 'center',
           backgroundColor: theme.background,
         }}>
-        <Text
-          style={{
-            fontSize: 18,
-            marginTop: 24,
-            marginBottom: 8,
-            color: theme.text,
-          }}>
-          Default
-        </Text>
         <EditText
           type="row"
-          placeholder="your@email.com"
+          placeholder="Default EditText"
           value={email}
           onChangeText={(text) => onTextChanged('EMAIL', text)}
-          style={{marginTop: 20, marginBottom: 52, paddingHorizontal: 36}}
+          style={{marginTop: 20, marginBottom: 24, paddingHorizontal: 36}}
         />
-        <Text
-          style={{
-            fontSize: 18,
-            marginTop: 48,
-            marginBottom: 8,
-            color: theme.text,
-          }}>
-          With label
-        </Text>
         <EditText
           type="row"
-          secureTextEntry={true}
-          labelText="password"
-          placeholder="Write your password"
+          labelText="label"
+          placeholder="EditText with label"
           value={password}
           onChangeText={(text) => onTextChanged('PASSWORD', text)}
-          style={{marginTop: 20, marginBottom: 40, paddingHorizontal: 36}}
+          style={{marginTop: 20, marginBottom: 24, paddingHorizontal: 36}}
         />
-        <Text
-          style={{
-            fontSize: 18,
-            marginTop: 48,
-            marginBottom: 8,
-            color: theme.text,
-          }}>
-          Disabled
-        </Text>
         <EditText
           type="row"
-          secureTextEntry={true}
           labelText="disabled"
-          value="This is disabled"
+          value="Disabled EditText"
           editable={false}
-          style={{marginTop: 20, marginBottom: 40, paddingHorizontal: 36}}
+          style={{marginTop: 20, marginBottom: 24, paddingHorizontal: 36}}
         />
-        <Text
-          style={{
-            fontSize: 18,
-            marginTop: 48,
-            marginBottom: 8,
-            color: theme.text,
-          }}>
-          With error
-        </Text>
         <EditText
           type="row"
-          labelText="Error example"
-          value="any value"
-          style={{marginTop: 20, marginBottom: 40, paddingHorizontal: 36}}
+          labelText="label"
+          value="EditText with error"
+          style={{marginTop: 20, marginBottom: 24, paddingHorizontal: 36}}
           errorText="Error occurred!"
         />
         <View style={{height: 300}} />
