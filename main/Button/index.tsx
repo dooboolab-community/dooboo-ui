@@ -45,7 +45,7 @@ const ButtonContainer = styled.View<{
       ? '4px 12px'
       : '10px 20px'};
   border-radius: ${({size}) => (size === 'large' ? '24px' : '20px')};
-  border-width: ${({outlined}) => (outlined ? '1px' : 1)};
+  border-width: ${({outlined}) => (outlined ? '1px' : 0)};
   background-color: ${({theme, type, outlined, disabled}) =>
     disabled
       ? undefined
