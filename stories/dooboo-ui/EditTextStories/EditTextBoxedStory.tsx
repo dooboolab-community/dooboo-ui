@@ -1,6 +1,6 @@
 import {EditText, useTheme} from '../../../main';
 import React, {useState} from 'react';
-import {SafeAreaView, ScrollView, Text, View} from 'react-native';
+import {SafeAreaView, ScrollView, View} from 'react-native';
 
 const EditTextRow = (): React.ReactElement => {
   const {theme} = useTheme();

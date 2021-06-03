@@ -45,7 +45,7 @@ const ButtonContainer = styled.View<{
       ? '4px 12px'
       : '10px 20px'};
   border-radius: ${({size}) => (size === 'large' ? '24px' : '20px')};
-  border-width: ${({outlined}) => (outlined ? '1px' : 0)};
+  border-width: ${({outlined}) => (outlined ? '1px' : 1)};
   background-color: ${({theme, type, outlined, disabled}) =>
     disabled
       ? undefined
@@ -62,7 +62,7 @@ const ButtonContainer = styled.View<{
       : theme.primary};
   border-color: ${({theme, type, disabled}) =>
     disabled
-      ? undefined
+      ? theme.text
       : type === 'info'
       ? theme.info
       : type === 'secondary'
@@ -163,7 +163,7 @@ const StyledButton: FC<ButtonProps & {theme: DoobooTheme}> = ({
       activeOpacity={activeOpacity}
       onPress={onPress}
       delayPressIn={50}
-      disabled={disabled}
+      disabled={disabled || loading}
       style={style}
       {...touchableOpacityProps}>
       {loading ? (
