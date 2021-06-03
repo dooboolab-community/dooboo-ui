@@ -7,3 +7,4 @@ export * from './LoadingIndicator';
 export * from './Accordion';
 export * from './StatusBarBrightness';
 export * from './theme';
+export * from './Icon';
