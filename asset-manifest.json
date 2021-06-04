@@ -1,23 +1,35 @@
 {
   "files": {
-    "app.js": "/dooboo-ui/static/js/app.9af41a30.chunk.js",
-    "app.js.map": "/dooboo-ui/static/js/app.9af41a30.chunk.js.map",
+    "app.js": "/dooboo-ui/static/js/app.2717714d.chunk.js",
+    "app.js.map": "/dooboo-ui/static/js/app.2717714d.chunk.js.map",
     "runtime~app.js": "/dooboo-ui/static/js/runtime~app.551cd881.js",
     "runtime~app.js.map": "/dooboo-ui/static/js/runtime~app.551cd881.js.map",
-    "static/js/2.d9e218e1.chunk.js": "/dooboo-ui/static/js/2.d9e218e1.chunk.js",
-    "static/js/2.d9e218e1.chunk.js.map": "/dooboo-ui/static/js/2.d9e218e1.chunk.js.map",
+    "static/js/2.5c1e4fef.chunk.js": "/dooboo-ui/static/js/2.5c1e4fef.chunk.js",
+    "static/js/2.5c1e4fef.chunk.js.map": "/dooboo-ui/static/js/2.5c1e4fef.chunk.js.map",
+    "fonts/AntDesign.ttf": "/dooboo-ui/./fonts/AntDesign.ttf",
+    "fonts/Entypo.ttf": "/dooboo-ui/./fonts/Entypo.ttf",
+    "fonts/Feather.ttf": "/dooboo-ui/./fonts/Feather.ttf",
+    "fonts/FontAwesome.ttf": "/dooboo-ui/./fonts/FontAwesome.ttf",
+    "fonts/FontAwesome5_Brands.ttf": "/dooboo-ui/./fonts/FontAwesome5_Brands.ttf",
+    "fonts/FontAwesome5_Solid.ttf": "/dooboo-ui/./fonts/FontAwesome5_Solid.ttf",
+    "fonts/Fontisto.ttf": "/dooboo-ui/./fonts/Fontisto.ttf",
+    "fonts/Foundation.ttf": "/dooboo-ui/./fonts/Foundation.ttf",
+    "fonts/Ionicons.ttf": "/dooboo-ui/./fonts/Ionicons.ttf",
+    "fonts/MaterialCommunityIcons.ttf": "/dooboo-ui/./fonts/MaterialCommunityIcons.ttf",
+    "fonts/MaterialIcons.ttf": "/dooboo-ui/./fonts/MaterialIcons.ttf",
+    "fonts/SimpleLineIcons.ttf": "/dooboo-ui/./fonts/SimpleLineIcons.ttf",
     "favicon-16.png": "/dooboo-ui/favicon-16.png",
     "favicon-32.png": "/dooboo-ui/favicon-32.png",
     "favicon.ico": "/dooboo-ui/favicon.ico",
     "index.html": "/dooboo-ui/index.html",
     "manifest.json": "/dooboo-ui/manifest.json",
     "serve.json": "/dooboo-ui/serve.json",
-    "static/js/2.d9e218e1.chunk.js.LICENSE.txt": "/dooboo-ui/static/js/2.d9e218e1.chunk.js.LICENSE.txt",
+    "static/js/2.5c1e4fef.chunk.js.LICENSE.txt": "/dooboo-ui/static/js/2.5c1e4fef.chunk.js.LICENSE.txt",
     "static/media/magnifier.png": "/dooboo-ui/static/media/magnifier.9f82873e.png"
   },
   "entrypoints": [
     "static/js/runtime~app.551cd881.js",
-    "static/js/2.d9e218e1.chunk.js",
-    "static/js/app.9af41a30.chunk.js"
+    "static/js/2.5c1e4fef.chunk.js",
+    "static/js/app.2717714d.chunk.js"
   ]
 }
