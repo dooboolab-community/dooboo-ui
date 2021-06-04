@@ -12,12 +12,12 @@ let component: React.ReactElement;
 let testingLib: RenderAPI;
 
 describe('[ButtonGroup] render', () => {
-  beforeEach(() => {
-    props = createTestProps({});
-    component = createComponent(<ButtonGroup {...props} />);
-  });
+  const pressFn = jest.fn();
 
   it('renders without crashing', () => {
+    props = createTestProps();
+
+    component = createComponent(<ButtonGroup {...props} />);
     testingLib = render(component);
 
     const json = testingLib.toJSON();
@@ -25,15 +25,38 @@ describe('[ButtonGroup] render', () => {
     expect(json).toMatchSnapshot();
   });
 
-  describe('interactions', () => {
-    beforeEach(() => {
-      testingLib = render(component);
+  it('should simulate onPress', () => {
+    props = createTestProps({
+      data: [1, 2, 3],
     });
 
-    it('should simulate onPress', () => {
-      const btn1 = testingLib.queryByTestId('CHILD_1');
+    component = createComponent(<ButtonGroup {...props} />);
 
-      if (btn1) fireEvent.press(btn1);
+    testingLib = render(component);
+
+    const btn1 = testingLib.getByTestId('CHILD_1');
+
+    fireEvent.press(btn1);
+
+    expect(pressFn).toHaveBeenCalledTimes(0);
+  });
+
+  describe('interactions', () => {
+    it('should simulate onPress', () => {
+      props = createTestProps({
+        data: [1, 2, 3],
+        onPress: pressFn,
+      });
+
+      component = createComponent(<ButtonGroup {...props} />);
+
+      testingLib = render(component);
+
+      const btn1 = testingLib.getByTestId('CHILD_1');
+
+      fireEvent.press(btn1);
+
+      expect(pressFn).toHaveBeenCalled();
     });
   });
 });
