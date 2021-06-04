@@ -1,3 +1,4 @@
+import {DoobooTheme, light, useTheme, withTheme} from './theme';
 import React, {FC, useState} from 'react';
 import {
   StyleProp,
@@ -11,22 +12,29 @@ import {
 
 interface Props {
   testID?: string;
+  theme: DoobooTheme;
   borderRadius?: number;
+  borderWidth?: number;
   containerStyle?: StyleProp<ViewStyle>;
   style?: StyleProp<ViewStyle>;
-  viewStyle?: StyleProp<ViewStyle>;
-  selectedViewStyle?: StyleProp<ViewStyle>;
+  viewStyle?: ViewStyle;
+  selectedViewStyle?: ViewStyle;
   textStyle?: StyleProp<TextStyle>;
   selectedTextStyle?: StyleProp<TextStyle>;
   data: string[];
+  color?: string;
   onPress?: (i: number) => void;
   initialIndex?: number;
 }
 
-const ButtonGroup: FC<Props> = (props) => {
+const StyledButtonGroup: FC<Props> = (props) => {
+  const {theme} = useTheme();
+
   const {
     borderRadius = 0,
     initialIndex = 0,
+    borderWidth = 1,
+    color = theme.text,
     testID,
     containerStyle,
     style,
@@ -41,12 +49,15 @@ const ButtonGroup: FC<Props> = (props) => {
   const [selectedOption, setSelectedOption] = useState(initialIndex);
 
   return (
-    <View testID={testID} style={StyleSheet.flatten([containerStyle, style])}>
+    <View
+      testID={testID}
+      style={StyleSheet.flatten([{borderColor: color}, containerStyle, style])}>
       {data.map((text, i) => {
         return (
           <TouchableOpacity
             key={i}
             testID={`CHILD_${i}`}
+            activeOpacity={0.85}
             style={{flex: 1}}
             onPress={(): void => {
               setSelectedOption(i);
@@ -55,22 +66,39 @@ const ButtonGroup: FC<Props> = (props) => {
             }}>
             <View
               style={StyleSheet.flatten([
-                selectedOption === i ? selectedViewStyle : viewStyle,
+                selectedOption === i
+                  ? {...selectedViewStyle, backgroundColor: color}
+                  : {...viewStyle, borderColor: color},
                 i === 0
                   ? {
+                      borderLeftWidth: borderWidth,
+                      borderTopWidth: borderWidth,
+                      borderBottomWidth: borderWidth,
                       borderTopLeftRadius: borderRadius,
                       borderBottomLeftRadius: borderRadius,
                     }
-                  : {},
-                i === data.length - 1
+                  : i === data.length - 1
                   ? {
+                      borderRightWidth: borderWidth,
+                      borderLeftWidth: borderWidth,
+                      borderTopWidth: borderWidth,
+                      borderBottomWidth: borderWidth,
                       borderBottomRightRadius: borderRadius,
                       borderTopRightRadius: borderRadius,
                     }
-                  : {},
+                  : {
+                      borderLeftWidth: borderWidth,
+                      borderTopWidth: borderWidth,
+                      borderBottomWidth: borderWidth,
+                    },
+                {borderColor: color},
               ])}>
               <Text
-                style={selectedOption === i ? selectedTextStyle : textStyle}>
+                style={
+                  selectedOption === i
+                    ? [selectedTextStyle, {color: theme.textContrast}]
+                    : [textStyle, {color: theme.text}]
+                }>
                 {text}
               </Text>
             </View>
@@ -81,44 +109,37 @@ const ButtonGroup: FC<Props> = (props) => {
   );
 };
 
-ButtonGroup.defaultProps = {
+StyledButtonGroup.defaultProps = {
+  theme: light,
   containerStyle: {
     backgroundColor: 'transparent',
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    borderWidth: 1,
-    borderColor: 'rgb(62,126,255)',
     alignSelf: 'stretch',
     minHeight: 40,
     marginTop: 24,
   },
   viewStyle: {
-    backgroundColor: 'white',
     alignSelf: 'stretch',
     minHeight: 40,
-    borderColor: 'rgb(62,126,255)',
 
     justifyContent: 'center',
     alignItems: 'center',
   },
   selectedViewStyle: {
-    backgroundColor: 'rgb(62,126,255)',
     alignSelf: 'stretch',
     minHeight: 40,
-    borderColor: 'rgb(62,126,255)',
 
     justifyContent: 'center',
     alignItems: 'center',
   },
   textStyle: {
-    color: 'rgb(62,126,255)',
     fontSize: 14,
     textAlign: 'center',
     alignSelf: 'center',
   },
   selectedTextStyle: {
-    color: 'white',
     fontSize: 14,
     textAlign: 'center',
     alignSelf: 'center',
@@ -126,4 +147,4 @@ ButtonGroup.defaultProps = {
   data: ['option 1', 'option 2'],
 };
 
-export {ButtonGroup};
+export const ButtonGroup = withTheme(StyledButtonGroup);
