@@ -44,7 +44,7 @@ const IconStory: FC = () => {
       }}>
       <Container>
         <Text style={{fontSize: 18, marginTop: 24, marginBottom: 8}}>
-          Large IconButton
+          Medium IconButton (default)
         </Text>
         <View
           style={{
