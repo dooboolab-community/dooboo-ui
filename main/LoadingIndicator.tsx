@@ -10,6 +10,8 @@ import {
 } from 'react-native';
 import React, {ReactElement} from 'react';
 
+import {colors} from './theme/colors';
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -87,7 +89,7 @@ function LoadingIndicator(props: Props): ReactElement {
 
 LoadingIndicator.defaultProps = {
   size: 'large',
-  color: '#969696',
+  color: colors.gray,
 };
 
 export {LoadingIndicator};

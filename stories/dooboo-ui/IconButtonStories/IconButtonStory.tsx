@@ -91,6 +91,7 @@ const IconStory: FC = () => {
         <View
           style={{
             marginTop: 40,
+            marginBottom: 100,
             width: '100%',
 
             flexDirection: 'row',
