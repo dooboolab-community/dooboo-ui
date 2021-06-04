@@ -12,7 +12,7 @@ type Styles = {
 
 type CheckboxType = 'primary' | 'secondary' | 'danger' | 'warning' | 'info';
 
-interface Props {
+export interface CheckboxProps {
   onPress?: () => void;
   style?: StyleProp<ViewStyle>;
   styles?: Styles;
@@ -69,13 +69,11 @@ const StyledCheckbox = styled.View<{
   align-items: center;
 `;
 
-const StyledCheck = styled(Icon)<{
-  checked?: boolean;
-}>`
+const StyledCheck = styled(Icon)<{checked?: boolean}>`
   color: ${({theme, checked}) => (checked ? theme.background : 'transparent')};
 `;
 
-const CheckboxContainer: FC<Props> = ({
+const CheckboxContainer: FC<CheckboxProps> = ({
   style,
   styles,
   rightElement,
@@ -96,6 +94,7 @@ const CheckboxContainer: FC<Props> = ({
         }}>
         {leftElement}
         <StyledCheckbox
+          testID="doobooui-checkbox"
           style={styles?.checkbox}
           checked={checked}
           type={type}
