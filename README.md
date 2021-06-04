@@ -65,6 +65,8 @@ Follow the [README_THEME](./README_THEME.md)
 
 You can install our font to use in your project.
 
+<img width="1506" alt="icons" src="https://user-images.githubusercontent.com/27461460/120745087-58493d00-c537-11eb-9226-29858d7ccf1f.png">
+
 - For React Native user
 
   1. Create `react-native.config.js` file and add below code.

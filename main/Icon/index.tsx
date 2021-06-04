@@ -5,7 +5,7 @@ import {createIconSetFromIcoMoon} from 'react-native-vector-icons';
 type IconName =
   | 'moment-solid'
   | 'moment-light'
-  | 'tick-light_1'
+  | 'cross-light'
   | 'tile-light'
   | 'list-light'
   | 'setting-light'
@@ -18,16 +18,16 @@ type IconName =
   | 'add-solid'
   | 'like-solid'
   | 'discover-solid'
-  | 'my_account-solid'
-  | 'my_collection-solid'
+  | 'account-solid'
+  | 'collection-solid'
   | 'search-solid'
   | 'share-light'
   | 'add-light'
   | 'like-light'
   | 'discover-light'
-  | 'my_account-light'
-  | 'my_collection-light'
-  | 'setting-light';
+  | 'account-light'
+  | 'collection-light'
+  | 'search-light';
 
 type Props = {
   name: IconName;
