@@ -1,22 +1,23 @@
+import {ButtonGroup, ThemeProvider} from '../../../main';
 import React, {ReactElement, useState} from 'react';
 import {Text, View} from 'react-native';
 
-import {ButtonGroup} from '../../../main';
 import {ContainerDeco} from '../../../storybook/decorators';
 import {storiesOf} from '@storybook/react-native';
 import styled from '@emotion/native';
 
 const Container = styled.SafeAreaView`
   flex: 1;
-  background-color: transparent;
+  align-self: stretch;
+  background-color: ${({theme}) => theme.background};
   flex-direction: column;
   align-self: stretch;
   align-items: center;
   justify-content: center;
-  margin: 0 24px;
+  padding: 0 24px;
 `;
 
-const Default = (): React.ReactElement => {
+const ButtonGroupStory = (): React.ReactElement => {
   const data = ['Option 1', 'Option 2', 'Option 3', 'Option 4'];
 
   const [option, setOption] = useState('Option 1');
@@ -37,7 +38,7 @@ const Default = (): React.ReactElement => {
   return (
     <Container>
       <ButtonGroup
-        style={{marginTop: 40}}
+        style={{marginTop: 40, marginHorizontal: 20}}
         onPress={(index: number): void => selectOption(index)}
         data={data}
       />
@@ -65,10 +66,10 @@ export default {
   title: 'ButtonGroup',
 };
 
-export const toStorybook = (): ReactElement => <Default />;
+export const toStorybook = (): ReactElement => <ButtonGroupStory />;
 
 toStorybook.story = {
-  name: 'default',
+  name: 'ButtonGroup - 4 buttons',
 };
 
 /**
@@ -76,8 +77,13 @@ toStorybook.story = {
  */
 storiesOf('ButtonGroup', module)
   .addDecorator(ContainerDeco)
-  .add('default', () => (
-    <>
-      <Default />
-    </>
+  .add('ButtonGroup - light', () => (
+    <ThemeProvider initialThemeType="light">
+      <ButtonGroupStory />
+    </ThemeProvider>
+  ))
+  .add('ButtonGroup - dark', () => (
+    <ThemeProvider initialThemeType="dark">
+      <ButtonGroupStory />
+    </ThemeProvider>
   ));

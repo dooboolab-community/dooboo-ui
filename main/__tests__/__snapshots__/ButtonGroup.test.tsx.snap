@@ -7,8 +7,7 @@ exports[`[ButtonGroup] render renders without crashing 1`] = `
       "alignItems": "center",
       "alignSelf": "stretch",
       "backgroundColor": "transparent",
-      "borderColor": "rgb(62,126,255)",
-      "borderWidth": 1,
+      "borderColor": "black",
       "flexDirection": "row",
       "justifyContent": "center",
       "marginTop": 24,
@@ -39,10 +38,13 @@ exports[`[ButtonGroup] render renders without crashing 1`] = `
         Object {
           "alignItems": "center",
           "alignSelf": "stretch",
-          "backgroundColor": "rgb(62,126,255)",
+          "backgroundColor": "black",
           "borderBottomLeftRadius": 0,
-          "borderColor": "rgb(62,126,255)",
+          "borderBottomWidth": 1,
+          "borderColor": "black",
+          "borderLeftWidth": 1,
           "borderTopLeftRadius": 0,
+          "borderTopWidth": 1,
           "justifyContent": "center",
           "minHeight": 40,
         }
@@ -50,12 +52,16 @@ exports[`[ButtonGroup] render renders without crashing 1`] = `
     >
       <Text
         style={
-          Object {
-            "alignSelf": "center",
-            "color": "white",
-            "fontSize": 14,
-            "textAlign": "center",
-          }
+          Array [
+            Object {
+              "alignSelf": "center",
+              "fontSize": 14,
+              "textAlign": "center",
+            },
+            Object {
+              "color": "white",
+            },
+          ]
         }
       >
         option 1
@@ -85,10 +91,13 @@ exports[`[ButtonGroup] render renders without crashing 1`] = `
         Object {
           "alignItems": "center",
           "alignSelf": "stretch",
-          "backgroundColor": "white",
           "borderBottomRightRadius": 0,
-          "borderColor": "rgb(62,126,255)",
+          "borderBottomWidth": 1,
+          "borderColor": "black",
+          "borderLeftWidth": 1,
+          "borderRightWidth": 1,
           "borderTopRightRadius": 0,
+          "borderTopWidth": 1,
           "justifyContent": "center",
           "minHeight": 40,
         }
@@ -96,12 +105,16 @@ exports[`[ButtonGroup] render renders without crashing 1`] = `
     >
       <Text
         style={
-          Object {
-            "alignSelf": "center",
-            "color": "rgb(62,126,255)",
-            "fontSize": 14,
-            "textAlign": "center",
-          }
+          Array [
+            Object {
+              "alignSelf": "center",
+              "fontSize": 14,
+              "textAlign": "center",
+            },
+            Object {
+              "color": "black",
+            },
+          ]
         }
       >
         option 2
