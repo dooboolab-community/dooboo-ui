@@ -61,9 +61,9 @@ import {ThemeProvider} from 'dooboo-ui';
 
 Follow the [README_THEME](./README_THEME.md)
 
-## Install Font
+## Install Font (Recommended)
 
-You can install our font to use in your project.
+You can install our font to use in your project. This is recommended since we use these fonts in some of `dooboo-ui` components. They might not show correct icons when the font is not loaded.
 
 <img width="1506" alt="icons" src="https://user-images.githubusercontent.com/27461460/120745087-58493d00-c537-11eb-9226-29858d7ccf1f.png">
 
@@ -71,13 +71,13 @@ You can install our font to use in your project.
 
   1. Create `react-native.config.js` file and add below code.
 
-     ```js
+     ```diff
      module.exports = {
        project: {
          ios: {},
          android: {},
        },
-     +  assets: ['dooboo-ui/main/Icon/doobooui.ttf'],
+     +  assets: ['dooboo-ui/Icon/doobooui.ttf'],
      };
      ```
 
@@ -93,7 +93,7 @@ You can install our font to use in your project.
      import {useFonts} from 'expo-font';
 
      const [fontsLoaded] = useFonts({
-       IcoMoon: require('dooboo-ui/main/Icon/doobooui.ttf'),
+       IcoMoon: require('dooboo-ui/Icon/doobooui.ttf'),
      });
      ```
 
