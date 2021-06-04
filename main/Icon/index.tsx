@@ -1,6 +1,7 @@
 import {FC} from 'react';
 import collectingFontIconSelection from './selection.json';
 import {createIconSetFromIcoMoon} from 'react-native-vector-icons';
+import styled from '@emotion/native';
 
 type IconName =
   | 'moment-solid'
@@ -31,12 +32,16 @@ type IconName =
 
 type Props = {
   name: IconName;
-  size: number;
-  color: string;
+  size?: number;
+  color?: string;
 };
 
-export const Icon: FC<Props> = createIconSetFromIcoMoon(
+const Ico: FC<Props> = createIconSetFromIcoMoon(
   collectingFontIconSelection,
   'IcoMoon',
   'doobooui.ttf',
 );
+
+export const Icon = styled(Ico)`
+  color: ${({theme}) => theme.text};
+`;
