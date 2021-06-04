@@ -1,7 +1,7 @@
 import {Checkbox, Hr} from '../../../main';
 import {FC, useState} from 'react';
+import {Platform, View} from 'react-native';
 
-import {View} from 'react-native';
 import styled from '@emotion/native';
 import {useFonts} from 'expo-font';
 
@@ -38,7 +38,13 @@ const CheckboxStory: FC = () => {
   if (!fontsLoaded) return <View />;
 
   return (
-    <ScrollContainer contentContainerStyle={{alignSelf: 'stretch'}}>
+    <ScrollContainer
+      contentContainerStyle={{
+        alignSelf: 'stretch',
+        height: Platform.select({
+          web: '100%',
+        }),
+      }}>
       <Container>
         <StyledText style={{fontSize: 18, marginTop: 24, marginBottom: 12}}>
           Checkbox

@@ -24,7 +24,7 @@ export interface CheckboxProps {
   leftElement?: React.ReactElement;
 }
 
-const Container = styled.TouchableNativeFeedback`
+const Container = styled.TouchableOpacity`
   flex-direction: row;
   align-items: center;
 `;
@@ -84,7 +84,11 @@ const CheckboxContainer: FC<CheckboxProps> = ({
   onPress,
 }) => {
   return (
-    <Container disabled={disabled} style={style} onPress={onPress}>
+    <Container
+      disabled={disabled}
+      style={style}
+      onPress={onPress}
+      activeOpacity={0.9}>
       <View
         style={{
           flexDirection: 'row',
