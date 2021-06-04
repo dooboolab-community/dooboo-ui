@@ -6,6 +6,12 @@ import {Icon} from '../../../main/Icon';
 import styled from '@emotion/native';
 import {useFonts} from 'expo-font';
 
+const StoryContainer = styled.View`
+  flex: 1;
+  align-self: stretch;
+  background-color: ${({theme}) => theme.background};
+`;
+
 const ScrollContainer = styled.ScrollView`
   width: 100%;
 `;
@@ -29,7 +35,7 @@ const StyledIcon = styled(Icon)`
   color: ${({theme}) => theme.textContrast};
 `;
 
-const IconStory: FC = () => {
+const IconButtonStory: FC = () => {
   const {theme} = useTheme();
 
   const [fontsLoaded] = useFonts({
@@ -39,12 +45,7 @@ const IconStory: FC = () => {
   if (!fontsLoaded) return <View />;
 
   return (
-    <View
-      style={{
-        backgroundColor: theme.background,
-        flex: 1,
-        alignSelf: 'stretch',
-      }}>
+    <StoryContainer>
       <ScrollContainer
         style={{flex: 1}}
         contentContainerStyle={{
@@ -139,8 +140,8 @@ const IconStory: FC = () => {
           </View>
         </Container>
       </ScrollContainer>
-    </View>
+    </StoryContainer>
   );
 };
 
-export default IconStory;
+export default IconButtonStory;

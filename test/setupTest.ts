@@ -1,5 +1,7 @@
 import {cleanup} from '@testing-library/react-native';
 
+jest.mock('react-native/Libraries/Animated/src/NativeAnimatedHelper');
+
 // Cleanup after each case.
 afterEach(cleanup);
 

@@ -62,7 +62,7 @@ const ButtonContainer = styled.View<{
       : theme.primary};
   border-color: ${({theme, type, disabled}) =>
     disabled
-      ? theme.text
+      ? theme.disabled
       : type === 'info'
       ? theme.info
       : type === 'secondary'

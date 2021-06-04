@@ -21,14 +21,14 @@ toStorybook.story = {
 /**
  * Below are stories for app
  */
-storiesOf('Icon', module)
+storiesOf('IconButton', module)
   .addDecorator(ContainerDeco)
-  .add('font icons - light', () => (
+  .add('IconButton - light', () => (
     <ThemeProvider initialThemeType="light">
       <IconButtonStory />
     </ThemeProvider>
   ))
-  .add('font icons - dark', () => (
+  .add('IconButton - dark', () => (
     <ThemeProvider initialThemeType="dark">
       <IconButtonStory />
     </ThemeProvider>
