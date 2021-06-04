@@ -1,11 +1,6 @@
-import {
-  ActivityIndicator,
-  LayoutRectangle,
-  Platform,
-  TouchableOpacity,
-} from 'react-native';
+import {ActivityIndicator, Platform, TouchableOpacity} from 'react-native';
 import {DoobooTheme, light, withTheme} from '../theme';
-import React, {useRef, useState} from 'react';
+import React, {useRef} from 'react';
 import type {
   StyleProp,
   TextStyle,
@@ -34,10 +29,16 @@ const ButtonContainer = styled.View<{
   height?: number;
   outlined?: boolean;
   disabled?: boolean;
+  size?: ButtonSize;
 }>`
   padding: 4px;
-  border-radius: ${({width}) => width && `${width / 2}px`};
   border-width: ${({outlined}) => (outlined ? '1px' : 0)};
+  height: ${({size}) =>
+    size === 'large' ? '80px' : size === 'medium' ? '50px' : '32px'};
+  width: ${({size}) =>
+    size === 'large' ? '80px' : size === 'medium' ? '50px' : '32px'};
+  border-radius: ${({size}) =>
+    size === 'large' ? '45px' : size === 'medium' ? '50px' : '32px'};
   background-color: ${({theme, type, outlined, disabled}) =>
     disabled
       ? undefined
@@ -100,10 +101,10 @@ const StyledButton: FC<IconButtonProps & {theme: DoobooTheme}> = ({
   touchableOpacityProps,
   type = 'primary',
   outlined = false,
+  size = 'medium',
 }) => {
   const ref = useRef<TouchableOpacity>(null);
   const hovered = useHover(ref);
-  const [layout, setLayout] = useState<LayoutRectangle>();
 
   const compositeStyles: Styles = {
     disabledButton: {
@@ -145,14 +146,11 @@ const StyledButton: FC<IconButtonProps & {theme: DoobooTheme}> = ({
           disabled
           style={[
             compositeStyles.container,
-            {
-              width: layout?.width,
-              height: layout?.height,
-            },
             hovered && !disabled && compositeStyles.hovered,
             disabled && compositeStyles.disabledButton,
           ]}
           type={type}
+          size={size}
           outlined={outlined}>
           <ActivityIndicator size="small" color={indicatorColor} />
         </ButtonContainer>
@@ -164,9 +162,7 @@ const StyledButton: FC<IconButtonProps & {theme: DoobooTheme}> = ({
             hovered && !disabled && compositeStyles.hovered,
             disabled && compositeStyles.disabledButton,
           ]}
-          width={layout?.width}
-          height={layout?.height}
-          onLayout={(e) => setLayout(e.nativeEvent.layout)}
+          size={size}
           type={type}
           disabled={disabled}
           outlined={outlined}>
