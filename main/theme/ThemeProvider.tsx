@@ -19,7 +19,7 @@ interface Context {
     isMobile: boolean;
   };
   theme: DefaultTheme;
-  changeThemeType: () => void;
+  changeThemeType: (themeType?: ColorSchemeName) => void;
   colors: Colors;
 }
 
@@ -48,10 +48,14 @@ function ThemeProvider({
     if (!initialThemeType) setThemeType(colorScheme);
   }, [colorScheme, initialThemeType]);
 
-  const changeThemeType = (): void => {
-    const newThemeType = themeType;
+  const changeThemeType = (themeTypeProp?: ColorSchemeName): void => {
+    if (!themeTypeProp) {
+      setThemeType(themeType === 'light' ? 'dark' : 'light');
 
-    setThemeType(newThemeType);
+      return;
+    }
+
+    setThemeType(themeTypeProp);
   };
 
   const defaultTheme =
