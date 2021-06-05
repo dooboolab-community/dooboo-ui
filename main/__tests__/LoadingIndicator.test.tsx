@@ -25,7 +25,7 @@ describe('[LoadingIndicator] render', () => {
 
   it('should render [customElement]', () => {
     props = createTestProps({
-      customElement: (): React.ReactElement => <View />,
+      renderCustomElement: (): React.ReactElement => <View />,
     });
 
     component = <LoadingIndicator {...props} />;
