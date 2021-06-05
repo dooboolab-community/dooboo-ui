@@ -34,7 +34,7 @@ const ButtonDefault: FC = () => {
   return (
     <StoryContainer>
       <ScrollContainer>
-        <Container style={{paddingVertical: 12}}>
+        <Container style={{paddingVertical: 60}}>
           <Text style={{fontSize: 18, marginBottom: 8}}>Basic Styles</Text>
           <View
             style={{

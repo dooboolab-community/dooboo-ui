@@ -164,6 +164,7 @@ const ButtonComponent: FC<ButtonProps & {theme: DoobooTheme}> = ({
           <ButtonText
             outlined={outlined}
             type={type}
+            disabled={disabled}
             style={[
               compositeStyles.text,
               disabled && compositeStyles.disabledText,
