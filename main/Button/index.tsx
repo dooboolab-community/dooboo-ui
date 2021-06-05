@@ -4,6 +4,11 @@ import {
   Platform,
   TouchableOpacity,
 } from 'react-native';
+import {
+  ButtonText,
+  ButtonType,
+  ButtonWrapper,
+} from '../Styled/StyledComponents';
 import {DoobooTheme, light, withTheme} from '../theme';
 import React, {useRef, useState} from 'react';
 import type {
@@ -13,11 +18,9 @@ import type {
   TouchableOpacityProps,
   ViewStyle,
 } from 'react-native';
+import styled, {css} from '@emotion/native';
 
 import type {FC} from 'react';
-import {TypographyInverted} from '../Typography';
-import {colors} from '../theme/colors';
-import styled from '@emotion/native';
 import {useHover} from 'react-native-web-hooks';
 
 type Styles = {
@@ -28,10 +31,9 @@ type Styles = {
   hovered?: StyleProp<ViewStyle>;
 };
 
-type ButtonType = 'primary' | 'secondary' | 'danger' | 'warning' | 'info';
 type ButtonSize = 'small' | 'medium' | 'large';
 
-const ButtonContainer = styled.View<{
+const ButtonContainer = styled(ButtonWrapper)<{
   type: ButtonType;
   size?: ButtonSize;
   outlined?: boolean;
@@ -45,33 +47,6 @@ const ButtonContainer = styled.View<{
       ? '4px 12px'
       : '10px 20px'};
   border-radius: ${({size}) => (size === 'large' ? '24px' : '20px')};
-  border-width: ${({outlined}) => (outlined ? '1px' : 0)};
-  background-color: ${({theme, type, outlined, disabled}) =>
-    disabled
-      ? undefined
-      : outlined
-      ? theme.background
-      : type === 'info'
-      ? theme.info
-      : type === 'secondary'
-      ? theme.secondary
-      : type === 'danger'
-      ? theme.danger
-      : type === 'warning'
-      ? theme.warning
-      : theme.primary};
-  border-color: ${({theme, type, disabled}) =>
-    disabled
-      ? theme.disabled
-      : type === 'info'
-      ? theme.info
-      : type === 'secondary'
-      ? theme.secondary
-      : type === 'danger'
-      ? theme.danger
-      : type === 'warning'
-      ? theme.warning
-      : theme.primary};
 
   flex-direction: row;
   align-items: center;
@@ -97,14 +72,14 @@ export interface ButtonProps {
   size?: ButtonSize;
 }
 
-const StyledButton: FC<ButtonProps & {theme: DoobooTheme}> = ({
+const ButtonComponent: FC<ButtonProps & {theme: DoobooTheme}> = ({
   testID,
   theme,
   disabled,
   loading,
   style,
   styles,
-  indicatorColor = theme.disabled,
+  indicatorColor = theme.text,
   leftElement,
   rightElement,
   activeOpacity = 0.6,
@@ -120,23 +95,11 @@ const StyledButton: FC<ButtonProps & {theme: DoobooTheme}> = ({
   const hovered = useHover(ref);
   const [layout, setLayout] = useState<LayoutRectangle>();
 
-  const mainColor = disabled
-    ? theme.disabled
-    : type === 'info'
-    ? theme.info
-    : type === 'secondary'
-    ? theme.secondary
-    : type === 'danger'
-    ? theme.danger
-    : type === 'warning'
-    ? theme.warning
-    : theme.primary;
-
   const compositeStyles: Styles = {
-    disabledButton: {
-      backgroundColor: !outlined ? theme.disabled : theme.background,
-      borderColor: theme.disabled,
-    },
+    disabledButton: css`
+      background-color: ${!outlined ? theme.disabled : theme.background};
+      border-color: ${theme.disabled};
+    `,
     disabledText: {
       color: !outlined ? theme.background : theme.textDisabled,
     },
@@ -198,24 +161,17 @@ const StyledButton: FC<ButtonProps & {theme: DoobooTheme}> = ({
           disabled={disabled}
           outlined={outlined}>
           {leftElement}
-          <TypographyInverted.Heading3
+          <ButtonText
+            outlined={outlined}
+            type={type}
+            disabled={disabled}
             style={[
-              {
-                color:
-                  outlined && type === 'warning'
-                    ? theme.text
-                    : outlined
-                    ? mainColor
-                    : type === 'primary'
-                    ? theme.textContrast
-                    : colors.black,
-              },
               compositeStyles.text,
               disabled && compositeStyles.disabledText,
             ]}
             {...textProps}>
             {text}
-          </TypographyInverted.Heading3>
+          </ButtonText>
           {rightElement}
         </ButtonContainer>
       )}
@@ -223,6 +179,6 @@ const StyledButton: FC<ButtonProps & {theme: DoobooTheme}> = ({
   );
 };
 
-StyledButton.defaultProps = {theme: light};
+ButtonComponent.defaultProps = {theme: light};
 
-export const Button = withTheme(StyledButton);
+export const Button = withTheme(ButtonComponent);

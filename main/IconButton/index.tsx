@@ -8,6 +8,7 @@ import type {
   ViewStyle,
 } from 'react-native';
 
+import {ButtonWrapper} from '../Styled/StyledComponents';
 import type {FC} from 'react';
 import styled from '@emotion/native';
 import {useHover} from 'react-native-web-hooks';
@@ -23,7 +24,7 @@ type Styles = {
 type ButtonType = 'primary' | 'secondary' | 'danger' | 'warning' | 'info';
 type ButtonSize = 'small' | 'medium' | 'large';
 
-const ButtonContainer = styled.View<{
+const ButtonContainer = styled(ButtonWrapper)<{
   type: ButtonType;
   width?: number;
   height?: number;
@@ -32,39 +33,12 @@ const ButtonContainer = styled.View<{
   size?: ButtonSize;
 }>`
   padding: 4px;
-  border-width: ${({outlined}) => (outlined ? '1px' : 0)};
   height: ${({size}) =>
     size === 'large' ? '80px' : size === 'medium' ? '50px' : '32px'};
   width: ${({size}) =>
     size === 'large' ? '80px' : size === 'medium' ? '50px' : '32px'};
   border-radius: ${({size}) =>
     size === 'large' ? '45px' : size === 'medium' ? '50px' : '32px'};
-  background-color: ${({theme, type, outlined, disabled}) =>
-    disabled
-      ? undefined
-      : outlined
-      ? theme.background
-      : type === 'info'
-      ? theme.info
-      : type === 'secondary'
-      ? theme.secondary
-      : type === 'danger'
-      ? theme.danger
-      : type === 'warning'
-      ? theme.warning
-      : theme.primary};
-  border-color: ${({theme, type, disabled}) =>
-    disabled
-      ? theme.text
-      : type === 'info'
-      ? theme.info
-      : type === 'secondary'
-      ? theme.secondary
-      : type === 'danger'
-      ? theme.danger
-      : type === 'warning'
-      ? theme.warning
-      : theme.primary};
 
   flex-direction: row;
   align-items: center;

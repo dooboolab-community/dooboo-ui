@@ -2,6 +2,7 @@ import {DoobooTheme, light} from '../theme';
 import React, {FC} from 'react';
 import {StyleProp, View, ViewStyle} from 'react-native';
 
+import {CheckboxWrapper} from '../Styled/StyledComponents';
 import {Icon} from '../Icon';
 import styled from '@emotion/native';
 import {withTheme} from '@emotion/react';
@@ -29,7 +30,7 @@ const Container = styled.TouchableOpacity`
   align-items: center;
 `;
 
-const StyledCheckbox = styled.View<{
+const StyledCheckbox = styled(CheckboxWrapper)<{
   checked?: boolean;
   disabled?: boolean;
   type?: CheckboxType;
@@ -38,32 +39,6 @@ const StyledCheckbox = styled.View<{
   height: 20px;
   border-width: 1px;
   margin: 0 6px;
-  background-color: ${({theme, checked, type, disabled}) =>
-    disabled
-      ? undefined
-      : !checked
-      ? theme.background
-      : type === 'info'
-      ? theme.info
-      : type === 'secondary'
-      ? theme.secondary
-      : type === 'danger'
-      ? theme.danger
-      : type === 'warning'
-      ? theme.warning
-      : theme.primary};
-  border-color: ${({theme, type, disabled}) =>
-    disabled
-      ? theme.text
-      : type === 'info'
-      ? theme.info
-      : type === 'secondary'
-      ? theme.secondary
-      : type === 'danger'
-      ? theme.danger
-      : type === 'warning'
-      ? theme.warning
-      : theme.primary};
 
   justify-content: center;
   align-items: center;
