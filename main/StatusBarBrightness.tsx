@@ -1,6 +1,6 @@
+import React, {FC} from 'react';
 import {ThemeType, useTheme, withTheme} from './theme';
 
-import type {FC} from 'react';
 import {StatusBar} from 'react-native';
 import type {StatusBarStyle} from 'react-native';
 
