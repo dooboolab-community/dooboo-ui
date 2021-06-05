@@ -1,20 +1,18 @@
 import React, {FC} from 'react';
-import {ThemeType, useTheme, withTheme} from './theme';
+import {useTheme, withTheme} from './theme';
 
 import {StatusBar} from 'react-native';
 import type {StatusBarStyle} from 'react-native';
 
-type Props = {
-  themeType?: ThemeType;
-};
+/**
+ * This component should be rendered inside `ThemeProvider` provided by `dooboo-ui`.
+ */
 
-const Component: FC<Props> = ({themeType}) => {
-  const {themeType: currentThemeType} = useTheme();
+const Component: FC = () => {
+  const {themeType} = useTheme();
 
   const statusColor: StatusBarStyle =
-    (themeType || currentThemeType) === 'light'
-      ? 'dark-content'
-      : 'light-content';
+    themeType === 'light' ? 'dark-content' : 'light-content';
 
   return <StatusBar barStyle={statusColor} />;
 };
