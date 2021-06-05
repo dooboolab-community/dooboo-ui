@@ -31,8 +31,8 @@ module.exports = {
   coveragePathIgnorePatterns: [
     '.example.',
     '__assets__',
-    '__tests__',
     './main/theme',
+    'stories',
     '/node_modules/',
   ],
 };

@@ -8,6 +8,7 @@ import type {ReactElement} from 'react';
 import type {RenderAPI} from '@testing-library/react-native';
 import {Text} from 'react-native';
 import {createComponent} from '../../test/testUtils';
+import {css} from '@emotion/native';
 import {light} from '../theme/colors';
 
 let testingLib: RenderAPI;
@@ -46,10 +47,7 @@ describe('[Button]', () => {
 
       const loadingView = testingLib.getByTestId('loading-view');
 
-      expect(loadingView.props.style[1][3]).toEqual({
-        backgroundColor: '#C4C4C4',
-        borderColor: '#C4C4C4',
-      });
+      expect(loadingView.props.style[0].borderTopColor).toEqual(light.disabled);
     });
 
     it('should render disabled button style when disabled', () => {
@@ -67,9 +65,7 @@ describe('[Button]', () => {
 
       const loadingView = testingLib.getByTestId('loading-view');
 
-      expect(loadingView.props.style[1][3]).toEqual({
-        borderColor: 'red',
-      });
+      expect(loadingView.props.style[0].borderTopColor).toEqual(light.disabled);
     });
 
     it('should render custom container', () => {
@@ -107,15 +103,15 @@ describe('[Button]', () => {
         Component({
           disabled: true,
           styles: {
-            disabledButton: {
-              backgroundColor: 'yellow',
-            },
+            disabledButton: css`
+              background-color: yellow;
+            `,
           },
         }),
       );
 
       const button = testingLib.getByTestId('button-container');
-      const disabledButtonStyle = button.props.style[1][2];
+      const disabledButtonStyle = button.props.style[1][1][2];
 
       expect(disabledButtonStyle).toEqual({
         backgroundColor: 'yellow',
@@ -126,17 +122,17 @@ describe('[Button]', () => {
       testingLib = render(
         Component({
           styles: {
-            container: {
-              backgroundColor: 'blue',
-            },
+            container: css`
+              background-color: blue;
+            `,
           },
         }),
       );
 
       const button = testingLib.getByTestId('button-container');
-      const buttonContainerStyle = button.props.style[1];
+      const buttonContainerStyle = button.props.style[1][1][0];
 
-      expect(buttonContainerStyle[0]).toEqual({
+      expect(buttonContainerStyle).toEqual({
         backgroundColor: 'blue',
       });
     });
@@ -167,7 +163,7 @@ describe('[Button]', () => {
 
       const loadingView = testingLib.getByTestId('loading-view');
 
-      const buttonLayoutStyle = loadingView.props.style[1][1];
+      const buttonLayoutStyle = loadingView.props.style[1][1][1];
 
       expect(buttonLayoutStyle.width).toEqual(375);
       expect(buttonLayoutStyle.height).toEqual(667);
