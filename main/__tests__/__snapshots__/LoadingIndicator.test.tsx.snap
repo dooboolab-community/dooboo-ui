@@ -190,12 +190,7 @@ exports[`[LoadingIndicator] render should render [customElement] 1`] = `
     }
   }
 >
-  <ActivityIndicator
-    animating={true}
-    color="#6D6D6D"
-    hidesWhenStopped={true}
-    size="large"
-  />
+  <View />
 </View>
 `;
 
@@ -364,7 +359,7 @@ exports[`[LoadingIndicator] render should render without crashing 1`] = `
 >
   <ActivityIndicator
     animating={true}
-    color="#6D6D6D"
+    color="#00D9D5"
     hidesWhenStopped={true}
     size="large"
   />

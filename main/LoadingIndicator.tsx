@@ -8,9 +8,8 @@ import {
   View,
   ViewStyle,
 } from 'react-native';
+import {DoobooTheme, light} from './theme';
 import React, {ReactElement} from 'react';
-
-import {colors} from './theme/colors';
 
 const styles = StyleSheet.create({
   container: {
@@ -33,11 +32,19 @@ interface Props {
   size?: number | 'small' | 'large';
   imgSource?: string | ImageSourcePropType;
   renderCustomElement?: () => ReactElement;
+  theme: DoobooTheme;
 }
 
 function LoadingIndicator(props: Props): ReactElement {
-  const {containerStyle, renderCustomElement, style, size, color, imgSource} =
-    props;
+  const {
+    containerStyle,
+    renderCustomElement,
+    style,
+    size,
+    color,
+    imgSource,
+    theme,
+  } = props;
 
   const handleImgSize = (imgSize: number | string | undefined): ImageStyle => {
     if (imgSize === 'large')
@@ -76,7 +83,11 @@ function LoadingIndicator(props: Props): ReactElement {
       {renderCustomElement ? (
         renderCustomElement()
       ) : !imgSource ? (
-        <ActivityIndicator style={style} size={size} color={color} />
+        <ActivityIndicator
+          style={style}
+          size={size}
+          color={color || theme.secondary}
+        />
       ) : (
         <Image
           source={handleImgSourceType(imgSource)}
@@ -89,7 +100,7 @@ function LoadingIndicator(props: Props): ReactElement {
 
 LoadingIndicator.defaultProps = {
   size: 'large',
-  color: colors.gray,
+  theme: light,
 };
 
 export {LoadingIndicator};

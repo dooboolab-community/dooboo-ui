@@ -8,7 +8,7 @@ import styled from '@emotion/native';
 const Container = styled.View`
   flex: 1;
   width: 100%;
-  background-color: transparent;
+  background-color: ${({theme}) => theme.background};
   align-items: center;
   justify-content: center;
   flex-direction: row;
@@ -58,13 +58,18 @@ toStorybook.story = {
  */
 storiesOf('LoadingIndicator', module)
   .addDecorator(ContainerDeco)
-  .add('spinner', () => (
-    <ThemeProvider>
+  .add('spinner - light', () => (
+    <ThemeProvider initialThemeType="light">
+      <Spinner />
+    </ThemeProvider>
+  ))
+  .add('spinner - dark', () => (
+    <ThemeProvider initialThemeType="dark">
       <Spinner />
     </ThemeProvider>
   ))
   .add('imgVersion', () => (
-    <ThemeProvider initialThemeType="dark">
+    <ThemeProvider initialThemeType="light">
       <ImgVersion />
     </ThemeProvider>
   ));
