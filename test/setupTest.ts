@@ -16,8 +16,6 @@ afterEach(cleanup);
 jest.useFakeTimers('modern');
 Date.now = jest.fn(() => new Date('2021-03-19T04:30:54.591Z').valueOf());
 
-jest.setTimeout(30000);
-
 process.on('unhandledRejection', (err) => {
   fail(err);
 });

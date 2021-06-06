@@ -6,6 +6,7 @@ import './dooboo-ui/IconButtonStories';
 import './dooboo-ui/CheckboxStories';
 import './dooboo-ui/EditTextStories';
 import './dooboo-ui/ButtonGroupStories';
+import './dooboo-ui/SwitchToggleStories';
 import './dooboo-ui/AccordionStories';
 import './packages/CalendarCarouselStories';
 import './packages/PinzoomStories';
