@@ -1,5 +1,9 @@
 ## Changelogs
 
+## 0.1.7
+
+Add [RadioGroup] [#26](https://github.com/dooboolab/dooboo-ui/commit/39b9138a60a697f34fc6da422bb26ca8dd6ee325).
+
 ## 0.1.6
 
 All components renewed in `V2` which starts from version `0.1.0`.
