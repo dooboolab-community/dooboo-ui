@@ -49,14 +49,13 @@ const AnimatedContainer = styled(Animated.View)`
 
 function Component(props: Props): React.ReactElement {
   const {
-    theme = light,
-    backgroundColorOn = theme.primary,
-    backgroundColorOff = theme.disabled,
-    circleColorOn = theme.textContrast,
-    circleColorOff = theme.placeholder,
     duration = 300,
     backgroundImageOn,
     backgroundImageOff,
+    backgroundColorOn,
+    backgroundColorOff,
+    circleColorOn,
+    circleColorOff,
   } = props;
 
   const [animXValue] = useState(new Animated.Value(props.switchOn ? 1 : 0));
@@ -189,6 +188,11 @@ function Component(props: Props): React.ReactElement {
 }
 
 Component.defaultProps = {
+  theme: light,
+  backgroundColorOn: light.primary,
+  backgroundColorOff: light.disabled,
+  circleColorOn: light.textContrast,
+  circleColorOff: light.placeholder,
   containerStyle: {
     marginTop: 16,
     width: 80,

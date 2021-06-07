@@ -20,7 +20,7 @@ export const Title = withTheme(StyledTitle);
 const StyledHeading1 = styled.Text<{theme: DoobooTheme}>`
   font-size: 22px;
   font-weight: 400;
-  color: ${({theme}) => theme.text || '#000'};
+  color: ${({theme}) => theme.text};
 `;
 
 StyledHeading1.defaultProps = {
@@ -34,7 +34,7 @@ export const Heading1 = withTheme(StyledHeading1);
 const StyledHeading2 = styled.Text<{theme: DoobooTheme}>`
   font-size: 17px;
   font-weight: 400;
-  color: ${({theme}) => theme.text || '#000'};
+  color: ${({theme}) => theme.text};
 `;
 
 StyledHeading2.defaultProps = {
@@ -48,7 +48,7 @@ export const Heading2 = withTheme(StyledHeading2);
 const StyledHeading3 = styled.Text<{theme: DoobooTheme}>`
   font-size: 16px;
   font-weight: 400;
-  color: ${({theme}) => theme.text || '#000'};
+  color: ${({theme}) => theme.text};
 `;
 
 StyledHeading3.defaultProps = {
@@ -61,7 +61,7 @@ export const Heading3 = withTheme(StyledHeading3);
 // Body1
 const StyledBody1 = styled.Text<{theme: DoobooTheme}>`
   font-size: 16px;
-  color: ${({theme}) => theme.text || '#000'};
+  color: ${({theme}) => theme.text};
 `;
 
 StyledBody1.defaultProps = {
@@ -74,7 +74,7 @@ export const Body1 = withTheme(StyledBody1);
 // Body2
 const StyledBody2 = styled.Text<{theme: DoobooTheme}>`
   font-size: 14px;
-  color: ${({theme}) => theme.text || '#000'};
+  color: ${({theme}) => theme.text};
 `;
 
 StyledBody2.defaultProps = {
