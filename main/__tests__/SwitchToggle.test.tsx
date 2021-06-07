@@ -249,11 +249,11 @@ describe('[SwitchToggle]', (): void => {
       expect(props.onPress).toHaveBeenCalled();
     });
 
-    it('should toggle switchOn to `true` on pressed', () => {
+    it('should toggle switch on/off when pressed', () => {
       // eslint-disable-next-line @typescript-eslint/no-shadow
       const props = {
         switchOn: false,
-        onPress: jest.fn(),
+        onPress: () => (props.switchOn = !props.switchOn),
       };
 
       component = <SwitchToggle {...props} />;
@@ -261,13 +261,15 @@ describe('[SwitchToggle]', (): void => {
       const rendered = renderer.create(component);
       const switchToggle = rendered.root.findByType(TouchableOpacity);
 
-      switchToggle.props.onPress();
-
       expect(props.switchOn).toBeFalsy();
 
       switchToggle.props.onPress();
 
-      expect(props.onPress).toHaveBeenCalled();
+      expect(props.switchOn).toBeTruthy();
+
+      switchToggle.props.onPress();
+
+      expect(props.switchOn).toBeFalsy();
     });
 
     it('should toggle switchOn to `false` on pressed', () => {
