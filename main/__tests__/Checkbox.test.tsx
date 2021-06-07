@@ -69,7 +69,7 @@ describe('[Checkbox]', () => {
 
       const checkbox = testingLib.getByTestId('doobooui-checkbox');
 
-      expect(checkbox.props.style[0].backgroundColor).toEqual(light.info);
+      expect(checkbox.props.style.borderTopColor).toEqual(light.info);
     });
 
     it('should render type==="primary"', () => {
@@ -82,7 +82,7 @@ describe('[Checkbox]', () => {
 
       const checkbox = testingLib.getByTestId('doobooui-checkbox');
 
-      expect(checkbox.props.style[0].backgroundColor).toEqual(light.primary);
+      expect(checkbox.props.style.borderTopColor).toEqual(light.primary);
     });
 
     it('should render type==="secondary"', () => {
@@ -95,7 +95,7 @@ describe('[Checkbox]', () => {
 
       const checkbox = testingLib.getByTestId('doobooui-checkbox');
 
-      expect(checkbox.props.style[0].backgroundColor).toEqual(light.secondary);
+      expect(checkbox.props.style.borderTopColor).toEqual(light.secondary);
     });
 
     it('should render type==="danger"', () => {
@@ -108,7 +108,7 @@ describe('[Checkbox]', () => {
 
       const checkbox = testingLib.getByTestId('doobooui-checkbox');
 
-      expect(checkbox.props.style[0].backgroundColor).toEqual(light.danger);
+      expect(checkbox.props.style.borderTopColor).toEqual(light.danger);
     });
 
     it('should render type==="warning"', () => {
@@ -121,7 +121,7 @@ describe('[Checkbox]', () => {
 
       const checkbox = testingLib.getByTestId('doobooui-checkbox');
 
-      expect(checkbox.props.style[0].backgroundColor).toEqual(light.warning);
+      expect(checkbox.props.style.borderTopColor).toEqual(light.warning);
     });
   });
 });

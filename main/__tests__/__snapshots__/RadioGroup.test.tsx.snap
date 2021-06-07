@@ -36,13 +36,13 @@ exports[`[RadioButton] colors should render \`disabled color 1`] = `
       style={
         Array [
           Object {
-            "borderBottomColor": "black",
+            "borderBottomColor": "#C4C4C4",
             "borderBottomWidth": 1,
-            "borderLeftColor": "black",
+            "borderLeftColor": "#C4C4C4",
             "borderLeftWidth": 1,
-            "borderRightColor": "black",
+            "borderRightColor": "#C4C4C4",
             "borderRightWidth": 1,
-            "borderTopColor": "black",
+            "borderTopColor": "#C4C4C4",
             "borderTopWidth": 1,
           },
           Array [
@@ -75,18 +75,19 @@ exports[`[RadioButton] colors should render \`disabled color 1`] = `
         onLayout={[Function]}
         selected={false}
         style={
-          Array [
-            Object {},
-            Array [
+          Object {
+            "alignSelf": "stretch",
+            "backgroundColor": "#C4C4C4",
+            "flexBasis": 0,
+            "flexGrow": 1,
+            "flexShrink": 1,
+            "opacity": 0,
+            "transform": Array [
               Object {
-                "alignSelf": "stretch",
-                "flexBasis": 0,
-                "flexGrow": 1,
-                "flexShrink": 1,
+                "scale": 0,
               },
-              undefined,
             ],
-          ]
+          }
         }
         testID="circle-undefined"
         type="primary"
@@ -238,20 +239,19 @@ exports[`[RadioButton] colors should render all colors 1`] = `
                 onLayout={[Function]}
                 selected={true}
                 style={
-                  Array [
-                    Object {
-                      "backgroundColor": "black",
-                    },
-                    Array [
+                  Object {
+                    "alignSelf": "stretch",
+                    "backgroundColor": "black",
+                    "flexBasis": 0,
+                    "flexGrow": 1,
+                    "flexShrink": 1,
+                    "opacity": 0,
+                    "transform": Array [
                       Object {
-                        "alignSelf": "stretch",
-                        "flexBasis": 0,
-                        "flexGrow": 1,
-                        "flexShrink": 1,
+                        "scale": 0,
                       },
-                      undefined,
                     ],
-                  ]
+                  }
                 }
                 testID="circle-radio-0"
                 type="primary"
@@ -349,20 +349,19 @@ exports[`[RadioButton] colors should render all colors 1`] = `
                 onLayout={[Function]}
                 selected={false}
                 style={
-                  Array [
-                    Object {
-                      "backgroundColor": "white",
-                    },
-                    Array [
+                  Object {
+                    "alignSelf": "stretch",
+                    "backgroundColor": "white",
+                    "flexBasis": 0,
+                    "flexGrow": 1,
+                    "flexShrink": 1,
+                    "opacity": 0,
+                    "transform": Array [
                       Object {
-                        "alignSelf": "stretch",
-                        "flexBasis": 0,
-                        "flexGrow": 1,
-                        "flexShrink": 1,
+                        "scale": 0,
                       },
-                      undefined,
                     ],
-                  ]
+                  }
                 }
                 testID="circle-radio-1"
                 type="primary"
@@ -460,20 +459,19 @@ exports[`[RadioButton] colors should render all colors 1`] = `
                 onLayout={[Function]}
                 selected={false}
                 style={
-                  Array [
-                    Object {
-                      "backgroundColor": "white",
-                    },
-                    Array [
+                  Object {
+                    "alignSelf": "stretch",
+                    "backgroundColor": "white",
+                    "flexBasis": 0,
+                    "flexGrow": 1,
+                    "flexShrink": 1,
+                    "opacity": 0,
+                    "transform": Array [
                       Object {
-                        "alignSelf": "stretch",
-                        "flexBasis": 0,
-                        "flexGrow": 1,
-                        "flexShrink": 1,
+                        "scale": 0,
                       },
-                      undefined,
                     ],
-                  ]
+                  }
                 }
                 testID="circle-radio-2"
                 type="primary"
@@ -571,20 +569,19 @@ exports[`[RadioButton] colors should render all colors 1`] = `
                 onLayout={[Function]}
                 selected={false}
                 style={
-                  Array [
-                    Object {
-                      "backgroundColor": "white",
-                    },
-                    Array [
+                  Object {
+                    "alignSelf": "stretch",
+                    "backgroundColor": "white",
+                    "flexBasis": 0,
+                    "flexGrow": 1,
+                    "flexShrink": 1,
+                    "opacity": 0,
+                    "transform": Array [
                       Object {
-                        "alignSelf": "stretch",
-                        "flexBasis": 0,
-                        "flexGrow": 1,
-                        "flexShrink": 1,
+                        "scale": 0,
                       },
-                      undefined,
                     ],
-                  ]
+                  }
                 }
                 testID="circle-radio-3"
                 type="primary"
@@ -737,20 +734,19 @@ exports[`[RadioButton] colors should render all colors 1`] = `
                 onLayout={[Function]}
                 selected={true}
                 style={
-                  Array [
-                    Object {
-                      "backgroundColor": "#00D9D5",
-                    },
-                    Array [
+                  Object {
+                    "alignSelf": "stretch",
+                    "backgroundColor": "#00D9D5",
+                    "flexBasis": 0,
+                    "flexGrow": 1,
+                    "flexShrink": 1,
+                    "opacity": 0,
+                    "transform": Array [
                       Object {
-                        "alignSelf": "stretch",
-                        "flexBasis": 0,
-                        "flexGrow": 1,
-                        "flexShrink": 1,
+                        "scale": 0,
                       },
-                      undefined,
                     ],
-                  ]
+                  }
                 }
                 testID="circle-radio-0"
                 type="secondary"
@@ -809,13 +805,13 @@ exports[`[RadioButton] colors should render all colors 1`] = `
               style={
                 Array [
                   Object {
-                    "borderBottomColor": "#00D9D5",
+                    "borderBottomColor": "black",
                     "borderBottomWidth": 1,
-                    "borderLeftColor": "#00D9D5",
+                    "borderLeftColor": "black",
                     "borderLeftWidth": 1,
-                    "borderRightColor": "#00D9D5",
+                    "borderRightColor": "black",
                     "borderRightWidth": 1,
-                    "borderTopColor": "#00D9D5",
+                    "borderTopColor": "black",
                     "borderTopWidth": 1,
                   },
                   Array [
@@ -848,20 +844,19 @@ exports[`[RadioButton] colors should render all colors 1`] = `
                 onLayout={[Function]}
                 selected={false}
                 style={
-                  Array [
-                    Object {
-                      "backgroundColor": "white",
-                    },
-                    Array [
+                  Object {
+                    "alignSelf": "stretch",
+                    "backgroundColor": "white",
+                    "flexBasis": 0,
+                    "flexGrow": 1,
+                    "flexShrink": 1,
+                    "opacity": 0,
+                    "transform": Array [
                       Object {
-                        "alignSelf": "stretch",
-                        "flexBasis": 0,
-                        "flexGrow": 1,
-                        "flexShrink": 1,
+                        "scale": 0,
                       },
-                      undefined,
                     ],
-                  ]
+                  }
                 }
                 testID="circle-radio-1"
                 type="secondary"
@@ -920,13 +915,13 @@ exports[`[RadioButton] colors should render all colors 1`] = `
               style={
                 Array [
                   Object {
-                    "borderBottomColor": "#00D9D5",
+                    "borderBottomColor": "black",
                     "borderBottomWidth": 1,
-                    "borderLeftColor": "#00D9D5",
+                    "borderLeftColor": "black",
                     "borderLeftWidth": 1,
-                    "borderRightColor": "#00D9D5",
+                    "borderRightColor": "black",
                     "borderRightWidth": 1,
-                    "borderTopColor": "#00D9D5",
+                    "borderTopColor": "black",
                     "borderTopWidth": 1,
                   },
                   Array [
@@ -959,20 +954,19 @@ exports[`[RadioButton] colors should render all colors 1`] = `
                 onLayout={[Function]}
                 selected={false}
                 style={
-                  Array [
-                    Object {
-                      "backgroundColor": "white",
-                    },
-                    Array [
+                  Object {
+                    "alignSelf": "stretch",
+                    "backgroundColor": "white",
+                    "flexBasis": 0,
+                    "flexGrow": 1,
+                    "flexShrink": 1,
+                    "opacity": 0,
+                    "transform": Array [
                       Object {
-                        "alignSelf": "stretch",
-                        "flexBasis": 0,
-                        "flexGrow": 1,
-                        "flexShrink": 1,
+                        "scale": 0,
                       },
-                      undefined,
                     ],
-                  ]
+                  }
                 }
                 testID="circle-radio-2"
                 type="secondary"
@@ -1031,13 +1025,13 @@ exports[`[RadioButton] colors should render all colors 1`] = `
               style={
                 Array [
                   Object {
-                    "borderBottomColor": "#00D9D5",
+                    "borderBottomColor": "black",
                     "borderBottomWidth": 1,
-                    "borderLeftColor": "#00D9D5",
+                    "borderLeftColor": "black",
                     "borderLeftWidth": 1,
-                    "borderRightColor": "#00D9D5",
+                    "borderRightColor": "black",
                     "borderRightWidth": 1,
-                    "borderTopColor": "#00D9D5",
+                    "borderTopColor": "black",
                     "borderTopWidth": 1,
                   },
                   Array [
@@ -1070,20 +1064,19 @@ exports[`[RadioButton] colors should render all colors 1`] = `
                 onLayout={[Function]}
                 selected={false}
                 style={
-                  Array [
-                    Object {
-                      "backgroundColor": "white",
-                    },
-                    Array [
+                  Object {
+                    "alignSelf": "stretch",
+                    "backgroundColor": "white",
+                    "flexBasis": 0,
+                    "flexGrow": 1,
+                    "flexShrink": 1,
+                    "opacity": 0,
+                    "transform": Array [
                       Object {
-                        "alignSelf": "stretch",
-                        "flexBasis": 0,
-                        "flexGrow": 1,
-                        "flexShrink": 1,
+                        "scale": 0,
                       },
-                      undefined,
                     ],
-                  ]
+                  }
                 }
                 testID="circle-radio-3"
                 type="secondary"
@@ -1236,20 +1229,19 @@ exports[`[RadioButton] colors should render all colors 1`] = `
                 onLayout={[Function]}
                 selected={true}
                 style={
-                  Array [
-                    Object {
-                      "backgroundColor": "#5398FF",
-                    },
-                    Array [
+                  Object {
+                    "alignSelf": "stretch",
+                    "backgroundColor": "#5398FF",
+                    "flexBasis": 0,
+                    "flexGrow": 1,
+                    "flexShrink": 1,
+                    "opacity": 0,
+                    "transform": Array [
                       Object {
-                        "alignSelf": "stretch",
-                        "flexBasis": 0,
-                        "flexGrow": 1,
-                        "flexShrink": 1,
+                        "scale": 0,
                       },
-                      undefined,
                     ],
-                  ]
+                  }
                 }
                 testID="circle-radio-0"
                 type="info"
@@ -1308,13 +1300,13 @@ exports[`[RadioButton] colors should render all colors 1`] = `
               style={
                 Array [
                   Object {
-                    "borderBottomColor": "#5398FF",
+                    "borderBottomColor": "black",
                     "borderBottomWidth": 1,
-                    "borderLeftColor": "#5398FF",
+                    "borderLeftColor": "black",
                     "borderLeftWidth": 1,
-                    "borderRightColor": "#5398FF",
+                    "borderRightColor": "black",
                     "borderRightWidth": 1,
-                    "borderTopColor": "#5398FF",
+                    "borderTopColor": "black",
                     "borderTopWidth": 1,
                   },
                   Array [
@@ -1347,20 +1339,19 @@ exports[`[RadioButton] colors should render all colors 1`] = `
                 onLayout={[Function]}
                 selected={false}
                 style={
-                  Array [
-                    Object {
-                      "backgroundColor": "white",
-                    },
-                    Array [
+                  Object {
+                    "alignSelf": "stretch",
+                    "backgroundColor": "white",
+                    "flexBasis": 0,
+                    "flexGrow": 1,
+                    "flexShrink": 1,
+                    "opacity": 0,
+                    "transform": Array [
                       Object {
-                        "alignSelf": "stretch",
-                        "flexBasis": 0,
-                        "flexGrow": 1,
-                        "flexShrink": 1,
+                        "scale": 0,
                       },
-                      undefined,
                     ],
-                  ]
+                  }
                 }
                 testID="circle-radio-1"
                 type="info"
@@ -1419,13 +1410,13 @@ exports[`[RadioButton] colors should render all colors 1`] = `
               style={
                 Array [
                   Object {
-                    "borderBottomColor": "#5398FF",
+                    "borderBottomColor": "black",
                     "borderBottomWidth": 1,
-                    "borderLeftColor": "#5398FF",
+                    "borderLeftColor": "black",
                     "borderLeftWidth": 1,
-                    "borderRightColor": "#5398FF",
+                    "borderRightColor": "black",
                     "borderRightWidth": 1,
-                    "borderTopColor": "#5398FF",
+                    "borderTopColor": "black",
                     "borderTopWidth": 1,
                   },
                   Array [
@@ -1458,20 +1449,19 @@ exports[`[RadioButton] colors should render all colors 1`] = `
                 onLayout={[Function]}
                 selected={false}
                 style={
-                  Array [
-                    Object {
-                      "backgroundColor": "white",
-                    },
-                    Array [
+                  Object {
+                    "alignSelf": "stretch",
+                    "backgroundColor": "white",
+                    "flexBasis": 0,
+                    "flexGrow": 1,
+                    "flexShrink": 1,
+                    "opacity": 0,
+                    "transform": Array [
                       Object {
-                        "alignSelf": "stretch",
-                        "flexBasis": 0,
-                        "flexGrow": 1,
-                        "flexShrink": 1,
+                        "scale": 0,
                       },
-                      undefined,
                     ],
-                  ]
+                  }
                 }
                 testID="circle-radio-2"
                 type="info"
@@ -1530,13 +1520,13 @@ exports[`[RadioButton] colors should render all colors 1`] = `
               style={
                 Array [
                   Object {
-                    "borderBottomColor": "#5398FF",
+                    "borderBottomColor": "black",
                     "borderBottomWidth": 1,
-                    "borderLeftColor": "#5398FF",
+                    "borderLeftColor": "black",
                     "borderLeftWidth": 1,
-                    "borderRightColor": "#5398FF",
+                    "borderRightColor": "black",
                     "borderRightWidth": 1,
-                    "borderTopColor": "#5398FF",
+                    "borderTopColor": "black",
                     "borderTopWidth": 1,
                   },
                   Array [
@@ -1569,20 +1559,19 @@ exports[`[RadioButton] colors should render all colors 1`] = `
                 onLayout={[Function]}
                 selected={false}
                 style={
-                  Array [
-                    Object {
-                      "backgroundColor": "white",
-                    },
-                    Array [
+                  Object {
+                    "alignSelf": "stretch",
+                    "backgroundColor": "white",
+                    "flexBasis": 0,
+                    "flexGrow": 1,
+                    "flexShrink": 1,
+                    "opacity": 0,
+                    "transform": Array [
                       Object {
-                        "alignSelf": "stretch",
-                        "flexBasis": 0,
-                        "flexGrow": 1,
-                        "flexShrink": 1,
+                        "scale": 0,
                       },
-                      undefined,
                     ],
-                  ]
+                  }
                 }
                 testID="circle-radio-3"
                 type="info"
@@ -1735,20 +1724,19 @@ exports[`[RadioButton] colors should render all colors 1`] = `
                 onLayout={[Function]}
                 selected={true}
                 style={
-                  Array [
-                    Object {
-                      "backgroundColor": "#FFEB14",
-                    },
-                    Array [
+                  Object {
+                    "alignSelf": "stretch",
+                    "backgroundColor": "#FFEB14",
+                    "flexBasis": 0,
+                    "flexGrow": 1,
+                    "flexShrink": 1,
+                    "opacity": 0,
+                    "transform": Array [
                       Object {
-                        "alignSelf": "stretch",
-                        "flexBasis": 0,
-                        "flexGrow": 1,
-                        "flexShrink": 1,
+                        "scale": 0,
                       },
-                      undefined,
                     ],
-                  ]
+                  }
                 }
                 testID="circle-radio-0"
                 type="warning"
@@ -1807,13 +1795,13 @@ exports[`[RadioButton] colors should render all colors 1`] = `
               style={
                 Array [
                   Object {
-                    "borderBottomColor": "#FFEB14",
+                    "borderBottomColor": "black",
                     "borderBottomWidth": 1,
-                    "borderLeftColor": "#FFEB14",
+                    "borderLeftColor": "black",
                     "borderLeftWidth": 1,
-                    "borderRightColor": "#FFEB14",
+                    "borderRightColor": "black",
                     "borderRightWidth": 1,
-                    "borderTopColor": "#FFEB14",
+                    "borderTopColor": "black",
                     "borderTopWidth": 1,
                   },
                   Array [
@@ -1846,20 +1834,19 @@ exports[`[RadioButton] colors should render all colors 1`] = `
                 onLayout={[Function]}
                 selected={false}
                 style={
-                  Array [
-                    Object {
-                      "backgroundColor": "white",
-                    },
-                    Array [
+                  Object {
+                    "alignSelf": "stretch",
+                    "backgroundColor": "white",
+                    "flexBasis": 0,
+                    "flexGrow": 1,
+                    "flexShrink": 1,
+                    "opacity": 0,
+                    "transform": Array [
                       Object {
-                        "alignSelf": "stretch",
-                        "flexBasis": 0,
-                        "flexGrow": 1,
-                        "flexShrink": 1,
+                        "scale": 0,
                       },
-                      undefined,
                     ],
-                  ]
+                  }
                 }
                 testID="circle-radio-1"
                 type="warning"
@@ -1918,13 +1905,13 @@ exports[`[RadioButton] colors should render all colors 1`] = `
               style={
                 Array [
                   Object {
-                    "borderBottomColor": "#FFEB14",
+                    "borderBottomColor": "black",
                     "borderBottomWidth": 1,
-                    "borderLeftColor": "#FFEB14",
+                    "borderLeftColor": "black",
                     "borderLeftWidth": 1,
-                    "borderRightColor": "#FFEB14",
+                    "borderRightColor": "black",
                     "borderRightWidth": 1,
-                    "borderTopColor": "#FFEB14",
+                    "borderTopColor": "black",
                     "borderTopWidth": 1,
                   },
                   Array [
@@ -1957,20 +1944,19 @@ exports[`[RadioButton] colors should render all colors 1`] = `
                 onLayout={[Function]}
                 selected={false}
                 style={
-                  Array [
-                    Object {
-                      "backgroundColor": "white",
-                    },
-                    Array [
+                  Object {
+                    "alignSelf": "stretch",
+                    "backgroundColor": "white",
+                    "flexBasis": 0,
+                    "flexGrow": 1,
+                    "flexShrink": 1,
+                    "opacity": 0,
+                    "transform": Array [
                       Object {
-                        "alignSelf": "stretch",
-                        "flexBasis": 0,
-                        "flexGrow": 1,
-                        "flexShrink": 1,
+                        "scale": 0,
                       },
-                      undefined,
                     ],
-                  ]
+                  }
                 }
                 testID="circle-radio-2"
                 type="warning"
@@ -2029,13 +2015,13 @@ exports[`[RadioButton] colors should render all colors 1`] = `
               style={
                 Array [
                   Object {
-                    "borderBottomColor": "#FFEB14",
+                    "borderBottomColor": "black",
                     "borderBottomWidth": 1,
-                    "borderLeftColor": "#FFEB14",
+                    "borderLeftColor": "black",
                     "borderLeftWidth": 1,
-                    "borderRightColor": "#FFEB14",
+                    "borderRightColor": "black",
                     "borderRightWidth": 1,
-                    "borderTopColor": "#FFEB14",
+                    "borderTopColor": "black",
                     "borderTopWidth": 1,
                   },
                   Array [
@@ -2068,20 +2054,19 @@ exports[`[RadioButton] colors should render all colors 1`] = `
                 onLayout={[Function]}
                 selected={false}
                 style={
-                  Array [
-                    Object {
-                      "backgroundColor": "white",
-                    },
-                    Array [
+                  Object {
+                    "alignSelf": "stretch",
+                    "backgroundColor": "white",
+                    "flexBasis": 0,
+                    "flexGrow": 1,
+                    "flexShrink": 1,
+                    "opacity": 0,
+                    "transform": Array [
                       Object {
-                        "alignSelf": "stretch",
-                        "flexBasis": 0,
-                        "flexGrow": 1,
-                        "flexShrink": 1,
+                        "scale": 0,
                       },
-                      undefined,
                     ],
-                  ]
+                  }
                 }
                 testID="circle-radio-3"
                 type="warning"
@@ -2234,20 +2219,19 @@ exports[`[RadioButton] colors should render all colors 1`] = `
                 onLayout={[Function]}
                 selected={true}
                 style={
-                  Array [
-                    Object {
-                      "backgroundColor": "#FF002E",
-                    },
-                    Array [
+                  Object {
+                    "alignSelf": "stretch",
+                    "backgroundColor": "#FF002E",
+                    "flexBasis": 0,
+                    "flexGrow": 1,
+                    "flexShrink": 1,
+                    "opacity": 0,
+                    "transform": Array [
                       Object {
-                        "alignSelf": "stretch",
-                        "flexBasis": 0,
-                        "flexGrow": 1,
-                        "flexShrink": 1,
+                        "scale": 0,
                       },
-                      undefined,
                     ],
-                  ]
+                  }
                 }
                 testID="circle-radio-0"
                 type="danger"
@@ -2306,13 +2290,13 @@ exports[`[RadioButton] colors should render all colors 1`] = `
               style={
                 Array [
                   Object {
-                    "borderBottomColor": "#FF002E",
+                    "borderBottomColor": "black",
                     "borderBottomWidth": 1,
-                    "borderLeftColor": "#FF002E",
+                    "borderLeftColor": "black",
                     "borderLeftWidth": 1,
-                    "borderRightColor": "#FF002E",
+                    "borderRightColor": "black",
                     "borderRightWidth": 1,
-                    "borderTopColor": "#FF002E",
+                    "borderTopColor": "black",
                     "borderTopWidth": 1,
                   },
                   Array [
@@ -2345,20 +2329,19 @@ exports[`[RadioButton] colors should render all colors 1`] = `
                 onLayout={[Function]}
                 selected={false}
                 style={
-                  Array [
-                    Object {
-                      "backgroundColor": "white",
-                    },
-                    Array [
+                  Object {
+                    "alignSelf": "stretch",
+                    "backgroundColor": "white",
+                    "flexBasis": 0,
+                    "flexGrow": 1,
+                    "flexShrink": 1,
+                    "opacity": 0,
+                    "transform": Array [
                       Object {
-                        "alignSelf": "stretch",
-                        "flexBasis": 0,
-                        "flexGrow": 1,
-                        "flexShrink": 1,
+                        "scale": 0,
                       },
-                      undefined,
                     ],
-                  ]
+                  }
                 }
                 testID="circle-radio-1"
                 type="danger"
@@ -2417,13 +2400,13 @@ exports[`[RadioButton] colors should render all colors 1`] = `
               style={
                 Array [
                   Object {
-                    "borderBottomColor": "#FF002E",
+                    "borderBottomColor": "black",
                     "borderBottomWidth": 1,
-                    "borderLeftColor": "#FF002E",
+                    "borderLeftColor": "black",
                     "borderLeftWidth": 1,
-                    "borderRightColor": "#FF002E",
+                    "borderRightColor": "black",
                     "borderRightWidth": 1,
-                    "borderTopColor": "#FF002E",
+                    "borderTopColor": "black",
                     "borderTopWidth": 1,
                   },
                   Array [
@@ -2456,20 +2439,19 @@ exports[`[RadioButton] colors should render all colors 1`] = `
                 onLayout={[Function]}
                 selected={false}
                 style={
-                  Array [
-                    Object {
-                      "backgroundColor": "white",
-                    },
-                    Array [
+                  Object {
+                    "alignSelf": "stretch",
+                    "backgroundColor": "white",
+                    "flexBasis": 0,
+                    "flexGrow": 1,
+                    "flexShrink": 1,
+                    "opacity": 0,
+                    "transform": Array [
                       Object {
-                        "alignSelf": "stretch",
-                        "flexBasis": 0,
-                        "flexGrow": 1,
-                        "flexShrink": 1,
+                        "scale": 0,
                       },
-                      undefined,
                     ],
-                  ]
+                  }
                 }
                 testID="circle-radio-2"
                 type="danger"
@@ -2528,13 +2510,13 @@ exports[`[RadioButton] colors should render all colors 1`] = `
               style={
                 Array [
                   Object {
-                    "borderBottomColor": "#FF002E",
+                    "borderBottomColor": "black",
                     "borderBottomWidth": 1,
-                    "borderLeftColor": "#FF002E",
+                    "borderLeftColor": "black",
                     "borderLeftWidth": 1,
-                    "borderRightColor": "#FF002E",
+                    "borderRightColor": "black",
                     "borderRightWidth": 1,
-                    "borderTopColor": "#FF002E",
+                    "borderTopColor": "black",
                     "borderTopWidth": 1,
                   },
                   Array [
@@ -2567,20 +2549,19 @@ exports[`[RadioButton] colors should render all colors 1`] = `
                 onLayout={[Function]}
                 selected={false}
                 style={
-                  Array [
-                    Object {
-                      "backgroundColor": "white",
-                    },
-                    Array [
+                  Object {
+                    "alignSelf": "stretch",
+                    "backgroundColor": "white",
+                    "flexBasis": 0,
+                    "flexGrow": 1,
+                    "flexShrink": 1,
+                    "opacity": 0,
+                    "transform": Array [
                       Object {
-                        "alignSelf": "stretch",
-                        "flexBasis": 0,
-                        "flexGrow": 1,
-                        "flexShrink": 1,
+                        "scale": 0,
                       },
-                      undefined,
                     ],
-                  ]
+                  }
                 }
                 testID="circle-radio-3"
                 type="danger"
@@ -2738,20 +2719,19 @@ exports[`[RadioButton] render label should render \`labels\` 1`] = `
                 onLayout={[Function]}
                 selected={true}
                 style={
-                  Array [
-                    Object {
-                      "backgroundColor": "black",
-                    },
-                    Array [
+                  Object {
+                    "alignSelf": "stretch",
+                    "backgroundColor": "black",
+                    "flexBasis": 0,
+                    "flexGrow": 1,
+                    "flexShrink": 1,
+                    "opacity": 0,
+                    "transform": Array [
                       Object {
-                        "alignSelf": "stretch",
-                        "flexBasis": 0,
-                        "flexGrow": 1,
-                        "flexShrink": 1,
+                        "scale": 0,
                       },
-                      undefined,
                     ],
-                  ]
+                  }
                 }
                 testID="circle-radio-0"
                 type="primary"
@@ -2849,20 +2829,19 @@ exports[`[RadioButton] render label should render \`labels\` 1`] = `
                 onLayout={[Function]}
                 selected={false}
                 style={
-                  Array [
-                    Object {
-                      "backgroundColor": "white",
-                    },
-                    Array [
+                  Object {
+                    "alignSelf": "stretch",
+                    "backgroundColor": "white",
+                    "flexBasis": 0,
+                    "flexGrow": 1,
+                    "flexShrink": 1,
+                    "opacity": 0,
+                    "transform": Array [
                       Object {
-                        "alignSelf": "stretch",
-                        "flexBasis": 0,
-                        "flexGrow": 1,
-                        "flexShrink": 1,
+                        "scale": 0,
                       },
-                      undefined,
                     ],
-                  ]
+                  }
                 }
                 testID="circle-radio-1"
                 type="primary"
@@ -2960,20 +2939,19 @@ exports[`[RadioButton] render label should render \`labels\` 1`] = `
                 onLayout={[Function]}
                 selected={false}
                 style={
-                  Array [
-                    Object {
-                      "backgroundColor": "white",
-                    },
-                    Array [
+                  Object {
+                    "alignSelf": "stretch",
+                    "backgroundColor": "white",
+                    "flexBasis": 0,
+                    "flexGrow": 1,
+                    "flexShrink": 1,
+                    "opacity": 0,
+                    "transform": Array [
                       Object {
-                        "alignSelf": "stretch",
-                        "flexBasis": 0,
-                        "flexGrow": 1,
-                        "flexShrink": 1,
+                        "scale": 0,
                       },
-                      undefined,
                     ],
-                  ]
+                  }
                 }
                 testID="circle-radio-2"
                 type="primary"
@@ -3071,20 +3049,19 @@ exports[`[RadioButton] render label should render \`labels\` 1`] = `
                 onLayout={[Function]}
                 selected={false}
                 style={
-                  Array [
-                    Object {
-                      "backgroundColor": "white",
-                    },
-                    Array [
+                  Object {
+                    "alignSelf": "stretch",
+                    "backgroundColor": "white",
+                    "flexBasis": 0,
+                    "flexGrow": 1,
+                    "flexShrink": 1,
+                    "opacity": 0,
+                    "transform": Array [
                       Object {
-                        "alignSelf": "stretch",
-                        "flexBasis": 0,
-                        "flexGrow": 1,
-                        "flexShrink": 1,
+                        "scale": 0,
                       },
-                      undefined,
                     ],
-                  ]
+                  }
                 }
                 testID="circle-radio-3"
                 type="primary"
@@ -3257,20 +3234,19 @@ exports[`[RadioButton] render label should render \`labels\` with left position 
                 onLayout={[Function]}
                 selected={true}
                 style={
-                  Array [
-                    Object {
-                      "backgroundColor": "black",
-                    },
-                    Array [
+                  Object {
+                    "alignSelf": "stretch",
+                    "backgroundColor": "black",
+                    "flexBasis": 0,
+                    "flexGrow": 1,
+                    "flexShrink": 1,
+                    "opacity": 0,
+                    "transform": Array [
                       Object {
-                        "alignSelf": "stretch",
-                        "flexBasis": 0,
-                        "flexGrow": 1,
-                        "flexShrink": 1,
+                        "scale": 0,
                       },
-                      undefined,
                     ],
-                  ]
+                  }
                 }
                 testID="circle-radio-0"
                 type="primary"
@@ -3368,20 +3344,19 @@ exports[`[RadioButton] render label should render \`labels\` with left position 
                 onLayout={[Function]}
                 selected={false}
                 style={
-                  Array [
-                    Object {
-                      "backgroundColor": "white",
-                    },
-                    Array [
+                  Object {
+                    "alignSelf": "stretch",
+                    "backgroundColor": "white",
+                    "flexBasis": 0,
+                    "flexGrow": 1,
+                    "flexShrink": 1,
+                    "opacity": 0,
+                    "transform": Array [
                       Object {
-                        "alignSelf": "stretch",
-                        "flexBasis": 0,
-                        "flexGrow": 1,
-                        "flexShrink": 1,
+                        "scale": 0,
                       },
-                      undefined,
                     ],
-                  ]
+                  }
                 }
                 testID="circle-radio-1"
                 type="primary"
@@ -3479,20 +3454,19 @@ exports[`[RadioButton] render label should render \`labels\` with left position 
                 onLayout={[Function]}
                 selected={false}
                 style={
-                  Array [
-                    Object {
-                      "backgroundColor": "white",
-                    },
-                    Array [
+                  Object {
+                    "alignSelf": "stretch",
+                    "backgroundColor": "white",
+                    "flexBasis": 0,
+                    "flexGrow": 1,
+                    "flexShrink": 1,
+                    "opacity": 0,
+                    "transform": Array [
                       Object {
-                        "alignSelf": "stretch",
-                        "flexBasis": 0,
-                        "flexGrow": 1,
-                        "flexShrink": 1,
+                        "scale": 0,
                       },
-                      undefined,
                     ],
-                  ]
+                  }
                 }
                 testID="circle-radio-2"
                 type="primary"
@@ -3590,20 +3564,19 @@ exports[`[RadioButton] render label should render \`labels\` with left position 
                 onLayout={[Function]}
                 selected={false}
                 style={
-                  Array [
-                    Object {
-                      "backgroundColor": "white",
-                    },
-                    Array [
+                  Object {
+                    "alignSelf": "stretch",
+                    "backgroundColor": "white",
+                    "flexBasis": 0,
+                    "flexGrow": 1,
+                    "flexShrink": 1,
+                    "opacity": 0,
+                    "transform": Array [
                       Object {
-                        "alignSelf": "stretch",
-                        "flexBasis": 0,
-                        "flexGrow": 1,
-                        "flexShrink": 1,
+                        "scale": 0,
                       },
-                      undefined,
                     ],
-                  ]
+                  }
                 }
                 testID="circle-radio-3"
                 type="primary"
@@ -3700,7 +3673,6 @@ exports[`[RadioButton] render should render without crashing 1`] = `
             }
           }
         >
-          
           <View
             disabled={false}
             selected={true}
@@ -3746,26 +3718,24 @@ exports[`[RadioButton] render should render without crashing 1`] = `
               onLayout={[Function]}
               selected={true}
               style={
-                Array [
-                  Object {
-                    "backgroundColor": "black",
-                  },
-                  Array [
+                Object {
+                  "alignSelf": "stretch",
+                  "backgroundColor": "black",
+                  "flexBasis": 0,
+                  "flexGrow": 1,
+                  "flexShrink": 1,
+                  "opacity": 0,
+                  "transform": Array [
                     Object {
-                      "alignSelf": "stretch",
-                      "flexBasis": 0,
-                      "flexGrow": 1,
-                      "flexShrink": 1,
+                      "scale": 0,
                     },
-                    undefined,
                   ],
-                ]
+                }
               }
               testID="circle-radio-0"
               type="primary"
             />
           </View>
-          
         </View>
       </View>
       <View
@@ -3798,7 +3768,6 @@ exports[`[RadioButton] render should render without crashing 1`] = `
             }
           }
         >
-          
           <View
             disabled={false}
             selected={false}
@@ -3844,26 +3813,24 @@ exports[`[RadioButton] render should render without crashing 1`] = `
               onLayout={[Function]}
               selected={false}
               style={
-                Array [
-                  Object {
-                    "backgroundColor": "white",
-                  },
-                  Array [
+                Object {
+                  "alignSelf": "stretch",
+                  "backgroundColor": "white",
+                  "flexBasis": 0,
+                  "flexGrow": 1,
+                  "flexShrink": 1,
+                  "opacity": 0,
+                  "transform": Array [
                     Object {
-                      "alignSelf": "stretch",
-                      "flexBasis": 0,
-                      "flexGrow": 1,
-                      "flexShrink": 1,
+                      "scale": 0,
                     },
-                    undefined,
                   ],
-                ]
+                }
               }
               testID="circle-radio-1"
               type="primary"
             />
           </View>
-          
         </View>
       </View>
       <View
@@ -3896,7 +3863,6 @@ exports[`[RadioButton] render should render without crashing 1`] = `
             }
           }
         >
-          
           <View
             disabled={false}
             selected={false}
@@ -3942,26 +3908,24 @@ exports[`[RadioButton] render should render without crashing 1`] = `
               onLayout={[Function]}
               selected={false}
               style={
-                Array [
-                  Object {
-                    "backgroundColor": "white",
-                  },
-                  Array [
+                Object {
+                  "alignSelf": "stretch",
+                  "backgroundColor": "white",
+                  "flexBasis": 0,
+                  "flexGrow": 1,
+                  "flexShrink": 1,
+                  "opacity": 0,
+                  "transform": Array [
                     Object {
-                      "alignSelf": "stretch",
-                      "flexBasis": 0,
-                      "flexGrow": 1,
-                      "flexShrink": 1,
+                      "scale": 0,
                     },
-                    undefined,
                   ],
-                ]
+                }
               }
               testID="circle-radio-2"
               type="primary"
             />
           </View>
-          
         </View>
       </View>
       <View
@@ -3994,7 +3958,6 @@ exports[`[RadioButton] render should render without crashing 1`] = `
             }
           }
         >
-          
           <View
             disabled={false}
             selected={false}
@@ -4040,26 +4003,24 @@ exports[`[RadioButton] render should render without crashing 1`] = `
               onLayout={[Function]}
               selected={false}
               style={
-                Array [
-                  Object {
-                    "backgroundColor": "white",
-                  },
-                  Array [
+                Object {
+                  "alignSelf": "stretch",
+                  "backgroundColor": "white",
+                  "flexBasis": 0,
+                  "flexGrow": 1,
+                  "flexShrink": 1,
+                  "opacity": 0,
+                  "transform": Array [
                     Object {
-                      "alignSelf": "stretch",
-                      "flexBasis": 0,
-                      "flexGrow": 1,
-                      "flexShrink": 1,
+                      "scale": 0,
                     },
-                    undefined,
                   ],
-                ]
+                }
               }
               testID="circle-radio-3"
               type="primary"
             />
           </View>
-          
         </View>
       </View>
     </View>

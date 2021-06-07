@@ -1,8 +1,11 @@
+import {Animated, Platform, StyleProp, View, ViewStyle} from 'react-native';
+import {
+  CheckboxWrapper,
+  CheckboxWrapperOutlined,
+} from '../Styled/StyledComponents';
 import {DoobooTheme, light} from '../theme';
-import React, {FC} from 'react';
-import {StyleProp, View, ViewStyle} from 'react-native';
+import React, {FC, useEffect, useRef} from 'react';
 
-import {CheckboxWrapper} from '../Styled/StyledComponents';
 import {Icon} from '../Icon';
 import styled from '@emotion/native';
 import {withTheme} from '@emotion/react';
@@ -30,7 +33,7 @@ const Container = styled.TouchableOpacity`
   align-items: center;
 `;
 
-const StyledCheckbox = styled(CheckboxWrapper)<{
+const StyledCheckboxOutlined = styled(CheckboxWrapperOutlined)<{
   checked?: boolean;
   disabled?: boolean;
   type?: CheckboxType;
@@ -38,6 +41,19 @@ const StyledCheckbox = styled(CheckboxWrapper)<{
   width: 20px;
   height: 20px;
   border-width: 1px;
+  margin: 0 6px;
+
+  justify-content: center;
+  align-items: center;
+`;
+
+const StyledCheckbox = styled(CheckboxWrapper)<{
+  checked?: boolean;
+  disabled?: boolean;
+  type?: CheckboxType;
+}>`
+  width: 20px;
+  height: 20px;
   margin: 0 6px;
 
   justify-content: center;
@@ -58,6 +74,29 @@ const CheckboxContainer: FC<CheckboxProps> = ({
   checked = false,
   onPress,
 }) => {
+  const animatedValue = new Animated.Value(0);
+  const fadeAnim = useRef(animatedValue).current;
+  const scaleAnim = useRef(animatedValue).current;
+
+  useEffect(() => {
+    Animated.sequence([
+      Animated.spring(fadeAnim, {
+        toValue: !checked ? 0 : 1,
+        useNativeDriver: Platform.select({
+          web: false,
+          default: true,
+        }),
+      }),
+      Animated.spring(scaleAnim, {
+        toValue: !checked ? 0 : 1,
+        useNativeDriver: Platform.select({
+          web: false,
+          default: true,
+        }),
+      }),
+    ]).start();
+  }, [fadeAnim, scaleAnim, checked]);
+
   return (
     <Container
       disabled={disabled}
@@ -72,14 +111,23 @@ const CheckboxContainer: FC<CheckboxProps> = ({
           paddingRight: rightElement ? 6 : 0,
         }}>
         {leftElement}
-        <StyledCheckbox
+        <StyledCheckboxOutlined
           testID="doobooui-checkbox"
-          style={styles?.checkbox}
           checked={checked}
           type={type}
-          disabled={disabled}>
-          <StyledCheck name="tick-light" checked={checked} />
-        </StyledCheckbox>
+          disabled={disabled}
+          style={styles?.checkbox}>
+          <StyledCheckbox
+            style={[
+              styles?.checkbox,
+              {opacity: fadeAnim, transform: [{scale: scaleAnim}]},
+            ]}
+            checked={checked}
+            type={type}
+            disabled={disabled}>
+            <StyledCheck name="tick-light" checked={checked} />
+          </StyledCheckbox>
+        </StyledCheckboxOutlined>
         {rightElement}
       </View>
     </Container>

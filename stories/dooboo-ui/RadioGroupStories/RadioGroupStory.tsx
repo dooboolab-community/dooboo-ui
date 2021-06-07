@@ -36,9 +36,11 @@ const RadioButtonStory: FC = () => {
         <StyledText style={{fontSize: 18, marginTop: 24, marginBottom: 12}}>
           Radio Group
         </StyledText>
-        {types.map((el) => {
+        {types.map((el, i) => {
           return (
-            <View style={{flexDirection: 'row', marginTop: 24}}>
+            <View
+              key={`${el}-${i}`}
+              style={{flexDirection: 'row', marginTop: 24}}>
               <RadioGroup<string>
                 title={el}
                 data={data}
@@ -52,9 +54,11 @@ const RadioButtonStory: FC = () => {
         <StyledText style={{fontSize: 18, marginTop: 60, marginBottom: 12}}>
           With elements
         </StyledText>
-        {types.map((el) => {
+        {types.map((el, i) => {
           return (
-            <View style={{flexDirection: 'row', marginTop: 24}}>
+            <View
+              key={`${el}-${i}`}
+              style={{flexDirection: 'row', marginTop: 24}}>
               <RadioGroup<string>
                 title={el}
                 data={data}

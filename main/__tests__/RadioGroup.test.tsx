@@ -162,7 +162,7 @@ describe('[RadioButton]', () => {
         <View>
           {types.map((el) => {
             return (
-              <View style={{flexDirection: 'row', marginTop: 24}}>
+              <View key={el} style={{flexDirection: 'row', marginTop: 24}}>
                 <RadioGroup<string>
                   title={el}
                   data={data}
