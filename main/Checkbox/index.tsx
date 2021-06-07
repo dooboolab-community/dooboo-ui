@@ -112,12 +112,12 @@ const CheckboxContainer: FC<CheckboxProps> = ({
         }}>
         {leftElement}
         <StyledCheckboxOutlined
+          testID="doobooui-checkbox"
           checked={checked}
           type={type}
           disabled={disabled}
           style={styles?.checkbox}>
           <StyledCheckbox
-            testID="doobooui-checkbox"
             style={[
               styles?.checkbox,
               {opacity: fadeAnim, transform: [{scale: scaleAnim}]},
