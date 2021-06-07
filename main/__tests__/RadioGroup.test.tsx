@@ -1,5 +1,6 @@
 import * as React from 'react';
 
+import {RadioButton, RadioButtonType} from '../RadioGroup/RadioButton';
 import {RenderAPI, act, fireEvent, render} from '@testing-library/react-native';
 import {createComponent, createTestProps} from '../../test/testUtils';
 
@@ -150,6 +151,48 @@ describe('[RadioButton]', () => {
     expect(circleRadio.props.innerLayout).toEqual({
       width: 40,
       height: 40,
+    });
+  });
+
+  describe('colors', () => {
+    const types = ['primary', 'secondary', 'info', 'warning', 'danger'];
+
+    it('should render all colors', () => {
+      component = createComponent(
+        <View>
+          {types.map((el) => {
+            return (
+              <View style={{flexDirection: 'row', marginTop: 24}}>
+                <RadioGroup<string>
+                  title={el}
+                  data={data}
+                  type={el as RadioButtonType}
+                  selectedValue={data[0]}
+                  labels={data}
+                />
+              </View>
+            );
+          })}
+        </View>,
+      );
+
+      testingLib = render(component);
+
+      const json = testingLib.toJSON();
+
+      expect(json).toMatchSnapshot();
+    });
+
+    it('should render `disabled color', () => {
+      component = createComponent(
+        <RadioButton disabled={true} label="label" />,
+      );
+
+      testingLib = render(component);
+
+      const json = testingLib.toJSON();
+
+      expect(json).toMatchSnapshot();
     });
   });
 });

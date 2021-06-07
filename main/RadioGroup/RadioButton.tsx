@@ -64,6 +64,7 @@ const StyledRadioButton = styled(RadioButtonWrapper)<{
 
 const StyledRadioCircle = styled(RadioWrapper)<{
   selected?: boolean;
+  disabled?: boolean;
   innerLayout?: LayoutRectangle;
 }>`
   flex: 1;
@@ -126,6 +127,7 @@ const RadioButtonContainer: FC<RadioButtonProps> = ({
             testID={`circle-${testID}`}
             type={type}
             selected={!!selected}
+            disabled={!!disabled}
             innerLayout={innerLayout}
             onLayout={(e) => setInnerLayout(e.nativeEvent.layout)}
           />
@@ -133,8 +135,8 @@ const RadioButtonContainer: FC<RadioButtonProps> = ({
         {label && labelPosition === 'right' && (
           <ColoredText
             type={type}
-            selected={selected}
-            disabled={disabled}
+            selected={!!selected}
+            disabled={!!disabled}
             style={styles?.label}>
             {label}
           </ColoredText>

@@ -1,5 +1,2614 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`[RadioButton] colors should render \`disabled color 1`] = `
+<View
+  accessible={true}
+  focusable={false}
+  onClick={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Object {
+      "alignItems": "center",
+      "flexDirection": "row",
+      "opacity": 1,
+    }
+  }
+>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "flexDirection": "row",
+        "paddingLeft": 0,
+        "paddingRight": 8,
+        "paddingVertical": 6,
+      }
+    }
+  >
+    <View
+      disabled={true}
+      selected={false}
+      style={
+        Array [
+          Object {
+            "borderBottomColor": "black",
+            "borderBottomWidth": 1,
+            "borderLeftColor": "black",
+            "borderLeftWidth": 1,
+            "borderRightColor": "black",
+            "borderRightWidth": 1,
+            "borderTopColor": "black",
+            "borderTopWidth": 1,
+          },
+          Array [
+            Object {
+              "alignItems": "center",
+              "borderBottomLeftRadius": 10,
+              "borderBottomRightRadius": 10,
+              "borderBottomWidth": 1,
+              "borderLeftWidth": 1,
+              "borderRightWidth": 1,
+              "borderTopLeftRadius": 10,
+              "borderTopRightRadius": 10,
+              "borderTopWidth": 1,
+              "height": 20,
+              "justifyContent": "center",
+              "marginBottom": 0,
+              "marginLeft": 6,
+              "marginRight": 6,
+              "marginTop": 0,
+              "width": 20,
+            },
+            undefined,
+          ],
+        ]
+      }
+      type="primary"
+    >
+      <View
+        disabled={true}
+        onLayout={[Function]}
+        selected={false}
+        style={
+          Array [
+            Object {},
+            Array [
+              Object {
+                "alignSelf": "stretch",
+                "flexBasis": 0,
+                "flexGrow": 1,
+                "flexShrink": 1,
+              },
+              undefined,
+            ],
+          ]
+        }
+        testID="circle-undefined"
+        type="primary"
+      />
+    </View>
+    <Text
+      disabled={true}
+      selected={false}
+      style={
+        Array [
+          Object {},
+          undefined,
+        ]
+      }
+      type="primary"
+    >
+      label
+    </Text>
+  </View>
+</View>
+`;
+
+exports[`[RadioButton] colors should render all colors 1`] = `
+<View>
+  <View
+    style={
+      Object {
+        "flexDirection": "row",
+        "marginTop": 24,
+      }
+    }
+  >
+    <View
+      style={
+        Array [
+          Object {
+            "flexDirection": "column",
+            "justifyContent": "center",
+          },
+          undefined,
+        ]
+      }
+    >
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "black",
+              "fontSize": 16,
+              "fontWeight": "400",
+            },
+            Object {
+              "includeFontPadding": false,
+            },
+          ]
+        }
+      >
+        primary
+      </Text>
+      <View
+        style={
+          Object {
+            "height": 8,
+          }
+        }
+      />
+      <View
+        style={
+          Array [
+            Object {
+              "flexDirection": "row",
+            },
+            undefined,
+          ]
+        }
+      >
+        <View
+          accessible={true}
+          focusable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "alignItems": "center",
+              "flexDirection": "row",
+              "opacity": 1,
+            }
+          }
+          testID="radio-0"
+        >
+          <View
+            style={
+              Object {
+                "alignItems": "center",
+                "flexDirection": "row",
+                "paddingLeft": 0,
+                "paddingRight": 8,
+                "paddingVertical": 6,
+              }
+            }
+          >
+            <View
+              disabled={false}
+              selected={true}
+              style={
+                Array [
+                  Object {
+                    "borderBottomColor": "black",
+                    "borderBottomWidth": 1,
+                    "borderLeftColor": "black",
+                    "borderLeftWidth": 1,
+                    "borderRightColor": "black",
+                    "borderRightWidth": 1,
+                    "borderTopColor": "black",
+                    "borderTopWidth": 1,
+                  },
+                  Array [
+                    Object {
+                      "alignItems": "center",
+                      "borderBottomLeftRadius": 10,
+                      "borderBottomRightRadius": 10,
+                      "borderBottomWidth": 1,
+                      "borderLeftWidth": 1,
+                      "borderRightWidth": 1,
+                      "borderTopLeftRadius": 10,
+                      "borderTopRightRadius": 10,
+                      "borderTopWidth": 1,
+                      "height": 20,
+                      "justifyContent": "center",
+                      "marginBottom": 0,
+                      "marginLeft": 6,
+                      "marginRight": 6,
+                      "marginTop": 0,
+                      "width": 20,
+                    },
+                    undefined,
+                  ],
+                ]
+              }
+              type="primary"
+            >
+              <View
+                disabled={false}
+                onLayout={[Function]}
+                selected={true}
+                style={
+                  Array [
+                    Object {
+                      "backgroundColor": "black",
+                    },
+                    Array [
+                      Object {
+                        "alignSelf": "stretch",
+                        "flexBasis": 0,
+                        "flexGrow": 1,
+                        "flexShrink": 1,
+                      },
+                      undefined,
+                    ],
+                  ]
+                }
+                testID="circle-radio-0"
+                type="primary"
+              />
+            </View>
+            <Text
+              disabled={false}
+              selected={true}
+              style={
+                Array [
+                  Object {
+                    "color": "black",
+                  },
+                  undefined,
+                ]
+              }
+              type="primary"
+            >
+              Person
+            </Text>
+          </View>
+        </View>
+        <View
+          accessible={true}
+          focusable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "alignItems": "center",
+              "flexDirection": "row",
+              "opacity": 1,
+            }
+          }
+          testID="radio-1"
+        >
+          <View
+            style={
+              Object {
+                "alignItems": "center",
+                "flexDirection": "row",
+                "paddingLeft": 0,
+                "paddingRight": 8,
+                "paddingVertical": 6,
+              }
+            }
+          >
+            <View
+              disabled={false}
+              selected={false}
+              style={
+                Array [
+                  Object {
+                    "borderBottomColor": "black",
+                    "borderBottomWidth": 1,
+                    "borderLeftColor": "black",
+                    "borderLeftWidth": 1,
+                    "borderRightColor": "black",
+                    "borderRightWidth": 1,
+                    "borderTopColor": "black",
+                    "borderTopWidth": 1,
+                  },
+                  Array [
+                    Object {
+                      "alignItems": "center",
+                      "borderBottomLeftRadius": 10,
+                      "borderBottomRightRadius": 10,
+                      "borderBottomWidth": 1,
+                      "borderLeftWidth": 1,
+                      "borderRightWidth": 1,
+                      "borderTopLeftRadius": 10,
+                      "borderTopRightRadius": 10,
+                      "borderTopWidth": 1,
+                      "height": 20,
+                      "justifyContent": "center",
+                      "marginBottom": 0,
+                      "marginLeft": 6,
+                      "marginRight": 6,
+                      "marginTop": 0,
+                      "width": 20,
+                    },
+                    undefined,
+                  ],
+                ]
+              }
+              type="primary"
+            >
+              <View
+                disabled={false}
+                onLayout={[Function]}
+                selected={false}
+                style={
+                  Array [
+                    Object {
+                      "backgroundColor": "white",
+                    },
+                    Array [
+                      Object {
+                        "alignSelf": "stretch",
+                        "flexBasis": 0,
+                        "flexGrow": 1,
+                        "flexShrink": 1,
+                      },
+                      undefined,
+                    ],
+                  ]
+                }
+                testID="circle-radio-1"
+                type="primary"
+              />
+            </View>
+            <Text
+              disabled={false}
+              selected={false}
+              style={
+                Array [
+                  Object {
+                    "color": "black",
+                  },
+                  undefined,
+                ]
+              }
+              type="primary"
+            >
+              Animal
+            </Text>
+          </View>
+        </View>
+        <View
+          accessible={true}
+          focusable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "alignItems": "center",
+              "flexDirection": "row",
+              "opacity": 1,
+            }
+          }
+          testID="radio-2"
+        >
+          <View
+            style={
+              Object {
+                "alignItems": "center",
+                "flexDirection": "row",
+                "paddingLeft": 0,
+                "paddingRight": 8,
+                "paddingVertical": 6,
+              }
+            }
+          >
+            <View
+              disabled={false}
+              selected={false}
+              style={
+                Array [
+                  Object {
+                    "borderBottomColor": "black",
+                    "borderBottomWidth": 1,
+                    "borderLeftColor": "black",
+                    "borderLeftWidth": 1,
+                    "borderRightColor": "black",
+                    "borderRightWidth": 1,
+                    "borderTopColor": "black",
+                    "borderTopWidth": 1,
+                  },
+                  Array [
+                    Object {
+                      "alignItems": "center",
+                      "borderBottomLeftRadius": 10,
+                      "borderBottomRightRadius": 10,
+                      "borderBottomWidth": 1,
+                      "borderLeftWidth": 1,
+                      "borderRightWidth": 1,
+                      "borderTopLeftRadius": 10,
+                      "borderTopRightRadius": 10,
+                      "borderTopWidth": 1,
+                      "height": 20,
+                      "justifyContent": "center",
+                      "marginBottom": 0,
+                      "marginLeft": 6,
+                      "marginRight": 6,
+                      "marginTop": 0,
+                      "width": 20,
+                    },
+                    undefined,
+                  ],
+                ]
+              }
+              type="primary"
+            >
+              <View
+                disabled={false}
+                onLayout={[Function]}
+                selected={false}
+                style={
+                  Array [
+                    Object {
+                      "backgroundColor": "white",
+                    },
+                    Array [
+                      Object {
+                        "alignSelf": "stretch",
+                        "flexBasis": 0,
+                        "flexGrow": 1,
+                        "flexShrink": 1,
+                      },
+                      undefined,
+                    ],
+                  ]
+                }
+                testID="circle-radio-2"
+                type="primary"
+              />
+            </View>
+            <Text
+              disabled={false}
+              selected={false}
+              style={
+                Array [
+                  Object {
+                    "color": "black",
+                  },
+                  undefined,
+                ]
+              }
+              type="primary"
+            >
+              Bird
+            </Text>
+          </View>
+        </View>
+        <View
+          accessible={true}
+          focusable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "alignItems": "center",
+              "flexDirection": "row",
+              "opacity": 1,
+            }
+          }
+          testID="radio-3"
+        >
+          <View
+            style={
+              Object {
+                "alignItems": "center",
+                "flexDirection": "row",
+                "paddingLeft": 0,
+                "paddingRight": 8,
+                "paddingVertical": 6,
+              }
+            }
+          >
+            <View
+              disabled={false}
+              selected={false}
+              style={
+                Array [
+                  Object {
+                    "borderBottomColor": "black",
+                    "borderBottomWidth": 1,
+                    "borderLeftColor": "black",
+                    "borderLeftWidth": 1,
+                    "borderRightColor": "black",
+                    "borderRightWidth": 1,
+                    "borderTopColor": "black",
+                    "borderTopWidth": 1,
+                  },
+                  Array [
+                    Object {
+                      "alignItems": "center",
+                      "borderBottomLeftRadius": 10,
+                      "borderBottomRightRadius": 10,
+                      "borderBottomWidth": 1,
+                      "borderLeftWidth": 1,
+                      "borderRightWidth": 1,
+                      "borderTopLeftRadius": 10,
+                      "borderTopRightRadius": 10,
+                      "borderTopWidth": 1,
+                      "height": 20,
+                      "justifyContent": "center",
+                      "marginBottom": 0,
+                      "marginLeft": 6,
+                      "marginRight": 6,
+                      "marginTop": 0,
+                      "width": 20,
+                    },
+                    undefined,
+                  ],
+                ]
+              }
+              type="primary"
+            >
+              <View
+                disabled={false}
+                onLayout={[Function]}
+                selected={false}
+                style={
+                  Array [
+                    Object {
+                      "backgroundColor": "white",
+                    },
+                    Array [
+                      Object {
+                        "alignSelf": "stretch",
+                        "flexBasis": 0,
+                        "flexGrow": 1,
+                        "flexShrink": 1,
+                      },
+                      undefined,
+                    ],
+                  ]
+                }
+                testID="circle-radio-3"
+                type="primary"
+              />
+            </View>
+            <Text
+              disabled={false}
+              selected={false}
+              style={
+                Array [
+                  Object {
+                    "color": "black",
+                  },
+                  undefined,
+                ]
+              }
+              type="primary"
+            >
+              Other
+            </Text>
+          </View>
+        </View>
+      </View>
+    </View>
+  </View>
+  <View
+    style={
+      Object {
+        "flexDirection": "row",
+        "marginTop": 24,
+      }
+    }
+  >
+    <View
+      style={
+        Array [
+          Object {
+            "flexDirection": "column",
+            "justifyContent": "center",
+          },
+          undefined,
+        ]
+      }
+    >
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "black",
+              "fontSize": 16,
+              "fontWeight": "400",
+            },
+            Object {
+              "includeFontPadding": false,
+            },
+          ]
+        }
+      >
+        secondary
+      </Text>
+      <View
+        style={
+          Object {
+            "height": 8,
+          }
+        }
+      />
+      <View
+        style={
+          Array [
+            Object {
+              "flexDirection": "row",
+            },
+            undefined,
+          ]
+        }
+      >
+        <View
+          accessible={true}
+          focusable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "alignItems": "center",
+              "flexDirection": "row",
+              "opacity": 1,
+            }
+          }
+          testID="radio-0"
+        >
+          <View
+            style={
+              Object {
+                "alignItems": "center",
+                "flexDirection": "row",
+                "paddingLeft": 0,
+                "paddingRight": 8,
+                "paddingVertical": 6,
+              }
+            }
+          >
+            <View
+              disabled={false}
+              selected={true}
+              style={
+                Array [
+                  Object {
+                    "borderBottomColor": "#00D9D5",
+                    "borderBottomWidth": 1,
+                    "borderLeftColor": "#00D9D5",
+                    "borderLeftWidth": 1,
+                    "borderRightColor": "#00D9D5",
+                    "borderRightWidth": 1,
+                    "borderTopColor": "#00D9D5",
+                    "borderTopWidth": 1,
+                  },
+                  Array [
+                    Object {
+                      "alignItems": "center",
+                      "borderBottomLeftRadius": 10,
+                      "borderBottomRightRadius": 10,
+                      "borderBottomWidth": 1,
+                      "borderLeftWidth": 1,
+                      "borderRightWidth": 1,
+                      "borderTopLeftRadius": 10,
+                      "borderTopRightRadius": 10,
+                      "borderTopWidth": 1,
+                      "height": 20,
+                      "justifyContent": "center",
+                      "marginBottom": 0,
+                      "marginLeft": 6,
+                      "marginRight": 6,
+                      "marginTop": 0,
+                      "width": 20,
+                    },
+                    undefined,
+                  ],
+                ]
+              }
+              type="secondary"
+            >
+              <View
+                disabled={false}
+                onLayout={[Function]}
+                selected={true}
+                style={
+                  Array [
+                    Object {
+                      "backgroundColor": "#00D9D5",
+                    },
+                    Array [
+                      Object {
+                        "alignSelf": "stretch",
+                        "flexBasis": 0,
+                        "flexGrow": 1,
+                        "flexShrink": 1,
+                      },
+                      undefined,
+                    ],
+                  ]
+                }
+                testID="circle-radio-0"
+                type="secondary"
+              />
+            </View>
+            <Text
+              disabled={false}
+              selected={true}
+              style={
+                Array [
+                  Object {
+                    "color": "#00D9D5",
+                  },
+                  undefined,
+                ]
+              }
+              type="secondary"
+            >
+              Person
+            </Text>
+          </View>
+        </View>
+        <View
+          accessible={true}
+          focusable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "alignItems": "center",
+              "flexDirection": "row",
+              "opacity": 1,
+            }
+          }
+          testID="radio-1"
+        >
+          <View
+            style={
+              Object {
+                "alignItems": "center",
+                "flexDirection": "row",
+                "paddingLeft": 0,
+                "paddingRight": 8,
+                "paddingVertical": 6,
+              }
+            }
+          >
+            <View
+              disabled={false}
+              selected={false}
+              style={
+                Array [
+                  Object {
+                    "borderBottomColor": "#00D9D5",
+                    "borderBottomWidth": 1,
+                    "borderLeftColor": "#00D9D5",
+                    "borderLeftWidth": 1,
+                    "borderRightColor": "#00D9D5",
+                    "borderRightWidth": 1,
+                    "borderTopColor": "#00D9D5",
+                    "borderTopWidth": 1,
+                  },
+                  Array [
+                    Object {
+                      "alignItems": "center",
+                      "borderBottomLeftRadius": 10,
+                      "borderBottomRightRadius": 10,
+                      "borderBottomWidth": 1,
+                      "borderLeftWidth": 1,
+                      "borderRightWidth": 1,
+                      "borderTopLeftRadius": 10,
+                      "borderTopRightRadius": 10,
+                      "borderTopWidth": 1,
+                      "height": 20,
+                      "justifyContent": "center",
+                      "marginBottom": 0,
+                      "marginLeft": 6,
+                      "marginRight": 6,
+                      "marginTop": 0,
+                      "width": 20,
+                    },
+                    undefined,
+                  ],
+                ]
+              }
+              type="secondary"
+            >
+              <View
+                disabled={false}
+                onLayout={[Function]}
+                selected={false}
+                style={
+                  Array [
+                    Object {
+                      "backgroundColor": "white",
+                    },
+                    Array [
+                      Object {
+                        "alignSelf": "stretch",
+                        "flexBasis": 0,
+                        "flexGrow": 1,
+                        "flexShrink": 1,
+                      },
+                      undefined,
+                    ],
+                  ]
+                }
+                testID="circle-radio-1"
+                type="secondary"
+              />
+            </View>
+            <Text
+              disabled={false}
+              selected={false}
+              style={
+                Array [
+                  Object {
+                    "color": "black",
+                  },
+                  undefined,
+                ]
+              }
+              type="secondary"
+            >
+              Animal
+            </Text>
+          </View>
+        </View>
+        <View
+          accessible={true}
+          focusable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "alignItems": "center",
+              "flexDirection": "row",
+              "opacity": 1,
+            }
+          }
+          testID="radio-2"
+        >
+          <View
+            style={
+              Object {
+                "alignItems": "center",
+                "flexDirection": "row",
+                "paddingLeft": 0,
+                "paddingRight": 8,
+                "paddingVertical": 6,
+              }
+            }
+          >
+            <View
+              disabled={false}
+              selected={false}
+              style={
+                Array [
+                  Object {
+                    "borderBottomColor": "#00D9D5",
+                    "borderBottomWidth": 1,
+                    "borderLeftColor": "#00D9D5",
+                    "borderLeftWidth": 1,
+                    "borderRightColor": "#00D9D5",
+                    "borderRightWidth": 1,
+                    "borderTopColor": "#00D9D5",
+                    "borderTopWidth": 1,
+                  },
+                  Array [
+                    Object {
+                      "alignItems": "center",
+                      "borderBottomLeftRadius": 10,
+                      "borderBottomRightRadius": 10,
+                      "borderBottomWidth": 1,
+                      "borderLeftWidth": 1,
+                      "borderRightWidth": 1,
+                      "borderTopLeftRadius": 10,
+                      "borderTopRightRadius": 10,
+                      "borderTopWidth": 1,
+                      "height": 20,
+                      "justifyContent": "center",
+                      "marginBottom": 0,
+                      "marginLeft": 6,
+                      "marginRight": 6,
+                      "marginTop": 0,
+                      "width": 20,
+                    },
+                    undefined,
+                  ],
+                ]
+              }
+              type="secondary"
+            >
+              <View
+                disabled={false}
+                onLayout={[Function]}
+                selected={false}
+                style={
+                  Array [
+                    Object {
+                      "backgroundColor": "white",
+                    },
+                    Array [
+                      Object {
+                        "alignSelf": "stretch",
+                        "flexBasis": 0,
+                        "flexGrow": 1,
+                        "flexShrink": 1,
+                      },
+                      undefined,
+                    ],
+                  ]
+                }
+                testID="circle-radio-2"
+                type="secondary"
+              />
+            </View>
+            <Text
+              disabled={false}
+              selected={false}
+              style={
+                Array [
+                  Object {
+                    "color": "black",
+                  },
+                  undefined,
+                ]
+              }
+              type="secondary"
+            >
+              Bird
+            </Text>
+          </View>
+        </View>
+        <View
+          accessible={true}
+          focusable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "alignItems": "center",
+              "flexDirection": "row",
+              "opacity": 1,
+            }
+          }
+          testID="radio-3"
+        >
+          <View
+            style={
+              Object {
+                "alignItems": "center",
+                "flexDirection": "row",
+                "paddingLeft": 0,
+                "paddingRight": 8,
+                "paddingVertical": 6,
+              }
+            }
+          >
+            <View
+              disabled={false}
+              selected={false}
+              style={
+                Array [
+                  Object {
+                    "borderBottomColor": "#00D9D5",
+                    "borderBottomWidth": 1,
+                    "borderLeftColor": "#00D9D5",
+                    "borderLeftWidth": 1,
+                    "borderRightColor": "#00D9D5",
+                    "borderRightWidth": 1,
+                    "borderTopColor": "#00D9D5",
+                    "borderTopWidth": 1,
+                  },
+                  Array [
+                    Object {
+                      "alignItems": "center",
+                      "borderBottomLeftRadius": 10,
+                      "borderBottomRightRadius": 10,
+                      "borderBottomWidth": 1,
+                      "borderLeftWidth": 1,
+                      "borderRightWidth": 1,
+                      "borderTopLeftRadius": 10,
+                      "borderTopRightRadius": 10,
+                      "borderTopWidth": 1,
+                      "height": 20,
+                      "justifyContent": "center",
+                      "marginBottom": 0,
+                      "marginLeft": 6,
+                      "marginRight": 6,
+                      "marginTop": 0,
+                      "width": 20,
+                    },
+                    undefined,
+                  ],
+                ]
+              }
+              type="secondary"
+            >
+              <View
+                disabled={false}
+                onLayout={[Function]}
+                selected={false}
+                style={
+                  Array [
+                    Object {
+                      "backgroundColor": "white",
+                    },
+                    Array [
+                      Object {
+                        "alignSelf": "stretch",
+                        "flexBasis": 0,
+                        "flexGrow": 1,
+                        "flexShrink": 1,
+                      },
+                      undefined,
+                    ],
+                  ]
+                }
+                testID="circle-radio-3"
+                type="secondary"
+              />
+            </View>
+            <Text
+              disabled={false}
+              selected={false}
+              style={
+                Array [
+                  Object {
+                    "color": "black",
+                  },
+                  undefined,
+                ]
+              }
+              type="secondary"
+            >
+              Other
+            </Text>
+          </View>
+        </View>
+      </View>
+    </View>
+  </View>
+  <View
+    style={
+      Object {
+        "flexDirection": "row",
+        "marginTop": 24,
+      }
+    }
+  >
+    <View
+      style={
+        Array [
+          Object {
+            "flexDirection": "column",
+            "justifyContent": "center",
+          },
+          undefined,
+        ]
+      }
+    >
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "black",
+              "fontSize": 16,
+              "fontWeight": "400",
+            },
+            Object {
+              "includeFontPadding": false,
+            },
+          ]
+        }
+      >
+        info
+      </Text>
+      <View
+        style={
+          Object {
+            "height": 8,
+          }
+        }
+      />
+      <View
+        style={
+          Array [
+            Object {
+              "flexDirection": "row",
+            },
+            undefined,
+          ]
+        }
+      >
+        <View
+          accessible={true}
+          focusable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "alignItems": "center",
+              "flexDirection": "row",
+              "opacity": 1,
+            }
+          }
+          testID="radio-0"
+        >
+          <View
+            style={
+              Object {
+                "alignItems": "center",
+                "flexDirection": "row",
+                "paddingLeft": 0,
+                "paddingRight": 8,
+                "paddingVertical": 6,
+              }
+            }
+          >
+            <View
+              disabled={false}
+              selected={true}
+              style={
+                Array [
+                  Object {
+                    "borderBottomColor": "#5398FF",
+                    "borderBottomWidth": 1,
+                    "borderLeftColor": "#5398FF",
+                    "borderLeftWidth": 1,
+                    "borderRightColor": "#5398FF",
+                    "borderRightWidth": 1,
+                    "borderTopColor": "#5398FF",
+                    "borderTopWidth": 1,
+                  },
+                  Array [
+                    Object {
+                      "alignItems": "center",
+                      "borderBottomLeftRadius": 10,
+                      "borderBottomRightRadius": 10,
+                      "borderBottomWidth": 1,
+                      "borderLeftWidth": 1,
+                      "borderRightWidth": 1,
+                      "borderTopLeftRadius": 10,
+                      "borderTopRightRadius": 10,
+                      "borderTopWidth": 1,
+                      "height": 20,
+                      "justifyContent": "center",
+                      "marginBottom": 0,
+                      "marginLeft": 6,
+                      "marginRight": 6,
+                      "marginTop": 0,
+                      "width": 20,
+                    },
+                    undefined,
+                  ],
+                ]
+              }
+              type="info"
+            >
+              <View
+                disabled={false}
+                onLayout={[Function]}
+                selected={true}
+                style={
+                  Array [
+                    Object {
+                      "backgroundColor": "#5398FF",
+                    },
+                    Array [
+                      Object {
+                        "alignSelf": "stretch",
+                        "flexBasis": 0,
+                        "flexGrow": 1,
+                        "flexShrink": 1,
+                      },
+                      undefined,
+                    ],
+                  ]
+                }
+                testID="circle-radio-0"
+                type="info"
+              />
+            </View>
+            <Text
+              disabled={false}
+              selected={true}
+              style={
+                Array [
+                  Object {
+                    "color": "#5398FF",
+                  },
+                  undefined,
+                ]
+              }
+              type="info"
+            >
+              Person
+            </Text>
+          </View>
+        </View>
+        <View
+          accessible={true}
+          focusable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "alignItems": "center",
+              "flexDirection": "row",
+              "opacity": 1,
+            }
+          }
+          testID="radio-1"
+        >
+          <View
+            style={
+              Object {
+                "alignItems": "center",
+                "flexDirection": "row",
+                "paddingLeft": 0,
+                "paddingRight": 8,
+                "paddingVertical": 6,
+              }
+            }
+          >
+            <View
+              disabled={false}
+              selected={false}
+              style={
+                Array [
+                  Object {
+                    "borderBottomColor": "#5398FF",
+                    "borderBottomWidth": 1,
+                    "borderLeftColor": "#5398FF",
+                    "borderLeftWidth": 1,
+                    "borderRightColor": "#5398FF",
+                    "borderRightWidth": 1,
+                    "borderTopColor": "#5398FF",
+                    "borderTopWidth": 1,
+                  },
+                  Array [
+                    Object {
+                      "alignItems": "center",
+                      "borderBottomLeftRadius": 10,
+                      "borderBottomRightRadius": 10,
+                      "borderBottomWidth": 1,
+                      "borderLeftWidth": 1,
+                      "borderRightWidth": 1,
+                      "borderTopLeftRadius": 10,
+                      "borderTopRightRadius": 10,
+                      "borderTopWidth": 1,
+                      "height": 20,
+                      "justifyContent": "center",
+                      "marginBottom": 0,
+                      "marginLeft": 6,
+                      "marginRight": 6,
+                      "marginTop": 0,
+                      "width": 20,
+                    },
+                    undefined,
+                  ],
+                ]
+              }
+              type="info"
+            >
+              <View
+                disabled={false}
+                onLayout={[Function]}
+                selected={false}
+                style={
+                  Array [
+                    Object {
+                      "backgroundColor": "white",
+                    },
+                    Array [
+                      Object {
+                        "alignSelf": "stretch",
+                        "flexBasis": 0,
+                        "flexGrow": 1,
+                        "flexShrink": 1,
+                      },
+                      undefined,
+                    ],
+                  ]
+                }
+                testID="circle-radio-1"
+                type="info"
+              />
+            </View>
+            <Text
+              disabled={false}
+              selected={false}
+              style={
+                Array [
+                  Object {
+                    "color": "black",
+                  },
+                  undefined,
+                ]
+              }
+              type="info"
+            >
+              Animal
+            </Text>
+          </View>
+        </View>
+        <View
+          accessible={true}
+          focusable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "alignItems": "center",
+              "flexDirection": "row",
+              "opacity": 1,
+            }
+          }
+          testID="radio-2"
+        >
+          <View
+            style={
+              Object {
+                "alignItems": "center",
+                "flexDirection": "row",
+                "paddingLeft": 0,
+                "paddingRight": 8,
+                "paddingVertical": 6,
+              }
+            }
+          >
+            <View
+              disabled={false}
+              selected={false}
+              style={
+                Array [
+                  Object {
+                    "borderBottomColor": "#5398FF",
+                    "borderBottomWidth": 1,
+                    "borderLeftColor": "#5398FF",
+                    "borderLeftWidth": 1,
+                    "borderRightColor": "#5398FF",
+                    "borderRightWidth": 1,
+                    "borderTopColor": "#5398FF",
+                    "borderTopWidth": 1,
+                  },
+                  Array [
+                    Object {
+                      "alignItems": "center",
+                      "borderBottomLeftRadius": 10,
+                      "borderBottomRightRadius": 10,
+                      "borderBottomWidth": 1,
+                      "borderLeftWidth": 1,
+                      "borderRightWidth": 1,
+                      "borderTopLeftRadius": 10,
+                      "borderTopRightRadius": 10,
+                      "borderTopWidth": 1,
+                      "height": 20,
+                      "justifyContent": "center",
+                      "marginBottom": 0,
+                      "marginLeft": 6,
+                      "marginRight": 6,
+                      "marginTop": 0,
+                      "width": 20,
+                    },
+                    undefined,
+                  ],
+                ]
+              }
+              type="info"
+            >
+              <View
+                disabled={false}
+                onLayout={[Function]}
+                selected={false}
+                style={
+                  Array [
+                    Object {
+                      "backgroundColor": "white",
+                    },
+                    Array [
+                      Object {
+                        "alignSelf": "stretch",
+                        "flexBasis": 0,
+                        "flexGrow": 1,
+                        "flexShrink": 1,
+                      },
+                      undefined,
+                    ],
+                  ]
+                }
+                testID="circle-radio-2"
+                type="info"
+              />
+            </View>
+            <Text
+              disabled={false}
+              selected={false}
+              style={
+                Array [
+                  Object {
+                    "color": "black",
+                  },
+                  undefined,
+                ]
+              }
+              type="info"
+            >
+              Bird
+            </Text>
+          </View>
+        </View>
+        <View
+          accessible={true}
+          focusable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "alignItems": "center",
+              "flexDirection": "row",
+              "opacity": 1,
+            }
+          }
+          testID="radio-3"
+        >
+          <View
+            style={
+              Object {
+                "alignItems": "center",
+                "flexDirection": "row",
+                "paddingLeft": 0,
+                "paddingRight": 8,
+                "paddingVertical": 6,
+              }
+            }
+          >
+            <View
+              disabled={false}
+              selected={false}
+              style={
+                Array [
+                  Object {
+                    "borderBottomColor": "#5398FF",
+                    "borderBottomWidth": 1,
+                    "borderLeftColor": "#5398FF",
+                    "borderLeftWidth": 1,
+                    "borderRightColor": "#5398FF",
+                    "borderRightWidth": 1,
+                    "borderTopColor": "#5398FF",
+                    "borderTopWidth": 1,
+                  },
+                  Array [
+                    Object {
+                      "alignItems": "center",
+                      "borderBottomLeftRadius": 10,
+                      "borderBottomRightRadius": 10,
+                      "borderBottomWidth": 1,
+                      "borderLeftWidth": 1,
+                      "borderRightWidth": 1,
+                      "borderTopLeftRadius": 10,
+                      "borderTopRightRadius": 10,
+                      "borderTopWidth": 1,
+                      "height": 20,
+                      "justifyContent": "center",
+                      "marginBottom": 0,
+                      "marginLeft": 6,
+                      "marginRight": 6,
+                      "marginTop": 0,
+                      "width": 20,
+                    },
+                    undefined,
+                  ],
+                ]
+              }
+              type="info"
+            >
+              <View
+                disabled={false}
+                onLayout={[Function]}
+                selected={false}
+                style={
+                  Array [
+                    Object {
+                      "backgroundColor": "white",
+                    },
+                    Array [
+                      Object {
+                        "alignSelf": "stretch",
+                        "flexBasis": 0,
+                        "flexGrow": 1,
+                        "flexShrink": 1,
+                      },
+                      undefined,
+                    ],
+                  ]
+                }
+                testID="circle-radio-3"
+                type="info"
+              />
+            </View>
+            <Text
+              disabled={false}
+              selected={false}
+              style={
+                Array [
+                  Object {
+                    "color": "black",
+                  },
+                  undefined,
+                ]
+              }
+              type="info"
+            >
+              Other
+            </Text>
+          </View>
+        </View>
+      </View>
+    </View>
+  </View>
+  <View
+    style={
+      Object {
+        "flexDirection": "row",
+        "marginTop": 24,
+      }
+    }
+  >
+    <View
+      style={
+        Array [
+          Object {
+            "flexDirection": "column",
+            "justifyContent": "center",
+          },
+          undefined,
+        ]
+      }
+    >
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "black",
+              "fontSize": 16,
+              "fontWeight": "400",
+            },
+            Object {
+              "includeFontPadding": false,
+            },
+          ]
+        }
+      >
+        warning
+      </Text>
+      <View
+        style={
+          Object {
+            "height": 8,
+          }
+        }
+      />
+      <View
+        style={
+          Array [
+            Object {
+              "flexDirection": "row",
+            },
+            undefined,
+          ]
+        }
+      >
+        <View
+          accessible={true}
+          focusable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "alignItems": "center",
+              "flexDirection": "row",
+              "opacity": 1,
+            }
+          }
+          testID="radio-0"
+        >
+          <View
+            style={
+              Object {
+                "alignItems": "center",
+                "flexDirection": "row",
+                "paddingLeft": 0,
+                "paddingRight": 8,
+                "paddingVertical": 6,
+              }
+            }
+          >
+            <View
+              disabled={false}
+              selected={true}
+              style={
+                Array [
+                  Object {
+                    "borderBottomColor": "#FFEB14",
+                    "borderBottomWidth": 1,
+                    "borderLeftColor": "#FFEB14",
+                    "borderLeftWidth": 1,
+                    "borderRightColor": "#FFEB14",
+                    "borderRightWidth": 1,
+                    "borderTopColor": "#FFEB14",
+                    "borderTopWidth": 1,
+                  },
+                  Array [
+                    Object {
+                      "alignItems": "center",
+                      "borderBottomLeftRadius": 10,
+                      "borderBottomRightRadius": 10,
+                      "borderBottomWidth": 1,
+                      "borderLeftWidth": 1,
+                      "borderRightWidth": 1,
+                      "borderTopLeftRadius": 10,
+                      "borderTopRightRadius": 10,
+                      "borderTopWidth": 1,
+                      "height": 20,
+                      "justifyContent": "center",
+                      "marginBottom": 0,
+                      "marginLeft": 6,
+                      "marginRight": 6,
+                      "marginTop": 0,
+                      "width": 20,
+                    },
+                    undefined,
+                  ],
+                ]
+              }
+              type="warning"
+            >
+              <View
+                disabled={false}
+                onLayout={[Function]}
+                selected={true}
+                style={
+                  Array [
+                    Object {
+                      "backgroundColor": "#FFEB14",
+                    },
+                    Array [
+                      Object {
+                        "alignSelf": "stretch",
+                        "flexBasis": 0,
+                        "flexGrow": 1,
+                        "flexShrink": 1,
+                      },
+                      undefined,
+                    ],
+                  ]
+                }
+                testID="circle-radio-0"
+                type="warning"
+              />
+            </View>
+            <Text
+              disabled={false}
+              selected={true}
+              style={
+                Array [
+                  Object {
+                    "color": "#FFEB14",
+                  },
+                  undefined,
+                ]
+              }
+              type="warning"
+            >
+              Person
+            </Text>
+          </View>
+        </View>
+        <View
+          accessible={true}
+          focusable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "alignItems": "center",
+              "flexDirection": "row",
+              "opacity": 1,
+            }
+          }
+          testID="radio-1"
+        >
+          <View
+            style={
+              Object {
+                "alignItems": "center",
+                "flexDirection": "row",
+                "paddingLeft": 0,
+                "paddingRight": 8,
+                "paddingVertical": 6,
+              }
+            }
+          >
+            <View
+              disabled={false}
+              selected={false}
+              style={
+                Array [
+                  Object {
+                    "borderBottomColor": "#FFEB14",
+                    "borderBottomWidth": 1,
+                    "borderLeftColor": "#FFEB14",
+                    "borderLeftWidth": 1,
+                    "borderRightColor": "#FFEB14",
+                    "borderRightWidth": 1,
+                    "borderTopColor": "#FFEB14",
+                    "borderTopWidth": 1,
+                  },
+                  Array [
+                    Object {
+                      "alignItems": "center",
+                      "borderBottomLeftRadius": 10,
+                      "borderBottomRightRadius": 10,
+                      "borderBottomWidth": 1,
+                      "borderLeftWidth": 1,
+                      "borderRightWidth": 1,
+                      "borderTopLeftRadius": 10,
+                      "borderTopRightRadius": 10,
+                      "borderTopWidth": 1,
+                      "height": 20,
+                      "justifyContent": "center",
+                      "marginBottom": 0,
+                      "marginLeft": 6,
+                      "marginRight": 6,
+                      "marginTop": 0,
+                      "width": 20,
+                    },
+                    undefined,
+                  ],
+                ]
+              }
+              type="warning"
+            >
+              <View
+                disabled={false}
+                onLayout={[Function]}
+                selected={false}
+                style={
+                  Array [
+                    Object {
+                      "backgroundColor": "white",
+                    },
+                    Array [
+                      Object {
+                        "alignSelf": "stretch",
+                        "flexBasis": 0,
+                        "flexGrow": 1,
+                        "flexShrink": 1,
+                      },
+                      undefined,
+                    ],
+                  ]
+                }
+                testID="circle-radio-1"
+                type="warning"
+              />
+            </View>
+            <Text
+              disabled={false}
+              selected={false}
+              style={
+                Array [
+                  Object {
+                    "color": "black",
+                  },
+                  undefined,
+                ]
+              }
+              type="warning"
+            >
+              Animal
+            </Text>
+          </View>
+        </View>
+        <View
+          accessible={true}
+          focusable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "alignItems": "center",
+              "flexDirection": "row",
+              "opacity": 1,
+            }
+          }
+          testID="radio-2"
+        >
+          <View
+            style={
+              Object {
+                "alignItems": "center",
+                "flexDirection": "row",
+                "paddingLeft": 0,
+                "paddingRight": 8,
+                "paddingVertical": 6,
+              }
+            }
+          >
+            <View
+              disabled={false}
+              selected={false}
+              style={
+                Array [
+                  Object {
+                    "borderBottomColor": "#FFEB14",
+                    "borderBottomWidth": 1,
+                    "borderLeftColor": "#FFEB14",
+                    "borderLeftWidth": 1,
+                    "borderRightColor": "#FFEB14",
+                    "borderRightWidth": 1,
+                    "borderTopColor": "#FFEB14",
+                    "borderTopWidth": 1,
+                  },
+                  Array [
+                    Object {
+                      "alignItems": "center",
+                      "borderBottomLeftRadius": 10,
+                      "borderBottomRightRadius": 10,
+                      "borderBottomWidth": 1,
+                      "borderLeftWidth": 1,
+                      "borderRightWidth": 1,
+                      "borderTopLeftRadius": 10,
+                      "borderTopRightRadius": 10,
+                      "borderTopWidth": 1,
+                      "height": 20,
+                      "justifyContent": "center",
+                      "marginBottom": 0,
+                      "marginLeft": 6,
+                      "marginRight": 6,
+                      "marginTop": 0,
+                      "width": 20,
+                    },
+                    undefined,
+                  ],
+                ]
+              }
+              type="warning"
+            >
+              <View
+                disabled={false}
+                onLayout={[Function]}
+                selected={false}
+                style={
+                  Array [
+                    Object {
+                      "backgroundColor": "white",
+                    },
+                    Array [
+                      Object {
+                        "alignSelf": "stretch",
+                        "flexBasis": 0,
+                        "flexGrow": 1,
+                        "flexShrink": 1,
+                      },
+                      undefined,
+                    ],
+                  ]
+                }
+                testID="circle-radio-2"
+                type="warning"
+              />
+            </View>
+            <Text
+              disabled={false}
+              selected={false}
+              style={
+                Array [
+                  Object {
+                    "color": "black",
+                  },
+                  undefined,
+                ]
+              }
+              type="warning"
+            >
+              Bird
+            </Text>
+          </View>
+        </View>
+        <View
+          accessible={true}
+          focusable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "alignItems": "center",
+              "flexDirection": "row",
+              "opacity": 1,
+            }
+          }
+          testID="radio-3"
+        >
+          <View
+            style={
+              Object {
+                "alignItems": "center",
+                "flexDirection": "row",
+                "paddingLeft": 0,
+                "paddingRight": 8,
+                "paddingVertical": 6,
+              }
+            }
+          >
+            <View
+              disabled={false}
+              selected={false}
+              style={
+                Array [
+                  Object {
+                    "borderBottomColor": "#FFEB14",
+                    "borderBottomWidth": 1,
+                    "borderLeftColor": "#FFEB14",
+                    "borderLeftWidth": 1,
+                    "borderRightColor": "#FFEB14",
+                    "borderRightWidth": 1,
+                    "borderTopColor": "#FFEB14",
+                    "borderTopWidth": 1,
+                  },
+                  Array [
+                    Object {
+                      "alignItems": "center",
+                      "borderBottomLeftRadius": 10,
+                      "borderBottomRightRadius": 10,
+                      "borderBottomWidth": 1,
+                      "borderLeftWidth": 1,
+                      "borderRightWidth": 1,
+                      "borderTopLeftRadius": 10,
+                      "borderTopRightRadius": 10,
+                      "borderTopWidth": 1,
+                      "height": 20,
+                      "justifyContent": "center",
+                      "marginBottom": 0,
+                      "marginLeft": 6,
+                      "marginRight": 6,
+                      "marginTop": 0,
+                      "width": 20,
+                    },
+                    undefined,
+                  ],
+                ]
+              }
+              type="warning"
+            >
+              <View
+                disabled={false}
+                onLayout={[Function]}
+                selected={false}
+                style={
+                  Array [
+                    Object {
+                      "backgroundColor": "white",
+                    },
+                    Array [
+                      Object {
+                        "alignSelf": "stretch",
+                        "flexBasis": 0,
+                        "flexGrow": 1,
+                        "flexShrink": 1,
+                      },
+                      undefined,
+                    ],
+                  ]
+                }
+                testID="circle-radio-3"
+                type="warning"
+              />
+            </View>
+            <Text
+              disabled={false}
+              selected={false}
+              style={
+                Array [
+                  Object {
+                    "color": "black",
+                  },
+                  undefined,
+                ]
+              }
+              type="warning"
+            >
+              Other
+            </Text>
+          </View>
+        </View>
+      </View>
+    </View>
+  </View>
+  <View
+    style={
+      Object {
+        "flexDirection": "row",
+        "marginTop": 24,
+      }
+    }
+  >
+    <View
+      style={
+        Array [
+          Object {
+            "flexDirection": "column",
+            "justifyContent": "center",
+          },
+          undefined,
+        ]
+      }
+    >
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "black",
+              "fontSize": 16,
+              "fontWeight": "400",
+            },
+            Object {
+              "includeFontPadding": false,
+            },
+          ]
+        }
+      >
+        danger
+      </Text>
+      <View
+        style={
+          Object {
+            "height": 8,
+          }
+        }
+      />
+      <View
+        style={
+          Array [
+            Object {
+              "flexDirection": "row",
+            },
+            undefined,
+          ]
+        }
+      >
+        <View
+          accessible={true}
+          focusable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "alignItems": "center",
+              "flexDirection": "row",
+              "opacity": 1,
+            }
+          }
+          testID="radio-0"
+        >
+          <View
+            style={
+              Object {
+                "alignItems": "center",
+                "flexDirection": "row",
+                "paddingLeft": 0,
+                "paddingRight": 8,
+                "paddingVertical": 6,
+              }
+            }
+          >
+            <View
+              disabled={false}
+              selected={true}
+              style={
+                Array [
+                  Object {
+                    "borderBottomColor": "#FF002E",
+                    "borderBottomWidth": 1,
+                    "borderLeftColor": "#FF002E",
+                    "borderLeftWidth": 1,
+                    "borderRightColor": "#FF002E",
+                    "borderRightWidth": 1,
+                    "borderTopColor": "#FF002E",
+                    "borderTopWidth": 1,
+                  },
+                  Array [
+                    Object {
+                      "alignItems": "center",
+                      "borderBottomLeftRadius": 10,
+                      "borderBottomRightRadius": 10,
+                      "borderBottomWidth": 1,
+                      "borderLeftWidth": 1,
+                      "borderRightWidth": 1,
+                      "borderTopLeftRadius": 10,
+                      "borderTopRightRadius": 10,
+                      "borderTopWidth": 1,
+                      "height": 20,
+                      "justifyContent": "center",
+                      "marginBottom": 0,
+                      "marginLeft": 6,
+                      "marginRight": 6,
+                      "marginTop": 0,
+                      "width": 20,
+                    },
+                    undefined,
+                  ],
+                ]
+              }
+              type="danger"
+            >
+              <View
+                disabled={false}
+                onLayout={[Function]}
+                selected={true}
+                style={
+                  Array [
+                    Object {
+                      "backgroundColor": "#FF002E",
+                    },
+                    Array [
+                      Object {
+                        "alignSelf": "stretch",
+                        "flexBasis": 0,
+                        "flexGrow": 1,
+                        "flexShrink": 1,
+                      },
+                      undefined,
+                    ],
+                  ]
+                }
+                testID="circle-radio-0"
+                type="danger"
+              />
+            </View>
+            <Text
+              disabled={false}
+              selected={true}
+              style={
+                Array [
+                  Object {
+                    "color": "#FF002E",
+                  },
+                  undefined,
+                ]
+              }
+              type="danger"
+            >
+              Person
+            </Text>
+          </View>
+        </View>
+        <View
+          accessible={true}
+          focusable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "alignItems": "center",
+              "flexDirection": "row",
+              "opacity": 1,
+            }
+          }
+          testID="radio-1"
+        >
+          <View
+            style={
+              Object {
+                "alignItems": "center",
+                "flexDirection": "row",
+                "paddingLeft": 0,
+                "paddingRight": 8,
+                "paddingVertical": 6,
+              }
+            }
+          >
+            <View
+              disabled={false}
+              selected={false}
+              style={
+                Array [
+                  Object {
+                    "borderBottomColor": "#FF002E",
+                    "borderBottomWidth": 1,
+                    "borderLeftColor": "#FF002E",
+                    "borderLeftWidth": 1,
+                    "borderRightColor": "#FF002E",
+                    "borderRightWidth": 1,
+                    "borderTopColor": "#FF002E",
+                    "borderTopWidth": 1,
+                  },
+                  Array [
+                    Object {
+                      "alignItems": "center",
+                      "borderBottomLeftRadius": 10,
+                      "borderBottomRightRadius": 10,
+                      "borderBottomWidth": 1,
+                      "borderLeftWidth": 1,
+                      "borderRightWidth": 1,
+                      "borderTopLeftRadius": 10,
+                      "borderTopRightRadius": 10,
+                      "borderTopWidth": 1,
+                      "height": 20,
+                      "justifyContent": "center",
+                      "marginBottom": 0,
+                      "marginLeft": 6,
+                      "marginRight": 6,
+                      "marginTop": 0,
+                      "width": 20,
+                    },
+                    undefined,
+                  ],
+                ]
+              }
+              type="danger"
+            >
+              <View
+                disabled={false}
+                onLayout={[Function]}
+                selected={false}
+                style={
+                  Array [
+                    Object {
+                      "backgroundColor": "white",
+                    },
+                    Array [
+                      Object {
+                        "alignSelf": "stretch",
+                        "flexBasis": 0,
+                        "flexGrow": 1,
+                        "flexShrink": 1,
+                      },
+                      undefined,
+                    ],
+                  ]
+                }
+                testID="circle-radio-1"
+                type="danger"
+              />
+            </View>
+            <Text
+              disabled={false}
+              selected={false}
+              style={
+                Array [
+                  Object {
+                    "color": "black",
+                  },
+                  undefined,
+                ]
+              }
+              type="danger"
+            >
+              Animal
+            </Text>
+          </View>
+        </View>
+        <View
+          accessible={true}
+          focusable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "alignItems": "center",
+              "flexDirection": "row",
+              "opacity": 1,
+            }
+          }
+          testID="radio-2"
+        >
+          <View
+            style={
+              Object {
+                "alignItems": "center",
+                "flexDirection": "row",
+                "paddingLeft": 0,
+                "paddingRight": 8,
+                "paddingVertical": 6,
+              }
+            }
+          >
+            <View
+              disabled={false}
+              selected={false}
+              style={
+                Array [
+                  Object {
+                    "borderBottomColor": "#FF002E",
+                    "borderBottomWidth": 1,
+                    "borderLeftColor": "#FF002E",
+                    "borderLeftWidth": 1,
+                    "borderRightColor": "#FF002E",
+                    "borderRightWidth": 1,
+                    "borderTopColor": "#FF002E",
+                    "borderTopWidth": 1,
+                  },
+                  Array [
+                    Object {
+                      "alignItems": "center",
+                      "borderBottomLeftRadius": 10,
+                      "borderBottomRightRadius": 10,
+                      "borderBottomWidth": 1,
+                      "borderLeftWidth": 1,
+                      "borderRightWidth": 1,
+                      "borderTopLeftRadius": 10,
+                      "borderTopRightRadius": 10,
+                      "borderTopWidth": 1,
+                      "height": 20,
+                      "justifyContent": "center",
+                      "marginBottom": 0,
+                      "marginLeft": 6,
+                      "marginRight": 6,
+                      "marginTop": 0,
+                      "width": 20,
+                    },
+                    undefined,
+                  ],
+                ]
+              }
+              type="danger"
+            >
+              <View
+                disabled={false}
+                onLayout={[Function]}
+                selected={false}
+                style={
+                  Array [
+                    Object {
+                      "backgroundColor": "white",
+                    },
+                    Array [
+                      Object {
+                        "alignSelf": "stretch",
+                        "flexBasis": 0,
+                        "flexGrow": 1,
+                        "flexShrink": 1,
+                      },
+                      undefined,
+                    ],
+                  ]
+                }
+                testID="circle-radio-2"
+                type="danger"
+              />
+            </View>
+            <Text
+              disabled={false}
+              selected={false}
+              style={
+                Array [
+                  Object {
+                    "color": "black",
+                  },
+                  undefined,
+                ]
+              }
+              type="danger"
+            >
+              Bird
+            </Text>
+          </View>
+        </View>
+        <View
+          accessible={true}
+          focusable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "alignItems": "center",
+              "flexDirection": "row",
+              "opacity": 1,
+            }
+          }
+          testID="radio-3"
+        >
+          <View
+            style={
+              Object {
+                "alignItems": "center",
+                "flexDirection": "row",
+                "paddingLeft": 0,
+                "paddingRight": 8,
+                "paddingVertical": 6,
+              }
+            }
+          >
+            <View
+              disabled={false}
+              selected={false}
+              style={
+                Array [
+                  Object {
+                    "borderBottomColor": "#FF002E",
+                    "borderBottomWidth": 1,
+                    "borderLeftColor": "#FF002E",
+                    "borderLeftWidth": 1,
+                    "borderRightColor": "#FF002E",
+                    "borderRightWidth": 1,
+                    "borderTopColor": "#FF002E",
+                    "borderTopWidth": 1,
+                  },
+                  Array [
+                    Object {
+                      "alignItems": "center",
+                      "borderBottomLeftRadius": 10,
+                      "borderBottomRightRadius": 10,
+                      "borderBottomWidth": 1,
+                      "borderLeftWidth": 1,
+                      "borderRightWidth": 1,
+                      "borderTopLeftRadius": 10,
+                      "borderTopRightRadius": 10,
+                      "borderTopWidth": 1,
+                      "height": 20,
+                      "justifyContent": "center",
+                      "marginBottom": 0,
+                      "marginLeft": 6,
+                      "marginRight": 6,
+                      "marginTop": 0,
+                      "width": 20,
+                    },
+                    undefined,
+                  ],
+                ]
+              }
+              type="danger"
+            >
+              <View
+                disabled={false}
+                onLayout={[Function]}
+                selected={false}
+                style={
+                  Array [
+                    Object {
+                      "backgroundColor": "white",
+                    },
+                    Array [
+                      Object {
+                        "alignSelf": "stretch",
+                        "flexBasis": 0,
+                        "flexGrow": 1,
+                        "flexShrink": 1,
+                      },
+                      undefined,
+                    ],
+                  ]
+                }
+                testID="circle-radio-3"
+                type="danger"
+              />
+            </View>
+            <Text
+              disabled={false}
+              selected={false}
+              style={
+                Array [
+                  Object {
+                    "color": "black",
+                  },
+                  undefined,
+                ]
+              }
+              type="danger"
+            >
+              Other
+            </Text>
+          </View>
+        </View>
+      </View>
+    </View>
+  </View>
+</View>
+`;
+
 exports[`[RadioButton] render label should render \`labels\` 1`] = `
 <View>
   <View
@@ -125,6 +2734,7 @@ exports[`[RadioButton] render label should render \`labels\` 1`] = `
               type="primary"
             >
               <View
+                disabled={false}
                 onLayout={[Function]}
                 selected={true}
                 style={
@@ -235,6 +2845,7 @@ exports[`[RadioButton] render label should render \`labels\` 1`] = `
               type="primary"
             >
               <View
+                disabled={false}
                 onLayout={[Function]}
                 selected={false}
                 style={
@@ -345,6 +2956,7 @@ exports[`[RadioButton] render label should render \`labels\` 1`] = `
               type="primary"
             >
               <View
+                disabled={false}
                 onLayout={[Function]}
                 selected={false}
                 style={
@@ -455,6 +3067,7 @@ exports[`[RadioButton] render label should render \`labels\` 1`] = `
               type="primary"
             >
               <View
+                disabled={false}
                 onLayout={[Function]}
                 selected={false}
                 style={
@@ -640,6 +3253,7 @@ exports[`[RadioButton] render label should render \`labels\` with left position 
               type="primary"
             >
               <View
+                disabled={false}
                 onLayout={[Function]}
                 selected={true}
                 style={
@@ -750,6 +3364,7 @@ exports[`[RadioButton] render label should render \`labels\` with left position 
               type="primary"
             >
               <View
+                disabled={false}
                 onLayout={[Function]}
                 selected={false}
                 style={
@@ -860,6 +3475,7 @@ exports[`[RadioButton] render label should render \`labels\` with left position 
               type="primary"
             >
               <View
+                disabled={false}
                 onLayout={[Function]}
                 selected={false}
                 style={
@@ -970,6 +3586,7 @@ exports[`[RadioButton] render label should render \`labels\` with left position 
               type="primary"
             >
               <View
+                disabled={false}
                 onLayout={[Function]}
                 selected={false}
                 style={
@@ -1125,6 +3742,7 @@ exports[`[RadioButton] render should render without crashing 1`] = `
             type="primary"
           >
             <View
+              disabled={false}
               onLayout={[Function]}
               selected={true}
               style={
@@ -1222,6 +3840,7 @@ exports[`[RadioButton] render should render without crashing 1`] = `
             type="primary"
           >
             <View
+              disabled={false}
               onLayout={[Function]}
               selected={false}
               style={
@@ -1319,6 +3938,7 @@ exports[`[RadioButton] render should render without crashing 1`] = `
             type="primary"
           >
             <View
+              disabled={false}
               onLayout={[Function]}
               selected={false}
               style={
@@ -1416,6 +4036,7 @@ exports[`[RadioButton] render should render without crashing 1`] = `
             type="primary"
           >
             <View
+              disabled={false}
               onLayout={[Function]}
               selected={false}
               style={
