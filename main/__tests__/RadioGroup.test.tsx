@@ -1,10 +1,10 @@
 import * as React from 'react';
 
 import {RenderAPI, act, fireEvent, render} from '@testing-library/react-native';
-import {Text, View} from 'react-native';
 import {createComponent, createTestProps} from '../../test/testUtils';
 
 import {RadioGroup} from '../RadioGroup';
+import {View} from 'react-native';
 
 let props: any;
 let component: React.ReactElement;
