@@ -1,6 +1,7 @@
 import './dooboo-ui/TypographyStories';
 import './dooboo-ui/IconStories';
 import './dooboo-ui/LoadingIndicatorStories';
+import './dooboo-ui/RadioGroupStories';
 import './dooboo-ui/ButtonStories';
 import './dooboo-ui/IconButtonStories';
 import './dooboo-ui/CheckboxStories';
