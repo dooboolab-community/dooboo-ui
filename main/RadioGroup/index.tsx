@@ -28,6 +28,7 @@ type Props<T> = {
   styles?: Styles;
   labels?: string[];
   radioType?: Omit<RadioButtonProps, 'type' | 'theme'>;
+  labelPosition?: 'left' | 'right';
 };
 
 const Container = styled.View`
@@ -42,8 +43,17 @@ const Content = styled.View`
 function RadioGroupContainer<T>(
   props: Omit<Props<T>, 'selected'>,
 ): ReactElement {
-  const {title, data, selectedValue, selectValue, style, styles, type, labels} =
-    props;
+  const {
+    title,
+    data,
+    selectedValue,
+    selectValue,
+    style,
+    styles,
+    type,
+    labels,
+    labelPosition,
+  } = props;
 
   return (
     <Container style={style}>
@@ -54,12 +64,14 @@ function RadioGroupContainer<T>(
           return (
             <RadioButtonComp
               key={`radio-${i}`}
+              testID={`radio-${i}`}
               {...props.radioType}
               label={labels?.[i] || ''}
               type={type}
               selected={selectedValue === datum}
               onPress={() => selectValue?.(datum)}
               styles={{label: styles?.label}}
+              labelPosition={labelPosition}
             />
           );
         })}

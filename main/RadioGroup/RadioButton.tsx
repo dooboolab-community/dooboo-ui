@@ -28,6 +28,7 @@ export type RadioButtonType =
   | 'info';
 
 export type RadioButtonProps = {
+  testID?: string;
   onPress?: () => void;
   label?: string;
   labelPosition?: 'left' | 'right';
@@ -74,13 +75,14 @@ const StyledRadioCircle = styled(RadioWrapper)<{
 `;
 
 const RadioButtonContainer: FC<RadioButtonProps> = ({
+  testID,
   style,
   styles,
   rightElement,
   leftElement,
   type = 'primary',
   disabled = false,
-  selected: selected = false,
+  selected,
   onPress,
   label,
   labelPosition = 'right',
@@ -89,6 +91,7 @@ const RadioButtonContainer: FC<RadioButtonProps> = ({
 
   return (
     <Container
+      testID={testID}
       disabled={disabled}
       style={style}
       onPress={onPress}
@@ -108,21 +111,21 @@ const RadioButtonContainer: FC<RadioButtonProps> = ({
         {label && labelPosition === 'left' && (
           <ColoredText
             type={type}
-            selected={selected}
+            selected={!!selected}
             disabled={disabled}
             style={styles?.label}>
             {label}
           </ColoredText>
         )}
         <StyledRadioButton
-          testID="doobooui-radiobutton"
           style={styles?.radio}
-          selected={selected}
+          selected={!!selected}
           type={type}
           disabled={disabled}>
           <StyledRadioCircle
+            testID={`circle-${testID}`}
             type={type}
-            selected={selected}
+            selected={!!selected}
             innerLayout={innerLayout}
             onLayout={(e) => setInnerLayout(e.nativeEvent.layout)}
           />
