@@ -13,7 +13,6 @@ import styled from '@emotion/native';
 
 const styles = StyleSheet.create({
   container: {
-    display: 'flex',
     flexDirection: 'row',
     flexWrap: 'wrap',
     minWidth: 150,
@@ -58,10 +57,10 @@ export interface SnackbarProps {
   ref: React.MutableRefObject<SnackbarRef>;
 }
 
-export interface Content {
+export interface SnackbarContent {
   text: string;
   actionText?: string;
-  timer?: Timer;
+  timer?: SnackbarTimer;
   actionStyle?: StyleProp<TextStyle>;
   containerStyle?: StyleProp<ViewStyle>;
   messageStyle?: StyleProp<TextStyle>;
@@ -75,15 +74,15 @@ interface ShowingState {
 }
 
 export interface SnackbarRef {
-  show(content: Content): void;
+  show(content: SnackbarContent): void;
 }
 
-export enum Timer {
+export enum SnackbarTimer {
   SHORT = 1500,
   LONG = 3000,
 }
 
-const Snackbar = (
+const SnackbarContainer = (
   props: SnackbarProps,
   ref: React.Ref<SnackbarRef>,
 ): React.ReactElement => {
@@ -94,9 +93,9 @@ const Snackbar = (
     isShowing: false,
   });
 
-  const [content, setContent] = React.useState<Content>({
+  const [content, setContent] = React.useState<SnackbarContent>({
     text: '',
-    timer: Timer.SHORT,
+    timer: SnackbarTimer.SHORT,
   });
 
   const {
@@ -105,14 +104,14 @@ const Snackbar = (
     messageStyle,
     actionStyle,
     containerStyle,
-    timer = Timer.SHORT,
+    timer = SnackbarTimer.SHORT,
     onPressAction,
   } = content;
 
   const {isShowing, isVisible, timeout} = showingState;
   const [fadeAnim] = React.useState(new Animated.Value(0));
 
-  const show = (c: Content): void => {
+  const show = (c: SnackbarContent): void => {
     setContent(c);
     timeout && clearTimeout(timeout);
 
@@ -126,7 +125,10 @@ const Snackbar = (
       Animated.timing(fadeAnim, {
         toValue: 0,
         duration,
-        useNativeDriver: true,
+        useNativeDriver: Platform.select({
+          web: false,
+          default: true,
+        }),
       }).start(() =>
         setShowingState((prevState) =>
           Object.assign(Object.assign({}, prevState), {isVisible: false}),
@@ -153,7 +155,10 @@ const Snackbar = (
         Animated.timing(fadeAnim, {
           toValue: 1,
           duration: 200,
-          useNativeDriver: true,
+          useNativeDriver: Platform.select({
+            web: false,
+            default: true,
+          }),
         }).start();
       }
   }, [showingState, fadeAnim, hide, isShowing, isVisible, timer]);
@@ -195,4 +200,7 @@ const Snackbar = (
   );
 };
 
-export default React.forwardRef<SnackbarRef, SnackbarProps>(Snackbar);
+const Snackbar =
+  React.forwardRef<SnackbarRef, SnackbarProps>(SnackbarContainer);
+
+export {Snackbar};
