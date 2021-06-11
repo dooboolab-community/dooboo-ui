@@ -25,6 +25,7 @@ type Styles = {
 export type RadioButtonType =
   | 'primary'
   | 'secondary'
+  | 'success'
   | 'danger'
   | 'warning'
   | 'info';
