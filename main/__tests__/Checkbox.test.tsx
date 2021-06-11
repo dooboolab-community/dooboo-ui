@@ -98,6 +98,19 @@ describe('[Checkbox]', () => {
       expect(checkbox.props.style.borderTopColor).toEqual(light.secondary);
     });
 
+    it('should render type==="success"', () => {
+      testingLib = render(
+        Component({
+          type: 'success',
+          checked: true,
+        }),
+      );
+
+      const checkbox = testingLib.getByTestId('doobooui-checkbox');
+
+      expect(checkbox.props.style.borderTopColor).toEqual(light.success);
+    });
+
     it('should render type==="danger"', () => {
       testingLib = render(
         Component({
