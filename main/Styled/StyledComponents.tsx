@@ -1,4 +1,4 @@
-import {DoobooTheme, light} from '../theme';
+import {DoobooTheme, dark} from '../theme';
 
 import {Animated} from 'react-native';
 import styled from '@emotion/native';
@@ -6,6 +6,7 @@ import styled from '@emotion/native';
 export type ButtonType =
   | 'primary'
   | 'secondary'
+  | 'success'
   | 'danger'
   | 'warning'
   | 'info';
@@ -21,6 +22,8 @@ export const ButtonWrapper = styled.View<{
       ? undefined
       : outlined
       ? theme.background
+      : type === 'success'
+      ? theme.success
       : type === 'info'
       ? theme.info
       : type === 'secondary'
@@ -33,6 +36,8 @@ export const ButtonWrapper = styled.View<{
   border-color: ${({theme, type, disabled}) =>
     disabled
       ? theme.disabled
+      : type === 'success'
+      ? theme.success
       : type === 'info'
       ? theme.info
       : type === 'secondary'
@@ -52,22 +57,22 @@ export const ButtonText = styled.Text<{
 }>`
   color: ${({theme, outlined, type, disabled}) =>
     outlined
-      ? type === 'primary'
-        ? theme.primary
-        : type === 'info'
-        ? theme.info
-        : type === 'secondary'
-        ? theme.secondary
-        : type === 'danger'
-        ? theme.danger
-        : type === 'warning'
-        ? theme.background === light.background
-          ? theme.text
-          : theme.warning
+      ? theme.background === dark.background
+        ? type === 'primary'
+          ? theme.primary
+          : type === 'info'
+          ? theme.info
+          : type === 'secondary'
+          ? theme.secondary
+          : type === 'success'
+          ? theme.success
+          : type === 'danger'
+          ? theme.danger
+          : theme.text
         : theme.text
       : disabled
       ? theme.disabled
-      : type === 'primary'
+      : type === 'primary' || type === 'danger'
       ? theme.textContrast
       : 'black'};
 `;
@@ -81,6 +86,8 @@ export const CheckboxWrapperOutlined = styled(Animated.View)<{
   border-color: ${({theme, type, disabled}) =>
     disabled
       ? theme.disabled
+      : type === 'success'
+      ? theme.success
       : type === 'info'
       ? theme.info
       : type === 'secondary'
@@ -106,6 +113,8 @@ export const CheckboxWrapper = styled(Animated.View)<{
       ? theme.info
       : type === 'secondary'
       ? theme.secondary
+      : type === 'success'
+      ? theme.success
       : type === 'danger'
       ? theme.danger
       : type === 'warning'
@@ -128,6 +137,8 @@ export const RadioButtonWrapper = styled.View<{
       ? theme.info
       : type === 'secondary'
       ? theme.secondary
+      : type === 'success'
+      ? theme.success
       : type === 'danger'
       ? theme.danger
       : type === 'warning'
@@ -149,6 +160,8 @@ export const RadioWrapper = styled(Animated.View)<{
       ? theme.info
       : type === 'secondary'
       ? theme.secondary
+      : type === 'success'
+      ? theme.success
       : type === 'danger'
       ? theme.danger
       : type === 'warning'
@@ -170,6 +183,8 @@ export const ColoredText = styled.Text<{
       ? theme.info
       : type === 'secondary'
       ? theme.secondary
+      : type === 'success'
+      ? theme.success
       : type === 'danger'
       ? theme.danger
       : type === 'warning'

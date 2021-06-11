@@ -13,6 +13,7 @@ export const colors = {
   ruddy: '#FF002E',
   yellow: '#FFEB14',
   blueberry: '#5398FF',
+  harlequin: '#33FF2F',
   apple: '#151E22',
   google: '#E04238',
   facebook: '#345997',
@@ -30,12 +31,13 @@ export const light = {
   danger: colors.ruddy,
   warning: colors.yellow,
   info: colors.blueberry,
+  success: colors.harlequin,
   textPrimary: colors.black,
   text: colors.black,
   placeholder: colors.gray,
   textDisabled: colors.cloud,
   textContrast: colors.white,
-  textDanger: colors.ruddy,
+  textValidation: colors.ruddy,
 };
 
 export type DoobooTheme = typeof light & {
@@ -52,12 +54,13 @@ export const dark = {
   danger: colors.ruddy,
   warning: colors.yellow,
   info: colors.blueberry,
+  success: colors.harlequin,
   textPrimary: colors.white,
   text: colors.white,
   placeholder: colors.gray,
   textDisabled: colors.charcoalGray,
   textContrast: colors.black,
-  textDanger: colors.ruddy,
+  textValidation: colors.ruddy,
 };
 
 export const theme = {

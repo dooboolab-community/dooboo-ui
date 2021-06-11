@@ -13,7 +13,7 @@ const StyledText = styled.Text`
   color: ${({theme}) => theme.text};
 `;
 
-const types = ['primary', 'secondary', 'info', 'warning', 'danger'];
+const types = ['primary', 'secondary', 'success', 'info', 'warning', 'danger'];
 const data = ['Person', 'Animal', 'Bird', 'Other'];
 
 const RadioButtonStory: FC = () => {

@@ -41,28 +41,30 @@
      danger: colors.ruddy,
      warning: colors.yellow,
      info: colors.blueberry,
+     success: colors.harlequin,
      textPrimary: colors.black,
      text: colors.black,
      placeholder: colors.gray,
      textDisabled: colors.cloud,
      textContrast: colors.white,
-     textDanger: colors.ruddy,
+     textValidation: colors.ruddy,
    };
 
    export const dark = {
-     primary: colors.white,
-     disabled: colors.charcoalGray,
-     background: colors.black,
+     primary: colors.black,
+     disabled: colors.cloud,
+     background: colors.white,
      secondary: colors.brightTurquoise,
      danger: colors.ruddy,
      warning: colors.yellow,
      info: colors.blueberry,
-     textPrimary: colors.white,
-     text: colors.white,
+     success: colors.harlequin,
+     textPrimary: colors.black,
+     text: colors.black,
      placeholder: colors.gray,
-     textDisabled: colors.charcoalGray,
-     textContrast: colors.black,
-     textDanger: colors.ruddy,
+     textDisabled: colors.cloud,
+     textContrast: colors.white,
+     textValidation: colors.ruddy,
    };
    ```
 
@@ -70,7 +72,7 @@
    ```tsx
    <ThemeProvider customTheme={{light, dark}}>
      <App />
-   </ThemeProvider>
+   </ThemeProvider>g
    ```
 
 ## Usage
