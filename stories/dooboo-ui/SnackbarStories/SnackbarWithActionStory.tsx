@@ -1,5 +1,6 @@
 import {Button, Snackbar, SnackbarRef} from '../../../main';
 import React, {useCallback, useRef} from 'react';
+import {Text, TouchableOpacity} from 'react-native';
 
 import {SnackbarType} from '../../../main/Styled/StyledComponents';
 import styled from '@emotion/native';
@@ -26,6 +27,16 @@ function SnackbarDefault(): React.ReactElement {
         snackbar.current?.show({
           text: 'Lorem ipsum dolor sit amet',
           type,
+          action: (
+            <TouchableOpacity
+              onPress={() => {
+                snackbar.current?.show({
+                  text: 'Action Pressed',
+                });
+              }}>
+              <Text>Action</Text>
+            </TouchableOpacity>
+          ),
         });
     },
     [snackbar],

@@ -3,68 +3,37 @@ import {
   Dimensions,
   Platform,
   StyleProp,
-  StyleSheet,
   TextStyle,
   ViewStyle,
 } from 'react-native';
-import React, {useCallback} from 'react';
+import {
+  ButtonText,
+  SnackbarType,
+  SnackbarWrapper,
+} from '../Styled/StyledComponents';
+import {DoobooTheme, light, withTheme} from '../theme';
+import React, {ReactElement, useCallback} from 'react';
 
 import styled from '@emotion/native';
 
-const styles = StyleSheet.create({
-  container: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    minWidth: 150,
-    textAlign: 'left',
-    alignItems: 'center',
-    alignSelf: Platform.OS === 'web' ? 'flex-start' : 'center',
-    position: 'absolute',
-    fontSize: 16,
-    paddingHorizontal: 16,
-    paddingVertical: 10,
-    bottom: 10,
-    backgroundColor: '#87b5ff',
-    borderRadius: 10,
-    marginHorizontal: 10,
-  },
-});
-
-const MessageText = styled.Text`
-  color: white;
-`;
-
-const ActionText = styled.Text`
-  color: green;
-`;
-
-const ActionContainer = styled.View`
-  display: flex;
-  align-items: center;
-  margin-left: auto;
-  margin-right: -5px;
-  padding-left: 16px;
-`;
-
-const Touchable = styled.TouchableOpacity``;
-
-const ActionButton = styled.View`
-  padding: 4px 4px 2px 2px;
-`;
+type Styles = {
+  container?: StyleProp<ViewStyle>;
+  text?: StyleProp<TextStyle>;
+  type?: SnackbarType;
+};
 
 export interface SnackbarProps {
   testID?: string;
+  theme?: DoobooTheme;
   ref: React.MutableRefObject<SnackbarRef>;
 }
 
 export interface SnackbarContent {
   text: string;
-  actionText?: string;
   timer?: SnackbarTimer;
-  actionStyle?: StyleProp<TextStyle>;
-  containerStyle?: StyleProp<ViewStyle>;
-  messageStyle?: StyleProp<TextStyle>;
-  onPressAction?: () => void;
+  styles?: Styles;
+  actionText?: string;
+  type?: SnackbarType;
 }
 
 interface ShowingState {
@@ -81,6 +50,22 @@ export enum SnackbarTimer {
   SHORT = 1500,
   LONG = 3000,
 }
+
+const TextAction = styled.Text<{type: SnackbarType}>`
+  color: ${({theme}) => theme.text};
+
+  background-color: ${({theme, type}) =>
+    type === 'danger' ? theme.textContrast : theme.text};
+`;
+
+const Divider = styled.View<{type: SnackbarType}>`
+  width: 1px;
+  height: 100%;
+  margin: 0 16px;
+
+  background-color: ${({theme, type}) =>
+    type === 'danger' ? theme.textContrast : theme.text};
+`;
 
 const SnackbarContainer = (
   props: SnackbarProps,
@@ -100,12 +85,10 @@ const SnackbarContainer = (
 
   const {
     text,
+    type = 'default',
     actionText,
-    messageStyle,
-    actionStyle,
-    containerStyle,
+    styles,
     timer = SnackbarTimer.SHORT,
-    onPressAction,
   } = content;
 
   const {isShowing, isVisible, timeout} = showingState;
@@ -163,44 +146,44 @@ const SnackbarContainer = (
       }
   }, [showingState, fadeAnim, hide, isShowing, isVisible, timer]);
 
-  React.useImperativeHandle(ref, () => ({
-    show,
-  }));
+  React.useImperativeHandle(ref, () => ({show}));
 
   return (
     <>
       {showingState.isVisible && (
-        <Animated.View
+        <SnackbarWrapper
           testID={testID}
+          type={type}
           style={[
-            styles.container,
-            {maxWidth: Dimensions.get('screen').width - 32},
-            containerStyle,
+            styles?.container,
+            {
+              shadowColor: 'black',
+              shadowOffset: {
+                width: 0,
+                height: 4,
+              },
+              shadowOpacity: 0.15,
+              shadowRadius: 12,
+            },
+            {maxWidth: Dimensions.get('screen').width - 40},
             {opacity: fadeAnim},
           ]}>
-          {/* @ts-ignore */}
-          <MessageText style={messageStyle}>{text}</MessageText>
-          {actionText && (
-            <ActionContainer>
-              <Touchable
-                onPress={(): void => {
-                  onPressAction && onPressAction();
-                  hide();
-                }}>
-                <ActionButton>
-                  {/* @ts-ignore */}
-                  <ActionText style={actionStyle}>{actionText}</ActionText>
-                </ActionButton>
-              </Touchable>
-            </ActionContainer>
-          )}
-        </Animated.View>
+          <ButtonText style={styles?.text} type={type}>
+            {text}
+          </ButtonText>
+          {actionText && <Divider type={type} />}
+          <TextAction>{actionText}</TextAction>
+        </SnackbarWrapper>
       )}
     </>
   );
 };
 
-const Snackbar =
+const SnackbarComponent =
   React.forwardRef<SnackbarRef, SnackbarProps>(SnackbarContainer);
 
-export {Snackbar};
+SnackbarComponent.defaultProps = {
+  theme: light,
+};
+
+export const Snackbar = withTheme(SnackbarComponent);

@@ -25,6 +25,7 @@ export type Colors = typeof colors;
 
 export const light = {
   primary: colors.black,
+  paper: colors.lightGray,
   disabled: colors.cloud,
   background: colors.white,
   secondary: colors.brightTurquoise,
@@ -48,6 +49,7 @@ export type DoobooTheme = typeof light & {
 
 export const dark = {
   primary: colors.white,
+  paper: colors.charcoalGray,
   disabled: colors.charcoalGray,
   background: colors.black,
   secondary: colors.brightTurquoise,

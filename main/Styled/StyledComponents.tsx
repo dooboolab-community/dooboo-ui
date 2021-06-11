@@ -11,8 +11,16 @@ export type ButtonType =
   | 'warning'
   | 'info';
 
+export type SnackbarType =
+  | 'default'
+  | 'secondary'
+  | 'success'
+  | 'warning'
+  | 'info'
+  | 'danger';
+
 export const ButtonWrapper = styled.View<{
-  type: ButtonType;
+  type?: ButtonType;
   outlined?: boolean;
   disabled?: boolean;
 }>`
@@ -51,7 +59,7 @@ export const ButtonWrapper = styled.View<{
 
 export const ButtonText = styled.Text<{
   outlined?: boolean;
-  type?: ButtonType;
+  type?: ButtonType | SnackbarType;
   disabled?: boolean;
   theme?: DoobooTheme;
 }>`
@@ -70,6 +78,10 @@ export const ButtonText = styled.Text<{
           ? theme.danger
           : theme.text
         : theme.text
+      : theme.background === dark.background
+      ? type === 'default' || type === 'danger'
+        ? 'white'
+        : 'black'
       : disabled
       ? theme.disabled
       : type === 'primary' || type === 'danger'
@@ -190,4 +202,32 @@ export const ColoredText = styled.Text<{
       : type === 'warning'
       ? theme.warning
       : theme.primary};
+`;
+
+export const SnackbarWrapper = styled(Animated.View)<{
+  type?: SnackbarType;
+  checked?: boolean;
+}>`
+  background-color: ${({theme, type}) =>
+    type === 'success'
+      ? theme.success
+      : type === 'info'
+      ? theme.info
+      : type === 'secondary'
+      ? theme.secondary
+      : type === 'danger'
+      ? theme.danger
+      : type === 'warning'
+      ? theme.warning
+      : theme.paper};
+  flex-direction: row;
+  text-align: left;
+  align-items: center;
+  align-self: center;
+  position: absolute;
+  font-size: 16px;
+  padding: 16px 20px;
+  margin: 0 10px;
+  bottom: 20px;
+  border-radius: 20px;
 `;
