@@ -155,7 +155,14 @@ describe('[RadioButton]', () => {
   });
 
   describe('colors', () => {
-    const types = ['primary', 'secondary', 'info', 'warning', 'danger'];
+    const types = [
+      'primary',
+      'secondary',
+      'success',
+      'info',
+      'warning',
+      'danger',
+    ];
 
     it('should render all colors', () => {
       component = createComponent(

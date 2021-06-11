@@ -14,7 +14,13 @@ type Styles = {
   checkbox?: StyleProp<ViewStyle>;
 };
 
-type CheckboxType = 'primary' | 'secondary' | 'danger' | 'warning' | 'info';
+type CheckboxType =
+  | 'primary'
+  | 'secondary'
+  | 'success'
+  | 'danger'
+  | 'warning'
+  | 'info';
 
 export interface CheckboxProps {
   onPress?: () => void;

@@ -48,6 +48,7 @@ const ButtonDefault: FC = () => {
           }}>
           <Button type="primary" text="Primary" style={{padding: 8}} />
           <Button type="secondary" text="Secondary" style={{padding: 8}} />
+          <Button type="success" text="Success" style={{padding: 8}} />
           <Button type="danger" text="Danger" style={{padding: 8}} />
           <Button type="warning" text="Warning" style={{padding: 8}} />
           <Button type="info" text="Info" style={{padding: 8}} />
@@ -72,6 +73,7 @@ const ButtonDefault: FC = () => {
             outlined
             style={{padding: 8}}
           />
+          <Button type="success" text="Success" outlined style={{padding: 8}} />
           <Button type="danger" text="Danger" outlined style={{padding: 8}} />
           <Button type="warning" text="Warning" outlined style={{padding: 8}} />
           <Button type="info" text="Info" outlined style={{padding: 8}} />

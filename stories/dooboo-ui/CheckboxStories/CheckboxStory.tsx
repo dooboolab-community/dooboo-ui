@@ -52,6 +52,12 @@ const CheckboxStory: FC = () => {
           <Checkbox
             checked={checked}
             onPress={() => setChecked(!checked)}
+            type="success"
+          />
+          <View style={{width: 8}} />
+          <Checkbox
+            checked={checked}
+            onPress={() => setChecked(!checked)}
             type="warning"
           />
           <View style={{width: 8}} />
