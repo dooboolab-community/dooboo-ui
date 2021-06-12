@@ -226,8 +226,7 @@ export const SnackbarWrapper = styled(Animated.View)<{
   align-self: center;
   position: absolute;
   font-size: 16px;
-  padding: 16px 20px;
-  margin: 0 10px;
+  padding: 8px 20px;
   bottom: 20px;
   border-radius: 20px;
 `;

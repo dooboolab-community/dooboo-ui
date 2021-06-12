@@ -13,7 +13,12 @@ import {
   SnackbarWrapper,
 } from '../Styled/StyledComponents';
 import {DoobooTheme, light, withTheme} from '../theme';
-import React, {useCallback} from 'react';
+import React, {
+  useCallback,
+  useEffect,
+  useImperativeHandle,
+  useState,
+} from 'react';
 
 import styled from '@emotion/native';
 
@@ -60,8 +65,9 @@ const TextAction = styled.Text<{type: SnackbarType}>`
 
 const Divider = styled.View<{type: SnackbarType}>`
   width: 1px;
-  height: 100%;
+  height: 36px;
   margin: 0 16px;
+  opacity: 0.4;
 
   background-color: ${({theme, type}) =>
     type === 'danger' ? theme.textContrast : theme.text};
@@ -73,12 +79,12 @@ const SnackbarContainer = (
 ): React.ReactElement => {
   const {testID} = props;
 
-  const [showingState, setShowingState] = React.useState<ShowingState>({
+  const [showingState, setShowingState] = useState<ShowingState>({
     isVisible: false,
     isShowing: false,
   });
 
-  const [content, setContent] = React.useState<SnackbarContent>({
+  const [content, setContent] = useState<SnackbarContent>({
     text: '',
     timer: SnackbarTimer.SHORT,
   });
@@ -93,7 +99,7 @@ const SnackbarContainer = (
   } = content;
 
   const {isShowing, isVisible, timeout} = showingState;
-  const [fadeAnim] = React.useState(new Animated.Value(0));
+  const [fadeAnim] = useState(new Animated.Value(0));
 
   const show = (c: SnackbarContent): void => {
     setContent(c);
@@ -122,7 +128,7 @@ const SnackbarContainer = (
     [fadeAnim],
   );
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (isShowing)
       if (isVisible) hide(50);
       else {
@@ -147,7 +153,7 @@ const SnackbarContainer = (
       }
   }, [showingState, fadeAnim, hide, isShowing, isVisible, timer]);
 
-  React.useImperativeHandle(ref, () => ({show}));
+  useImperativeHandle(ref, () => ({show}));
 
   return (
     <>

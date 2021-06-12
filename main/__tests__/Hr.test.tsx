@@ -1,5 +1,4 @@
-import {Hr, ThemeProvider} from '../../main';
-
+import {Hr} from '../../main';
 import React from 'react';
 import type {ReactElement} from 'react';
 import type {RenderAPI} from '@testing-library/react-native';
