@@ -65,7 +65,7 @@ const TextAction = styled.Text<{type: SnackbarType}>`
 
 const Divider = styled.View<{type: SnackbarType}>`
   width: 1px;
-  height: 36px;
+  height: 100%;
   margin: 0 16px;
   opacity: 0.4;
 

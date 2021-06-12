@@ -1,5 +1,11 @@
 ## Changelogs
 
+## 0.1.9
+
+Add [Snackbar] to `main` package [#28](https://github.com/dooboolab/dooboo-ui/pull/28).
+
+Apply updated colors of design [#29](https://github.com/dooboolab/dooboo-ui/pull/29).
+
 ## 0.1.7
 
 Add [RadioGroup] [#26](https://github.com/dooboolab/dooboo-ui/commit/39b9138a60a697f34fc6da422bb26ca8dd6ee325).
