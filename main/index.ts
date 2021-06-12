@@ -1,5 +1,6 @@
 export * from './Typography';
 export * from './RadioGroup';
+export * from './Snackbar';
 export * from './Icon';
 export * from './Hr';
 export * from './Button';
