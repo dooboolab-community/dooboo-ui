@@ -4,6 +4,7 @@ import {
   Platform,
   StyleProp,
   TextStyle,
+  TouchableOpacity,
   ViewStyle,
 } from 'react-native';
 import {
@@ -12,7 +13,7 @@ import {
   SnackbarWrapper,
 } from '../Styled/StyledComponents';
 import {DoobooTheme, light, withTheme} from '../theme';
-import React, {ReactElement, useCallback} from 'react';
+import React, {useCallback} from 'react';
 
 import styled from '@emotion/native';
 
@@ -33,6 +34,7 @@ export interface SnackbarContent {
   timer?: SnackbarTimer;
   styles?: Styles;
   actionText?: string;
+  onActionPress?: () => void;
   type?: SnackbarType;
 }
 
@@ -52,9 +54,7 @@ export enum SnackbarTimer {
 }
 
 const TextAction = styled.Text<{type: SnackbarType}>`
-  color: ${({theme}) => theme.text};
-
-  background-color: ${({theme, type}) =>
+  color: ${({theme, type}) =>
     type === 'danger' ? theme.textContrast : theme.text};
 `;
 
@@ -87,6 +87,7 @@ const SnackbarContainer = (
     text,
     type = 'default',
     actionText,
+    onActionPress,
     styles,
     timer = SnackbarTimer.SHORT,
   } = content;
@@ -172,7 +173,11 @@ const SnackbarContainer = (
             {text}
           </ButtonText>
           {actionText && <Divider type={type} />}
-          <TextAction>{actionText}</TextAction>
+          {actionText && (
+            <TouchableOpacity onPress={onActionPress}>
+              <TextAction type={type}>{actionText}</TextAction>
+            </TouchableOpacity>
+          )}
         </SnackbarWrapper>
       )}
     </>

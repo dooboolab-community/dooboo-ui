@@ -1,6 +1,5 @@
 import {Button, Snackbar, SnackbarRef} from '../../../main';
 import React, {useCallback, useRef} from 'react';
-import {Text, TouchableOpacity} from 'react-native';
 
 import {SnackbarType} from '../../../main/Styled/StyledComponents';
 import styled from '@emotion/native';
@@ -27,16 +26,12 @@ function SnackbarDefault(): React.ReactElement {
         snackbar.current?.show({
           text: 'Lorem ipsum dolor sit amet',
           type,
-          action: (
-            <TouchableOpacity
-              onPress={() => {
-                snackbar.current?.show({
-                  text: 'Action Pressed',
-                });
-              }}>
-              <Text>Action</Text>
-            </TouchableOpacity>
-          ),
+          actionText: 'Cancel',
+          onActionPress: () =>
+            snackbar.current?.show({
+              text: 'Cancel pressed!!!',
+              type,
+            }),
         });
     },
     [snackbar],
@@ -53,8 +48,9 @@ function SnackbarDefault(): React.ReactElement {
         alignItems: 'center',
       }}>
       <Snackbar ref={snackbar} />
-      {types.map((type) => (
+      {types.map((type, i) => (
         <Button
+          key={i}
           type={type === 'default' ? 'primary' : type}
           onPress={() => onPress(type)}
           text={`Open Snackbar - ${type}`}
