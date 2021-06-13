@@ -30,8 +30,8 @@ type ImageSize = {
   height: number;
 };
 
-const Container = styled.View`
-  background-color: ${({theme}) => theme.paper};
+const Container = styled.View<{imageSize?: ImageSize}>`
+  background-color: ${({theme, imageSize}) => !imageSize && theme.paper};
 
   justify-content: center;
   align-items: center;
@@ -77,6 +77,7 @@ function NetworkImage({
 
   return (
     <Container
+      imageSize={imageSize}
       style={[
         {
           width: (styles?.image as ImageStyle)?.width,
@@ -89,6 +90,10 @@ function NetworkImage({
           loadingElement
         ) : (
           <StyledImage
+            style={{
+              margin: '8%',
+              aspectRatio: 110 / 74,
+            }}
             source={
               themeType === 'light' ? ArtifactsLogoLight : ArtifactsLogoDark
             }
