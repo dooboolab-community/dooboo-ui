@@ -8,6 +8,7 @@ export * from './IconButton';
 export * from './ButtonGroup';
 export * from './Checkbox';
 export * from './EditText';
+export * from './NetworkImage';
 export * from './LoadingIndicator';
 export * from './Accordion';
 export * from './StatusBarBrightness';
