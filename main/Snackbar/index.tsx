@@ -178,7 +178,14 @@ const SnackbarContainer = (
           <ButtonText style={styles?.text} type={type}>
             {text}
           </ButtonText>
-          {actionText && <Divider type={type} />}
+          {actionText && (
+            <Divider
+              type={type}
+              style={{
+                height: Platform.select({web: 24}),
+              }}
+            />
+          )}
           {actionText && (
             <TouchableOpacity onPress={onActionPress}>
               <TextAction type={type}>{actionText}</TextAction>

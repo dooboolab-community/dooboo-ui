@@ -3,6 +3,7 @@ import {
   Image,
   ImageProps,
   ImageStyle,
+  Platform,
   StyleProp,
   ViewStyle,
 } from 'react-native';
@@ -91,6 +92,8 @@ function NetworkImage({
         ) : (
           <StyledImage
             style={{
+              width: Platform.select({web: 111}),
+              height: Platform.select({web: 74}),
               margin: '8%',
               aspectRatio: 110 / 74,
             }}
