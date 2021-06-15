@@ -1,0 +1,41 @@
+import {Meta, Story, Canvas} from '@storybook/addon-docs/blocks';
+import {ThemeProvider} from 'dooboo-ui';
+import CheckboxDefault from './test';
+
+<Meta title="Components/Checkbox" />
+
+# Checkbox
+
+> [Checkbox] component with default styles with animation.
+
+## Usage
+
+```tsx
+import {Checkbox} from 'dooboo-ui';
+
+<Checkbox {...props} />;
+```
+
+## Props
+
+|                        | Types                                    | Description                             |
+| ---------------------- | ---------------------------------------- | --------------------------------------- |
+| testID?                | `string`                                 |                                         |
+| indicatorColor?        | `string`                                 |                                         |
+| loading?               | `boolean`                                |                                         |
+| disabled?              | `boolean`                                |                                         |
+| style?                 | `StyleProp<ViewStyle>`                   | root `ViewStyle`                        |
+| styles?                | `Styles`                                 | List of all style props within [Button] |
+| leftElement?           | `ReactElement`                           | Extra element to place on the left      |
+| rightElement?          | `ReactElement`                           | Extra element to place on the right     |
+| activeOpacity?         | `TouchableOpacityProps['activeOpacity']` |                                         |
+| text?                  | `string`                                 |                                         |
+| onPress?               | `TouchableOpacityProps['onPress']`       |                                         |
+| touchableOpacityProps? | `Partial<TouchableOpacityProps>`         |                                         |
+| textProps?             | `Partial<TextProps>`                     |                                         |
+| type?                  | `ButtonType`                             |                                         |
+| size?                  | `ButtonSize`                             |                                         |
+
+<Canvas withSource="none">
+  <CheckboxDefault />
+</Canvas>
