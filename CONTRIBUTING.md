@@ -26,21 +26,24 @@
    git clone https://github.com/<your-id>/dooboo-ui.git
    ```
 3. Install your packages
+
    ```
    yarn
    ```
-   
+
    The components in `packages` folder need to be prepare by lerna.
+
    ```
    yarn pre
    ```
-   
+
    - Note that we recommend using yarn because all of our team members do.
    - Also node that `yarn.lock` and `package-lock.json` sometimes make collision. Try to delete one of them.
+
 4. Run pod install if you clone list of independent components in `@dooboo-ui/*`
 
    - `cd ios && pod install`
-     > Note that @dooboo-ui/native(or dooboo-ui) don't need this step.
+     > Note that dooboo-ui don't need this step.
 
 5. Run your project
 
@@ -126,18 +129,18 @@ array.forEach((e) => {
 
 - Space before `(` and after `)`.
 
-*** Important ***
+**_ Important _**
+
 - testID should be written in `kebab-case`
   `testID = "my-test-id"`
 - Class name should be a `PascalCase`
 - Enum type should be a `PascalCase`
 - Constants should be written in `UPPER_SNAKE_CASE`
-   * Note that this is for `number`, `string` and constant `array`.
-   * Unformed data type like object or class variable should be written in `camelCase`.
+  - Note that this is for `number`, `string` and constant `array`.
+  - Unformed data type like object or class variable should be written in `camelCase`.
 - Variables and functions should be written in `camelCase`
 - Assets name should be written in `lower_snake_case`
   `const imgUrl = 'assets/icons/icon_add.png'`
-
 
 - **If you find code that does not fit in the coding convention, do not ever try to fix code that is not related to your purpose.**
 

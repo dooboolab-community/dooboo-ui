@@ -10,7 +10,7 @@ import {
   ButtonWrapper,
 } from '../Styled/StyledComponents';
 import {DoobooTheme, light, withTheme} from '../theme';
-import React, {useRef, useState} from 'react';
+import React, {ReactElement, useRef, useState} from 'react';
 import type {
   StyleProp,
   TextProps,
@@ -61,8 +61,8 @@ export interface ButtonProps {
   outlined?: boolean;
   style?: StyleProp<ViewStyle>;
   styles?: Styles;
-  leftElement?: React.ReactElement;
-  rightElement?: React.ReactElement;
+  leftElement?: ReactElement;
+  rightElement?: ReactElement;
   activeOpacity?: TouchableOpacityProps['activeOpacity'];
   text?: string;
   onPress?: TouchableOpacityProps['onPress'];

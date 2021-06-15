@@ -29,5 +29,6 @@ module.exports = ({ config, mode }) => {
   config.resolve.alias = {
     'react-native': 'react-native-web'
   };
+
   return withUnimodules(config, { projectRoot: resolve(__dirname, "../") });
 };

@@ -3,12 +3,21 @@
 > React Native UI components built by `dooboolab`
 
 <p>
-  <!-- iOS -->
-  <img alt="Supports Expo iOS" longdesc="Supports Expo iOS" src="https://img.shields.io/badge/iOS-4630EB.svg?style=flat-square&logo=APPLE&labelColor=999999&logoColor=fff" />
-  <!-- Android -->
-  <img alt="Supports Expo Android" longdesc="Supports Expo Android" src="https://img.shields.io/badge/Android-4630EB.svg?style=flat-square&logo=ANDROID&labelColor=A4C639&logoColor=fff" />
-  <!-- Web -->
-  <img alt="Supports Expo Web" longdesc="Supports Expo Web" src="https://img.shields.io/badge/web-4630EB.svg?style=flat-square&logo=GOOGLE-CHROME&labelColor=4285F4&logoColor=fff" />
+  <img
+    alt="Supports Expo iOS"
+    longdesc="Supports Expo iOS"
+    src="https://img.shields.io/badge/iOS-4630EB.svg?style=flat-square&logo=APPLE&labelColor=999999&logoColor=fff"
+  />
+  <img
+    alt="Supports Expo Android"
+    longdesc="Supports Expo Android"
+    src="https://img.shields.io/badge/Android-4630EB.svg?style=flat-square&logo=ANDROID&labelColor=A4C639&logoColor=fff"
+  />
+  <img
+    alt="Supports Expo Web"
+    longdesc="Supports Expo Web"
+    src="https://img.shields.io/badge/web-4630EB.svg?style=flat-square&logo=GOOGLE-CHROME&labelColor=4285F4&logoColor=fff"
+  />
 </p>
 
 [![Npm Version](http://img.shields.io/npm/v/dooboo-ui.svg?style=flat-square)](https://npmjs.org/package/dooboo-ui)
@@ -26,13 +35,16 @@ We love [react-hooks](https://code.fb.com/open-source/react-hooks) and willing t
 
 Current project is forked from [dooboo-ui-legacy](https://github.com/dooboolab/dooboo-ui-legacy) to renew the project. We've made this decision because one of our sponsors wanted to rebrand this awesome project with better communication design and features. We are very happy to continue this project aggregating the aspiration of various people. The version of current project will start from `dooboo-ui@0.1.0` in [npm registry](https://www.npmjs.com).
 
-## Documentation
+## Demo
 
 Hosted in [github pages](https://dooboolab.github.io/dooboo-ui)
 
 ## Contributing to `dooboo-ui`
 
-<img src="https://user-images.githubusercontent.com/27461460/120172586-2a65af00-c23e-11eb-9f61-0edd9f588964.png" width=420/>
+<img
+  src="https://user-images.githubusercontent.com/27461460/120172586-2a65af00-c23e-11eb-9f61-0edd9f588964.png"
+  width="420"
+/>
 
 - See also
   - dooboolab's [vision-and-mission](https://github.com/dooboolab/dooboolab.com/blob/master/vision-and-mission.md)
@@ -59,13 +71,17 @@ import {ThemeProvider} from 'dooboo-ui';
 
 ## Theming
 
-Follow the [README_THEME](./README_THEME.md)
+Follow the [README_THEME](https://github.com/dooboolab/dooboo-ui/blob/master/README_THEME.md)
 
 ## Install Font (Recommended)
 
 You can install our font to use in your project. This is recommended since we use these fonts in some of `dooboo-ui` components. They might not show correct icons when the font is not loaded.
 
-<img width="1506" alt="icons" src="https://user-images.githubusercontent.com/27461460/120745087-58493d00-c537-11eb-9226-29858d7ccf1f.png">
+<img
+  width="1506"
+  alt="icons"
+  src="https://user-images.githubusercontent.com/27461460/120745087-58493d00-c537-11eb-9226-29858d7ccf1f.png"
+/>
 
 - For React Native user
 
@@ -160,12 +176,22 @@ You need to set webpack for using "dooboo-ui" in expo-web.
 
 Support this project by becoming a sponsor. Your logo will show up here with
 a link to your website. \[[Become a sponsor](https://opencollective.com/dooboolab-community#sponsor)\]
-<a href="https://opencollective.com/dooboolab-community#sponsors" target="_blank"><img src="https://opencollective.com/dooboolab-community/sponsors.svg?width=890"></a>
+
+<a
+  href="https://opencollective.com/dooboolab-community#sponsors"
+  target="_blank">
+<img src="https://opencollective.com/dooboolab-community/sponsors.svg?width=890" />
+</a>
 
 ### Backers
 
 Please be our [Backers](https://opencollective.com/dooboolab-community#backers).
-<a href="https://opencollective.com/dooboolab-community#backers" target="_blank"><img src="https://opencollective.com/dooboolab-community/backers.svg?width=890"></a>
+
+<a
+  href="https://opencollective.com/dooboolab-community#backers"
+  target="_blank">
+<img src="https://opencollective.com/dooboolab-community/backers.svg?width=890" />
+</a>
 
 ### Contributing
 
