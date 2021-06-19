@@ -140,7 +140,7 @@ const ButtonComponent: FC<ButtonProps & {theme: DoobooTheme}> = ({
               height: layout?.height,
             },
             hovered && !disabled && compositeStyles.hovered,
-            disabled && compositeStyles.disabledButton,
+            compositeStyles.disabledButton,
           ]}
           type={type}
           size={size}
