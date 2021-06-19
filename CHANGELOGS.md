@@ -1,5 +1,23 @@
 ## Changelogs
 
+## 0.1.11
+
+Minor fix in styles.
+
+[Button]
+
+- Set proper defalut background when `loading`.
+
+[SnackBar]
+
+- Set smaller vertical padding on container.
+
+## 0.1.10
+
+Add [NetworkImage] to main component (#30)
+
+Minor fixes on [Snackbar] UI (088c3e2247cc120e5db2044bc91e5304f939e8bd)
+
 ## 0.1.9
 
 Add [Snackbar] to `main` package [#28](https://github.com/dooboolab/dooboo-ui/pull/28).
