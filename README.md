@@ -85,17 +85,7 @@ You can install our font to use in your project. This is recommended since we us
 
 - For React Native user
 
-  1. Create `react-native.config.js` file and add below code.
-
-     ```diff
-     module.exports = {
-       project: {
-         ios: {},
-         android: {},
-       },
-     +  assets: ['dooboo-ui/Icon/doobooui.ttf'],
-     };
-     ```
+  1. Install [react-native-vector-icons](https://github.com/oblador/react-native-vector-icons).
 
   2. Run `yarn react-native link`.
 
