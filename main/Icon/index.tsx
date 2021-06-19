@@ -1,4 +1,5 @@
 import {FC} from 'react';
+import {ViewStyle} from 'react-native';
 import collectingFontIconSelection from './selection.json';
 import {createIconSetFromIcoMoon} from 'react-native-vector-icons';
 import styled from '@emotion/native';
@@ -34,6 +35,7 @@ type Props = {
   name: IconName;
   size?: number;
   color?: string;
+  style?: ViewStyle;
 };
 
 const Ico: FC<Props> = createIconSetFromIcoMoon(

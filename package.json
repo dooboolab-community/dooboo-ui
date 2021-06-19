@@ -18,7 +18,7 @@
     "test": "jest",
     "test:all": "lerna run build && yarn lint && yarn tsc && jest",
     "test:post": "jest",
-    "build": "rm -f ./lib/tsconfigBuild.tsbuildinfo && cp README.md ./lib/README.md && tsc --project tsconfigBuild.json && yarn cp:icon",
+    "build": "cp ./main/react-native.config.js ./lib/react-native.config.js && rm -f ./lib/tsconfigBuild.tsbuildinfo && cp README.md ./lib/README.md && tsc --project tsconfigBuild.json && yarn cp:icon",
     "cp:icon": "cp ./main/Icon/selection.json ./lib/Icon/selection.json && cp ./main/Icon/doobooui.ttf ./lib/Icon/doobooui.ttf",
     "postbuild": "cp -r main/__assets__ lib/__assets__",
     "build:storybook": "expo build:web && sh web-build-postinstall.sh",
