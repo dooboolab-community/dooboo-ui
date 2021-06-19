@@ -41,7 +41,6 @@
     "stories/dooboo-ui/**/*.tsx",
     "stories/packages/**/*.ts",
     "stories/packages/**/*.tsx"
-
   ],
   "exclude": [
     "node_modules",

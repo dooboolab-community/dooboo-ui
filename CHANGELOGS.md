@@ -1,5 +1,11 @@
 ## Changelogs
 
+## 0.1.12
+
+Installing `dooboo-ui` font is hard to install for `react-native cli`. Make this process easier by installing it with `yarn react-native link`.
+
+Fix [Icon] to receive `color` and `style` props.
+
 ## 0.1.11
 
 Minor fix in styles.
