@@ -1,0 +1,45 @@
+import {Meta, Story, Canvas} from '@storybook/addon-docs/blocks';
+import {ThemeProvider} from 'dooboo-ui';
+import {Light, Dark} from './index';
+
+<Meta title="Components/Button" />
+
+# Button
+
+> [Button] component that can be used inside product. Has basic features like `loading` state, `disabled` state and also has ability to put extra `element` to left, right or bot.
+
+## Usage
+
+```tsx
+import {Button} from 'dooboo-ui';
+
+<Button {...props} />;
+```
+
+## Props
+
+|                        | Types                                    | Description                             |
+| ---------------------- | ---------------------------------------- | --------------------------------------- |
+| testID?                | `string`                                 |                                         |
+| indicatorColor?        | `string`                                 |                                         |
+| loading?               | `boolean`                                |                                         |
+| disabled?              | `boolean`                                |                                         |
+| style?                 | `StyleProp<ViewStyle>`                   | root `ViewStyle`                        |
+| styles?                | `Styles`                                 | List of all style props within [Button] |
+| leftElement?           | `ReactElement`                           | Extra element to place on the left      |
+| rightElement?          | `ReactElement`                           | Extra element to place on the right     |
+| activeOpacity?         | `TouchableOpacityProps['activeOpacity']` |                                         |
+| text?                  | `string`                                 |                                         |
+| onPress?               | `TouchableOpacityProps['onPress']`       |                                         |
+| touchableOpacityProps? | `Partial<TouchableOpacityProps>`         |                                         |
+| textProps?             | `Partial<TextProps>`                     |                                         |
+| type?                  | `ButtonType`                             |                                         |
+| size?                  | `ButtonSize`                             |                                         |
+
+## Demo
+
+#### Light Theme
+<Light />
+
+#### Dark Theme
+<Dark />

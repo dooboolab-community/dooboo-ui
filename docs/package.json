@@ -1,0 +1,42 @@
+{
+  "name": "dooboo-ui",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "@emotion/native": "^11.0.0",
+    "@emotion/react": "^11.1.5",
+    "@expo/config": "^3.3.22",
+    "@expo/vector-icons": "^12.0.5",
+    "@storybook/addon-docs": "^6.1.11",
+    "@storybook/cli": "^6.1.11",
+    "@storybook/theming": "^6.1.11",
+    "dooboo-ui": "^0.1.13",
+    "expo-font": "^9.1.0",
+    "metro-react-native-babel-preset": "^0.64.0",
+    "react-native-vector-icons": "^8.1.0",
+    "react-native-web": "^0.14.10"
+  },
+  "devDependencies": {
+    "@babel/plugin-syntax-dynamic-import": "^7.8.3",
+    "@babel/preset-react": "^7.14.5",
+    "@emotion/babel-plugin": "^11.3.0",
+    "@expo/webpack-config": "^0.12.52",
+    "@storybook/addon-actions": "^6.1.11",
+    "@storybook/addon-links": "^6.1.11",
+    "@storybook/addons": "^6.1.11",
+    "@storybook/preset-create-react-app": "^3.1.5",
+    "@storybook/react": "^6.1.11",
+    "babel-loader": "^8.2.2",
+    "babel-plugin-react-native-web": "0.14.10",
+    "babel-preset-expo": "^8.3.0",
+    "file-loader": "^6.2.0",
+    "url-loader": "^4.1.1",
+    "webpack": "^5.12.3"
+  },
+  "scripts": {
+    "start": "start-storybook --docs -p 9001 -c ./.storybook watch-css -s ./src",
+    "build": "yarn && build-storybook --docs -o ../doc-build -c ./.storybook",
+    "postinstall": "yarn upgrade @dooboo-ui/snackbar dooboo-ui"
+  }
+}

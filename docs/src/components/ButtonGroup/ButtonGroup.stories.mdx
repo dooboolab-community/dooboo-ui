@@ -1,0 +1,40 @@
+import {Meta, Story, Canvas} from '@storybook/addon-docs/blocks';
+import {ThemeProvider} from 'dooboo-ui';
+import {Light, Dark} from './index';
+
+<Meta title="Components/ButtonGroup" />
+
+# ButtonGroup
+
+> [ButtonGroup] component that can be used inside product. Has basic features like `loading` state, `disabled` state and also has ability to put extra `element` to left, right or bot.
+
+## Usage
+
+```tsx
+import {ButtonGroup} from 'dooboo-ui';
+
+<ButtonGroup {...props} />;
+```
+
+## Props
+
+|                        | Types                      | Description                                    |
+| ---------------------- | -------------------------- | ---------------------------------------------- |
+| testID?                | `string`                   |                                                |
+| borderRadius?          | `number`                   | The radius of the container.                   |
+| borderWidth?           | `number`                   | The width of the border.                       |
+| containerStyle?        | `ViewStyle`                |                                                |
+| style?                 | `ViewStyle`                |                                                |
+| styles?                | `Styles`                   | List of all style props within [ButtonGroup].  |
+| data                   | `string[]`                 | List of strings to be rendered in each button. |
+| color?                 | `string`                   | Represents main color.                         |
+| onPress?               | `(i: number) => void`      | `callback` for press event.                    |
+| initialIndex?          | `number`                   | Initial `index` to be selected.                |
+
+## Demo
+
+#### Light Theme
+<Light />
+
+#### Dark Theme
+<Dark />
