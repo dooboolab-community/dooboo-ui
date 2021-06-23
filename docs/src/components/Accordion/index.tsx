@@ -49,8 +49,10 @@ export const AccordionStory = (): ReactElement => {
   );
 };
 
-export const Default = (): ReactElement => (
+const Default = (): ReactElement => (
   <ThemeProvider initialThemeType="dark">
     <AccordionStory />
   </ThemeProvider>
 );
+
+export default Default;
