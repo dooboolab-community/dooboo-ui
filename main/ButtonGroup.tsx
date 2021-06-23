@@ -10,17 +10,21 @@ import {
   ViewStyle,
 } from 'react-native';
 
+interface Styles {
+  container: StyleProp<ViewStyle>;
+  button: ViewStyle;
+  selectedButton: ViewStyle;
+  text: StyleProp<TextStyle>;
+  selectedText: StyleProp<TextStyle>;
+}
+
 interface Props {
   testID?: string;
   theme: DoobooTheme;
   borderRadius?: number;
   borderWidth?: number;
-  containerStyle?: StyleProp<ViewStyle>;
   style?: StyleProp<ViewStyle>;
-  viewStyle?: ViewStyle;
-  selectedViewStyle?: ViewStyle;
-  textStyle?: StyleProp<TextStyle>;
-  selectedTextStyle?: StyleProp<TextStyle>;
+  styles?: Styles;
   data: string[];
   color?: string;
   onPress?: (i: number) => void;
@@ -36,14 +40,10 @@ const StyledButtonGroup: FC<Props> = (props) => {
     borderWidth = 1,
     color = theme.text,
     testID,
-    containerStyle,
     style,
-    selectedViewStyle,
-    viewStyle,
-    selectedTextStyle,
-    textStyle,
     data,
     onPress,
+    styles,
   } = props;
 
   const [selectedOption, setSelectedOption] = useState(initialIndex);
@@ -51,7 +51,11 @@ const StyledButtonGroup: FC<Props> = (props) => {
   return (
     <View
       testID={testID}
-      style={StyleSheet.flatten([{borderColor: color}, containerStyle, style])}>
+      style={StyleSheet.flatten([
+        {borderColor: color},
+        styles?.container,
+        style,
+      ])}>
       {data.map((text, i) => {
         return (
           <TouchableOpacity
@@ -67,8 +71,8 @@ const StyledButtonGroup: FC<Props> = (props) => {
             <View
               style={StyleSheet.flatten([
                 selectedOption === i
-                  ? {...selectedViewStyle, backgroundColor: color}
-                  : {...viewStyle, borderColor: color},
+                  ? {...styles?.selectedButton, backgroundColor: color}
+                  : {...styles?.button, borderColor: color},
                 i === 0
                   ? {
                       borderLeftWidth: borderWidth,
@@ -96,8 +100,8 @@ const StyledButtonGroup: FC<Props> = (props) => {
               <Text
                 style={
                   selectedOption === i
-                    ? [selectedTextStyle, {color: theme.textContrast}]
-                    : [textStyle, {color: theme.text}]
+                    ? [styles?.selectedText, {color: theme.textContrast}]
+                    : [styles?.text, {color: theme.text}]
                 }>
                 {text}
               </Text>
@@ -111,38 +115,40 @@ const StyledButtonGroup: FC<Props> = (props) => {
 
 StyledButtonGroup.defaultProps = {
   theme: light,
-  containerStyle: {
-    backgroundColor: 'transparent',
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
-    alignSelf: 'stretch',
-    minHeight: 40,
-    marginTop: 24,
-  },
-  viewStyle: {
-    alignSelf: 'stretch',
-    minHeight: 40,
+  styles: {
+    container: {
+      backgroundColor: 'transparent',
+      flexDirection: 'row',
+      alignItems: 'center',
+      justifyContent: 'center',
+      alignSelf: 'stretch',
+      minHeight: 40,
+      marginTop: 24,
+    },
+    button: {
+      alignSelf: 'stretch',
+      minHeight: 40,
 
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  selectedViewStyle: {
-    alignSelf: 'stretch',
-    minHeight: 40,
+      justifyContent: 'center',
+      alignItems: 'center',
+    },
+    selectedButton: {
+      alignSelf: 'stretch',
+      minHeight: 40,
 
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  textStyle: {
-    fontSize: 14,
-    textAlign: 'center',
-    alignSelf: 'center',
-  },
-  selectedTextStyle: {
-    fontSize: 14,
-    textAlign: 'center',
-    alignSelf: 'center',
+      justifyContent: 'center',
+      alignItems: 'center',
+    },
+    text: {
+      fontSize: 14,
+      textAlign: 'center',
+      alignSelf: 'center',
+    },
+    selectedText: {
+      fontSize: 14,
+      textAlign: 'center',
+      alignSelf: 'center',
+    },
   },
   data: ['option 1', 'option 2'],
 };

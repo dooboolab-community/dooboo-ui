@@ -1,8 +1,8 @@
 import {ButtonGroup, ThemeProvider} from '../../../main';
 import React, {ReactElement, useState} from 'react';
-import {Text, View} from 'react-native';
 
 import {ContainerDeco} from '../../../storybook/decorators';
+import {View} from 'react-native';
 import {storiesOf} from '@storybook/react-native';
 import styled from '@emotion/native';
 
@@ -10,11 +10,16 @@ const Container = styled.SafeAreaView`
   flex: 1;
   align-self: stretch;
   background-color: ${({theme}) => theme.background};
+  padding: 0 24px;
+
   flex-direction: column;
-  align-self: stretch;
   align-items: center;
   justify-content: center;
-  padding: 0 24px;
+`;
+
+const StyledText = styled.Text`
+  color: ${({theme}) => theme.text};
+  font-size: 32px;
 `;
 
 const ButtonGroupStory = (): React.ReactElement => {
@@ -48,12 +53,7 @@ const ButtonGroupStory = (): React.ReactElement => {
           justifyContent: 'center',
           alignItems: 'center',
         }}>
-        <Text
-          style={{
-            fontSize: 32,
-          }}>
-          {option}
-        </Text>
+        <StyledText>{option}</StyledText>
       </View>
     </Container>
   );
