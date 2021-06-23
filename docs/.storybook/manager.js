@@ -7,6 +7,7 @@ addons.setConfig({
     base: 'dark',
     brandTitle: 'dooboo-ui',
     brandUrl: 'https://dooboolab.github.io/dooboo-ui',
+    brandImage: '/assets/icon.png',
     theme: themes.dark,
   })
 })

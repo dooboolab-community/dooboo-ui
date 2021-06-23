@@ -186,7 +186,7 @@ const ButtonDefault: FC = () => {
 };
 
 export const Light = (): ReactElement => (
-  <ThemeProvider>
+  <ThemeProvider initialThemeType="light">
     <ButtonDefault />
   </ThemeProvider>
 );

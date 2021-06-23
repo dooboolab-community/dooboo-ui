@@ -59,7 +59,7 @@ const ButtonGroupStory = (): React.ReactElement => {
 };
 
 export const Light = (): ReactElement => (
-  <ThemeProvider>
+  <ThemeProvider initialThemeType="light">
     <ButtonGroupStory />
   </ThemeProvider>
 );
