@@ -69,8 +69,3 @@ export const Dark = (): ReactElement => (
     <ButtonGroupStory />
   </ThemeProvider>
 );
-
-export default {
-  Light,
-  Dark,
-};

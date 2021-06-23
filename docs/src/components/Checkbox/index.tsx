@@ -132,10 +132,14 @@ const CheckboxDefault: FC = () => {
   );
 };
 
-const Default = (): ReactElement => (
-  <ThemeProvider initialThemeType="dark">
+export const Light = (): ReactElement => (
+  <ThemeProvider>
     <CheckboxDefault />
   </ThemeProvider>
 );
 
-export default Default;
+export const Dark = (): ReactElement => (
+  <ThemeProvider initialThemeType="dark">
+    <CheckboxDefault />
+  </ThemeProvider>
+);

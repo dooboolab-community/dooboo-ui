@@ -8,12 +8,14 @@ import styled, {css} from '@emotion/native';
 import {action} from '@storybook/addon-actions';
 
 const StoryContainer = styled.View`
+  background-color: ${({theme}) => theme.background};
   flex: 1;
   align-self: stretch;
 `;
 
 const StyledText = styled.Text`
   margin: 8px;
+  color: ${({theme}) => theme.text};
 `;
 
 const ScrollContainer = styled.ScrollView`
@@ -183,10 +185,14 @@ const ButtonDefault: FC = () => {
   );
 };
 
-const Default = (): ReactElement => (
-  <ThemeProvider initialThemeType="dark">
+export const Light = (): ReactElement => (
+  <ThemeProvider>
     <ButtonDefault />
   </ThemeProvider>
 );
 
-export default Default;
+export const Dark = (): ReactElement => (
+  <ThemeProvider initialThemeType="dark">
+    <ButtonDefault />
+  </ThemeProvider>
+);
