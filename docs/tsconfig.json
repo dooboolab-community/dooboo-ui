@@ -33,6 +33,9 @@
   "exclude": [
     "node_modules",
   ],
+  "files": [
+    "environment.d.ts",
+  ],
   "types": ["typePatches", "jest"],
   "extends": "expo/tsconfig.base"
 }
