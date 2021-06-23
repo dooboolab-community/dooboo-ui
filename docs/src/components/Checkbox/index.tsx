@@ -133,7 +133,7 @@ const CheckboxDefault: FC = () => {
 };
 
 const Default = (): ReactElement => (
-  <ThemeProvider>
+  <ThemeProvider initialThemeType="dark">
     <CheckboxDefault />
   </ThemeProvider>
 );

@@ -184,7 +184,7 @@ const ButtonDefault: FC = () => {
 };
 
 const Default = (): ReactElement => (
-  <ThemeProvider>
+  <ThemeProvider initialThemeType="dark">
     <ButtonDefault />
   </ThemeProvider>
 );

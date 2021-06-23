@@ -1,6 +1,6 @@
+import {Accordion, ThemeProvider} from 'dooboo-ui';
 import React, {ReactElement} from 'react';
 
-import {Accordion} from 'dooboo-ui';
 import {IC_ARR_DOWN} from '../../icon';
 import styled from '@emotion/native';
 
@@ -32,7 +32,7 @@ const data = [
   },
 ];
 
-export const Default = (): ReactElement => {
+export const AccordionStory = (): ReactElement => {
   return (
     <Container>
       <Accordion
@@ -48,3 +48,9 @@ export const Default = (): ReactElement => {
     </Container>
   );
 };
+
+export const Default = (): ReactElement => (
+  <ThemeProvider initialThemeType="dark">
+    <AccordionStory />
+  </ThemeProvider>
+);

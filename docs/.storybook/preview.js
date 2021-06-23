@@ -1,10 +1,15 @@
-import { addParameters, addDecorator } from '@storybook/react';
+import { addDecorator, addParameters } from '@storybook/react';
+
 import {createElement} from 'react';
+import { themes } from '@storybook/theming';
 
 addDecorator(createElement);
 
 // Option defaults:
 addParameters({
+  docs: {
+    theme: themes.dark
+  },
   options: {
     storySort: (a, b) => {
       const sectionA = a[1].id.split('-')[0];
