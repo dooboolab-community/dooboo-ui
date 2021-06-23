@@ -18,15 +18,18 @@
     "react-native-web": "^0.14.10"
   },
   "devDependencies": {
+    "@babel/plugin-syntax-dynamic-import": "^7.8.3",
+    "@babel/preset-react": "^7.14.5",
+    "@emotion/babel-plugin": "^11.3.0",
     "@expo/webpack-config": "^0.12.52",
     "@storybook/addon-actions": "^6.1.11",
     "@storybook/addon-links": "^6.1.11",
     "@storybook/addons": "^6.1.11",
     "@storybook/preset-create-react-app": "^3.1.5",
     "@storybook/react": "^6.1.11",
+    "babel-loader": "^8.2.2",
     "babel-plugin-react-native-web": "0.14.10",
     "babel-preset-expo": "^8.3.0",
-    "babel-loader": "^8.2.2",
     "file-loader": "^6.2.0",
     "url-loader": "^4.1.1",
     "webpack": "^5.12.3"
