@@ -1,7 +1,6 @@
-name: Deploy docs on merge
+name: Deploy Preview Hosting on PR
 on:
-  workflow_dispatch:
-  push:
+  pull_request:
     branches:
       - master
     paths:
@@ -28,7 +27,7 @@ jobs:
         with:
           repoToken: '${{ secrets.GH_TOKEN }}'
           firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT }}'
-          channelId: live
+          channelId: preview
           target: dooboo-ui
           projectId: dooboolab-2f044
 
