@@ -128,8 +128,6 @@ import {Icon} from 'dooboo-ui';
 > Below elements are not included in `dooboo-ui` package since it depends on other packages that may overload its package.
 
 - [CalendarCarousel](https://github.com/dooboolab/dooboo-ui/tree/master/packages/CalendarCarousel)
-- [PinchZoom](https://github.com/dooboolab/dooboo-ui/tree/master/packages/PinchZoom)
-- [Snackbar](https://github.com/dooboolab/dooboo-ui/tree/master/packages/Snackbar)
 
 ## Troubleshoot
 

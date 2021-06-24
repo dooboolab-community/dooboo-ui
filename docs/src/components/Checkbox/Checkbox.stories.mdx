@@ -1,6 +1,6 @@
 import {Meta, Story, Canvas} from '@storybook/addon-docs/blocks';
 import {ThemeProvider} from 'dooboo-ui';
-import {Light, Dark} from './index';
+import {Default, LeftElement, RightElement} from './index';
 
 <Meta title="Components/Checkbox" />
 
@@ -38,8 +38,26 @@ import {Checkbox} from 'dooboo-ui';
 
 ## Demo
 
-#### Light Theme
-<Light />
+### Default Checkbox
 
-#### Dark Theme
-<Dark />
+#### light
+<Default themeType="light"/>
+
+#### dark
+<Default themeType="dark"/>
+
+### Checkbox with leftElement
+
+#### light
+<LeftElement themeType="light"/>
+
+#### dark
+<LeftElement themeType="dark"/>
+
+### Checkbox with rightElement
+
+#### light
+<RightElement themeType="light"/>
+
+#### dark
+<RightElement themeType="dark"/>
