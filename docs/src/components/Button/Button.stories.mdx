@@ -1,6 +1,6 @@
 import {Meta, Story, Canvas} from '@storybook/addon-docs/blocks';
 import {ThemeProvider} from 'dooboo-ui';
-import {Light, Dark} from './index';
+import {Basic, AdditionalElement, Outlined, Sizes} from './index';
 
 <Meta title="Components/Button" />
 
@@ -38,8 +38,34 @@ import {Button} from 'dooboo-ui';
 
 ## Demo
 
-#### Light Theme
-<Light />
+### Basic Style
 
-#### Dark Theme
-<Dark />
+#### light
+<Basic themeType="light"/>
+
+#### dark
+<Basic themeType="dark"/>
+
+### Outlined
+
+#### light
+<Outlined themeType="light"/>
+
+#### dark
+<Outlined themeType="dark"/>
+
+### Aspect of sizes 
+
+#### light
+<Sizes themeType="light"/>
+
+#### dark
+<Sizes themeType="dark"/>
+
+## AdditionalElement
+
+#### light
+<AdditionalElement themeType="light"/>
+
+#### dark
+<AdditionalElement themeType="dark"/>

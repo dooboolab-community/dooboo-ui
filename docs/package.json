@@ -31,12 +31,15 @@
     "babel-plugin-react-native-web": "0.14.10",
     "babel-preset-expo": "^8.3.0",
     "file-loader": "^6.2.0",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-native-unimodules": "^0.13.3",
     "url-loader": "^4.1.1",
     "webpack": "^5.12.3"
   },
   "scripts": {
     "start": "start-storybook --docs -p 9001 -c ./.storybook watch-css -s ./src",
-    "build": "yarn && build-storybook --docs -o ../doc-build -c ./.storybook",
-    "postinstall": "yarn upgrade @dooboo-ui/snackbar dooboo-ui"
+    "build": "yarn && build-storybook --docs -o ./doc-build -c ./.storybook && cp -r ./src/assets ./doc-build",
+    "postinstall": "yarn upgrade dooboo-ui"
   }
 }
