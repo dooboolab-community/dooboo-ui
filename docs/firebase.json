@@ -1,0 +1,11 @@
+{
+  "hosting": {
+    "public": "doc-build",
+    "site": "dooboo-ui",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ]
+  }
+}

@@ -18,6 +18,9 @@ packages/*/lib
 /lib/*
 !/lib/package.json
 
+# Storyook doc build
+doc-build
+
 # Jest
 .jest
 

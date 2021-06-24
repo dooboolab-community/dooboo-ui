@@ -36,7 +36,7 @@
   },
   "scripts": {
     "start": "start-storybook --docs -p 9001 -c ./.storybook watch-css -s ./src",
-    "build": "yarn && build-storybook --docs -o ../doc-build -c ./.storybook",
-    "postinstall": "yarn upgrade @dooboo-ui/snackbar dooboo-ui"
+    "build": "yarn && build-storybook --docs -o ./doc-build -c ./.storybook && cp -r ./src/assets ./doc-build",
+    "postinstall": "yarn upgrade dooboo-ui"
   }
 }
