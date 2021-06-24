@@ -7,7 +7,7 @@ on:
       - 'docs/**'
 
 jobs:
-  update:
+  build_and_preview:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master
@@ -19,17 +19,19 @@ jobs:
 
       - name: Install packages and build storybook
         run: |
-          yarn install --ignore-engines
+          pushd ./docs
+          yarn
           yarn build
+          popd
 
       - name: Deploy to firebase
         uses: FirebaseExtended/action-hosting-deploy@v0
         with:
-          repoToken: '${{ secrets.GH_TOKEN }}'
-          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT }}'
-          channelId: preview
-          target: dooboo-ui
+          entryPoint: './docs'
+          repoToken: '${{ secrets.GITHUB_TOKEN }}'
+          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_DOOBOOLAB_2F044 }}'
           projectId: dooboolab-2f044
-
+          target: dooboo-ui
+          expires: 14d
         env:
           FIREBASE_CLI_PREVIEWS: hostingchannels

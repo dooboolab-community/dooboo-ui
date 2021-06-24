@@ -31,6 +31,9 @@
     "babel-plugin-react-native-web": "0.14.10",
     "babel-preset-expo": "^8.3.0",
     "file-loader": "^6.2.0",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-native-unimodules": "^0.13.3",
     "url-loader": "^4.1.1",
     "webpack": "^5.12.3"
   },
