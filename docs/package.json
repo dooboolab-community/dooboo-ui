@@ -11,7 +11,7 @@
     "@storybook/addon-docs": "^6.1.11",
     "@storybook/cli": "^6.1.11",
     "@storybook/theming": "^6.1.11",
-    "dooboo-ui": "^0.1.13",
+    "dooboo-ui": "../lib",
     "expo-font": "^9.1.0",
     "metro-react-native-babel-preset": "^0.64.0",
     "react-native-vector-icons": "^8.1.0",
@@ -38,8 +38,8 @@
     "webpack": "^5.12.3"
   },
   "scripts": {
-    "start": "start-storybook --docs -p 9001 -c ./.storybook watch-css -s ./src",
+    "preinstall": "cd .. && yarn && yarn build",
     "build": "yarn && build-storybook --docs -o ./doc-build -c ./.storybook && cp -r ./src/assets ./doc-build",
-    "postinstall": "yarn upgrade dooboo-ui"
+    "start": "start-storybook --docs -p 9001 -c ./.storybook watch-css -s ./src"
   }
 }

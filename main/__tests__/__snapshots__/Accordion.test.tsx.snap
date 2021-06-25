@@ -34,7 +34,6 @@ exports[`[Accordion] render test should adjust duration of animation depends on 
       onStartShouldSetResponder={[Function]}
       style={
         Object {
-          "backgroundColor": "#141414",
           "height": 50,
           "justifyContent": "center",
           "opacity": 1,
@@ -47,7 +46,6 @@ exports[`[Accordion] render test should adjust duration of animation depends on 
         style={
           Array [
             Object {
-              "color": "#ffffff",
               "fontWeight": "bold",
               "left": 20,
               "position": "absolute",
@@ -70,7 +68,34 @@ exports[`[Accordion] render test should adjust duration of animation depends on 
             ],
           }
         }
-      />
+      >
+        <Text
+          allowFontScaling={false}
+          style={
+            Array [
+              Object {
+                "color": undefined,
+                "fontSize": 12,
+              },
+              Array [
+                Object {},
+                Array [
+                  Object {},
+                  undefined,
+                ],
+              ],
+              Object {
+                "fontFamily": "IcoMoon",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+              },
+              Object {},
+            ]
+          }
+        >
+          
+        </Text>
+      </View>
     </View>
     <View
       onLayout={[Function]}
@@ -93,8 +118,8 @@ exports[`[Accordion] render test should adjust duration of animation depends on 
               "alignItems": "center",
               "flexDirection": "row",
               "paddingBottom": 20,
-              "paddingLeft": 40,
-              "paddingRight": 40,
+              "paddingLeft": 20,
+              "paddingRight": 20,
               "paddingTop": 20,
               "width": "100%",
             },
@@ -105,9 +130,7 @@ exports[`[Accordion] render test should adjust duration of animation depends on 
         <Text
           style={
             Array [
-              Object {
-                "fontWeight": "bold",
-              },
+              Object {},
               undefined,
             ]
           }
@@ -122,8 +145,8 @@ exports[`[Accordion] render test should adjust duration of animation depends on 
               "alignItems": "center",
               "flexDirection": "row",
               "paddingBottom": 20,
-              "paddingLeft": 40,
-              "paddingRight": 40,
+              "paddingLeft": 20,
+              "paddingRight": 20,
               "paddingTop": 20,
               "width": "100%",
             },
@@ -134,9 +157,7 @@ exports[`[Accordion] render test should adjust duration of animation depends on 
         <Text
           style={
             Array [
-              Object {
-                "fontWeight": "bold",
-              },
+              Object {},
               undefined,
             ]
           }
@@ -151,8 +172,8 @@ exports[`[Accordion] render test should adjust duration of animation depends on 
               "alignItems": "center",
               "flexDirection": "row",
               "paddingBottom": 20,
-              "paddingLeft": 40,
-              "paddingRight": 40,
+              "paddingLeft": 20,
+              "paddingRight": 20,
               "paddingTop": 20,
               "width": "100%",
             },
@@ -163,9 +184,7 @@ exports[`[Accordion] render test should adjust duration of animation depends on 
         <Text
           style={
             Array [
-              Object {
-                "fontWeight": "bold",
-              },
+              Object {},
               undefined,
             ]
           }
@@ -201,7 +220,6 @@ exports[`[Accordion] render test should adjust duration of animation depends on 
       onStartShouldSetResponder={[Function]}
       style={
         Object {
-          "backgroundColor": "#141414",
           "height": 50,
           "justifyContent": "center",
           "opacity": 1,
@@ -214,7 +232,6 @@ exports[`[Accordion] render test should adjust duration of animation depends on 
         style={
           Array [
             Object {
-              "color": "#ffffff",
               "fontWeight": "bold",
               "left": 20,
               "position": "absolute",
@@ -237,7 +254,34 @@ exports[`[Accordion] render test should adjust duration of animation depends on 
             ],
           }
         }
-      />
+      >
+        <Text
+          allowFontScaling={false}
+          style={
+            Array [
+              Object {
+                "color": undefined,
+                "fontSize": 12,
+              },
+              Array [
+                Object {},
+                Array [
+                  Object {},
+                  undefined,
+                ],
+              ],
+              Object {
+                "fontFamily": "IcoMoon",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+              },
+              Object {},
+            ]
+          }
+        >
+          
+        </Text>
+      </View>
     </View>
     <View
       onLayout={[Function]}
@@ -260,8 +304,8 @@ exports[`[Accordion] render test should adjust duration of animation depends on 
               "alignItems": "center",
               "flexDirection": "row",
               "paddingBottom": 20,
-              "paddingLeft": 40,
-              "paddingRight": 40,
+              "paddingLeft": 20,
+              "paddingRight": 20,
               "paddingTop": 20,
               "width": "100%",
             },
@@ -272,9 +316,7 @@ exports[`[Accordion] render test should adjust duration of animation depends on 
         <Text
           style={
             Array [
-              Object {
-                "fontWeight": "bold",
-              },
+              Object {},
               undefined,
             ]
           }
@@ -289,8 +331,8 @@ exports[`[Accordion] render test should adjust duration of animation depends on 
               "alignItems": "center",
               "flexDirection": "row",
               "paddingBottom": 20,
-              "paddingLeft": 40,
-              "paddingRight": 40,
+              "paddingLeft": 20,
+              "paddingRight": 20,
               "paddingTop": 20,
               "width": "100%",
             },
@@ -301,9 +343,7 @@ exports[`[Accordion] render test should adjust duration of animation depends on 
         <Text
           style={
             Array [
-              Object {
-                "fontWeight": "bold",
-              },
+              Object {},
               undefined,
             ]
           }
@@ -318,8 +358,8 @@ exports[`[Accordion] render test should adjust duration of animation depends on 
               "alignItems": "center",
               "flexDirection": "row",
               "paddingBottom": 20,
-              "paddingLeft": 40,
-              "paddingRight": 40,
+              "paddingLeft": 20,
+              "paddingRight": 20,
               "paddingTop": 20,
               "width": "100%",
             },
@@ -330,9 +370,7 @@ exports[`[Accordion] render test should adjust duration of animation depends on 
         <Text
           style={
             Array [
-              Object {
-                "fontWeight": "bold",
-              },
+              Object {},
               undefined,
             ]
           }
@@ -371,7 +409,6 @@ exports[`[Accordion] render test should adjust duration of animation depends on 
       onStartShouldSetResponder={[Function]}
       style={
         Object {
-          "backgroundColor": "#141414",
           "height": 50,
           "justifyContent": "center",
           "opacity": 1,
@@ -384,7 +421,6 @@ exports[`[Accordion] render test should adjust duration of animation depends on 
         style={
           Array [
             Object {
-              "color": "#ffffff",
               "fontWeight": "bold",
               "left": 20,
               "position": "absolute",
@@ -407,7 +443,34 @@ exports[`[Accordion] render test should adjust duration of animation depends on 
             ],
           }
         }
-      />
+      >
+        <Text
+          allowFontScaling={false}
+          style={
+            Array [
+              Object {
+                "color": undefined,
+                "fontSize": 12,
+              },
+              Array [
+                Object {},
+                Array [
+                  Object {},
+                  undefined,
+                ],
+              ],
+              Object {
+                "fontFamily": "IcoMoon",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+              },
+              Object {},
+            ]
+          }
+        >
+          
+        </Text>
+      </View>
     </View>
     <View
       onLayout={[Function]}
@@ -430,8 +493,8 @@ exports[`[Accordion] render test should adjust duration of animation depends on 
               "alignItems": "center",
               "flexDirection": "row",
               "paddingBottom": 20,
-              "paddingLeft": 40,
-              "paddingRight": 40,
+              "paddingLeft": 20,
+              "paddingRight": 20,
               "paddingTop": 20,
               "width": "100%",
             },
@@ -442,9 +505,7 @@ exports[`[Accordion] render test should adjust duration of animation depends on 
         <Text
           style={
             Array [
-              Object {
-                "fontWeight": "bold",
-              },
+              Object {},
               undefined,
             ]
           }
@@ -459,8 +520,8 @@ exports[`[Accordion] render test should adjust duration of animation depends on 
               "alignItems": "center",
               "flexDirection": "row",
               "paddingBottom": 20,
-              "paddingLeft": 40,
-              "paddingRight": 40,
+              "paddingLeft": 20,
+              "paddingRight": 20,
               "paddingTop": 20,
               "width": "100%",
             },
@@ -471,9 +532,7 @@ exports[`[Accordion] render test should adjust duration of animation depends on 
         <Text
           style={
             Array [
-              Object {
-                "fontWeight": "bold",
-              },
+              Object {},
               undefined,
             ]
           }
@@ -488,8 +547,8 @@ exports[`[Accordion] render test should adjust duration of animation depends on 
               "alignItems": "center",
               "flexDirection": "row",
               "paddingBottom": 20,
-              "paddingLeft": 40,
-              "paddingRight": 40,
+              "paddingLeft": 20,
+              "paddingRight": 20,
               "paddingTop": 20,
               "width": "100%",
             },
@@ -500,9 +559,7 @@ exports[`[Accordion] render test should adjust duration of animation depends on 
         <Text
           style={
             Array [
-              Object {
-                "fontWeight": "bold",
-              },
+              Object {},
               undefined,
             ]
           }
@@ -549,7 +606,6 @@ exports[`[Accordion] render test should operate animation when isAnimated props 
       onStartShouldSetResponder={[Function]}
       style={
         Object {
-          "backgroundColor": "#141414",
           "height": 50,
           "justifyContent": "center",
           "opacity": 1,
@@ -562,7 +618,6 @@ exports[`[Accordion] render test should operate animation when isAnimated props 
         style={
           Array [
             Object {
-              "color": "#ffffff",
               "fontWeight": "bold",
               "left": 20,
               "position": "absolute",
@@ -585,7 +640,34 @@ exports[`[Accordion] render test should operate animation when isAnimated props 
             ],
           }
         }
-      />
+      >
+        <Text
+          allowFontScaling={false}
+          style={
+            Array [
+              Object {
+                "color": undefined,
+                "fontSize": 12,
+              },
+              Array [
+                Object {},
+                Array [
+                  Object {},
+                  undefined,
+                ],
+              ],
+              Object {
+                "fontFamily": "IcoMoon",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+              },
+              Object {},
+            ]
+          }
+        >
+          
+        </Text>
+      </View>
     </View>
     <View
       onLayout={[Function]}
@@ -608,8 +690,8 @@ exports[`[Accordion] render test should operate animation when isAnimated props 
               "alignItems": "center",
               "flexDirection": "row",
               "paddingBottom": 20,
-              "paddingLeft": 40,
-              "paddingRight": 40,
+              "paddingLeft": 20,
+              "paddingRight": 20,
               "paddingTop": 20,
               "width": "100%",
             },
@@ -620,9 +702,7 @@ exports[`[Accordion] render test should operate animation when isAnimated props 
         <Text
           style={
             Array [
-              Object {
-                "fontWeight": "bold",
-              },
+              Object {},
               undefined,
             ]
           }
@@ -637,8 +717,8 @@ exports[`[Accordion] render test should operate animation when isAnimated props 
               "alignItems": "center",
               "flexDirection": "row",
               "paddingBottom": 20,
-              "paddingLeft": 40,
-              "paddingRight": 40,
+              "paddingLeft": 20,
+              "paddingRight": 20,
               "paddingTop": 20,
               "width": "100%",
             },
@@ -649,9 +729,7 @@ exports[`[Accordion] render test should operate animation when isAnimated props 
         <Text
           style={
             Array [
-              Object {
-                "fontWeight": "bold",
-              },
+              Object {},
               undefined,
             ]
           }
@@ -666,8 +744,8 @@ exports[`[Accordion] render test should operate animation when isAnimated props 
               "alignItems": "center",
               "flexDirection": "row",
               "paddingBottom": 20,
-              "paddingLeft": 40,
-              "paddingRight": 40,
+              "paddingLeft": 20,
+              "paddingRight": 20,
               "paddingTop": 20,
               "width": "100%",
             },
@@ -678,9 +756,7 @@ exports[`[Accordion] render test should operate animation when isAnimated props 
         <Text
           style={
             Array [
-              Object {
-                "fontWeight": "bold",
-              },
+              Object {},
               undefined,
             ]
           }
@@ -716,7 +792,6 @@ exports[`[Accordion] render test should operate animation when isAnimated props 
       onStartShouldSetResponder={[Function]}
       style={
         Object {
-          "backgroundColor": "#141414",
           "height": 50,
           "justifyContent": "center",
           "opacity": 1,
@@ -729,7 +804,6 @@ exports[`[Accordion] render test should operate animation when isAnimated props 
         style={
           Array [
             Object {
-              "color": "#ffffff",
               "fontWeight": "bold",
               "left": 20,
               "position": "absolute",
@@ -752,7 +826,34 @@ exports[`[Accordion] render test should operate animation when isAnimated props 
             ],
           }
         }
-      />
+      >
+        <Text
+          allowFontScaling={false}
+          style={
+            Array [
+              Object {
+                "color": undefined,
+                "fontSize": 12,
+              },
+              Array [
+                Object {},
+                Array [
+                  Object {},
+                  undefined,
+                ],
+              ],
+              Object {
+                "fontFamily": "IcoMoon",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+              },
+              Object {},
+            ]
+          }
+        >
+          
+        </Text>
+      </View>
     </View>
     <View
       onLayout={[Function]}
@@ -775,8 +876,8 @@ exports[`[Accordion] render test should operate animation when isAnimated props 
               "alignItems": "center",
               "flexDirection": "row",
               "paddingBottom": 20,
-              "paddingLeft": 40,
-              "paddingRight": 40,
+              "paddingLeft": 20,
+              "paddingRight": 20,
               "paddingTop": 20,
               "width": "100%",
             },
@@ -787,9 +888,7 @@ exports[`[Accordion] render test should operate animation when isAnimated props 
         <Text
           style={
             Array [
-              Object {
-                "fontWeight": "bold",
-              },
+              Object {},
               undefined,
             ]
           }
@@ -804,8 +903,8 @@ exports[`[Accordion] render test should operate animation when isAnimated props 
               "alignItems": "center",
               "flexDirection": "row",
               "paddingBottom": 20,
-              "paddingLeft": 40,
-              "paddingRight": 40,
+              "paddingLeft": 20,
+              "paddingRight": 20,
               "paddingTop": 20,
               "width": "100%",
             },
@@ -816,9 +915,7 @@ exports[`[Accordion] render test should operate animation when isAnimated props 
         <Text
           style={
             Array [
-              Object {
-                "fontWeight": "bold",
-              },
+              Object {},
               undefined,
             ]
           }
@@ -833,8 +930,8 @@ exports[`[Accordion] render test should operate animation when isAnimated props 
               "alignItems": "center",
               "flexDirection": "row",
               "paddingBottom": 20,
-              "paddingLeft": 40,
-              "paddingRight": 40,
+              "paddingLeft": 20,
+              "paddingRight": 20,
               "paddingTop": 20,
               "width": "100%",
             },
@@ -845,9 +942,7 @@ exports[`[Accordion] render test should operate animation when isAnimated props 
         <Text
           style={
             Array [
-              Object {
-                "fontWeight": "bold",
-              },
+              Object {},
               undefined,
             ]
           }
@@ -886,7 +981,6 @@ exports[`[Accordion] render test should operate animation when isAnimated props 
       onStartShouldSetResponder={[Function]}
       style={
         Object {
-          "backgroundColor": "#141414",
           "height": 50,
           "justifyContent": "center",
           "opacity": 1,
@@ -899,7 +993,6 @@ exports[`[Accordion] render test should operate animation when isAnimated props 
         style={
           Array [
             Object {
-              "color": "#ffffff",
               "fontWeight": "bold",
               "left": 20,
               "position": "absolute",
@@ -922,7 +1015,34 @@ exports[`[Accordion] render test should operate animation when isAnimated props 
             ],
           }
         }
-      />
+      >
+        <Text
+          allowFontScaling={false}
+          style={
+            Array [
+              Object {
+                "color": undefined,
+                "fontSize": 12,
+              },
+              Array [
+                Object {},
+                Array [
+                  Object {},
+                  undefined,
+                ],
+              ],
+              Object {
+                "fontFamily": "IcoMoon",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+              },
+              Object {},
+            ]
+          }
+        >
+          
+        </Text>
+      </View>
     </View>
     <View
       onLayout={[Function]}
@@ -945,8 +1065,8 @@ exports[`[Accordion] render test should operate animation when isAnimated props 
               "alignItems": "center",
               "flexDirection": "row",
               "paddingBottom": 20,
-              "paddingLeft": 40,
-              "paddingRight": 40,
+              "paddingLeft": 20,
+              "paddingRight": 20,
               "paddingTop": 20,
               "width": "100%",
             },
@@ -957,9 +1077,7 @@ exports[`[Accordion] render test should operate animation when isAnimated props 
         <Text
           style={
             Array [
-              Object {
-                "fontWeight": "bold",
-              },
+              Object {},
               undefined,
             ]
           }
@@ -974,8 +1092,8 @@ exports[`[Accordion] render test should operate animation when isAnimated props 
               "alignItems": "center",
               "flexDirection": "row",
               "paddingBottom": 20,
-              "paddingLeft": 40,
-              "paddingRight": 40,
+              "paddingLeft": 20,
+              "paddingRight": 20,
               "paddingTop": 20,
               "width": "100%",
             },
@@ -986,9 +1104,7 @@ exports[`[Accordion] render test should operate animation when isAnimated props 
         <Text
           style={
             Array [
-              Object {
-                "fontWeight": "bold",
-              },
+              Object {},
               undefined,
             ]
           }
@@ -1003,8 +1119,8 @@ exports[`[Accordion] render test should operate animation when isAnimated props 
               "alignItems": "center",
               "flexDirection": "row",
               "paddingBottom": 20,
-              "paddingLeft": 40,
-              "paddingRight": 40,
+              "paddingLeft": 20,
+              "paddingRight": 20,
               "paddingTop": 20,
               "width": "100%",
             },
@@ -1015,9 +1131,7 @@ exports[`[Accordion] render test should operate animation when isAnimated props 
         <Text
           style={
             Array [
-              Object {
-                "fontWeight": "bold",
-              },
+              Object {},
               undefined,
             ]
           }
@@ -1064,7 +1178,6 @@ exports[`[Accordion] render test should render collapsed when collapseOnStart pr
       onStartShouldSetResponder={[Function]}
       style={
         Object {
-          "backgroundColor": "#141414",
           "height": 50,
           "justifyContent": "center",
           "opacity": 1,
@@ -1077,7 +1190,6 @@ exports[`[Accordion] render test should render collapsed when collapseOnStart pr
         style={
           Array [
             Object {
-              "color": "#ffffff",
               "fontWeight": "bold",
               "left": 20,
               "position": "absolute",
@@ -1100,7 +1212,34 @@ exports[`[Accordion] render test should render collapsed when collapseOnStart pr
             ],
           }
         }
-      />
+      >
+        <Text
+          allowFontScaling={false}
+          style={
+            Array [
+              Object {
+                "color": undefined,
+                "fontSize": 12,
+              },
+              Array [
+                Object {},
+                Array [
+                  Object {},
+                  undefined,
+                ],
+              ],
+              Object {
+                "fontFamily": "IcoMoon",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+              },
+              Object {},
+            ]
+          }
+        >
+          
+        </Text>
+      </View>
     </View>
     <View
       onLayout={[Function]}
@@ -1123,8 +1262,8 @@ exports[`[Accordion] render test should render collapsed when collapseOnStart pr
               "alignItems": "center",
               "flexDirection": "row",
               "paddingBottom": 20,
-              "paddingLeft": 40,
-              "paddingRight": 40,
+              "paddingLeft": 20,
+              "paddingRight": 20,
               "paddingTop": 20,
               "width": "100%",
             },
@@ -1135,9 +1274,7 @@ exports[`[Accordion] render test should render collapsed when collapseOnStart pr
         <Text
           style={
             Array [
-              Object {
-                "fontWeight": "bold",
-              },
+              Object {},
               undefined,
             ]
           }
@@ -1152,8 +1289,8 @@ exports[`[Accordion] render test should render collapsed when collapseOnStart pr
               "alignItems": "center",
               "flexDirection": "row",
               "paddingBottom": 20,
-              "paddingLeft": 40,
-              "paddingRight": 40,
+              "paddingLeft": 20,
+              "paddingRight": 20,
               "paddingTop": 20,
               "width": "100%",
             },
@@ -1164,9 +1301,7 @@ exports[`[Accordion] render test should render collapsed when collapseOnStart pr
         <Text
           style={
             Array [
-              Object {
-                "fontWeight": "bold",
-              },
+              Object {},
               undefined,
             ]
           }
@@ -1181,8 +1316,8 @@ exports[`[Accordion] render test should render collapsed when collapseOnStart pr
               "alignItems": "center",
               "flexDirection": "row",
               "paddingBottom": 20,
-              "paddingLeft": 40,
-              "paddingRight": 40,
+              "paddingLeft": 20,
+              "paddingRight": 20,
               "paddingTop": 20,
               "width": "100%",
             },
@@ -1193,9 +1328,7 @@ exports[`[Accordion] render test should render collapsed when collapseOnStart pr
         <Text
           style={
             Array [
-              Object {
-                "fontWeight": "bold",
-              },
+              Object {},
               undefined,
             ]
           }
@@ -1231,7 +1364,6 @@ exports[`[Accordion] render test should render collapsed when collapseOnStart pr
       onStartShouldSetResponder={[Function]}
       style={
         Object {
-          "backgroundColor": "#141414",
           "height": 50,
           "justifyContent": "center",
           "opacity": 1,
@@ -1244,7 +1376,6 @@ exports[`[Accordion] render test should render collapsed when collapseOnStart pr
         style={
           Array [
             Object {
-              "color": "#ffffff",
               "fontWeight": "bold",
               "left": 20,
               "position": "absolute",
@@ -1267,7 +1398,34 @@ exports[`[Accordion] render test should render collapsed when collapseOnStart pr
             ],
           }
         }
-      />
+      >
+        <Text
+          allowFontScaling={false}
+          style={
+            Array [
+              Object {
+                "color": undefined,
+                "fontSize": 12,
+              },
+              Array [
+                Object {},
+                Array [
+                  Object {},
+                  undefined,
+                ],
+              ],
+              Object {
+                "fontFamily": "IcoMoon",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+              },
+              Object {},
+            ]
+          }
+        >
+          
+        </Text>
+      </View>
     </View>
     <View
       onLayout={[Function]}
@@ -1290,8 +1448,8 @@ exports[`[Accordion] render test should render collapsed when collapseOnStart pr
               "alignItems": "center",
               "flexDirection": "row",
               "paddingBottom": 20,
-              "paddingLeft": 40,
-              "paddingRight": 40,
+              "paddingLeft": 20,
+              "paddingRight": 20,
               "paddingTop": 20,
               "width": "100%",
             },
@@ -1302,9 +1460,7 @@ exports[`[Accordion] render test should render collapsed when collapseOnStart pr
         <Text
           style={
             Array [
-              Object {
-                "fontWeight": "bold",
-              },
+              Object {},
               undefined,
             ]
           }
@@ -1319,8 +1475,8 @@ exports[`[Accordion] render test should render collapsed when collapseOnStart pr
               "alignItems": "center",
               "flexDirection": "row",
               "paddingBottom": 20,
-              "paddingLeft": 40,
-              "paddingRight": 40,
+              "paddingLeft": 20,
+              "paddingRight": 20,
               "paddingTop": 20,
               "width": "100%",
             },
@@ -1331,9 +1487,7 @@ exports[`[Accordion] render test should render collapsed when collapseOnStart pr
         <Text
           style={
             Array [
-              Object {
-                "fontWeight": "bold",
-              },
+              Object {},
               undefined,
             ]
           }
@@ -1348,8 +1502,8 @@ exports[`[Accordion] render test should render collapsed when collapseOnStart pr
               "alignItems": "center",
               "flexDirection": "row",
               "paddingBottom": 20,
-              "paddingLeft": 40,
-              "paddingRight": 40,
+              "paddingLeft": 20,
+              "paddingRight": 20,
               "paddingTop": 20,
               "width": "100%",
             },
@@ -1360,9 +1514,7 @@ exports[`[Accordion] render test should render collapsed when collapseOnStart pr
         <Text
           style={
             Array [
-              Object {
-                "fontWeight": "bold",
-              },
+              Object {},
               undefined,
             ]
           }
@@ -1401,7 +1553,6 @@ exports[`[Accordion] render test should render collapsed when collapseOnStart pr
       onStartShouldSetResponder={[Function]}
       style={
         Object {
-          "backgroundColor": "#141414",
           "height": 50,
           "justifyContent": "center",
           "opacity": 1,
@@ -1414,7 +1565,6 @@ exports[`[Accordion] render test should render collapsed when collapseOnStart pr
         style={
           Array [
             Object {
-              "color": "#ffffff",
               "fontWeight": "bold",
               "left": 20,
               "position": "absolute",
@@ -1437,7 +1587,34 @@ exports[`[Accordion] render test should render collapsed when collapseOnStart pr
             ],
           }
         }
-      />
+      >
+        <Text
+          allowFontScaling={false}
+          style={
+            Array [
+              Object {
+                "color": undefined,
+                "fontSize": 12,
+              },
+              Array [
+                Object {},
+                Array [
+                  Object {},
+                  undefined,
+                ],
+              ],
+              Object {
+                "fontFamily": "IcoMoon",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+              },
+              Object {},
+            ]
+          }
+        >
+          
+        </Text>
+      </View>
     </View>
     <View
       onLayout={[Function]}
@@ -1460,8 +1637,8 @@ exports[`[Accordion] render test should render collapsed when collapseOnStart pr
               "alignItems": "center",
               "flexDirection": "row",
               "paddingBottom": 20,
-              "paddingLeft": 40,
-              "paddingRight": 40,
+              "paddingLeft": 20,
+              "paddingRight": 20,
               "paddingTop": 20,
               "width": "100%",
             },
@@ -1472,9 +1649,7 @@ exports[`[Accordion] render test should render collapsed when collapseOnStart pr
         <Text
           style={
             Array [
-              Object {
-                "fontWeight": "bold",
-              },
+              Object {},
               undefined,
             ]
           }
@@ -1489,8 +1664,8 @@ exports[`[Accordion] render test should render collapsed when collapseOnStart pr
               "alignItems": "center",
               "flexDirection": "row",
               "paddingBottom": 20,
-              "paddingLeft": 40,
-              "paddingRight": 40,
+              "paddingLeft": 20,
+              "paddingRight": 20,
               "paddingTop": 20,
               "width": "100%",
             },
@@ -1501,9 +1676,7 @@ exports[`[Accordion] render test should render collapsed when collapseOnStart pr
         <Text
           style={
             Array [
-              Object {
-                "fontWeight": "bold",
-              },
+              Object {},
               undefined,
             ]
           }
@@ -1518,8 +1691,8 @@ exports[`[Accordion] render test should render collapsed when collapseOnStart pr
               "alignItems": "center",
               "flexDirection": "row",
               "paddingBottom": 20,
-              "paddingLeft": 40,
-              "paddingRight": 40,
+              "paddingLeft": 20,
+              "paddingRight": 20,
               "paddingTop": 20,
               "width": "100%",
             },
@@ -1530,9 +1703,7 @@ exports[`[Accordion] render test should render collapsed when collapseOnStart pr
         <Text
           style={
             Array [
-              Object {
-                "fontWeight": "bold",
-              },
+              Object {},
               undefined,
             ]
           }
@@ -1579,7 +1750,7 @@ exports[`[Accordion] render test should render without crasing 1`] = `
       onStartShouldSetResponder={[Function]}
       style={
         Object {
-          "backgroundColor": "#141414",
+          "backgroundColor": "black",
           "height": 50,
           "justifyContent": "center",
           "opacity": 1,
@@ -1592,7 +1763,7 @@ exports[`[Accordion] render test should render without crasing 1`] = `
         style={
           Array [
             Object {
-              "color": "#ffffff",
+              "color": "white",
               "fontWeight": "bold",
               "left": 20,
               "position": "absolute",
@@ -1615,7 +1786,9 @@ exports[`[Accordion] render test should render without crasing 1`] = `
             ],
           }
         }
-      />
+      >
+        <Text />
+      </View>
     </View>
     <View
       onLayout={[Function]}
@@ -1636,10 +1809,11 @@ exports[`[Accordion] render test should render without crasing 1`] = `
           Array [
             Object {
               "alignItems": "center",
+              "backgroundColor": "white",
               "flexDirection": "row",
               "paddingBottom": 20,
-              "paddingLeft": 40,
-              "paddingRight": 40,
+              "paddingLeft": 20,
+              "paddingRight": 20,
               "paddingTop": 20,
               "width": "100%",
             },
@@ -1651,7 +1825,7 @@ exports[`[Accordion] render test should render without crasing 1`] = `
           style={
             Array [
               Object {
-                "fontWeight": "bold",
+                "color": "black",
               },
               undefined,
             ]
@@ -1665,10 +1839,11 @@ exports[`[Accordion] render test should render without crasing 1`] = `
           Array [
             Object {
               "alignItems": "center",
+              "backgroundColor": "white",
               "flexDirection": "row",
               "paddingBottom": 20,
-              "paddingLeft": 40,
-              "paddingRight": 40,
+              "paddingLeft": 20,
+              "paddingRight": 20,
               "paddingTop": 20,
               "width": "100%",
             },
@@ -1680,7 +1855,7 @@ exports[`[Accordion] render test should render without crasing 1`] = `
           style={
             Array [
               Object {
-                "fontWeight": "bold",
+                "color": "black",
               },
               undefined,
             ]
@@ -1694,10 +1869,11 @@ exports[`[Accordion] render test should render without crasing 1`] = `
           Array [
             Object {
               "alignItems": "center",
+              "backgroundColor": "white",
               "flexDirection": "row",
               "paddingBottom": 20,
-              "paddingLeft": 40,
-              "paddingRight": 40,
+              "paddingLeft": 20,
+              "paddingRight": 20,
               "paddingTop": 20,
               "width": "100%",
             },
@@ -1709,7 +1885,7 @@ exports[`[Accordion] render test should render without crasing 1`] = `
           style={
             Array [
               Object {
-                "fontWeight": "bold",
+                "color": "black",
               },
               undefined,
             ]
@@ -1746,7 +1922,7 @@ exports[`[Accordion] render test should render without crasing 1`] = `
       onStartShouldSetResponder={[Function]}
       style={
         Object {
-          "backgroundColor": "#141414",
+          "backgroundColor": "black",
           "height": 50,
           "justifyContent": "center",
           "opacity": 1,
@@ -1759,7 +1935,7 @@ exports[`[Accordion] render test should render without crasing 1`] = `
         style={
           Array [
             Object {
-              "color": "#ffffff",
+              "color": "white",
               "fontWeight": "bold",
               "left": 20,
               "position": "absolute",
@@ -1782,7 +1958,9 @@ exports[`[Accordion] render test should render without crasing 1`] = `
             ],
           }
         }
-      />
+      >
+        <Text />
+      </View>
     </View>
     <View
       onLayout={[Function]}
@@ -1803,10 +1981,11 @@ exports[`[Accordion] render test should render without crasing 1`] = `
           Array [
             Object {
               "alignItems": "center",
+              "backgroundColor": "white",
               "flexDirection": "row",
               "paddingBottom": 20,
-              "paddingLeft": 40,
-              "paddingRight": 40,
+              "paddingLeft": 20,
+              "paddingRight": 20,
               "paddingTop": 20,
               "width": "100%",
             },
@@ -1818,7 +1997,7 @@ exports[`[Accordion] render test should render without crasing 1`] = `
           style={
             Array [
               Object {
-                "fontWeight": "bold",
+                "color": "black",
               },
               undefined,
             ]
@@ -1832,10 +2011,11 @@ exports[`[Accordion] render test should render without crasing 1`] = `
           Array [
             Object {
               "alignItems": "center",
+              "backgroundColor": "white",
               "flexDirection": "row",
               "paddingBottom": 20,
-              "paddingLeft": 40,
-              "paddingRight": 40,
+              "paddingLeft": 20,
+              "paddingRight": 20,
               "paddingTop": 20,
               "width": "100%",
             },
@@ -1847,7 +2027,7 @@ exports[`[Accordion] render test should render without crasing 1`] = `
           style={
             Array [
               Object {
-                "fontWeight": "bold",
+                "color": "black",
               },
               undefined,
             ]
@@ -1861,10 +2041,11 @@ exports[`[Accordion] render test should render without crasing 1`] = `
           Array [
             Object {
               "alignItems": "center",
+              "backgroundColor": "white",
               "flexDirection": "row",
               "paddingBottom": 20,
-              "paddingLeft": 40,
-              "paddingRight": 40,
+              "paddingLeft": 20,
+              "paddingRight": 20,
               "paddingTop": 20,
               "width": "100%",
             },
@@ -1876,7 +2057,7 @@ exports[`[Accordion] render test should render without crasing 1`] = `
           style={
             Array [
               Object {
-                "fontWeight": "bold",
+                "color": "black",
               },
               undefined,
             ]
@@ -1916,7 +2097,7 @@ exports[`[Accordion] render test should render without crasing 1`] = `
       onStartShouldSetResponder={[Function]}
       style={
         Object {
-          "backgroundColor": "#141414",
+          "backgroundColor": "black",
           "height": 50,
           "justifyContent": "center",
           "opacity": 1,
@@ -1929,7 +2110,7 @@ exports[`[Accordion] render test should render without crasing 1`] = `
         style={
           Array [
             Object {
-              "color": "#ffffff",
+              "color": "white",
               "fontWeight": "bold",
               "left": 20,
               "position": "absolute",
@@ -1952,7 +2133,9 @@ exports[`[Accordion] render test should render without crasing 1`] = `
             ],
           }
         }
-      />
+      >
+        <Text />
+      </View>
     </View>
     <View
       onLayout={[Function]}
@@ -1973,10 +2156,11 @@ exports[`[Accordion] render test should render without crasing 1`] = `
           Array [
             Object {
               "alignItems": "center",
+              "backgroundColor": "white",
               "flexDirection": "row",
               "paddingBottom": 20,
-              "paddingLeft": 40,
-              "paddingRight": 40,
+              "paddingLeft": 20,
+              "paddingRight": 20,
               "paddingTop": 20,
               "width": "100%",
             },
@@ -1988,7 +2172,7 @@ exports[`[Accordion] render test should render without crasing 1`] = `
           style={
             Array [
               Object {
-                "fontWeight": "bold",
+                "color": "black",
               },
               undefined,
             ]
@@ -2002,10 +2186,11 @@ exports[`[Accordion] render test should render without crasing 1`] = `
           Array [
             Object {
               "alignItems": "center",
+              "backgroundColor": "white",
               "flexDirection": "row",
               "paddingBottom": 20,
-              "paddingLeft": 40,
-              "paddingRight": 40,
+              "paddingLeft": 20,
+              "paddingRight": 20,
               "paddingTop": 20,
               "width": "100%",
             },
@@ -2017,7 +2202,7 @@ exports[`[Accordion] render test should render without crasing 1`] = `
           style={
             Array [
               Object {
-                "fontWeight": "bold",
+                "color": "black",
               },
               undefined,
             ]
@@ -2031,10 +2216,11 @@ exports[`[Accordion] render test should render without crasing 1`] = `
           Array [
             Object {
               "alignItems": "center",
+              "backgroundColor": "white",
               "flexDirection": "row",
               "paddingBottom": 20,
-              "paddingLeft": 40,
-              "paddingRight": 40,
+              "paddingLeft": 20,
+              "paddingRight": 20,
               "paddingTop": 20,
               "width": "100%",
             },
@@ -2046,7 +2232,7 @@ exports[`[Accordion] render test should render without crasing 1`] = `
           style={
             Array [
               Object {
-                "fontWeight": "bold",
+                "color": "black",
               },
               undefined,
             ]

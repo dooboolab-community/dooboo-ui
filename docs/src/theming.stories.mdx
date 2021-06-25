@@ -1,4 +1,8 @@
-# Theme
+import {Meta} from '@storybook/addon-docs/blocks';
+
+<Meta title="Overview/Theming" />
+
+# Theming
 
 > The `theme` module easily provides ability to make `light` and `dark` theme.
 
@@ -10,7 +14,56 @@
    import {ThemeProvider} from 'dooboo-ui';
    ```
 
-2. Create `light` and `dark` theme
+2. Wrap your component with `ThemeProvider` with given customTheme.
+   ```tsx
+   <ThemeProvider>
+     <App />
+   </ThemeProvider>
+   ```
+
+## Usage
+
+1. Import `useTheme`
+
+   ```ts
+   import {useTheme} from 'dooboo-ui';
+   ```
+
+2. Retrive theme.
+
+   ```ts
+   const {theme} = useTheme();
+   ```
+
+3. Use it in style.
+
+   ```ts
+   {
+     backgroundColor: theme.background,
+     borderBottomColor: theme.primaryLight,
+   }
+   ```
+
+4. Also availabe with [emotion](https://emotion.sh/docs/@emotion/native).
+   ```ts
+   const StyledContainer = styled.SafeAreaView`
+     flex: 1;
+     background-color: ${({theme}) => theme.background};
+     flex-direction: column;
+     align-items: center;
+   `;
+   ```
+
+#### With Expo
+
+If you are using expo, add below `userInterfaceStyle` to `automatic`.
+
+```ts
+userInterfaceStyle: 'automatic',
+```
+
+## Customizing theme
+1. Define colors for `light` and `dark` theme.
 
    ```ts
    export const colors = {
@@ -68,55 +121,14 @@
    };
    ```
 
-3. Wrap your component with `ThemeProvider` with given customTheme.
+2. Wrap your component with `ThemeProvider` with given customTheme.
    ```tsx
    <ThemeProvider customTheme={{light, dark}}>
      <App />
-   </ThemeProvider>g
+   </ThemeProvider>
    ```
 
-## Usage
-
-1. Import `useTheme`
-
-   ```ts
-   import {useTheme} from 'dooboo-ui';
-   ```
-
-2. Retrive theme.
-
-   ```ts
-   const {theme} = useTheme();
-   ```
-
-3. Use it in style.
-
-   ```ts
-   {
-     backgroundColor: theme.background,
-     borderBottomColor: theme.primaryLight,
-   }
-   ```
-
-4. Also availabe with [emotion](https://emotion.sh/docs/@emotion/native).
-   ```ts
-   const StyledContainer = styled.SafeAreaView`
-     flex: 1;
-     background-color: ${({theme}) => theme.background};
-     flex-direction: column;
-     align-items: center;
-   `;
-   ```
-
-#### With Expo
-
-If you are using expo, add below `userInterfaceStyle` to `automatic`.
-
-```ts
-userInterfaceStyle: 'automatic',
-```
-
-## Typescript with [emotion](https://emotion.sh/docs/typescript#define-a-theme)
+### Typescript with [emotion](https://emotion.sh/docs/typescript#define-a-theme)
 
 > Inside `src` dir, add `styled.d.ts`.
 
@@ -137,7 +149,3 @@ declare module '@emotion/react' {
   }
 }
 ```
-
-## Default colors
-
-> Although you can extend your colors, above variables are defined as defaulted.

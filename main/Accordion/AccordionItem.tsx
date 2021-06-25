@@ -2,31 +2,37 @@ import {Animated, Easing, LayoutChangeEvent, ViewStyle} from 'react-native';
 import React, {FC, useEffect, useRef, useState} from 'react';
 
 import {Datum} from './index';
+import {Icon} from '../Icon';
 import styled from '@emotion/native';
 
 const TitleContainer = styled.TouchableOpacity`
   justify-content: center;
-  background-color: #141414;
+  background-color: ${({theme}) => theme.text};
   height: 50px;
   z-index: 10;
 `;
 
+const StyledIcon = styled(Icon)`
+  color: ${({theme}) => theme.textContrast};
+`;
+
 const ItemContainer = styled.View`
+  background-color: ${({theme}) => theme.background};
   flex-direction: row;
   align-items: center;
   width: 100%;
-  padding: 20px 40px;
+  padding: 20px 20px;
 `;
 
 const StyledTitle = styled.Text`
   font-weight: bold;
-  color: #ffffff;
+  color: ${({theme}) => theme.textContrast};
   position: absolute;
   left: 20px;
 `;
 
 const StyledItem = styled.Text`
-  font-weight: bold;
+  color: ${({theme}) => theme.text};
 `;
 
 type ToggleIndicatorType = React.ReactElement | undefined;
@@ -115,7 +121,7 @@ const AccordionItem: FC<Props> = (props) => {
             },
           ],
         }}>
-        {toggleElement || null}
+        {toggleElement || <StyledIcon name="chevron-down-light" />}
       </Animated.View>
     );
   };

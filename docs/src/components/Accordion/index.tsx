@@ -50,7 +50,7 @@ export const AccordionStory = (): ReactElement => {
 };
 
 const Default = (): ReactElement => (
-  <ThemeProvider initialThemeType="dark">
+  <ThemeProvider initialThemeType="light">
     <AccordionStory />
   </ThemeProvider>
 );
