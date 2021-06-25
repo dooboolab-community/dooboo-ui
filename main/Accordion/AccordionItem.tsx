@@ -17,10 +17,11 @@ const StyledIcon = styled(Icon)`
 `;
 
 const ItemContainer = styled.View`
+  background-color: ${({theme}) => theme.background};
   flex-direction: row;
   align-items: center;
   width: 100%;
-  padding: 20px 40px;
+  padding: 20px 20px;
 `;
 
 const StyledTitle = styled.Text`
@@ -31,7 +32,7 @@ const StyledTitle = styled.Text`
 `;
 
 const StyledItem = styled.Text`
-  font-weight: bold;
+  color: ${({theme}) => theme.text};
 `;
 
 type ToggleIndicatorType = React.ReactElement | undefined;
