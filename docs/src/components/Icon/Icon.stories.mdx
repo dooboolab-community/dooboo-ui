@@ -1,0 +1,34 @@
+import {Meta, Story, Canvas} from '@storybook/addon-docs/blocks';
+import {Default} from './index';
+
+<Meta title="Components/Icon" />
+
+# Icon
+
+> [Icon] component contains the vector icons that we've designed.
+
+## Usage
+
+```tsx
+import {Icon} from 'dooboo-ui';
+
+<Icon {...props} />;
+```
+
+## Props
+
+|                        | Types                                | Description                             |
+| ---------------------- | -------------------------------------| --------------------------------------- |
+| name?                  | `string`                             | Name of the `dooboo-ui` icons. They are typed when you use `typescript` |
+| size?                  | `number`                             |                                         |
+| color?                 | `string`                             |                                         |
+
+## Demo
+
+### All Icons
+
+#### light
+<Default themeType="light"/>
+
+#### dark
+<Default themeType="dark"/>

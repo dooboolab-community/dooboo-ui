@@ -4,7 +4,7 @@ import collectingFontIconSelection from './selection.json';
 import {createIconSetFromIcoMoon} from 'react-native-vector-icons';
 import styled from '@emotion/native';
 
-type IconName =
+export type IconName =
   | 'moment-solid'
   | 'moment-light'
   | 'cross-light'
