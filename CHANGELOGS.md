@@ -1,5 +1,11 @@
 ## Changelogs
 
+## 0.1.13
+
+Set default `theme` to [Accordion].
+
+Expose `IconName` form [Icon] to provide types.
+
 ## 0.1.12
 
 Installing `dooboo-ui` font is hard to install for `react-native cli`. Make this process easier by installing it with `yarn react-native link`.
