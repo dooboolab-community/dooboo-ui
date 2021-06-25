@@ -1,9 +1,9 @@
-import {ArrowDown, IC_MAGNIFIER} from '../../Icon';
+import {Accordion, Icon, ThemeProvider} from '../../../main';
 import React, {Fragment, ReactElement} from 'react';
+import {SafeAreaView, View} from 'react-native';
 
-import {Accordion} from '../../../main';
-import {SafeAreaView} from 'react-native';
 import styled from '@emotion/native';
+import {useFonts} from 'expo-font';
 
 const Container = styled.View`
   flex: 1;
@@ -11,9 +11,14 @@ const Container = styled.View`
   justify-content: center;
 `;
 
-const CustomStyledTitle = styled.Text`
-  position: absolute;
-  left: 60px;
+const StyledIcon = styled(Icon)`
+  color: ${({theme}) => theme.textContrast};
+`;
+
+const Title = styled.Text`
+  margin-left: 20px;
+  color: white;
+  font-size: 18px;
 `;
 
 const CustomStyledItem = styled.Text`
@@ -21,13 +26,6 @@ const CustomStyledItem = styled.Text`
   font-weight: bold;
   position: absolute;
   left: 40px;
-`;
-
-const LeftElement = styled.Image`
-  width: 22px;
-  height: 22px;
-  position: absolute;
-  left: 20px;
 `;
 
 const data = [
@@ -46,56 +44,76 @@ const data = [
 ];
 
 export const AccordionDefault = (): ReactElement => {
+  const [fontsLoaded] = useFonts({
+    IcoMoon: require('../../../main/Icon/doobooui.ttf'),
+  });
+
+  if (!fontsLoaded) return <View />;
+
   return (
-    <SafeAreaView style={{top: 100}}>
-      <Container>
-        <Accordion
-          data={data}
-          shouldAnimate={true}
-          collapseOnStart={true}
-          animDuration={400}
-          activeOpacity={1}
-          toggleElement={<ArrowDown />}
-        />
-      </Container>
-    </SafeAreaView>
+    <ThemeProvider initialThemeType="light">
+      <SafeAreaView style={{top: 100}}>
+        <Container>
+          <Accordion
+            data={data}
+            shouldAnimate={true}
+            collapseOnStart={true}
+            animDuration={400}
+            activeOpacity={1}
+          />
+        </Container>
+      </SafeAreaView>
+    </ThemeProvider>
   );
 };
 
 export const AccordionCustomStyle = (): React.ReactElement => {
+  const [fontsLoaded] = useFonts({
+    IcoMoon: require('../../../main/Icon/doobooui.ttf'),
+  });
+
+  if (!fontsLoaded) return <View />;
+
   return (
-    <SafeAreaView style={{top: 100}}>
-      <Container>
-        <Accordion
-          data={data}
-          shouldAnimate={true}
-          collapseOnStart={true}
-          animDuration={300}
-          activeOpacity={1}
-          renderTitle={(item) => {
-            return (
-              <Fragment>
-                <LeftElement source={IC_MAGNIFIER} />
-                <CustomStyledTitle>{item}</CustomStyledTitle>
-              </Fragment>
-            );
-          }}
-          renderBody={(item) => {
-            return (
-              <Fragment>
-                <CustomStyledItem>{item}</CustomStyledItem>
-              </Fragment>
-            );
-          }}
-          toggleElement={<ArrowDown />}
-          titleContainerStyle={{
-            backgroundColor: 'gray',
-          }}
-          bodyContainerStyle={{
-            backgroundColor: 'lightgray',
-          }}
-        />
-      </Container>
-    </SafeAreaView>
+    <ThemeProvider initialThemeType="light">
+      <SafeAreaView style={{top: 100}}>
+        <Container>
+          <Accordion
+            data={data}
+            shouldAnimate={true}
+            collapseOnStart={true}
+            animDuration={300}
+            activeOpacity={1}
+            renderTitle={(item) => {
+              return (
+                <View
+                  style={{
+                    paddingLeft: 20,
+                    alignItems: 'center',
+                    flexDirection: 'row',
+                  }}>
+                  <StyledIcon name="search-light" />
+                  <Title>{item}</Title>
+                </View>
+              );
+            }}
+            renderBody={(item) => {
+              return (
+                <Fragment>
+                  <CustomStyledItem>{item}</CustomStyledItem>
+                </Fragment>
+              );
+            }}
+            toggleElement={<StyledIcon name="chevron-down-light" />}
+            titleContainerStyle={{
+              backgroundColor: 'gray',
+            }}
+            bodyContainerStyle={{
+              backgroundColor: 'lightgray',
+            }}
+          />
+        </Container>
+      </SafeAreaView>
+    </ThemeProvider>
   );
 };
