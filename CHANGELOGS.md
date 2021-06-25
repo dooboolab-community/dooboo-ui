@@ -1,10 +1,16 @@
 ## Changelogs
 
-## 0.1.13
+## 0.1.14
 
 Set default `theme` to [Accordion].
 
 Expose `IconName` form [Icon] to provide types.
+
+## 0.1.13
+
+Fix [ButtonGroup] style props to styles.
+
+This design aligns with other components.
 
 ## 0.1.12
 
