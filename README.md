@@ -11,6 +11,8 @@
 
 Check out [dooboo-ui.dooboolab.com](https://dooboo-ui.dooboolab.com)
 
+> Not all ui components are written in documents. Currently working :construction_worker:. Please see the [Demo](#Demo) to see all components.
+
 ## Demo
 
 Hosted in [github pages](https://dooboolab.github.io/dooboo-ui)
