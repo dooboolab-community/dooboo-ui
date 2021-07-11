@@ -197,8 +197,9 @@ const SnackbarContainer = (
   );
 };
 
-const SnackbarComponent =
-  React.forwardRef<SnackbarRef, SnackbarProps>(SnackbarContainer);
+const SnackbarComponent = React.forwardRef<SnackbarRef, SnackbarProps>(
+  SnackbarContainer,
+);
 
 SnackbarComponent.defaultProps = {
   theme: light,
