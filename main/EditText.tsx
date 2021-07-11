@@ -1,6 +1,6 @@
 import {DoobooTheme, light} from './theme';
 import {Platform, Text, TextInput, View} from 'react-native';
-import React, {FC, useRef, useState} from 'react';
+import React, {FC, LegacyRef, useRef, useState} from 'react';
 import type {
   StyleProp,
   TextInputProps,
@@ -22,6 +22,7 @@ type Styles = {
 
 export type EditTextProps = {
   testID?: TextInputProps['testID'];
+  inputRef?: LegacyRef<TextInput>;
   theme?: DoobooTheme;
   textInputProps?: TextInputProps;
   style?: StyleProp<ViewStyle>;
@@ -50,6 +51,7 @@ export type EditTextProps = {
 const Component: FC<EditTextProps & {theme: DoobooTheme}> = ({
   theme,
   testID,
+  inputRef,
   textInputProps,
   style,
   styles,
@@ -303,6 +305,7 @@ const Component: FC<EditTextProps & {theme: DoobooTheme}> = ({
         ) : null}
         <TextInput
           testID={testID}
+          ref={inputRef}
           autoCapitalize={autoCapitalize}
           secureTextEntry={secureTextEntry}
           style={[

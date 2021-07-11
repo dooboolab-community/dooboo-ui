@@ -1,5 +1,9 @@
 ## Changelogs
 
+## 0.1.15
+
+Expose `inputRef` in [EditText] to expose ability to customize behavior such as setting next focus.
+
 ## 0.1.14
 
 Set default `theme` to [Accordion].
