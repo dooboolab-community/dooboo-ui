@@ -1981,7 +1981,7 @@
   resolved "https://registry.yarnpkg.com/@expo/config-types/-/config-types-41.0.0.tgz#ffe1444c6c26e0e3a8f7149b4afe486e357536d1"
   integrity sha512-Ax0pHuY5OQaSrzplOkT9DdpdmNzaVDnq9VySb4Ujq7UJ4U4jriLy8u93W98zunOXpcu0iiKubPsqD6lCiq0pig==
 
-"@expo/config@5.0.3", "@expo/config@^5.0.3":
+"@expo/config@5.0.3":
   version "5.0.3"
   resolved "https://registry.yarnpkg.com/@expo/config/-/config-5.0.3.tgz#4b37cb2690b2dc6e86931369800fc7dddc1053e7"
   integrity sha512-FMv2Jk/v3QZXaNN/mGKqj3wLvsbAa1RjtSTNhJ7QxMiSLl6vlmfMutmKyBiuzk2KDCbELR65JkDf15m4sAZCGg==
@@ -8844,6 +8844,11 @@ dom-serializer@^1.0.1:
     domhandler "^4.2.0"
     entities "^2.0.0"
 
+dom-walk@^0.1.0:
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/dom-walk/-/dom-walk-0.1.2.tgz#0c548bef048f4d1f2a97249002236060daa3fd84"
+  integrity sha512-6QvTW9mrGeIegrFXdtQi9pk7O/nSK6lSdXW2eqUspN5LWD7UTji2Fqw5V2YLjBpHEoU9Xl/eUWNpDeZvoyOv2w==
+
 domain-browser@^1.1.1:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/domain-browser/-/domain-browser-1.2.0.tgz#3d31f50191a6749dd1375a7f522e823d42e54eda"
@@ -12422,13 +12427,12 @@ jest-environment-node@^27.0.6:
     jest-util "^27.0.6"
 
 jest-expo@^42.0.0:
-  version "42.0.1"
-  resolved "https://registry.yarnpkg.com/jest-expo/-/jest-expo-42.0.1.tgz#6605d0df67a00c379b230bfe0e6e03ef4efac713"
-  integrity sha512-woEHBmwxV8SFtQ0oolUfEw8VUMY/Q2Q9RzJTJxHH92U4l25DfdwAT9NtFZNxYHl7jjzlkECUXcIvCEYMXtYCAQ==
+  version "42.0.0"
+  resolved "https://registry.yarnpkg.com/jest-expo/-/jest-expo-42.0.0.tgz#013d458ba8198c29a7a45c12a11974dc096e45aa"
+  integrity sha512-zSaCrWe0UIf/wkmy1t8BcCIrFuaY8aFO8Aqk2uWNADCh86LuUYWdLs3Uj4m+LIg8nlqU1G11CV0IqNRvlvIZ3Q==
   dependencies:
-    "@expo/config" "^5.0.3"
+    "@expo/config" "^4.0.0"
     babel-jest "^25.2.0"
-    find-up "^5.0.0"
     jest "^25.2.0"
     jest-watch-select-projects "^2.0.0"
     jest-watch-typeahead "^0.5.0"
