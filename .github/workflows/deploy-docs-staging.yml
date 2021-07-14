@@ -21,6 +21,7 @@ jobs:
         run: |
           pushd ./docs
           yarn
+          yarn preinstall
           yarn build
           popd
 
