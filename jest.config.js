@@ -12,7 +12,7 @@ module.exports = {
   modulePaths: ['<rootDir>'],
   moduleDirectories: ['node_modules'],
   testMatch: ['**/__tests__/**/*.ts?(x)', '**/?(*.)+(spec|test).ts?(x)'],
-  moduleFileExtensions: ['js', 'ts', 'tsx', 'svg', 'png'],
+  moduleFileExtensions: ['js', 'ts', 'tsx', 'svg', 'png', 'json'],
   globals: {
     'ts-jest': {
       babelConfig: true,
