@@ -5,11 +5,11 @@
     "noImplicitAny": false,
     "removeComments": false,
     "sourceMap": false,
-    "module": "esnext",
     "moduleResolution": "node",
+    "module": "esnext",
     "target": "esnext",
     "incremental": true,
-    "outDir": "./lib",
+    "outDir": "lib",
     "skipLibCheck": true,
     "allowSyntheticDefaultImports": true,
     "declaration": true

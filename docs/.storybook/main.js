@@ -9,8 +9,9 @@ module.exports = {
       options: {
         configureJSX: true,
         babelOptions: {},
-        sourceLoaderOptions: null
-      }
-    }
+        sourceLoaderOptions: null,
+      },
+    },
+    '@storybook/addon-controls',
   ]
 }
