@@ -1,5 +1,9 @@
 ## Changelogs
 
+## 0.1.16
+
+More `icons` added
+
 ## 0.1.15
 
 Expose `inputRef` in [EditText] to expose ability to customize behavior such as setting next focus.
