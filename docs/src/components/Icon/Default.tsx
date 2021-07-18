@@ -51,6 +51,8 @@ const IconStory: FC = () => {
 
   return (
     <StoryContainer>
+      <IconWithLabel name="cog-light" />
+      <IconWithLabel name="picture-light" />
       <IconWithLabel name="moment-solid" />
       <IconWithLabel name="moment-light" />
       <IconWithLabel name="cross-light" />
@@ -69,12 +71,19 @@ const IconStory: FC = () => {
       <IconWithLabel name="account-solid" />
       <IconWithLabel name="collection-solid" />
       <IconWithLabel name="search-solid" />
+      <IconWithLabel name="bell-solid" />
+      <IconWithLabel name="home-solid" />
+      <IconWithLabel name="camera-solid" />
       <IconWithLabel name="share-light" />
       <IconWithLabel name="add-light" />
       <IconWithLabel name="like-light" />
       <IconWithLabel name="discover-light" />
+      <IconWithLabel name="account-light" />
       <IconWithLabel name="collection-light" />
       <IconWithLabel name="search-light" />
+      <IconWithLabel name="bell-light" />
+      <IconWithLabel name="home-light" />
+      <IconWithLabel name="camera-light" />
     </StoryContainer>
   );
 };

@@ -48,6 +48,8 @@ const IconStory: FC = () => {
           alignSelf: 'stretch',
         }}>
         <Container style={{paddingVertical: 60}}>
+          <StyledIcon size={16} name="cog-light" />
+          <StyledIcon size={16} name="picture-light" />
           <StyledIcon size={16} name="moment-solid" />
           <StyledIcon size={16} name="moment-light" />
           <StyledIcon size={16} name="cross-light" />
@@ -66,12 +68,19 @@ const IconStory: FC = () => {
           <StyledIcon size={16} name="account-solid" />
           <StyledIcon size={16} name="collection-solid" />
           <StyledIcon size={16} name="search-solid" />
+          <StyledIcon size={16} name="bell-solid" />
+          <StyledIcon size={16} name="home-solid" />
+          <StyledIcon size={16} name="camera-solid" />
           <StyledIcon size={16} name="share-light" />
           <StyledIcon size={16} name="add-light" />
           <StyledIcon size={16} name="like-light" />
           <StyledIcon size={16} name="discover-light" />
+          <StyledIcon size={16} name="account-light" />
           <StyledIcon size={16} name="collection-light" />
           <StyledIcon size={16} name="search-light" />
+          <StyledIcon size={16} name="bell-light" />
+          <StyledIcon size={16} name="home-light" />
+          <StyledIcon size={16} name="camera-light" />
         </Container>
       </ScrollContainer>
     </StoryContainer>
