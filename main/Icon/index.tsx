@@ -5,6 +5,8 @@ import {createIconSetFromIcoMoon} from 'react-native-vector-icons';
 import styled from '@emotion/native';
 
 export type IconName =
+  | 'cog-light'
+  | 'picture-light'
   | 'moment-solid'
   | 'moment-light'
   | 'cross-light'
@@ -23,13 +25,19 @@ export type IconName =
   | 'account-solid'
   | 'collection-solid'
   | 'search-solid'
+  | 'bell-solid'
+  | 'home-solid'
+  | 'camera-solid'
   | 'share-light'
   | 'add-light'
   | 'like-light'
   | 'discover-light'
   | 'account-light'
   | 'collection-light'
-  | 'search-light';
+  | 'search-light'
+  | 'bell-light'
+  | 'home-light'
+  | 'camera-light';
 
 type Props = {
   name: IconName;
