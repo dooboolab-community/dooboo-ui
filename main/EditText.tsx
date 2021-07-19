@@ -80,7 +80,6 @@ const Component: FC<EditTextProps & {theme: DoobooTheme}> = ({
   const hovered = useHover(ref);
 
   const borderColor = theme.text;
-  const hoveredColor = theme.primary;
   const textColor = theme.text;
 
   const compositeStyles: Styles =
@@ -100,7 +99,7 @@ const Component: FC<EditTextProps & {theme: DoobooTheme}> = ({
           hovered: [
             {
               borderBottomWidth: 2,
-              borderBottomColor: hoveredColor,
+              borderBottomColor: hoverColor,
             },
             styles?.hovered,
           ],
@@ -115,7 +114,7 @@ const Component: FC<EditTextProps & {theme: DoobooTheme}> = ({
           labelTextHovered: [
             {
               paddingHorizontal: 4,
-              color: hoveredColor,
+              color: hoverColor,
             },
             styles?.labelTextHovered,
           ],
@@ -153,7 +152,7 @@ const Component: FC<EditTextProps & {theme: DoobooTheme}> = ({
           ],
           hovered: [
             {
-              borderBottomColor: hoveredColor,
+              borderBottomColor: hoverColor,
               borderBottomWidth: 2,
             },
             styles?.hovered,
@@ -168,7 +167,7 @@ const Component: FC<EditTextProps & {theme: DoobooTheme}> = ({
           ],
           labelTextHovered: [
             {
-              color: hoveredColor,
+              color: hoverColor,
             },
             styles?.labelTextHovered,
           ],
@@ -206,7 +205,7 @@ const Component: FC<EditTextProps & {theme: DoobooTheme}> = ({
           hovered: [
             {
               borderWidth: 1,
-              borderColor: hoveredColor,
+              borderColor: hoverColor,
             },
             styles?.hovered,
           ],
@@ -222,7 +221,7 @@ const Component: FC<EditTextProps & {theme: DoobooTheme}> = ({
           labelTextHovered: [
             {
               paddingHorizontal: 4,
-              color: hoveredColor,
+              color: hoverColor,
             },
             styles?.labelTextHovered,
           ],
@@ -263,10 +262,10 @@ const Component: FC<EditTextProps & {theme: DoobooTheme}> = ({
           {
             borderColor: !editable
               ? disableColor
-              : hovered && !focused
-              ? hoverColor
               : errorText
               ? errorColor
+              : hovered && !focused
+              ? hoverColor
               : focused
               ? focusColor
               : borderColor,
@@ -274,10 +273,10 @@ const Component: FC<EditTextProps & {theme: DoobooTheme}> = ({
           type !== 'boxed' && {
             borderBottomColor: !editable
               ? disableColor
-              : hovered && !focused
-              ? hoverColor
               : errorText
               ? errorColor
+              : hovered && !focused
+              ? hoverColor
               : focused
               ? focusColor
               : borderColor,
@@ -292,6 +291,8 @@ const Component: FC<EditTextProps & {theme: DoobooTheme}> = ({
                 ? {color: disableColor}
                 : errorText
                 ? {color: errorColor}
+                : hovered && !focused
+                ? {color: hoverColor}
                 : focused
                 ? {color: focusColor}
                 : {},
