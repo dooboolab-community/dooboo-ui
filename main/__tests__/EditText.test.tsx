@@ -94,29 +94,6 @@ describe('[EditText]', () => {
             jest.spyOn(RNWebHooks, 'useHover').mockImplementation(() => false);
           });
 
-          // wrong test written to prove wrong code
-          // it('should contain `disableColor` - default', async () => {
-          //   testingLib = render(
-          //     component({
-          //       labelText: 'label text',
-          //       styles: {
-          //         labelText: {
-          //           color: 'green',
-          //         },
-          //       },
-          //       disableColor: '#666',
-          //     }),
-          //   );
-
-          //   const label = testingLib.getByText('label text');
-
-          //   const unhoveredTextStyle = label.props.style[1];
-
-          //   console.log(label.props.style);
-
-          //   expect(unhoveredTextStyle).toEqual({color: '#666'});
-          // });
-
           it('should contain `focusColor` when focused', async () => {
             testingLib = render(
               component({
