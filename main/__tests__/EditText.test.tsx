@@ -84,7 +84,7 @@ describe('[EditText]', () => {
           );
 
           const label = testingLib.getByText('label text');
-          const labelTextStyle = label.props.style[1];
+          const labelTextStyle = label.props.style[0][1];
 
           expect(labelTextStyle).toEqual({color: 'green'});
         });
@@ -92,26 +92,6 @@ describe('[EditText]', () => {
         describe('unhovered', () => {
           beforeAll(() => {
             jest.spyOn(RNWebHooks, 'useHover').mockImplementation(() => false);
-          });
-
-          it('should contain `disableColor` - default', async () => {
-            testingLib = render(
-              component({
-                labelText: 'label text',
-                styles: {
-                  labelText: {
-                    color: 'green',
-                  },
-                },
-                disableColor: '#666',
-              }),
-            );
-
-            const label = testingLib.getByText('label text');
-
-            const unhoveredTextStyle = label.props.style[2];
-
-            expect(unhoveredTextStyle).toEqual({color: '#666'});
           });
 
           it('should contain `focusColor` when focused', async () => {
