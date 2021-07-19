@@ -1,8 +1,12 @@
 ## Changelogs
 
+## 0.1.17
+
+Enhance `color` arrangement in [EditText] [#37](https://github.com/dooboolab/dooboo-ui/pull/37).
+
 ## 0.1.16
 
-More `icons` added
+More `icons` added.
 
 ## 0.1.15
 
