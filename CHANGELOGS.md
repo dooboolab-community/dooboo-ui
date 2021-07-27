@@ -1,5 +1,9 @@
 ## Changelogs
 
+## 0.1.18
+
+Add `comment-light` icon to `dooboo-ui` Icon.
+
 ## 0.1.17
 
 Enhance `color` arrangement in [EditText] [#37](https://github.com/dooboolab/dooboo-ui/pull/37).
