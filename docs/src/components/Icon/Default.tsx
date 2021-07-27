@@ -64,6 +64,7 @@ const IconStory: FC = () => {
       <IconWithLabel name="chevron-down-light" />
       <IconWithLabel name="chevron-up-light" />
       <IconWithLabel name="chevron-left-light" />
+      <IconWithLabel name="comment-light" />
       <IconWithLabel name="share-solid" />
       <IconWithLabel name="add-solid" />
       <IconWithLabel name="like-solid" />

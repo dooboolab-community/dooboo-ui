@@ -18,6 +18,7 @@ export type IconName =
   | 'chevron-down-light'
   | 'chevron-up-light'
   | 'chevron-left-light'
+  | 'comment-light'
   | 'share-solid'
   | 'add-solid'
   | 'like-solid'

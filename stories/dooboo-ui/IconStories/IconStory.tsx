@@ -61,6 +61,7 @@ const IconStory: FC = () => {
           <StyledIcon size={16} name="chevron-down-light" />
           <StyledIcon size={16} name="chevron-up-light" />
           <StyledIcon size={16} name="chevron-left-light" />
+          <StyledIcon size={16} name="comment-light" />
           <StyledIcon size={16} name="share-solid" />
           <StyledIcon size={16} name="add-solid" />
           <StyledIcon size={16} name="like-solid" />
