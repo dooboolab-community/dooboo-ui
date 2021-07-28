@@ -1,5 +1,9 @@
 ## Changelogs
 
+## 0.1.19
+
+Enhance `typings` in [ButtonGroup] to receive different props for data.
+
 ## 0.1.18
 
 Add `comment-light` icon to `dooboo-ui` Icon.
