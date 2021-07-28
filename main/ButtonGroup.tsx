@@ -1,5 +1,5 @@
 import {DoobooTheme, light, useTheme, withTheme} from './theme';
-import React, {FC, useState} from 'react';
+import React, {useState} from 'react';
 import {
   StyleProp,
   StyleSheet,
@@ -18,20 +18,20 @@ interface Styles {
   selectedText: StyleProp<TextStyle>;
 }
 
-interface Props {
+interface Props<T> {
   testID?: string;
   theme: DoobooTheme;
   borderRadius?: number;
   borderWidth?: number;
   style?: StyleProp<ViewStyle>;
   styles?: Styles;
-  data: string[];
+  data: T[];
   color?: string;
   onPress?: (i: number) => void;
   initialIndex?: number;
 }
 
-const StyledButtonGroup: FC<Props> = (props) => {
+function StyledButtonGroup<T>(props: Props<T>): React.ReactElement {
   const {theme} = useTheme();
 
   const {
@@ -111,7 +111,7 @@ const StyledButtonGroup: FC<Props> = (props) => {
       })}
     </View>
   );
-};
+}
 
 StyledButtonGroup.defaultProps = {
   theme: light,
@@ -153,4 +153,4 @@ StyledButtonGroup.defaultProps = {
   data: ['option 1', 'option 2'],
 };
 
-export const ButtonGroup = withTheme(StyledButtonGroup);
+export const ButtonGroup = withTheme<any>(StyledButtonGroup);
