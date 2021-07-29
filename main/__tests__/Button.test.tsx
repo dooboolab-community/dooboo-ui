@@ -255,6 +255,42 @@ describe('[Button]', () => {
     });
   });
 
+  describe('[Button] - dark mode', () => {
+    it('should render [type=default] button', () => {
+      testingLib = render(
+        <ThemeProvider initialThemeType="dark">
+          <Button text="my-button" />
+        </ThemeProvider>,
+      );
+
+      const button = testingLib.getByTestId('button-container');
+      const buttonStyle = button.props.style[0];
+
+      const text = testingLib.getByText('my-button');
+      const textStyle = text.props.style[0];
+
+      expect(buttonStyle.backgroundColor).toEqual(dark.text);
+      expect(textStyle.color).toEqual('black');
+    });
+
+    it('should render [type=danger] button', () => {
+      testingLib = render(
+        <ThemeProvider initialThemeType="dark">
+          <Button text="my-button" type="danger" />
+        </ThemeProvider>,
+      );
+
+      const button = testingLib.getByTestId('button-container');
+      const buttonStyle = button.props.style[0];
+
+      const text = testingLib.getByText('my-button');
+      const textStyle = text.props.style[0];
+
+      expect(buttonStyle.backgroundColor).toEqual(dark.danger);
+      expect(textStyle.color).toEqual('white');
+    });
+  });
+
   describe('[Button] outlined', () => {
     it('should render outlined button', () => {
       testingLib = render(Component({outlined: true}));
