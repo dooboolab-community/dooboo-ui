@@ -246,7 +246,7 @@ describe('[Button]', () => {
     });
 
     it('should render [type=light] button', () => {
-      testingLib = render(Component({type: 'warning'}));
+      testingLib = render(Component({type: 'light'}));
 
       const button = testingLib.getByTestId('button-container');
       const buttonStyle = button.props.style[0];
