@@ -9,7 +9,8 @@ export type ButtonType =
   | 'success'
   | 'danger'
   | 'warning'
-  | 'info';
+  | 'info'
+  | 'light';
 
 export type SnackbarType =
   | 'default'
@@ -40,6 +41,8 @@ export const ButtonWrapper = styled.View<{
       ? theme.danger
       : type === 'warning'
       ? theme.warning
+      : type === 'light'
+      ? theme.light
       : theme.primary};
   border-color: ${({theme, type, disabled}) =>
     disabled
@@ -54,6 +57,8 @@ export const ButtonWrapper = styled.View<{
       ? theme.danger
       : type === 'warning'
       ? theme.warning
+      : type === 'light'
+      ? theme.light
       : theme.primary};
 `;
 
@@ -79,7 +84,7 @@ export const ButtonText = styled.Text<{
           : theme.text
         : theme.text
       : theme.background === dark.background
-      ? type === 'default' || type === 'danger'
+      ? type === 'default' || type === 'danger' || type === 'light'
         ? 'white'
         : 'black'
       : disabled

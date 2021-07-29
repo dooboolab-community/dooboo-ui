@@ -31,6 +31,7 @@ export const Basic: FC<{themeType: ThemeType}> = ({themeType}) => {
           <Button type="danger" text="Danger" style={{padding: 8}} />
           <Button type="warning" text="Warning" style={{padding: 8}} />
           <Button type="info" text="Info" style={{padding: 8}} />
+          <Button type="light" text="Light" style={{padding: 8}} />
           <Button disabled={true} text="Disabled" style={{padding: 8}} />
         </View>
       </StoryContainer>
