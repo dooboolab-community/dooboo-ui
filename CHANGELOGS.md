@@ -1,5 +1,9 @@
 ## Changelogs
 
+## 0.1.20
+
+Include [Button] type `light` [#41](https://github.com/dooboolab/dooboo-ui/pull/41).
+
 ## 0.1.19
 
 Enhance `typings` in [ButtonGroup] to receive different props for data.
