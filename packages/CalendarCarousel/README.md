@@ -85,7 +85,7 @@ import { CalendarCarousel } from 'dooboo-ui/lib/CalendarCarousel';
 
 ```
 ### CalendarCarousel
-The Calendar Carousel is a functional component that returns three functions 'renderCalendar()' wrapped inside of a ScrollView.
+The Calendar Carousel is a function component that returns three functions 'renderCalendar()' wrapped inside of a ScrollView.
 
 
 ```tsx
