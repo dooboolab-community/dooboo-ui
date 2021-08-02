@@ -24,7 +24,7 @@ const data = [
 ];
 
 describe('[Accordion] render test', () => {
-  it('should render without crasing', () => {
+  it('should render without crashing', () => {
     props = createTestProps({data: data});
 
     component = createComponent(<Accordion {...props} />);
