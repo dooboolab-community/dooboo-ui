@@ -1716,7 +1716,7 @@ exports[`[Accordion] render test should render collapsed when collapseOnStart pr
 </View>
 `;
 
-exports[`[Accordion] render test should render without crasing 1`] = `
+exports[`[Accordion] render test should render without crashing 1`] = `
 <View
   style={
     Array [
