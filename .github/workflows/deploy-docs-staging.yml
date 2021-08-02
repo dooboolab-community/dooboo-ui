@@ -34,7 +34,7 @@ jobs:
         with:
           entryPoint: './docs'
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
-          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT }}'
+          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_DOOBOOLAB_2F044 }}'
           projectId: dooboolab-2f044
           target: dooboo-ui
           expires: 14d
