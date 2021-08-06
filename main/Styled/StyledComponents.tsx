@@ -26,40 +26,18 @@ export const ButtonWrapper = styled.View<{
   disabled?: boolean;
 }>`
   border-width: ${({outlined}) => (outlined ? '1px' : undefined)};
-  background-color: ${({theme, type, outlined, disabled}) =>
-    disabled
-      ? undefined
-      : outlined
-      ? theme.background
-      : type === 'success'
-      ? theme.success
-      : type === 'info'
-      ? theme.info
-      : type === 'secondary'
-      ? theme.secondary
-      : type === 'danger'
-      ? theme.danger
-      : type === 'warning'
-      ? theme.warning
-      : type === 'light'
-      ? theme.light
-      : theme.primary};
-  border-color: ${({theme, type, disabled}) =>
-    disabled
-      ? theme.disabled
-      : type === 'success'
-      ? theme.success
-      : type === 'info'
-      ? theme.info
-      : type === 'secondary'
-      ? theme.secondary
-      : type === 'danger'
-      ? theme.danger
-      : type === 'warning'
-      ? theme.warning
-      : type === 'light'
-      ? theme.light
-      : theme.primary};
+  background-color: ${({theme, type, outlined, disabled}) => {
+    if (disabled) return undefined;
+
+    if (outlined) return theme.background;
+
+    return theme[type ?? 'primary'];
+  }};
+  border-color: ${({theme, type, disabled}) => {
+    if (disabled) return theme.disabled;
+
+    return theme[type!];
+  }};
 `;
 
 export const ButtonText = styled.Text<{
@@ -68,30 +46,28 @@ export const ButtonText = styled.Text<{
   disabled?: boolean;
   theme?: DoobooTheme;
 }>`
-  color: ${({theme, outlined, type, disabled}) =>
-    outlined
-      ? theme.background === dark.background
-        ? type === 'primary'
-          ? theme.primary
-          : type === 'info'
-          ? theme.info
-          : type === 'secondary'
-          ? theme.secondary
-          : type === 'success'
-          ? theme.success
-          : type === 'danger'
-          ? theme.danger
-          : theme.text
-        : theme.text
-      : theme.background === dark.background
-      ? type === 'default' || type === 'danger' || type === 'light'
-        ? 'white'
-        : 'black'
-      : disabled
-      ? theme.disabled
-      : type === 'primary' || type === 'danger'
-      ? theme.textContrast
-      : 'black'};
+  color: ${({theme, outlined, type, disabled}) => {
+    const isDarkBackground = theme.background === dark.background;
+
+    if (outlined) {
+      if (
+        !isDarkBackground ||
+        ['light', 'default', 'warning', undefined].includes(type)
+      )
+        return theme.text;
+
+      return theme[type!];
+    }
+
+    if (isDarkBackground)
+      return ['default', 'danger', 'light'].includes(type!) ? 'white' : 'black';
+
+    if (disabled) return theme.disabled;
+
+    if (['primary', 'danger'].includes(type!)) return theme.textContrast;
+
+    return 'black';
+  }};
 `;
 
 export const CheckboxWrapperOutlined = styled(Animated.View)<{
@@ -100,20 +76,13 @@ export const CheckboxWrapperOutlined = styled(Animated.View)<{
   checked?: boolean;
 }>`
   border-width: 1px;
-  border-color: ${({theme, type, disabled}) =>
-    disabled
-      ? theme.disabled
-      : type === 'success'
-      ? theme.success
-      : type === 'info'
-      ? theme.info
-      : type === 'secondary'
-      ? theme.secondary
-      : type === 'danger'
-      ? theme.danger
-      : type === 'warning'
-      ? theme.warning
-      : theme.primary};
+  border-color: ${({theme, type, disabled}) => {
+    if (disabled) return theme.disabled;
+
+    if (type === 'light') return theme.primary;
+
+    return theme[type ?? 'primary'];
+  }};
 `;
 
 export const CheckboxWrapper = styled(Animated.View)<{
@@ -121,22 +90,15 @@ export const CheckboxWrapper = styled(Animated.View)<{
   disabled?: boolean;
   checked?: boolean;
 }>`
-  background-color: ${({theme, checked, type, disabled}) =>
-    disabled
-      ? undefined
-      : !checked
-      ? theme.background
-      : type === 'info'
-      ? theme.info
-      : type === 'secondary'
-      ? theme.secondary
-      : type === 'success'
-      ? theme.success
-      : type === 'danger'
-      ? theme.danger
-      : type === 'warning'
-      ? theme.warning
-      : theme.primary};
+  background-color: ${({theme, checked, type, disabled}) => {
+    if (disabled) return undefined;
+
+    if (!checked) return theme.background;
+
+    if (type === 'light') return theme.primary;
+
+    return theme[type ?? 'primary'];
+  }};
 `;
 
 export const RadioButtonWrapper = styled.View<{
@@ -145,22 +107,15 @@ export const RadioButtonWrapper = styled.View<{
   disabled?: boolean;
 }>`
   border-width: 1px;
-  border-color: ${({theme, type, selected, disabled}) =>
-    disabled
-      ? theme.disabled
-      : !selected
-      ? theme.text
-      : type === 'info'
-      ? theme.info
-      : type === 'secondary'
-      ? theme.secondary
-      : type === 'success'
-      ? theme.success
-      : type === 'danger'
-      ? theme.danger
-      : type === 'warning'
-      ? theme.warning
-      : theme.primary};
+  border-color: ${({theme, type, selected, disabled}) => {
+    if (disabled) return theme.disabled;
+
+    if (!selected) return theme.text;
+
+    if (type === 'light') return theme.primary;
+
+    return theme[type ?? 'primary'];
+  }};
 `;
 
 export const RadioWrapper = styled(Animated.View)<{
@@ -168,22 +123,13 @@ export const RadioWrapper = styled(Animated.View)<{
   disabled?: boolean;
   selected?: boolean;
 }>`
-  background-color: ${({theme, selected, type, disabled}) =>
-    disabled
-      ? theme.disabled
-      : !selected
-      ? theme.background
-      : type === 'info'
-      ? theme.info
-      : type === 'secondary'
-      ? theme.secondary
-      : type === 'success'
-      ? theme.success
-      : type === 'danger'
-      ? theme.danger
-      : type === 'warning'
-      ? theme.warning
-      : theme.primary};
+  background-color: ${({theme, selected, type, disabled}) => {
+    if (disabled) return theme.disabled;
+
+    if (!selected) return theme.background;
+
+    return theme[type ?? 'primary'];
+  }};
 `;
 
 export const ColoredText = styled.Text<{
@@ -191,40 +137,26 @@ export const ColoredText = styled.Text<{
   disabled?: boolean;
   selected?: boolean;
 }>`
-  color: ${({theme, selected, type, disabled}) =>
-    disabled
-      ? undefined
-      : !selected
-      ? theme.text
-      : type === 'info'
-      ? theme.info
-      : type === 'secondary'
-      ? theme.secondary
-      : type === 'success'
-      ? theme.success
-      : type === 'danger'
-      ? theme.danger
-      : type === 'warning'
-      ? theme.warning
-      : theme.primary};
+  color: ${({theme, selected, type, disabled}) => {
+    if (disabled) return undefined;
+
+    if (!selected) return theme.text;
+
+    if (type === 'light') return theme.primary;
+
+    return theme[type ?? 'primary'];
+  }};
 `;
 
 export const SnackbarWrapper = styled(Animated.View)<{
   type?: SnackbarType;
   checked?: boolean;
 }>`
-  background-color: ${({theme, type}) =>
-    type === 'success'
-      ? theme.success
-      : type === 'info'
-      ? theme.info
-      : type === 'secondary'
-      ? theme.secondary
-      : type === 'danger'
-      ? theme.danger
-      : type === 'warning'
-      ? theme.warning
-      : theme.paper};
+  background-color: ${({theme, type}) => {
+    if (type === 'default') return theme.paper;
+
+    return theme[type ?? 'paper'];
+  }};
   flex-direction: row;
   text-align: left;
   align-items: center;
