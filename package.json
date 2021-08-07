@@ -21,7 +21,7 @@
     "prebuild": "cp ./main/react-native.config.js ./lib/react-native.config.js && rm -rf ./lib/tsconfig* && cp README.md ./lib/README.md ",
     "build": "yarn prebuild && tsc --project tsconfigBuild.json && yarn cp:icon",
     "cp:icon": "mkdir -p `dirname ./lib/Icon/selection.json` && cp ./main/Icon/selection.json ./lib/Icon/selection.json && cp ./main/Icon/doobooui.ttf ./lib/Icon/doobooui.ttf",
-    "postbuild": "cp -R main/__assets__ lib/__assets__",
+    "postbuild": "cp -R main/__assets__ lib",
     "build:storybook": "expo build:web && sh web-build-postinstall.sh",
     "deploy:storybook": "gh-pages -d web-build",
     "build:packages": "lerna exec -- yarn build",

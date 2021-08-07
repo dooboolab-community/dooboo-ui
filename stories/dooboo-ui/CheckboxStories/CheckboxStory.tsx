@@ -1,4 +1,4 @@
-import {Checkbox, Hr, useTheme} from '../../../main';
+import {Checkbox, CheckboxType, Hr, useTheme} from '../../../main';
 import {FC, useState} from 'react';
 
 import {View} from 'react-native';
@@ -23,6 +23,78 @@ const CheckboxStory: FC = () => {
 
   if (!fontsLoaded) return <View />;
 
+  const types: (CheckboxType | undefined)[] = [
+    undefined,
+    'secondary',
+    'success',
+    'warning',
+    'info',
+    'danger',
+  ];
+
+  const CheckboxForms: FC = () => (
+    <>
+      <StyledText style={{fontSize: 18, marginTop: 24, marginBottom: 12}}>
+        Checkbox
+      </StyledText>
+
+      <View style={{flexDirection: 'row'}}>
+        {types.map((type) => (
+          <>
+            <Checkbox
+              checked={checked}
+              onPress={() => setChecked(!checked)}
+              type={type}
+            />
+            <View style={{width: 8}} />
+          </>
+        ))}
+
+        <Checkbox
+          checked={checked}
+          onPress={() => setChecked(!checked)}
+          disabled
+        />
+      </View>
+    </>
+  );
+
+  const CheckboxWithRightElement: FC = () => (
+    <>
+      <StyledText style={{fontSize: 18, marginTop: 24, marginBottom: 12}}>
+        Checkbox with right element
+      </StyledText>
+
+      <View style={{flexDirection: 'column'}}>
+        {Array(3).fill(
+          <Checkbox
+            checked={checked}
+            onPress={() => setChecked(!checked)}
+            rightElement={<StyledText>Hello this is a checkbox</StyledText>}
+          />,
+        )}
+      </View>
+    </>
+  );
+
+  const CheckboxWithLeftElement: FC = () => (
+    <>
+      <StyledText style={{fontSize: 18, marginTop: 24, marginBottom: 12}}>
+        Checkbox with left element
+      </StyledText>
+
+      <View style={{flexDirection: 'column'}}>
+        {Array(3).fill(
+          <Checkbox
+            checked={checked}
+            onPress={() => setChecked(!checked)}
+            leftElement={<StyledText>Hello this is a checkbox</StyledText>}
+          />,
+        )}
+      </View>
+    </>
+  );
+
   return (
     <View
       style={{
@@ -37,90 +109,13 @@ const CheckboxStory: FC = () => {
           justifyContent: 'center',
           alignItems: 'center',
         }}>
-        <StyledText style={{fontSize: 18, marginTop: 24, marginBottom: 12}}>
-          Checkbox
-        </StyledText>
-        <View style={{flexDirection: 'row'}}>
-          <Checkbox checked={checked} onPress={() => setChecked(!checked)} />
-          <View style={{width: 8}} />
-          <Checkbox
-            checked={checked}
-            onPress={() => setChecked(!checked)}
-            type="secondary"
-          />
-          <View style={{width: 8}} />
-          <Checkbox
-            checked={checked}
-            onPress={() => setChecked(!checked)}
-            type="success"
-          />
-          <View style={{width: 8}} />
-          <Checkbox
-            checked={checked}
-            onPress={() => setChecked(!checked)}
-            type="warning"
-          />
-          <View style={{width: 8}} />
-          <Checkbox
-            checked={checked}
-            onPress={() => setChecked(!checked)}
-            type="info"
-          />
-          <View style={{width: 8}} />
-          <Checkbox
-            checked={checked}
-            onPress={() => setChecked(!checked)}
-            type="danger"
-          />
-          <Checkbox
-            checked={checked}
-            onPress={() => setChecked(!checked)}
-            disabled
-          />
-        </View>
+        <CheckboxForms />
         <Hr style={{marginTop: 40}} />
-        <StyledText style={{fontSize: 18, marginTop: 24, marginBottom: 12}}>
-          Checkbox with right element
-        </StyledText>
-        <View style={{flexDirection: 'column'}}>
-          <Checkbox
-            checked={checked}
-            onPress={() => setChecked(!checked)}
-            rightElement={<StyledText>Hello this is a checkbox</StyledText>}
-          />
-          <Checkbox
-            checked={checked}
-            onPress={() => setChecked(!checked)}
-            rightElement={<StyledText>Hello this is a checkbox</StyledText>}
-          />
-          <Checkbox
-            checked={checked}
-            onPress={() => setChecked(!checked)}
-            rightElement={<StyledText>Hello this is a checkbox</StyledText>}
-          />
-        </View>
+
+        <CheckboxWithRightElement />
         <Hr style={{marginTop: 40}} />
-        <StyledText style={{fontSize: 18, marginTop: 24, marginBottom: 12}}>
-          Checkbox withs left element
-        </StyledText>
-        <View style={{flexDirection: 'column'}}>
-          <Checkbox
-            checked={checked}
-            onPress={() => setChecked(!checked)}
-            leftElement={<StyledText>Hello this is a checkbox</StyledText>}
-          />
-          <Checkbox
-            checked={checked}
-            onPress={() => setChecked(!checked)}
-            leftElement={<StyledText>Hello this is a checkbox</StyledText>}
-          />
-          <Checkbox
-            checked={checked}
-            onPress={() => setChecked(!checked)}
-            leftElement={<StyledText>Hello this is a checkbox</StyledText>}
-          />
-        </View>
-        <View style={{height: 60}} />
+
+        <CheckboxWithLeftElement />
       </ScrollContainer>
     </View>
   );
