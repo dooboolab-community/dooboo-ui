@@ -101,7 +101,7 @@ const CheckboxStory: FC = () => {
         </View>
         <Hr style={{marginTop: 40}} />
         <StyledText style={{fontSize: 18, marginTop: 24, marginBottom: 12}}>
-          Checkbox withs left element
+          Checkbox with left element
         </StyledText>
         <View style={{flexDirection: 'column'}}>
           <Checkbox
