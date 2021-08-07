@@ -14,7 +14,7 @@ type Styles = {
   checkbox?: StyleProp<ViewStyle>;
 };
 
-type CheckboxType =
+export type CheckboxType =
   | 'primary'
   | 'secondary'
   | 'success'
