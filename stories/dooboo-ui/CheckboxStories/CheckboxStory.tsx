@@ -41,20 +41,28 @@ const CheckboxStory: FC = () => {
       <View style={{flexDirection: 'row'}}>
         {types.map((type) => (
           <>
-            <Checkbox
-              checked={checked}
-              onPress={() => setChecked(!checked)}
-              type={type}
-            />
-            <View style={{width: 8}} />
+            <View
+              style={{
+                flexDirection: 'column',
+                alignItems: 'center',
+              }}>
+              <StyledText>{type ?? 'default'}</StyledText>
+
+              <Checkbox
+                checked={checked}
+                onPress={() => setChecked(!checked)}
+                type={type}
+              />
+              <Checkbox
+                checked={checked}
+                onPress={() => setChecked(!checked)}
+                type={type}
+                disabled
+              />
+            </View>
+            <View style={{width: 20}} />
           </>
         ))}
-
-        <Checkbox
-          checked={checked}
-          onPress={() => setChecked(!checked)}
-          disabled
-        />
       </View>
     </>
   );
