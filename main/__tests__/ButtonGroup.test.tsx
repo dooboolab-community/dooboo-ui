@@ -10,11 +10,11 @@ describe('[ButtonGroup]', () => {
 
   const handlePress = jest.fn();
 
-  const renderButtonGroup = (): RenderAPI =>
+  const renderButtonGroup = (index?: number): RenderAPI =>
     render(
       <ThemeProvider initialThemeType={themeType}>
         <ButtonGroup
-          initialIndex={0}
+          selected={index}
           data={['option 1', 'option 2']}
           onPress={handlePress}
         />
@@ -41,29 +41,19 @@ describe('[ButtonGroup]', () => {
     expect(handlePress).toBeCalled();
   });
 
-  it('selects option on press', () => {
-    const {getByText} = renderButtonGroup();
+  context('when option 1 is selected', () => {
+    const selectedIndex = 0;
 
-    expect(getByText('option 1')).toHaveStyle({
-      color: theme[themeType].textContrast,
-    });
+    it('makes option 1 text notable', () => {
+      const {getByText} = renderButtonGroup(selectedIndex);
 
-    fireEvent.press(getByText('option 2'));
+      expect(getByText('option 1')).toHaveStyle({
+        color: theme[themeType].textContrast,
+      });
 
-    expect(getByText('option 1')).not.toHaveStyle({
-      color: theme[themeType].textContrast,
-    });
-  });
-
-  it('distinguishes between selected and unselected options.', () => {
-    const {getByText} = renderButtonGroup();
-
-    expect(getByText('option 1')).toHaveStyle({
-      color: theme[themeType].textContrast,
-    });
-
-    expect(getByText('option 2')).toHaveStyle({
-      color: theme[themeType].text,
+      expect(getByText('option 2')).toHaveStyle({
+        color: theme[themeType].text,
+      });
     });
   });
 });
