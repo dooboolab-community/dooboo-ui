@@ -1,5 +1,5 @@
 import {Checkbox, CheckboxType, Hr, useTheme} from '../../../main';
-import {FC, useState} from 'react';
+import {FC, ReactNode, useState} from 'react';
 
 import {View} from 'react-native';
 import styled from '@emotion/native';
@@ -13,6 +13,30 @@ const StyledText = styled.Text`
   color: ${({theme}) => theme.text};
 `;
 
+const types: (CheckboxType | undefined)[] = [
+  undefined,
+  'secondary',
+  'success',
+  'warning',
+  'info',
+  'danger',
+];
+
+const LabelWapper: FC<{
+  label: string;
+  children: ReactNode;
+}> = ({label, children}) => (
+  <View
+    style={{
+      flexDirection: 'column',
+      alignItems: 'center',
+    }}>
+    <StyledText>{label}</StyledText>
+
+    {children}
+  </View>
+);
+
 const CheckboxStory: FC = () => {
   const [checked, setChecked] = useState<boolean>(false);
   const {theme} = useTheme();
@@ -23,15 +47,6 @@ const CheckboxStory: FC = () => {
 
   if (!fontsLoaded) return <View />;
 
-  const types: (CheckboxType | undefined)[] = [
-    undefined,
-    'secondary',
-    'success',
-    'warning',
-    'info',
-    'danger',
-  ];
-
   const CheckboxForms: FC = () => (
     <>
       <StyledText style={{fontSize: 18, marginTop: 24, marginBottom: 12}}>
@@ -41,20 +56,25 @@ const CheckboxStory: FC = () => {
       <View style={{flexDirection: 'row'}}>
         {types.map((type) => (
           <>
-            <Checkbox
-              checked={checked}
-              onPress={() => setChecked(!checked)}
-              type={type}
-            />
-            <View style={{width: 8}} />
+            <LabelWapper label={type ?? 'default'}>
+              <Checkbox
+                checked={checked}
+                onPress={() => setChecked(!checked)}
+                type={type}
+              />
+            </LabelWapper>
+
+            <View style={{width: 22}} />
           </>
         ))}
 
-        <Checkbox
-          checked={checked}
-          onPress={() => setChecked(!checked)}
-          disabled
-        />
+        <LabelWapper label="disabled">
+          <Checkbox
+            checked={checked}
+            onPress={() => setChecked(!checked)}
+            disabled
+          />
+        </LabelWapper>
       </View>
     </>
   );
