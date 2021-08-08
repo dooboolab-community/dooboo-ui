@@ -2,6 +2,10 @@ import {cleanup} from '@testing-library/react-native';
 
 import '@testing-library/jest-native/extend-expect';
 
+import 'given2/setup';
+
+import 'jest-plugin-context/setup';
+
 jest.mock('react-native/Libraries/Animated/src/NativeAnimatedHelper');
 
 // Cleanup after each case.
