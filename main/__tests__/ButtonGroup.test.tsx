@@ -1,62 +1,69 @@
-import 'react-native';
-
-import * as React from 'react';
-
-import {RenderAPI, fireEvent, render} from '@testing-library/react-native';
+import {fireEvent, render, RenderAPI} from '@testing-library/react-native';
 import {createComponent, createTestProps} from '../../test/testUtils';
 
 import {ButtonGroup} from '../../main';
+import {theme} from '../theme/colors';
+import {ThemeProvider} from '../theme';
 
-let props: any;
-let component: React.ReactElement;
-let testingLib: RenderAPI;
+describe('[ButtonGroup]', () => {
+  const themeType = 'light';
 
-describe('[ButtonGroup] render', () => {
-  const pressFn = jest.fn();
+  const handlePress = jest.fn();
+
+  const renderButtonGroup = (): RenderAPI =>
+    render(
+      <ThemeProvider initialThemeType={themeType}>
+        <ButtonGroup
+          initialIndex={0}
+          data={['option 1', 'option 2']}
+          onPress={handlePress}
+        />
+      </ThemeProvider>,
+    );
+
+  beforeEach(() => {
+    handlePress.mockClear();
+  });
 
   it('renders without crashing', () => {
-    props = createTestProps();
+    const props = createTestProps();
 
-    component = createComponent(<ButtonGroup {...props} />);
-    testingLib = render(component);
+    const testingLib = render(createComponent(<ButtonGroup {...props} />));
 
-    const json = testingLib.toJSON();
-
-    expect(json).toMatchSnapshot();
+    expect(testingLib.toJSON()).toMatchSnapshot();
   });
 
-  it('should simulate onPress', () => {
-    props = createTestProps({
-      data: [1, 2, 3],
+  it('listens to press event', () => {
+    const {getByText} = renderButtonGroup();
+
+    fireEvent.press(getByText('option 1'));
+
+    expect(handlePress).toBeCalled();
+  });
+
+  it('selects option on press', () => {
+    const {getByText} = renderButtonGroup();
+
+    expect(getByText('option 1')).toHaveStyle({
+      color: theme[themeType].textContrast,
     });
 
-    component = createComponent(<ButtonGroup {...props} />);
+    fireEvent.press(getByText('option 2'));
 
-    testingLib = render(component);
-
-    const btn1 = testingLib.getByTestId('CHILD_1');
-
-    fireEvent.press(btn1);
-
-    expect(pressFn).toHaveBeenCalledTimes(0);
+    expect(getByText('option 1')).not.toHaveStyle({
+      color: theme[themeType].textContrast,
+    });
   });
 
-  describe('interactions', () => {
-    it('should simulate onPress', () => {
-      props = createTestProps({
-        data: [1, 2, 3],
-        onPress: pressFn,
-      });
+  it('distinguishes between selected and unselected options.', () => {
+    const {getByText} = renderButtonGroup();
 
-      component = createComponent(<ButtonGroup {...props} />);
+    expect(getByText('option 1')).toHaveStyle({
+      color: theme[themeType].textContrast,
+    });
 
-      testingLib = render(component);
-
-      const btn1 = testingLib.getByTestId('CHILD_1');
-
-      fireEvent.press(btn1);
-
-      expect(pressFn).toHaveBeenCalled();
+    expect(getByText('option 2')).toHaveStyle({
+      color: theme[themeType].text,
     });
   });
 });
