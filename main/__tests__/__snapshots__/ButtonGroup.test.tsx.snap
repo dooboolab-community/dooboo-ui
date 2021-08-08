@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`[ButtonGroup] render renders without crashing 1`] = `
+exports[`[ButtonGroup] renders without crashing 1`] = `
 <View
   style={
     Object {
