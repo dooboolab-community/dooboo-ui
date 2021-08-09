@@ -1,4 +1,4 @@
-import {useTheme, withTheme} from './theme';
+import {DoobooTheme, light, useTheme, withTheme} from './theme';
 import {
   StyleProp,
   StyleSheet,
@@ -18,27 +18,30 @@ interface Styles {
 }
 
 interface Props<T> {
-  data: T[];
-  selectedIndex?: number;
-  onPress?: (i: number) => void;
+  testID?: string;
+  theme: DoobooTheme;
   borderRadius?: number;
   borderWidth?: number;
-  color?: string;
   style?: StyleProp<ViewStyle>;
   styles?: Styles;
+  data: T[];
+  color?: string;
+  onPress?: (i: number) => void;
+  selectedIndex?: number;
 }
 
 function StyledButtonGroup<T>(props: Props<T>): React.ReactElement {
   const {theme} = useTheme();
 
   const {
-    data,
-    selectedIndex = 0,
-    onPress,
     borderRadius = 0,
+    selectedIndex = 0,
     borderWidth = 1,
     color = theme.text,
+    testID,
     style,
+    data,
+    onPress,
     styles,
   } = props;
 
@@ -95,7 +98,7 @@ function StyledButtonGroup<T>(props: Props<T>): React.ReactElement {
 
   return (
     <View
-      testID="container"
+      testID={testID}
       style={StyleSheet.flatten([
         {borderColor: color},
         styles?.container,
@@ -111,7 +114,7 @@ function StyledButtonGroup<T>(props: Props<T>): React.ReactElement {
               if (onPress) onPress(i);
             }}>
             <View
-              testID={`element_${i}`}
+              testID={`CHILD_${i}`}
               style={StyleSheet.flatten([
                 selectedIndex === i
                   ? {...styles?.selectedButton, backgroundColor: color}
@@ -136,6 +139,7 @@ function StyledButtonGroup<T>(props: Props<T>): React.ReactElement {
 }
 
 StyledButtonGroup.defaultProps = {
+  theme: light,
   styles: {
     container: {
       backgroundColor: 'transparent',
@@ -171,6 +175,7 @@ StyledButtonGroup.defaultProps = {
       alignSelf: 'center',
     },
   },
+  data: ['option 1', 'option 2'],
 };
 
 export const ButtonGroup = withTheme<any>(StyledButtonGroup);

@@ -31,7 +31,7 @@ describe('[ButtonGroup]', () => {
   });
 
   it('renders without crashing', () => {
-    const props = createTestProps({data: ['Option 1']});
+    const props = createTestProps();
 
     const testingLib = render(createComponent(<ButtonGroup {...props} />));
 
@@ -98,7 +98,7 @@ describe('[ButtonGroup]', () => {
       it('has width and radius in every direction', () => {
         const {getByTestId} = renderButtonGroup();
 
-        expect(getByTestId('element_0')).toHaveStyle(fullWidthAndRadius);
+        expect(getByTestId('CHILD_0')).toHaveStyle(fullWidthAndRadius);
       });
     });
 
@@ -108,25 +108,25 @@ describe('[ButtonGroup]', () => {
       it('depends on position of element', () => {
         const {getByTestId} = renderButtonGroup();
 
-        expect(getByTestId('element_0')).toHaveStyle({
+        expect(getByTestId('CHILD_0')).toHaveStyle({
           ...fullWidthAndRadius,
           borderTopRightRadius: undefined,
           borderBottomRightRadius: undefined,
         });
 
-        expect(getByTestId('element_0')).not.toHaveStyle({
+        expect(getByTestId('CHILD_0')).not.toHaveStyle({
           borderTopRightRadius: 10,
           borderBottomRightRadius: 10,
         });
 
-        expect(getByTestId('element_1')).toHaveStyle({
+        expect(getByTestId('CHILD_1')).toHaveStyle({
           ...fullWidthAndRadius,
           borderLeftWidth: undefined,
           borderTopLeftRadius: undefined,
           borderBottomLeftRadius: undefined,
         });
 
-        expect(getByTestId('element_1')).not.toHaveStyle({
+        expect(getByTestId('CHILD_1')).not.toHaveStyle({
           borderLeftWidth: 1,
           borderTopLeftRadius: 10,
           borderBottomLeftRadius: 10,
@@ -140,37 +140,37 @@ describe('[ButtonGroup]', () => {
       it('depends on position of element', () => {
         const {getByTestId} = renderButtonGroup();
 
-        expect(getByTestId('element_0')).toHaveStyle({
+        expect(getByTestId('CHILD_0')).toHaveStyle({
           ...fullWidthAndRadius,
           borderTopRightRadius: undefined,
           borderBottomRightRadius: undefined,
         });
 
-        expect(getByTestId('element_0')).not.toHaveStyle({
+        expect(getByTestId('CHILD_0')).not.toHaveStyle({
           borderTopRightRadius: 10,
           borderBottomRightRadius: 10,
         });
 
-        expect(getByTestId('element_1')).toHaveStyle({
+        expect(getByTestId('CHILD_1')).toHaveStyle({
           borderRightWidth: 1,
           borderTopWidth: 1,
           borderBottomWidth: 1,
         });
 
-        expect(getByTestId('element_1')).not.toHaveStyle({
+        expect(getByTestId('CHILD_1')).not.toHaveStyle({
           ...fullWidthAndRadius,
           borderRightWidth: undefined,
           borderTopWidth: undefined,
           borderBottomWidth: undefined,
         });
 
-        expect(getByTestId('element_2')).toHaveStyle({
+        expect(getByTestId('CHILD_2')).toHaveStyle({
           ...fullWidthAndRadius,
           borderTopLeftRadius: undefined,
           borderBottomLeftRadius: undefined,
         });
 
-        expect(getByTestId('element_2')).not.toHaveStyle({
+        expect(getByTestId('CHILD_2')).not.toHaveStyle({
           borderTopLeftRadius: 10,
           borderBottomLeftRadius: 10,
         });
