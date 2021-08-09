@@ -59,7 +59,7 @@ function Component(props: Props): React.ReactElement {
     containerStyle,
   } = props;
 
-  const padding =
+  const padding: number =
     (containerStyle?.padding as number) ||
     (containerStyle?.paddingLeft as number) ||
     0;
@@ -71,8 +71,8 @@ function Component(props: Props): React.ReactElement {
       ? 0
       : props.type === 0
       ? 0
-      : props.containerStyle && props.containerStyle.padding
-      ? (props.containerStyle.padding as number) * 2
+      : padding
+      ? padding * 2
       : {};
   };
 
@@ -91,7 +91,8 @@ function Component(props: Props): React.ReactElement {
   const endPos =
     props.containerStyle && props.circleStyle
       ? (props.containerStyle.width as number) -
-        ((props.circleStyle.width as number) + padding * 2)
+        ((props.circleStyle.width as number) +
+          ((props.containerStyle?.paddingRight as number) || padding || 0) * 2)
       : 0;
 
   const circlePosXEnd = props.RTL ? -endPos : endPos;

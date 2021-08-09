@@ -1,5 +1,9 @@
 ## Changelogs
 
+## 0.1.22
+
+Hotfix [SwitchToggle]. The `endPos` rely on the `paddingRight` when provided.
+
 ## 0.1.21
 
 Hotfix [SwitchToggle]. The `padding` props overwrites to `paddingLeft`, `paddingRight`, `paddingTop` and `paddingBottom` in [emotion](https://emotion.sh/docs/introduction). Prevent `padding` value to be `undefined`.
