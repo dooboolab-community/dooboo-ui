@@ -4,6 +4,8 @@ import '@testing-library/jest-native/extend-expect';
 
 import 'jest-plugin-context/setup';
 
+import 'givens/setup';
+
 jest.mock('react-native/Libraries/Animated/src/NativeAnimatedHelper');
 
 // Cleanup after each case.

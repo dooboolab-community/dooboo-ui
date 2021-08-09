@@ -14,6 +14,7 @@ exports[`[ButtonGroup] renders without crashing 1`] = `
       "minHeight": 40,
     }
   }
+  testID="container"
 >
   <View
     accessible={true}
@@ -31,7 +32,6 @@ exports[`[ButtonGroup] renders without crashing 1`] = `
         "opacity": 1,
       }
     }
-    testID="CHILD_0"
   >
     <View
       style={
@@ -40,15 +40,19 @@ exports[`[ButtonGroup] renders without crashing 1`] = `
           "alignSelf": "stretch",
           "backgroundColor": "black",
           "borderBottomLeftRadius": 0,
+          "borderBottomRightRadius": 0,
           "borderBottomWidth": 1,
           "borderColor": "black",
           "borderLeftWidth": 1,
+          "borderRightWidth": 1,
           "borderTopLeftRadius": 0,
+          "borderTopRightRadius": 0,
           "borderTopWidth": 1,
           "justifyContent": "center",
           "minHeight": 40,
         }
       }
+      testID="element_0"
     >
       <Text
         style={
@@ -64,60 +68,7 @@ exports[`[ButtonGroup] renders without crashing 1`] = `
           ]
         }
       >
-        option 1
-      </Text>
-    </View>
-  </View>
-  <View
-    accessible={true}
-    focusable={true}
-    onClick={[Function]}
-    onResponderGrant={[Function]}
-    onResponderMove={[Function]}
-    onResponderRelease={[Function]}
-    onResponderTerminate={[Function]}
-    onResponderTerminationRequest={[Function]}
-    onStartShouldSetResponder={[Function]}
-    style={
-      Object {
-        "flex": 1,
-        "opacity": 1,
-      }
-    }
-    testID="CHILD_1"
-  >
-    <View
-      style={
-        Object {
-          "alignItems": "center",
-          "alignSelf": "stretch",
-          "borderBottomRightRadius": 0,
-          "borderBottomWidth": 1,
-          "borderColor": "black",
-          "borderLeftWidth": 1,
-          "borderRightWidth": 1,
-          "borderTopRightRadius": 0,
-          "borderTopWidth": 1,
-          "justifyContent": "center",
-          "minHeight": 40,
-        }
-      }
-    >
-      <Text
-        style={
-          Array [
-            Object {
-              "alignSelf": "center",
-              "fontSize": 14,
-              "textAlign": "center",
-            },
-            Object {
-              "color": "black",
-            },
-          ]
-        }
-      >
-        option 2
+        Option 1
       </Text>
     </View>
   </View>

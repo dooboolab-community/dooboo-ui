@@ -1,3 +1,4 @@
+/* eslint-disable jest/no-identical-title */
 import {fireEvent, render, RenderAPI} from '@testing-library/react-native';
 import {createComponent, createTestProps} from '../../test/testUtils';
 
@@ -10,13 +11,17 @@ describe('[ButtonGroup]', () => {
 
   const handlePress = jest.fn();
 
-  const renderButtonGroup = (i?: number): RenderAPI =>
+  const renderButtonGroup = (): RenderAPI =>
     render(
       <ThemeProvider initialThemeType={themeType}>
         <ButtonGroup
-          selectedIndex={i}
-          data={['option 1', 'option 2']}
+          data={given.data ?? ['option 1', 'option 2']}
+          selectedIndex={given.selectedIndex}
           onPress={handlePress}
+          borderWidth={given.borderWidth}
+          borderRadius={given.borderRadius}
+          style={given.style}
+          styles={given.styles}
         />
       </ThemeProvider>,
     );
@@ -26,7 +31,7 @@ describe('[ButtonGroup]', () => {
   });
 
   it('renders without crashing', () => {
-    const props = createTestProps();
+    const props = createTestProps({data: ['Option 1']});
 
     const testingLib = render(createComponent(<ButtonGroup {...props} />));
 
@@ -56,10 +61,10 @@ describe('[ButtonGroup]', () => {
   });
 
   context('when selectedIndex is provided', () => {
-    const selectedIndex = 1;
+    given('selectedIndex', () => 1);
 
     it('makes selected option text notable', () => {
-      const {getByText} = renderButtonGroup(selectedIndex);
+      const {getByText} = renderButtonGroup();
 
       expect(getByText('option 1')).toHaveStyle({
         color: theme[themeType].text,
@@ -67,6 +72,108 @@ describe('[ButtonGroup]', () => {
 
       expect(getByText('option 2')).toHaveStyle({
         color: theme[themeType].textContrast,
+      });
+    });
+  });
+
+  describe('Border', () => {
+    given('borderWidth', () => 1);
+    given('borderRadius', () => 10);
+
+    const fullWidthAndRadius = {
+      borderLeftWidth: 1,
+      borderRightWidth: 1,
+      borderTopWidth: 1,
+      borderBottomWidth: 1,
+
+      borderTopLeftRadius: 10,
+      borderTopRightRadius: 10,
+      borderBottomLeftRadius: 10,
+      borderBottomRightRadius: 10,
+    };
+
+    context('when data size is 1', () => {
+      given('data', () => ['Option 1']);
+
+      it('has width and radius in every direction', () => {
+        const {getByTestId} = renderButtonGroup();
+
+        expect(getByTestId('element_0')).toHaveStyle(fullWidthAndRadius);
+      });
+    });
+
+    context('when data size is 2', () => {
+      given('data', () => ['Option 1', 'Option 2']);
+
+      it('depends on position of element', () => {
+        const {getByTestId} = renderButtonGroup();
+
+        expect(getByTestId('element_0')).toHaveStyle({
+          ...fullWidthAndRadius,
+          borderTopRightRadius: undefined,
+          borderBottomRightRadius: undefined,
+        });
+
+        expect(getByTestId('element_0')).not.toHaveStyle({
+          borderTopRightRadius: 10,
+          borderBottomRightRadius: 10,
+        });
+
+        expect(getByTestId('element_1')).toHaveStyle({
+          ...fullWidthAndRadius,
+          borderLeftWidth: undefined,
+          borderTopLeftRadius: undefined,
+          borderBottomLeftRadius: undefined,
+        });
+
+        expect(getByTestId('element_1')).not.toHaveStyle({
+          borderLeftWidth: 1,
+          borderTopLeftRadius: 10,
+          borderBottomLeftRadius: 10,
+        });
+      });
+    });
+
+    context('when data size is 3', () => {
+      given('data', () => ['Option 1', 'Option 2', 'Option 3']);
+
+      it('depends on position of element', () => {
+        const {getByTestId} = renderButtonGroup();
+
+        expect(getByTestId('element_0')).toHaveStyle({
+          ...fullWidthAndRadius,
+          borderTopRightRadius: undefined,
+          borderBottomRightRadius: undefined,
+        });
+
+        expect(getByTestId('element_0')).not.toHaveStyle({
+          borderTopRightRadius: 10,
+          borderBottomRightRadius: 10,
+        });
+
+        expect(getByTestId('element_1')).toHaveStyle({
+          borderRightWidth: 1,
+          borderTopWidth: 1,
+          borderBottomWidth: 1,
+        });
+
+        expect(getByTestId('element_1')).not.toHaveStyle({
+          ...fullWidthAndRadius,
+          borderRightWidth: undefined,
+          borderTopWidth: undefined,
+          borderBottomWidth: undefined,
+        });
+
+        expect(getByTestId('element_2')).toHaveStyle({
+          ...fullWidthAndRadius,
+          borderTopLeftRadius: undefined,
+          borderBottomLeftRadius: undefined,
+        });
+
+        expect(getByTestId('element_2')).not.toHaveStyle({
+          borderTopLeftRadius: 10,
+          borderBottomLeftRadius: 10,
+        });
       });
     });
   });

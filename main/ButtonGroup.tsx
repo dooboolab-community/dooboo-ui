@@ -1,4 +1,4 @@
-import {DoobooTheme, light, useTheme, withTheme} from './theme';
+import {useTheme, withTheme} from './theme';
 import {
   StyleProp,
   StyleSheet,
@@ -18,36 +18,84 @@ interface Styles {
 }
 
 interface Props<T> {
-  testID?: string;
-  theme: DoobooTheme;
+  data: T[];
+  selectedIndex?: number;
+  onPress?: (i: number) => void;
   borderRadius?: number;
   borderWidth?: number;
+  color?: string;
   style?: StyleProp<ViewStyle>;
   styles?: Styles;
-  data: T[];
-  color?: string;
-  onPress?: (i: number) => void;
-  selectedIndex?: number;
 }
 
 function StyledButtonGroup<T>(props: Props<T>): React.ReactElement {
   const {theme} = useTheme();
 
   const {
-    borderRadius = 0,
+    data,
     selectedIndex = 0,
+    onPress,
+    borderRadius = 0,
     borderWidth = 1,
     color = theme.text,
-    testID,
     style,
-    data,
-    onPress,
     styles,
   } = props;
 
+  const borderWidthAndRadius = (index: number): object => {
+    const fullWidthAndRadius = {
+      borderLeftWidth: borderWidth,
+      borderRightWidth: borderWidth,
+      borderTopWidth: borderWidth,
+      borderBottomWidth: borderWidth,
+
+      borderTopLeftRadius: borderRadius,
+      borderBottomLeftRadius: borderRadius,
+      borderTopRightRadius: borderRadius,
+      borderBottomRightRadius: borderRadius,
+    };
+
+    const isFirst = index === 0;
+    const isLast = index === data.length - 1;
+
+    const borderForFirstElement = {
+      ...fullWidthAndRadius,
+      borderTopRightRadius: undefined,
+      borderBottomRightRadius: undefined,
+    };
+
+    const borderForLastElement = {
+      ...fullWidthAndRadius,
+      borderTopLeftRadius: undefined,
+      borderBottomLeftRadius: undefined,
+    };
+
+    const borderForMiddleElement = {
+      borderRightWidth: borderWidth,
+      borderTopWidth: borderWidth,
+      borderBottomWidth: borderWidth,
+    };
+
+    if (data.length === 1) return fullWidthAndRadius;
+
+    if (isFirst) return borderForFirstElement;
+
+    if (isLast) {
+      if (data.length === 2)
+        return {
+          ...borderForLastElement,
+          borderLeftWidth: undefined,
+        };
+
+      return borderForLastElement;
+    }
+
+    return borderForMiddleElement;
+  };
+
   return (
     <View
-      testID={testID}
+      testID="container"
       style={StyleSheet.flatten([
         {borderColor: color},
         styles?.container,
@@ -57,39 +105,18 @@ function StyledButtonGroup<T>(props: Props<T>): React.ReactElement {
         return (
           <TouchableOpacity
             key={i}
-            testID={`CHILD_${i}`}
             activeOpacity={0.85}
             style={{flex: 1}}
             onPress={(): void => {
               if (onPress) onPress(i);
             }}>
             <View
+              testID={`element_${i}`}
               style={StyleSheet.flatten([
                 selectedIndex === i
                   ? {...styles?.selectedButton, backgroundColor: color}
                   : {...styles?.button, borderColor: color},
-                i === 0
-                  ? {
-                      borderLeftWidth: borderWidth,
-                      borderTopWidth: borderWidth,
-                      borderBottomWidth: borderWidth,
-                      borderTopLeftRadius: borderRadius,
-                      borderBottomLeftRadius: borderRadius,
-                    }
-                  : i === data.length - 1
-                  ? {
-                      borderRightWidth: borderWidth,
-                      borderLeftWidth: borderWidth,
-                      borderTopWidth: borderWidth,
-                      borderBottomWidth: borderWidth,
-                      borderBottomRightRadius: borderRadius,
-                      borderTopRightRadius: borderRadius,
-                    }
-                  : {
-                      borderLeftWidth: borderWidth,
-                      borderTopWidth: borderWidth,
-                      borderBottomWidth: borderWidth,
-                    },
+                borderWidthAndRadius(i),
                 {borderColor: color},
               ])}>
               <Text
@@ -109,7 +136,6 @@ function StyledButtonGroup<T>(props: Props<T>): React.ReactElement {
 }
 
 StyledButtonGroup.defaultProps = {
-  theme: light,
   styles: {
     container: {
       backgroundColor: 'transparent',
@@ -145,7 +171,6 @@ StyledButtonGroup.defaultProps = {
       alignSelf: 'center',
     },
   },
-  data: ['option 1', 'option 2'],
 };
 
 export const ButtonGroup = withTheme<any>(StyledButtonGroup);
