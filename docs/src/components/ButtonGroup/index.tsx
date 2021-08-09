@@ -24,15 +24,15 @@ const StyledText = styled.Text`
 const ButtonGroupStory = (): React.ReactElement => {
   const data = ['Option 1', 'Option 2', 'Option 3', 'Option 4'];
 
-  const [selected, setSelected] = useState(0);
+  const [selectedIndex, setSelectedIndex] = useState(0);
 
   return (
     <Container>
       <ButtonGroup
         style={{marginTop: 40, marginHorizontal: 20}}
-        onPress={(index: number): void => setSelected(index)}
+        onPress={(index: number): void => setSelectedIndex(index)}
         data={data}
-        selected={selected}
+        selectedIndex={selectedIndex}
       />
       <View
         style={{
@@ -40,7 +40,7 @@ const ButtonGroupStory = (): React.ReactElement => {
           justifyContent: 'center',
           alignItems: 'center',
         }}>
-        <StyledText>{data[selected]}</StyledText>
+        <StyledText>{data[selectedIndex]}</StyledText>
       </View>
     </Container>
   );

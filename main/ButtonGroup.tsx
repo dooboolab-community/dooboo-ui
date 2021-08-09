@@ -27,7 +27,7 @@ interface Props<T> {
   data: T[];
   color?: string;
   onPress?: (i: number) => void;
-  selected?: number;
+  selectedIndex?: number;
 }
 
 function StyledButtonGroup<T>(props: Props<T>): React.ReactElement {
@@ -35,7 +35,7 @@ function StyledButtonGroup<T>(props: Props<T>): React.ReactElement {
 
   const {
     borderRadius = 0,
-    selected = 0,
+    selectedIndex = 0,
     borderWidth = 1,
     color = theme.text,
     testID,
@@ -65,7 +65,7 @@ function StyledButtonGroup<T>(props: Props<T>): React.ReactElement {
             }}>
             <View
               style={StyleSheet.flatten([
-                selected === i
+                selectedIndex === i
                   ? {...styles?.selectedButton, backgroundColor: color}
                   : {...styles?.button, borderColor: color},
                 i === 0
@@ -94,7 +94,7 @@ function StyledButtonGroup<T>(props: Props<T>): React.ReactElement {
               ])}>
               <Text
                 style={
-                  selected === i
+                  selectedIndex === i
                     ? [styles?.selectedText, {color: theme.textContrast}]
                     : [styles?.text, {color: theme.text}]
                 }>
