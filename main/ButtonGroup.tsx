@@ -1,5 +1,4 @@
 import {DoobooTheme, light, useTheme, withTheme} from './theme';
-import React, {useState} from 'react';
 import {
   StyleProp,
   StyleSheet,
@@ -28,7 +27,7 @@ interface Props<T> {
   data: T[];
   color?: string;
   onPress?: (i: number) => void;
-  initialIndex?: number;
+  selectedIndex?: number;
 }
 
 function StyledButtonGroup<T>(props: Props<T>): React.ReactElement {
@@ -36,7 +35,7 @@ function StyledButtonGroup<T>(props: Props<T>): React.ReactElement {
 
   const {
     borderRadius = 0,
-    initialIndex = 0,
+    selectedIndex = 0,
     borderWidth = 1,
     color = theme.text,
     testID,
@@ -45,8 +44,6 @@ function StyledButtonGroup<T>(props: Props<T>): React.ReactElement {
     onPress,
     styles,
   } = props;
-
-  const [selectedOption, setSelectedOption] = useState(initialIndex);
 
   return (
     <View
@@ -64,13 +61,11 @@ function StyledButtonGroup<T>(props: Props<T>): React.ReactElement {
             activeOpacity={0.85}
             style={{flex: 1}}
             onPress={(): void => {
-              setSelectedOption(i);
-
               if (onPress) onPress(i);
             }}>
             <View
               style={StyleSheet.flatten([
-                selectedOption === i
+                selectedIndex === i
                   ? {...styles?.selectedButton, backgroundColor: color}
                   : {...styles?.button, borderColor: color},
                 i === 0
@@ -99,7 +94,7 @@ function StyledButtonGroup<T>(props: Props<T>): React.ReactElement {
               ])}>
               <Text
                 style={
-                  selectedOption === i
+                  selectedIndex === i
                     ? [styles?.selectedText, {color: theme.textContrast}]
                     : [styles?.text, {color: theme.text}]
                 }>
