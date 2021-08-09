@@ -1,5 +1,9 @@
 ## Changelogs
 
+## 0.1.21
+
+Hotfix [SwitchToggle]. The `padding` props overwrites to `paddingLeft`, `paddingRight`, `paddingTop` and `paddingBottom` in [emotion](https://emotion.sh/docs/introduction). Prevent `padding` value to be `undefined`.
+
 ## 0.1.20
 
 Include [Button] type `light` [#41](https://github.com/dooboolab/dooboo-ui/pull/41).

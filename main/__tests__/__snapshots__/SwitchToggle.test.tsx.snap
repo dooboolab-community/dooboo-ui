@@ -28,6 +28,8 @@ exports[`[SwitchToggle] Accessibility should render AccessibilityHint 1`] = `
         "height": 40,
         "marginTop": 16,
         "padding": 5,
+        "paddingLeft": 5,
+        "paddingRight": 5,
         "width": 80,
       }
     }
@@ -95,6 +97,8 @@ exports[`[SwitchToggle] Accessibility should render AccessibilityLabel 1`] = `
         "height": 40,
         "marginTop": 16,
         "padding": 5,
+        "paddingLeft": 5,
+        "paddingRight": 5,
         "width": 80,
       }
     }
@@ -162,6 +166,8 @@ exports[`[SwitchToggle] Accessibility should render AccessibilityRole 1`] = `
         "height": 40,
         "marginTop": 16,
         "padding": 5,
+        "paddingLeft": 5,
+        "paddingRight": 5,
         "width": 80,
       }
     }
@@ -229,6 +235,8 @@ exports[`[SwitchToggle] Accessibility should render AccessibilityState 1`] = `
         "height": 40,
         "marginTop": 16,
         "padding": 5,
+        "paddingLeft": 5,
+        "paddingRight": 5,
         "width": 80,
       }
     }
@@ -296,6 +304,8 @@ exports[`[SwitchToggle] Accessibility should render AccessibilityValue 1`] = `
         "height": 40,
         "marginTop": 16,
         "padding": 5,
+        "paddingLeft": 5,
+        "paddingRight": 5,
         "width": 80,
       }
     }
@@ -360,6 +370,8 @@ exports[`[SwitchToggle] Rendering should render \`containerStyle\` and \`circleW
         "backgroundColor": "rgba(196, 196, 196, 1)",
         "flexDirection": "row",
         "padding": 40,
+        "paddingLeft": 40,
+        "paddingRight": 40,
         "width": 40,
       }
     }
@@ -424,6 +436,8 @@ exports[`[SwitchToggle] Rendering should render \`containerStyle\` and \`circleW
         "backgroundColor": "rgba(196, 196, 196, 1)",
         "flexDirection": "row",
         "padding": 0,
+        "paddingLeft": 0,
+        "paddingRight": 0,
         "width": 40,
       }
     }
@@ -488,6 +502,8 @@ exports[`[SwitchToggle] Rendering should render \`containerStyle\` and \`contain
         "backgroundColor": "rgba(196, 196, 196, 1)",
         "flexDirection": "row",
         "padding": 40,
+        "paddingLeft": 40,
+        "paddingRight": 40,
       }
     }
   >
@@ -556,6 +572,8 @@ exports[`[SwitchToggle] Rendering should render RTL 1`] = `
         "height": 40,
         "marginTop": 16,
         "padding": 5,
+        "paddingLeft": 5,
+        "paddingRight": 5,
         "width": 80,
       }
     }
@@ -623,6 +641,8 @@ exports[`[SwitchToggle] Rendering should render type === 0 1`] = `
         "height": 40,
         "marginTop": 16,
         "padding": 5,
+        "paddingLeft": 5,
+        "paddingRight": 5,
         "width": 80,
       }
     }
@@ -692,6 +712,8 @@ exports[`[SwitchToggle] Rendering should render when \`containerStyle\` is not d
         "height": 40,
         "marginTop": 16,
         "padding": 5,
+        "paddingLeft": 5,
+        "paddingRight": 5,
         "width": 80,
       }
     }
@@ -759,6 +781,8 @@ exports[`[SwitchToggle] Rendering should render without crashing 1`] = `
         "height": 40,
         "marginTop": 16,
         "padding": 5,
+        "paddingLeft": 5,
+        "paddingRight": 5,
         "width": 80,
       }
     }
@@ -828,6 +852,8 @@ exports[`[SwitchToggle] should render custom \`colors\` and \`duration\` 1`] = `
         "height": 40,
         "marginTop": 16,
         "padding": 5,
+        "paddingLeft": 5,
+        "paddingRight": 5,
         "width": 80,
       }
     }

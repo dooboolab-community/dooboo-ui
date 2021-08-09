@@ -56,7 +56,13 @@ function Component(props: Props): React.ReactElement {
     backgroundColorOff,
     circleColorOn,
     circleColorOff,
+    containerStyle,
   } = props;
+
+  const padding =
+    (containerStyle?.padding as number) ||
+    (containerStyle?.paddingLeft as number) ||
+    0;
 
   const [animXValue] = useState(new Animated.Value(props.switchOn ? 1 : 0));
 
@@ -85,8 +91,7 @@ function Component(props: Props): React.ReactElement {
   const endPos =
     props.containerStyle && props.circleStyle
       ? (props.containerStyle.width as number) -
-        ((props.circleStyle.width as number) +
-          ((props.containerStyle.padding as number) || 0) * 2)
+        ((props.circleStyle.width as number) + padding * 2)
       : 0;
 
   const circlePosXEnd = props.RTL ? -endPos : endPos;
@@ -137,6 +142,10 @@ function Component(props: Props): React.ReactElement {
       <AnimatedContainer
         style={[
           props.containerStyle,
+          {
+            paddingLeft: props.containerStyle?.paddingLeft || padding,
+            paddingRight: props.containerStyle?.paddingRight || padding,
+          },
           {
             backgroundColor: animXValue.interpolate({
               inputRange: [0, 1],
