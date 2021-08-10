@@ -31,7 +31,6 @@ exports[`[ButtonGroup] renders without crashing 1`] = `
         "opacity": 1,
       }
     }
-    testID="CHILD_0"
   >
     <View
       style={
@@ -40,15 +39,19 @@ exports[`[ButtonGroup] renders without crashing 1`] = `
           "alignSelf": "stretch",
           "backgroundColor": "black",
           "borderBottomLeftRadius": 0,
+          "borderBottomRightRadius": undefined,
           "borderBottomWidth": 1,
           "borderColor": "black",
           "borderLeftWidth": 1,
+          "borderRightWidth": 1,
           "borderTopLeftRadius": 0,
+          "borderTopRightRadius": undefined,
           "borderTopWidth": 1,
           "justifyContent": "center",
           "minHeight": 40,
         }
       }
+      testID="CHILD_0"
     >
       <Text
         style={
@@ -84,24 +87,26 @@ exports[`[ButtonGroup] renders without crashing 1`] = `
         "opacity": 1,
       }
     }
-    testID="CHILD_1"
   >
     <View
       style={
         Object {
           "alignItems": "center",
           "alignSelf": "stretch",
+          "borderBottomLeftRadius": undefined,
           "borderBottomRightRadius": 0,
           "borderBottomWidth": 1,
           "borderColor": "black",
-          "borderLeftWidth": 1,
+          "borderLeftWidth": undefined,
           "borderRightWidth": 1,
+          "borderTopLeftRadius": undefined,
           "borderTopRightRadius": 0,
           "borderTopWidth": 1,
           "justifyContent": "center",
           "minHeight": 40,
         }
       }
+      testID="CHILD_1"
     >
       <Text
         style={

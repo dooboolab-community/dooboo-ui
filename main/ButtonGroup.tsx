@@ -45,6 +45,57 @@ function StyledButtonGroup<T>(props: Props<T>): React.ReactElement {
     styles,
   } = props;
 
+  const borderWidthAndRadius = (index: number): object => {
+    const fullWidthAndRadius = {
+      borderLeftWidth: borderWidth,
+      borderRightWidth: borderWidth,
+      borderTopWidth: borderWidth,
+      borderBottomWidth: borderWidth,
+
+      borderTopLeftRadius: borderRadius,
+      borderBottomLeftRadius: borderRadius,
+      borderTopRightRadius: borderRadius,
+      borderBottomRightRadius: borderRadius,
+    };
+
+    const isFirst = index === 0;
+    const isLast = index === data.length - 1;
+
+    const borderForFirstElement = {
+      ...fullWidthAndRadius,
+      borderTopRightRadius: undefined,
+      borderBottomRightRadius: undefined,
+    };
+
+    const borderForLastElement = {
+      ...fullWidthAndRadius,
+      borderTopLeftRadius: undefined,
+      borderBottomLeftRadius: undefined,
+    };
+
+    const borderForMiddleElement = {
+      borderRightWidth: borderWidth,
+      borderTopWidth: borderWidth,
+      borderBottomWidth: borderWidth,
+    };
+
+    if (data.length === 1) return fullWidthAndRadius;
+
+    if (isFirst) return borderForFirstElement;
+
+    if (isLast) {
+      if (data.length === 2)
+        return {
+          ...borderForLastElement,
+          borderLeftWidth: undefined,
+        };
+
+      return borderForLastElement;
+    }
+
+    return borderForMiddleElement;
+  };
+
   return (
     <View
       testID={testID}
@@ -57,39 +108,18 @@ function StyledButtonGroup<T>(props: Props<T>): React.ReactElement {
         return (
           <TouchableOpacity
             key={i}
-            testID={`CHILD_${i}`}
             activeOpacity={0.85}
             style={{flex: 1}}
             onPress={(): void => {
               if (onPress) onPress(i);
             }}>
             <View
+              testID={`CHILD_${i}`}
               style={StyleSheet.flatten([
                 selectedIndex === i
                   ? {...styles?.selectedButton, backgroundColor: color}
                   : {...styles?.button, borderColor: color},
-                i === 0
-                  ? {
-                      borderLeftWidth: borderWidth,
-                      borderTopWidth: borderWidth,
-                      borderBottomWidth: borderWidth,
-                      borderTopLeftRadius: borderRadius,
-                      borderBottomLeftRadius: borderRadius,
-                    }
-                  : i === data.length - 1
-                  ? {
-                      borderRightWidth: borderWidth,
-                      borderLeftWidth: borderWidth,
-                      borderTopWidth: borderWidth,
-                      borderBottomWidth: borderWidth,
-                      borderBottomRightRadius: borderRadius,
-                      borderTopRightRadius: borderRadius,
-                    }
-                  : {
-                      borderLeftWidth: borderWidth,
-                      borderTopWidth: borderWidth,
-                      borderBottomWidth: borderWidth,
-                    },
+                borderWidthAndRadius(i),
                 {borderColor: color},
               ])}>
               <Text
