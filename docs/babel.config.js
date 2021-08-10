@@ -11,6 +11,7 @@ module.exports = (api) => {
       ],
     ],
     plugins: [
+      'react-require',
       'react-native-web',
       '@emotion/babel-plugin',
       '@babel/plugin-syntax-dynamic-import',
