@@ -23,7 +23,7 @@ interface Props {
   style?: StyleProp<ViewStyle>;
   loadingElement?: () => ReactElement;
   theme: DoobooTheme;
-  imageProps?: ImageProps;
+  imageProps?: Partial<ImageProps>;
 }
 
 type ImageSize = {
