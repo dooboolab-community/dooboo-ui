@@ -49,14 +49,36 @@ const AnimatedContainer = styled(Animated.View)`
 
 function Component(props: Props): React.ReactElement {
   const {
+    testID,
+    type,
+    switchOn,
+    RTL,
     duration = 300,
+    onPress,
+
     backgroundImageOn,
     backgroundImageOff,
     backgroundColorOn,
     backgroundColorOff,
+
+    circleStyle,
     circleColorOn,
     circleColorOff,
+
     containerStyle,
+    rightContainerStyle,
+    leftContainerStyle,
+
+    buttonText,
+    buttonTextStyle,
+    buttonContainerStyle,
+    buttonStyle,
+
+    textRightStyle,
+    textLeftStyle,
+
+    backTextRight,
+    backTextLeft,
   } = props;
 
   const padding: number =
@@ -64,23 +86,17 @@ function Component(props: Props): React.ReactElement {
     (containerStyle?.paddingLeft as number) ||
     0;
 
-  const [animXValue] = useState(new Animated.Value(props.switchOn ? 1 : 0));
+  const [animXValue] = useState(new Animated.Value(switchOn ? 1 : 0));
 
   const getStart = (): number | Record<string, unknown> | undefined => {
-    return props.type === undefined
-      ? 0
-      : props.type === 0
-      ? 0
-      : padding
-      ? padding * 2
-      : {};
+    return type === undefined ? 0 : type === 0 ? 0 : padding ? padding * 2 : {};
   };
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
   const runAnimation = (): void => {
     const animValue = {
-      fromValue: props.switchOn ? 0 : 1,
-      toValue: props.switchOn ? 1 : 0,
+      fromValue: switchOn ? 0 : 1,
+      toValue: switchOn ? 1 : 0,
       duration,
       useNativeDriver: false,
     };
@@ -89,36 +105,36 @@ function Component(props: Props): React.ReactElement {
   };
 
   const endPos =
-    props.containerStyle && props.circleStyle
-      ? (props.containerStyle.width as number) -
-        ((props.circleStyle.width as number) +
-          ((props.containerStyle?.paddingRight as number) || padding || 0) * 2)
+    containerStyle && circleStyle
+      ? (containerStyle.width as number) -
+        ((circleStyle.width as number) +
+          ((containerStyle?.paddingRight as number) || padding || 0) * 2)
       : 0;
 
-  const circlePosXEnd = props.RTL ? -endPos : endPos;
+  const circlePosXEnd = RTL ? -endPos : endPos;
   const [circlePosXStart] = useState(getStart());
 
   const prevSwitchOnRef = useRef<boolean>();
   const prevSwitchOn = !!prevSwitchOnRef.current;
 
   useEffect(() => {
-    prevSwitchOnRef.current = props.switchOn;
+    prevSwitchOnRef.current = switchOn;
 
-    if (prevSwitchOn !== props.switchOn) runAnimation();
-  }, [prevSwitchOn, props.switchOn, runAnimation]);
+    if (prevSwitchOn !== switchOn) runAnimation();
+  }, [prevSwitchOn, switchOn, runAnimation]);
 
   const generateRightText = (): React.ReactElement => {
     return (
-      <Animated.View style={props.rightContainerStyle}>
-        <Text style={props.textRightStyle}>{props.backTextRight}</Text>
+      <Animated.View style={rightContainerStyle}>
+        <Text style={textRightStyle}>{backTextRight}</Text>
       </Animated.View>
     );
   };
 
   const generateLeftText = (): React.ReactElement => {
     return (
-      <Animated.View style={props.leftContainerStyle}>
-        <Text style={props.textLeftStyle}>{props.backTextLeft}</Text>
+      <Animated.View style={leftContainerStyle}>
+        <Text style={textLeftStyle}>{backTextLeft}</Text>
       </Animated.View>
     );
   };
@@ -136,16 +152,13 @@ function Component(props: Props): React.ReactElement {
   };
 
   return (
-    <TouchableOpacity
-      testID={props.testID}
-      onPress={props.onPress}
-      activeOpacity={0.8}>
+    <TouchableOpacity testID={testID} onPress={onPress} activeOpacity={0.8}>
       <AnimatedContainer
         style={[
-          props.containerStyle,
+          containerStyle,
           {
-            paddingLeft: props.containerStyle?.paddingLeft || padding,
-            paddingRight: props.containerStyle?.paddingRight || padding,
+            paddingLeft: containerStyle?.paddingLeft || padding,
+            paddingRight: containerStyle?.paddingRight || padding,
           },
           {
             backgroundColor: animXValue.interpolate({
@@ -158,10 +171,10 @@ function Component(props: Props): React.ReactElement {
           },
         ]}>
         {generateLeftText()}
-        {props.switchOn && generateLeftIcon()}
+        {switchOn && generateLeftIcon()}
         <Animated.View
           style={[
-            props.circleStyle,
+            circleStyle,
             {
               backgroundColor: animXValue.interpolate({
                 inputRange: [0.5, 1],
@@ -184,14 +197,14 @@ function Component(props: Props): React.ReactElement {
                 },
               ],
             },
-            props.buttonStyle,
+            buttonStyle,
           ]}>
-          <Animated.View style={props.buttonContainerStyle}>
-            <Text style={props.buttonTextStyle}>{props.buttonText}</Text>
+          <Animated.View style={buttonContainerStyle}>
+            <Text style={buttonTextStyle}>{buttonText}</Text>
           </Animated.View>
         </Animated.View>
         {generateRightText()}
-        {!props.switchOn && generateRightIcon()}
+        {!switchOn && generateRightIcon()}
       </AnimatedContainer>
     </TouchableOpacity>
   );
