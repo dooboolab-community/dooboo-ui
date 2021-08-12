@@ -57,7 +57,7 @@ export const AccordionDefault = (): ReactElement => {
           <Accordion
             data={data}
             shouldAnimate={true}
-            collapseOnStart={true}
+            collapseOnStart={false}
             animDuration={400}
             activeOpacity={1}
           />
@@ -81,7 +81,7 @@ export const AccordionCustomStyle = (): React.ReactElement => {
           <Accordion
             data={data}
             shouldAnimate={true}
-            collapseOnStart={true}
+            collapseOnStart={false}
             animDuration={300}
             activeOpacity={1}
             renderTitle={(item) => {
