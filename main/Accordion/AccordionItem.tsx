@@ -118,12 +118,12 @@ const AccordionItem: FC<Props> = (props) => {
   );
 
   useEffect(() => {
-    if (bodyMounted) dropDownAnimValueList.setValue(opened ? 0 : -layoutHeight);
+    if (bodyMounted) dropDownAnimValueList.setValue(opened ? -layoutHeight : 0);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [bodyMounted]);
 
   useEffect(() => {
-    const targetValue = opened ? 0 : -bodyHeight;
+    const targetValue = opened ? -bodyHeight : 0;
 
     if (!shouldAnimate) dropDownAnimValueList.setValue(targetValue);
 
@@ -137,7 +137,7 @@ const AccordionItem: FC<Props> = (props) => {
   }, [opened]);
 
   useEffect(() => {
-    const targetValue = opened ? 1 : 0;
+    const targetValue = opened ? 0 : 1;
 
     if (!shouldAnimate) rotateAnimValue.setValue(targetValue);
 

@@ -89,7 +89,11 @@ function Component(props: Props): React.ReactElement {
   const [animXValue] = useState(new Animated.Value(switchOn ? 1 : 0));
 
   const getStart = (): number | Record<string, unknown> | undefined => {
-    return type === undefined ? 0 : type === 0 ? 0 : padding ? padding * 2 : {};
+    if (!type) return 0;
+
+    if (padding === 0) return {};
+
+    return padding * 2;
   };
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
