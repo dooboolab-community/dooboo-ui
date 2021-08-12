@@ -63,7 +63,7 @@ exports[`[Accordion] render test should adjust duration of animation depends on 
             "right": 20,
             "transform": Array [
               Object {
-                "rotate": "180deg",
+                "rotate": "0deg",
               },
             ],
           }
@@ -249,7 +249,7 @@ exports[`[Accordion] render test should adjust duration of animation depends on 
             "right": 20,
             "transform": Array [
               Object {
-                "rotate": "180deg",
+                "rotate": "0deg",
               },
             ],
           }
@@ -438,7 +438,7 @@ exports[`[Accordion] render test should adjust duration of animation depends on 
             "right": 20,
             "transform": Array [
               Object {
-                "rotate": "180deg",
+                "rotate": "0deg",
               },
             ],
           }
@@ -635,7 +635,7 @@ exports[`[Accordion] render test should operate animation when isAnimated props 
             "right": 20,
             "transform": Array [
               Object {
-                "rotate": "180deg",
+                "rotate": "0deg",
               },
             ],
           }
@@ -821,7 +821,7 @@ exports[`[Accordion] render test should operate animation when isAnimated props 
             "right": 20,
             "transform": Array [
               Object {
-                "rotate": "180deg",
+                "rotate": "0deg",
               },
             ],
           }
@@ -1010,7 +1010,7 @@ exports[`[Accordion] render test should operate animation when isAnimated props 
             "right": 20,
             "transform": Array [
               Object {
-                "rotate": "180deg",
+                "rotate": "0deg",
               },
             ],
           }
@@ -1207,7 +1207,7 @@ exports[`[Accordion] render test should render collapsed when collapseOnStart pr
             "right": 20,
             "transform": Array [
               Object {
-                "rotate": "0deg",
+                "rotate": "180deg",
               },
             ],
           }
@@ -1393,7 +1393,7 @@ exports[`[Accordion] render test should render collapsed when collapseOnStart pr
             "right": 20,
             "transform": Array [
               Object {
-                "rotate": "0deg",
+                "rotate": "180deg",
               },
             ],
           }
@@ -1582,7 +1582,7 @@ exports[`[Accordion] render test should render collapsed when collapseOnStart pr
             "right": 20,
             "transform": Array [
               Object {
-                "rotate": "0deg",
+                "rotate": "180deg",
               },
             ],
           }
@@ -1781,7 +1781,7 @@ exports[`[Accordion] render test should render without crashing 1`] = `
             "right": 20,
             "transform": Array [
               Object {
-                "rotate": "180deg",
+                "rotate": "0deg",
               },
             ],
           }
@@ -1953,7 +1953,7 @@ exports[`[Accordion] render test should render without crashing 1`] = `
             "right": 20,
             "transform": Array [
               Object {
-                "rotate": "180deg",
+                "rotate": "0deg",
               },
             ],
           }
@@ -2128,7 +2128,7 @@ exports[`[Accordion] render test should render without crashing 1`] = `
             "right": 20,
             "transform": Array [
               Object {
-                "rotate": "180deg",
+                "rotate": "0deg",
               },
             ],
           }
