@@ -1,79 +1,220 @@
-import {FC, useState} from 'react';
-import {SwitchToggle, Typography, useTheme} from '../../../main';
+import {
+  Animated,
+  StyleProp,
+  Text,
+  TextStyle,
+  TouchableOpacity,
+  View,
+  ViewStyle,
+} from 'react-native';
+import {DoobooTheme, light} from './theme';
+import React, {useEffect, useRef, useState} from 'react';
 
 import styled from '@emotion/native';
+import {withTheme} from '@emotion/react';
 
-const StoryContainer = styled.View`
-  flex: 1;
-  align-self: stretch;
-  background-color: ${({theme}) => theme.background};
-`;
+interface Props {
+  testID?: string;
+  theme?: DoobooTheme;
+  switchOn: boolean;
+  onPress: () => void;
+  containerStyle?: ViewStyle;
+  circleStyle?: ViewStyle;
+  backgroundColorOn?: string;
+  backgroundColorOff?: string;
+  backgroundImageOn?: React.ReactElement;
+  backgroundImageOff?: React.ReactElement;
+  circleColorOff?: string;
+  circleColorOn?: string;
+  duration?: number;
+  type?: number;
+  buttonText?: string;
+  backTextRight?: string;
+  backTextLeft?: string;
+  buttonTextStyle?: StyleProp<TextStyle>;
+  textRightStyle?: StyleProp<TextStyle>;
+  textLeftStyle?: StyleProp<TextStyle>;
+  buttonStyle?: StyleProp<ViewStyle>;
+  // limitation: https://github.com/DefinitelyTyped/DefinitelyTyped/issues/12202
+  buttonContainerStyle?: StyleProp<ViewStyle>;
+  rightContainerStyle?: StyleProp<ViewStyle>;
+  leftContainerStyle?: StyleProp<ViewStyle>;
+  RTL?: boolean;
+}
 
-const ScrollContainer = styled.ScrollView`
-  width: 100%;
-`;
-
-const Container = styled.View`
-  background-color: ${({theme}) => theme.background};
+const AnimatedContainer = styled(Animated.View)`
+  flex-direction: row;
   align-items: center;
-  justify-content: center;
-  width: 100%;
-  margin-top: 20px;
-  margin-bottom: 20px;
-  flex-direction: column;
 `;
 
-const SwitchToggleDefault: FC = () => {
-  const [on, off] = useState<boolean>(false);
-  const {theme} = useTheme();
+function Component(props: Props): React.ReactElement {
+  const {
+    duration = 300,
+    backgroundImageOn,
+    backgroundImageOff,
+    backgroundColorOn,
+    backgroundColorOff,
+    circleColorOn,
+    circleColorOff,
+    containerStyle,
+  } = props;
+
+  const padding: number =
+    (containerStyle?.padding as number) ||
+    (containerStyle?.paddingLeft as number) ||
+    0;
+
+  const [animXValue] = useState(new Animated.Value(props.switchOn ? 1 : 0));
+
+  const getStart = (): number | Record<string, unknown> | undefined => {
+    return props.type === undefined
+      ? 0
+      : props.type === 0
+      ? 0
+      : padding
+      ? padding * 2
+      : {};
+  };
+
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  const runAnimation = (): void => {
+    const animValue = {
+      fromValue: props.switchOn ? 0 : 1,
+      toValue: props.switchOn ? 1 : 0,
+      duration,
+      useNativeDriver: false,
+    };
+
+    Animated.timing(animXValue, animValue).start();
+  };
+
+  const endPos =
+    props.containerStyle && props.circleStyle
+      ? (props.containerStyle.width as number) -
+        ((props.circleStyle.width as number) +
+          ((props.containerStyle?.paddingRight as number) || padding || 0) * 2)
+      : 0;
+
+  const circlePosXEnd = props.RTL ? -endPos : endPos;
+  const [circlePosXStart] = useState(getStart());
+
+  const prevSwitchOnRef = useRef<boolean>();
+  const prevSwitchOn = !!prevSwitchOnRef.current;
+
+  useEffect(() => {
+    prevSwitchOnRef.current = props.switchOn;
+
+    if (prevSwitchOn !== props.switchOn) runAnimation();
+  }, [prevSwitchOn, props.switchOn, runAnimation]);
+
+  const generateRightText = (): React.ReactElement => {
+    return (
+      <Animated.View style={props.rightContainerStyle}>
+        <Text style={props.textRightStyle}>{props.backTextRight}</Text>
+      </Animated.View>
+    );
+  };
+
+  const generateLeftText = (): React.ReactElement => {
+    return (
+      <Animated.View style={props.leftContainerStyle}>
+        <Text style={props.textLeftStyle}>{props.backTextLeft}</Text>
+      </Animated.View>
+    );
+  };
+
+  const generateLeftIcon = (): React.ReactElement => {
+    return (
+      <View style={{position: 'absolute', left: 5}}>{backgroundImageOn}</View>
+    );
+  };
+
+  const generateRightIcon = (): React.ReactElement => {
+    return (
+      <View style={{position: 'absolute', right: 5}}>{backgroundImageOff}</View>
+    );
+  };
 
   return (
-    <StoryContainer>
-      <ScrollContainer>
-        <Container style={{paddingVertical: 60}}>
-          <Typography.Heading3 style={{fontSize: 18, marginBottom: 8}}>
-            Basic Style
-          </Typography.Heading3>
-          <SwitchToggle switchOn={on} onPress={() => off(!on)} />
-        </Container>
-
-        <Container style={{paddingVertical: 30}}>
-          <Typography.Heading3 style={{fontSize: 18, marginBottom: 8}}>
-            Custom Color
-          </Typography.Heading3>
-          <SwitchToggle
-            switchOn={on}
-            onPress={() => off(!on)}
-            circleColorOff={theme.disabled}
-            circleColorOn={theme.secondary}
-            backgroundColorOn={theme.placeholder}
-            backgroundColorOff={theme.textDisabled}
-          />
-        </Container>
-        <Container style={{paddingVertical: 30}}>
-          <Typography.Heading3 style={{fontSize: 18, marginBottom: 8}}>
-            Custom Size
-          </Typography.Heading3>
-          <SwitchToggle
-            switchOn={on}
-            onPress={() => off(!on)}
-            containerStyle={{
-              marginTop: 16,
-              width: 106,
-              height: 48,
-              borderRadius: 25,
-              padding: 5,
-            }}
-            circleStyle={{
-              width: 40,
-              height: 40,
-              borderRadius: 20,
-            }}
-          />
-        </Container>
-      </ScrollContainer>
-    </StoryContainer>
+    <TouchableOpacity
+      testID={props.testID}
+      onPress={props.onPress}
+      activeOpacity={0.8}>
+      <AnimatedContainer
+        style={[
+          props.containerStyle,
+          {
+            paddingLeft: props.containerStyle?.paddingLeft || padding,
+            paddingRight: props.containerStyle?.paddingRight || padding,
+          },
+          {
+            backgroundColor: animXValue.interpolate({
+              inputRange: [0, 1],
+              outputRange: [
+                backgroundColorOff as string | number,
+                backgroundColorOn as string | number,
+              ] as string[] | number[],
+            }),
+          },
+        ]}>
+        {generateLeftText()}
+        {props.switchOn && generateLeftIcon()}
+        <Animated.View
+          style={[
+            props.circleStyle,
+            {
+              backgroundColor: animXValue.interpolate({
+                inputRange: [0.5, 1],
+                outputRange: [
+                  circleColorOff as string | number,
+                  circleColorOn as string | number,
+                ] as string[] | number[],
+              }),
+            },
+            {
+              transform: [
+                {
+                  translateX: animXValue.interpolate({
+                    inputRange: [0, 1],
+                    outputRange: [
+                      circlePosXStart as string | number,
+                      circlePosXEnd as string | number,
+                    ] as string[] | number[],
+                  }),
+                },
+              ],
+            },
+            props.buttonStyle,
+          ]}>
+          <Animated.View style={props.buttonContainerStyle}>
+            <Text style={props.buttonTextStyle}>{props.buttonText}</Text>
+          </Animated.View>
+        </Animated.View>
+        {generateRightText()}
+        {!props.switchOn && generateRightIcon()}
+      </AnimatedContainer>
+    </TouchableOpacity>
   );
+}
+
+Component.defaultProps = {
+  theme: light,
+  backgroundColorOn: light.primary,
+  backgroundColorOff: light.disabled,
+  circleColorOn: light.textContrast,
+  circleColorOff: light.placeholder,
+  containerStyle: {
+    marginTop: 16,
+    width: 80,
+    height: 40,
+    borderRadius: 25,
+    padding: 5,
+  },
+  circleStyle: {
+    width: 32,
+    height: 32,
+    borderRadius: 16,
+  },
 };
 
-export default SwitchToggleDefault;
+export const SwitchToggle = withTheme(Component);
