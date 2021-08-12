@@ -56,8 +56,6 @@ interface Props {
   bodyContainerStyle?: ViewStyle;
 }
 
-let layoutHeight = 0;
-
 const AccordionItem: FC<Props> = (props) => {
   const {
     testID,
@@ -69,8 +67,8 @@ const AccordionItem: FC<Props> = (props) => {
     toggleElement,
     dropDownAnimValueList,
     sumOfPrecedingTranslateY,
-    renderTitle,
-    renderBody,
+    renderTitle = (title) => <StyledTitle>{title}</StyledTitle>,
+    renderBody = (body) => <StyledItem>{body}</StyledItem>,
     titleContainerStyle,
     bodyContainerStyle,
   } = props;
@@ -78,95 +76,78 @@ const AccordionItem: FC<Props> = (props) => {
   const rotateAnimValue = useRef(new Animated.Value(0)).current;
 
   const [opened, setAnimState] = useState<boolean>(collapseOnStart);
+
   const [bodyMounted, setBodyMounted] = useState<boolean>(false);
   const [bodyHeight, setBodyHeight] = useState<number>(0);
+
+  const [layoutHeight, setLayoutHeight] = useState(0);
 
   const handleBodyLayout = (e: LayoutChangeEvent): void => {
     if (bodyMounted) return;
 
     const {height} = e.nativeEvent.layout;
 
-    layoutHeight = height;
+    setLayoutHeight(height);
+
     setBodyMounted(true);
     setBodyHeight(height);
   };
 
-  const handleAnimState = (): void => {
+  const handlePress = (): void => {
     setAnimState(!opened);
   };
 
-  const renderDefaultTitle = (title: string): React.ReactElement => {
-    return <StyledTitle>{title}</StyledTitle>;
-  };
-
-  const renderDefaultBody = (body: string): React.ReactElement => {
-    return <StyledItem>{body}</StyledItem>;
-  };
-
   const renderIndicator = (
-    // eslint-disable-next-line @typescript-eslint/no-shadow
-    toggleElement: ToggleIndicatorType,
-  ): React.ReactElement => {
-    return (
-      <Animated.View
-        style={{
-          position: 'absolute',
-          right: 20,
-          transform: [
-            {
-              rotate: rotateAnimValue.interpolate({
-                inputRange: [0, 1],
-                outputRange: ['0deg', '180deg'],
-              }),
-            },
-          ],
-        }}>
-        {toggleElement || <StyledIcon name="chevron-down-light" />}
-      </Animated.View>
-    );
-  };
+    element: ToggleIndicatorType,
+  ): React.ReactElement => (
+    <Animated.View
+      style={{
+        position: 'absolute',
+        right: 20,
+        transform: [
+          {
+            rotate: rotateAnimValue.interpolate({
+              inputRange: [0, 1],
+              outputRange: ['0deg', '180deg'],
+            }),
+          },
+        ],
+      }}>
+      {element || <StyledIcon name="chevron-down-light" />}
+    </Animated.View>
+  );
 
-  useEffect((): void => {
+  useEffect(() => {
     if (bodyMounted) dropDownAnimValueList.setValue(opened ? -layoutHeight : 0);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [bodyMounted]);
 
-  useEffect((): void => {
-    if (shouldAnimate) {
-      if (!opened) {
-        Animated.timing(dropDownAnimValueList, {
-          toValue: 0,
-          duration: animDuration || 300,
-          useNativeDriver: true,
-        }).start();
+  useEffect(() => {
+    const targetValue = opened ? -bodyHeight : 0;
 
-        return;
-      }
+    if (!shouldAnimate) dropDownAnimValueList.setValue(targetValue);
 
-      Animated.timing(dropDownAnimValueList, {
-        toValue: -bodyHeight,
-        duration: animDuration || 300,
-        useNativeDriver: true,
-      }).start();
-    } else {
-      const targetValue = opened ? -bodyHeight : 0;
+    Animated.timing(dropDownAnimValueList, {
+      toValue: targetValue,
+      duration: animDuration || 300,
+      useNativeDriver: true,
+    }).start();
 
-      dropDownAnimValueList.setValue(targetValue);
-    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [opened]);
 
   useEffect(() => {
     const targetValue = opened ? 0 : 1;
 
-    if (shouldAnimate)
-      Animated.timing(rotateAnimValue, {
-        toValue: targetValue,
-        duration: 200,
-        easing: Easing.linear,
-        useNativeDriver: true,
-      }).start();
-    else rotateAnimValue.setValue(targetValue);
+    if (!shouldAnimate) rotateAnimValue.setValue(targetValue);
+
+    Animated.timing(rotateAnimValue, {
+      toValue: targetValue,
+      duration: 200,
+      easing: Easing.linear,
+      useNativeDriver: true,
+    }).start();
+
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [opened]);
 
@@ -182,17 +163,17 @@ const AccordionItem: FC<Props> = (props) => {
       ]}>
       <TitleContainer
         testID={`title_${testID}`}
-        onPress={handleAnimState}
+        onPress={handlePress}
         activeOpacity={activeOpacity}
         style={titleContainerStyle}>
-        {renderTitle ? renderTitle(item.title) : renderDefaultTitle(item.title)}
+        {renderTitle(item.title)}
         {renderIndicator(toggleElement)}
       </TitleContainer>
 
       <Animated.View
         testID={`body_${testID}`}
         style={{
-          height: !bodyMounted ? undefined : bodyHeight,
+          height: bodyMounted ? bodyHeight : undefined,
           transform: [
             {
               translateY: dropDownAnimValueList,
@@ -200,13 +181,11 @@ const AccordionItem: FC<Props> = (props) => {
           ],
         }}
         onLayout={handleBodyLayout}>
-        {item.bodies.map((body, key) => {
-          return (
-            <ItemContainer key={key} style={bodyContainerStyle}>
-              {renderBody ? renderBody(body) : renderDefaultBody(body)}
-            </ItemContainer>
-          );
-        })}
+        {item.bodies.map((body, key) => (
+          <ItemContainer key={key} style={bodyContainerStyle}>
+            {renderBody(body)}
+          </ItemContainer>
+        ))}
       </Animated.View>
     </Animated.View>
   );
