@@ -80,17 +80,14 @@ const AccordionItem: FC<Props> = (props) => {
   const [bodyMounted, setBodyMounted] = useState(false);
   const [bodyHeight, setBodyHeight] = useState(0);
 
-  const [layoutHeight, setLayoutHeight] = useState(0);
-
   const handleBodyLayout = (e: LayoutChangeEvent): void => {
     if (bodyMounted) return;
 
     const {height} = e.nativeEvent.layout;
 
-    setLayoutHeight(height);
+    setBodyHeight(height);
 
     setBodyMounted(true);
-    setBodyHeight(height);
   };
 
   const handlePress = (): void => {
@@ -119,7 +116,7 @@ const AccordionItem: FC<Props> = (props) => {
 
   useEffect(() => {
     if (bodyMounted)
-      dropDownAnimValueList.setValue(collapsed ? -layoutHeight : 0);
+      dropDownAnimValueList.setValue(collapsed ? -bodyHeight : 0);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [bodyMounted]);
 
