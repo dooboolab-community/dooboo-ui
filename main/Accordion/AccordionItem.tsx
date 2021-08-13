@@ -75,10 +75,10 @@ const AccordionItem: FC<Props> = (props) => {
 
   const rotateAnimValue = useRef(new Animated.Value(0)).current;
 
-  const [opened, setAnimState] = useState<boolean>(collapseOnStart);
+  const [collapsed, setCollapsed] = useState(collapseOnStart);
 
-  const [bodyMounted, setBodyMounted] = useState<boolean>(false);
-  const [bodyHeight, setBodyHeight] = useState<number>(0);
+  const [bodyMounted, setBodyMounted] = useState(false);
+  const [bodyHeight, setBodyHeight] = useState(0);
 
   const [layoutHeight, setLayoutHeight] = useState(0);
 
@@ -94,7 +94,7 @@ const AccordionItem: FC<Props> = (props) => {
   };
 
   const handlePress = (): void => {
-    setAnimState(!opened);
+    setCollapsed(!collapsed);
   };
 
   const renderIndicator = (
@@ -118,12 +118,13 @@ const AccordionItem: FC<Props> = (props) => {
   );
 
   useEffect(() => {
-    if (bodyMounted) dropDownAnimValueList.setValue(opened ? -layoutHeight : 0);
+    if (bodyMounted)
+      dropDownAnimValueList.setValue(collapsed ? -layoutHeight : 0);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [bodyMounted]);
 
   useEffect(() => {
-    const targetValue = opened ? -bodyHeight : 0;
+    const targetValue = collapsed ? -bodyHeight : 0;
 
     if (!shouldAnimate) dropDownAnimValueList.setValue(targetValue);
 
@@ -134,10 +135,10 @@ const AccordionItem: FC<Props> = (props) => {
     }).start();
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [opened]);
+  }, [collapsed]);
 
   useEffect(() => {
-    const targetValue = opened ? 0 : 1;
+    const targetValue = collapsed ? 0 : 1;
 
     if (!shouldAnimate) rotateAnimValue.setValue(targetValue);
 
@@ -149,7 +150,7 @@ const AccordionItem: FC<Props> = (props) => {
     }).start();
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [opened]);
+  }, [collapsed]);
 
   return (
     <Animated.View
