@@ -1,52 +1,120 @@
-import {DoobooTheme, light, withTheme} from '../theme';
-import React, {FC} from 'react';
+import {DoobooTheme, withTheme} from '../theme';
+import {Icon, IconName} from '../Icon';
+import React, {FC, useMemo} from 'react';
 
-import {ViewStyle} from 'react-native';
+import {Animated} from 'react-native';
+import {IconButton} from '../IconButton';
 import styled from '@emotion/native';
 
-const FixedPositionWrapperView = styled.View`
-  position: fixed;
-  top: ${(props: ViewStyle) => props.top};
-  bottom: ${(props: ViewStyle) => props.bottom};
-  left: ${(props: ViewStyle) => props.left};
-  right: ${(props: ViewStyle) => props.bottom};
+const AbsolutePositionWrapperView = styled.View`
+  position: absolute;
 `;
 
-const ExpendWrapperView = styled.View``;
+export const StyledIcon = styled(Icon)`
+  color: ${({theme}) => theme.textContrast};
+`;
 
-interface FloatingActionButtonWrapperProps {
+const FABItemWrapperView = styled.View`
+  position: relative;
+  margin: 10px;
+`;
+
+export type FABItem = {
+  icon: IconName;
+  onPress: () => void;
+};
+
+interface FloatingActionButtonsWrapperProps {
   active: boolean;
-  DefaultMainActionButton: React.ReactElement;
-  ActiveMainActionButton: React.ReactElement;
-  ActionButtons: Array<React.ReactElement>;
+  DefaultFAB: FABItem;
+  ActiveFAB: FABItem;
+  FABList: FABItem[];
+  renderDefaultFAB?: (item: FABItem) => React.ReactElement;
+  renderActiveFAB?: (item: FABItem) => React.ReactElement;
+  renderFABListItem?: (item: FABItem, idx: number) => React.ReactElement;
+  zIndex?: number;
   top?: number;
   bottom?: number;
   left?: number;
   right?: number;
 }
 
-const FloatingActionButtonWrapper: FC<
-  FloatingActionButtonWrapperProps & {theme: DoobooTheme}
+const FloatingActionButtons: FC<
+  FloatingActionButtonsWrapperProps & {theme: DoobooTheme}
 > = ({
+  theme,
   active,
-  DefaultMainActionButton,
-  ActiveMainActionButton,
-  ActionButtons,
-  top,
-  bottom,
-  left,
-  right,
+  DefaultFAB,
+  ActiveFAB,
+  FABList,
+  renderDefaultFAB,
+  renderActiveFAB,
+  renderFABListItem,
+  zIndex = 0,
+  top = 'auto',
+  bottom = 'auto',
+  left = 'auto',
+  right = 'auto',
 }) => {
+  const defaultFAB: React.ReactElement = useMemo(
+    () =>
+      renderDefaultFAB ? (
+        renderDefaultFAB(DefaultFAB)
+      ) : (
+        <IconButton
+          icon={<StyledIcon size={24} name={DefaultFAB.icon} />}
+          onPress={DefaultFAB.onPress}
+        />
+      ),
+    [renderDefaultFAB, DefaultFAB],
+  );
+
+  const activeFAB: React.ReactElement = useMemo(
+    () =>
+      renderActiveFAB ? (
+        renderActiveFAB(ActiveFAB)
+      ) : (
+        <IconButton
+          icon={<StyledIcon size={24} name={ActiveFAB.icon} />}
+          onPress={ActiveFAB.onPress}
+        />
+      ),
+    [renderActiveFAB, ActiveFAB],
+  );
+
   return (
-    <FixedPositionWrapperView style={{top, bottom, left, right}}>
-      {active ? ActiveMainActionButton : DefaultMainActionButton}
-      <ExpendWrapperView>
-        {ActionButtons.map((ActionButton) => ActionButton)}
-      </ExpendWrapperView>
-    </FixedPositionWrapperView>
+    <AbsolutePositionWrapperView
+      style={{
+        top,
+        bottom,
+        left,
+        right,
+        zIndex,
+      }}>
+      <Animated.View>
+        {active &&
+          FABList.map((item, idx) =>
+            renderFABListItem ? (
+              <FABItemWrapperView key={item.icon + idx}>
+                {renderFABListItem(item, idx)}
+              </FABItemWrapperView>
+            ) : (
+              <FABItemWrapperView key={item.icon + idx}>
+                {
+                  <IconButton
+                    icon={
+                      <StyledIcon theme={theme} size={24} name={item.icon} />
+                    }
+                    onPress={item.onPress}
+                  />
+                }
+              </FABItemWrapperView>
+            ),
+          )}
+      </Animated.View>
+      <FABItemWrapperView>{active ? defaultFAB : activeFAB}</FABItemWrapperView>
+    </AbsolutePositionWrapperView>
   );
 };
 
-FloatingActionButtonWrapper.defaultProps = {theme: light};
-
-export const IconButton = withTheme(FloatingActionButtonWrapper);
+export const FAB = withTheme(FloatingActionButtons);
