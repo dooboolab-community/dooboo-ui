@@ -1,5 +1,9 @@
 ## Changelogs
 
+## 0.1.23
+
+Detect orientation on media query [#68](https://github.com/dooboolab/dooboo-ui/pull/68)
+
 ## 0.1.22
 
 Hotfix [SwitchToggle]. The `endPos` rely on the `paddingRight` when provided.
