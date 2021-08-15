@@ -105,11 +105,13 @@ export const AccordionCustomStyle = (): React.ReactElement => {
               );
             }}
             toggleElement={<StyledIcon name="chevron-down-light" />}
-            titleContainerStyle={{
-              backgroundColor: 'gray',
-            }}
-            bodyContainerStyle={{
-              backgroundColor: 'lightgray',
+            styles={{
+              titleContainer: {
+                backgroundColor: 'gray',
+              },
+              bodyContainer: {
+                backgroundColor: 'lightgray',
+              },
             }}
           />
         </Container>

@@ -1,4 +1,4 @@
-import {Animated, ViewStyle} from 'react-native';
+import {Animated, StyleProp, ViewStyle} from 'react-native';
 import React, {FC, useRef} from 'react';
 
 import AccordionItem from './AccordionItem';
@@ -14,7 +14,14 @@ export interface Datum {
   bodies: string[];
 }
 
+export type Styles = {
+  titleContainer?: StyleProp<ViewStyle>;
+  bodyContainer?: StyleProp<ViewStyle>;
+};
+
 interface Props {
+  style?: ViewStyle;
+  styles?: Styles;
   data: Datum[];
   shouldAnimate: boolean;
   collapseOnStart: boolean;
@@ -23,22 +30,20 @@ interface Props {
   toggleElement?: React.ReactElement;
   renderTitle?: (item: string) => React.ReactElement;
   renderBody?: (item: string) => React.ReactElement;
-  titleContainerStyle?: ViewStyle;
-  bodyContainerStyle?: ViewStyle;
 }
 
 const Accordion: FC<Props> = (props) => {
   const {
+    style,
+    styles,
     data,
-    shouldAnimate,
     collapseOnStart,
+    shouldAnimate,
     animDuration,
     activeOpacity,
     toggleElement,
     renderTitle,
     renderBody,
-    titleContainerStyle,
-    bodyContainerStyle,
   } = props;
 
   const dropDownAnimValueList = useRef(
@@ -46,26 +51,25 @@ const Accordion: FC<Props> = (props) => {
   ).current;
 
   return (
-    <Container>
+    <Container style={style}>
       {data.map((datum, titleKey) => {
         return (
           <AccordionItem
-            testID={`${titleKey}`}
             key={titleKey}
+            testID={`${titleKey}`}
+            styles={styles}
             datum={datum}
-            shouldAnimate={shouldAnimate}
             collapseOnStart={collapseOnStart}
+            shouldAnimate={shouldAnimate}
             animDuration={animDuration}
             activeOpacity={activeOpacity}
-            toggleElement={toggleElement}
-            renderTitle={renderTitle}
-            renderBody={renderBody}
-            titleContainerStyle={titleContainerStyle}
-            bodyContainerStyle={bodyContainerStyle}
             dropDownAnimValueList={dropDownAnimValueList[titleKey]}
             sumOfPrecedingTranslateY={dropDownAnimValueList
               .filter((item, idx) => idx < titleKey)
               .map((value) => ({translateY: value}))}
+            toggleElement={toggleElement}
+            renderTitle={renderTitle}
+            renderBody={renderBody}
           />
         );
       })}
