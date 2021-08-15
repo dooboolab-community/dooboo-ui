@@ -43,6 +43,7 @@ export const light = {
 };
 
 export type DoobooTheme = typeof light & {
+  isPortrait?: boolean;
   isDesktop?: boolean;
   isTablet?: boolean;
   isMobile?: boolean;

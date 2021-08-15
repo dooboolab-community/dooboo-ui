@@ -14,9 +14,10 @@ import {useMediaQuery} from 'react-responsive';
 interface Context {
   themeType: ColorSchemeName;
   media: {
-    isDesktop: boolean;
-    isTablet: boolean;
+    isPortrait: boolean;
     isMobile: boolean;
+    isTablet: boolean;
+    isDesktop: boolean;
   };
   theme: DefaultTheme;
   changeThemeType: (themeType?: ColorSchemeName) => void;
@@ -37,9 +38,11 @@ function ThemeProvider({
   initialThemeType,
   customTheme,
 }: Props): React.ReactElement {
+  const isPortrait = useMediaQuery({query: '(orientation: portrait)'});
   const isMobile = useMediaQuery({maxWidth: 767});
   const isTablet = useMediaQuery({minWidth: 767, maxWidth: 992});
   const isDesktop = useMediaQuery({minWidth: 992});
+
   const colorScheme = useColorScheme();
 
   const [themeType, setThemeType] = useState(initialThemeType || colorScheme);
@@ -64,6 +67,7 @@ function ThemeProvider({
       : {...light, ...customTheme?.light};
 
   const media = {
+    isPortrait,
     isMobile,
     isTablet,
     isDesktop,
