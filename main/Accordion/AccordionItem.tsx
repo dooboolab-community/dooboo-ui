@@ -1,4 +1,10 @@
-import {Animated, Easing, LayoutChangeEvent} from 'react-native';
+import {
+  Animated,
+  Easing,
+  LayoutChangeEvent,
+  StyleProp,
+  ViewStyle,
+} from 'react-native';
 import React, {FC, useEffect, useRef, useState} from 'react';
 
 import {Datum, Styles} from './index';
@@ -43,6 +49,7 @@ interface TranslateYType {
 
 interface Props {
   testID: string;
+  style?: StyleProp<ViewStyle>;
   styles?: Styles;
   datum: Datum;
   collapseOnStart: boolean;
@@ -70,6 +77,7 @@ const AccordionItem: FC<Props> = (props) => {
     renderTitle = (title) => <StyledTitle>{title}</StyledTitle>,
     renderBody = (body) => <StyledItem>{body}</StyledItem>,
     styles,
+    style,
   } = props;
 
   const rotateAnimValue = useRef(new Animated.Value(0)).current;
@@ -157,6 +165,7 @@ const AccordionItem: FC<Props> = (props) => {
           width: 300,
           transform: sumOfPrecedingTranslateY,
         },
+        style,
       ]}>
       <TitleContainer
         testID={`title_${testID}`}
