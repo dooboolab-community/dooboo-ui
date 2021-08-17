@@ -89,13 +89,14 @@ const CheckboxStory: FC = () => {
       </StyledText>
 
       <View style={{flexDirection: 'column'}}>
-        {Array(3).fill(
+        {[1, 2, 3].map((i) => (
           <Checkbox
+            key={i}
             checked={checked}
             onPress={() => setChecked(!checked)}
             rightElement={<StyledText>Hello this is a checkbox</StyledText>}
-          />,
-        )}
+          />
+        ))}
       </View>
     </>
   );
@@ -107,13 +108,14 @@ const CheckboxStory: FC = () => {
       </StyledText>
 
       <View style={{flexDirection: 'column'}}>
-        {Array(3).fill(
+        {[1, 2, 3].map((i) => (
           <Checkbox
+            key={i}
             checked={checked}
             onPress={() => setChecked(!checked)}
             leftElement={<StyledText>Hello this is a checkbox</StyledText>}
-          />,
-        )}
+          />
+        ))}
       </View>
     </>
   );
