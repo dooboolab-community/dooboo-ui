@@ -7,19 +7,34 @@ import Default from './index';
 
 > Simple drop down item component for react-native. This component supports drop down toggle with animation.<br/>
 
+interface Props {
+  style?: ViewStyle;
+  styles?: Styles;
+  data: Datum[];
+  shouldAnimate: boolean;
+  collapseOnStart: boolean;
+  animDuration?: number;
+  activeOpacity?: number;
+  toggleElement?: React.ReactElement;
+  renderTitle?: (item: string) => React.ReactElement;
+  renderBody?: (item: string) => React.ReactElement;
+}
+
 ## Props
 
-|                    | necessary | types              | default               |
-| ------------------ | --------- | ------------------ | --------------------- |
-| data               | ✓         | array              | `default data`        |
-| isAnimated         |           | boolean            | `true`                |
-| collapseOnStart    | ✓         | boolean            | `false`               |
-| animDuration       |           | number             | `300`                 |
-| activeOpacity      |           | number             | `1`                   |
-| toggleElement      |           | React.ReactElement | `default arrow image` |
-| accordionItemStyle |           | ViewStyle          | ``                    |
-| titleStyle         |           | ViewStyle          | ``                    |
-| bodyStyle          |           | ViewStyle          | ``                    |
+|                    | necessary | types                  |  default                                     |
+| ------------------ | --------- | -----------------------| ---------------------------------------------|
+| style              |           | ViewStyle              | `undefined`                                  |
+| styles             |           | Styles                 | `undefined`                                  |
+| data               | ✓         | array                  |                                              |
+| shouldAnimate      |           | boolean                | `true`                                       |
+| collapseOnStart    |           | boolean                | `true `                                      |
+| animDuration       |           | number                 | `300`                                        |
+| activeOpacity      |           | number                 | `1`                                          |
+| toggleElement      |           | React.ReactElement     | `default arrow image`                        |
+| renderTitle        |           | (string) => JSX.Element| `default wrapper`                            |
+| renderBody         |           | (string) => JSX.Element| `default wrapper`                            |
+
 
 ## Installation
 
