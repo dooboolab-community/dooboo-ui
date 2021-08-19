@@ -8,90 +8,105 @@ import {
   View,
   ViewStyle,
 } from 'react-native';
-import React, {ReactElement, useEffect, useRef, useState} from 'react';
+import {DoobooTheme, light, useTheme} from '../theme';
+import React, {FC, ReactElement, useEffect, useRef, useState} from 'react';
 
-import {DoobooTheme} from '../theme';
 import {Icon} from '../Icon';
 import {Typography} from '../Typography';
 import styled from '@emotion/native';
 import {withTheme} from '@emotion/react';
 
-const Container = styled.View`
-  z-index: 999;
-`;
-
-const SelectedItem = styled.View`
+const Title = styled.View`
   width: 200px;
   height: 30px;
   border-width: 1px;
-  border-color: ${({theme}) => theme.primary};
-  background-color: ${({theme}) => theme.textContrast};
-
   flex-direction: row;
   justify-content: center;
   align-items: center;
 `;
 
 const Item = styled.View`
+  position: absolute;
   width: 200px;
-  height: 30px;
   border-bottom-width: 1px;
   border-left-width: 1px;
   border-right-width: 1px;
-  border-color: ${({theme}) => theme.primary};
-  background-color: ${({theme}) => theme.textContrast};
-
   justify-content: center;
   align-items: center;
 `;
 
+type Styles = {
+  titleContainer?: StyleProp<ViewStyle>;
+  titleText?: StyleProp<TextStyle>;
+  rightElementContainer?: StyleProp<ViewStyle>;
+  itemContainer?: StyleProp<ViewStyle>;
+  itemText?: StyleProp<TextStyle>;
+};
 interface ItemCompProps {
   value: string;
+  styles?: Styles;
+  itemHeight?: number;
   translateYValue: number;
+  itemActiveOpacity: number;
   onPress: (value: string) => void;
 }
 
-function ItemComp({
+const ItemComp: FC<ItemCompProps> = ({
   value,
+  styles,
+  itemHeight,
   translateYValue,
+  itemActiveOpacity,
   onPress: setValue,
-}: ItemCompProps): ReactElement {
+}) => {
+  const {theme} = useTheme();
+
   return (
-    <TouchableOpacity onPress={() => setValue(value)} activeOpacity={1}>
+    <TouchableOpacity
+      onPress={() => setValue(value)}
+      activeOpacity={itemActiveOpacity}>
       <Item
-        style={{
-          position: 'absolute',
-          transform: [{translateY: translateYValue}],
-        }}>
-        <Typography.Body2>{value}</Typography.Body2>
+        style={[
+          {
+            borderColor: theme.primary,
+            backgroundColor: theme.textContrast,
+            height: itemHeight ?? 30,
+            transform: [{translateY: translateYValue}],
+          },
+          styles?.itemContainer,
+        ]}>
+        <Typography.Body2 style={styles?.itemText}>{value}</Typography.Body2>
       </Item>
     </TouchableOpacity>
   );
-}
-
-type Styles = {
-  container?: StyleProp<ViewStyle>;
-  itemContainer?: StyleProp<ViewStyle>;
-  selectedText?: StyleProp<TextStyle>;
-  itemText?: StyleProp<TextStyle>;
 };
 
 interface Props {
   data: string[];
   theme?: DoobooTheme;
-  style?: StyleProp<ViewStyle>;
   styles?: Styles;
-  onPress?: () => void;
+  rotateDuration?: number;
+  itemHeight?: number;
+  titleActiveOpacity?: number;
+  itemActiveOpacity?: number;
+  isRotate?: boolean;
+  hasRightElement?: boolean;
   rightElement?: ReactElement;
 }
 
-function Component({
-  style,
+const Component: FC<Props> = ({
   styles,
   data,
+  itemHeight,
+  rotateDuration = 200,
+  titleActiveOpacity = 1,
+  itemActiveOpacity = 1,
+  isRotate = true,
+  hasRightElement = true,
   rightElement = <Icon name="chevron-down-light" />,
-}: Props): ReactElement {
-  const ITEM_HEIGHT = 30;
+}) => {
+  const ITEM_HEIGHT = itemHeight ?? 30;
+  const {theme} = useTheme();
   const [isOpened, setIsOpened] = useState(false);
   const [selectedValue, setSelectedValue] = useState<string | null>(null);
 
@@ -108,51 +123,72 @@ function Component({
   useEffect(() => {
     const toValue = isOpened ? 1 : 0;
 
+    if (!isRotate) rotateAnimValue.setValue(toValue);
+
     Animated.timing(rotateAnimValue, {
       toValue,
-      duration: 200,
+      duration: rotateDuration,
       easing: Easing.linear,
       useNativeDriver: Platform.OS !== 'web' ? true : false,
     }).start();
-  }, [isOpened, rotateAnimValue]);
+  }, [isOpened, rotateAnimValue, rotateDuration, isRotate]);
 
   return (
-    <>
-      <Container>
-        <TouchableOpacity onPress={handlePress} activeOpacity={1}>
-          <SelectedItem>
-            <Typography.Body2>{selectedValue ?? data[0]}</Typography.Body2>
+    <View style={{zIndex: 999}}>
+      <TouchableOpacity
+        onPress={handlePress}
+        activeOpacity={titleActiveOpacity}>
+        <Title
+          style={[
+            {
+              borderColor: theme.primary,
+              backgroundColor: theme.textContrast,
+            },
+            styles?.titleContainer,
+          ]}>
+          <Typography.Body2 style={styles?.titleText}>
+            {selectedValue ?? data[0]}
+          </Typography.Body2>
+          {hasRightElement ? (
             <Animated.View
-              style={{
-                position: 'absolute',
-                right: 10,
-                transform: [
-                  {
-                    rotate: rotateAnimValue.interpolate({
-                      inputRange: [0, 1],
-                      outputRange: ['0deg', '180deg'],
-                    }),
-                  },
-                ],
-              }}>
+              style={[
+                {
+                  position: 'absolute',
+                  right: 10,
+                  transform: [
+                    {
+                      rotate: rotateAnimValue.interpolate({
+                        inputRange: [0, 1],
+                        outputRange: ['0deg', '180deg'],
+                      }),
+                    },
+                  ],
+                },
+                styles?.rightElementContainer,
+              ]}>
               {rightElement}
             </Animated.View>
-          </SelectedItem>
-        </TouchableOpacity>
-        <View>
-          {isOpened &&
-            data.map((datum, key) => (
-              <ItemComp
-                value={datum}
-                key={key}
-                onPress={handleSelectedValue}
-                translateYValue={ITEM_HEIGHT * key}
-              />
-            ))}
-        </View>
-      </Container>
-    </>
+          ) : null}
+        </Title>
+      </TouchableOpacity>
+      <View>
+        {isOpened &&
+          data.map((datum, key) => (
+            <ItemComp
+              styles={styles}
+              value={datum}
+              key={key}
+              onPress={handleSelectedValue}
+              itemHeight={ITEM_HEIGHT}
+              translateYValue={ITEM_HEIGHT * key}
+              itemActiveOpacity={itemActiveOpacity}
+            />
+          ))}
+      </View>
+    </View>
   );
-}
+};
+
+Component.defaultProps = {theme: light};
 
 export const SelectBox = withTheme(Component);

@@ -32,9 +32,11 @@ storiesOf('SelectBox', module)
   .add('SelectBox - dark', () => (
     <View
       style={{
-        backgroundColor: 'black',
         flex: 1,
+        backgroundColor: 'black',
         alignSelf: 'stretch',
+        alignItems: 'center',
+        justifyContent: 'center',
       }}>
       <ThemeProvider initialThemeType="dark">
         <SelectBoxStory />
