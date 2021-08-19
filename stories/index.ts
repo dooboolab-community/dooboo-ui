@@ -14,3 +14,4 @@ import './dooboo-ui/SwitchToggleStories';
 import './dooboo-ui/AccordionStories';
 import './packages/CalendarCarouselStories';
 import './packages/PinzoomStories';
+import './dooboo-ui/FloatingActionButton';
