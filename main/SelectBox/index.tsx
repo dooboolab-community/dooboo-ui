@@ -146,7 +146,7 @@ const Component: FC<Props> = ({
             },
             styles?.titleContainer,
           ]}>
-          <Typography.Body2 style={styles?.titleText}>
+          <Typography.Body2 style={styles?.titleText} testID="selected-value">
             {selectedValue ?? data[0]}
           </Typography.Body2>
           {hasRightElement ? (
