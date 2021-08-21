@@ -4,7 +4,6 @@ import {RenderAPI, act, fireEvent, render} from '@testing-library/react-native';
 import {EditText} from '../../main';
 import type {EditTextProps} from '../../main/EditText';
 import RNWebHooks from 'react-native-web-hooks';
-import {ReactTestInstance} from 'react-test-renderer';
 import {View} from 'react-native';
 import {createComponent} from '../../test/testUtils';
 
@@ -30,8 +29,6 @@ describe('[EditText]', () => {
     });
 
     describe('hovered', () => {
-      let container: ReactTestInstance;
-
       beforeAll(() => {
         jest.spyOn(RNWebHooks, 'useHover').mockImplementation(() => true);
       });
@@ -47,11 +44,12 @@ describe('[EditText]', () => {
           }),
         );
 
-        container = testingLib.getByTestId('container-id');
+        const container = testingLib.getByTestId('container-id');
+
         jest.runAllTimers();
 
         const containerChildViewCustomStyle =
-          container.findByType(View).instance.props.style[1][1];
+          container.findAllByType(View)[0].instance.props.style[1][1];
 
         expect(containerChildViewCustomStyle).toEqual({
           backgroundColor: 'green',
@@ -227,11 +225,53 @@ describe('[EditText]', () => {
               input: {},
               labelText: {},
               labelTextHovered: {},
+              counter: {},
             },
           }),
         );
 
         const json = testingLib.toJSON();
+
+        expect(json).toMatchSnapshot();
+        expect(json).toBeTruthy();
+      });
+
+      it('should render `maxLength` counter', () => {
+        testingLib = render(component());
+
+        const json = testingLib.toJSON();
+
+        expect(json).toBeTruthy();
+
+        testingLib = render(
+          component({
+            type: 'column',
+            textInputProps: {
+              maxLength: 10,
+            },
+          }),
+        );
+
+        expect(json).toMatchSnapshot();
+        expect(json).toBeTruthy();
+      });
+
+      it('should render `maxLength` counter with error style', () => {
+        testingLib = render(component());
+
+        const json = testingLib.toJSON();
+
+        expect(json).toBeTruthy();
+
+        testingLib = render(
+          component({
+            type: 'column',
+            textInputProps: {
+              maxLength: 10,
+            },
+            value: '0123456789',
+          }),
+        );
 
         expect(json).toMatchSnapshot();
         expect(json).toBeTruthy();
@@ -291,6 +331,26 @@ describe('[EditText]', () => {
         expect(json).toMatchSnapshot();
         expect(json).toBeTruthy();
       });
+
+      it('should render `maxLength` counter', () => {
+        testingLib = render(component());
+
+        const json = testingLib.toJSON();
+
+        expect(json).toBeTruthy();
+
+        testingLib = render(
+          component({
+            type: 'boxed',
+            textInputProps: {
+              maxLength: 10,
+            },
+          }),
+        );
+
+        expect(json).toMatchSnapshot();
+        expect(json).toBeTruthy();
+      });
     });
 
     describe('Type: [row]', () => {
@@ -340,6 +400,26 @@ describe('[EditText]', () => {
           component({
             type: 'row',
             editable: false,
+          }),
+        );
+
+        expect(json).toMatchSnapshot();
+        expect(json).toBeTruthy();
+      });
+
+      it('should render `maxLength` counter', () => {
+        testingLib = render(component());
+
+        const json = testingLib.toJSON();
+
+        expect(json).toBeTruthy();
+
+        testingLib = render(
+          component({
+            type: 'row',
+            textInputProps: {
+              maxLength: 10,
+            },
           }),
         );
 
