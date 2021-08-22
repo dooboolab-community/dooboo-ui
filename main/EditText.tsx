@@ -140,8 +140,8 @@ const Component: FC<EditTextProps & {theme: DoobooTheme}> = ({
           ],
           counter: [
             {
-              paddingHorizontal: 8,
-              paddingVertical: 10,
+              marginTop: 8,
+              paddingHorizontal: 10,
               fontSize: 12,
               color: !editable ? disableColor : textColor,
             },
@@ -263,6 +263,15 @@ const Component: FC<EditTextProps & {theme: DoobooTheme}> = ({
               color: errorColor,
             },
             styles?.errorText,
+          ],
+          counter: [
+            {
+              marginTop: 8,
+              paddingHorizontal: 10,
+              fontSize: 12,
+              color: !editable ? disableColor : textColor,
+            },
+            styles?.counter,
           ],
         };
 
