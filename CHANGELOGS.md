@@ -1,6 +1,6 @@
 ## Changelogs
 
-## 0.1.24
+## 0.1.25
 
 Add display maxLength to EditText [#75](https://github.com/dooboolab/dooboo-ui/pull/75)
 
