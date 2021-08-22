@@ -39,6 +39,18 @@ const EditTextColumn = (): React.ReactElement => {
         />
         <EditText
           type="column"
+          labelText="label"
+          placeholder="EditText with label and maxLength"
+          value={password}
+          onChangeText={(text) => onTextChanged('PASSWORD', text)}
+          style={{marginTop: 20, marginBottom: 24, paddingHorizontal: 36}}
+          textInputProps={{
+            multiline: true,
+            maxLength: 10,
+          }}
+        />
+        <EditText
+          type="column"
           labelText="disabled"
           value="Disabled EditText"
           editable={false}
