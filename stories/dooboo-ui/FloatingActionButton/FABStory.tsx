@@ -1,8 +1,8 @@
-import React, {FC, useState} from 'react';
-import {SafeAreaView, View} from 'react-native';
+import React, {FC} from 'react';
 import {useTheme, withTheme} from '../../../main/theme/ThemeProvider';
 
 import {FAB} from '../../../main';
+import {SafeAreaView} from 'react-native';
 import styled from '@emotion/native';
 
 const StoryContainer = styled.View`
@@ -13,28 +13,16 @@ const StoryContainer = styled.View`
 
 const FABContainer: FC = () => {
   const {theme} = useTheme();
-  const [isActive, setFabActive] = useState(false);
 
   return (
     <StoryContainer>
       <SafeAreaView style={{width: '100%', height: '100%'}}>
         <FAB
+          size="medium"
           theme={theme}
-          isActive={isActive}
           FABList={[{id: 'search', icon: 'home-light'}]}
           onPressFABItem={(item) => {
-            switch (item.id) {
-              case 'mainDefault':
-                setFabActive(true);
-                break;
-
-              case 'mainActive':
-                setFabActive(false);
-                break;
-
-              default:
-                break;
-            }
+            console.log(item.id);
           }}
         />
       </SafeAreaView>

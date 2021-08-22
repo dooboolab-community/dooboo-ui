@@ -22,7 +22,8 @@ type Styles = {
 };
 
 type ButtonType = 'primary' | 'secondary' | 'danger' | 'warning' | 'info';
-type ButtonSize = 'small' | 'medium' | 'large';
+
+export type ButtonSize = 'small' | 'medium' | 'large';
 
 const ButtonContainer = styled(ButtonWrapper)<{
   type: ButtonType;

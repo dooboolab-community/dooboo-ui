@@ -1,9 +1,9 @@
 import {Animated, StyleProp, View, ViewStyle} from 'react-native';
+import {ButtonSize, IconButton} from '../IconButton';
 import {DoobooTheme, withTheme} from '../theme';
 import {Icon, IconName} from '../Icon';
-import React, {ReactElement, useMemo} from 'react';
+import React, {ReactElement, useRef, useState} from 'react';
 
-import {IconButton} from '../IconButton';
 import styled from '@emotion/native';
 
 export const StyledIcon = styled(Icon)`
@@ -21,42 +21,36 @@ export interface FABItem {
 }
 
 interface FloatingActionButtonsWrapperProps<ITEM extends FABItem> {
-  isActive: boolean;
   FABList: ITEM[];
   onPressFABItem: (item: ITEM | FABItem) => void;
   renderMainFAB?: (isActive: boolean) => React.ReactElement;
   renderFABListItem?: (item: ITEM, idx: number) => React.ReactElement;
+  size: ButtonSize;
   style?: StyleProp<ViewStyle>;
 }
 
 function FloatingActionButtons<ITEM extends FABItem = FABItem>({
   theme,
-  isActive,
   FABList,
   onPressFABItem,
   renderMainFAB,
   renderFABListItem,
+  size = 'large',
   style,
 }: FloatingActionButtonsWrapperProps<ITEM> & {
   theme: DoobooTheme;
 }): ReactElement {
-  const mainFAB: React.ReactElement = useMemo(() => {
-    const defaultFab = isActive ? (
-      <IconButton
-        icon={<StyledIcon size={24} name="cross-light" />}
-        onPress={() => onPressFABItem({id: 'mainActive', icon: 'cross-light'})}
-      />
-    ) : (
-      <IconButton
-        icon={<StyledIcon size={24} name="add-light" />}
-        onPress={() => onPressFABItem({id: 'mainDefault', icon: 'add-light'})}
-      />
-    );
+  const fadeAnim = useRef(new Animated.Value(1)).current;
 
-    const fab = renderMainFAB ? renderMainFAB(isActive) : defaultFab;
+  const [isActive, setFabActive] = useState(false);
 
-    return fab;
-  }, [renderMainFAB, isActive, onPressFABItem]);
+  React.useEffect(() => {
+    return Animated.timing(fadeAnim, {
+      toValue: 1,
+      duration: 1000,
+      useNativeDriver: true,
+    }).start();
+  }, [fadeAnim, isActive]);
 
   return (
     <View
@@ -68,7 +62,10 @@ function FloatingActionButtons<ITEM extends FABItem = FABItem>({
           position: 'absolute',
         }
       }>
-      <Animated.View>
+      <Animated.View
+        style={{
+          opacity: fadeAnim,
+        }}>
         {isActive &&
           FABList.map((item, idx) =>
             renderFABListItem ? (
@@ -79,6 +76,7 @@ function FloatingActionButtons<ITEM extends FABItem = FABItem>({
               <FABItemWrapperView key={item.icon + idx}>
                 {
                   <IconButton
+                    size={size}
                     icon={
                       <StyledIcon theme={theme} size={24} name={item.icon} />
                     }
@@ -89,7 +87,22 @@ function FloatingActionButtons<ITEM extends FABItem = FABItem>({
             ),
           )}
       </Animated.View>
-      <FABItemWrapperView>{mainFAB}</FABItemWrapperView>
+      <FABItemWrapperView>
+        {renderMainFAB ? (
+          renderMainFAB(isActive)
+        ) : (
+          <IconButton
+            size={size}
+            icon={
+              <StyledIcon
+                size={24}
+                name={isActive ? 'cross-light' : 'add-light'}
+              />
+            }
+            onPress={() => setFabActive((prevState) => !prevState)}
+          />
+        )}
+      </FABItemWrapperView>
     </View>
   );
 }
