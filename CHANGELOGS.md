@@ -1,5 +1,15 @@
 ## Changelogs
 
+## 0.1.24
+
+Add display maxLength to EditText [#75](https://github.com/dooboolab/dooboo-ui/pull/75)
+
+- By [rarira](https://github.com/rarira) ✨
+
+Replace style props to styles in [Accordion] [#69](https://github.com/dooboolab/dooboo-ui/pull/69)
+
+- By [yujong-lee](https://github.com/yujong-lee) ✨
+
 ## 0.1.23
 
 Detect orientation on media query [#68](https://github.com/dooboolab/dooboo-ui/pull/68)
