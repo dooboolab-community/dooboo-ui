@@ -16,7 +16,10 @@
   "peerDependencies": {
     "react": ">=16.9",
     "react-native": ">=0.58",
-    "emotion": ">=11.0.0"
+    "emotion": ">=11.0.0",
+    "@emotion/react": "^11.4.1",
+    "@emotion/native": "^11.0.0",
+    "react-native-vector-icons": "^8.1.0"
   },
   "dependencies": {
     "dooboolab-welcome": "^1.2.0",
