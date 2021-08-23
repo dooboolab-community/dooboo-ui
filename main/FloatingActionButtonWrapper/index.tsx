@@ -1,8 +1,8 @@
-import {Animated, StyleProp, View, ViewStyle} from 'react-native';
+import {Animated, Easing, StyleProp, View, ViewStyle} from 'react-native';
 import {ButtonSize, IconButton} from '../IconButton';
 import {DoobooTheme, withTheme} from '../theme';
 import {Icon, IconName} from '../Icon';
-import React, {ReactElement, useRef, useState} from 'react';
+import React, {ReactElement, useEffect, useRef, useState} from 'react';
 
 import styled from '@emotion/native';
 
@@ -40,15 +40,15 @@ function FloatingActionButtons<ITEM extends FABItem = FABItem>({
 }: FloatingActionButtonsWrapperProps<ITEM> & {
   theme: DoobooTheme;
 }): ReactElement {
-  const fadeAnim = useRef(new Animated.Value(1)).current;
-
   const [isActive, setFabActive] = useState(false);
+  const fadeAnim = useRef(new Animated.Value(0));
 
-  React.useEffect(() => {
-    return Animated.timing(fadeAnim, {
-      toValue: 1,
-      duration: 1000,
+  useEffect(() => {
+    return Animated.timing(fadeAnim.current, {
+      toValue: isActive ? 1 : 0,
       useNativeDriver: true,
+      easing: Easing.quad,
+      duration: 200,
     }).start();
   }, [fadeAnim, isActive]);
 
@@ -64,28 +64,25 @@ function FloatingActionButtons<ITEM extends FABItem = FABItem>({
       }>
       <Animated.View
         style={{
-          opacity: fadeAnim,
+          opacity: fadeAnim.current,
         }}>
-        {isActive &&
-          FABList.map((item, idx) =>
-            renderFABListItem ? (
-              <FABItemWrapperView key={item.icon + idx}>
-                {renderFABListItem(item, idx)}
-              </FABItemWrapperView>
-            ) : (
-              <FABItemWrapperView key={item.icon + idx}>
-                {
-                  <IconButton
-                    size={size}
-                    icon={
-                      <StyledIcon theme={theme} size={24} name={item.icon} />
-                    }
-                    onPress={() => onPressFABItem(item)}
-                  />
-                }
-              </FABItemWrapperView>
-            ),
-          )}
+        {FABList.map((item, idx) =>
+          renderFABListItem ? (
+            <FABItemWrapperView key={item.icon + idx}>
+              {renderFABListItem(item, idx)}
+            </FABItemWrapperView>
+          ) : (
+            <FABItemWrapperView key={item.icon + idx}>
+              {
+                <IconButton
+                  size={size}
+                  icon={<StyledIcon theme={theme} size={24} name={item.icon} />}
+                  onPress={() => onPressFABItem(item)}
+                />
+              }
+            </FABItemWrapperView>
+          ),
+        )}
       </Animated.View>
       <FABItemWrapperView>
         {renderMainFAB ? (
