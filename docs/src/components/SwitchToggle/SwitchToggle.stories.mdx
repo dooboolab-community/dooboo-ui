@@ -1,0 +1,57 @@
+import {Meta, Story, Canvas} from '@storybook/addon-docs/blocks';
+import {Basic }from './index'
+
+<Meta title="Components/SwitchToggle" />
+
+# SwitchToggle
+
+> Simple SwitchToggle with animation for react-native.<br/>
+
+## Props
+
+|                 | necessary | types                   | Description   | default               |
+| --------------- | --------- | ----------------------- | ------------- | --------------------- |
+| testID          |           | `string`                |               | `undefined`           |
+| isOn            |     ✓     | `boolean`               |               |                       |
+| theme           |           | `DoobooTheme`           |               | `light`               |
+| style           |           | `styleProp<ViewStyle>`  |               | `undefined`           |
+| styles          |           | `Styles`                |               | `defaultContainerStyle, defaultCircleStyle `               |
+| duration        |           | `number`                |               | `300`                 |
+| onElement       |           | `React.ReactElement`    |               | `undefined`           |
+| offElement      |           | `React.ReactElement`    |               | `undefined`           |
+| onPress         |           | `() => void`            |               | `undefined`           |
+
+
+```typescript
+interface Styles {
+  containerStyle?: ViewStyle;
+  onElementContainerStyle?: StyleProp<ViewStyle>;
+  offElementContainerStyle?: StyleProp<ViewStyle>;
+  circleStyle?: ViewStyle;
+  buttonStyle?: StyleProp<ViewStyle>;
+  circleColorOff?: string;
+  circleColorOn?: string;
+  backgroundColorOn?: string;
+  backgroundColorOff?: string;
+}
+
+const defaultContainerStyle: ViewStyle = {
+  width: 80,
+  height: 40,
+  borderRadius: 25,
+  padding: 5,
+};
+
+const defaultCircleStyle: ViewStyle = {
+  width: 32,
+  height: 32,
+  borderRadius: 16,
+};
+```
+
+## Demo
+
+### Basic Style
+<Basic/>
+
+

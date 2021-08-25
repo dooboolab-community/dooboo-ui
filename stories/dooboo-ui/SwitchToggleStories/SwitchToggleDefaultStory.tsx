@@ -34,7 +34,7 @@ const SwitchToggleDefault: FC = () => {
           <Typography.Heading3 style={{fontSize: 18, marginBottom: 8}}>
             Basic Style
           </Typography.Heading3>
-          <SwitchToggle switchOn={on} onPress={() => off(!on)} />
+          <SwitchToggle isOn={on} onPress={() => off(!on)} />
         </Container>
 
         <Container style={{paddingVertical: 30}}>
@@ -42,12 +42,14 @@ const SwitchToggleDefault: FC = () => {
             Custom Color
           </Typography.Heading3>
           <SwitchToggle
-            switchOn={on}
+            isOn={on}
             onPress={() => off(!on)}
-            circleColorOff={theme.disabled}
-            circleColorOn={theme.secondary}
-            backgroundColorOn={theme.placeholder}
-            backgroundColorOff={theme.textDisabled}
+            styles={{
+              circleColorOff: theme.disabled,
+              circleColorOn: theme.secondary,
+              backgroundColorOn: theme.placeholder,
+              backgroundColorOff: theme.textDisabled,
+            }}
           />
         </Container>
         <Container style={{paddingVertical: 30}}>
@@ -55,19 +57,21 @@ const SwitchToggleDefault: FC = () => {
             Custom Size
           </Typography.Heading3>
           <SwitchToggle
-            switchOn={on}
+            isOn={on}
             onPress={() => off(!on)}
-            containerStyle={{
-              marginTop: 16,
-              width: 106,
-              height: 48,
-              borderRadius: 25,
-              padding: 5,
-            }}
-            circleStyle={{
-              width: 40,
-              height: 40,
-              borderRadius: 20,
+            styles={{
+              containerStyle: {
+                marginTop: 16,
+                width: 106,
+                height: 48,
+                borderRadius: 25,
+                padding: 5,
+              },
+              circleStyle: {
+                width: 40,
+                height: 40,
+                borderRadius: 20,
+              },
             }}
           />
         </Container>
