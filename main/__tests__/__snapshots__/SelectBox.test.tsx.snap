@@ -3,9 +3,9 @@
 exports[`[SelectBox] render test should adjust duration of animation depends on rotateDuration props value 1`] = `
 <View
   style={
-    Object {
-      "zIndex": 999,
-    }
+    Array [
+      undefined,
+    ]
   }
 >
   <View
@@ -105,16 +105,24 @@ exports[`[SelectBox] render test should adjust duration of animation depends on 
       </View>
     </View>
   </View>
-  <View />
+  <View>
+    <View
+      style={
+        Object {
+          "position": "absolute",
+        }
+      }
+    />
+  </View>
 </View>
 `;
 
 exports[`[SelectBox] render test should render without crashing 1`] = `
 <View
   style={
-    Object {
-      "zIndex": 999,
-    }
+    Array [
+      undefined,
+    ]
   }
 >
   <View
@@ -190,16 +198,24 @@ exports[`[SelectBox] render test should render without crashing 1`] = `
       </View>
     </View>
   </View>
-  <View />
+  <View>
+    <View
+      style={
+        Object {
+          "position": "absolute",
+        }
+      }
+    />
+  </View>
 </View>
 `;
 
 exports[`[SelectBox] render test should rightElement rotate when isRotate is true 1`] = `
 <View
   style={
-    Object {
-      "zIndex": 999,
-    }
+    Array [
+      undefined,
+    ]
   }
 >
   <View
@@ -299,6 +315,14 @@ exports[`[SelectBox] render test should rightElement rotate when isRotate is tru
       </View>
     </View>
   </View>
-  <View />
+  <View>
+    <View
+      style={
+        Object {
+          "position": "absolute",
+        }
+      }
+    />
+  </View>
 </View>
 `;
