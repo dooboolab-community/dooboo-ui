@@ -1,7 +1,6 @@
 import {Animated, StyleProp, ViewStyle} from 'react-native';
 import React, {FC, useRef} from 'react';
 
-
 import styled from '@emotion/native';
 import AccordionItem from './AccordionItem';
 
