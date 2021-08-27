@@ -1,8 +1,10 @@
 import React, {ReactElement} from 'react';
-import {RenderAPI, fireEvent, render} from '@testing-library/react-native';
+import {RenderAPI, render} from '@testing-library/react-native';
 import {createComponent, createTestProps} from '../../test/testUtils';
 
 import {SelectBox} from '../SelectBox';
+
+jest.mock('react-native-gesture-handler');
 
 let props: any;
 let component: ReactElement;
@@ -34,18 +36,6 @@ describe('[SelectBox] render test', () => {
     const json = testingLib.toJSON();
 
     expect(json).toMatchSnapshot();
-  });
-
-  it('should render first value of data at first', () => {
-    props = createTestProps({data});
-
-    component = createComponent(<SelectBox {...props} />);
-
-    testingLib = render(component);
-
-    const selectedValue = testingLib.getByTestId('selected-value');
-
-    expect(selectedValue.props.children).toEqual('item1');
   });
 
   it('should adjust duration of animation depends on rotateDuration props value', () => {

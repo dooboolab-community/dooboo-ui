@@ -4,7 +4,6 @@ import {
   Platform,
   StyleProp,
   TextStyle,
-  TouchableOpacity,
   View,
   ViewStyle,
 } from 'react-native';
@@ -12,6 +11,7 @@ import {DoobooTheme, light, useTheme} from '../theme';
 import React, {FC, ReactElement, useEffect, useRef, useState} from 'react';
 
 import {Icon} from '../Icon';
+import {TouchableOpacity} from 'react-native-gesture-handler';
 import {Typography} from '../Typography';
 import styled from '@emotion/native';
 import {withTheme} from '@emotion/react';
@@ -141,7 +141,7 @@ const Component: FC<Props> = ({
             },
             styles?.titleContainer,
           ]}>
-          <Typography.Body2 style={styles?.titleText} testID="selected-value">
+          <Typography.Body2 style={styles?.titleText}>
             {data[selectedIndex]}
           </Typography.Body2>
           {rightElement ? (

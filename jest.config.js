@@ -32,7 +32,10 @@ module.exports = {
     '\\.svg': '<rootDir>/__mocks__/svgMock.js',
     '.+\\.(css|styl|less|sass|scss|png|jpg|ttf|woff|woff2)$': 'babel-jest',
   },
-  setupFiles: [...expoPreset.setupFiles],
+  setupFiles: [
+    ...expoPreset.setupFiles,
+    './node_modules/react-native-gesture-handler/jestSetup.js',
+  ],
   cacheDirectory: '.jest/cache',
   setupFilesAfterEnv: ['./test/setupTest.ts'],
   haste: {
