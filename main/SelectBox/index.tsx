@@ -94,7 +94,7 @@ interface Props {
   rotateDuration?: number;
   titleActiveOpacity?: number;
   itemActiveOpacity?: number;
-  isRotate?: boolean;
+  shouldRotate?: boolean;
   rightElement?: ReactElement | null;
 }
 
@@ -107,7 +107,7 @@ const Component: FC<Props> = ({
   rotateDuration = 200,
   titleActiveOpacity = 1,
   itemActiveOpacity = 1,
-  isRotate: shouldRotate = true,
+  shouldRotate = true,
   rightElement = <Icon name="chevron-down-light" />,
 }) => {
   const {theme} = useTheme();

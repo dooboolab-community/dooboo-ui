@@ -72,7 +72,7 @@ const SelectBoxStory: FC = () => {
         style={{zIndex: 998}}
         onPress={(index: number) => setValue2(index)}
         selectedIndex={value2}
-        isRotate={false}
+        shouldRotate={false}
         styles={{
           titleContainer: {
             backgroundColor: theme.info,
