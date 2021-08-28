@@ -35,12 +35,6 @@ export const Outlined: FC<{themeType: ThemeType}> = ({themeType}) => {
           <Button type="warning" text="Warning" outlined style={{padding: 8}} />
           <Button type="info" text="Info" outlined style={{padding: 8}} />
           <Button type="light" text="Light" outlined style={{padding: 8}} />
-          <Button
-            disabled={true}
-            text="Disabled"
-            outlined
-            style={{padding: 8}}
-          />
         </View>
       </StoryContainer>
     </ThemeProvider>

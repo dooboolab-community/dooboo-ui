@@ -14,7 +14,7 @@ const StoryContainer = styled.View`
   align-items: center;
 `;
 
-export const Basic: FC<{themeType: ThemeType}> = ({themeType}) => {
+export const Disabled: FC<{themeType: ThemeType}> = ({themeType}) => {
   return (
     <ThemeProvider initialThemeType={themeType}>
       <StoryContainer>
@@ -24,8 +24,8 @@ export const Basic: FC<{themeType: ThemeType}> = ({themeType}) => {
             flexWrap: 'wrap',
             justifyContent: 'center',
           }}>
-          <Button text="Button" style={{padding: 8}} />
-          <Button text="Button" outlined style={{padding: 8}} />
+          <Button disabled={true} text="Disabled" style={{padding: 8}} />
+          <Button disabled={true} outlined text="Disabled" style={{padding: 8}} />
         </View>
       </StoryContainer>
     </ThemeProvider>
