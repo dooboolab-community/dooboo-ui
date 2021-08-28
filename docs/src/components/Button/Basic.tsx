@@ -19,7 +19,7 @@ export const Basic: FC<{themeType: ThemeType}> = ({themeType}) => {
     <ThemeProvider initialThemeType={themeType}>
       <StoryContainer>
         <View
-          style = {{
+          style={{
             flexDirection: 'row',
             flexWrap: 'wrap',
             justifyContent: 'center',

@@ -19,13 +19,18 @@ export const Disabled: FC<{themeType: ThemeType}> = ({themeType}) => {
     <ThemeProvider initialThemeType={themeType}>
       <StoryContainer>
         <View
-          style = {{
+          style={{
             flexDirection: 'row',
             flexWrap: 'wrap',
             justifyContent: 'center',
           }}>
           <Button disabled={true} text="Disabled" style={{padding: 8}} />
-          <Button disabled={true} outlined text="Disabled" style={{padding: 8}} />
+          <Button
+            disabled={true}
+            outlined
+            text="Disabled"
+            style={{padding: 8}}
+          />
         </View>
       </StoryContainer>
     </ThemeProvider>
