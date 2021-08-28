@@ -1,6 +1,15 @@
 import {Meta, Story, Canvas} from '@storybook/addon-docs/blocks';
 import {ThemeProvider} from 'dooboo-ui';
-import {Basic, AdditionalElement, Outlined, Sizes} from './index';
+import {
+  Basic,
+  Loading,
+  OnPress,
+  AdditionalElement,
+  Outlined,
+  Sizes,
+  Solid,
+  Disabled,
+} from './index';
 
 <Meta title="Components/Button" />
 
@@ -18,54 +27,227 @@ import {Button} from 'dooboo-ui';
 
 ## Props
 
-|                        | Types                                    | Description                             |
-| ---------------------- | ---------------------------------------- | --------------------------------------- |
-| testID?                | `string`                                 |                                         |
-| indicatorColor?        | `string`                                 |                                         |
-| loading?               | `boolean`                                |                                         |
-| disabled?              | `boolean`                                |                                         |
-| style?                 | `StyleProp<ViewStyle>`                   | root `ViewStyle`                        |
-| styles?                | `Styles`                                 | List of all style props within [Button] |
-| leftElement?           | `ReactElement`                           | Extra element to place on the left      |
-| rightElement?          | `ReactElement`                           | Extra element to place on the right     |
-| activeOpacity?         | `TouchableOpacityProps['activeOpacity']` |                                         |
-| text?                  | `string`                                 |                                         |
-| onPress?               | `TouchableOpacityProps['onPress']`       |                                         |
-| touchableOpacityProps? | `Partial<TouchableOpacityProps>`         |                                         |
-| textProps?             | `Partial<TextProps>`                     |                                         |
-| type?                  | `ButtonType`                             |                                         |
-| size?                  | `ButtonSize`                             |                                         |
+|                       | necessary | Types                                    | Description                             | Default   |
+| --------------------- | --------- | ---------------------------------------- | --------------------------------------- | --------- |
+| indicatorColor        |           | `string`                                 | Loading spinner color                   | `black`   |
+| testID                |           | `string`                                 |                                         |           |
+| loading               |           | `boolean`                                |                                         | `false`   |
+| disabled              |           | `boolean`                                |                                         | `false`   |
+| style                 |           | `StyleProp<ViewStyle>`                   | root `ViewStyle`                        |           |
+| styles                |           | `Styles`                                 | List of all style props within [Button] |           |
+| leftElement           |           | `ReactElement`                           | Extra element to place on the left      |           |
+| rightElement          |           | `ReactElement`                           | Extra element to place on the right     |           |
+| activeOpacity         |           | `TouchableOpacityProps['activeOpacity']` |                                         |           |
+| text                  |           | `string`                                 |                                         |           |
+| onPress               |           | `TouchableOpacityProps['onPress']`       |                                         |           |
+| touchableOpacityProps |           | `Partial<TouchableOpacityProps>`         |                                         |           |
+| textProps             |           | `Partial<TextProps>`                     |                                         |           |
+| type                  |           | `ButtonType`                             |                                         | `Primary` |
+| size                  |           | `ButtonSize`                             |                                         | `medium`  |
 
 ## Demo
 
 ### Basic Style
 
-#### light
-<Basic themeType="light"/>
+```tsx
+<Button text="Button" style={{padding: 8}} />
+<Button text="Button" outlined style={{padding: 8}} />
+```
 
-#### dark
-<Basic themeType="dark"/>
+<Basic themeType="light" />
+<Basic themeType="dark" />
 
-### Outlined
+### Solid Color type
 
-#### light
-<Outlined themeType="light"/>
+`primary` `secondary` `success` `danger` `warning` `info` `light`
 
-#### dark
-<Outlined themeType="dark"/>
+The `type` prop can generate many different buttons.
+The default value of type is `primary`.
 
-### Aspect of sizes 
+```tsx
+<Button type="primary" text="Primary" style={{padding: 8}} />
+<Button type="secondary" text="Secondary" style={{padding: 8}} />
+<Button type="success" text="Success" style={{padding: 8}} />
+<Button type="danger" text="Danger" style={{padding: 8}} />
+<Button type="warning" text="Warning" style={{padding: 8}} />
+<Button type="info" text="Info" style={{padding: 8}} />
+<Button type="light" text="Light" style={{padding: 8}} />
+```
 
-#### light
-<Sizes themeType="light"/>
+<Solid themeType="light" />
+<Solid themeType="dark" />
 
-#### dark
-<Sizes themeType="dark"/>
+### Outlined Color type
 
-## AdditionalElement
+Generate bordering button by adding `outlined` prop.
 
-#### light
-<AdditionalElement themeType="light"/>
+```tsx
+<Button type="primary" text="Primary" outlined style={{padding: 8}} />
+<Button type="secondary" text="Secondary" outlined style={{padding: 8}} />
+<Button type="success" text="Success" outlined style={{padding: 8}} />
+<Button type="danger" text="Danger" outlined style={{padding: 8}} />
+<Button type="warning" text="Warning" outlined style={{padding: 8}} />
+<Button type="info" text="Info" outlined style={{padding: 8}} />
+<Button type="light" text="Light" outlined style={{padding: 8}} />
+```
 
-#### dark
-<AdditionalElement themeType="dark"/>
+<Outlined themeType="light" />
+<Outlined themeType="dark" />
+
+### Disabled button
+
+The `disabled` prop can generate disabled button which is not pressed.
+And it can't apply `type`.
+
+```tsx
+<Button disabled={true} text="Disabled" style={{padding: 8}} />
+<Button disabled={true} outlined text="Disabled" style={{padding: 8}} />
+```
+
+<Disabled themeType="light" />
+<Disabled themeType="dark" />
+
+### Loading
+
+`loading` `indicatorColor`
+
+Set `loading` prop to generate always loading button.
+And change loading spinner color by using `indicatorColor` prop.
+
+```tsx
+<Button loading={true} style={{padding: 8}} />
+<Button loading={true} indicatorColor="orange" style={{padding: 8}} />
+```
+
+<Loading themeType="light" />
+<Loading themeType="dark" />
+
+### Aspect of sizes
+
+`large` `medium` `small`
+
+The `size` prop can generate many size buttons.
+
+```tsx
+<Button size="large" text="large" style={{padding: 8}}/>
+<Button size="medium" text="large" style={{padding: 8}}/>
+<Button size="small" text="large" style={{padding: 8}}/>
+```
+
+<Sizes themeType="light" />
+<Sizes themeType="dark" />
+
+### `onPress` event
+
+When pressing button, some event can generate by using `onPress` prop.
+
+```tsx
+const [value, setValue] = useState(1);
+const onIncrease = () => {
+  setValue(value + 1);
+};
+const onDecrease = () => {
+  setValue(value - 1);
+};
+
+return (
+  <ThemeProvider initialThemeType={themeType}>
+    <StoryContainer>
+      <View
+        style={{
+          flexDirection: 'row',
+          flexWrap: 'wrap',
+          justifyContent: 'center',
+        }}>
+        <Button text="Increase" style={{padding: 8}} onPress={onIncrease} />
+        <Button text="Decrease" style={{padding: 8}} onPress={onDecrease} />
+        <span>value : {value}</span>
+      </View>
+    </StoryContainer>
+  </ThemeProvider>
+);
+```
+
+<OnPress themeType="light" />
+<OnPress themeType="dark" />
+
+### AdditionalElement
+
+Add addtional element by using `leftElement`, `rightElement` props.
+
+```tsx
+const [facebookLoading, setFacebookLoading] = useState<boolean>(false);
+const [googleLoading, setGoogleLoading] = useState<boolean>(false);
+
+return (
+  <ThemeProvider initialThemeType={themeType}>
+    <StoryContainer>
+      <Button
+        leftElement={
+          <View style={{marginRight: 12}}>
+            <Image style={{width: 20, height: 20}} source={IC_GOOGLE} />
+          </View>
+        }
+        outlined
+        loading={googleLoading}
+        style={{margin: 10}}
+        styles={{
+          container: css`
+            padding: 10px;
+            border-radius: 80px;
+            border-width: 0.5px;
+            width: 300px;
+            height: 52px;
+          `,
+        }}
+        onPress={(): void => {
+          setGoogleLoading(true);
+          action('google btn clicked');
+
+          const timeout = setTimeout(() => {
+            setGoogleLoading(false);
+            clearTimeout(timeout);
+          }, 2000);
+        }}
+        text="GOOGLE SIGN IN"
+      />
+      <Button
+        testID="btnFacebook"
+        outlined
+        leftElement={
+          <View
+            style={{
+              position: 'absolute',
+              left: 28,
+            }}>
+            <Image style={{width: 15, height: 28}} source={IC_FACEBOOK} />
+          </View>
+        }
+        loading={facebookLoading}
+        style={{margin: 10}}
+        styles={{
+          container: css`
+            border-radius: 80px;
+            border-width: 0.5px;
+            width: 300px;
+            height: 52px;
+          `,
+        }}
+        onPress={(): void => {
+          setFacebookLoading(true);
+          action('facebook btn clicked');
+
+          const timeout = setTimeout(() => {
+            setFacebookLoading(false);
+            clearTimeout(timeout);
+          }, 2000);
+        }}
+        text="FACEBOOK SIGN IN"
+      />
+    </StoryContainer>
+  </ThemeProvider>
+);
+```
+
+<AdditionalElement themeType="light" />
+<AdditionalElement themeType="dark" />
