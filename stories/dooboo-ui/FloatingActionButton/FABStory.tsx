@@ -27,11 +27,11 @@ const FABContainer: FC = () => {
         <FAB
           size="medium"
           theme={theme}
-          FABList={[
+          ButtonList={[
             {id: 'search', icon: 'home-light'},
-            {id: 'search', icon: 'like-light'},
+            {id: 'like', icon: 'like-light'},
           ]}
-          onPressFABItem={(item) => {
+          onPressListItem={(item) => {
             console.log(item.id);
           }}
         />
