@@ -34,13 +34,13 @@ const RadioGroupStory = ({title, type}: Props): React.ReactElement => {
   );
 };
 
-export const Light = ({title, type}: Props): ReactElement => (
+export const DefaultLight = ({title, type}: Props): ReactElement => (
   <ThemeProvider initialThemeType="light">
     <RadioGroupStory title={title} type={type} />
   </ThemeProvider>
 );
 
-export const Dark = ({title, type}: Props): ReactElement => (
+export const DefaultDark = ({title, type}: Props): ReactElement => (
   <ThemeProvider initialThemeType="dark">
     <RadioGroupStory title={title} type={type} />
   </ThemeProvider>

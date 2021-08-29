@@ -1,4 +1,5 @@
-import {Dark, Light} from './Default';
+import {DefaultDark, DefaultLight} from './Default';
+import {WithLabelsDark, WithLabelsLight} from './WithLabels';
 
 import {View} from 'react-native';
 import styled from '@emotion/native';
@@ -11,20 +12,41 @@ const Container = styled.SafeAreaView`
 export const Default = (): React.ReactElement => (
   <Container>
     <View style={{flex: 1, marginRight: 15}}>
-      <Light title={'primary'} type={'primary'} />
-      <Light title={'secondary'} type={'secondary'} />
-      <Light title={'success'} type={'success'} />
-      <Light title={'info'} type={'info'} />
-      <Light title={'warning'} type={'warning'} />
-      <Light title={'danger'} type={'danger'} />
+      <DefaultLight title={'primary'} type={'primary'} />
+      <DefaultLight title={'secondary'} type={'secondary'} />
+      <DefaultLight title={'success'} type={'success'} />
+      <DefaultLight title={'info'} type={'info'} />
+      <DefaultLight title={'warning'} type={'warning'} />
+      <DefaultLight title={'danger'} type={'danger'} />
     </View>
     <View style={{flex: 1}}>
-      <Dark title={'primary'} type={'primary'} />
-      <Dark title={'secondary'} type={'secondary'} />
-      <Dark title={'success'} type={'success'} />
-      <Dark title={'info'} type={'info'} />
-      <Dark title={'warning'} type={'warning'} />
-      <Dark title={'danger'} type={'danger'} />
+      <DefaultDark title={'primary'} type={'primary'} />
+      <DefaultDark title={'secondary'} type={'secondary'} />
+      <DefaultDark title={'success'} type={'success'} />
+      <DefaultDark title={'info'} type={'info'} />
+      <DefaultDark title={'warning'} type={'warning'} />
+      <DefaultDark title={'danger'} type={'danger'} />
+    </View>
+  </Container>
+);
+
+export const WithLabels = (): React.ReactElement => (
+  <Container>
+    <View style={{flex: 1, marginRight: 15}}>
+      <WithLabelsLight title={'primary'} type={'primary'} />
+      <WithLabelsLight title={'secondary'} type={'secondary'} />
+      <WithLabelsLight title={'success'} type={'success'} />
+      <WithLabelsLight title={'info'} type={'info'} />
+      <WithLabelsLight title={'warning'} type={'warning'} />
+      <WithLabelsLight title={'danger'} type={'danger'} />
+    </View>
+    <View style={{flex: 1}}>
+      <WithLabelsDark title={'primary'} type={'primary'} />
+      <WithLabelsDark title={'secondary'} type={'secondary'} />
+      <WithLabelsDark title={'success'} type={'success'} />
+      <WithLabelsDark title={'info'} type={'info'} />
+      <WithLabelsDark title={'warning'} type={'warning'} />
+      <WithLabelsDark title={'danger'} type={'danger'} />
     </View>
   </Container>
 );
