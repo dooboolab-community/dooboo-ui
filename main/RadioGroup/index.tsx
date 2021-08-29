@@ -11,7 +11,7 @@ import {Heading3} from '../Typography/Typography';
 import styled from '@emotion/native';
 
 type Styles = {
-  constainer?: StyleProp<ViewStyle>;
+  container?: StyleProp<ViewStyle>;
   title?: StyleProp<TextStyle>;
   label?: StyleProp<TextStyle>;
 };
