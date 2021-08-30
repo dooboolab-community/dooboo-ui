@@ -1,15 +1,13 @@
-import { addDecorator, addParameters } from '@storybook/react';
+import {addDecorator, addParameters} from '@storybook/react';
 
 import {createElement} from 'react';
-import { themes } from '@storybook/theming';
+import theme from './theme';
 
 addDecorator(createElement);
 
 // Option defaults:
 addParameters({
-  docs: {
-    theme: themes.dark
-  },
+  docs: {theme},
   options: {
     storySort: (a, b) => {
       const sectionA = a[1].id.split('-')[0];
@@ -18,7 +16,9 @@ addParameters({
         return a[0].localeCompare(b[0]);
       }
       const sectionMap = {
-        overview: 0, components: 1, packages: 2
+        overview: 0,
+        components: 1,
+        packages: 2,
       };
       return sectionMap[sectionA] - sectionMap[sectionB];
     },
