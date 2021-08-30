@@ -41,7 +41,7 @@ const RadioButtonStory: FC = () => {
             <View
               key={`${el}-${i}`}
               style={{flexDirection: 'row', marginTop: 24}}>
-              <RadioGroup<string>
+              <RadioGroup
                 title={el}
                 data={data}
                 type={el as RadioButtonType}
@@ -59,7 +59,7 @@ const RadioButtonStory: FC = () => {
             <View
               key={`${el}-${i}`}
               style={{flexDirection: 'row', marginTop: 24}}>
-              <RadioGroup<string>
+              <RadioGroup
                 title={el}
                 data={data}
                 type={el as RadioButtonType}
