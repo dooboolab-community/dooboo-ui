@@ -1,0 +1,42 @@
+import {Meta, Story, Canvas} from '@storybook/addon-docs/blocks';
+import {ThemeProvider} from 'dooboo-ui';
+import {Default, WithLabels} from './index.tsx';
+
+<Meta title="Components/RadioGroup" />
+
+# RadioGroup
+
+> [RadioGroup] component with default styles with animation. `title` and `labels` can be added.
+
+## Usage
+
+```tsx
+import {RadioGroup} from 'dooboo-ui';
+
+<RadioGroup {...props} />;
+```
+
+## Props
+
+|               | necessary | Types                    | Description                                 |
+| ------------- | --------- | ------------------------ | ------------------------------------------- |
+| title         |           | `string`                 |                                             |
+| labels        |           | `string[]`               | List of labels for each button              |
+| data          | ✓         | `T[]`                    | List of values for each button              |
+| selectedValue | ✓         | `T`                      | Default selected value                      |
+| selectValue   |           | `(item: T) => void`      |                                             |
+| type          |           | `RadioButtonType`        | Type for [RadioGroup]                       |
+| style         |           | `StyleProp<ViewStyle>`   | root ViewStyle                              |
+| styles        |           | `Styles`                 | List of all style props within [RadioGroup] |
+| labelPosition |           | `'left'` &#124 `'right'` | Default set to `right`                      |
+| radioType     |           |                          |                                             |
+
+## Demo
+
+### Basic Style
+
+<Default />
+
+### With Labels
+
+<WithLabels />

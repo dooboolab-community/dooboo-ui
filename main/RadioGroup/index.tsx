@@ -11,7 +11,7 @@ import {Heading3} from '../Typography/Typography';
 import styled from '@emotion/native';
 
 type Styles = {
-  constainer?: StyleProp<ViewStyle>;
+  container?: StyleProp<ViewStyle>;
   title?: StyleProp<TextStyle>;
   label?: StyleProp<TextStyle>;
 };
@@ -59,7 +59,7 @@ function RadioGroupContainer<T>(
     <Container style={style}>
       <Heading3 style={styles?.title}>{title}</Heading3>
       {title && <View style={{height: 8}} />}
-      <Content style={styles?.constainer}>
+      <Content style={styles?.container}>
         {data.map((datum, i) => {
           return (
             <RadioButtonComp
