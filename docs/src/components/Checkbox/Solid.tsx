@@ -26,10 +26,15 @@ const Component: FC = () => {
         backgroundColor: theme.background,
         flex: 1,
         alignSelf: 'stretch',
-
         flexDirection: 'row',
+        justifyContent: 'center',
+        padding: 5,
       }}>
-      <Checkbox checked={checked} onPress={() => setChecked(!checked)} />
+      <Checkbox
+        checked={checked}
+        onPress={() => setChecked(!checked)}
+        type="primary"
+      />
       <View style={{width: 8}} />
       <Checkbox
         checked={checked}
@@ -60,16 +65,11 @@ const Component: FC = () => {
         onPress={() => setChecked(!checked)}
         type="danger"
       />
-      <Checkbox
-        checked={checked}
-        onPress={() => setChecked(!checked)}
-        disabled
-      />
     </View>
   );
 };
 
-export const Default: FC<{themeType: ThemeType}> = ({themeType}) => {
+export const Solid: FC<{themeType: ThemeType}> = ({themeType}) => {
   return (
     <ThemeProvider initialThemeType={themeType}>
       <Component />
