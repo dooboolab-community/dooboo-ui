@@ -41,14 +41,28 @@ describe('[SelectBox]', () => {
   });
 
   describe('[SelectBox event test]', () => {
-    beforeAll(() => {
-      testingLib = render(Component());
+    const handlePress = jest.fn();
+
+    beforeEach(() => {
+      testingLib = render(Component({onPress: handlePress}));
     });
 
     it('should trigger item collapsing', () => {
       const title = testingLib.getByText('item1');
 
       fireEvent.press(title);
+    });
+
+    it('should change test value when clicking the collapsed item', () => {
+      const title = testingLib.getByText('item1');
+
+      fireEvent.press(title);
+
+      const item = testingLib.getByText('item2');
+
+      fireEvent.press(item);
+
+      expect(handlePress).toBeCalled();
     });
   });
 });
