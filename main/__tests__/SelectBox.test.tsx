@@ -40,6 +40,14 @@ describe('[SelectBox]', () => {
     expect(json).toMatchSnapshot();
   });
 
+  it('should not render rightElement when rightElement props is null', () => {
+    testingLib = render(Component({rightElement: null}));
+
+    const json = testingLib.toJSON();
+
+    expect(json).toMatchSnapshot();
+  });
+
   describe('[SelectBox event test]', () => {
     const handlePress = jest.fn();
 

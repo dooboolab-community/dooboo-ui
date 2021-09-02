@@ -104,6 +104,71 @@ exports[`[SelectBox] should not operate rotate animation when shouldRotate props
 </View>
 `;
 
+exports[`[SelectBox] should not render rightElement when rightElement props is null 1`] = `
+<View
+  style={
+    Array [
+      undefined,
+    ]
+  }
+>
+  <View
+    activeOpacity={1}
+    onPress={[Function]}
+  >
+    <View
+      style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "borderBottomWidth": 1,
+            "borderLeftWidth": 1,
+            "borderRightWidth": 1,
+            "borderTopWidth": 1,
+            "flexDirection": "row",
+            "height": 30,
+            "justifyContent": "center",
+            "width": 200,
+          },
+          Array [
+            Object {
+              "backgroundColor": "white",
+              "borderColor": "black",
+            },
+            undefined,
+          ],
+        ]
+      }
+    >
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "black",
+              "fontSize": 14,
+            },
+            Object {
+              "includeFontPadding": false,
+            },
+          ]
+        }
+      >
+        item1
+      </Text>
+    </View>
+  </View>
+  <View>
+    <View
+      style={
+        Object {
+          "position": "absolute",
+        }
+      }
+    />
+  </View>
+</View>
+`;
+
 exports[`[SelectBox] should render without crashing 1`] = `
 <View
   style={
