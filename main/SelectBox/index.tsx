@@ -7,7 +7,7 @@ import {
   View,
   ViewStyle,
 } from 'react-native';
-import {DoobooTheme, light, useTheme} from '../theme';
+import {DoobooTheme, light} from '../theme';
 import React, {FC, ReactElement, useEffect, useRef, useState} from 'react';
 
 import {Icon} from '../Icon';
@@ -53,16 +53,15 @@ interface ItemCompProps {
   onPress?: (i: number) => void;
 }
 
-const ItemComp: FC<ItemCompProps> = ({
+const ItemComp: FC<ItemCompProps & {theme: DoobooTheme}> = ({
   value,
   order,
   styles,
+  theme,
   setIsOpened,
   itemActiveOpacity,
   onPress,
 }) => {
-  const {theme} = useTheme();
-
   const handlePress = (): void => {
     onPress?.(order);
     setIsOpened(false);
@@ -84,11 +83,10 @@ const ItemComp: FC<ItemCompProps> = ({
   );
 };
 
-interface Props {
+export interface Props {
   data: string[];
   onPress?: (i: number) => void;
   selectedIndex?: number;
-  theme?: DoobooTheme;
   style?: StyleProp<ViewStyle>;
   styles?: Styles;
   rotateDuration?: number;
@@ -98,9 +96,10 @@ interface Props {
   rightElement?: ReactElement | null;
 }
 
-const Component: FC<Props> = ({
+const Component: FC<Props & {theme: DoobooTheme}> = ({
   data,
   onPress,
+  theme,
   selectedIndex = 0,
   style,
   styles,
@@ -110,7 +109,6 @@ const Component: FC<Props> = ({
   shouldRotate = true,
   rightElement = <Icon name="chevron-down-light" />,
 }) => {
-  const {theme} = useTheme();
   const [isOpened, setIsOpened] = useState(false);
 
   const rotateAnimValue = useRef(new Animated.Value(0)).current;
@@ -178,6 +176,7 @@ const Component: FC<Props> = ({
                 setIsOpened={setIsOpened}
                 onPress={onPress}
                 itemActiveOpacity={itemActiveOpacity}
+                theme={theme}
               />
             ))}
         </View>

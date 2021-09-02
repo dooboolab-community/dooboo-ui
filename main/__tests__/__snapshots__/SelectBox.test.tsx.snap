@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`[SelectBox] render test should adjust duration of animation depends on rotateDuration props value 1`] = `
+exports[`[SelectBox] should not operate rotate animation when shouldRotate props is false 1`] = `
 <View
   style={
     Array [
@@ -8,6 +8,90 @@ exports[`[SelectBox] render test should adjust duration of animation depends on 
     ]
   }
 >
+  <View
+    activeOpacity={1}
+    onPress={[Function]}
+  >
+    <View
+      style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "borderBottomWidth": 1,
+            "borderLeftWidth": 1,
+            "borderRightWidth": 1,
+            "borderTopWidth": 1,
+            "flexDirection": "row",
+            "height": 30,
+            "justifyContent": "center",
+            "width": 200,
+          },
+          Array [
+            Object {
+              "backgroundColor": "white",
+              "borderColor": "black",
+            },
+            undefined,
+          ],
+        ]
+      }
+    >
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "black",
+              "fontSize": 14,
+            },
+            Object {
+              "includeFontPadding": false,
+            },
+          ]
+        }
+      >
+        item1
+      </Text>
+      <View
+        style={
+          Object {
+            "position": "absolute",
+            "right": 10,
+            "transform": Array [
+              Object {
+                "rotate": "0deg",
+              },
+            ],
+          }
+        }
+      >
+        <Text
+          allowFontScaling={false}
+          style={
+            Array [
+              Object {
+                "color": undefined,
+                "fontSize": 12,
+              },
+              Array [
+                Object {
+                  "color": "black",
+                },
+                undefined,
+              ],
+              Object {
+                "fontFamily": "IcoMoon",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+              },
+              Object {},
+            ]
+          }
+        >
+          
+        </Text>
+      </View>
+    </View>
+  </View>
   <View>
     <View
       style={
@@ -20,7 +104,7 @@ exports[`[SelectBox] render test should adjust duration of animation depends on 
 </View>
 `;
 
-exports[`[SelectBox] render test should render without crashing 1`] = `
+exports[`[SelectBox] should render without crashing 1`] = `
 <View
   style={
     Array [
@@ -28,26 +112,66 @@ exports[`[SelectBox] render test should render without crashing 1`] = `
     ]
   }
 >
-  <View>
+  <View
+    activeOpacity={1}
+    onPress={[Function]}
+  >
     <View
       style={
-        Object {
-          "position": "absolute",
-        }
+        Array [
+          Object {
+            "alignItems": "center",
+            "borderBottomWidth": 1,
+            "borderLeftWidth": 1,
+            "borderRightWidth": 1,
+            "borderTopWidth": 1,
+            "flexDirection": "row",
+            "height": 30,
+            "justifyContent": "center",
+            "width": 200,
+          },
+          Array [
+            Object {
+              "backgroundColor": "white",
+              "borderColor": "black",
+            },
+            undefined,
+          ],
+        ]
       }
-    />
+    >
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "black",
+              "fontSize": 14,
+            },
+            Object {
+              "includeFontPadding": false,
+            },
+          ]
+        }
+      >
+        item1
+      </Text>
+      <View
+        style={
+          Object {
+            "position": "absolute",
+            "right": 10,
+            "transform": Array [
+              Object {
+                "rotate": "0deg",
+              },
+            ],
+          }
+        }
+      >
+        <Text />
+      </View>
+    </View>
   </View>
-</View>
-`;
-
-exports[`[SelectBox] render test should rightElement rotate when isRotate is true 1`] = `
-<View
-  style={
-    Array [
-      undefined,
-    ]
-  }
->
   <View>
     <View
       style={

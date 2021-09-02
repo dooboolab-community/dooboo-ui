@@ -1,11 +1,10 @@
 import React, {useState} from 'react';
+import {SelectBox, useTheme} from '../../../main';
 import {View, useWindowDimensions} from 'react-native';
 
 import type {FC} from 'react';
-import {SelectBox} from '../../../main/SelectBox';
 import styled from '@emotion/native';
 import {useFonts} from 'expo-font';
-import {useTheme} from '../../../main';
 
 const data = ['Item1', 'Item2', 'Item3', 'Item4'];
 
