@@ -13,27 +13,52 @@ jest.mock('react-native-gesture-handler', () => {
   };
 });
 
+interface ObectType {
+  value: string;
+  [key: string]: any;
+}
+
+type MockDateType = string[] | ObectType[];
+
 let testingLib: RenderAPI;
 
-const mockData = ['item1', 'item2', 'item3', 'item4'];
+const stringData: MockDateType = ['item1', 'item2', 'item3', 'item4'];
 
-const Component = (props?: Omit<SelectBoxProps, 'data'>): ReactElement => {
-  const selectBoxProps = createTestProps({data: mockData, ...props});
+const objectData: MockDateType = [
+  {index: 1, value: 'item1'},
+  {index: 2, value: 'item2'},
+  {index: 3, value: 'item3'},
+  {index: 4, value: 'item4'},
+];
+
+const Component = (
+  data: MockDateType,
+  props?: Partial<SelectBoxProps<MockDateType>>,
+): ReactElement => {
+  const selectBoxProps = createTestProps({data, ...props});
 
   return createComponent(<SelectBox {...selectBoxProps} />);
 };
 
 describe('[SelectBox]', () => {
-  it('should render without crashing', () => {
-    testingLib = render(Component());
+  it('should render with string data', () => {
+    testingLib = render(Component(stringData));
 
     const json = testingLib.toJSON();
 
     expect(json).toMatchSnapshot();
   });
 
-  it('should not operate rotate animation when shouldRotate props is false', () => {
-    testingLib = render(Component({shouldRotate: false}));
+  it('should render with obeject data', () => {
+    testingLib = render(Component(objectData));
+
+    const json = testingLib.toJSON();
+
+    expect(json).toMatchSnapshot();
+  });
+
+  it('should not operate rotate animation when isRightElemAnimated props is false', () => {
+    testingLib = render(Component(stringData, {isRightElemAnimated: false}));
 
     const json = testingLib.toJSON();
 
@@ -41,7 +66,19 @@ describe('[SelectBox]', () => {
   });
 
   it('should not render rightElement when rightElement props is null', () => {
-    testingLib = render(Component({rightElement: null}));
+    testingLib = render(Component(stringData, {rightElement: null}));
+
+    const json = testingLib.toJSON();
+
+    expect(json).toMatchSnapshot();
+  });
+
+  it('should change title style with styles props', () => {
+    testingLib = render(
+      Component(stringData, {
+        styles: {titleContainer: {backgroundColor: 'red'}},
+      }),
+    );
 
     const json = testingLib.toJSON();
 
@@ -51,17 +88,53 @@ describe('[SelectBox]', () => {
   describe('[SelectBox event test]', () => {
     const handlePress = jest.fn();
 
-    beforeEach(() => {
-      testingLib = render(Component({onPress: handlePress}));
-    });
+    afterEach(() => handlePress.mockClear());
 
-    it('should trigger item collapsing', () => {
+    it('should trigger item open', () => {
+      testingLib = render(Component(stringData));
+
       const title = testingLib.getByText('item1');
 
       fireEvent.press(title);
     });
 
-    it('should change test value when clicking the collapsed item', () => {
+    it('should trigger onPressed when clicking a title', () => {
+      testingLib = render(Component(stringData, {onPress: handlePress}));
+
+      const title = testingLib.getByText('item1');
+
+      fireEvent.press(title);
+
+      expect(handlePress).toBeCalled();
+    });
+
+    it('should not trigger any interacts when disalbed props is true', () => {
+      testingLib = render(Component(stringData, {disabled: true}));
+
+      const title = testingLib.getByText('item1');
+
+      fireEvent.press(title);
+
+      expect(handlePress).not.toBeCalled();
+    });
+
+    it('should change a value when clicking the opened item with string data', () => {
+      testingLib = render(Component(stringData, {onSelect: handlePress}));
+
+      const title = testingLib.getByText('item1');
+
+      fireEvent.press(title);
+
+      const item = testingLib.getByText('item2');
+
+      fireEvent.press(item);
+
+      expect(handlePress).toBeCalled();
+    });
+
+    it('should change a value when clicking the opened item with object data', () => {
+      testingLib = render(Component(objectData, {onSelect: handlePress}));
+
       const title = testingLib.getByText('item1');
 
       fireEvent.press(title);
