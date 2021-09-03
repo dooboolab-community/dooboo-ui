@@ -1,49 +1,39 @@
-import {RadioGroup, ThemeProvider} from 'dooboo-ui';
-import React, {ReactElement, useState} from 'react';
+import {RadioGroup, ThemeProvider, ThemeType, useTheme} from 'dooboo-ui';
+import React, {FC} from 'react';
+import {View} from 'react-native';
 
-import {RadioButtonType} from 'dooboo-ui/RadioGroup/RadioButton';
-import styled from '@emotion/native';
+const data = ['one', 'two', 'three', 'four'];
+const labels = ['One', 'Two', 'Three', 'Four'];
 
-const Container = styled.SafeAreaView`
-  align-self: stretch;
-  background-color: ${({theme}) => theme.background};
-  padding: 15px 0;
-  align-items: center;
-`;
-
-const data = ['Dog', 'Cat', 'Cow', 'Horse'];
-const labels = ['Dog', 'Cat', 'Cow', 'Horse'];
-
-type Props = {
-  title?: string;
-  type?: RadioButtonType;
-};
-
-const RadioGroupStory = ({title, type}: Props): React.ReactElement => {
-  const [selectedValue, setSelectedValue] = useState<string>(data[0]);
+const RadioGroupStory: FC<{labelPosition: 'left' | 'right'}> = ({
+  labelPosition,
+}) => {
+  const {theme} = useTheme();
 
   return (
-    <Container>
+    <View
+      style={{
+        flex: 1,
+        alignSelf: 'stretch',
+        alignItems: 'center',
+        backgroundColor: theme.background,
+        padding: 15,
+      }}>
       <RadioGroup
-        title={title}
         data={data}
-        type={type || 'primary'}
         labels={labels}
-        selectedValue={selectedValue}
-        selectValue={(value) => setSelectedValue(value)}
+        selectedValue={data[0]}
+        labelPosition={labelPosition}
       />
-    </Container>
+    </View>
   );
 };
 
-export const WithLabelsLight = ({title, type}: Props): ReactElement => (
-  <ThemeProvider initialThemeType="light">
-    <RadioGroupStory title={title} type={type} />
-  </ThemeProvider>
-);
-
-export const WithLabelsDark = ({title, type}: Props): ReactElement => (
-  <ThemeProvider initialThemeType="dark">
-    <RadioGroupStory title={title} type={type} />
+export const WithLabels: FC<{
+  theme: ThemeType;
+  labelPosition: 'left' | 'right';
+}> = ({theme, labelPosition}) => (
+  <ThemeProvider initialThemeType={theme}>
+    <RadioGroupStory labelPosition={labelPosition} />
   </ThemeProvider>
 );
