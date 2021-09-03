@@ -1,18 +1,24 @@
 import React, {useState} from 'react';
 import {SelectBox, useTheme} from '../../../main';
-import {View, useWindowDimensions} from 'react-native';
 
 import type {FC} from 'react';
+import {View} from 'react-native';
 import styled from '@emotion/native';
 import {useFonts} from 'expo-font';
 
-const data = ['Item1', 'Item2', 'Item3', 'Item4'];
+const fakeData1 = ['Item1', 'Item2', 'Item3', 'Item4'];
 
-const Container = styled.View<{width: number}>`
+const fakeDate2 = [
+  {index: 1, value: 'Item1'},
+  {index: 2, value: 'Item2'},
+  {index: 3, value: 'Item3'},
+  {index: 4, value: 'Item4'},
+];
+
+const Container = styled.View`
   flex: 1;
   align-self: stretch;
 
-  flex-direction: ${({width}) => (width < 767 ? 'column' : 'row')};
   align-items: center;
   justify-content: center;
 `;
@@ -23,8 +29,11 @@ const Divider = styled.View`
 `;
 
 const SelectBoxStory: FC = () => {
-  const {theme} = useTheme();
-  const {width} = useWindowDimensions();
+  const {
+    theme,
+    media: {isMobile},
+  } = useTheme();
+
   const [value1, setValue1] = useState<number>(0);
   const [value2, setValue2] = useState<number>(0);
   const [value3, setValue3] = useState<number>(0);
@@ -36,11 +45,11 @@ const SelectBoxStory: FC = () => {
   if (!fontsLoaded) return <View />;
 
   return (
-    <Container width={width}>
+    <Container style={{flexDirection: isMobile ? 'column' : 'row'}}>
       <SelectBox
-        data={data}
+        data={fakeData1}
         style={{zIndex: 999}}
-        onPress={(index: number) => setValue1(index)}
+        onSelect={(_, index) => setValue1(index)}
         selectedIndex={value1}
         styles={{
           titleContainer: {
@@ -67,11 +76,11 @@ const SelectBoxStory: FC = () => {
       />
       <Divider />
       <SelectBox
-        data={data}
+        data={fakeData1}
         style={{zIndex: 998}}
-        onPress={(index: number) => setValue2(index)}
+        onSelect={(_, index) => setValue2(index)}
         selectedIndex={value2}
-        shouldRotate={false}
+        isRightElemAnimated={false}
         styles={{
           titleContainer: {
             backgroundColor: theme.info,
@@ -91,9 +100,9 @@ const SelectBoxStory: FC = () => {
       />
       <Divider />
       <SelectBox
-        data={data}
+        data={fakeDate2}
         style={{zIndex: 997}}
-        onPress={(index: number) => setValue3(index)}
+        onSelect={(_, index) => setValue3(index)}
         selectedIndex={value3}
         rightElement={null}
       />

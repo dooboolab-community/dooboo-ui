@@ -4,12 +4,14 @@ import {
   Platform,
   StyleProp,
   TextStyle,
+  TouchableOpacityProps,
   View,
   ViewStyle,
 } from 'react-native';
-import {DoobooTheme, light} from '../theme';
-import React, {FC, ReactElement, useEffect, useRef, useState} from 'react';
+import React, {ReactElement, useEffect, useRef, useState} from 'react';
 
+import {DoobooTheme} from '../theme';
+import {GenericTouchableProps} from 'react-native-gesture-handler/lib/typescript/components/touchables/GenericTouchable';
 import {Icon} from '../Icon';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 import {Typography} from '../Typography';
@@ -44,31 +46,31 @@ type Styles = {
   itemContainer?: StyleProp<ViewStyle>;
   itemText?: StyleProp<TextStyle>;
 };
-interface ItemCompProps {
-  value: string;
+interface ItemCompProps<T> {
+  value: T;
   order: number;
   styles?: Styles;
   setIsOpened: (value: boolean) => void;
-  itemActiveOpacity: number;
-  onPress?: (i: number) => void;
+  itemTouchableProps?: Partial<TouchableOpacityProps & GenericTouchableProps>;
+  onSelect: (value: T, index: number) => void;
 }
 
-const ItemComp: FC<ItemCompProps & {theme: DoobooTheme}> = ({
+function ItemComp<T extends {value: string} | string>({
   value,
   order,
   styles,
   theme,
   setIsOpened,
-  itemActiveOpacity,
-  onPress,
-}) => {
+  itemTouchableProps,
+  onSelect,
+}: ItemCompProps<T> & {theme: DoobooTheme}): ReactElement {
   const handlePress = (): void => {
-    onPress?.(order);
+    onSelect(value, order);
     setIsOpened(false);
   };
 
   return (
-    <TouchableOpacity onPress={handlePress} activeOpacity={itemActiveOpacity}>
+    <TouchableOpacity {...itemTouchableProps} onPress={handlePress}>
       <Item
         style={[
           {
@@ -77,60 +79,72 @@ const ItemComp: FC<ItemCompProps & {theme: DoobooTheme}> = ({
           },
           styles?.itemContainer,
         ]}>
-        <Typography.Body2 style={styles?.itemText}>{value}</Typography.Body2>
+        <Typography.Body2 style={styles?.itemText}>
+          {typeof value === 'object' ? value.value : value}
+        </Typography.Body2>
       </Item>
     </TouchableOpacity>
   );
-};
-
-export interface Props {
-  data: string[];
-  onPress?: (i: number) => void;
-  selectedIndex?: number;
-  style?: StyleProp<ViewStyle>;
-  styles?: Styles;
-  rotateDuration?: number;
-  titleActiveOpacity?: number;
-  itemActiveOpacity?: number;
-  shouldRotate?: boolean;
-  rightElement?: ReactElement | null;
 }
 
-const Component: FC<Props & {theme: DoobooTheme}> = ({
-  data,
-  onPress,
+export interface Props<T> {
+  data: T[];
+  selectedIndex: number;
+  onSelect: (item: T, index: number) => void;
+  onPress?: () => void;
+  style?: StyleProp<ViewStyle>;
+  styles?: Styles;
+  isRightElemAnimated?: boolean;
+  rotateAnimDuration?: number;
+  rightElement?: ReactElement | null;
+  disabled?: boolean;
+  titleTouchableProps?: Partial<TouchableOpacityProps & GenericTouchableProps>;
+  itemTouchableProps?: Partial<TouchableOpacityProps & GenericTouchableProps>;
+}
+
+function Component<T extends {value: string} | string>({
   theme,
+  data,
   selectedIndex = 0,
+  onSelect,
+  onPress,
   style,
   styles,
-  rotateDuration = 200,
-  titleActiveOpacity = 1,
-  itemActiveOpacity = 1,
-  shouldRotate = true,
+  isRightElemAnimated = true,
+  rotateAnimDuration = 200,
   rightElement = <Icon name="chevron-down-light" />,
-}) => {
+  disabled = false,
+  titleTouchableProps = {activeOpacity: 1},
+  itemTouchableProps = {activeOpacity: 1},
+}: Props<T> & {theme: DoobooTheme}): ReactElement {
   const [isOpened, setIsOpened] = useState(false);
+
+  const selectedValue = data[selectedIndex];
 
   const rotateAnimValue = useRef(new Animated.Value(0)).current;
 
   useEffect(() => {
     const toValue = isOpened ? 1 : 0;
 
-    if (!shouldRotate) rotateAnimValue.setValue(toValue);
+    if (!isRightElemAnimated) rotateAnimValue.setValue(toValue);
 
     Animated.timing(rotateAnimValue, {
       toValue,
-      duration: rotateDuration,
+      duration: rotateAnimDuration,
       easing: Easing.linear,
       useNativeDriver: Platform.OS !== 'web' ? true : false,
     }).start();
-  }, [isOpened, rotateAnimValue, rotateDuration, shouldRotate]);
+  }, [isOpened, rotateAnimValue, rotateAnimDuration, isRightElemAnimated]);
 
   return (
-    <View style={[style]}>
+    <View style={style}>
       <TouchableOpacity
-        onPress={() => setIsOpened((prev) => !prev)}
-        activeOpacity={titleActiveOpacity}>
+        {...titleTouchableProps}
+        disabled={disabled}
+        onPress={() => {
+          onPress?.();
+          setIsOpened((prev) => !prev);
+        }}>
         <Title
           style={[
             {
@@ -140,7 +154,9 @@ const Component: FC<Props & {theme: DoobooTheme}> = ({
             styles?.titleContainer,
           ]}>
           <Typography.Body2 style={styles?.titleText}>
-            {data[selectedIndex]}
+            {typeof selectedValue === 'object'
+              ? selectedValue.value
+              : selectedValue}
           </Typography.Body2>
           {rightElement ? (
             <Animated.View
@@ -174,8 +190,8 @@ const Component: FC<Props & {theme: DoobooTheme}> = ({
                 value={datum}
                 styles={styles}
                 setIsOpened={setIsOpened}
-                onPress={onPress}
-                itemActiveOpacity={itemActiveOpacity}
+                onSelect={onSelect}
+                itemTouchableProps={itemTouchableProps}
                 theme={theme}
               />
             ))}
@@ -183,8 +199,6 @@ const Component: FC<Props & {theme: DoobooTheme}> = ({
       </View>
     </View>
   );
-};
-
-Component.defaultProps = {theme: light};
+}
 
 export const SelectBox = withTheme(Component);
