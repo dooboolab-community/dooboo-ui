@@ -1,5 +1,5 @@
 import {RadioGroup, ThemeProvider, ThemeType, useTheme} from 'dooboo-ui';
-import React, {FC, useState} from 'react';
+import React, {FC} from 'react';
 import {View} from 'react-native';
 
 const data = ['one', 'two', 'three', 'four'];
