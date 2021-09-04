@@ -1,12 +1,13 @@
 import React, {useState} from 'react';
-import Modal from 'react-native-modalbox';
+import Modal, {ModalProps} from 'react-native-modalbox';
 import styled from '@emotion/native';
 
-import {StyleProp, ViewStyle} from 'react-native';
+import {StyleProp, ViewStyle, TextStyle} from 'react-native';
 
 const ContentContainer = styled.SafeAreaView`
   flex-grow: 1;
   flex-shrink: 1;
+  flex-basis: auto;
   align-self: stretch;
   justify-content: center;
   margin: 24px;
@@ -28,28 +29,29 @@ const ModalButton = styled.TouchableOpacity`
   align-items: center;
 `;
 
-const ModalInput = styled.TextInput<ColorProps>`
+const ModalInput = styled.TextInput`
   height: 40px;
   margin-top: 20px;
   padding: 4px;
   font-size: 14px;
-  border: 1px solid ${(props) => props.color};
+  border: 1px solid black;
 `;
 
-const ButtonText = styled.Text<ColorProps>`
+const ButtonText = styled.Text`
   font-size: 14px;
   font-weight: bold;
-  color: ${(props) => props.color};
+  color: black;
 `;
 
 type Styles = {
-  modalContainer?: StyleProp<ViewStyle>;
+  modal?: ModalProps['style'];
+  button?: StyleProp<ViewStyle>;
+  buttonText?: StyleProp<TextStyle>;
 };
 
 interface Props {
   isOpen?: boolean;
   type?: 'alert' | 'confirm' | 'prompt';
-  color?: string;
   styles?: Styles;
   backdropOpacity?: number;
   backdropPressToClose?: boolean;
@@ -57,48 +59,34 @@ interface Props {
   onPress: (result: boolean | string | null) => void;
 }
 
-interface ColorProps {
-  color: string;
-}
-
 const AlertDialog = React.forwardRef(
   (
     {
       isOpen = false,
       type = 'alert',
-      color = '#000000',
       styles = {},
       backdropOpacity = 0.5,
       backdropPressToClose = true,
       children,
       onPress,
     }: Props,
-    ref: React.RefObject<unknown>,
+    ref: React.RefObject<Modal>,
   ) => {
     const [input, setInput] = useState('');
 
-    const modalStyles = {
-      modal: [
-        {
-          borderRadius: 4,
-        },
-        styles?.modalContainer,
-      ],
-    };
-
     const renderAlert = (
-      <ModalButton onPress={() => onPress(true)}>
-        <ButtonText color={color}>OK</ButtonText>
+      <ModalButton style={styles?.button} onPress={() => onPress(true)}>
+        <ButtonText style={styles?.buttonText}>OK</ButtonText>
       </ModalButton>
     );
 
     const renderConfirm = (
       <>
-        <ModalButton onPress={() => onPress(false)}>
-          <ButtonText color={color}>CANCEL</ButtonText>
+        <ModalButton style={styles?.button} onPress={() => onPress(false)}>
+          <ButtonText style={styles?.buttonText}>CANCEL</ButtonText>
         </ModalButton>
-        <ModalButton onPress={() => onPress(true)}>
-          <ButtonText color={color}>OK</ButtonText>
+        <ModalButton style={styles?.button} onPress={() => onPress(true)}>
+          <ButtonText style={styles?.buttonText}>OK</ButtonText>
         </ModalButton>
       </>
     );
@@ -106,44 +94,44 @@ const AlertDialog = React.forwardRef(
     const renderPrompt = (
       <>
         <ModalButton
+          style={styles?.button}
           onPress={() => {
             onPress(null);
             setInput('');
           }}>
-          <ButtonText color={color}>CANCEL</ButtonText>
+          <ButtonText style={styles?.buttonText}>CANCEL</ButtonText>
         </ModalButton>
         <ModalButton
+          style={styles?.button}
           onPress={() => {
             onPress(input);
             setInput('');
           }}>
-          <ButtonText color={color}>OK</ButtonText>
+          <ButtonText style={styles?.buttonText}>OK</ButtonText>
         </ModalButton>
       </>
     );
 
     return (
-      <>
-        <Modal
-          isOpen={isOpen}
-          style={modalStyles.modal}
-          position={'center'}
-          ref={ref}
-          backdropOpacity={backdropOpacity}
-          backdropPressToClose={backdropPressToClose}>
-          <ContentContainer>
-            {children}
-            {type === 'prompt' && (
-              <ModalInput value={input} onChangeText={setInput} color={color} />
-            )}
-          </ContentContainer>
-          <ButtonContainer>
-            {type === 'alert' && renderAlert}
-            {type === 'confirm' && renderConfirm}
-            {type === 'prompt' && renderPrompt}
-          </ButtonContainer>
-        </Modal>
-      </>
+      <Modal
+        isOpen={isOpen}
+        style={[{borderRadius: 4}, styles.modal]}
+        position={'center'}
+        ref={ref}
+        backdropOpacity={backdropOpacity}
+        backdropPressToClose={backdropPressToClose}>
+        <ContentContainer>
+          {children}
+          {type === 'prompt' && (
+            <ModalInput value={input} onChangeText={setInput} />
+          )}
+        </ContentContainer>
+        <ButtonContainer>
+          {type === 'alert' && renderAlert}
+          {type === 'confirm' && renderConfirm}
+          {type === 'prompt' && renderPrompt}
+        </ButtonContainer>
+      </Modal>
     );
   },
 );

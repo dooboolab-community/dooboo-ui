@@ -16,11 +16,5 @@
 ## Installation
 
 ```
-yarn add dooboo-ui
-```
-
-or
-
-```
 yarn add @dooboo-ui/alert-dialog
 ```

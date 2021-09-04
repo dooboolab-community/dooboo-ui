@@ -1,8 +1,8 @@
 import React, {ReactElement, useState} from 'react';
 import Modal from 'react-native-modalbox';
-import {Button, Text} from 'react-native';
+import {Text, TouchableOpacity} from 'react-native';
 
-import AlertDialog from '../../../packages/AlertDialog/lib';
+import AlertDialog from '../../../packages/AlertDialog/index';
 import {ContainerDeco} from '../../../storybook/decorators';
 import {storiesOf} from '@storybook/react-native';
 import styled from '@emotion/native';
@@ -19,6 +19,12 @@ const ResultText = styled.Text`
   margin-top: 24px;
 `;
 
+const ExampleText = styled.Text`
+  font-size: 20px;
+  color: cornflowerblue;
+  margin-bottom: 15px;
+`;
+
 function Dialog(): React.ReactElement {
   const [dialogResult, setDialogResult] = useState<string | boolean | null>('');
 
@@ -27,12 +33,21 @@ function Dialog(): React.ReactElement {
   const promptRef: React.RefObject<Modal> = React.createRef();
 
   const styles = {
-    modalContainer: {width: '80%', height: 'auto'},
+    modal: {width: '80%', height: 'auto'},
   };
+
+  const ExampleButton: React.FC<ExampleButtonProps> = ({
+    title,
+    onPress,
+  }: ExampleButtonProps) => (
+    <TouchableOpacity onPress={onPress}>
+      <ExampleText>{title}</ExampleText>
+    </TouchableOpacity>
+  );
 
   const renderAlert = (
     <>
-      <Button
+      <ExampleButton
         title={'Alert'}
         onPress={() => {
           alertRef.current.open();
@@ -52,7 +67,7 @@ function Dialog(): React.ReactElement {
 
   const renderConfirm = (
     <>
-      <Button
+      <ExampleButton
         title={'Confirm'}
         onPress={() => {
           confirmRef.current.open();
@@ -73,7 +88,7 @@ function Dialog(): React.ReactElement {
 
   const renderPrompt = (
     <>
-      <Button
+      <ExampleButton
         title={'Prompt'}
         onPress={() => {
           promptRef.current.open();
@@ -100,6 +115,11 @@ function Dialog(): React.ReactElement {
       <ResultText>{`Dialog result : ${dialogResult}`}</ResultText>
     </Container>
   );
+}
+
+interface ExampleButtonProps {
+  title: string;
+  onPress: () => void;
 }
 
 /**

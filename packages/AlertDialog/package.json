@@ -4,7 +4,7 @@
   "types": "lib/index.d.ts",
   "version": "0.0.1",
   "license": "MIT",
-  "postinstall": "tsc",
+  "postinstall": "tsc && dooboolab-welcome postinstall",
   "scripts": {
     "build": "tsc",
     "watch": "tsc -w"
@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/dooboolab/dooboo-ui#readme",
   "dependencies": {
+    "@types/react-native-modalbox": "^1.4.9",
     "dooboolab-welcome": "^1.2.0",
     "react-native-modalbox": "^2.0.2"
   },
