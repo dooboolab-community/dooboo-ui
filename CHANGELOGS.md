@@ -1,5 +1,26 @@
 ## Changelogs
 
+## 0.1.26
+
+16 More `dooboo-ui` icons
+
+- chevron-right-shape
+- chevron-left-shape
+- chevron-down-shape
+- chevron-up-shape
+- trash-light
+- pen-light
+- burger-shape
+- dots-light
+- wifi-unable-light
+- wifi-light
+- mic-shape
+- mic-light
+- phone-shape
+- phone-light
+- clip-shape
+- clip-light
+
 ## 0.1.25
 
 Add display maxLength to EditText [#75](https://github.com/dooboolab/dooboo-ui/pull/75)

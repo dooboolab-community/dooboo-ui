@@ -51,6 +51,24 @@ const IconStory: FC = () => {
 
   return (
     <StoryContainer>
+      <IconWithLabel name="chevron-right-shape" />
+      <IconWithLabel name="chevron-left-shape" />
+      <IconWithLabel name="chevron-down-shape" />
+      <IconWithLabel name="chevron-up-shape" />
+      <IconWithLabel name="trash-light" />
+      <IconWithLabel name="pen-light" />
+      <IconWithLabel name="pen-light" />
+      <IconWithLabel name="burger-shape" />
+      <IconWithLabel name="dots-light" />
+      <IconWithLabel name="wifi-unable-light" />
+      <IconWithLabel name="wifi-light" />
+      <IconWithLabel name="mic-shape" />
+      <IconWithLabel name="mic-light" />
+      <IconWithLabel name="phone-shape" />
+      <IconWithLabel name="phone-light" />
+      <IconWithLabel name="clip-shape" />
+      <IconWithLabel name="clip-light" />
+      <IconWithLabel name="cog-shape" />
       <IconWithLabel name="cog-light" />
       <IconWithLabel name="picture-light" />
       <IconWithLabel name="moment-solid" />
