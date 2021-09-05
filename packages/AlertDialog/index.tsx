@@ -4,43 +4,43 @@ import styled from '@emotion/native';
 
 import {StyleProp, ViewStyle, TextStyle} from 'react-native';
 
-const ContentContainer = styled.SafeAreaView`
-  flex-grow: 1;
-  flex-shrink: 1;
-  flex-basis: auto;
-  align-self: stretch;
-  justify-content: center;
-  margin: 24px;
-`;
-
-const ButtonContainer = styled.View`
-  flex-direction: row;
+const ModalButton = styled.TouchableOpacity<ButtonTypeProps>`
+  width: 100%;
+  height: 40px;
+  border: 1px solid black;
+  border-radius: 20px;
   justify-content: center;
   align-items: center;
-  height: 32px;
-  margin-bottom: 12px;
+  background-color: ${(props) =>
+    props.isAdditional ? 'transparent' : 'black'};
+  margin-bottom: ${(props) => (props.isAdditional ? '16px' : '0px')}; ;
 `;
 
-const ModalButton = styled.TouchableOpacity`
-  margin: 0px 8px;
-  width: 80px;
-  height: 36px;
-  justify-content: center;
-  align-items: center;
+const ButtonText = styled.Text<ButtonTypeProps>`
+  font-size: 14px;
+  font-weight: bold;
+  color: ${(props) => (props.isAdditional ? 'black' : 'white')}; ;
 `;
 
 const ModalInput = styled.TextInput`
   height: 40px;
-  margin-top: 20px;
+  margin-bottom: 16px;
   padding: 4px;
   font-size: 14px;
   border: 1px solid black;
 `;
 
-const ButtonText = styled.Text`
-  font-size: 14px;
-  font-weight: bold;
-  color: black;
+const Title = styled.Text`
+  font-size: 17px;
+  line-height: 20px;
+  text-align: center;
+  margin-bottom: 16px;
+`;
+
+const Content = styled.Text`
+  font-size: 16px;
+  line-height: 20px;
+  margin-bottom: 16px;
 `;
 
 type Styles = {
@@ -49,13 +49,18 @@ type Styles = {
   buttonText?: StyleProp<TextStyle>;
 };
 
+interface ButtonTypeProps {
+  isAdditional?: boolean;
+}
+
 interface Props {
   isOpen?: boolean;
   type?: 'alert' | 'confirm' | 'prompt';
+  title?: string;
+  content?: string;
   styles?: Styles;
   backdropOpacity?: number;
   backdropPressToClose?: boolean;
-  children?: React.ReactNode;
   onPress: (result: boolean | string | null) => void;
 }
 
@@ -64,10 +69,11 @@ const AlertDialog = React.forwardRef(
     {
       isOpen = false,
       type = 'alert',
+      title,
+      content,
       styles = {},
       backdropOpacity = 0.5,
       backdropPressToClose = true,
-      children,
       onPress,
     }: Props,
     ref: React.RefObject<Modal>,
@@ -82,8 +88,13 @@ const AlertDialog = React.forwardRef(
 
     const renderConfirm = (
       <>
-        <ModalButton style={styles?.button} onPress={() => onPress(false)}>
-          <ButtonText style={styles?.buttonText}>CANCEL</ButtonText>
+        <ModalButton
+          isAdditional
+          style={styles?.button}
+          onPress={() => onPress(false)}>
+          <ButtonText isAdditional style={styles?.buttonText}>
+            CANCEL
+          </ButtonText>
         </ModalButton>
         <ModalButton style={styles?.button} onPress={() => onPress(true)}>
           <ButtonText style={styles?.buttonText}>OK</ButtonText>
@@ -94,12 +105,15 @@ const AlertDialog = React.forwardRef(
     const renderPrompt = (
       <>
         <ModalButton
+          isAdditional
           style={styles?.button}
           onPress={() => {
             onPress(null);
             setInput('');
           }}>
-          <ButtonText style={styles?.buttonText}>CANCEL</ButtonText>
+          <ButtonText isAdditional style={styles?.buttonText}>
+            CANCEL
+          </ButtonText>
         </ModalButton>
         <ModalButton
           style={styles?.button}
@@ -115,22 +129,30 @@ const AlertDialog = React.forwardRef(
     return (
       <Modal
         isOpen={isOpen}
-        style={[{borderRadius: 4}, styles.modal]}
+        style={[
+          {
+            width: '80%',
+            height: 'auto',
+            borderRadius: 40,
+            backgroundColor: '#EDEDED',
+            shadowOffset: {width: 0, height: 4},
+            shadowColor: 'black',
+            padding: 20,
+          },
+          styles?.modal,
+        ]}
         position={'center'}
         ref={ref}
         backdropOpacity={backdropOpacity}
         backdropPressToClose={backdropPressToClose}>
-        <ContentContainer>
-          {children}
-          {type === 'prompt' && (
-            <ModalInput value={input} onChangeText={setInput} />
-          )}
-        </ContentContainer>
-        <ButtonContainer>
-          {type === 'alert' && renderAlert}
-          {type === 'confirm' && renderConfirm}
-          {type === 'prompt' && renderPrompt}
-        </ButtonContainer>
+        {title && <Title>{title}</Title>}
+        {content && <Content>{content}</Content>}
+        {type === 'prompt' && (
+          <ModalInput value={input} onChangeText={setInput} />
+        )}
+        {type === 'alert' && renderAlert}
+        {type === 'confirm' && renderConfirm}
+        {type === 'prompt' && renderPrompt}
       </Modal>
     );
   },

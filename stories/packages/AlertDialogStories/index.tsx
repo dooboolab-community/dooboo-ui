@@ -1,6 +1,6 @@
 import React, {ReactElement, useState} from 'react';
 import Modal from 'react-native-modalbox';
-import {Text, TouchableOpacity} from 'react-native';
+import {TouchableOpacity} from 'react-native';
 
 import AlertDialog from '../../../packages/AlertDialog/index';
 import {ContainerDeco} from '../../../storybook/decorators';
@@ -33,7 +33,7 @@ function Dialog(): React.ReactElement {
   const promptRef: React.RefObject<Modal> = React.createRef();
 
   const styles = {
-    modal: {width: '80%', height: 'auto'},
+    modal: {maxWidth: 450},
   };
 
   const ExampleButton: React.FC<ExampleButtonProps> = ({
@@ -50,18 +50,21 @@ function Dialog(): React.ReactElement {
       <ExampleButton
         title={'Alert'}
         onPress={() => {
-          alertRef.current.open();
+          alertRef.current?.open();
         }}
       />
       <AlertDialog
         ref={alertRef}
         styles={styles}
+        title={'Dialogue Title'}
+        content={
+          'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
+        }
         onPress={(result) => {
           setDialogResult(result);
-          alertRef.current.close();
-        }}>
-        <Text>{'Hello, this is an example of AlertDialog in dooboo-ui.'}</Text>
-      </AlertDialog>
+          alertRef.current?.close();
+        }}
+      />
     </>
   );
 
@@ -70,19 +73,22 @@ function Dialog(): React.ReactElement {
       <ExampleButton
         title={'Confirm'}
         onPress={() => {
-          confirmRef.current.open();
+          confirmRef.current?.open();
         }}
       />
       <AlertDialog
         type={'confirm'}
         ref={confirmRef}
         styles={styles}
+        title={'Dialogue Title'}
+        content={
+          'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
+        }
         onPress={(result) => {
           setDialogResult(result);
-          confirmRef.current.close();
-        }}>
-        <Text>{'Hello, this is an example of AlertDialog in dooboo-ui.'}</Text>
-      </AlertDialog>
+          confirmRef.current?.close();
+        }}
+      />
     </>
   );
 
@@ -91,19 +97,21 @@ function Dialog(): React.ReactElement {
       <ExampleButton
         title={'Prompt'}
         onPress={() => {
-          promptRef.current.open();
+          promptRef.current?.open();
         }}
       />
       <AlertDialog
         type={'prompt'}
         ref={promptRef}
         styles={styles}
+        content={
+          'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
+        }
         onPress={(result) => {
           setDialogResult(result);
-          promptRef.current.close();
-        }}>
-        <Text>{'Hello, this is an example of AlertDialog in dooboo-ui.'}</Text>
-      </AlertDialog>
+          promptRef.current?.close();
+        }}
+      />
     </>
   );
 
