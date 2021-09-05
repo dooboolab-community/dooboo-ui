@@ -1,13 +1,8 @@
-import {
-  LoadingIndicator,
-  SelectBox,
-  ThemeProvider,
-  ThemeType,
-  useTheme,
-} from 'dooboo-ui';
 import React, {useState} from 'react';
+import {SelectBox, ThemeProvider, ThemeType, useTheme} from 'dooboo-ui';
 
 import type {FC} from 'react';
+import {View} from 'react-native';
 import styled from '@emotion/native';
 import {useFonts} from 'expo-font';
 
@@ -34,7 +29,7 @@ function SelectBoxStory(): React.ReactElement {
     IcoMoon: require('../../assets/doobooui.ttf'),
   });
 
-  if (!fontsLoaded) return <LoadingIndicator />;
+  if (!fontsLoaded) return <View />;
 
   return (
     <Container style={{flexDirection: isMobile ? 'column' : 'row'}}>
