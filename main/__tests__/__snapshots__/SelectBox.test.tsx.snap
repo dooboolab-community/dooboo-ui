@@ -1,0 +1,435 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`[SelectBox] should change title style with styles props 1`] = `
+<View>
+  <View
+    activeOpacity={1}
+    disabled={false}
+    onPress={[Function]}
+  >
+    <View
+      style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "borderBottomWidth": 1,
+            "borderLeftWidth": 1,
+            "borderRightWidth": 1,
+            "borderTopWidth": 1,
+            "flexDirection": "row",
+            "height": 30,
+            "justifyContent": "center",
+            "width": 200,
+          },
+          Array [
+            Object {
+              "backgroundColor": "white",
+              "borderColor": "black",
+            },
+            Object {
+              "backgroundColor": "red",
+            },
+          ],
+        ]
+      }
+    >
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "black",
+              "fontSize": 14,
+            },
+            Object {
+              "includeFontPadding": false,
+            },
+          ]
+        }
+      >
+        item1
+      </Text>
+      <View
+        style={
+          Object {
+            "position": "absolute",
+            "right": 10,
+            "transform": Array [
+              Object {
+                "rotate": "0deg",
+              },
+            ],
+          }
+        }
+      >
+        <Text
+          allowFontScaling={false}
+          style={
+            Array [
+              Object {
+                "color": undefined,
+                "fontSize": 12,
+              },
+              Array [
+                Object {
+                  "color": "black",
+                },
+                undefined,
+              ],
+              Object {
+                "fontFamily": "IcoMoon",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+              },
+              Object {},
+            ]
+          }
+        >
+          
+        </Text>
+      </View>
+    </View>
+  </View>
+  <View>
+    <View
+      style={
+        Object {
+          "position": "absolute",
+        }
+      }
+    />
+  </View>
+</View>
+`;
+
+exports[`[SelectBox] should not operate rotate animation when isRightElemAnimated props is false 1`] = `
+<View>
+  <View
+    activeOpacity={1}
+    disabled={false}
+    onPress={[Function]}
+  >
+    <View
+      style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "borderBottomWidth": 1,
+            "borderLeftWidth": 1,
+            "borderRightWidth": 1,
+            "borderTopWidth": 1,
+            "flexDirection": "row",
+            "height": 30,
+            "justifyContent": "center",
+            "width": 200,
+          },
+          Array [
+            Object {
+              "backgroundColor": "white",
+              "borderColor": "black",
+            },
+            undefined,
+          ],
+        ]
+      }
+    >
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "black",
+              "fontSize": 14,
+            },
+            Object {
+              "includeFontPadding": false,
+            },
+          ]
+        }
+      >
+        item1
+      </Text>
+      <View
+        style={
+          Object {
+            "position": "absolute",
+            "right": 10,
+            "transform": Array [
+              Object {
+                "rotate": "0deg",
+              },
+            ],
+          }
+        }
+      >
+        <Text
+          allowFontScaling={false}
+          style={
+            Array [
+              Object {
+                "color": undefined,
+                "fontSize": 12,
+              },
+              Array [
+                Object {
+                  "color": "black",
+                },
+                undefined,
+              ],
+              Object {
+                "fontFamily": "IcoMoon",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+              },
+              Object {},
+            ]
+          }
+        >
+          
+        </Text>
+      </View>
+    </View>
+  </View>
+  <View>
+    <View
+      style={
+        Object {
+          "position": "absolute",
+        }
+      }
+    />
+  </View>
+</View>
+`;
+
+exports[`[SelectBox] should not render rightElement when rightElement props is null 1`] = `
+<View>
+  <View
+    activeOpacity={1}
+    disabled={false}
+    onPress={[Function]}
+  >
+    <View
+      style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "borderBottomWidth": 1,
+            "borderLeftWidth": 1,
+            "borderRightWidth": 1,
+            "borderTopWidth": 1,
+            "flexDirection": "row",
+            "height": 30,
+            "justifyContent": "center",
+            "width": 200,
+          },
+          Array [
+            Object {
+              "backgroundColor": "white",
+              "borderColor": "black",
+            },
+            undefined,
+          ],
+        ]
+      }
+    >
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "black",
+              "fontSize": 14,
+            },
+            Object {
+              "includeFontPadding": false,
+            },
+          ]
+        }
+      >
+        item1
+      </Text>
+    </View>
+  </View>
+  <View>
+    <View
+      style={
+        Object {
+          "position": "absolute",
+        }
+      }
+    />
+  </View>
+</View>
+`;
+
+exports[`[SelectBox] should render with obeject data 1`] = `
+<View>
+  <View
+    activeOpacity={1}
+    disabled={false}
+    onPress={[Function]}
+  >
+    <View
+      style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "borderBottomWidth": 1,
+            "borderLeftWidth": 1,
+            "borderRightWidth": 1,
+            "borderTopWidth": 1,
+            "flexDirection": "row",
+            "height": 30,
+            "justifyContent": "center",
+            "width": 200,
+          },
+          Array [
+            Object {
+              "backgroundColor": "white",
+              "borderColor": "black",
+            },
+            undefined,
+          ],
+        ]
+      }
+    >
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "black",
+              "fontSize": 14,
+            },
+            Object {
+              "includeFontPadding": false,
+            },
+          ]
+        }
+      >
+        item1
+      </Text>
+      <View
+        style={
+          Object {
+            "position": "absolute",
+            "right": 10,
+            "transform": Array [
+              Object {
+                "rotate": "0deg",
+              },
+            ],
+          }
+        }
+      >
+        <Text
+          allowFontScaling={false}
+          style={
+            Array [
+              Object {
+                "color": undefined,
+                "fontSize": 12,
+              },
+              Array [
+                Object {
+                  "color": "black",
+                },
+                undefined,
+              ],
+              Object {
+                "fontFamily": "IcoMoon",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+              },
+              Object {},
+            ]
+          }
+        >
+          
+        </Text>
+      </View>
+    </View>
+  </View>
+  <View>
+    <View
+      style={
+        Object {
+          "position": "absolute",
+        }
+      }
+    />
+  </View>
+</View>
+`;
+
+exports[`[SelectBox] should render with string data 1`] = `
+<View>
+  <View
+    activeOpacity={1}
+    disabled={false}
+    onPress={[Function]}
+  >
+    <View
+      style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "borderBottomWidth": 1,
+            "borderLeftWidth": 1,
+            "borderRightWidth": 1,
+            "borderTopWidth": 1,
+            "flexDirection": "row",
+            "height": 30,
+            "justifyContent": "center",
+            "width": 200,
+          },
+          Array [
+            Object {
+              "backgroundColor": "white",
+              "borderColor": "black",
+            },
+            undefined,
+          ],
+        ]
+      }
+    >
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "black",
+              "fontSize": 14,
+            },
+            Object {
+              "includeFontPadding": false,
+            },
+          ]
+        }
+      >
+        item1
+      </Text>
+      <View
+        style={
+          Object {
+            "position": "absolute",
+            "right": 10,
+            "transform": Array [
+              Object {
+                "rotate": "0deg",
+              },
+            ],
+          }
+        }
+      >
+        <Text />
+      </View>
+    </View>
+  </View>
+  <View>
+    <View
+      style={
+        Object {
+          "position": "absolute",
+        }
+      }
+    />
+  </View>
+</View>
+`;

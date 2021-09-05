@@ -1,0 +1,39 @@
+import {Meta, Story, Canvas} from '@storybook/addon-docs/blocks';
+import {ThemeProvider} from 'dooboo-ui';
+import {Default} from './index.tsx';
+
+<Meta title="Components/SelectBox" />
+
+# SelectBox
+
+> [SelectBox] component can be used to select specific value from array data. It can take a string array or object array.
+
+## Usage
+
+```tsx
+import {SelectBox} from 'dooboo-ui';
+
+<SelectBox {...props} />;
+```
+
+## Props
+
+| props               | necessary | types                                                  |               default               | description                                             |
+| ------------------- | :-------: | ------------------------------------------------------ | :---------------------------------: | ------------------------------------------------------- |
+| theme               |           | `DoobooTheme`                                          |                                     |                                                         |
+| data                |     ✓     | T[]                                                    |                                     | The data type can be used to intenal generic type       |
+| selectedIndex       |     ✓     | number                                                 |                 `0`                 | Initial selectedIndex                                   |
+| onSelect            |     ✓     | (item: T, index: number) => void                       |                                     | Triggered when you select item                          |
+| onPress             |           | () => void                                             |                                     | Triggered when you press title                          |
+| style               |           | `StyleProps<ViewStyle>`                                |                                     |                                                         |
+| styles              |           | `Styles`                                               |             `undefined`             |                                                         |
+| disabled            |           | boolean                                                |               `false`               | Touch event cannot be triggered when this props is true |
+| rightElement        |           | ReactElement \| null                                   | `<Icon name="chevron-down-light"/>` |                                                         |
+| rotateDuration      |           | number                                                 |                `200`                |                                                         |
+| isRightElemAnimated |           | boolean                                                |               `true`                |                                                         |
+| titleTouchableProps |           | Partial<TouchableOpacityProps & GenericTouchableProps> |        `{activeOpacity: 1} `        |                                                         |
+| itemTouchableProps  |           | Partial<TouchableOpacityProps & GenericTouchableProps> |        `{activeOpacity: 1} `        |                                                         |
+
+### Basic Style
+
+<Default />

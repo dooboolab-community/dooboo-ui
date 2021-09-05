@@ -19,7 +19,8 @@
     "emotion": ">=11.0.0",
     "@emotion/react": ">=11.0.0",
     "@emotion/native": ">=11.0.0",
-    "react-native-vector-icons": "*"
+    "react-native-vector-icons": "*",
+    "react-native-gestuer-handler": "*"
   },
   "dependencies": {
     "dooboolab-welcome": "^1.2.0",
