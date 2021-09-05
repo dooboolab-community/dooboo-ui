@@ -1,5 +1,11 @@
 ## Changelogs
 
+## 0.1.27
+
+Implement [SelectBox] component [#73](https://github.com/dooboolab/dooboo-ui/pull/73)
+
+- This leads to another peer dependency, [react-native-gesture-handler](https://www.npmjs.com/package/react-native-gesture-handler).
+
 ## 0.1.26
 
 16 More `dooboo-ui` icons
