@@ -95,7 +95,8 @@ function Component(props: Props): React.ReactElement {
   const circlePosXEnd =
     ((containerStyle.width ?? defaultContainerStyle.width) as number) -
     ((circleStyle.width ?? defaultCircleStyle.width) as number) -
-    paddingRight * 2;
+    paddingRight -
+    paddingLeft;
 
   const [animXValue] = useState(new Animated.Value(isOn ? 1 : 0));
 
