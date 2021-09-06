@@ -25,6 +25,7 @@ const RadioGroupStory: FC = () => {
         labels={labels}
         selectedValue={selectedValue}
         selectValue={(value) => setSelectedValue(value)}
+        styles={{container: {paddingBottom: 5}}}
       />
       <RadioGroup
         title="Secondary"
@@ -33,6 +34,7 @@ const RadioGroupStory: FC = () => {
         labels={labels}
         selectedValue={selectedValue}
         selectValue={(value) => setSelectedValue(value)}
+        styles={{container: {paddingBottom: 5}}}
       />
       <RadioGroup
         title="Success"
@@ -41,6 +43,7 @@ const RadioGroupStory: FC = () => {
         labels={labels}
         selectedValue={selectedValue}
         selectValue={(value) => setSelectedValue(value)}
+        styles={{container: {paddingBottom: 5}}}
       />
       <RadioGroup
         title="Warning"
@@ -49,6 +52,7 @@ const RadioGroupStory: FC = () => {
         labels={labels}
         selectedValue={selectedValue}
         selectValue={(value) => setSelectedValue(value)}
+        styles={{container: {paddingBottom: 5}}}
       />
 
       <RadioGroup
@@ -58,6 +62,7 @@ const RadioGroupStory: FC = () => {
         labels={labels}
         selectedValue={selectedValue}
         selectValue={(value) => setSelectedValue(value)}
+        styles={{container: {paddingBottom: 5}}}
       />
       <RadioGroup
         title="Danger"
@@ -66,6 +71,7 @@ const RadioGroupStory: FC = () => {
         labels={labels}
         selectedValue={selectedValue}
         selectValue={(value) => setSelectedValue(value)}
+        styles={{container: {paddingBottom: 5}}}
       />
     </View>
   );

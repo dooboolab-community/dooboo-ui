@@ -1,6 +1,12 @@
 import {Meta, Story, Canvas} from '@storybook/addon-docs/blocks';
 import {ThemeProvider} from 'dooboo-ui';
-import {Basic, Colored, WithLabels, WithTitle, SelectValue} from './index.tsx';
+import {
+  BasicDemo,
+  ColoredDemo,
+  WithLabelsDemo,
+  WithTitleDemo,
+  SelectValueDemo,
+} from './index.tsx';
 
 <Meta title="Components/RadioGroup" />
 
@@ -39,8 +45,7 @@ import {RadioGroup} from 'dooboo-ui';
 <RadioGroup data={data} selectedValue={selectedValue} />
 ```
 
-<Basic theme="light" />
-<Basic theme="dark" />
+<BasicDemo />
 
 ### With Title
 
@@ -51,8 +56,7 @@ If no specific styles added, the title is shown top-left of the radio buttons.
 <RadioGroup title={title} data={data} selectedValue={selectedValue} />
 ```
 
-<WithTitle theme="light" />
-<WithTitle theme="dark" />
+<WithTitleDemo />
 
 ### With Labels
 
@@ -64,8 +68,7 @@ const labels = ['One', 'Two', 'Three', 'Four'];
 <RadioGroup data={data} labels={labels} selectedValue={selectedValue} />;
 ```
 
-<WithLabels theme="light" />
-<WithLabels theme="dark" />
+<WithLabelsDemo labelPosition="right" />
 <br />
 
 If you want to put labels on the left side of the buttons, you can do so with `labelPosition`
@@ -80,8 +83,7 @@ prop. The default value is set to `right`.
 />
 ```
 
-<WithLabels theme="light" labelPosition="left" />
-<WithLabels theme="dark" labelPosition="left" />
+<WithLabelsDemo labelPosition="left" />
 
 ### Colored Style
 
@@ -99,8 +101,7 @@ is set to `primary`.
 />
 ```
 
-<Colored theme="light" />
-<Colored theme="dark" />
+<ColoredDemo />
 
 ### `selectValue` event
 
@@ -125,5 +126,4 @@ const [selectedValue, setSelectedValue] = useState(data[0]);
 />;
 ```
 
-<SelectValue theme="light" />
-<SelectValue theme="dark" />
+<SelectValueDemo />
