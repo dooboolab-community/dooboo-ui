@@ -1,151 +1,185 @@
-import {
-  Animated,
-  StyleProp,
-  Text,
-  TextStyle,
-  TouchableOpacity,
-  View,
-  ViewStyle,
-} from 'react-native';
+import {Animated, StyleProp, TouchableOpacity, ViewStyle} from 'react-native';
 import {DoobooTheme, light} from './theme';
-import React, {useEffect, useRef, useState} from 'react';
+import {ReactElement, useEffect, useState} from 'react';
 
 import styled from '@emotion/native';
 import {withTheme} from '@emotion/react';
 
-interface Props {
-  testID?: string;
-  theme?: DoobooTheme;
-  switchOn: boolean;
-  onPress: () => void;
+import {isEmptyObject} from './utils';
+
+interface Styles {
   containerStyle?: ViewStyle;
+  onElementContainerStyle?: StyleProp<ViewStyle>;
+  offElementContainerStyle?: StyleProp<ViewStyle>;
   circleStyle?: ViewStyle;
-  backgroundColorOn?: string;
-  backgroundColorOff?: string;
-  backgroundImageOn?: React.ReactElement;
-  backgroundImageOff?: React.ReactElement;
+  buttonStyle?: StyleProp<ViewStyle>;
   circleColorOff?: string;
   circleColorOn?: string;
-  duration?: number;
-  type?: number;
-  buttonText?: string;
-  backTextRight?: string;
-  backTextLeft?: string;
-  buttonTextStyle?: StyleProp<TextStyle>;
-  textRightStyle?: StyleProp<TextStyle>;
-  textLeftStyle?: StyleProp<TextStyle>;
-  buttonStyle?: StyleProp<ViewStyle>;
-  // limitation: https://github.com/DefinitelyTyped/DefinitelyTyped/issues/12202
-  buttonContainerStyle?: StyleProp<ViewStyle>;
-  rightContainerStyle?: StyleProp<ViewStyle>;
-  leftContainerStyle?: StyleProp<ViewStyle>;
-  RTL?: boolean;
+  backgroundColorOn?: string;
+  backgroundColorOff?: string;
 }
+
+interface Props {
+  testID?: string;
+  isOn: boolean;
+  theme?: DoobooTheme;
+  style?: StyleProp<ViewStyle>;
+  styles?: Styles;
+  duration?: number;
+  onElement?: ReactElement;
+  offElement?: ReactElement;
+  onPress?: () => void;
+}
+
+// Typing limitation: https://github.com/DefinitelyTyped/DefinitelyTyped/issues/12202
 
 const AnimatedContainer = styled(Animated.View)`
   flex-direction: row;
   align-items: center;
 `;
 
+const defaultContainerStyle: ViewStyle = {
+  width: 80,
+  height: 40,
+  borderRadius: 25,
+  padding: 5,
+};
+
+const defaultCircleStyle: ViewStyle = {
+  width: 32,
+  height: 32,
+  borderRadius: 16,
+};
+
 function Component(props: Props): React.ReactElement {
   const {
+    testID,
+    isOn,
+    style,
+    styles,
     duration = 300,
-    backgroundImageOn,
-    backgroundImageOff,
-    backgroundColorOn,
-    backgroundColorOff,
-    circleColorOn,
-    circleColorOff,
-    containerStyle,
+    onElement,
+    offElement,
+    onPress,
   } = props;
 
-  const padding: number =
-    (containerStyle?.padding as number) ||
-    (containerStyle?.paddingLeft as number) ||
+  const theme =
+    !props.theme || isEmptyObject(props.theme) ? light : props.theme;
+
+  const {primary, disabled, textContrast, placeholder} = theme;
+
+  const {
+    backgroundColorOn = primary,
+    backgroundColorOff = disabled,
+    circleColorOn = textContrast,
+    circleColorOff = placeholder,
+    containerStyle = defaultContainerStyle,
+    circleStyle = defaultCircleStyle,
+    buttonStyle,
+    onElementContainerStyle,
+    offElementContainerStyle,
+  } = styles ?? {};
+
+  const paddingLeft: number =
+    (containerStyle.padding as number) ||
+    (containerStyle.paddingLeft as number) ||
     0;
 
-  const [animXValue] = useState(new Animated.Value(props.switchOn ? 1 : 0));
+  const paddingRight: number =
+    (containerStyle.padding as number) ||
+    (containerStyle.paddingRight as number) ||
+    0;
 
-  const getStart = (): number | Record<string, unknown> | undefined => {
-    return props.type === undefined
-      ? 0
-      : props.type === 0
-      ? 0
-      : padding
-      ? padding * 2
-      : {};
-  };
+  const circlePosXStart = 0;
 
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  const runAnimation = (): void => {
-    const animValue = {
-      fromValue: props.switchOn ? 0 : 1,
-      toValue: props.switchOn ? 1 : 0,
-      duration,
-      useNativeDriver: false,
-    };
+  const circlePosXEnd =
+    ((containerStyle.width ?? defaultContainerStyle.width) as number) -
+    ((circleStyle.width ?? defaultCircleStyle.width) as number) -
+    paddingRight -
+    paddingLeft;
 
-    Animated.timing(animXValue, animValue).start();
-  };
-
-  const endPos =
-    props.containerStyle && props.circleStyle
-      ? (props.containerStyle.width as number) -
-        ((props.circleStyle.width as number) +
-          ((props.containerStyle?.paddingRight as number) || padding || 0) * 2)
-      : 0;
-
-  const circlePosXEnd = props.RTL ? -endPos : endPos;
-  const [circlePosXStart] = useState(getStart());
-
-  const prevSwitchOnRef = useRef<boolean>();
-  const prevSwitchOn = !!prevSwitchOnRef.current;
+  const [animXValue] = useState(new Animated.Value(isOn ? 1 : 0));
 
   useEffect(() => {
-    prevSwitchOnRef.current = props.switchOn;
+    const runAnimation = (): void => {
+      const option = {
+        fromValue: isOn ? 0 : 1,
+        toValue: isOn ? 1 : 0,
+        duration,
+        useNativeDriver: false,
+      };
 
-    if (prevSwitchOn !== props.switchOn) runAnimation();
-  }, [prevSwitchOn, props.switchOn, runAnimation]);
+      Animated.timing(animXValue, option).start();
+    };
 
-  const generateRightText = (): React.ReactElement => {
-    return (
-      <Animated.View style={props.rightContainerStyle}>
-        <Text style={props.textRightStyle}>{props.backTextRight}</Text>
-      </Animated.View>
-    );
-  };
+    runAnimation();
+  }, [animXValue, isOn, duration]);
 
-  const generateLeftText = (): React.ReactElement => {
-    return (
-      <Animated.View style={props.leftContainerStyle}>
-        <Text style={props.textLeftStyle}>{props.backTextLeft}</Text>
-      </Animated.View>
-    );
-  };
+  const CircleButton = (
+    <Animated.View
+      style={[
+        circleStyle,
+        {
+          backgroundColor: animXValue.interpolate({
+            inputRange: [0.5, 1],
+            outputRange: [
+              circleColorOff as string | number,
+              circleColorOn as string | number,
+            ] as string[] | number[],
+          }),
+        },
+        {
+          transform: [
+            {
+              translateX: animXValue.interpolate({
+                inputRange: [0, 1],
+                outputRange: [
+                  circlePosXStart as string | number,
+                  circlePosXEnd as string | number,
+                ] as string[] | number[],
+              }),
+            },
+          ],
+        },
+        buttonStyle,
+      ]}
+    />
+  );
 
-  const generateLeftIcon = (): React.ReactElement => {
-    return (
-      <View style={{position: 'absolute', left: 5}}>{backgroundImageOn}</View>
-    );
-  };
+  const OnElement = (
+    <Animated.View style={[{opacity: animXValue}, onElementContainerStyle]}>
+      {onElement}
+    </Animated.View>
+  );
 
-  const generateRightIcon = (): React.ReactElement => {
-    return (
-      <View style={{position: 'absolute', right: 5}}>{backgroundImageOff}</View>
-    );
-  };
+  const OffElement = (
+    <Animated.View
+      style={[
+        {
+          opacity: animXValue.interpolate({
+            inputRange: [0, 1],
+            outputRange: [1, 0],
+          }),
+        },
+        offElementContainerStyle,
+      ]}>
+      {offElement}
+    </Animated.View>
+  );
 
   return (
     <TouchableOpacity
-      testID={props.testID}
-      onPress={props.onPress}
+      testID={testID}
+      accessibilityRole="switch"
+      style={style}
+      onPress={onPress}
       activeOpacity={0.8}>
       <AnimatedContainer
         style={[
-          props.containerStyle,
+          containerStyle,
           {
-            paddingLeft: props.containerStyle?.paddingLeft || padding,
-            paddingRight: props.containerStyle?.paddingRight || padding,
+            paddingLeft,
+            paddingRight,
           },
           {
             backgroundColor: animXValue.interpolate({
@@ -157,64 +191,11 @@ function Component(props: Props): React.ReactElement {
             }),
           },
         ]}>
-        {generateLeftText()}
-        {props.switchOn && generateLeftIcon()}
-        <Animated.View
-          style={[
-            props.circleStyle,
-            {
-              backgroundColor: animXValue.interpolate({
-                inputRange: [0.5, 1],
-                outputRange: [
-                  circleColorOff as string | number,
-                  circleColorOn as string | number,
-                ] as string[] | number[],
-              }),
-            },
-            {
-              transform: [
-                {
-                  translateX: animXValue.interpolate({
-                    inputRange: [0, 1],
-                    outputRange: [
-                      circlePosXStart as string | number,
-                      circlePosXEnd as string | number,
-                    ] as string[] | number[],
-                  }),
-                },
-              ],
-            },
-            props.buttonStyle,
-          ]}>
-          <Animated.View style={props.buttonContainerStyle}>
-            <Text style={props.buttonTextStyle}>{props.buttonText}</Text>
-          </Animated.View>
-        </Animated.View>
-        {generateRightText()}
-        {!props.switchOn && generateRightIcon()}
+        {isOn ? OnElement : OffElement}
+        {CircleButton}
       </AnimatedContainer>
     </TouchableOpacity>
   );
 }
-
-Component.defaultProps = {
-  theme: light,
-  backgroundColorOn: light.primary,
-  backgroundColorOff: light.disabled,
-  circleColorOn: light.textContrast,
-  circleColorOff: light.placeholder,
-  containerStyle: {
-    marginTop: 16,
-    width: 80,
-    height: 40,
-    borderRadius: 25,
-    padding: 5,
-  },
-  circleStyle: {
-    width: 32,
-    height: 32,
-    borderRadius: 16,
-  },
-};
 
 export const SwitchToggle = withTheme(Component);
