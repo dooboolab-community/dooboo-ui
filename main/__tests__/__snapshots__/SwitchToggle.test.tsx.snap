@@ -30,7 +30,6 @@ exports[`[SwitchToggle] when switch toggle is off renders as off state 1`] = `
         "paddingRight": 5,
       }
     }
-    testID="container"
   >
     <View
       style={
@@ -56,7 +55,6 @@ exports[`[SwitchToggle] when switch toggle is off renders as off state 1`] = `
           ],
         }
       }
-      testID="circle"
     />
   </View>
 </View>
@@ -92,7 +90,6 @@ exports[`[SwitchToggle] when switch toggle is on renders as on state 1`] = `
         "paddingRight": 5,
       }
     }
-    testID="container"
   >
     <View
       style={
@@ -118,7 +115,6 @@ exports[`[SwitchToggle] when switch toggle is on renders as on state 1`] = `
           ],
         }
       }
-      testID="circle"
     />
   </View>
 </View>
