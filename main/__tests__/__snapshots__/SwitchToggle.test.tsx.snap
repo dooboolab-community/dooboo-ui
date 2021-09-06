@@ -50,7 +50,7 @@ exports[`[SwitchToggle] when switch toggle is off renders as off state 1`] = `
           "padding": 1,
           "transform": Array [
             Object {
-              "translateX": NaN,
+              "translateX": 0,
             },
           ],
         }
@@ -110,7 +110,7 @@ exports[`[SwitchToggle] when switch toggle is on renders as on state 1`] = `
           "padding": 1,
           "transform": Array [
             Object {
-              "translateX": NaN,
+              "translateX": 38,
             },
           ],
         }
