@@ -5,6 +5,8 @@ import {ReactElement, useEffect, useState} from 'react';
 import styled from '@emotion/native';
 import {withTheme} from '@emotion/react';
 
+import {isEmptyObject} from './utils';
+
 interface Styles {
   containerStyle?: ViewStyle;
   onElementContainerStyle?: StyleProp<ViewStyle>;
@@ -53,7 +55,6 @@ function Component(props: Props): React.ReactElement {
   const {
     testID,
     isOn,
-    theme = light,
     style,
     styles,
     duration = 300,
@@ -61,6 +62,9 @@ function Component(props: Props): React.ReactElement {
     offElement,
     onPress,
   } = props;
+
+  const theme =
+    !props.theme || isEmptyObject(props.theme) ? light : props.theme;
 
   const {primary, disabled, textContrast, placeholder} = theme;
 
