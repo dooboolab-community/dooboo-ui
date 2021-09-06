@@ -31,7 +31,7 @@ describe('[SwitchToggle]', () => {
         offElement={<Text>off</Text>}
         style={{padding: 6}}
         styles={{
-          containerStyle: {padding: 5},
+          containerStyle: {paddingLeft: 6, paddingRight: 5},
           onElementContainerStyle: {padding: 4},
           offElementContainerStyle: {padding: 3},
           circleStyle: {padding: 2},

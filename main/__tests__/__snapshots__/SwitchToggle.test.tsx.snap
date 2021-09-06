@@ -25,8 +25,7 @@ exports[`[SwitchToggle] when switch toggle is off renders as off state 1`] = `
         "alignItems": "center",
         "backgroundColor": "rgba(128, 128, 128, 1)",
         "flexDirection": "row",
-        "padding": 5,
-        "paddingLeft": 5,
+        "paddingLeft": 6,
         "paddingRight": 5,
       }
     }
@@ -85,8 +84,7 @@ exports[`[SwitchToggle] when switch toggle is on renders as on state 1`] = `
         "alignItems": "center",
         "backgroundColor": "rgba(0, 128, 0, 1)",
         "flexDirection": "row",
-        "padding": 5,
-        "paddingLeft": 5,
+        "paddingLeft": 6,
         "paddingRight": 5,
       }
     }
@@ -110,7 +108,7 @@ exports[`[SwitchToggle] when switch toggle is on renders as on state 1`] = `
           "padding": 1,
           "transform": Array [
             Object {
-              "translateX": 38,
+              "translateX": 37,
             },
           ],
         }
