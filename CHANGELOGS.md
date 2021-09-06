@@ -1,5 +1,9 @@
 ## Changelogs
 
+## 0.1.28
+
+Rewrite [SwitchToggle] [#86](https://github.com/dooboolab/dooboo-ui/pull/86).
+
 ## 0.1.27
 
 Implement [SelectBox] component [#73](https://github.com/dooboolab/dooboo-ui/pull/73)
