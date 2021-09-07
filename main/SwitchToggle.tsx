@@ -1,6 +1,6 @@
 import {Animated, StyleProp, TouchableOpacity, ViewStyle} from 'react-native';
 import {DoobooTheme, light} from './theme';
-import {ReactElement, useEffect, useState} from 'react';
+import React, {ReactElement, useEffect, useState} from 'react';
 
 import {isEmptyObject} from './utils';
 import styled from '@emotion/native';
