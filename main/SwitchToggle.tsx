@@ -1,11 +1,10 @@
 import {Animated, StyleProp, TouchableOpacity, ViewStyle} from 'react-native';
 import {DoobooTheme, light} from './theme';
-import {ReactElement, useEffect, useState} from 'react';
-
-import styled from '@emotion/native';
-import {withTheme} from '@emotion/react';
+import React, {ReactElement, useEffect, useState} from 'react';
 
 import {isEmptyObject} from './utils';
+import styled from '@emotion/native';
+import {withTheme} from '@emotion/react';
 
 interface Styles {
   containerStyle?: ViewStyle;
@@ -95,8 +94,7 @@ function Component(props: Props): React.ReactElement {
   const circlePosXEnd =
     ((containerStyle.width ?? defaultContainerStyle.width) as number) -
     ((circleStyle.width ?? defaultCircleStyle.width) as number) -
-    paddingRight -
-    paddingLeft;
+    (paddingRight + paddingLeft);
 
   const [animXValue] = useState(new Animated.Value(isOn ? 1 : 0));
 
