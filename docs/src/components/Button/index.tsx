@@ -6,3 +6,4 @@ export * from './OnPress';
 export * from './Solid';
 export * from './Disabled';
 export * from './Loading';
+export * from './Link';
