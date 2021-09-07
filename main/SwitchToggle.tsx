@@ -53,7 +53,6 @@ const defaultCircleStyle: ViewStyle = {
 function Component(props: Props): React.ReactElement {
   const {
     testID,
-    theme,
     isOn,
     style,
     styles,
@@ -63,11 +62,10 @@ function Component(props: Props): React.ReactElement {
     onPress,
   } = props;
 
-  const isValidTheme = theme && !isEmptyObject(theme);
+  const theme =
+    !props.theme || isEmptyObject(props.theme) ? light : props.theme;
 
-  const {primary, disabled, textContrast, placeholder} = isValidTheme
-    ? theme
-    : light;
+  const {primary, disabled, textContrast, placeholder} = theme;
 
   const {
     backgroundColorOn = primary,
