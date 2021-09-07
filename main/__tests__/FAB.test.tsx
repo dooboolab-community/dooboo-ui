@@ -1,32 +1,54 @@
 import {FAB, FABItem, FABProps} from '../../main';
-import {fireEvent, render} from '@testing-library/react-native';
+import React, {ReactElement} from 'react';
+import {RenderAPI, fireEvent, render} from '@testing-library/react-native';
 
-import {ReactElement} from 'react';
+import {IconButton} from '../IconButton';
+import {View} from 'react-native';
 import {createComponent} from '../../test/testUtils';
 
 const Component = (props: FABProps<FABItem>): ReactElement =>
   createComponent(<FAB {...props} />);
 
 describe('[FAB]', () => {
-  it('test mainFAB onPress callback', async () => {
+  it('should render', async () => {
     let count = 0;
-    let item1: FABItem = {icon: 'bell-solid', id: 'item1'};
+    let item: FABItem = {icon: 'bell-solid', id: 'item1'};
     let resItem: FABItem;
 
     const {getByTestId} = render(
       Component({
-        ButtonList: [item1],
+        ItemList: [item],
+        isActive: true,
         size: 'large',
-        onPressListItem: (item1) => {
+        onPressListItem: (item) => {
           count += 1;
-          resItem = item1;
+          resItem = item;
         },
+        onPressFAB: () => {},
       }),
     );
 
     expect(count).toBe(0);
     fireEvent.press(getByTestId('item1'));
     expect(count).toBe(1);
-    expect(resItem.id).toBe(item1.id);
+    expect(resItem.id).toBe(item.id);
+  });
+
+  it('should render customFAB', async () => {
+    const testingLib = render(
+      Component({
+        ItemList: [{icon: 'bell-solid', id: 'item1'}],
+        isActive: true,
+        size: 'large',
+        onPressListItem: (item1) => {},
+        onPressFAB: () => {},
+        renderFAB: () => <View />,
+        renderFabItem: (item, idx) => <View />,
+      }),
+    );
+
+    const json = testingLib.toJSON();
+
+    expect(json).toBeTruthy();
   });
 });

@@ -1,4 +1,4 @@
-import React, {FC} from 'react';
+import React, {FC, useState} from 'react';
 import {SafeAreaView, View} from 'react-native';
 import {useTheme, withTheme} from '../../../main/theme/ThemeProvider';
 
@@ -13,7 +13,7 @@ const StoryContainer = styled.View`
 `;
 
 const FABContainer: FC = () => {
-  const {theme} = useTheme();
+  const [active, setActive] = useState<boolean>(false);
 
   const [fontsLoaded] = useFonts({
     IcoMoon: require('../../../main/Icon/doobooui.ttf'),
@@ -23,16 +23,17 @@ const FABContainer: FC = () => {
 
   return (
     <StoryContainer>
-      <SafeAreaView style={{width: '100%', height: '100%'}}>
+      <SafeAreaView style={{display: 'flex', width: '100%', height: '100%'}}>
         <FAB
           size="medium"
-          theme={theme}
-          ButtonList={[
+          isActive={active}
+          onPressFAB={() => setActive((prev) => !prev)}
+          ItemList={[
             {id: 'search', icon: 'home-light'},
             {id: 'like', icon: 'like-light'},
           ]}
           onPressListItem={(item) => {
-            console.log(item.id);
+            console.log(item);
           }}
         />
       </SafeAreaView>
