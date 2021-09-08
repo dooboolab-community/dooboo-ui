@@ -3,11 +3,8 @@ import React, {FC} from 'react';
 import {View} from 'react-native';
 
 const data = ['one', 'two', 'three', 'four'];
-const labels = ['One', 'Two', 'Three', 'Four'];
 
-const RadioGroupStory: FC<{labelPosition: 'left' | 'right'}> = ({
-  labelPosition,
-}) => {
+const RadioGroupStory: FC = () => {
   const {theme} = useTheme();
 
   return (
@@ -19,21 +16,13 @@ const RadioGroupStory: FC<{labelPosition: 'left' | 'right'}> = ({
         backgroundColor: theme.background,
         padding: 15,
       }}>
-      <RadioGroup
-        data={data}
-        labels={labels}
-        selectedValue={data[0]}
-        labelPosition={labelPosition}
-      />
+      <RadioGroup data={data} selectedValue={data[0]} />
     </View>
   );
 };
 
-export const WithLabels: FC<{
-  theme: ThemeType;
-  labelPosition: 'left' | 'right';
-}> = ({theme, labelPosition}) => (
+export const Basic: FC<{theme: ThemeType}> = ({theme}) => (
   <ThemeProvider initialThemeType={theme}>
-    <RadioGroupStory labelPosition={labelPosition} />
+    <RadioGroupStory />
   </ThemeProvider>
 );
