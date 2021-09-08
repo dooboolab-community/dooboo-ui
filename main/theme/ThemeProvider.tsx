@@ -90,11 +90,11 @@ function ThemeProvider({
   );
 }
 
-const useTheme = (): Context | {theme: DoobooTheme} => {
+const useTheme = (): Context => {
   const currentTheme = useCtx();
   const defaultTheme = light;
 
-  if (!currentTheme) return {theme: defaultTheme}!;
+  if (!currentTheme) return {theme: defaultTheme} as Context;
 
   return currentTheme;
 };
