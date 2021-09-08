@@ -7,6 +7,7 @@ import {
 import React, {useEffect, useState} from 'react';
 
 import {ColorSchemeName} from 'react-native';
+import {DoobooTheme} from '.';
 import createCtx from './createCtx';
 import useColorScheme from './useColorScheme';
 import {useMediaQuery} from 'react-responsive';
@@ -89,4 +90,13 @@ function ThemeProvider({
   );
 }
 
-export {useCtx as useTheme, ThemeProvider, withTheme};
+const useTheme = (): Context | {theme: DoobooTheme} => {
+  const currentTheme = useCtx();
+  const defaultTheme = light;
+
+  if (!currentTheme) return {theme: defaultTheme}!;
+
+  return currentTheme;
+};
+
+export {useTheme, ThemeProvider, withTheme};
