@@ -7,7 +7,6 @@ import {
 import React, {useEffect, useState} from 'react';
 
 import {ColorSchemeName} from 'react-native';
-import {DoobooTheme} from '.';
 import createCtx from './createCtx';
 import useColorScheme from './useColorScheme';
 import {useMediaQuery} from 'react-responsive';
@@ -25,7 +24,7 @@ interface Context {
   colors: Colors;
 }
 
-const [useCtx, Provider] = createCtx<Context>();
+const [useCtx, Provider] = createCtx<Context>({theme: light} as Context);
 
 interface Props {
   children?: React.ReactElement;
@@ -90,13 +89,4 @@ function ThemeProvider({
   );
 }
 
-const useTheme = (): Context => {
-  const currentTheme = useCtx();
-  const defaultTheme = light;
-
-  if (!currentTheme) return {theme: defaultTheme} as Context;
-
-  return currentTheme;
-};
-
-export {useTheme, ThemeProvider, withTheme};
+export {useCtx as useTheme, ThemeProvider, withTheme};
