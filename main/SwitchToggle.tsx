@@ -1,10 +1,8 @@
 import {Animated, StyleProp, TouchableOpacity, ViewStyle} from 'react-native';
-import {DoobooTheme, light} from './theme';
 import React, {ReactElement, useEffect, useState} from 'react';
 
-import {isEmptyObject} from './utils';
 import styled from '@emotion/native';
-import {withTheme} from '@emotion/react';
+import {useTheme} from './theme/ThemeProvider';
 
 interface Styles {
   containerStyle?: ViewStyle;
@@ -21,7 +19,6 @@ interface Styles {
 interface Props {
   testID?: string;
   isOn: boolean;
-  theme?: DoobooTheme;
   style?: StyleProp<ViewStyle>;
   styles?: Styles;
   duration?: number;
@@ -50,7 +47,7 @@ const defaultCircleStyle: ViewStyle = {
   borderRadius: 16,
 };
 
-function Component(props: Props): React.ReactElement {
+export function SwitchToggle(props: Props): ReactElement {
   const {
     testID,
     isOn,
@@ -62,10 +59,9 @@ function Component(props: Props): React.ReactElement {
     onPress,
   } = props;
 
-  const theme =
-    !props.theme || isEmptyObject(props.theme) ? light : props.theme;
-
-  const {primary, disabled, textContrast, placeholder} = theme;
+  const {
+    theme: {primary, disabled, textContrast, placeholder},
+  } = useTheme();
 
   const {
     backgroundColorOn = primary,
@@ -195,5 +191,3 @@ function Component(props: Props): React.ReactElement {
     </TouchableOpacity>
   );
 }
-
-export const SwitchToggle = withTheme(Component);

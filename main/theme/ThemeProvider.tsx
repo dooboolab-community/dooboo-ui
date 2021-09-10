@@ -24,7 +24,7 @@ interface Context {
   colors: Colors;
 }
 
-const [useCtx, Provider] = createCtx<Context>();
+const [useCtx, Provider] = createCtx<Context>({theme: light} as Context);
 
 interface Props {
   children?: React.ReactElement;
@@ -45,7 +45,7 @@ function ThemeProvider({
 
   const colorScheme = useColorScheme();
 
-  const [themeType, setThemeType] = useState(initialThemeType || colorScheme);
+  const [themeType, setThemeType] = useState(initialThemeType ?? colorScheme);
 
   useEffect(() => {
     if (!initialThemeType) setThemeType(colorScheme);
@@ -61,10 +61,10 @@ function ThemeProvider({
     setThemeType(themeTypeProp);
   };
 
-  const defaultTheme =
-    themeType === 'dark'
-      ? {...dark, ...customTheme?.dark}
-      : {...light, ...customTheme?.light};
+  const theme = {
+    light: {...light, ...customTheme?.light},
+    dark: {...dark, ...customTheme?.dark},
+  }[themeType ?? 'light'];
 
   const media = {
     isPortrait,
@@ -73,18 +73,18 @@ function ThemeProvider({
     isDesktop,
   };
 
-  const theme: DefaultTheme = {...defaultTheme, ...media};
-
   return (
     <Provider
       value={{
         media,
         themeType,
         changeThemeType,
-        theme: defaultTheme,
+        theme,
         colors,
       }}>
-      <OriginalThemeProvider theme={theme}>{children}</OriginalThemeProvider>
+      <OriginalThemeProvider theme={{...theme, ...media}}>
+        {children}
+      </OriginalThemeProvider>
     </Provider>
   );
 }
