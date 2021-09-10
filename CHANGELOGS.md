@@ -1,5 +1,11 @@
 ## Changelogs
 
+## 0.1.30
+
+1 More `dooboo-ui` icon
+
+- follow-shape
+
 ## 0.1.29
 
 Fix [SwitchToggle] error [#102](https://github.com/dooboolab/dooboo-ui/pull/102).

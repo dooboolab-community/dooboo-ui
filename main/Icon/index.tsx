@@ -13,6 +13,7 @@ export type IconName =
   | 'pen-light'
   | 'burger-shape'
   | 'dots-light'
+  | 'follow-shape'
   | 'wifi-unable-light'
   | 'wifi-light'
   | 'mic-shape'

@@ -60,6 +60,7 @@ const IconStory: FC = () => {
       <IconWithLabel name="pen-light" />
       <IconWithLabel name="burger-shape" />
       <IconWithLabel name="dots-light" />
+      <IconWithLabel name="follow-shape" />
       <IconWithLabel name="wifi-unable-light" />
       <IconWithLabel name="wifi-light" />
       <IconWithLabel name="mic-shape" />
