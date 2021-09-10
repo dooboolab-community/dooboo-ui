@@ -5,11 +5,11 @@ import styled from '@emotion/native';
 import {useTheme} from './theme/ThemeProvider';
 
 interface Styles {
-  containerStyle?: ViewStyle;
-  onElementContainerStyle?: StyleProp<ViewStyle>;
-  offElementContainerStyle?: StyleProp<ViewStyle>;
-  circleStyle?: ViewStyle;
-  buttonStyle?: StyleProp<ViewStyle>;
+  container?: ViewStyle;
+  onElementContainer?: StyleProp<ViewStyle>;
+  offElementContainer?: StyleProp<ViewStyle>;
+  circle?: ViewStyle;
+  button?: StyleProp<ViewStyle>;
   circleColorOff?: string;
   circleColorOn?: string;
   backgroundColorOn?: string;
@@ -34,14 +34,14 @@ const AnimatedContainer = styled(Animated.View)`
   align-items: center;
 `;
 
-const defaultContainerStyle: ViewStyle = {
+const defaultContainer: ViewStyle = {
   width: 80,
   height: 40,
   borderRadius: 25,
   padding: 5,
 };
 
-const defaultCircleStyle: ViewStyle = {
+const defaultCircle: ViewStyle = {
   width: 32,
   height: 32,
   borderRadius: 16,
@@ -68,28 +68,24 @@ export function SwitchToggle(props: Props): ReactElement {
     backgroundColorOff = disabled,
     circleColorOn = textContrast,
     circleColorOff = placeholder,
-    containerStyle = defaultContainerStyle,
-    circleStyle = defaultCircleStyle,
-    buttonStyle,
-    onElementContainerStyle,
-    offElementContainerStyle,
+    container = defaultContainer,
+    circle = defaultCircle,
+    button,
+    onElementContainer,
+    offElementContainer,
   } = styles ?? {};
 
   const paddingLeft: number =
-    (containerStyle.padding as number) ||
-    (containerStyle.paddingLeft as number) ||
-    0;
+    (container.padding as number) || (container.paddingLeft as number) || 0;
 
   const paddingRight: number =
-    (containerStyle.padding as number) ||
-    (containerStyle.paddingRight as number) ||
-    0;
+    (container.padding as number) || (container.paddingRight as number) || 0;
 
   const circlePosXStart = 0;
 
   const circlePosXEnd =
-    ((containerStyle.width ?? defaultContainerStyle.width) as number) -
-    ((circleStyle.width ?? defaultCircleStyle.width) as number) -
+    ((container.width ?? defaultContainer.width) as number) -
+    ((circle.width ?? defaultCircle.width) as number) -
     (paddingRight + paddingLeft);
 
   const [animXValue] = useState(new Animated.Value(isOn ? 1 : 0));
@@ -112,7 +108,7 @@ export function SwitchToggle(props: Props): ReactElement {
   const CircleButton = (
     <Animated.View
       style={[
-        circleStyle,
+        circle,
         {
           backgroundColor: animXValue.interpolate({
             inputRange: [0.5, 1],
@@ -135,13 +131,13 @@ export function SwitchToggle(props: Props): ReactElement {
             },
           ],
         },
-        buttonStyle,
+        button,
       ]}
     />
   );
 
   const OnElement = (
-    <Animated.View style={[{opacity: animXValue}, onElementContainerStyle]}>
+    <Animated.View style={[{opacity: animXValue}, onElementContainer]}>
       {onElement}
     </Animated.View>
   );
@@ -155,7 +151,7 @@ export function SwitchToggle(props: Props): ReactElement {
             outputRange: [1, 0],
           }),
         },
-        offElementContainerStyle,
+        offElementContainer,
       ]}>
       {offElement}
     </Animated.View>
@@ -170,7 +166,7 @@ export function SwitchToggle(props: Props): ReactElement {
       activeOpacity={0.8}>
       <AnimatedContainer
         style={[
-          containerStyle,
+          container,
           {
             paddingLeft,
             paddingRight,
