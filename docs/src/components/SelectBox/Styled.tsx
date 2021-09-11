@@ -37,7 +37,7 @@ function SelectBoxStory(): React.ReactElement {
         data={data}
         onSelect={(_, index) => setSelectedIndex(index)}
         selectedIndex={selectedIndex}
-        style={{ margin: 10 }}
+        style={{margin: 10}}
         styles={{
           titleContainer: {
             backgroundColor: theme.success,

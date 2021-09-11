@@ -19,7 +19,6 @@ function SelectBoxStory(): React.ReactElement {
   const data = ['Item1', 'Item2', 'Item3', 'Item4'];
 
   const {
-    theme,
     media: {isMobile},
   } = useTheme();
 
@@ -38,7 +37,7 @@ function SelectBoxStory(): React.ReactElement {
         onSelect={(_, index) => setSelectedIndex(index)}
         selectedIndex={selectedIndex}
         disabled={true}
-        style={{ margin:10 }}
+        style={{margin: 10}}
       />
     </Container>
   );

@@ -23,8 +23,8 @@ const StyledText = styled.Text`
 
 function SelectBoxStory(): React.ReactElement {
   const data = ['Item1', 'Item2', 'Item3', 'Item4'];
+
   const {
-    theme,
     media: {isMobile},
   } = useTheme();
 
@@ -35,7 +35,7 @@ function SelectBoxStory(): React.ReactElement {
     IcoMoon: require('../../assets/doobooui.ttf'),
   });
 
-  const handlePressIncrease = () => {
+  const handlePressIncrease = (): void => {
     setCount(count + 1);
   };
 
@@ -45,11 +45,11 @@ function SelectBoxStory(): React.ReactElement {
     <Container style={{flexDirection: isMobile ? 'column' : 'row'}}>
       <View
         style={{
-            flexDirection: 'row',
-            flexWrap: 'wrap',
-            justifyContent: 'center',
-            margin: 10
-          }}>
+          flexDirection: 'row',
+          flexWrap: 'wrap',
+          justifyContent: 'center',
+          margin: 10,
+        }}>
         <SelectBox
           data={data}
           onSelect={(_, index) => setSelectedIndex(index)}

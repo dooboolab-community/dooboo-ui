@@ -19,7 +19,6 @@ function SelectBoxStory(): React.ReactElement {
   const data = ['Item1', 'Item2', 'Item3', 'Item4'];
 
   const {
-    theme,
     media: {isMobile},
   } = useTheme();
 
