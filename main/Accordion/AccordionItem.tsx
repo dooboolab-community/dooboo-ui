@@ -70,9 +70,9 @@ const AccordionItem: FC<Props> = (props) => {
     datum: item,
     shouldAnimate = true,
     collapseOnStart = true,
-    animDuration,
-    activeOpacity,
-    toggleElement,
+    animDuration = 300,
+    activeOpacity = 1,
+    toggleElement = <StyledIcon name="chevron-down-light" />,
     dropDownAnimValueList,
     sumOfPrecedingTranslateY,
 
@@ -130,7 +130,7 @@ const AccordionItem: FC<Props> = (props) => {
         ],
       }}
     >
-      {element || <StyledIcon theme={theme} name="chevron-down-light" />}
+      {element}
     </Animated.View>
   );
 
@@ -150,7 +150,7 @@ const AccordionItem: FC<Props> = (props) => {
 
     Animated.timing(dropDownAnimValueList, {
       toValue: targetValue,
-      duration: animDuration || 300,
+      duration: animDuration,
       useNativeDriver: true,
     }).start();
 
