@@ -37,12 +37,35 @@ function SelectBoxStory(): React.ReactElement {
         data={data}
         onSelect={(_, index) => setSelectedIndex(index)}
         selectedIndex={selectedIndex}
+        style={{ margin: 10 }}
+        styles={{
+          titleContainer: {
+            backgroundColor: theme.success,
+            borderTopWidth: 0,
+            borderBottomWidth: 0,
+            borderLeftWidth: 0,
+            borderRightWidth: 0,
+            borderRadius: 40,
+            height: 40,
+          },
+          itemContainer: {
+            borderTopWidth: 0,
+            borderBottomWidth: 0,
+            borderLeftWidth: 0,
+            borderRightWidth: 0,
+            backgroundColor: theme.paper,
+            height: 40,
+          },
+          rightElementContainer: {
+            right: 15,
+          },
+        }}
       />
     </Container>
   );
 }
 
-export const Basic: FC<{themeType: ThemeType}> = ({themeType}) => {
+export const Styled: FC<{themeType: ThemeType}> = ({themeType}) => {
   return (
     <ThemeProvider initialThemeType={themeType}>
       <SelectBoxStory />

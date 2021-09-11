@@ -37,12 +37,14 @@ function SelectBoxStory(): React.ReactElement {
         data={data}
         onSelect={(_, index) => setSelectedIndex(index)}
         selectedIndex={selectedIndex}
+        disabled={true}
+        style={{ margin:10 }}
       />
     </Container>
   );
 }
 
-export const Basic: FC<{themeType: ThemeType}> = ({themeType}) => {
+export const Disabled: FC<{themeType: ThemeType}> = ({themeType}) => {
   return (
     <ThemeProvider initialThemeType={themeType}>
       <SelectBoxStory />
