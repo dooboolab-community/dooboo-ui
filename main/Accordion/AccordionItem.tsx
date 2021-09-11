@@ -53,8 +53,8 @@ interface Props {
   style?: StyleProp<ViewStyle>;
   styles?: Styles;
   datum: Datum;
-  collapseOnStart: boolean;
-  shouldAnimate: boolean;
+  collapseOnStart?: boolean;
+  shouldAnimate?: boolean;
   animDuration?: number;
   activeOpacity?: number;
   toggleElement?: React.ReactElement;
