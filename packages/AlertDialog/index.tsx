@@ -2,8 +2,6 @@ import React, {useState} from 'react';
 import Modal, {ModalProps} from 'react-native-modalbox';
 import styled from '@emotion/native';
 
-import {StyleProp, ViewStyle, TextStyle} from 'react-native';
-
 const ModalButton = styled.TouchableOpacity<ButtonTypeProps>`
   width: 100%;
   height: 40px;
@@ -43,13 +41,12 @@ const Content = styled.Text`
   margin-bottom: 16px;
 `;
 
-type Styles = {
-  button?: StyleProp<ViewStyle>;
-  buttonText?: StyleProp<TextStyle>;
-};
-
 interface ButtonTypeProps {
   isAdditional?: boolean;
+}
+
+interface OnPressButtonProps {
+  onPress: VoidFunction;
 }
 
 interface Props {
@@ -58,11 +55,24 @@ interface Props {
   title?: string;
   content?: string;
   style?: ModalProps['style'];
-  styles?: Styles;
   backdropOpacity?: number;
   backdropPressToClose?: boolean;
+  renderPrimaryButton?: (onPress: VoidFunction) => React.ReactElement;
+  renderAdditionalButton?: (onPress: VoidFunction) => React.ReactElement;
   onPress: (result: boolean | string | null) => void;
 }
+
+const PrimaryButton: React.FC<OnPressButtonProps> = ({onPress}) => (
+  <ModalButton onPress={onPress}>
+    <ButtonText>OK</ButtonText>
+  </ModalButton>
+);
+
+const AdditionalButton: React.FC<OnPressButtonProps> = ({onPress}) => (
+  <ModalButton isAdditional onPress={onPress}>
+    <ButtonText isAdditional>CANCEL</ButtonText>
+  </ModalButton>
+);
 
 const AlertDialog = React.forwardRef(
   (
@@ -72,65 +82,52 @@ const AlertDialog = React.forwardRef(
       title,
       content,
       style = {},
-      styles = {},
       backdropOpacity = 0.5,
       backdropPressToClose = true,
+      renderPrimaryButton = (onPress) => <PrimaryButton onPress={onPress} />,
+      renderAdditionalButton = (onPress) => (
+        <AdditionalButton onPress={onPress} />
+      ),
       onPress,
     }: Props,
     ref: React.RefObject<Modal>,
   ) => {
     const [input, setInput] = useState('');
 
-    const {button, buttonText} = styles ?? {};
-
     const AlertButton: React.FC = () => {
-      return (
-        <ModalButton style={button} onPress={() => onPress(true)}>
-          <ButtonText style={buttonText}>OK</ButtonText>
-        </ModalButton>
-      );
+      const primaryOnPress: VoidFunction = () => onPress(true);
+
+      return <>{renderPrimaryButton(primaryOnPress)}</>;
     };
 
     const ConfirmButton: React.FC = () => {
+      const primaryOnPress: VoidFunction = () => onPress(true);
+
+      const additionalOnPress: VoidFunction = () => onPress(false);
+
       return (
         <>
-          <ModalButton
-            isAdditional
-            style={button}
-            onPress={() => onPress(false)}>
-            <ButtonText isAdditional style={buttonText}>
-              CANCEL
-            </ButtonText>
-          </ModalButton>
-          <ModalButton style={button} onPress={() => onPress(true)}>
-            <ButtonText style={buttonText}>OK</ButtonText>
-          </ModalButton>
+          {renderAdditionalButton(additionalOnPress)}
+          {renderPrimaryButton(primaryOnPress)}
         </>
       );
     };
 
     const PromptButton: React.FC = () => {
+      const primaryOnPress: VoidFunction = () => {
+        onPress(input);
+        setInput('');
+      };
+
+      const additionalOnPress: VoidFunction = () => {
+        onPress(null);
+        setInput('');
+      };
+
       return (
         <>
-          <ModalButton
-            isAdditional
-            style={button}
-            onPress={() => {
-              onPress(null);
-              setInput('');
-            }}>
-            <ButtonText isAdditional style={buttonText}>
-              CANCEL
-            </ButtonText>
-          </ModalButton>
-          <ModalButton
-            style={button}
-            onPress={() => {
-              onPress(input);
-              setInput('');
-            }}>
-            <ButtonText style={buttonText}>OK</ButtonText>
-          </ModalButton>
+          {renderAdditionalButton(additionalOnPress)}
+          {renderPrimaryButton(primaryOnPress)}
         </>
       );
     };

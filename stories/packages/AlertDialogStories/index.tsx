@@ -2,7 +2,7 @@ import React, {ReactElement, useRef, useState} from 'react';
 import Modal from 'react-native-modalbox';
 import {TouchableOpacity} from 'react-native';
 
-import AlertDialog from '../../../packages/AlertDialog/index';
+import AlertDialog from '../../../packages/AlertDialog/lib';
 import {ContainerDeco} from '../../../storybook/decorators';
 import {storiesOf} from '@storybook/react-native';
 import styled from '@emotion/native';
