@@ -1,4 +1,4 @@
-import React, {ReactElement, useState} from 'react';
+import React, {ReactElement, useRef, useState} from 'react';
 import Modal from 'react-native-modalbox';
 import {TouchableOpacity} from 'react-native';
 
@@ -28,13 +28,11 @@ const ExampleText = styled.Text`
 function Dialog(): React.ReactElement {
   const [dialogResult, setDialogResult] = useState<string | boolean | null>('');
 
-  const alertRef: React.RefObject<Modal> = React.createRef();
-  const confirmRef: React.RefObject<Modal> = React.createRef();
-  const promptRef: React.RefObject<Modal> = React.createRef();
+  const alertRef = useRef<Modal>(null);
+  const confirmRef = useRef<Modal>(null);
+  const promptRef = useRef<Modal>(null);
 
-  const styles = {
-    modal: {maxWidth: 450},
-  };
+  const modalStyle = {maxWidth: 450};
 
   const ExampleButton: React.FC<ExampleButtonProps> = ({
     title,
@@ -45,81 +43,87 @@ function Dialog(): React.ReactElement {
     </TouchableOpacity>
   );
 
-  const renderAlert = (
-    <>
-      <ExampleButton
-        title={'Alert'}
-        onPress={() => {
-          alertRef.current?.open();
-        }}
-      />
-      <AlertDialog
-        ref={alertRef}
-        styles={styles}
-        title={'Dialogue Title'}
-        content={
-          'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
-        }
-        onPress={(result) => {
-          setDialogResult(result);
-          alertRef.current?.close();
-        }}
-      />
-    </>
-  );
+  const AlertExample: React.FC = () => {
+    return (
+      <>
+        <ExampleButton
+          title={'Alert'}
+          onPress={() => {
+            alertRef.current?.open();
+          }}
+        />
+        <AlertDialog
+          ref={alertRef}
+          style={modalStyle}
+          title={'Dialogue Title'}
+          content={
+            'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
+          }
+          onPress={(result) => {
+            setDialogResult(result);
+            alertRef.current?.close();
+          }}
+        />
+      </>
+    );
+  };
 
-  const renderConfirm = (
-    <>
-      <ExampleButton
-        title={'Confirm'}
-        onPress={() => {
-          confirmRef.current?.open();
-        }}
-      />
-      <AlertDialog
-        type={'confirm'}
-        ref={confirmRef}
-        styles={styles}
-        title={'Dialogue Title'}
-        content={
-          'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
-        }
-        onPress={(result) => {
-          setDialogResult(result);
-          confirmRef.current?.close();
-        }}
-      />
-    </>
-  );
+  const ConfirmExample: React.FC = () => {
+    return (
+      <>
+        <ExampleButton
+          title={'Confirm'}
+          onPress={() => {
+            confirmRef.current?.open();
+          }}
+        />
+        <AlertDialog
+          type={'confirm'}
+          ref={confirmRef}
+          style={modalStyle}
+          title={'Dialogue Title'}
+          content={
+            'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
+          }
+          onPress={(result) => {
+            setDialogResult(result);
+            confirmRef.current?.close();
+          }}
+        />
+      </>
+    );
+  };
 
-  const renderPrompt = (
-    <>
-      <ExampleButton
-        title={'Prompt'}
-        onPress={() => {
-          promptRef.current?.open();
-        }}
-      />
-      <AlertDialog
-        type={'prompt'}
-        ref={promptRef}
-        styles={styles}
-        content={
-          'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
-        }
-        onPress={(result) => {
-          setDialogResult(result);
-          promptRef.current?.close();
-        }}
-      />
-    </>
-  );
+  const PromptExample: React.FC = () => {
+    return (
+      <>
+        <ExampleButton
+          title={'Prompt'}
+          onPress={() => {
+            promptRef.current?.open();
+          }}
+        />
+        <AlertDialog
+          type={'prompt'}
+          ref={promptRef}
+          style={modalStyle}
+          content={
+            'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
+          }
+          onPress={(result) => {
+            setDialogResult(result);
+            promptRef.current?.close();
+          }}
+        />
+      </>
+    );
+  };
 
   return (
     <Container>
-      {renderAlert}
-      {renderConfirm}
-      {renderPrompt}
+      <AlertExample />
+      <ConfirmExample />
+      <PromptExample />
       <ResultText>{`Dialog result : ${dialogResult}`}</ResultText>
     </Container>
   );

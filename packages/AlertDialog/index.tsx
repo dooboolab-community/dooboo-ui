@@ -11,15 +11,15 @@ const ModalButton = styled.TouchableOpacity<ButtonTypeProps>`
   border-radius: 20px;
   justify-content: center;
   align-items: center;
-  background-color: ${(props) =>
-    props.isAdditional ? 'transparent' : 'black'};
-  margin-bottom: ${(props) => (props.isAdditional ? '16px' : '0px')}; ;
+  background-color: ${({isAdditional}) =>
+    isAdditional ? 'transparent' : 'black'};
+  margin-bottom: ${({isAdditional}) => (isAdditional ? '16px' : '0px')}; ;
 `;
 
 const ButtonText = styled.Text<ButtonTypeProps>`
   font-size: 14px;
   font-weight: bold;
-  color: ${(props) => (props.isAdditional ? 'black' : 'white')}; ;
+  color: ${({isAdditional}) => (isAdditional ? 'black' : 'white')}; ;
 `;
 
 const ModalInput = styled.TextInput`
@@ -44,7 +44,6 @@ const Content = styled.Text`
 `;
 
 type Styles = {
-  modal?: ModalProps['style'];
   button?: StyleProp<ViewStyle>;
   buttonText?: StyleProp<TextStyle>;
 };
@@ -58,6 +57,7 @@ interface Props {
   type?: 'alert' | 'confirm' | 'prompt';
   title?: string;
   content?: string;
+  style?: ModalProps['style'];
   styles?: Styles;
   backdropOpacity?: number;
   backdropPressToClose?: boolean;
@@ -71,6 +71,7 @@ const AlertDialog = React.forwardRef(
       type = 'alert',
       title,
       content,
+      style = {},
       styles = {},
       backdropOpacity = 0.5,
       backdropPressToClose = true,
@@ -80,51 +81,59 @@ const AlertDialog = React.forwardRef(
   ) => {
     const [input, setInput] = useState('');
 
-    const renderAlert = (
-      <ModalButton style={styles?.button} onPress={() => onPress(true)}>
-        <ButtonText style={styles?.buttonText}>OK</ButtonText>
-      </ModalButton>
-    );
+    const {button, buttonText} = styles ?? {};
 
-    const renderConfirm = (
-      <>
-        <ModalButton
-          isAdditional
-          style={styles?.button}
-          onPress={() => onPress(false)}>
-          <ButtonText isAdditional style={styles?.buttonText}>
-            CANCEL
-          </ButtonText>
+    const AlertButton: React.FC = () => {
+      return (
+        <ModalButton style={button} onPress={() => onPress(true)}>
+          <ButtonText style={buttonText}>OK</ButtonText>
         </ModalButton>
-        <ModalButton style={styles?.button} onPress={() => onPress(true)}>
-          <ButtonText style={styles?.buttonText}>OK</ButtonText>
-        </ModalButton>
-      </>
-    );
+      );
+    };
 
-    const renderPrompt = (
-      <>
-        <ModalButton
-          isAdditional
-          style={styles?.button}
-          onPress={() => {
-            onPress(null);
-            setInput('');
-          }}>
-          <ButtonText isAdditional style={styles?.buttonText}>
-            CANCEL
-          </ButtonText>
-        </ModalButton>
-        <ModalButton
-          style={styles?.button}
-          onPress={() => {
-            onPress(input);
-            setInput('');
-          }}>
-          <ButtonText style={styles?.buttonText}>OK</ButtonText>
-        </ModalButton>
-      </>
-    );
+    const ConfirmButton: React.FC = () => {
+      return (
+        <>
+          <ModalButton
+            isAdditional
+            style={button}
+            onPress={() => onPress(false)}>
+            <ButtonText isAdditional style={buttonText}>
+              CANCEL
+            </ButtonText>
+          </ModalButton>
+          <ModalButton style={button} onPress={() => onPress(true)}>
+            <ButtonText style={buttonText}>OK</ButtonText>
+          </ModalButton>
+        </>
+      );
+    };
+
+    const PromptButton: React.FC = () => {
+      return (
+        <>
+          <ModalButton
+            isAdditional
+            style={button}
+            onPress={() => {
+              onPress(null);
+              setInput('');
+            }}>
+            <ButtonText isAdditional style={buttonText}>
+              CANCEL
+            </ButtonText>
+          </ModalButton>
+          <ModalButton
+            style={button}
+            onPress={() => {
+              onPress(input);
+              setInput('');
+            }}>
+            <ButtonText style={buttonText}>OK</ButtonText>
+          </ModalButton>
+        </>
+      );
+    };
 
     return (
       <Modal
@@ -139,7 +148,7 @@ const AlertDialog = React.forwardRef(
             shadowColor: 'black',
             padding: 20,
           },
-          styles?.modal,
+          style,
         ]}
         position={'center'}
         ref={ref}
@@ -150,9 +159,9 @@ const AlertDialog = React.forwardRef(
         {type === 'prompt' && (
           <ModalInput value={input} onChangeText={setInput} />
         )}
-        {type === 'alert' && renderAlert}
-        {type === 'confirm' && renderConfirm}
-        {type === 'prompt' && renderPrompt}
+        {type === 'alert' && <AlertButton />}
+        {type === 'confirm' && <ConfirmButton />}
+        {type === 'prompt' && <PromptButton />}
       </Modal>
     );
   },
