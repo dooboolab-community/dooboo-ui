@@ -1,17 +1,17 @@
-import {DoobooTheme, light, useTheme} from './theme';
+import {useTheme} from './theme';
 import {
   Image,
   ImageProps,
   ImageStyle,
   Platform,
   StyleProp,
+  View,
   ViewStyle,
 } from 'react-native';
 import React, {ReactElement, useCallback, useEffect, useState} from 'react';
 
 import ArtifactsLogoDark from './__assets__/artifacts_logo_d.png';
 import ArtifactsLogoLight from './__assets__/artifacts_logo_l.png';
-import styled from '@emotion/native';
 
 type Styles = {
   image?: StyleProp<ImageStyle>;
@@ -21,8 +21,7 @@ interface Props {
   url: string;
   styles?: Styles;
   style?: StyleProp<ViewStyle>;
-  loadingElement?: () => ReactElement;
-  theme: DoobooTheme;
+  loadingElement?: ReactElement;
   imageProps?: Partial<ImageProps>;
 }
 
@@ -31,18 +30,7 @@ type ImageSize = {
   height: number;
 };
 
-const Container = styled.View<{imageSize?: ImageSize}>`
-  background-color: ${({theme, imageSize}) => !imageSize && theme.paper};
-
-  justify-content: center;
-  align-items: center;
-`;
-
-const StyledImage = styled.Image`
-  align-self: center;
-`;
-
-const getOriginalImageSize = async (imageUri: string): Promise<ImageSize> =>
+const fetchImageSize = async (imageUri: string): Promise<ImageSize> =>
   new Promise<ImageSize>((resolve, reject) =>
     Image.getSize(
       imageUri,
@@ -51,9 +39,16 @@ const getOriginalImageSize = async (imageUri: string): Promise<ImageSize> =>
           width,
           height,
         }),
-      reject,
+      (error) => {
+        reject(error);
+      },
     ),
   );
+
+const defaultImage = {
+  light: ArtifactsLogoLight,
+  dark: ArtifactsLogoDark,
+};
 
 function NetworkImage({
   url,
@@ -62,50 +57,44 @@ function NetworkImage({
   imageProps,
   loadingElement,
 }: Props): ReactElement {
-  const [imageSize, setImageSize] = useState<ImageSize>();
-  const {themeType} = useTheme();
+  const [imageSize, setImageSize] = useState<ImageSize | null>(null);
 
   const getImageSize = useCallback(async (): Promise<void> => {
-    // eslint-disable-next-line @typescript-eslint/no-shadow
-    const imageSize = await getOriginalImageSize(url);
+    try {
+      const value = await fetchImageSize(url);
 
-    setImageSize(imageSize);
+      setImageSize(value);
+    } catch (e) {
+      setImageSize(null);
+    }
   }, [url]);
 
   useEffect(() => {
     getImageSize();
-  }, [getImageSize, styles?.image]);
+  }, [getImageSize]);
+
+  const {theme, themeType} = useTheme();
 
   return (
-    <Container
-      imageSize={imageSize}
+    <View
       style={[
         {
+          backgroundColor: imageSize ? theme.paper : undefined,
+          justifyContent: 'center',
+          alignItems: 'center',
           width: (styles?.image as ImageStyle)?.width,
           height: (styles?.image as ImageStyle)?.height,
         },
         style,
       ]}>
-      {!imageSize ? (
-        loadingElement ? (
-          loadingElement
-        ) : (
-          <StyledImage
-            style={{
-              width: Platform.select({web: 111}),
-              height: Platform.select({web: 74}),
-              margin: '8%',
-              aspectRatio: 110 / 74,
-            }}
-            source={
-              themeType === 'light' ? ArtifactsLogoLight : ArtifactsLogoDark
-            }
-          />
-        )
-      ) : (
-        <StyledImage
+      {imageSize ? (
+        <Image
           style={[
-            {width: imageSize?.width, height: imageSize?.height},
+            {
+              alignSelf: 'center',
+              width: imageSize?.width,
+              height: imageSize?.height,
+            },
             styles?.image,
           ]}
           resizeMethod="resize"
@@ -113,13 +102,22 @@ function NetworkImage({
           {...imageProps}
           source={{uri: url}}
         />
+      ) : (
+        loadingElement ?? (
+          <Image
+            style={{
+              alignSelf: 'center',
+              width: Platform.select({web: 111, ios: 56, android: 56}),
+              height: Platform.select({web: 74, ios: 37, android: 56}),
+              margin: '8%',
+              aspectRatio: 110 / 74,
+            }}
+            source={defaultImage[themeType ?? 'dark']}
+          />
+        )
       )}
-    </Container>
+    </View>
   );
 }
-
-NetworkImage.defaultProps = {
-  theme: light,
-};
 
 export {NetworkImage};
