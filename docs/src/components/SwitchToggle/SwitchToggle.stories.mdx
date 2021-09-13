@@ -15,7 +15,7 @@ import {Basic }from './index'
 | isOn            |     ✓     | `boolean`               |               |                       |
 | theme           |           | `DoobooTheme`           |               | `light`               |
 | style           |           | `styleProp<ViewStyle>`  |               | `undefined`           |
-| styles          |           | `Styles`                |               | `defaultContainerStyle, defaultCircleStyle `               |
+| styles          |           | `Styles`                |               | `defaultContainer, defaultCircle`               |
 | duration        |           | `number`                |               | `300`                 |
 | onElement       |           | `React.ReactElement`    |               | `undefined`           |
 | offElement      |           | `React.ReactElement`    |               | `undefined`           |
@@ -24,25 +24,25 @@ import {Basic }from './index'
 
 ```typescript
 interface Styles {
-  containerStyle?: ViewStyle;
-  onElementContainerStyle?: StyleProp<ViewStyle>;
-  offElementContainerStyle?: StyleProp<ViewStyle>;
-  circleStyle?: ViewStyle;
-  buttonStyle?: StyleProp<ViewStyle>;
+  container?: ViewStyle;
+  onElementContainer?: StyleProp<ViewStyle>;
+  offElementContainer?: StyleProp<ViewStyle>;
+  circle?: ViewStyle;
+  button?: StyleProp<ViewStyle>;
   circleColorOff?: string;
   circleColorOn?: string;
   backgroundColorOn?: string;
   backgroundColorOff?: string;
 }
 
-const defaultContainerStyle: ViewStyle = {
+const defaultContainer: ViewStyle = {
   width: 80,
   height: 40,
   borderRadius: 25,
   padding: 5,
 };
 
-const defaultCircleStyle: ViewStyle = {
+const defaultCircle: ViewStyle = {
   width: 32,
   height: 32,
   borderRadius: 16,

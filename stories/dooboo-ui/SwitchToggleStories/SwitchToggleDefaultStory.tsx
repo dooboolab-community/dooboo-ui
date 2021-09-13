@@ -60,14 +60,14 @@ const SwitchToggleDefault: FC = () => {
             isOn={on}
             onPress={() => off(!on)}
             styles={{
-              containerStyle: {
+              container: {
                 marginTop: 16,
                 width: 106,
                 height: 48,
                 borderRadius: 25,
                 padding: 5,
               },
-              circleStyle: {
+              circle: {
                 width: 40,
                 height: 40,
                 borderRadius: 20,

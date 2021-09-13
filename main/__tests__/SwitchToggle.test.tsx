@@ -31,11 +31,11 @@ describe('[SwitchToggle]', () => {
         offElement={<Text>off</Text>}
         style={{padding: 6}}
         styles={{
-          containerStyle: {paddingLeft: 6, paddingRight: 5},
-          onElementContainerStyle: {padding: 4},
-          offElementContainerStyle: {padding: 3},
-          circleStyle: {padding: 2},
-          buttonStyle: {padding: 1},
+          container: {paddingLeft: 6, paddingRight: 5},
+          onElementContainer: {padding: 4},
+          offElementContainer: {padding: 3},
+          circle: {padding: 2},
+          button: {padding: 1},
           circleColorOff: 'red',
           circleColorOn: 'blue',
           backgroundColorOn: 'green',
