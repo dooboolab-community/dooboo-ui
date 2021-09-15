@@ -1,9 +1,10 @@
 import {LoadingIndicator, ThemeProvider, ThemeType, useTheme} from 'dooboo-ui';
+import {IC_GIF} from 'icon';
 
 import type {FC} from 'react';
 import {View} from 'react-native';
 
-export const ImageComponent: FC = () => {
+const ImageComponent: FC = () => {
   const {theme} = useTheme();
 
   return (
@@ -15,7 +16,7 @@ export const ImageComponent: FC = () => {
         justifyContent: 'center',
         padding: 50,
       }}>
-      <LoadingIndicator imgSource="https://user-images.githubusercontent.com/31176502/71331734-ca61d800-2576-11ea-8934-6a260a1d714e.gif" />
+      <LoadingIndicator imgSource={IC_GIF} />
     </View>
   );
 };
