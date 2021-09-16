@@ -20,7 +20,7 @@ type Styles = {
 };
 
 interface Props {
-  url: string;
+  url?: string | undefined;
   styles?: Styles;
   style?: StyleProp<ViewStyle>;
   loadingElement?: ReactElement;
@@ -68,7 +68,7 @@ function NetworkImage(props: Props): ReactElement {
   const {image, activityIndicator} = props.styles ?? {};
 
   const {
-    url,
+    url = 'empty',
     style,
     imageProps,
     loadingElement = <LoadingIndicator style={activityIndicator} />,
