@@ -105,6 +105,8 @@ function NetworkImage(props: Props): ReactElement {
           justifyContent: 'center',
           alignItems: 'center',
         },
+        {height: 0, width: 0},
+        image,
         style,
       ]}>
       <Image
