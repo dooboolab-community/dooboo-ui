@@ -2,18 +2,13 @@ import {Animated, Easing, StyleProp, View, ViewStyle} from 'react-native';
 import {ButtonSize, IconButton} from '../IconButton';
 import {DoobooTheme, withTheme} from '../theme';
 import {Icon, IconName} from '../Icon';
-import React, {ReactElement, useEffect, useRef, useState} from 'react';
+import React, {ReactElement, useLayoutEffect, useMemo, useRef} from 'react';
 
 import styled from '@emotion/native';
 
 export const StyledIcon = styled(Icon)`
   color: ${({theme}) => theme.textContrast};
 `;
-
-const FABItemWrapper = styled.View`
-  margin: 10px;
-`;
-
 export interface FABItem {
   icon: IconName;
   id: string;
@@ -21,9 +16,9 @@ export interface FABItem {
 
 export interface FABProps<Item extends FABItem> {
   isActive: boolean;
-  ItemList: Item[];
+  fabItems: Item[];
   onPressFAB: () => void;
-  onPressListItem: (item?: Item) => void;
+  onPressFabItem: (item?: Item) => void;
   renderFAB?: () => ReactElement;
   renderFabItem?: (item: Item, idx: number) => ReactElement;
   size: ButtonSize;
@@ -32,10 +27,9 @@ export interface FABProps<Item extends FABItem> {
 
 function FloatingActionButtons<Item extends FABItem = FABItem>({
   isActive,
-  theme,
-  ItemList,
+  fabItems,
   onPressFAB,
-  onPressListItem,
+  onPressFabItem,
   renderFAB,
   renderFabItem,
   size = 'large',
@@ -43,25 +37,42 @@ function FloatingActionButtons<Item extends FABItem = FABItem>({
 }: FABProps<Item> & {
   theme: DoobooTheme;
 }): ReactElement {
-  const fadeAnim = useRef(new Animated.Value(0));
+  const spinValue = useRef(new Animated.Value(0));
+  const positionValue = useRef(new Animated.Value(0));
 
-  useEffect(() => {
-    return Animated.timing(fadeAnim.current, {
+  useLayoutEffect(() => {
+    Animated.timing(spinValue.current, {
       toValue: isActive ? 1 : 0,
-      useNativeDriver: true,
-      easing: Easing.quad,
-      duration: 200,
-    }).start();
-  }, [fadeAnim, isActive]);
-
-  useEffect(() => {
-    Animated.timing(fadeAnim.current, {
-      toValue: 1,
-      duration: 200,
+      duration: 300,
       easing: Easing.linear,
       useNativeDriver: true,
     }).start();
-  }, [fadeAnim]);
+  }, [isActive]);
+
+  useLayoutEffect(() => {
+    Animated.timing(positionValue.current, {
+      toValue: isActive ? 1 : 0,
+      duration: 300,
+      easing: Easing.linear,
+      useNativeDriver: true,
+    }).start();
+  }, [isActive]);
+
+  const spin = spinValue.current.interpolate({
+    inputRange: [0, 1],
+    outputRange: ['0deg', '45deg'],
+  });
+
+  const offsetAnimationList = useMemo(
+    () =>
+      fabItems?.map((_, idx) => {
+        return positionValue.current.interpolate({
+          inputRange: [0, 1],
+          outputRange: ['0%', `-${(idx + 1) * 80}%`],
+        });
+      }),
+    [fabItems],
+  );
 
   return (
     <View
@@ -75,52 +86,40 @@ function FloatingActionButtons<Item extends FABItem = FABItem>({
         },
         style,
       ]}>
-      <Animated.View>
-        {isActive &&
-          ItemList.map((item, idx) => {
-            return (
-              <FABItemWrapper
-                key={item.id}
-                style={{
-                  position: 'absolute',
-                  transform: [{translateY: -80 * (idx + 1)}],
-                }}>
-                {renderFabItem ? (
-                  renderFabItem(item, idx)
-                ) : (
-                  <IconButton
-                    testID={item.id}
-                    size={size}
-                    icon={
-                      <StyledIcon theme={theme} size={24} name={item.icon} />
-                    }
-                    onPress={() => onPressListItem(item)}
-                  />
-                )}
-              </FABItemWrapper>
-            );
-          })}
+      {fabItems.map((item, idx) => {
+        return (
+          <Animated.View
+            key={item.id}
+            style={{
+              margin: 10,
+              position: 'absolute',
+              transform: [{translateY: offsetAnimationList[idx]}],
+            }}>
+            {renderFabItem ? (
+              renderFabItem(item, idx)
+            ) : (
+              <IconButton
+                testID={item.id}
+                size={size}
+                icon={<StyledIcon size={24} name={item.icon} />}
+                onPress={() => onPressFabItem(item)}
+              />
+            )}
+          </Animated.View>
+        );
+      })}
+      <Animated.View style={{transform: [{rotate: spin}], margin: 10}}>
+        {renderFAB ? (
+          renderFAB()
+        ) : (
+          <IconButton
+            testID={'main_fab'}
+            size={size}
+            icon={<StyledIcon size={24} name="add-light" />}
+            onPress={onPressFAB}
+          />
+        )}
       </Animated.View>
-      <FABItemWrapper>
-        <Animated.View>
-          {renderFAB ? (
-            renderFAB()
-          ) : (
-            <IconButton
-              testID={'main_fab'}
-              size={size}
-              icon={
-                isActive ? (
-                  <StyledIcon size={24} name="cross-light" />
-                ) : (
-                  <StyledIcon size={24} name="add-light" />
-                )
-              }
-              onPress={onPressFAB}
-            />
-          )}
-        </Animated.View>
-      </FABItemWrapper>
     </View>
   );
 }

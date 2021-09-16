@@ -17,10 +17,10 @@ describe('[FAB]', () => {
 
     const {getByTestId} = render(
       Component({
-        ItemList: [item],
+        fabItems: [item],
         isActive: true,
         size: 'large',
-        onPressListItem: (item) => {
+        onPressFabItem: (item) => {
           count += 1;
           resItem = item;
         },
@@ -37,10 +37,10 @@ describe('[FAB]', () => {
   it('should render customFAB', async () => {
     const testingLib = render(
       Component({
-        ItemList: [{icon: 'bell-solid', id: 'item1'}],
+        fabItems: [{icon: 'bell-solid', id: 'item1'}],
         isActive: true,
         size: 'large',
-        onPressListItem: (item1) => {},
+        onPressFabItem: (item1) => {},
         onPressFAB: () => {},
         renderFAB: () => <View />,
         renderFabItem: (item, idx) => <View />,

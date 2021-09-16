@@ -1,10 +1,10 @@
 import React, {FC, useState} from 'react';
 import {SafeAreaView, View} from 'react-native';
-import {useTheme, withTheme} from '../../../main/theme/ThemeProvider';
 
 import {FAB} from '../../../main';
 import styled from '@emotion/native';
 import {useFonts} from 'expo-font';
+import {withTheme} from '../../../main/theme/ThemeProvider';
 
 const StoryContainer = styled.View`
   flex: 1;
@@ -28,11 +28,11 @@ const FABContainer: FC = () => {
           size="medium"
           isActive={active}
           onPressFAB={() => setActive((prev) => !prev)}
-          ItemList={[
+          fabItems={[
             {id: 'search', icon: 'home-light'},
             {id: 'like', icon: 'like-light'},
           ]}
-          onPressListItem={(item) => {
+          onPressFabItem={(item) => {
             console.log(item);
           }}
         />
