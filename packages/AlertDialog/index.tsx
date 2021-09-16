@@ -62,6 +62,8 @@ interface Props {
   onPress: (result: boolean | string | null) => void;
 }
 
+type VoidFunction = () => void;
+
 const PrimaryButton: React.FC<OnPressButtonProps> = ({onPress}) => (
   <ModalButton onPress={onPress}>
     <ButtonText>OK</ButtonText>
@@ -74,7 +76,7 @@ const AdditionalButton: React.FC<OnPressButtonProps> = ({onPress}) => (
   </ModalButton>
 );
 
-const AlertDialog = React.forwardRef(
+const AlertDialog = React.forwardRef<Modal, Props>(
   (
     {
       isOpen = false,
@@ -89,8 +91,8 @@ const AlertDialog = React.forwardRef(
         <AdditionalButton onPress={onPress} />
       ),
       onPress,
-    }: Props,
-    ref: React.RefObject<Modal>,
+    },
+    ref,
   ) => {
     const [input, setInput] = useState('');
 
