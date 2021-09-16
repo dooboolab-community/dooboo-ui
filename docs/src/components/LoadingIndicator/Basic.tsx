@@ -1,39 +1,30 @@
-import {LoadingIndicator, ThemeProvider, ThemeType, useTheme} from 'dooboo-ui';
+import {LoadingIndicator, ThemeProvider, ThemeType} from 'dooboo-ui';
 
 import type {FC} from 'react';
-import {View} from 'react-native';
+import styled from '@emotion/native';
+
+const View = styled.View`
+  height: 60;
+  background-color: ${({theme}) => theme.background};
+  align-self: 'stretch';
+  justify-content: 'center';
+`;
 
 export const Component: FC = () => {
-  const {theme} = useTheme();
-
   return (
-    <View>
-      <View
-        style={{
-          backgroundColor: theme.background,
-          alignSelf: 'stretch',
-          justifyContent: 'center',
-          padding: 30,
-        }}>
+    <>
+      <View>
         <LoadingIndicator />
       </View>
-      <View
-        style={{
-          backgroundColor: theme.background,
-          alignSelf: 'stretch',
-          justifyContent: 'center',
-          padding: 30,
-        }}>
+      <View>
         <LoadingIndicator size="small" color="#008299" />
       </View>
-    </View>
+    </>
   );
 };
 
-export const Basic: FC<{themeType: ThemeType}> = ({themeType}) => {
-  return (
-    <ThemeProvider initialThemeType={themeType}>
-      <Component />
-    </ThemeProvider>
-  );
-};
+export const Basic: FC<{themeType: ThemeType}> = ({themeType}) => (
+  <ThemeProvider initialThemeType={themeType}>
+    <Component />
+  </ThemeProvider>
+);
