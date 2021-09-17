@@ -15,6 +15,12 @@ const Container = styled.View`
   justify-content: center;
 `;
 
+const StyledText = styled.Text`
+  color: ${({theme}) => theme.text};
+  font-size: 16px;
+  margin: 20px;
+`;
+
 function SelectBoxStory(): React.ReactElement {
   const data = ['Item1', 'Item2', 'Item3', 'Item4'];
 
@@ -22,7 +28,7 @@ function SelectBoxStory(): React.ReactElement {
     media: {isMobile},
   } = useTheme();
 
-  const [selectedIndex, setSelectedIndex] = useState<number>(0);
+  const [selectedIndex, setSelectedIndex] = useState(0);
 
   const [fontsLoaded] = useFonts({
     IcoMoon: require('../../assets/doobooui.ttf'),
@@ -36,7 +42,11 @@ function SelectBoxStory(): React.ReactElement {
         data={data}
         onSelect={(_, index) => setSelectedIndex(index)}
         selectedIndex={selectedIndex}
+        style={{margin: 10}}
       />
+      <StyledText>
+        selectedIndex : {selectedIndex}
+      </StyledText>
     </Container>
   );
 }

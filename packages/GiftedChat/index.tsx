@@ -100,7 +100,7 @@ function Shared<T>(props: Props<T>): React.ReactElement {
     onEndReached,
   } = props;
 
-  const [keyboardHeight, setKeyboardHeight] = useState<number>(258);
+  const [keyboardHeight, setKeyboardHeight] = useState(258);
   const [showMenu, setShowMenu] = useState<boolean>(false);
   const [isFirstTime, setIsFirstTime] = useState<boolean>(true);
 

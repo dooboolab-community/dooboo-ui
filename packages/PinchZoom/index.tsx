@@ -87,7 +87,7 @@ function PinchZoom(props: Props, ref: Ref<PinchZoomRef>): ReactElement {
   }).current;
 
   const lastTransform = useRef({scale: 1, translateX: 0, translateY: 0});
-  const initialDistance = useRef<number>();
+  const initialDistance = useRef();
   const initialTouchesCenter = useRef<TouchePosition>();
 
   const layout = useRef<{

@@ -34,9 +34,9 @@ const SelectBoxStory: FC = () => {
     media: {isMobile},
   } = useTheme();
 
-  const [value1, setValue1] = useState<number>(0);
-  const [value2, setValue2] = useState<number>(0);
-  const [value3, setValue3] = useState<number>(0);
+  const [value1, setValue1] = useState(0);
+  const [value2, setValue2] = useState(0);
+  const [value3, setValue3] = useState(0);
 
   const [fontsLoaded] = useFonts({
     IcoMoon: require('../../../main/Icon/doobooui.ttf'),
