@@ -34,6 +34,9 @@ type ImageSize = {
   height: number;
 };
 
+const isURISource = (source?: ImageSourcePropType): source is ImageURISource =>
+  source !== undefined && !!(source as ImageURISource)?.uri;
+
 function NetworkImage(props: Props): ReactElement {
   const {themeType} = useTheme();
 
@@ -49,15 +52,13 @@ function NetworkImage(props: Props): ReactElement {
       : ArtifactsLogoDark,
   } = props;
 
-  const [isLoaded, setIsLoaded] = useState<boolean>();
+  const [needLoading, setNeedLoading] = useState(true);
+  const [isValidSource, setIsValidSource] = useState(true);
 
   const [size, setSize] = useState<ImageSize>({
     width: 0,
     height: 0,
   });
-
-  const isURISource = (node?: ImageSourcePropType): node is ImageURISource =>
-    node !== undefined && !!(node as ImageURISource)?.uri;
 
   useLayoutEffect(() => {
     if (isURISource(source)) {
@@ -78,8 +79,10 @@ function NetworkImage(props: Props): ReactElement {
 
       fetchImageSize(source.uri!)
         .then((value) => setSize(value))
-        // eslint-disable-next-line no-console
-        .catch((error) => console.log(error));
+        .catch(() => {
+          setNeedLoading(false);
+          setIsValidSource(false);
+        });
     }
   }, [source]);
 
@@ -106,12 +109,12 @@ function NetworkImage(props: Props): ReactElement {
         ]}
         resizeMethod="resize"
         resizeMode="cover"
-        onLoad={() => setIsLoaded(true)}
-        source={size ? source : defaultSource}
+        onLoad={() => setNeedLoading(false)}
+        source={isValidSource ? source : defaultSource}
         {...imageProps}
       />
 
-      {!isLoaded && loadingElement}
+      {needLoading && loadingElement}
     </View>
   );
 }
