@@ -6,7 +6,7 @@ import {
   View,
   ViewStyle,
 } from 'react-native';
-import React, {ReactElement, useCallback, useEffect, useState} from 'react';
+import React, {ReactElement, useEffect, useState} from 'react';
 import {LoadingIndicator} from './LoadingIndicator';
 import {useTheme} from './theme';
 import styled from '@emotion/native';
@@ -47,21 +47,6 @@ const DefaultImage = styled.Image`
   aspect-ratio: ${() => 110 / 74};
 `;
 
-const fetchImageSize = async (imageUri: string): Promise<ImageSize> =>
-  new Promise<ImageSize>((resolve, reject) =>
-    Image.getSize(
-      imageUri,
-      (width: number, height: number) =>
-        resolve({
-          width,
-          height,
-        }),
-      (error) => {
-        reject(error);
-      },
-    ),
-  );
-
 function NetworkImage(props: Props): ReactElement {
   const {themeType} = useTheme();
 
@@ -84,19 +69,26 @@ function NetworkImage(props: Props): ReactElement {
     height: 0,
   });
 
-  const getImageSize = useCallback(async (): Promise<void> => {
-    try {
-      const value = await fetchImageSize(url);
-
-      setSize(value);
-    } catch (e) {
-      setSize(null);
-    }
-  }, [url]);
-
   useEffect(() => {
-    getImageSize();
-  }, [getImageSize]);
+    const fetchImageSize = (imageUri: string): Promise<ImageSize> =>
+      new Promise<ImageSize>((resolve, reject) =>
+        Image.getSize(
+          imageUri,
+          (width: number, height: number) =>
+            resolve({
+              width,
+              height,
+            }),
+          (error) => {
+            reject(error);
+          },
+        ),
+      );
+
+    fetchImageSize(url)
+      .then((value) => setSize(value))
+      .catch(() => setSize(null));
+  }, [url]);
 
   return (
     <View
