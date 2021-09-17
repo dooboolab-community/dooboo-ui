@@ -98,13 +98,15 @@ function NetworkImage(props: Props): ReactElement {
       ]}>
       <Image
         style={[
-          size ?? {
-            alignSelf: 'center',
-            width: 110,
-            height: 74,
-            margin: '8%',
-            aspectRatio: 110 / 74,
-          },
+          isValidSource
+            ? undefined
+            : {
+                alignSelf: 'center',
+                width: 110,
+                height: 74,
+                margin: '8%',
+                aspectRatio: 110 / 74,
+              },
           style as ImageStyle,
         ]}
         resizeMethod="resize"
