@@ -51,7 +51,7 @@ function NetworkImage(props: Props): ReactElement {
 
   const [isLoaded, setIsLoaded] = useState<boolean>();
 
-  const [size, setSize] = useState<ImageSize | undefined>({
+  const [size, setSize] = useState<ImageSize>({
     width: 0,
     height: 0,
   });
@@ -78,7 +78,8 @@ function NetworkImage(props: Props): ReactElement {
 
       fetchImageSize(source.uri!)
         .then((value) => setSize(value))
-        .catch(() => setSize(undefined));
+        // eslint-disable-next-line no-console
+        .catch((error) => console.log(error));
     }
   }, [source]);
 
@@ -89,7 +90,7 @@ function NetworkImage(props: Props): ReactElement {
           justifyContent: 'center',
           alignItems: 'center',
         },
-        {width: 0, height: 0},
+        size,
         style,
       ]}>
       <Image
@@ -105,12 +106,12 @@ function NetworkImage(props: Props): ReactElement {
         ]}
         resizeMethod="resize"
         resizeMode="cover"
-        onLoadEnd={() => setIsLoaded(true)}
+        onLoad={() => setIsLoaded(true)}
         source={size ? source : defaultSource}
         {...imageProps}
       />
 
-      {!isLoaded && size && loadingElement}
+      {!isLoaded && loadingElement}
     </View>
   );
 }
