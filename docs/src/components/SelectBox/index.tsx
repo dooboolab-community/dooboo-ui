@@ -44,9 +44,7 @@ function SelectBoxStory(): React.ReactElement {
         selectedIndex={selectedIndex}
         style={{margin: 10}}
       />
-      <StyledText>
-        selectedIndex : {selectedIndex}
-      </StyledText>
+      <StyledText>selectedIndex : {selectedIndex}</StyledText>
     </Container>
   );
 }
