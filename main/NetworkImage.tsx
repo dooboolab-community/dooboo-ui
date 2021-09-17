@@ -79,10 +79,7 @@ function NetworkImage(props: Props): ReactElement {
 
       fetchImageSize(source.uri!)
         .then((value) => setSize(value))
-        .catch(() => {
-          setNeedLoading(false);
-          setIsValidSource(false);
-        });
+        .catch(() => setIsValidSource(false));
     }
   }, [source]);
 
