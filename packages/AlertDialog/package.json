@@ -1,0 +1,47 @@
+{
+  "name": "@dooboo-ui/alert-dialog",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "version": "0.0.1",
+  "license": "MIT",
+  "postinstall": "tsc && dooboolab-welcome postinstall",
+  "scripts": {
+    "build": "tsc",
+    "watch": "tsc -w"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dooboolab/dooboo-ui.git",
+    "directory": "src/components/shared/AlertDialog"
+  },
+  "bugs": {
+    "url": "https://github.com/dooboolab/dooboo-ui/issues"
+  },
+  "homepage": "https://github.com/dooboolab/dooboo-ui#readme",
+  "dependencies": {
+    "@types/react-native-modalbox": "^1.4.9",
+    "dooboolab-welcome": "^1.2.0",
+    "react-native-modalbox": "^2.0.2"
+  },
+  "devDependencies": {
+    "@emotion/native": "^11.0.0",
+    "@emotion/react": "^11.1.5",
+    "typescript": "^4.2.4"
+  },
+  "peerDependencies": {
+    "@emotion/native": "*",
+    "@emotion/react": "*",
+    "react": ">=16.9",
+    "react-native": ">=0.58"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "keywords": [
+    "alert-dialog",
+    "react-hook",
+    "react-native",
+    "dooboo-ui",
+    "dooboolab"
+  ]
+}
