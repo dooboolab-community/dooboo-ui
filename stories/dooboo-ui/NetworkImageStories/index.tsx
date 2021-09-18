@@ -19,38 +19,43 @@ function NetworkImageStory(): React.ReactElement {
         justifyContent: 'center',
       }}>
       <NetworkImage
-        style={{margin: 20}}
-        url="https://reactnative.dev/img/tiny_logo.png"
+        style={{
+          margin: 20,
+          width: 400,
+          height: 300,
+        }}
+        styles={{image: {width: '50%'}}}
+        source={{uri: 'https://reactnative.dev/img/tiny_logo.png'}}
       />
       <NetworkImage
-        style={{margin: 20}}
-        styles={{
-          image: {
-            width: 180,
-            height: 180,
-          },
+        style={{
+          margin: 20,
+          width: 180,
+          height: 180,
         }}
-        url="https://media.vlpt.us/images/mayinjanuary/post/2bb98ed1-d514-400d-956f-883b6309fc2f/react%20native.png"
+        source={{
+          uri: 'https://wronglink.co',
+        }}
       />
       <NetworkImage
-        style={{margin: 20}}
-        styles={{
-          image: {
-            width: 180,
-            height: 180,
-          },
+        style={{
+          margin: 20,
+          width: 180,
+          height: 180,
         }}
-        url="https://media.vlpt.us/images/luck2901/post/5745952f-eb96-4784-b01c-2eb90158ace7/React_Native_Tutorial.jpg"
+        source={{
+          uri: 'https://media.vlpt.us/images/luck2901/post/5745952f-eb96-4784-b01c-2eb90158ace7/React_Native_Tutorial.jpg',
+        }}
       />
       <NetworkImage
-        style={{margin: 20}}
-        styles={{
-          image: {
-            width: 180,
-            height: 180,
-          },
+        style={{
+          margin: 20,
+          width: 180,
+          height: 180,
         }}
-        url="https://upload.wikimedia.org/wikipedia/commons/6/69/Very_Large_Telescope_Ready_for_Action_%28ESO%29.jpg"
+        source={{
+          uri: 'https://upload.wikimedia.org/wikipedia/commons/6/69/Very_Large_Telescope_Ready_for_Action_%28ESO%29.jpg',
+        }}
       />
     </ScrollContainer>
   );
