@@ -3,7 +3,7 @@ import {LoadingIndicator, ThemeProvider, ThemeType} from 'dooboo-ui';
 import type {FC} from 'react';
 import styled from '@emotion/native';
 
-const View = styled.View`
+const StyledView = styled.View`
   height: 60;
   background-color: ${({theme}) => theme.background};
   align-self: 'stretch';
@@ -13,12 +13,12 @@ const View = styled.View`
 export const Component: FC = () => {
   return (
     <>
-      <View>
+      <StyledView>
         <LoadingIndicator />
-      </View>
-      <View>
+      </StyledView>
+      <StyledView>
         <LoadingIndicator size="small" color="#008299" />
-      </View>
+      </StyledView>
     </>
   );
 };
