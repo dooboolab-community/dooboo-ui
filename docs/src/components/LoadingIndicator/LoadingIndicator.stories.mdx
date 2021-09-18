@@ -1,0 +1,60 @@
+import {Meta, Story, Canvas} from '@storybook/addon-docs/blocks';
+import {ThemeProvider} from 'dooboo-ui';
+import {Basic, ImageVersion} from './index';
+
+<Meta title="Components/LoadingIndicator" />
+
+# LoadingIndicator
+
+> [LoadingIndicator] can be used to express the loading state in your project. You can create customized laoding indicator by giving a value to `imageSource` or `renderCustomElement`.
+
+<br />
+
+## Usage
+
+```tsx
+import {LoadingIndicator} from 'dooboo-ui';
+
+<LoadingIndicator {...props} />;
+```
+
+## Props
+
+|                        | Necessary   | Types                                    | Description                                    | Default  |
+| ---------------------- | ----------- | ---------------------------------------- | ---------------------------------------------- | -------- |
+| containerStyle?        |             | `StyleProp<ViewStyle>`                   |   root VeiwStyle                               |          |
+| style?                 |             | `StyleProp<ViewStyle>`                   |   List of all style props within [LoadingIndicator].                              |          |
+| color?                 |             | `string`                                 |                                                |          |
+| size?                  |             | `number` &#124 `'small'` &#124 `'large'` |                                                |  `large` |
+| imgSource?             |             | `string`                                 |                                                |          |
+| renderCustomElement?   |             | `() => ReactElement`                     |                                                |          |
+| theme                 |             | `DoobooTheme`                            |                                                |  `light` |
+
+
+
+<br/>
+
+## Demo
+
+### Basic Style
+```tsx
+import {LoadingIndicator} from 'dooboo-ui';
+
+<LoadingIndicator />
+<LoadingIndicator size="small" color="#008299" />
+```
+<Basic themeType="dark"/>
+<Basic themeType="light"/>
+<br/>
+
+
+### Image Version
+Using `imageSource` prop , you can generate your own loading indicator.
+
+`ImageSource` prop requires a gif uri.
+
+```tsx
+<LoadingIndicator imageSource="..."/>
+```
+<ImageVersion themeType="light"/>
+<br/>
