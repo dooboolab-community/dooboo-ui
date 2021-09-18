@@ -167,7 +167,7 @@ function CalendarCarousel({
   monthFormatter = new Intl.DateTimeFormat('en', {month: 'long'}),
 }: PropsWithChildren<Props>): ReactElement {
   const scrollRef = useRef<ScrollView>(null);
-  const [layoutWidth, setLayoutWidth] = useState<number>(330);
+  const [layoutWidth, setLayoutWidth] = useState(330);
   const [eventDay, setEventDay] = useState(0);
   const [currentDate, setCurrentDate] = useState<Date>(date);
 

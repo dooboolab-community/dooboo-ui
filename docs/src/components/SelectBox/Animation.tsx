@@ -29,27 +29,42 @@ function SelectBoxStory(): React.ReactElement {
   } = useTheme();
 
   const [selectedIndex, setSelectedIndex] = useState(0);
+  const [count, setCount] = useState(0);
 
   const [fontsLoaded] = useFonts({
     IcoMoon: require('../../assets/doobooui.ttf'),
   });
 
+  const handlePressIncrease = (): void => {
+    setCount(count + 1);
+  };
+
   if (!fontsLoaded) return <View />;
 
   return (
     <Container style={{flexDirection: isMobile ? 'column' : 'row'}}>
-      <SelectBox
-        data={data}
-        onSelect={(_, index) => setSelectedIndex(index)}
-        selectedIndex={selectedIndex}
-        style={{margin: 10}}
-      />
-      <StyledText>selectedIndex : {selectedIndex}</StyledText>
+      <View
+        style={{
+          flexDirection: 'row',
+          flexWrap: 'wrap',
+          justifyContent: 'center',
+          margin: 10,
+        }}>
+        <SelectBox
+          data={data}
+          onSelect={(_, index) => setSelectedIndex(index)}
+          selectedIndex={selectedIndex}
+          rotateAnimDuration={1000}
+          onPress={handlePressIncrease}
+          style={{padding: 15}}
+        />
+        <StyledText>press count : {count}</StyledText>
+      </View>
     </Container>
   );
 }
 
-export const Basic: FC<{themeType: ThemeType}> = ({themeType}) => {
+export const Animation: FC<{themeType: ThemeType}> = ({themeType}) => {
   return (
     <ThemeProvider initialThemeType={themeType}>
       <SelectBoxStory />

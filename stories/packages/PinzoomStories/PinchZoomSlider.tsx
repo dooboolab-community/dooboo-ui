@@ -144,7 +144,7 @@ export const ImageSlider = ({
 }: {
   imageSources?: ImageSourcePropType[];
 }): ReactElement => {
-  const [currentIndex, setCurrentIndex] = React.useState<number>(0);
+  const [currentIndex, setCurrentIndex] = React.useState(0);
 
   const animValues = React.useRef({
     scale: 1,

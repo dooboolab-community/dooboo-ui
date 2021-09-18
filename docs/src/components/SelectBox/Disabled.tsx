@@ -15,12 +15,6 @@ const Container = styled.View`
   justify-content: center;
 `;
 
-const StyledText = styled.Text`
-  color: ${({theme}) => theme.text};
-  font-size: 16px;
-  margin: 20px;
-`;
-
 function SelectBoxStory(): React.ReactElement {
   const data = ['Item1', 'Item2', 'Item3', 'Item4'];
 
@@ -42,14 +36,14 @@ function SelectBoxStory(): React.ReactElement {
         data={data}
         onSelect={(_, index) => setSelectedIndex(index)}
         selectedIndex={selectedIndex}
+        disabled={true}
         style={{margin: 10}}
       />
-      <StyledText>selectedIndex : {selectedIndex}</StyledText>
     </Container>
   );
 }
 
-export const Basic: FC<{themeType: ThemeType}> = ({themeType}) => {
+export const Disabled: FC<{themeType: ThemeType}> = ({themeType}) => {
   return (
     <ThemeProvider initialThemeType={themeType}>
       <SelectBoxStory />
