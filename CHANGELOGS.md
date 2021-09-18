@@ -1,5 +1,41 @@
 ## Changelogs
 
+## 0.1.31
+
+### Features
+
+- Packages
+
+  - **AlertDialog**
+
+    Provide three types of dialog: alert, confirm, and prompt.
+    You may try this by installing `@dooboo-ui/alert-dialog`.
+
+### Enhancements
+
+- **NetworkImage**
+  - Error handling when image url is invaild or not found.
+  - iOS and Android support when loading.
+  - Overall code refactoring.
+
+### Documentations
+
+- **Newly Added**
+
+  - [LoadingIndicator](https://dooboo-ui.dooboolab.com/?path=/docs/components-loadingindicator--page)
+  - [IconButton](https://dooboo-ui.dooboolab.com/?path=/docs/components-iconbutton--page)
+  - [SelectBox](https://dooboo-ui.dooboolab.com/?path=/docs/components-selectbox--page)
+
+- **Enhancement**
+  - [Button](https://dooboo-ui.dooboolab.com/?path=/docs/components-button--page)
+    - Demo snack has been added 🍟
+
+### Contributors
+
+- Special thanks goes to [@yujong-lee](https://github.com/yujong-lee) for upgrading `NetworkImage` usability.
+- Special thanks goes to [@do02reen24](https://github.com/do02reen24) for providing new package `@dooboo-ui/alert-dialog`.
+- Special thanks goes to [@SOLBI1028](https://github.com/SOLBI1028) [@3Aldm0830](https://github.com/ldm0830), [@915dbfl](https://github.com/915dbfl) and [@devdubby](https://github.com/devdubby) for improving documentations.
+
 ## 0.1.30
 
 1 More `dooboo-ui` icon
