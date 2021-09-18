@@ -17,6 +17,7 @@ import ArtifactsLogoLight from './__assets__/artifacts_logo_l.png';
 
 type Styles = {
   activityIndicator?: ViewStyle;
+  image?: ImageStyle;
 };
 
 interface Props {
@@ -40,7 +41,7 @@ const isURISource = (source?: ImageSourcePropType): source is ImageURISource =>
 function NetworkImage(props: Props): ReactElement {
   const {themeType} = useTheme();
 
-  const {activityIndicator} = props.styles ?? {};
+  const {activityIndicator, image} = props.styles ?? {};
 
   const {
     style,
@@ -105,6 +106,7 @@ function NetworkImage(props: Props): ReactElement {
                 aspectRatio: 110 / 74,
               },
           style as ImageStyle,
+          image,
         ]}
         resizeMethod="resize"
         resizeMode="cover"

@@ -21,10 +21,10 @@ function NetworkImageStory(): React.ReactElement {
       <NetworkImage
         style={{
           margin: 20,
-          flex: 1,
           width: 400,
           height: 300,
         }}
+        styles={{image: {width: '50%'}}}
         source={{uri: 'https://reactnative.dev/img/tiny_logo.png'}}
       />
       <NetworkImage
