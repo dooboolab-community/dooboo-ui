@@ -1,5 +1,24 @@
 ## Changelogs
 
+## 0.1.32
+
+### Features
+
+- FAB (Floating Action Button)
+
+  Newly added [#67](https://github.com/dooboolab/dooboo-ui/pull/67)
+
+### Enhancement
+
+- NetworkImage
+
+  Organize props [#115](https://github.com/dooboolab/dooboo-ui/pull/115)
+
+### Contributors
+
+- [@yujong-lee](https://github.com/yujong-lee)
+- [@wndudqus](https://github.com/wndudqus)
+
 ## 0.1.31
 
 ### Features
