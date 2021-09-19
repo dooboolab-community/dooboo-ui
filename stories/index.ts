@@ -15,3 +15,4 @@ import './dooboo-ui/AccordionStories';
 import './packages/AlertDialogStories';
 import './packages/CalendarCarouselStories';
 import './packages/PinzoomStories';
+import './dooboo-ui/FloatingActionButton';
