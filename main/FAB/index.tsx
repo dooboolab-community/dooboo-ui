@@ -9,6 +9,14 @@ import styled from '@emotion/native';
 export const StyledIcon = styled(Icon)`
   color: ${({theme}) => theme.textContrast};
 `;
+
+interface Styles {
+  FAB?: StyleProp<ViewStyle>;
+  FABItem?: StyleProp<ViewStyle>;
+  buttonSize: ButtonSize;
+  iconSize?: number;
+}
+
 export interface FABItem {
   icon: IconName;
   id: string;
@@ -21,26 +29,25 @@ export interface FABProps<Item extends FABItem> {
   onPressFABItem: (item?: Item) => void;
   renderFAB?: () => ReactElement;
   renderFABItem?: (item: Item, idx: number) => ReactElement;
-  buttonSize: ButtonSize;
-  iconSize?: number;
+
   style?: StyleProp<ViewStyle>;
-  buttonWrapperStyle?: StyleProp<ViewStyle>;
+  styles?: Styles;
 }
 
 function FloatingActionButtons<Item extends FABItem = FABItem>({
   isActive,
+  style,
+  styles,
   FABItems,
   onPressFAB,
   onPressFABItem,
   renderFAB,
   renderFABItem,
-  buttonSize = 'large',
-  iconSize = 24,
-  style,
-  buttonWrapperStyle,
 }: FABProps<Item> & {
   theme: DoobooTheme;
 }): ReactElement {
+  const {FAB, FABItem, buttonSize = 'large', iconSize = 24} = styles ?? {};
+
   const spinValue = useRef(new Animated.Value(0));
   const positionValue = useRef(new Animated.Value(0));
 
@@ -57,11 +64,6 @@ function FloatingActionButtons<Item extends FABItem = FABItem>({
       Animated.timing(positionValue.current, config),
     ]).start();
   }, [isActive]);
-
-  const rotate = spinValue.current.interpolate({
-    inputRange: [0, 1],
-    outputRange: ['0deg', '45deg'],
-  });
 
   const offsets = useMemo(
     () =>
@@ -98,7 +100,7 @@ function FloatingActionButtons<Item extends FABItem = FABItem>({
                 position: 'absolute',
                 transform: [{translateY: offsets[idx]}],
               },
-              buttonWrapperStyle,
+              FABItem,
             ]}>
             {renderFABItem ? (
               renderFABItem(item, idx)
@@ -114,7 +116,20 @@ function FloatingActionButtons<Item extends FABItem = FABItem>({
         );
       })}
       <Animated.View
-        style={[{transform: [{rotate}], margin: 10}, buttonWrapperStyle]}>
+        style={[
+          {
+            transform: [
+              {
+                rotate: spinValue.current.interpolate({
+                  inputRange: [0, 1],
+                  outputRange: ['0deg', '45deg'],
+                }),
+              },
+            ],
+            margin: 10,
+          },
+          FAB,
+        ]}>
         {renderFAB ? (
           renderFAB()
         ) : (
