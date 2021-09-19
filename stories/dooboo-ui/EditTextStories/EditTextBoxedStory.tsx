@@ -21,7 +21,8 @@ const EditTextRow = (): React.ReactElement => {
           justifyContent: 'center',
           alignItems: 'center',
           backgroundColor: theme.background,
-        }}>
+        }}
+      >
         <EditText
           type="boxed"
           placeholder="your@email.com"

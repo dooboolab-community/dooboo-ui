@@ -18,10 +18,9 @@ describe('[FAB]', () => {
       Component({
         FABItems: [item],
         isActive: true,
-        buttonSize: 'large',
-        onPressFABItem: (item) => {
+        onPressFABItem: (fab) => {
           count += 1;
-          resItem = item;
+          resItem = fab;
         },
         onPressFAB: () => {},
       }),
@@ -38,11 +37,10 @@ describe('[FAB]', () => {
       Component({
         FABItems: [{icon: 'bell-solid', id: 'item1'}],
         isActive: true,
-        buttonSize: 'large',
-        onPressFABItem: (item1) => {},
+        onPressFABItem: () => {},
         onPressFAB: () => {},
         renderFAB: () => <View />,
-        renderFABItem: (item, idx) => <View />,
+        renderFABItem: () => <View />,
       }),
     );
 

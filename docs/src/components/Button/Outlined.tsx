@@ -22,7 +22,8 @@ export const Outlined: FC<{themeType: ThemeType}> = ({themeType}) => {
             flexDirection: 'row',
             flexWrap: 'wrap',
             justifyContent: 'center',
-          }}>
+          }}
+        >
           <Button type="primary" text="Primary" outlined style={{padding: 8}} />
           <Button
             type="secondary"

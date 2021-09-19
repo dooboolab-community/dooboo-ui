@@ -15,7 +15,8 @@ export const Sizes: FC<{themeType: ThemeType}> = ({themeType}) => {
           flexWrap: 'wrap',
           justifyContent: 'center',
           alignItems: 'center',
-        }}>
+        }}
+      >
         <Button
           type="primary"
           size="large"

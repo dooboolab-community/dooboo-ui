@@ -34,7 +34,8 @@ const ButtonDefault: FC = () => {
           paddingHorizontal: 40,
           justifyContent: 'center',
           alignItems: 'center',
-        }}>
+        }}
+      >
         <StyledText style={{fontSize: 18, marginBottom: 8}}>
           Basic Styles
         </StyledText>
@@ -45,7 +46,8 @@ const ButtonDefault: FC = () => {
             flexDirection: 'row',
             flexWrap: 'wrap',
             justifyContent: 'center',
-          }}>
+          }}
+        >
           <Button type="primary" text="Primary" style={{padding: 8}} />
           <Button type="secondary" text="Secondary" style={{padding: 8}} />
           <Button type="success" text="Success" style={{padding: 8}} />
@@ -66,7 +68,8 @@ const ButtonDefault: FC = () => {
             flexDirection: 'row',
             flexWrap: 'wrap',
             justifyContent: 'center',
-          }}>
+          }}
+        >
           <Button type="primary" text="Primary" outlined style={{padding: 8}} />
           <Button
             type="secondary"
@@ -98,7 +101,8 @@ const ButtonDefault: FC = () => {
             flexWrap: 'wrap',
             justifyContent: 'center',
             alignItems: 'center',
-          }}>
+          }}
+        >
           <Button
             type="primary"
             size="large"
@@ -158,7 +162,8 @@ const ButtonDefault: FC = () => {
               style={{
                 position: 'absolute',
                 left: 28,
-              }}>
+              }}
+            >
               <Image style={{width: 15, height: 28}} source={IC_FACEBOOK} />
             </View>
           }

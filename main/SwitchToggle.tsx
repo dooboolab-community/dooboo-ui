@@ -152,7 +152,8 @@ export function SwitchToggle(props: Props): ReactElement {
           }),
         },
         offElementContainer,
-      ]}>
+      ]}
+    >
       {offElement}
     </Animated.View>
   );
@@ -163,7 +164,8 @@ export function SwitchToggle(props: Props): ReactElement {
       accessibilityRole="switch"
       style={style}
       onPress={onPress}
-      activeOpacity={0.8}>
+      activeOpacity={0.8}
+    >
       <AnimatedContainer
         style={[
           container,
@@ -180,7 +182,8 @@ export function SwitchToggle(props: Props): ReactElement {
               ] as string[] | number[],
             }),
           },
-        ]}>
+        ]}
+      >
         {isOn ? OnElement : OffElement}
         {CircleButton}
       </AnimatedContainer>

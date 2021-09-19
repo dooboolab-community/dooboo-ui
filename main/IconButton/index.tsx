@@ -114,7 +114,8 @@ const StyledButton: FC<IconButtonProps & {theme: DoobooTheme}> = ({
       delayPressIn={50}
       disabled={disabled || loading}
       style={style}
-      {...touchableOpacityProps}>
+      {...touchableOpacityProps}
+    >
       {loading ? (
         <ButtonContainer
           testID="loading-view"
@@ -126,7 +127,8 @@ const StyledButton: FC<IconButtonProps & {theme: DoobooTheme}> = ({
           ]}
           type={type}
           size={size}
-          outlined={outlined}>
+          outlined={outlined}
+        >
           <ActivityIndicator size="small" color={indicatorColor} />
         </ButtonContainer>
       ) : (
@@ -140,7 +142,8 @@ const StyledButton: FC<IconButtonProps & {theme: DoobooTheme}> = ({
           size={size}
           type={type}
           disabled={disabled}
-          outlined={outlined}>
+          outlined={outlined}
+        >
           {icon}
         </ButtonContainer>
       )}

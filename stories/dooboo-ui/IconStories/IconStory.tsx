@@ -46,7 +46,8 @@ const IconStory: FC = () => {
         contentContainerStyle={{
           flex: 1,
           alignSelf: 'stretch',
-        }}>
+        }}
+      >
         <Container style={{paddingVertical: 60}}>
           <StyledIcon size={16} name="chevron-right-shape" />
           <StyledIcon size={16} name="chevron-left-shape" />

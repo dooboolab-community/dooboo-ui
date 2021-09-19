@@ -34,7 +34,8 @@ const Component: FC = () => {
         flexDirection: 'column',
         alignItems: 'center',
         padding: 10,
-      }}>
+      }}
+    >
       <Checkbox
         checked={checked}
         onPress={() => setChecked(!checked)}

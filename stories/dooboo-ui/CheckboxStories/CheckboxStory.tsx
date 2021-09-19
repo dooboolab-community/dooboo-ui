@@ -30,7 +30,8 @@ const LabelWapper: FC<{
     style={{
       flexDirection: 'column',
       alignItems: 'center',
-    }}>
+    }}
+  >
     <StyledText>{label}</StyledText>
 
     {children}
@@ -58,7 +59,8 @@ const CheckboxStory: FC = () => {
           flexDirection: 'row',
           flexWrap: 'wrap',
           justifyContent: 'center',
-        }}>
+        }}
+      >
         {types.map((type) => (
           <LabelWapper key={type} label={type ?? 'default'}>
             <Checkbox
@@ -126,14 +128,16 @@ const CheckboxStory: FC = () => {
         backgroundColor: theme.background,
         flex: 1,
         alignSelf: 'stretch',
-      }}>
+      }}
+    >
       <ScrollContainer
         contentContainerStyle={{
           paddingVertical: 60,
           paddingHorizontal: 40,
           justifyContent: 'center',
           alignItems: 'center',
-        }}>
+        }}
+      >
         <CheckboxForms />
         <Hr style={{marginTop: 40}} />
 

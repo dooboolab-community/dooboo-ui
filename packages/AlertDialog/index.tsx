@@ -114,7 +114,8 @@ const AlertDialog = React.forwardRef<Modal, Props>(
         position={'center'}
         ref={ref}
         backdropOpacity={backdropOpacity}
-        backdropPressToClose={backdropPressToClose}>
+        backdropPressToClose={backdropPressToClose}
+      >
         {title && <Title>{title}</Title>}
         {content && <Content>{content}</Content>}
 

@@ -87,7 +87,8 @@ function FloatingActionButtons<Item extends FABItem = FABItem>({
           flex: 1,
         },
         style,
-      ]}>
+      ]}
+    >
       {FABItems.map((item, idx) => {
         const {id, icon} = item;
 
@@ -101,7 +102,8 @@ function FloatingActionButtons<Item extends FABItem = FABItem>({
                 transform: [{translateY: offsets[idx]}],
               },
               FABItem,
-            ]}>
+            ]}
+          >
             {renderFABItem ? (
               renderFABItem(item, idx)
             ) : (
@@ -129,7 +131,8 @@ function FloatingActionButtons<Item extends FABItem = FABItem>({
             margin: 10,
           },
           FAB,
-        ]}>
+        ]}
+      >
         {renderFAB ? (
           renderFAB()
         ) : (

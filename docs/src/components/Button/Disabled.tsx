@@ -23,7 +23,8 @@ export const Disabled: FC<{themeType: ThemeType}> = ({themeType}) => {
             flexDirection: 'row',
             flexWrap: 'wrap',
             justifyContent: 'center',
-          }}>
+          }}
+        >
           <Button disabled={true} text="Disabled" style={{padding: 8}} />
           <Button
             disabled={true}

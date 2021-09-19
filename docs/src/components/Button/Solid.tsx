@@ -24,7 +24,8 @@ export const Solid: FC<{themeType: ThemeType}> = ({themeType}) => {
             flexDirection: 'row',
             flexWrap: 'wrap',
             justifyContent: 'center',
-          }}>
+          }}
+        >
           <Button type="primary" text="Primary" style={{padding: 8}} />
           <Button type="secondary" text="Secondary" style={{padding: 8}} />
           <Button type="success" text="Success" style={{padding: 8}} />

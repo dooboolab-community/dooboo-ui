@@ -24,7 +24,8 @@ const IconButtonStory = (): React.ReactElement => {
         flexDirection: 'row',
         justifyContent: 'center',
         alignItems: 'center',
-      }}>
+      }}
+    >
       <IconButton icon={<StyledIcon size={24} name="moment-solid" />} />
       <View style={{width: 8}} />
       <IconButton icon={<StyledIcon size={24} name="add-light" />} />

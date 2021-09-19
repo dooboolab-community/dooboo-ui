@@ -14,7 +14,8 @@ const ImageComponent: FC = () => {
         alignSelf: 'stretch',
         justifyContent: 'center',
         padding: 50,
-      }}>
+      }}
+    >
       <LoadingIndicator imgSource={IC_GIF} />
     </View>
   );

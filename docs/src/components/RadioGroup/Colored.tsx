@@ -16,7 +16,8 @@ const RadioGroupStory: FC = () => {
         alignItems: 'center',
         backgroundColor: theme.background,
         padding: 15,
-      }}>
+      }}
+    >
       <RadioGroup
         title="Primary"
         type="primary"

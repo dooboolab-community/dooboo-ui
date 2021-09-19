@@ -23,7 +23,8 @@ export const Basic: FC<{themeType: ThemeType}> = ({themeType}) => {
             flexDirection: 'row',
             flexWrap: 'wrap',
             justifyContent: 'center',
-          }}>
+          }}
+        >
           <Button text="Button" style={{padding: 8}} />
           <Button text="Button" outlined style={{padding: 8}} />
         </View>

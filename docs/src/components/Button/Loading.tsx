@@ -23,7 +23,8 @@ export const Loading: FC<{themeType: ThemeType}> = ({themeType}) => {
             flexDirection: 'row',
             flexWrap: 'wrap',
             justifyContent: 'center',
-          }}>
+          }}
+        >
           <Button loading={true} style={{padding: 8}} />
           <Button loading={true} indicatorColor="orange" style={{padding: 8}} />
         </View>

@@ -248,7 +248,8 @@ export const ImageSlider = ({
               justifyContent: 'center',
               // @ts-ignore
               transform: [{translateX: prevImageTranslateX}],
-            }}>
+            }}
+          >
             <AutoHeightImage
               source={imageSources[currentIndex - 1]}
               style={{width: WIDTH, bottom: 0}}
@@ -273,7 +274,8 @@ export const ImageSlider = ({
           style={{
             width: WIDTH,
             justifyContent: 'center',
-          }}>
+          }}
+        >
           <AutoHeightImage
             source={imageSources[currentIndex]}
             style={{width: WIDTH, bottom: 0}}
@@ -292,7 +294,8 @@ export const ImageSlider = ({
               left: WIDTH,
               // @ts-ignore
               transform: [{translateX: nextImageTranslateX}],
-            }}>
+            }}
+          >
             <AutoHeightImage
               source={imageSources[currentIndex + 1]}
               style={{width: WIDTH}}
