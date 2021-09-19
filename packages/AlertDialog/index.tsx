@@ -96,44 +96,6 @@ const AlertDialog = React.forwardRef<Modal, Props>(
   ) => {
     const [input, setInput] = useState('');
 
-    const AlertButton: React.FC = () => {
-      const primaryOnPress: VoidFunction = () => onPress(true);
-
-      return <>{renderPrimaryButton(primaryOnPress)}</>;
-    };
-
-    const ConfirmButton: React.FC = () => {
-      const primaryOnPress: VoidFunction = () => onPress(true);
-
-      const additionalOnPress: VoidFunction = () => onPress(false);
-
-      return (
-        <>
-          {renderAdditionalButton(additionalOnPress)}
-          {renderPrimaryButton(primaryOnPress)}
-        </>
-      );
-    };
-
-    const PromptButton: React.FC = () => {
-      const primaryOnPress: VoidFunction = () => {
-        onPress(input);
-        setInput('');
-      };
-
-      const additionalOnPress: VoidFunction = () => {
-        onPress(null);
-        setInput('');
-      };
-
-      return (
-        <>
-          {renderAdditionalButton(additionalOnPress)}
-          {renderPrimaryButton(primaryOnPress)}
-        </>
-      );
-    };
-
     return (
       <Modal
         isOpen={isOpen}
@@ -155,12 +117,27 @@ const AlertDialog = React.forwardRef<Modal, Props>(
         backdropPressToClose={backdropPressToClose}>
         {title && <Title>{title}</Title>}
         {content && <Content>{content}</Content>}
-        {type === 'prompt' && (
-          <ModalInput value={input} onChangeText={setInput} />
+
+        {type === 'alert' && renderPrimaryButton(() => onPress(true))}
+        {type === 'confirm' && (
+          <>
+            {renderAdditionalButton(() => onPress(false))}
+            {renderPrimaryButton(() => onPress(true))}
+          </>
         )}
-        {type === 'alert' && <AlertButton />}
-        {type === 'confirm' && <ConfirmButton />}
-        {type === 'prompt' && <PromptButton />}
+        {type === 'prompt' && (
+          <>
+            <ModalInput value={input} onChangeText={setInput} />
+            {renderAdditionalButton(() => {
+              onPress(null);
+              setInput('');
+            })}
+            {renderPrimaryButton(() => {
+              onPress(input);
+              setInput('');
+            })}
+          </>
+        )}
       </Modal>
     );
   },
