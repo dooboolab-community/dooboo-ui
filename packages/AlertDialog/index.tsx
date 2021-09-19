@@ -118,9 +118,6 @@ const AlertDialog = React.forwardRef<Modal, Props>(
         {title && <Title>{title}</Title>}
         {content && <Content>{content}</Content>}
 
-        {type === 'prompt' && (
-          <ModalInput value={input} onChangeText={setInput} />
-        )}
         {type === 'alert' && renderPrimaryButton(() => onPress(true))}
         {type === 'confirm' && (
           <>
@@ -130,6 +127,7 @@ const AlertDialog = React.forwardRef<Modal, Props>(
         )}
         {type === 'prompt' && (
           <>
+            <ModalInput value={input} onChangeText={setInput} />
             {renderAdditionalButton(() => {
               onPress(null);
               setInput('');
