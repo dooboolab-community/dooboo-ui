@@ -121,7 +121,8 @@ const RadioButtonContainer: FC<RadioButtonProps> = ({
       disabled={disabled}
       style={style}
       onPress={onPress}
-      activeOpacity={0.9}>
+      activeOpacity={0.9}
+    >
       <View
         style={{
           paddingVertical: 6,
@@ -132,14 +133,16 @@ const RadioButtonContainer: FC<RadioButtonProps> = ({
 
           flexDirection: 'row',
           alignItems: 'center',
-        }}>
+        }}
+      >
         {leftElement}
         {label && labelPosition === 'left' ? (
           <ColoredText
             type={type}
             selected={!!selected}
             disabled={!!disabled}
-            style={styles?.label}>
+            style={styles?.label}
+          >
             {label}
           </ColoredText>
         ) : null}
@@ -147,7 +150,8 @@ const RadioButtonContainer: FC<RadioButtonProps> = ({
           style={styles?.radio}
           selected={!!selected}
           type={type}
-          disabled={disabled}>
+          disabled={disabled}
+        >
           <StyledRadioCircle
             testID={`circle-${testID}`}
             type={type}
@@ -166,7 +170,8 @@ const RadioButtonContainer: FC<RadioButtonProps> = ({
             type={type}
             selected={!!selected}
             disabled={!!disabled}
-            style={styles?.label}>
+            style={styles?.label}
+          >
             {label}
           </ColoredText>
         ) : null}

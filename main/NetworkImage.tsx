@@ -89,7 +89,8 @@ function NetworkImage(props: Props): ReactElement {
         },
         size,
         style,
-      ]}>
+      ]}
+    >
       <Image
         style={[
           isValidSource

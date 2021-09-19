@@ -337,7 +337,8 @@ function CalendarCarousel({
               onPress={(): void => {
                 selectDate?.(setItemDay);
                 setEventDay(itemDay);
-              }}>
+              }}
+            >
               <View style={styles.activeView} key={itemDay}>
                 <Text style={styles.activeText}>{`${itemDay}`}</Text>
                 <View style={styles.mark} key={itemDay} />
@@ -436,14 +437,16 @@ function CalendarCarousel({
       onLayout={(e): void => {
         setLayoutWidth(e.nativeEvent.layout.width);
         scrollToMiddleCalendar();
-      }}>
+      }}
+    >
       <ScrollView
         horizontal
         pagingEnabled
         scrollEventThrottle={16}
         contentOffset={{x: layoutWidth, y: 0}}
         ref={scrollRef}
-        onMomentumScrollEnd={scrollEffect}>
+        onMomentumScrollEnd={scrollEffect}
+      >
         {renderCalendars()}
       </ScrollView>
     </SafeAreaView>

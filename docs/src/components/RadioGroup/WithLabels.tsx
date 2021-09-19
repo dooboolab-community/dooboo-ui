@@ -18,7 +18,8 @@ const RadioGroupStory: FC<{labelPosition: 'left' | 'right'}> = ({
         alignItems: 'center',
         backgroundColor: theme.background,
         padding: 15,
-      }}>
+      }}
+    >
       <RadioGroup
         data={data}
         labels={labels}

@@ -37,7 +37,8 @@ storiesOf('SelectBox', module)
         alignSelf: 'stretch',
         alignItems: 'center',
         justifyContent: 'center',
-      }}>
+      }}
+    >
       <ThemeProvider initialThemeType="dark">
         <SelectBoxStory />
       </ThemeProvider>

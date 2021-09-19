@@ -82,7 +82,8 @@ storiesOf('Typography', module)
         backgroundColor: 'black',
         flex: 1,
         alignSelf: 'stretch',
-      }}>
+      }}
+    >
       <ThemeProvider initialThemeType="dark">
         <TypographyWithTheme />
       </ThemeProvider>

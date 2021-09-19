@@ -81,7 +81,8 @@ function ThemeProvider({
         changeThemeType,
         theme,
         colors,
-      }}>
+      }}
+    >
       <OriginalThemeProvider theme={{...theme, ...media}}>
         {children}
       </OriginalThemeProvider>

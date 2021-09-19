@@ -108,21 +108,24 @@ const CheckboxContainer: FC<CheckboxProps> = ({
       disabled={disabled}
       style={style}
       onPress={onPress}
-      activeOpacity={0.9}>
+      activeOpacity={0.9}
+    >
       <View
         style={{
           flexDirection: 'row',
           paddingVertical: 6,
           paddingLeft: leftElement ? 6 : 0,
           paddingRight: rightElement ? 6 : 0,
-        }}>
+        }}
+      >
         {leftElement}
         <StyledCheckboxOutlined
           testID="doobooui-checkbox"
           checked={checked}
           type={type}
           disabled={disabled}
-          style={styles?.checkbox}>
+          style={styles?.checkbox}
+        >
           <StyledCheckbox
             style={[
               styles?.checkbox,
@@ -130,7 +133,8 @@ const CheckboxContainer: FC<CheckboxProps> = ({
             ]}
             checked={checked}
             type={type}
-            disabled={disabled}>
+            disabled={disabled}
+          >
             <StyledCheck name="tick-light" checked={checked} />
           </StyledCheckbox>
         </StyledCheckboxOutlined>

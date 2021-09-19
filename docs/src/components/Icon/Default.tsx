@@ -35,7 +35,8 @@ const IconWithLabel: FC<{name: IconName}> = ({name}) => {
         flexDirection: 'column',
         justifyContent: 'center',
         alignItems: 'center',
-      }}>
+      }}
+    >
       <StyledIcon size={16} name={name} />
       <StyledText>{name}</StyledText>
     </View>

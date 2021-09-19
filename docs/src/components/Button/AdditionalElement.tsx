@@ -61,7 +61,8 @@ export const AdditionalElement: FC<{themeType: ThemeType}> = ({themeType}) => {
               style={{
                 position: 'absolute',
                 left: 28,
-              }}>
+              }}
+            >
               <Image style={{width: 15, height: 28}} source={IC_FACEBOOK} />
             </View>
           }

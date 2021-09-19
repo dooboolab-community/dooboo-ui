@@ -49,7 +49,8 @@ function SelectBoxStory(): React.ReactElement {
           flexWrap: 'wrap',
           justifyContent: 'center',
           margin: 10,
-        }}>
+        }}
+      >
         <SelectBox
           data={data}
           onSelect={(_, index) => setSelectedIndex(index)}

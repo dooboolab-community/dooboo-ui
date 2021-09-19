@@ -78,7 +78,8 @@ function ItemComp<T extends {value: string} | string>({
             backgroundColor: theme.textContrast,
           },
           styles?.itemContainer,
-        ]}>
+        ]}
+      >
         <Typography.Body2 style={styles?.itemText}>
           {typeof value === 'object' ? value.value : value}
         </Typography.Body2>
@@ -144,7 +145,8 @@ function Component<T extends {value: string} | string>({
         onPress={() => {
           onPress?.();
           setIsOpened((prev) => !prev);
-        }}>
+        }}
+      >
         <Title
           style={[
             {
@@ -152,7 +154,8 @@ function Component<T extends {value: string} | string>({
               backgroundColor: theme.textContrast,
             },
             styles?.titleContainer,
-          ]}>
+          ]}
+        >
           <Typography.Body2 style={styles?.titleText}>
             {typeof selectedValue === 'object'
               ? selectedValue.value
@@ -174,7 +177,8 @@ function Component<T extends {value: string} | string>({
                   ],
                 },
                 styles?.rightElementContainer,
-              ]}>
+              ]}
+            >
               {rightElement}
             </Animated.View>
           ) : null}

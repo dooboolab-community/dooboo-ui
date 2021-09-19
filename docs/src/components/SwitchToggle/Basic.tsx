@@ -12,7 +12,8 @@ export const Basic: FC<{themeType: ThemeType}> = ({themeType}) => {
         style={{
           justifyContent: 'center',
           alignItems: 'center',
-        }}>
+        }}
+      >
         <View style={{flexDirection: 'row', alignItems: 'center'}}>
           <Typography.Body1>{isOn ? 'On' : 'Off'}</Typography.Body1>
           <SwitchToggle isOn={isOn} onPress={() => setIsOn(!isOn)} />

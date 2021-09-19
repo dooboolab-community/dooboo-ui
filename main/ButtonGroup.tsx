@@ -103,7 +103,8 @@ function StyledButtonGroup<T>(props: Props<T>): React.ReactElement {
         {borderColor: color},
         styles?.container,
         style,
-      ])}>
+      ])}
+    >
       {data.map((text, i) => {
         return (
           <TouchableOpacity
@@ -112,7 +113,8 @@ function StyledButtonGroup<T>(props: Props<T>): React.ReactElement {
             style={{flex: 1}}
             onPress={(): void => {
               if (onPress) onPress(i);
-            }}>
+            }}
+          >
             <View
               testID={`CHILD_${i}`}
               style={StyleSheet.flatten([
@@ -121,13 +123,15 @@ function StyledButtonGroup<T>(props: Props<T>): React.ReactElement {
                   : {...styles?.button, borderColor: color},
                 borderWidthAndRadius(i),
                 {borderColor: color},
-              ])}>
+              ])}
+            >
               <Text
                 style={
                   selectedIndex === i
                     ? [styles?.selectedText, {color: theme.textContrast}]
                     : [styles?.text, {color: theme.text}]
-                }>
+                }
+              >
                 {text}
               </Text>
             </View>

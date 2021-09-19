@@ -26,13 +26,15 @@ const RadioButtonStory: FC = () => {
         backgroundColor: theme.background,
         flex: 1,
         alignSelf: 'stretch',
-      }}>
+      }}
+    >
       <ScrollContainer
         contentContainerStyle={{
           alignSelf: 'stretch',
           justifyContent: 'center',
           alignItems: 'center',
-        }}>
+        }}
+      >
         <StyledText style={{fontSize: 18, marginTop: 24, marginBottom: 12}}>
           Radio Group
         </StyledText>
@@ -40,7 +42,8 @@ const RadioButtonStory: FC = () => {
           return (
             <View
               key={`${el}-${i}`}
-              style={{flexDirection: 'row', marginTop: 24}}>
+              style={{flexDirection: 'row', marginTop: 24}}
+            >
               <RadioGroup
                 title={el}
                 data={data}
@@ -58,7 +61,8 @@ const RadioButtonStory: FC = () => {
           return (
             <View
               key={`${el}-${i}`}
-              style={{flexDirection: 'row', marginTop: 24}}>
+              style={{flexDirection: 'row', marginTop: 24}}
+            >
               <RadioGroup
                 title={el}
                 data={data}

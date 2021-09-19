@@ -21,7 +21,8 @@ const EditTextColumn = (): React.ReactElement => {
           justifyContent: 'center',
           alignItems: 'center',
           backgroundColor: theme.background,
-        }}>
+        }}
+      >
         <EditText
           type="column"
           placeholder="Default EditText"

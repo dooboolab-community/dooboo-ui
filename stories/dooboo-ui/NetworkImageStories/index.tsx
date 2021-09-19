@@ -17,7 +17,8 @@ function NetworkImageStory(): React.ReactElement {
         paddingVertical: 80,
         alignItems: 'center',
         justifyContent: 'center',
-      }}>
+      }}
+    >
       <NetworkImage
         style={{
           margin: 20,

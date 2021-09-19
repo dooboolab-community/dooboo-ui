@@ -28,7 +28,8 @@ const Component: FC = () => {
         flexDirection: 'row',
         justifyContent: 'center',
         padding: 5,
-      }}>
+      }}
+    >
       <Checkbox disabled />
     </View>
   );

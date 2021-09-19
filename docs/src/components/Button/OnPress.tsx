@@ -39,7 +39,8 @@ export const OnPress: FC<{themeType: ThemeType}> = ({themeType}) => {
             flexDirection: 'row',
             flexWrap: 'wrap',
             justifyContent: 'center',
-          }}>
+          }}
+        >
           <Button text="Increase" style={{padding: 8}} onPress={onIncrease} />
           <Button text="Decrease" style={{padding: 8}} onPress={onDecrease} />
           <StyledText> value={value} </StyledText>
