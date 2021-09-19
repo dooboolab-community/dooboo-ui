@@ -25,17 +25,16 @@ const FABContainer: FC = () => {
     <StoryContainer>
       <SafeAreaView style={{display: 'flex', width: '100%', height: '100%'}}>
         <FAB
-          buttonSize="medium"
           isActive={active}
-          onPressFAB={() => setActive((prev) => !prev)}
+          styles={{buttonSize: 'medium', iconSize: 25}}
           FABItems={[
             {id: 'search', icon: 'home-light'},
             {id: 'like', icon: 'like-light'},
           ]}
+          onPressFAB={() => setActive((prev) => !prev)}
           onPressFABItem={(item) => {
             console.log(item);
           }}
-          iconSize={25}
         />
       </SafeAreaView>
     </StoryContainer>
