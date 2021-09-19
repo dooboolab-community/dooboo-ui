@@ -25,7 +25,7 @@ function NetworkImageStory(): React.ReactElement {
           height: 300,
         }}
         styles={{image: {width: '50%'}}}
-        source={{uri: 'https://reactnative.dev/img/tiny_logo.png'}}
+        uri="https://reactnative.dev/img/tiny_logo.png"
       />
       <NetworkImage
         style={{
@@ -33,9 +33,7 @@ function NetworkImageStory(): React.ReactElement {
           width: 180,
           height: 180,
         }}
-        source={{
-          uri: 'https://wronglink.co',
-        }}
+        uri="https://wronglink.co"
       />
       <NetworkImage
         style={{
@@ -43,9 +41,7 @@ function NetworkImageStory(): React.ReactElement {
           width: 180,
           height: 180,
         }}
-        source={{
-          uri: 'https://media.vlpt.us/images/luck2901/post/5745952f-eb96-4784-b01c-2eb90158ace7/React_Native_Tutorial.jpg',
-        }}
+        uri="https://media.vlpt.us/images/luck2901/post/5745952f-eb96-4784-b01c-2eb90158ace7/React_Native_Tutorial.jpg"
       />
       <NetworkImage
         style={{
@@ -53,9 +49,7 @@ function NetworkImageStory(): React.ReactElement {
           width: 180,
           height: 180,
         }}
-        source={{
-          uri: 'https://upload.wikimedia.org/wikipedia/commons/6/69/Very_Large_Telescope_Ready_for_Action_%28ESO%29.jpg',
-        }}
+        uri="https://upload.wikimedia.org/wikipedia/commons/6/69/Very_Large_Telescope_Ready_for_Action_%28ESO%29.jpg"
       />
     </ScrollContainer>
   );
