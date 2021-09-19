@@ -3,7 +3,6 @@ import {
   ImageProps,
   ImageSourcePropType,
   ImageStyle,
-  ImageURISource,
   StyleProp,
   View,
   ViewStyle,
@@ -23,7 +22,7 @@ type Styles = {
 interface Props {
   style?: StyleProp<ViewStyle>;
   styles?: Styles;
-  source: ImageSourcePropType | undefined;
+  url: string | undefined;
   defaultSource?: ImageSourcePropType;
   loadingElement?: ReactElement;
   imageProps?: Partial<ImageProps>;
@@ -35,8 +34,20 @@ type ImageSize = {
   height: number;
 };
 
-const isURISource = (source?: ImageSourcePropType): source is ImageURISource =>
-  source !== undefined && !!(source as ImageURISource)?.uri;
+const fetchImageSize = (imageUrl: string): Promise<ImageSize> =>
+  new Promise<ImageSize>((resolve, reject) =>
+    Image.getSize(
+      imageUrl,
+      (width: number, height: number) =>
+        resolve({
+          width,
+          height,
+        }),
+      (error) => {
+        reject(error);
+      },
+    ),
+  );
 
 function NetworkImage(props: Props): ReactElement {
   const {themeType} = useTheme();
@@ -47,7 +58,7 @@ function NetworkImage(props: Props): ReactElement {
     style,
     imageProps,
     loadingElement = <LoadingIndicator style={activityIndicator} />,
-    source,
+    url,
     defaultSource = themeType === 'light'
       ? ArtifactsLogoLight
       : ArtifactsLogoDark,
@@ -62,27 +73,12 @@ function NetworkImage(props: Props): ReactElement {
   });
 
   useLayoutEffect(() => {
-    if (isURISource(source)) {
-      const fetchImageSize = (imageUri: string): Promise<ImageSize> =>
-        new Promise<ImageSize>((resolve, reject) =>
-          Image.getSize(
-            imageUri,
-            (width: number, height: number) =>
-              resolve({
-                width,
-                height,
-              }),
-            (error) => {
-              reject(error);
-            },
-          ),
-        );
-
-      fetchImageSize(source.uri!)
+    if (!url) setIsValidSource(false);
+    else
+      fetchImageSize(url)
         .then((value) => setSize(value))
         .catch(() => setIsValidSource(false));
-    }
-  }, [source]);
+  }, [url]);
 
   return (
     <View
@@ -111,7 +107,7 @@ function NetworkImage(props: Props): ReactElement {
         resizeMethod="resize"
         resizeMode="cover"
         onLoad={() => setNeedLoading(false)}
-        source={isValidSource ? source : defaultSource}
+        source={isValidSource ? {url} : defaultSource}
         {...imageProps}
       />
 
