@@ -22,7 +22,7 @@ type Styles = {
 interface Props {
   style?: StyleProp<ViewStyle>;
   styles?: Styles;
-  uri: string | undefined;
+  url: string | undefined;
   defaultSource?: ImageSourcePropType;
   loadingElement?: ReactElement;
   imageProps?: Partial<ImageProps>;
@@ -34,6 +34,21 @@ type ImageSize = {
   height: number;
 };
 
+const fetchImageSize = (imageUrl: string): Promise<ImageSize> =>
+  new Promise<ImageSize>((resolve, reject) =>
+    Image.getSize(
+      imageUrl,
+      (width: number, height: number) =>
+        resolve({
+          width,
+          height,
+        }),
+      (error) => {
+        reject(error);
+      },
+    ),
+  );
+
 function NetworkImage(props: Props): ReactElement {
   const {themeType} = useTheme();
 
@@ -43,7 +58,7 @@ function NetworkImage(props: Props): ReactElement {
     style,
     imageProps,
     loadingElement = <LoadingIndicator style={activityIndicator} />,
-    uri,
+    url,
     defaultSource = themeType === 'light'
       ? ArtifactsLogoLight
       : ArtifactsLogoDark,
@@ -58,27 +73,12 @@ function NetworkImage(props: Props): ReactElement {
   });
 
   useLayoutEffect(() => {
-    const fetchImageSize = (imageUri: string): Promise<ImageSize> =>
-      new Promise<ImageSize>((resolve, reject) =>
-        Image.getSize(
-          imageUri,
-          (width: number, height: number) =>
-            resolve({
-              width,
-              height,
-            }),
-          (error) => {
-            reject(error);
-          },
-        ),
-      );
-
-    if (!uri) setIsValidSource(false);
+    if (!url) setIsValidSource(false);
     else
-      fetchImageSize(uri)
+      fetchImageSize(url)
         .then((value) => setSize(value))
         .catch(() => setIsValidSource(false));
-  }, [uri]);
+  }, [url]);
 
   return (
     <View
@@ -107,7 +107,7 @@ function NetworkImage(props: Props): ReactElement {
         resizeMethod="resize"
         resizeMode="cover"
         onLoad={() => setNeedLoading(false)}
-        source={isValidSource ? {uri} : defaultSource}
+        source={isValidSource ? {url} : defaultSource}
         {...imageProps}
       />
 
