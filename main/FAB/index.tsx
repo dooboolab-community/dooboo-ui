@@ -16,24 +16,28 @@ export interface FABItem {
 
 export interface FABProps<Item extends FABItem> {
   isActive: boolean;
-  fabItems: Item[];
+  FABItems: Item[];
   onPressFAB: () => void;
-  onPressFabItem: (item?: Item) => void;
+  onPressFABItem: (item?: Item) => void;
   renderFAB?: () => ReactElement;
-  renderFabItem?: (item: Item, idx: number) => ReactElement;
-  size: ButtonSize;
+  renderFABItem?: (item: Item, idx: number) => ReactElement;
+  buttonSize: ButtonSize;
+  iconSize?: number;
   style?: StyleProp<ViewStyle>;
+  buttonWrapperStyle?: StyleProp<ViewStyle>;
 }
 
 function FloatingActionButtons<Item extends FABItem = FABItem>({
   isActive,
-  fabItems,
+  FABItems,
   onPressFAB,
-  onPressFabItem,
+  onPressFABItem,
   renderFAB,
-  renderFabItem,
-  size = 'large',
+  renderFABItem,
+  buttonSize = 'large',
+  iconSize = 24,
   style,
+  buttonWrapperStyle,
 }: FABProps<Item> & {
   theme: DoobooTheme;
 }): ReactElement {
@@ -41,37 +45,33 @@ function FloatingActionButtons<Item extends FABItem = FABItem>({
   const positionValue = useRef(new Animated.Value(0));
 
   useLayoutEffect(() => {
-    Animated.timing(spinValue.current, {
+    const config = {
       toValue: isActive ? 1 : 0,
       duration: 300,
       easing: Easing.linear,
       useNativeDriver: true,
-    }).start();
+    };
+
+    Animated.parallel([
+      Animated.timing(spinValue.current, config),
+      Animated.timing(positionValue.current, config),
+    ]).start();
   }, [isActive]);
 
-  useLayoutEffect(() => {
-    Animated.timing(positionValue.current, {
-      toValue: isActive ? 1 : 0,
-      duration: 300,
-      easing: Easing.linear,
-      useNativeDriver: true,
-    }).start();
-  }, [isActive]);
-
-  const spin = spinValue.current.interpolate({
+  const rotate = spinValue.current.interpolate({
     inputRange: [0, 1],
     outputRange: ['0deg', '45deg'],
   });
 
-  const offsetAnimationList = useMemo(
+  const offsets = useMemo(
     () =>
-      fabItems?.map((_, idx) => {
-        return positionValue.current.interpolate({
+      FABItems?.map((_, idx) =>
+        positionValue.current.interpolate({
           inputRange: [0, 1],
           outputRange: ['0%', `-${(idx + 1) * 80}%`],
-        });
-      }),
-    [fabItems],
+        }),
+      ),
+    [FABItems],
   );
 
   return (
@@ -86,36 +86,42 @@ function FloatingActionButtons<Item extends FABItem = FABItem>({
         },
         style,
       ]}>
-      {fabItems.map((item, idx) => {
+      {FABItems.map((item, idx) => {
+        const {id, icon} = item;
+
         return (
           <Animated.View
-            key={item.id}
-            style={{
-              margin: 10,
-              position: 'absolute',
-              transform: [{translateY: offsetAnimationList[idx]}],
-            }}>
-            {renderFabItem ? (
-              renderFabItem(item, idx)
+            key={id}
+            style={[
+              {
+                margin: 10,
+                position: 'absolute',
+                transform: [{translateY: offsets[idx]}],
+              },
+              buttonWrapperStyle,
+            ]}>
+            {renderFABItem ? (
+              renderFABItem(item, idx)
             ) : (
               <IconButton
-                testID={item.id}
-                size={size}
-                icon={<StyledIcon size={24} name={item.icon} />}
-                onPress={() => onPressFabItem(item)}
+                testID={id}
+                size={buttonSize}
+                icon={<StyledIcon size={iconSize} name={icon} />}
+                onPress={() => onPressFABItem(item)}
               />
             )}
           </Animated.View>
         );
       })}
-      <Animated.View style={{transform: [{rotate: spin}], margin: 10}}>
+      <Animated.View
+        style={[{transform: [{rotate}], margin: 10}, buttonWrapperStyle]}>
         {renderFAB ? (
           renderFAB()
         ) : (
           <IconButton
             testID={'main_fab'}
-            size={size}
-            icon={<StyledIcon size={24} name="add-light" />}
+            size={buttonSize}
+            icon={<StyledIcon size={iconSize} name="add-light" />}
             onPress={onPressFAB}
           />
         )}

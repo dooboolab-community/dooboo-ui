@@ -1,8 +1,7 @@
 import {FAB, FABItem, FABProps} from '../../main';
 import React, {ReactElement} from 'react';
-import {RenderAPI, fireEvent, render} from '@testing-library/react-native';
+import {fireEvent, render} from '@testing-library/react-native';
 
-import {IconButton} from '../IconButton';
 import {View} from 'react-native';
 import {createComponent} from '../../test/testUtils';
 
@@ -17,10 +16,10 @@ describe('[FAB]', () => {
 
     const {getByTestId} = render(
       Component({
-        fabItems: [item],
+        FABItems: [item],
         isActive: true,
-        size: 'large',
-        onPressFabItem: (item) => {
+        buttonSize: 'large',
+        onPressFABItem: (item) => {
           count += 1;
           resItem = item;
         },
@@ -37,13 +36,13 @@ describe('[FAB]', () => {
   it('should render customFAB', async () => {
     const testingLib = render(
       Component({
-        fabItems: [{icon: 'bell-solid', id: 'item1'}],
+        FABItems: [{icon: 'bell-solid', id: 'item1'}],
         isActive: true,
-        size: 'large',
-        onPressFabItem: (item1) => {},
+        buttonSize: 'large',
+        onPressFABItem: (item1) => {},
         onPressFAB: () => {},
         renderFAB: () => <View />,
-        renderFabItem: (item, idx) => <View />,
+        renderFABItem: (item, idx) => <View />,
       }),
     );
 
