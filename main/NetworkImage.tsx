@@ -89,8 +89,7 @@ function NetworkImage(props: Props): ReactElement {
         },
         size,
         style,
-      ]}
-    >
+      ]}>
       <Image
         style={[
           isValidSource
@@ -108,7 +107,7 @@ function NetworkImage(props: Props): ReactElement {
         resizeMethod="resize"
         resizeMode="cover"
         onLoad={() => setNeedLoading(false)}
-        source={isValidSource ? {url} : defaultSource}
+        source={isValidSource ? {uri: url} : defaultSource}
         {...imageProps}
       />
 
