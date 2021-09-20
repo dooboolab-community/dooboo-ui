@@ -1,5 +1,6 @@
 import {NetworkImage, ThemeProvider} from '../../../main';
 import React, {ReactElement} from 'react';
+import {View, Text} from 'react-native';
 
 import {ContainerDeco} from '../../../storybook/decorators';
 import {storiesOf} from '@storybook/react-native';
@@ -20,38 +21,34 @@ function NetworkImageStory(): React.ReactElement {
       }}
     >
       <NetworkImage
-        style={{
-          margin: 20,
-          width: 400,
-          height: 300,
-        }}
-        styles={{image: {width: '50%'}}}
-        url="https://reactnative.dev/img/tiny_logo.png"
+        style={{margin: 40}}
+        styles={{image: {width: 300, height: 300}}}
+        url="wrong-link"
       />
-      <NetworkImage
-        style={{
-          margin: 20,
-          width: 180,
-          height: 180,
-        }}
-        url="https://wronglink.co"
-      />
-      <NetworkImage
-        style={{
-          margin: 20,
-          width: 180,
-          height: 180,
-        }}
-        url="https://media.vlpt.us/images/luck2901/post/5745952f-eb96-4784-b01c-2eb90158ace7/React_Native_Tutorial.jpg"
-      />
-      <NetworkImage
-        style={{
-          margin: 20,
-          width: 180,
-          height: 180,
-        }}
-        url="https://upload.wikimedia.org/wikipedia/commons/6/69/Very_Large_Telescope_Ready_for_Action_%28ESO%29.jpg"
-      />
+
+      <View style={{width: 400, height: 300, margin: 20}}>
+        <NetworkImage
+          styles={{image: {flex: 1, alignSelf: 'stretch'}}}
+          url="https://reactnative.dev/img/tiny_logo.png"
+        />
+      </View>
+
+      <View style={{width: 400, height: 300, margin: 20}}>
+        <NetworkImage
+          style={{margin: 40}}
+          styles={{image: {width: 300, height: 300}}}
+          url="https://upload.wikimedia.org/wikipedia/commons/6/69/Very_Large_Telescope_Ready_for_Action_%28ESO%29.jpg"
+        />
+      </View>
+
+      <View style={{width: 400, height: 300, margin: 20}}>
+        <NetworkImage
+          style={{margin: 40}}
+          styles={{image: {width: 300, height: 300}}}
+          loadingSource={<Text style={{fontSize: 30}}>Loading</Text>}
+          url="https://upload.wikimedia.org/wikipedia/commons/6/69/Very_Large_Telescope_Ready_for_Action_%28ESO%29.jpg"
+        />
+      </View>
     </ScrollContainer>
   );
 }
