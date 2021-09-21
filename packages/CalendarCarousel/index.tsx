@@ -167,7 +167,7 @@ function CalendarCarousel({
   monthFormatter = new Intl.DateTimeFormat('en', {month: 'long'}),
 }: PropsWithChildren<Props>): ReactElement {
   const scrollRef = useRef<ScrollView>(null);
-  const [layoutWidth, setLayoutWidth] = useState<number>(330);
+  const [layoutWidth, setLayoutWidth] = useState(330);
   const [eventDay, setEventDay] = useState(0);
   const [currentDate, setCurrentDate] = useState<Date>(date);
 
@@ -337,7 +337,8 @@ function CalendarCarousel({
               onPress={(): void => {
                 selectDate?.(setItemDay);
                 setEventDay(itemDay);
-              }}>
+              }}
+            >
               <View style={styles.activeView} key={itemDay}>
                 <Text style={styles.activeText}>{`${itemDay}`}</Text>
                 <View style={styles.mark} key={itemDay} />
@@ -436,14 +437,16 @@ function CalendarCarousel({
       onLayout={(e): void => {
         setLayoutWidth(e.nativeEvent.layout.width);
         scrollToMiddleCalendar();
-      }}>
+      }}
+    >
       <ScrollView
         horizontal
         pagingEnabled
         scrollEventThrottle={16}
         contentOffset={{x: layoutWidth, y: 0}}
         ref={scrollRef}
-        onMomentumScrollEnd={scrollEffect}>
+        onMomentumScrollEnd={scrollEffect}
+      >
         {renderCalendars()}
       </ScrollView>
     </SafeAreaView>

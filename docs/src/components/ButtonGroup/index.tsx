@@ -39,7 +39,8 @@ const ButtonGroupStory = (): React.ReactElement => {
           height: 120,
           justifyContent: 'center',
           alignItems: 'center',
-        }}>
+        }}
+      >
         <StyledText>{data[selectedIndex]}</StyledText>
       </View>
     </Container>

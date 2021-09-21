@@ -46,8 +46,26 @@ const IconStory: FC = () => {
         contentContainerStyle={{
           flex: 1,
           alignSelf: 'stretch',
-        }}>
+        }}
+      >
         <Container style={{paddingVertical: 60}}>
+          <StyledIcon size={16} name="chevron-right-shape" />
+          <StyledIcon size={16} name="chevron-left-shape" />
+          <StyledIcon size={16} name="chevron-down-shape" />
+          <StyledIcon size={16} name="chevron-up-shape" />
+          <StyledIcon size={16} name="trash-light" />
+          <StyledIcon size={16} name="pen-light" />
+          <StyledIcon size={16} name="burger-shape" />
+          <StyledIcon size={16} name="dots-light" />
+          <StyledIcon size={16} name="wifi-unable-light" />
+          <StyledIcon size={16} name="wifi-light" />
+          <StyledIcon size={16} name="wifi-light" />
+          <StyledIcon size={16} name="mic-shape" />
+          <StyledIcon size={16} name="mic-light" />
+          <StyledIcon size={16} name="phone-shape" />
+          <StyledIcon size={16} name="phone-light" />
+          <StyledIcon size={16} name="clip-shape" />
+          <StyledIcon size={16} name="clip-light" />
           <StyledIcon size={16} name="cog-light" />
           <StyledIcon size={16} name="picture-light" />
           <StyledIcon size={16} name="moment-solid" />

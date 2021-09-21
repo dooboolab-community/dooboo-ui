@@ -21,7 +21,8 @@ const EditTextColumn = (): React.ReactElement => {
           justifyContent: 'center',
           alignItems: 'center',
           backgroundColor: theme.background,
-        }}>
+        }}
+      >
         <EditText
           type="column"
           placeholder="Default EditText"
@@ -36,6 +37,18 @@ const EditTextColumn = (): React.ReactElement => {
           value={password}
           onChangeText={(text) => onTextChanged('PASSWORD', text)}
           style={{marginTop: 20, marginBottom: 24, paddingHorizontal: 36}}
+        />
+        <EditText
+          type="column"
+          labelText="label"
+          placeholder="EditText with label and maxLength"
+          value={password}
+          onChangeText={(text) => onTextChanged('PASSWORD', text)}
+          style={{marginTop: 20, marginBottom: 24, paddingHorizontal: 36}}
+          textInputProps={{
+            multiline: true,
+            maxLength: 10,
+          }}
         />
         <EditText
           type="column"

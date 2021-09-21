@@ -1,29 +1,32 @@
-import {DoobooTheme, light, useTheme} from './theme';
 import {
   Image,
   ImageProps,
+  ImageSourcePropType,
   ImageStyle,
-  Platform,
   StyleProp,
+  View,
   ViewStyle,
 } from 'react-native';
-import React, {ReactElement, useCallback, useEffect, useState} from 'react';
+import React, {ReactElement, useLayoutEffect, useState} from 'react';
+import {LoadingIndicator} from './LoadingIndicator';
+import {useTheme} from './theme';
 
 import ArtifactsLogoDark from './__assets__/artifacts_logo_d.png';
 import ArtifactsLogoLight from './__assets__/artifacts_logo_l.png';
-import styled from '@emotion/native';
 
 type Styles = {
-  image?: StyleProp<ImageStyle>;
+  activityIndicator?: ViewStyle;
+  image?: ImageStyle;
 };
 
 interface Props {
-  url: string;
-  styles?: Styles;
   style?: StyleProp<ViewStyle>;
-  loadingElement?: () => ReactElement;
-  theme: DoobooTheme;
+  styles?: Styles;
+  url: string | undefined;
+  defaultSource?: ImageSourcePropType;
+  loadingElement?: ReactElement;
   imageProps?: Partial<ImageProps>;
+  LoadingIndicatorProps?: Partial<ImageProps>;
 }
 
 type ImageSize = {
@@ -31,95 +34,87 @@ type ImageSize = {
   height: number;
 };
 
-const Container = styled.View<{imageSize?: ImageSize}>`
-  background-color: ${({theme, imageSize}) => !imageSize && theme.paper};
-
-  justify-content: center;
-  align-items: center;
-`;
-
-const StyledImage = styled.Image`
-  align-self: center;
-`;
-
-const getOriginalImageSize = async (imageUri: string): Promise<ImageSize> =>
+const fetchImageSize = (imageUrl: string): Promise<ImageSize> =>
   new Promise<ImageSize>((resolve, reject) =>
     Image.getSize(
-      imageUri,
+      imageUrl,
       (width: number, height: number) =>
         resolve({
           width,
           height,
         }),
-      reject,
+      (error) => {
+        reject(error);
+      },
     ),
   );
 
-function NetworkImage({
-  url,
-  style,
-  styles,
-  imageProps,
-  loadingElement,
-}: Props): ReactElement {
-  const [imageSize, setImageSize] = useState<ImageSize>();
+function NetworkImage(props: Props): ReactElement {
   const {themeType} = useTheme();
 
-  const getImageSize = useCallback(async (): Promise<void> => {
-    // eslint-disable-next-line @typescript-eslint/no-shadow
-    const imageSize = await getOriginalImageSize(url);
+  const {activityIndicator, image} = props.styles ?? {};
 
-    setImageSize(imageSize);
+  const {
+    style,
+    imageProps,
+    loadingElement = <LoadingIndicator style={activityIndicator} />,
+    url,
+    defaultSource = themeType === 'light'
+      ? ArtifactsLogoLight
+      : ArtifactsLogoDark,
+  } = props;
+
+  const [needLoading, setNeedLoading] = useState(true);
+  const [isValidSource, setIsValidSource] = useState(true);
+
+  const [size, setSize] = useState<ImageSize>({
+    width: 0,
+    height: 0,
+  });
+
+  useLayoutEffect(() => {
+    if (!url) setIsValidSource(false);
+    else
+      fetchImageSize(url)
+        .then((value) => setSize(value))
+        .catch(() => setIsValidSource(false));
   }, [url]);
 
-  useEffect(() => {
-    getImageSize();
-  }, [getImageSize, styles?.image]);
-
   return (
-    <Container
-      imageSize={imageSize}
+    <View
       style={[
         {
-          width: (styles?.image as ImageStyle)?.width,
-          height: (styles?.image as ImageStyle)?.height,
+          justifyContent: 'center',
+          alignItems: 'center',
         },
+        size,
         style,
-      ]}>
-      {!imageSize ? (
-        loadingElement ? (
-          loadingElement
-        ) : (
-          <StyledImage
-            style={{
-              width: Platform.select({web: 111}),
-              height: Platform.select({web: 74}),
-              margin: '8%',
-              aspectRatio: 110 / 74,
-            }}
-            source={
-              themeType === 'light' ? ArtifactsLogoLight : ArtifactsLogoDark
-            }
-          />
-        )
-      ) : (
-        <StyledImage
-          style={[
-            {width: imageSize?.width, height: imageSize?.height},
-            styles?.image,
-          ]}
-          resizeMethod="resize"
-          resizeMode="cover"
-          {...imageProps}
-          source={{uri: url}}
-        />
-      )}
-    </Container>
+      ]}
+    >
+      <Image
+        style={[
+          isValidSource
+            ? undefined
+            : {
+                alignSelf: 'center',
+                width: 110,
+                height: 74,
+                margin: '8%',
+                aspectRatio: 110 / 74,
+              },
+          style as ImageStyle,
+          image,
+        ]}
+        resizeMethod="resize"
+        resizeMode="cover"
+        onLoad={() => setNeedLoading(false)}
+        source={isValidSource ? {url} : defaultSource}
+        {...imageProps}
+      />
+
+      {needLoading && loadingElement}
+    </View>
   );
 }
-
-NetworkImage.defaultProps = {
-  theme: light,
-};
 
 export {NetworkImage};

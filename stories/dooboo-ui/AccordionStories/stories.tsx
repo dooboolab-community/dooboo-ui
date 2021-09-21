@@ -91,7 +91,8 @@ export const AccordionCustomStyle = (): React.ReactElement => {
                     paddingLeft: 20,
                     alignItems: 'center',
                     flexDirection: 'row',
-                  }}>
+                  }}
+                >
                   <StyledIcon name="search-light" />
                   <Title>{item}</Title>
                 </View>

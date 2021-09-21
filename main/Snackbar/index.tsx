@@ -174,7 +174,8 @@ const SnackbarContainer = (
             },
             {maxWidth: Dimensions.get('screen').width - 40},
             {opacity: fadeAnim},
-          ]}>
+          ]}
+        >
           <ButtonText style={styles?.text} type={type}>
             {text}
           </ButtonText>

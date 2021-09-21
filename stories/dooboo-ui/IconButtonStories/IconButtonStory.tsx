@@ -38,14 +38,16 @@ const IconButtonStory: FC = () => {
           paddingHorizontal: 40,
           justifyContent: 'center',
           alignItems: 'center',
-        }}>
+        }}
+      >
         <Text
           style={{
             fontSize: 18,
             marginTop: 24,
             marginBottom: 8,
             color: theme.text,
-          }}>
+          }}
+        >
           Medium IconButton (default)
         </Text>
         <View
@@ -56,7 +58,8 @@ const IconButtonStory: FC = () => {
             flexDirection: 'row',
             justifyContent: 'center',
             alignItems: 'center',
-          }}>
+          }}
+        >
           <IconButton icon={<StyledIcon size={24} name="moment-solid" />} />
           <View style={{width: 8}} />
           <IconButton icon={<StyledIcon size={24} name="add-light" />} />
@@ -70,7 +73,8 @@ const IconButtonStory: FC = () => {
             marginTop: 24,
             marginBottom: 8,
             color: theme.text,
-          }}>
+          }}
+        >
           Large IconButton
         </Text>
         <View
@@ -81,7 +85,8 @@ const IconButtonStory: FC = () => {
             flexDirection: 'row',
             justifyContent: 'center',
             alignItems: 'center',
-          }}>
+          }}
+        >
           <IconButton
             size="large"
             icon={<StyledIcon size={32} name="cross-light" />}
@@ -99,7 +104,8 @@ const IconButtonStory: FC = () => {
             marginTop: 24,
             marginBottom: 8,
             color: theme.text,
-          }}>
+          }}
+        >
           Small IconButton
         </Text>
         <View
@@ -111,7 +117,8 @@ const IconButtonStory: FC = () => {
             flexDirection: 'row',
             justifyContent: 'center',
             alignItems: 'center',
-          }}>
+          }}
+        >
           <IconButton
             size="small"
             icon={<StyledIcon size={16} name="cross-light" />}

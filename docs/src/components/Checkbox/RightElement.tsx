@@ -31,7 +31,10 @@ const Component: FC = () => {
         backgroundColor: theme.background,
         flex: 1,
         alignSelf: 'stretch',
-      }}>
+        alignItems: 'center',
+        padding: 10,
+      }}
+    >
       <View style={{flexDirection: 'column'}}>
         <Checkbox
           checked={checked}

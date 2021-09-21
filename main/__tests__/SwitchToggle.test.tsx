@@ -1,296 +1,64 @@
 import React, {ReactElement} from 'react';
+import {fireEvent, render} from '@testing-library/react-native';
 
 import {SwitchToggle} from '../SwitchToggle';
-import {TouchableOpacity} from 'react-native';
+import {Text} from 'react-native';
+import {createComponent} from '../../test/testUtils';
 import renderer from 'react-test-renderer';
 
-const createTestProps = (
-  obj?: Record<string, unknown>,
-): Record<string, unknown> => ({
-  ...obj,
-});
+describe('[SwitchToggle]', () => {
+  const handlePress = jest.fn();
 
-let props;
-let component: ReactElement;
-
-describe('[SwitchToggle]', (): void => {
-  props = createTestProps({
-    testID: 'SWITCH_ID',
-    onPress: jest.fn(),
+  beforeEach(() => {
+    handlePress.mockClear();
   });
 
-  component = <SwitchToggle {...props} />;
+  it('handles press event', () => {
+    const {getByA11yRole} = render(
+      <SwitchToggle isOn={false} onPress={handlePress} />,
+    );
 
-  describe('Rendering', () => {
-    it('should render without crashing', () => {
-      const rendered = renderer.create(component);
+    fireEvent.press(getByA11yRole('switch'));
+    expect(handlePress).toBeCalled();
+  });
 
-      expect(rendered).toMatchSnapshot();
-      expect(rendered).toBeTruthy();
-    });
+  const getSwitchToggle = ({isOn}: {isOn: boolean}): ReactElement =>
+    createComponent(
+      <SwitchToggle
+        isOn={isOn}
+        onPress={handlePress}
+        onElement={<Text>on</Text>}
+        offElement={<Text>off</Text>}
+        style={{padding: 6}}
+        styles={{
+          container: {paddingLeft: 6, paddingRight: 5},
+          onElementContainer: {padding: 4},
+          offElementContainer: {padding: 3},
+          circle: {padding: 2},
+          button: {padding: 1},
+          circleColorOff: 'red',
+          circleColorOn: 'blue',
+          backgroundColorOn: 'green',
+          backgroundColorOff: 'grey',
+        }}
+      />,
+    );
 
-    it('should render type === 0', () => {
-      props = {
-        ...props,
-        type: 0,
-      };
+  context('when switch toggle is on', () => {
+    it('renders as on state', () => {
+      const component = renderer.create(getSwitchToggle({isOn: true})).toJSON();
 
-      component = <SwitchToggle {...props} />;
-
-      const rendered = renderer.create(component);
-
-      expect(rendered).toMatchSnapshot();
-      expect(rendered).toBeTruthy();
-    });
-
-    it('should render `containerStyle` and `containerStyle.padding`', () => {
-      props = {
-        ...props,
-        type: 1,
-        containerStyle: {
-          padding: 40,
-        },
-      };
-
-      component = <SwitchToggle {...props} />;
-
-      const rendered = renderer.create(component);
-
-      expect(rendered).toMatchSnapshot();
-      expect(rendered).toBeTruthy();
-    });
-
-    it('should render `containerStyle` and `circleWidth`', () => {
-      props = {
-        ...props,
-        type: 1,
-        containerStyle: {
-          padding: 40,
-          width: 40,
-        },
-        circleStyle: {
-          width: 20,
-        },
-      };
-
-      component = <SwitchToggle {...props} />;
-
-      const rendered = renderer.create(component);
-
-      expect(rendered).toMatchSnapshot();
-      expect(rendered).toBeTruthy();
-    });
-
-    it('should render `containerStyle` and `circleWidth` without padding', () => {
-      props = {
-        ...props,
-        type: 1,
-        containerStyle: {
-          padding: 0,
-          width: 40,
-        },
-        circleStyle: {
-          width: 20,
-        },
-      };
-
-      component = <SwitchToggle {...props} />;
-
-      const rendered = renderer.create(component);
-
-      expect(rendered).toMatchSnapshot();
-      expect(rendered).toBeTruthy();
-    });
-
-    it('should render when `containerStyle` is not defined', () => {
-      props = {
-        ...props,
-        type: 1,
-        containerStyle: undefined,
-      };
-
-      component = <SwitchToggle {...props} />;
-
-      const rendered = renderer.create(component);
-
-      expect(rendered).toMatchSnapshot();
-      expect(rendered).toBeTruthy();
-    });
-
-    it('should render RTL', () => {
-      props = {
-        ...props,
-        type: 1,
-        RTL: true,
-      };
-
-      component = <SwitchToggle {...props} />;
-
-      const rendered = renderer.create(component);
-
-      expect(rendered).toMatchSnapshot();
-      expect(rendered).toBeTruthy();
+      expect(component).toMatchSnapshot();
     });
   });
 
-  describe('Accessibility', (): void => {
-    it('should render AccessibilityLabel', () => {
-      props = {
-        ...props,
-        type: 1,
-        accessibilityLabel: 'Label for test accessibility',
-      };
+  context('when switch toggle is off', () => {
+    it('renders as off state', () => {
+      const component = renderer
+        .create(getSwitchToggle({isOn: false}))
+        .toJSON();
 
-      component = <SwitchToggle {...props} />;
-
-      const rendered = renderer.create(component);
-
-      expect(rendered).toMatchSnapshot();
-      expect(rendered).toBeTruthy();
-    });
-
-    it('should render AccessibilityRole', () => {
-      props = {
-        ...props,
-        type: 1,
-        accessibilityRole: 'switch',
-      };
-
-      component = <SwitchToggle {...props} />;
-
-      const rendered = renderer.create(component);
-
-      expect(rendered).toMatchSnapshot();
-      expect(rendered).toBeTruthy();
-    });
-
-    it('should render AccessibilityHint', () => {
-      props = {
-        ...props,
-        type: 1,
-        accessibilityHint: 'Accessibility hint can be a string or empty',
-      };
-
-      component = <SwitchToggle {...props} />;
-
-      const rendered = renderer.create(component);
-
-      expect(rendered).toMatchSnapshot();
-      expect(rendered).toBeTruthy();
-    });
-
-    it('should render AccessibilityState', () => {
-      props = {
-        ...props,
-        type: 1,
-        accessibilityState: {
-          disabled: false,
-          selected: true,
-          checked: false,
-          busy: false,
-          expanded: false,
-        },
-      };
-
-      component = <SwitchToggle {...props} />;
-
-      const rendered = renderer.create(component);
-
-      expect(rendered).toMatchSnapshot();
-      expect(rendered).toBeTruthy();
-    });
-
-    it('should render AccessibilityValue', () => {
-      props = {
-        ...props,
-        type: 1,
-        accessibilityValue: {
-          min: 0,
-          max: 1,
-          now: 0,
-          text: 'optional text',
-        },
-      };
-
-      component = <SwitchToggle {...props} />;
-
-      const rendered = renderer.create(component);
-
-      expect(rendered).toMatchSnapshot();
-      expect(rendered).toBeTruthy();
-    });
-  });
-
-  it('should render custom `colors` and `duration`', () => {
-    props = {
-      ...props,
-      backgroundColorOn: 'red',
-      backgroundColorOff: 'red',
-      circleColorOn: 'red',
-      circleColorOff: 'red',
-      duration: 500,
-    };
-
-    component = <SwitchToggle {...props} />;
-
-    const rendered = renderer.create(component);
-
-    expect(rendered).toMatchSnapshot();
-    expect(rendered).toBeTruthy();
-  });
-
-  describe('Interaction', (): void => {
-    it('should simulate onPress', () => {
-      const rendered = renderer.create(component);
-      const switchToggle = rendered.root.findByType(TouchableOpacity);
-
-      switchToggle.props.onPress();
-
-      expect(props.onPress).toHaveBeenCalled();
-    });
-
-    it('should toggle switch on/off when pressed', () => {
-      // eslint-disable-next-line @typescript-eslint/no-shadow
-      const props = {
-        switchOn: false,
-        onPress: () => (props.switchOn = !props.switchOn),
-      };
-
-      component = <SwitchToggle {...props} />;
-
-      const rendered = renderer.create(component);
-      const switchToggle = rendered.root.findByType(TouchableOpacity);
-
-      expect(props.switchOn).toBeFalsy();
-
-      switchToggle.props.onPress();
-
-      expect(props.switchOn).toBeTruthy();
-
-      switchToggle.props.onPress();
-
-      expect(props.switchOn).toBeFalsy();
-    });
-
-    it('should toggle switchOn to `false` on pressed', () => {
-      // eslint-disable-next-line @typescript-eslint/no-shadow
-      const props = {
-        switchOn: true,
-        onPress: jest.fn(),
-      };
-
-      component = <SwitchToggle {...props} />;
-
-      const rendered = renderer.create(component);
-      const switchToggle = rendered.root.findByType(TouchableOpacity);
-
-      switchToggle.props.onPress();
-
-      expect(props.switchOn).toBeTruthy();
-
-      switchToggle.props.onPress();
-
-      expect(props.onPress).toHaveBeenCalled();
+      expect(component).toMatchSnapshot();
     });
   });
 });

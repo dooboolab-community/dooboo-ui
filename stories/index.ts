@@ -1,3 +1,4 @@
+import './dooboo-ui/SelectBoxStories';
 import './dooboo-ui/TypographyStories';
 import './dooboo-ui/IconStories';
 import './dooboo-ui/LoadingIndicatorStories';
@@ -11,5 +12,7 @@ import './dooboo-ui/EditTextStories';
 import './dooboo-ui/ButtonGroupStories';
 import './dooboo-ui/SwitchToggleStories';
 import './dooboo-ui/AccordionStories';
+import './packages/AlertDialogStories';
 import './packages/CalendarCarouselStories';
 import './packages/PinzoomStories';
+import './dooboo-ui/FloatingActionButton';

@@ -2,6 +2,7 @@ import {LoadingIndicator, ThemeProvider} from '../../../main';
 import React, {ReactElement} from 'react';
 
 import {ContainerDeco} from '../../../storybook/decorators';
+import CustomLoadingIndicator from './CustomLoadingIndicator';
 import {storiesOf} from '@storybook/react-native';
 import styled from '@emotion/native';
 
@@ -71,5 +72,10 @@ storiesOf('LoadingIndicator', module)
   .add('imgVersion', () => (
     <ThemeProvider initialThemeType="light">
       <ImgVersion />
+    </ThemeProvider>
+  ))
+  .add('customIndicator', () => (
+    <ThemeProvider initialThemeType="light">
+      <CustomLoadingIndicator />
     </ThemeProvider>
   ));

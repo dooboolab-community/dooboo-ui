@@ -14,3 +14,5 @@ export * from './Accordion';
 export * from './StatusBarBrightness';
 export * from './SwitchToggle';
 export * from './theme';
+export * from './SelectBox';
+export * from './FAB';

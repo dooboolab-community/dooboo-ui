@@ -40,7 +40,8 @@ function SnackbarDefault(): React.ReactElement {
         alignSelf: 'stretch',
         justifyContent: 'center',
         alignItems: 'center',
-      }}>
+      }}
+    >
       <Snackbar ref={snackbar} />
       {types.map((type) => (
         <Button

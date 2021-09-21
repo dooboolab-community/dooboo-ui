@@ -128,7 +128,8 @@ const ButtonComponent: FC<ButtonProps & {theme: DoobooTheme}> = ({
       delayPressIn={50}
       disabled={disabled || loading}
       style={style}
-      {...touchableOpacityProps}>
+      {...touchableOpacityProps}
+    >
       {loading ? (
         <ButtonContainer
           testID="loading-view"
@@ -144,7 +145,8 @@ const ButtonComponent: FC<ButtonProps & {theme: DoobooTheme}> = ({
           ]}
           type={type}
           size={size}
-          outlined={outlined}>
+          outlined={outlined}
+        >
           <ActivityIndicator size="small" color={indicatorColor} />
         </ButtonContainer>
       ) : (
@@ -159,7 +161,8 @@ const ButtonComponent: FC<ButtonProps & {theme: DoobooTheme}> = ({
           type={type}
           size={size}
           disabled={disabled}
-          outlined={outlined}>
+          outlined={outlined}
+        >
           {leftElement}
           <ButtonText
             outlined={outlined}
@@ -169,7 +172,8 @@ const ButtonComponent: FC<ButtonProps & {theme: DoobooTheme}> = ({
               compositeStyles.text,
               disabled && compositeStyles.disabledText,
             ]}
-            {...textProps}>
+            {...textProps}
+          >
             {text}
           </ButtonText>
           {rightElement}
