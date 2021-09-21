@@ -18,6 +18,7 @@ type Styles = {
   labelTextHovered?: StyleProp<TextStyle>;
   input?: StyleProp<TextStyle>;
   errorText?: StyleProp<TextStyle>;
+  counter?: StyleProp<TextStyle>;
 };
 
 export type EditTextProps = {
@@ -40,6 +41,7 @@ export type EditTextProps = {
   autoCapitalize?: TextInputProps['autoCapitalize'];
   secureTextEntry?: TextInputProps['secureTextEntry'];
   onSubmitEditing?: TextInputProps['onSubmitEditing'];
+
   focusColor?: string;
   hoverColor?: string;
   errorColor?: string;
@@ -136,6 +138,15 @@ const Component: FC<EditTextProps & {theme: DoobooTheme}> = ({
             },
             styles?.errorText,
           ],
+          counter: [
+            {
+              marginTop: 8,
+              paddingHorizontal: 10,
+              fontSize: 12,
+              color: !editable ? disableColor : textColor,
+            },
+            styles?.counter,
+          ],
         }
       : type === 'row'
       ? {
@@ -188,6 +199,14 @@ const Component: FC<EditTextProps & {theme: DoobooTheme}> = ({
               color: errorColor,
             },
             styles?.errorText,
+          ],
+          counter: [
+            {
+              marginTop: 4,
+              fontSize: 12,
+              color: !editable ? disableColor : textColor,
+            },
+            styles?.counter,
           ],
         }
       : {
@@ -245,6 +264,15 @@ const Component: FC<EditTextProps & {theme: DoobooTheme}> = ({
             },
             styles?.errorText,
           ],
+          counter: [
+            {
+              marginTop: 8,
+              paddingHorizontal: 10,
+              fontSize: 12,
+              color: !editable ? disableColor : textColor,
+            },
+            styles?.counter,
+          ],
         };
 
   return (
@@ -254,7 +282,8 @@ const Component: FC<EditTextProps & {theme: DoobooTheme}> = ({
         web: ref,
         default: undefined,
       })}
-      style={[{alignSelf: 'stretch', flexDirection: 'column'}, style]}>
+      style={[{alignSelf: 'stretch', flexDirection: 'column'}, style]}
+    >
       <View
         style={[
           compositeStyles.container,
@@ -281,7 +310,8 @@ const Component: FC<EditTextProps & {theme: DoobooTheme}> = ({
               ? focusColor
               : borderColor,
           },
-        ]}>
+        ]}
+      >
         {labelText ? (
           <Text
             style={[
@@ -296,7 +326,8 @@ const Component: FC<EditTextProps & {theme: DoobooTheme}> = ({
                 : focused
                 ? {color: focusColor}
                 : {},
-            ]}>
+            ]}
+          >
             {labelText}
           </Text>
         ) : null}
@@ -330,14 +361,28 @@ const Component: FC<EditTextProps & {theme: DoobooTheme}> = ({
         />
       </View>
       {editable ? (
-        <Text
-          style={[
-            compositeStyles.errorText,
-            styles?.errorText,
-            {color: errorColor},
-          ]}>
-          {errorText}
-        </Text>
+        <View
+          style={{
+            flex: 1,
+            flexDirection: 'row',
+            justifyContent: 'space-between',
+          }}
+        >
+          <Text
+            style={[compositeStyles.errorText, {flex: 1, color: errorColor}]}
+          >
+            {errorText}
+          </Text>
+          {textInputProps?.maxLength && (
+            <Text
+              style={
+                value.length < textInputProps.maxLength
+                  ? compositeStyles.counter
+                  : [compositeStyles.errorText, {color: errorColor}]
+              }
+            >{`${value.length}/${textInputProps.maxLength}`}</Text>
+          )}
+        </View>
       ) : null}
     </View>
   );

@@ -8,12 +8,16 @@ import {Meta} from '@storybook/addon-docs/blocks';
 
 1. [React Native](https://reactnative.dev)
 2. [Expo](https://expo.io)
-2. [vscode](https://code.visualstudio.com)
+3. [vscode](https://code.visualstudio.com)
    - We are using `vscode` as our ide. Please install `eslint` plugin.
+4. [emotion](https://emotion.sh/docs/introduction)
 
 ### What you need to consider
 
-> What's been published to `npm` is only the `main` components in `main` directory. This is what you should be considering for production. Please try writing `test code` for components when you've created the new one. We encourage you to write `stories` in `storybook` directory so other users can use it in one hand.
+> What's been published to `npm` is only the `main` components in `main` directory. This is what you should be considering for production.
+> Please try writing `test code` for components when you've created the new one.
+> We encourage you to write `stories` in `storybook` directory so other users can see [the demo](https://dooboolab.github.io/dooboo-ui) for all components at a glance.
+> You can check out more on [our goal](https://github.com/dooboolab/dooboo-ui/discussions/8#discussioncomment-1015465) for the project.
 
 - See also
   - dooboolab's [vision-and-mission](https://github.com/dooboolab/dooboolab.com/blob/master/vision-and-mission.md)
@@ -35,6 +39,7 @@ import {Meta} from '@storybook/addon-docs/blocks';
    - When you want to give `PR`, make new branch `git checkout -b [feature_name]`
      - Before pushing `PR`, do `git fetch upstream` from master branch then try the rebase by `git rebase master`
      - Check your status by `git log --decorate --oneline --all --graph`
+
 2. Git clone your forked repository.
    ```
    git clone https://github.com/<your-id>/dooboo-ui.git
@@ -51,39 +56,32 @@ import {Meta} from '@storybook/addon-docs/blocks';
    yarn pre
    ```
 
-   - Note that we recommend using yarn because all of our team members do.
-   - Also node that `yarn.lock` and `package-lock.json` sometimes make collision. Try to delete one of them.
+   - Note that we recommend using yarn because all our contributors do.
+   - Also note that `yarn.lock` and `package-lock.json` sometimes make collision.
+     Please use [yarn](https://yarnpkg.com) which we are using in our project.
 
-4. Run pod install if you clone list of independent components in `@dooboo-ui/*`
-
-   - `cd ios && pod install`
-     > Note that dooboo-ui don't need this step.
-
-5. Run your project
+4. Run your project
 
    1. **Run metro bundler**
+
       ```
       yarn start
       ```
-   2. **run storybook web server**
-      ```
-      yarn web
-      ```
-   3. **run ios or android**
-      ```
-      yarn ios
-      // or
-      yarn android
-      ```
-      > Note that when you are running `android` you should open your emulator before running above command since the script won't automatically open emulator unlike `ios`
 
-   > ‼️ if you have error `We ran "xcodebuild" command but it exited with error code 65` while running project for the first time, you might have to follow this [guide](https://github.com/facebook/react-native/issues/24450#issuecomment-516760157) of installing `cocoapads`
+   2. **Run on ios / android / web**
 
-6. Configure linting in [vscode](https://code.visualstudio.com) correctly.
+      You can run in all three platforms with [Expo Dev Tools](https://docs.expo.dev/workflow/development-mode/#toggling-development-mode-in-expo-dev-tools).
+      > ️if you face the error `We ran "xcodebuild" command but it exited with error code 65` while running project for the first time,
+      > you might have to follow [the guide](https://github.com/facebook/react-native/issues/24450#issuecomment-516760157) to install [cocoapads](https://cocoapods.org).
+
+5. Configure linting in [vscode](https://code.visualstudio.com) correctly.
 
    - Example vscode [setting.json](https://gist.github.com/hyochan/815e9040593180c4725d7694d863e5a1)
 
-7. While implementing UI component you should run `yarn watch` in order to build typescript file dynamically while developing. This is currently the best solution to sync with your typescript code using `package.json`. If you find something more efficient, please give a pull request.
+6. While implementing UI component in [packages](https://github.com/dooboolab/dooboo-ui/tree/master/packages), you should run `yarn watch` in order to build typescript file dynamically while coding.
+   This is currently the best solution to sync with your typescript code using `package.json`. If you find something more efficient, please give a pull request.
+
+   > **Finally, you might want to check out [short story for the design](https://github.com/dooboolab/dooboo-ui/pull/49#issuecomment-894665037).**
 
 ### Commit message
 
@@ -113,37 +111,114 @@ Generally, each PR should contain one commit that is amended as you address code
 
 ### Coding Guidelines
 
-Please follow the Coding conventions as much as possible when contributing your code. This is mostly covered by `eslint` plugin in `vscode`. Add `eslint` plugin and add below in `setting.json` in `vscode` to fix `coding style` in live editing.
+We follow [dooboolab coding principle 2021](https://medium.com/dooboolab/dooboolab-coding-principle-2021-c809d112b18d) when writing code for `dooboo-ui`.
+There are also few others to be considered specific to `dooboo-ui`.
 
+1. Never expose `single` attributes in style props.
+
+   Do
+
+   ```tsx
+   <Button textStyle={textStyle} />
+   ```
+
+   Don't
+
+   ```tsx
+   <Button textColor={textColor} />
+   ```
+
+   Exposing single attrs in style props leads to unmaintainable complicated component with unorgnized props. Example [flutter_calendar_carousel](https://github.com/dooboolab/flutter_calendar_carousel).
+
+2. Expose all style props in `styles` and style props of parent component in `style`.
+
+   ```tsx
+   type Styles = {
+     container?: StyleProp<ViewStyle>;
+     text?: StyleProp<TextStyle>;
+     disabledButton?: StyleProp<ViewStyle>;
+     disabledText?: StyleProp<TextStyle>;
+     hovered?: StyleProp<ViewStyle>;
+   };
+   ```
+
+   > You can see the exmaple in [Button L62-L63](https://github.com/dooboolab/dooboo-ui/blob/c0d114c46bbba5a8a8a05e91a782a682e4803dac/main/Button/index.tsx#L62-L63).
+   > This lets developers to check what kind of styles are nested in component.
+
+3. Provide `react element` when you find that there are more possibilities to have in your component.
+
+   For example, see the [CheckBox](https://github.com/dooboolab/dooboo-ui/blob/master/main/Checkbox/index.tsx) component.
+
+   ```tsx
+   <Checkbox
+     key={i}
+     checked={checked}
+     onPress={() => setChecked(!checked)}
+     leftElement={<StyledText>Hello this is a checkbox</StyledText>}
+   />
+   ```
+
+   > By providing `leftElement` instead of `leftImage` or `leftText`, developers will more likely fulfill their needs.
+
+4. Make your component as compact as possible and expose possibility with the `render` function.
+
+   This can be done with organized design in your [mental model](https://jamesclear.com/mental-models).
+   When done properly, it will gain so much benefit in `readability` which we care the most in [dooboolab coding principal](https://medium.com/dooboolab/dooboolab-coding-principle-2021-c809d112b18d).
+   However, we should also care about the `scalabiilty`. To provide that, expose seperate `render functions` where possible.
+
+   ```tsx
+   renderTitle={(item) => {
+     return (
+       <View style={{
+         paddingLeft: 20,
+         alignItems: 'center',
+         flexDirection: 'row',
+       }}>
+         <StyledIcon name="search-light" />
+         <Title>{item}</Title>
+       </View>
+     );
+   }}
+   renderBody={(item) => {
+     return (
+       <Fragment>
+         <CustomStyledItem>{item}</CustomStyledItem>
+       </Fragment>
+     );
+   }}
+   ```
+
+   > When `renderTitle` or `renderBody` is not provided, the component will render default implemented design underneath.
+
+   You can see the sample in [Accordion](https://github.com/dooboolab/dooboo-ui/tree/master/main/Accordion).
+
+5. Provide default colors for each theme (`light` and `dark`)
+
+   This can be easiliy accomplished by using `theme` variables provided in `dooboo-ui`.
+   You may also find out what [variables are in it](http://localhost:9001/?path=/docs/overview-theming--page#customizing-theme).
+
+   ```tsx
+   color: ${({theme}) => theme.textContrast};
+   ```
+
+#### Tips
+
+Try to write specification for ui component before writing code. How would you want yourself to use the component?
+For example, does below looks great? Anything more you think would be needed?
+
+```tsx
+<EditText
+  type="column"
+  placeholder="Default EditText"
+  value={email}
+  onChangeText={(text) => onTextChanged('EMAIL', text)}
+  style={{marginTop: 20, marginBottom: 24, paddingHorizontal: 36}}
+/>
 ```
-"eslint.enable": true,
-"eslint.validate": [
-  "javascript",
-  "javascriptreact",
-  "typescript",
-  "typescriptreact"
-],
-```
 
-> `yarn lint` command will cover your code style either.
+> If you want to discuss on your proposal please feel free to open up anything in [discussions](https://github.com/dooboolab/dooboo-ui/discussions).
 
-General styles
-
-- The indent tab is two spaces.
-- The class declaration and the `{}` in curly brackets such as function, if, foreach, for, and while should be in the following format. Also if you installed eslint in vscode or in your code editor, it will help you with linting. \* `{` should be placed in same line and `}` should be placed in next line.
-
-```
-for (let i = 0; i < 10; i++) {
-  ...
-}
-array.forEach((e) => {
-  ...
-});
-```
-
-- Space before `(` and after `)`.
-
-**_ Important _**
+#### Naming conventions
 
 - testID should be written in `kebab-case`
   `testID = "my-test-id"`
@@ -158,8 +233,8 @@ array.forEach((e) => {
 
 - **If you find code that does not fit in the coding convention, do not ever try to fix code that is not related to your purpose.**
 
-- [how to use prettier extension for the eslint code rules](https://medium.com/dooboolab/using-eslint-prettier-and-sort-imports-vscode-extensions-for-formatting-open-source-project-16edf317129d)
-- while you are using prettier extension, you may encounter **ternary operator** indentation problems
+- [How to use prettier extension for the eslint code rules](https://medium.com/dooboolab/using-eslint-prettier-and-sort-imports-vscode-extensions-for-formatting-open-source-project-16edf317129d)
+- While you are using prettier extension, you may encounter **ternary operator** indentation problems
 
   ![error](https://i.imgur.com/RhGrbLo.png)
 

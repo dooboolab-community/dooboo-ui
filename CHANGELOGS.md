@@ -1,5 +1,111 @@
 ## Changelogs
 
+## 0.1.32
+
+### Features
+
+- FAB (Floating Action Button)
+
+  Newly added [#67](https://github.com/dooboolab/dooboo-ui/pull/67)
+
+### Enhancement
+
+- NetworkImage
+
+  Organize props [#115](https://github.com/dooboolab/dooboo-ui/pull/115)
+
+### Contributors
+
+- [@yujong-lee](https://github.com/yujong-lee)
+- [@wndudqus](https://github.com/wndudqus)
+
+## 0.1.31
+
+### Features
+
+- Packages
+
+  - **AlertDialog**
+
+    Provide three types of dialog: alert, confirm, and prompt.
+    You may try this by installing `@dooboo-ui/alert-dialog`.
+
+### Enhancements
+
+- **NetworkImage**
+  - Error handling when image url is invaild or not found.
+  - iOS and Android support when loading.
+  - Overall code refactoring.
+
+### Documentations
+
+- **Newly Added**
+
+  - [LoadingIndicator](https://dooboo-ui.dooboolab.com/?path=/docs/components-loadingindicator--page)
+  - [IconButton](https://dooboo-ui.dooboolab.com/?path=/docs/components-iconbutton--page)
+  - [SelectBox](https://dooboo-ui.dooboolab.com/?path=/docs/components-selectbox--page)
+
+- **Enhancement**
+  - [Button](https://dooboo-ui.dooboolab.com/?path=/docs/components-button--page)
+    - Demo snack has been added 🍟
+
+### Contributors
+
+- Special thanks goes to [@yujong-lee](https://github.com/yujong-lee) for upgrading `NetworkImage` usability.
+- Special thanks goes to [@do02reen24](https://github.com/do02reen24) for providing new package `@dooboo-ui/alert-dialog`.
+- Special thanks goes to [@SOLBI1028](https://github.com/SOLBI1028) [@3Aldm0830](https://github.com/ldm0830), [@915dbfl](https://github.com/915dbfl) and [@devdubby](https://github.com/devdubby) for improving documentations.
+
+## 0.1.30
+
+1 More `dooboo-ui` icon
+
+- follow-shape
+
+## 0.1.29
+
+Fix [SwitchToggle] error [#102](https://github.com/dooboolab/dooboo-ui/pull/102).
+
+## 0.1.28
+
+Rewrite [SwitchToggle] [#86](https://github.com/dooboolab/dooboo-ui/pull/86).
+
+## 0.1.27
+
+Implement [SelectBox] component [#73](https://github.com/dooboolab/dooboo-ui/pull/73)
+
+- This leads to another peer dependency, [react-native-gesture-handler](https://www.npmjs.com/package/react-native-gesture-handler).
+
+## 0.1.26
+
+16 More `dooboo-ui` icons
+
+- chevron-right-shape
+- chevron-left-shape
+- chevron-down-shape
+- chevron-up-shape
+- trash-light
+- pen-light
+- burger-shape
+- dots-light
+- wifi-unable-light
+- wifi-light
+- mic-shape
+- mic-light
+- phone-shape
+- phone-light
+- clip-shape
+- clip-light
+
+## 0.1.25
+
+Add display maxLength to EditText [#75](https://github.com/dooboolab/dooboo-ui/pull/75)
+
+- By [rarira](https://github.com/rarira) ✨
+
+Replace style props to styles in [Accordion] [#69](https://github.com/dooboolab/dooboo-ui/pull/69)
+
+- By [yujong-lee](https://github.com/yujong-lee) ✨
+
 ## 0.1.23
 
 Detect orientation on media query [#68](https://github.com/dooboolab/dooboo-ui/pull/68)

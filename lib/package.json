@@ -1,6 +1,6 @@
 {
   "name": "dooboo-ui",
-  "version": "0.1.23",
+  "version": "0.1.32",
   "main": "index.js",
   "types": "index.d.ts",
   "author": "dooboolab",
@@ -17,9 +17,10 @@
     "react": ">=16.9",
     "react-native": ">=0.58",
     "emotion": ">=11.0.0",
-    "@emotion/react": "^11.4.1",
-    "@emotion/native": "^11.0.0",
-    "react-native-vector-icons": "^8.1.0"
+    "@emotion/react": ">=11.0.0",
+    "@emotion/native": ">=11.0.0",
+    "react-native-vector-icons": "*",
+    "react-native-gestuer-handler": "*"
   },
   "dependencies": {
     "dooboolab-welcome": "^1.2.0",

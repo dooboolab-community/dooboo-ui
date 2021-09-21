@@ -1,0 +1,129 @@
+import {Meta, Story, Canvas} from '@storybook/addon-docs/blocks';
+import {ThemeProvider} from 'dooboo-ui';
+import {
+  BasicDemo,
+  ColoredDemo,
+  WithLabelsDemo,
+  WithTitleDemo,
+  SelectValueDemo,
+} from './index.tsx';
+
+<Meta title="Components/RadioGroup" />
+
+# RadioGroup
+
+> [RadioGroup] component with default styles with animation. `title` and `labels` can be added.
+
+## Usage
+
+```tsx
+import {RadioGroup} from 'dooboo-ui';
+
+<RadioGroup {...props} />;
+```
+
+## Props
+
+|               | necessary | Types                    | Description                                 | Default   |
+| ------------- | --------- | ------------------------ | ------------------------------------------- | --------- |
+| title         |           | `string`                 |                                             |           |
+| labels        |           | `string[]`               | List of labels for each button              |           |
+| data          | ✓         | `T[]`                    | List of values for each button              |           |
+| selectedValue | ✓         | `T`                      | Default selected value                      |           |
+| selectValue   |           | `(item: T) => void`      |                                             |           |
+| type          |           | `RadioButtonType`        | Type for [RadioGroup]                       | `primary` |
+| style         |           | `StyleProp<ViewStyle>`   | root ViewStyle                              |           |
+| styles        |           | `Styles`                 | List of all style props within [RadioGroup] |           |
+| labelPosition |           | `'left'` &#124 `'right'` |                                             | `right`   |
+| radioType     |           |                          |                                             |           |
+
+## Demo
+
+### Basic Style
+
+```tsx
+<RadioGroup data={data} selectedValue={selectedValue} />
+```
+
+<BasicDemo />
+
+### With Title
+
+With `title` prop, you can add a title to [RadioGroup].  
+If no specific styles added, the title is shown top-left of the radio buttons.
+
+```tsx
+<RadioGroup title={title} data={data} selectedValue={selectedValue} />
+```
+
+<WithTitleDemo />
+
+### With Labels
+
+With `labels` prop, you can add a label for each button.
+
+```tsx
+const labels = ['One', 'Two', 'Three', 'Four'];
+
+<RadioGroup data={data} labels={labels} selectedValue={selectedValue} />;
+```
+
+<WithLabelsDemo labelPosition="right" />
+<br />
+
+If you want to put labels on the left side of the buttons, you can do so with `labelPosition`
+prop. The default value is set to `right`.
+
+```tsx
+<RadioGroup
+  data={data}
+  labels={labels}
+  selectedValue={selectedValue}
+  labelPosition="left"
+/>
+```
+
+<WithLabelsDemo labelPosition="left" />
+
+### Colored Style
+
+`primary` `secondary` `success` `danger` `warning` `info` `light`
+
+You can change the color of the selected button with `type` prop. The default value
+is set to `primary`.
+
+```tsx
+<RadioGroup
+  type="primary"
+  title="Primary"
+  data={data}
+  selectedValue={selectedValue}
+/>
+```
+
+<ColoredDemo />
+
+### `selectValue` event
+
+You should set `selectValue` prop appropriately to make [RadioGroup] component work as intended.  
+This is a simple example of setting `selectValue` prop using react hooks.
+
+```tsx
+import {useState} from 'react';
+
+const data = ['one', 'two', 'three', 'four'];
+const labels = ['One', 'Two', 'Three', 'Four'];
+
+const [selectedValue, setSelectedValue] = useState(data[0]);
+
+<RadioGroup
+  title="Primary"
+  type="primary"
+  data={data}
+  labels={labels}
+  selectedValue={selectedValue}
+  selectValue={(value) => setSelectedValue(value)}
+/>;
+```
+
+<SelectValueDemo />

@@ -1,12 +1,14 @@
 import {Meta, Story, Canvas} from '@storybook/addon-docs/blocks';
 import {ThemeProvider} from 'dooboo-ui';
-import {Default, LeftElement, RightElement} from './index';
+import {Basic, Solid, Disabled, LeftElement, RightElement} from './index';
 
 <Meta title="Components/Checkbox" />
 
 # Checkbox
 
-> [Checkbox] component with default styles with animation.
+> [Checkbox] component that can be used inside the product. Has basic feature like `disabled` state, can apply different color with `type` prop, and also can put the extra element to the `left` and `right` side of the checkbox.
+
+<br />
 
 ## Usage
 
@@ -18,46 +20,143 @@ import {Checkbox} from 'dooboo-ui';
 
 ## Props
 
-|                        | Types                                    | Description                             |
-| ---------------------- | ---------------------------------------- | --------------------------------------- |
-| testID?                | `string`                                 |                                         |
-| indicatorColor?        | `string`                                 |                                         |
-| loading?               | `boolean`                                |                                         |
-| disabled?              | `boolean`                                |                                         |
-| style?                 | `StyleProp<ViewStyle>`                   | root `ViewStyle`                        |
-| styles?                | `Styles`                                 | List of all style props within [Button] |
-| leftElement?           | `ReactElement`                           | Extra element to place on the left      |
-| rightElement?          | `ReactElement`                           | Extra element to place on the right     |
-| activeOpacity?         | `TouchableOpacityProps['activeOpacity']` |                                         |
-| text?                  | `string`                                 |                                         |
-| onPress?               | `TouchableOpacityProps['onPress']`       |                                         |
-| touchableOpacityProps? | `Partial<TouchableOpacityProps>`         |                                         |
-| textProps?             | `Partial<TextProps>`                     |                                         |
-| type?                  | `ButtonType`                             |                                         |
-| size?                  | `ButtonSize`                             |                                         |
+|                        | Necessary   | Types                                    | Description                                    | Default  |
+| ---------------------- | ----------- | ---------------------------------------- | ---------------------------------------------- | -------- |
+| onPress?               |             | `() => void`                             |                                                |          |
+| style?                 |             | `StyleProp<ViewStyle>`                   | root `ViewStyle`                               |          |
+| styles?                |             | `Styles`                                 | List of all style props within [Checkbox]      |          |
+| type?                  |             | `CheckboxType`                           |                                                | primary  |
+| disabled?              |             | `boolean`                                |                                                |          |
+| theme?                 |             | `DoobooTheme`                            |                                                |          |
+| chekced?               |             | `boolean`                                |                                                |          |
+| leftElement?           |             | `ReactElement`                           | Extra element to place on the left             |          |
+| rightElement?          |             | `ReactElement`                           | Extra element to place on the right            |          |
+
+
+<br/>
 
 ## Demo
 
-### Default Checkbox
+### Basic Style
+```tsx
+<Checkbox text="check" checked={checked} onPress={() => setChecked(!checked)} />
+```
 
-#### light
-<Default themeType="light"/>
+<Basic themeType="light"/>
+<Basic themeType="dark"/>
+<br/>
 
-#### dark
-<Default themeType="dark"/>
+
+### Solid Color Types
+`primary` `secondary` `success` `warning` `info` `danger`
+
+The `type` prop can generate different color of Checkbox. The default value of type is `primary`.
+
+```tsx
+<Checkbox
+  checked={checked}
+  onPress={() => setChecked(!checked)}
+  type="primary"
+/>
+<Checkbox
+  checked={checked}
+  onPress={() => setChecked(!checked)}
+  type="secondary"
+/>
+<Checkbox
+  checked={checked}
+  onPress={() => setChecked(!checked)}
+  type="success"
+/>
+<Checkbox
+  checked={checked}
+  onPress={() => setChecked(!checked)}
+  type="warning"
+/>
+<Checkbox
+  checked={checked}
+  onPress={() => setChecked(!checked)}
+  type="info"
+/>
+<Checkbox
+  checked={checked}
+  onPress={() => setChecked(!checked)}
+  type="danger"
+/>
+```
+
+<Solid themeType="light" />
+<Solid themeType="dark" />
+<br/>
+
+
+### Disabled Checkbox
+The `disabled` prop can generate disabled Checkbox which is not pressable.
+
+It can't apply `type` prop at the same time.
+
+```tsx
+<Checkbox disabled />
+```
+
+<Disabled themeType="light" />
+<Disabled themeType="dark" />
+<br/>
+
 
 ### Checkbox with leftElement
+The `leftElement` prop can generate Checkbox following behind the element.
 
-#### light
+It can be used with the `type` prop.
+
+```tsx
+<Checkbox
+  checked={checked}
+  onPress={() => setChecked(!checked)}
+  leftElement={<StyledText>Hello this is a checkbox</StyledText>}
+/>
+<Checkbox
+  checked={checked}
+  onPress={() => setChecked(!checked)}
+  leftElement={<StyledText>Hello this is a checkbox</StyledText>}
+/>
+<Checkbox
+  checked={checked}
+  onPress={() => setChecked(!checked)}
+  leftElement={<StyledText>Hello this is a checkbox</StyledText>}
+/>
+```
+
 <LeftElement themeType="light"/>
-
-#### dark
 <LeftElement themeType="dark"/>
+<br/>
+
 
 ### Checkbox with rightElement
 
-#### light
-<RightElement themeType="light"/>
+The `rightElement` prop can generate Checkbox in front of the element.
 
-#### dark
+It can be used with the `type` prop.
+
+```tsx
+<Checkbox
+  checked={checked}
+  onPress={() => setChecked(!checked)}
+  rightElement={<StyledText>Hello this is a checkbox</StyledText>}
+/>
+<Checkbox
+  checked={checked}
+  onPress={() => setChecked(!checked)}
+  rightElement={<StyledText>Hello this is a checkbox</StyledText>}
+/>
+<Checkbox
+  checked={checked}
+  onPress={() => setChecked(!checked)}
+  rightElement={<StyledText>Hello this is a checkbox</StyledText>}
+/>
+```
+
+<RightElement themeType="light"/>
 <RightElement themeType="dark"/>
+<br/>
+

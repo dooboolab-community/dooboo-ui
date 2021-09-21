@@ -116,7 +116,8 @@ const AccordionItem: FC<Props> = (props) => {
             }),
           },
         ],
-      }}>
+      }}
+    >
       {element || <StyledIcon name="chevron-down-light" />}
     </Animated.View>
   );
@@ -166,12 +167,14 @@ const AccordionItem: FC<Props> = (props) => {
           transform: sumOfPrecedingTranslateY,
         },
         style,
-      ]}>
+      ]}
+    >
       <TitleContainer
         testID={`title_${testID}`}
         onPress={handlePress}
         activeOpacity={activeOpacity}
-        style={styles?.titleContainer}>
+        style={styles?.titleContainer}
+      >
         {renderTitle(item.title)}
         {renderIndicator(toggleElement)}
       </TitleContainer>
@@ -186,7 +189,8 @@ const AccordionItem: FC<Props> = (props) => {
             },
           ],
         }}
-        onLayout={handleBodyLayout}>
+        onLayout={handleBodyLayout}
+      >
         {item.bodies.map((body, key) => (
           <ItemContainer key={key} style={styles?.bodyContainer}>
             {renderBody(body)}

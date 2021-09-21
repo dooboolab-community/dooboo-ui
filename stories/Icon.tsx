@@ -9,6 +9,7 @@ import icEdit from './assets/icons/ic_edit.png';
 import icFacebook from './assets/icons/facebook.png';
 import icGoogle from './assets/icons/google.png';
 import icMagnifier from './assets/icons/magnifier.png';
+import icMask from './assets/icons/mask.png';
 
 export const IC_ARR_DOWN = icArrDown;
 export const IC_ARR_UP = icArrUp;
@@ -17,6 +18,7 @@ export const IC_EDIT = icEdit;
 export const IC_FACEBOOK = icFacebook;
 export const IC_GOOGLE = icGoogle;
 export const IC_MAGNIFIER = icMagnifier;
+export const IC_MASK = icMask;
 
 function ArrowDown(): React.ReactElement {
   return (

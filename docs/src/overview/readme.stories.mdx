@@ -33,7 +33,7 @@ import {Meta} from '@storybook/addon-docs/blocks';
 [![Sponsor](https://opencollective.com/dooboo-ui/tiers/badge.svg?style=shield)](https://opencollective.com/dooboo-ui/tiers/badge.svg)
 ![License](http://img.shields.io/npm/l/dooboo-ui.svg?style=flat-square)
 
-We love [react-hooks](https://code.fb.com/open-source/react-hooks) and willing to share our [react-native](https://facebook.github.io/react-native) ui components built in [function components](https://logrocket.com/blog/pure-functional-components) using hooks. Also the `dooboo-ui` is built on top of our favorite stacks like [emotion](https://emotion.sh/docs/@emotion/native), [typescript](https://typescript.org), [jest](https://jestjs.io), [react-testing-library](https://testing-library.com/docs/react-testing-library/intro), [expo](https://expo.io), [storybook](https://storybook.js.org), and so on.
+We love [react-hooks](https://code.fb.com/open-source/react-hooks) and willing to share our [react-native](https://facebook.github.io/react-native) ui components built in [function components](https://reactjs.org/docs/components-and-props.html#function-and-class-components) using hooks. Also the `dooboo-ui` is built on top of our favorite stacks like [emotion](https://emotion.sh/docs/@emotion/native), [typescript](https://www.typescriptlang.org/), [jest](https://jestjs.io), [react-testing-library](https://testing-library.com/docs/react-testing-library/intro), [expo](https://expo.io), [storybook](https://storybook.js.org), and so on.
 
 ## Philosophy
 
@@ -130,20 +130,24 @@ import {Icon} from 'dooboo-ui';
 
 ## Compatibility
 
-| package      | version |
-| ------------ | ------- |
-| react        | >=16.13 |
-| react-native | >=0.58  |
-| emotion      | \*      |
+| package                   | version  |
+| ------------------------- | -------- |
+| react                     | >=16.13  |
+| react-native              | >=0.58   |
+| emotion                   | >=11.0.0 |
+| emotion/react             | >=11.0.0 |
+| emotion/native            | >=11.0.0 |
+| react-native-vector-icons | \*       |
 
 ## List of independent components in `@dooboo-ui/*`
 
 > Below elements are not included in `dooboo-ui` package since it depends on other packages that may overload its package.
 > Here are separate packages that are maintained with [Lerna](https://lerna.js.org/) for the mono repo. For more information, please read [dooboo-ui-strategy](https://github.com/dooboolab/dooboo-ui/pull/49)
 
+- [AlertDialog](https://github.com/dooboolab/dooboo-ui/tree/master/packages/AlertDialog)
 - [PinchZoom](https://github.com/dooboolab/dooboo-ui/tree/master/packages/PinchZoom)
-- [CalendarCarousel](https://github.com/dooboolab/dooboo-ui/tree/master/packages/CalendarCarousel)
 - [GiftedChat](https://github.com/dooboolab/dooboo-ui/tree/master/packages/GiftedChat)
+- [CalendarCarousel](https://github.com/dooboolab/dooboo-ui/tree/master/packages/CalendarCarousel)
 
 ## Troubleshoot
 
@@ -198,7 +202,7 @@ Please be our [Backers](https://opencollective.com/dooboolab-community#backers).
 
 ### Contributing
 
-Please make sure to read the [Contributing Guide](CONTRIBUTING.md) before making a pull request.
+Please make sure to read the [Contributing Guide](https://dooboo-ui.dooboolab.com/?path=/docs/contributing-contributing--page) before making a pull request.
 Thank you to all the people who helped to maintain and upgrade this project!
 
 [![a relative link](https://opencollective.com/dooboolab-community/contributors.svg?width=890&button=true)](https://opencollective.com/dooboolab-community)
