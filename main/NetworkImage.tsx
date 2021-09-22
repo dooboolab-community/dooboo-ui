@@ -53,19 +53,19 @@ function NetworkImage(props: Props): ReactElement {
     />
   );
 
-  const [needLoading, setNeedLoading] = useState(!!url);
-  const [isValidSource, setIsValidSource] = useState(!!url);
+  const [{needLoading, isValidSource}, setImageInfo] = useState({
+    needLoading: !!url,
+    isValidSource: !!url,
+  });
 
   useEffect(() => {
     if (url)
       Image.prefetch(url)
         .then(() => {
-          setNeedLoading(false);
-          setIsValidSource(true);
+          setImageInfo({needLoading: false, isValidSource: true});
         })
         .catch(() => {
-          setNeedLoading(false);
-          setIsValidSource(false);
+          setImageInfo({needLoading: false, isValidSource: false});
         });
   }, [url]);
 
