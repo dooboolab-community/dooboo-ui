@@ -15,6 +15,7 @@ import ArtifactsLogoLight from './__assets__/artifacts_logo_l.png';
 
 type Styles = {
   image?: ImageStyle;
+  loading?: ImageStyle;
 };
 
 interface Props {
@@ -33,17 +34,20 @@ function NetworkImage(props: Props): ReactElement {
 
   const {style, url, imageProps, fallbackSource = logo} = props;
 
-  const {image} = props.styles ?? {};
+  const {image, loading} = props.styles ?? {};
 
   const loadingSource: ReactElement = isValidElement(props?.loadingSource) ? (
     props?.loadingSource
   ) : (
     <Image
-      style={{
-        backgroundColor: theme.paper,
-        aspectRatio: 110 / 74,
-        position: 'absolute',
-      }}
+      style={[
+        {
+          backgroundColor: theme.paper,
+          aspectRatio: 110 / 74,
+          position: 'absolute',
+        },
+        loading,
+      ]}
       source={props?.loadingSource ?? logo}
       resizeMethod="resize"
       resizeMode="cover"
