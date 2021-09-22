@@ -1,4 +1,4 @@
-import {NetworkImage, ThemeProvider} from '../../../main';
+import {NetworkImage, ThemeProvider, Typography, useTheme} from '../../../main';
 import React, {ReactElement} from 'react';
 import {View, Text} from 'react-native';
 
@@ -6,12 +6,17 @@ import {ContainerDeco} from '../../../storybook/decorators';
 import {storiesOf} from '@storybook/react-native';
 import styled from '@emotion/native';
 
+import ArtifactsLogoDark from '../../../main/__assets__/artifacts_logo_d.png';
+import ArtifactsLogoLight from '../../../main/__assets__/artifacts_logo_l.png';
+
 const ScrollContainer = styled.ScrollView`
   width: 100%;
   background-color: ${({theme}) => theme.background};
 `;
 
 function NetworkImageStory(): React.ReactElement {
+  const {themeType} = useTheme();
+
   return (
     <ScrollContainer
       contentContainerStyle={{
@@ -27,12 +32,22 @@ function NetworkImageStory(): React.ReactElement {
       />
 
       <View style={{width: 300, height: 300, margin: 20}}>
-        <NetworkImage url="https://reactnative.dev/img/tiny_logo.png" />
+        <NetworkImage
+          styles={{
+            loading: {backgroundColor: 'red', width: 300, height: 300},
+            image: {borderRadius: 45},
+          }}
+          loadingSource={
+            themeType === 'light' ? ArtifactsLogoDark : ArtifactsLogoLight
+          }
+          url="https://reactnative.dev/img/tiny_logo.png"
+        />
       </View>
 
       <NetworkImage
         style={{width: 300, height: 300, margin: 20, alignSelf: 'center'}}
-        loadingSource={<Text style={{fontSize: 30}}>Loading</Text>}
+        styles={{image: {borderRadius: 45}}}
+        loadingSource={<Typography.Title>Loading</Typography.Title>}
         url="https://reactnative.dev/img/tiny_logo.png"
       />
 
