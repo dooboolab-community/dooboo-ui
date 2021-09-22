@@ -14,7 +14,7 @@ import ArtifactsLogoDark from './__assets__/artifacts_logo_d.png';
 import ArtifactsLogoLight from './__assets__/artifacts_logo_l.png';
 
 type Styles = {
-  image?: ImageStyle;
+  image?: Omit<ImageStyle, 'width' | 'height'>;
   loading?: ImageStyle;
 };
 
@@ -84,7 +84,10 @@ function NetworkImage(props: Props): ReactElement {
     >
       {!needLoading && isValidSource && (
         <Image
-          style={[{backgroundColor: theme.paper}, image]}
+          style={[
+            {flex: 1, alignSelf: 'stretch', backgroundColor: theme.paper},
+            image,
+          ]}
           source={{uri: url}}
           resizeMethod="resize"
           resizeMode="cover"
@@ -94,7 +97,10 @@ function NetworkImage(props: Props): ReactElement {
 
       {!needLoading && !isValidSource && (
         <Image
-          style={[{aspectRatio: 110 / 74}, image]}
+          style={[
+            {flex: 1, alignSelf: 'stretch', aspectRatio: 110 / 74},
+            image,
+          ]}
           source={fallbackSource}
           resizeMethod="resize"
           resizeMode="cover"
