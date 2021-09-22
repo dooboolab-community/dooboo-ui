@@ -1,6 +1,6 @@
 import {NetworkImage, ThemeProvider, Typography, useTheme} from '../../../main';
 import React, {ReactElement} from 'react';
-import {View, Text} from 'react-native';
+import {View} from 'react-native';
 
 import {ContainerDeco} from '../../../storybook/decorators';
 import {storiesOf} from '@storybook/react-native';
