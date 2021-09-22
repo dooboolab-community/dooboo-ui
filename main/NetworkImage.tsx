@@ -27,7 +27,7 @@ interface Props {
 }
 
 function NetworkImage(props: Props): ReactElement {
-  const {themeType} = useTheme();
+  const {theme, themeType} = useTheme();
 
   const logo = themeType === 'light' ? ArtifactsLogoLight : ArtifactsLogoDark;
 
@@ -39,7 +39,11 @@ function NetworkImage(props: Props): ReactElement {
     props?.loadingSource
   ) : (
     <Image
-      style={{aspectRatio: 110 / 74, position: 'absolute'}}
+      style={{
+        backgroundColor: theme.paper,
+        aspectRatio: 110 / 74,
+        position: 'absolute',
+      }}
       source={props?.loadingSource ?? logo}
       resizeMethod="resize"
       resizeMode="cover"
@@ -77,7 +81,7 @@ function NetworkImage(props: Props): ReactElement {
     >
       {!needLoading && isValidSource && (
         <Image
-          style={image}
+          style={[{backgroundColor: theme.paper}, image]}
           source={{uri: url}}
           resizeMethod="resize"
           resizeMode="cover"
@@ -87,7 +91,7 @@ function NetworkImage(props: Props): ReactElement {
 
       {!needLoading && !isValidSource && (
         <Image
-          style={[{aspectRatio: 110 / 74}, image]}
+          style={[{backgroundColor: theme.paper, aspectRatio: 110 / 74}, image]}
           source={fallbackSource}
           resizeMethod="resize"
           resizeMode="cover"
