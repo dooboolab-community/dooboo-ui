@@ -42,7 +42,6 @@ function NetworkImage(props: Props): ReactElement {
     <Image
       style={[
         {
-          backgroundColor: theme.paper,
           aspectRatio: 110 / 74,
           position: 'absolute',
         },
@@ -95,7 +94,7 @@ function NetworkImage(props: Props): ReactElement {
 
       {!needLoading && !isValidSource && (
         <Image
-          style={[{backgroundColor: theme.paper, aspectRatio: 110 / 74}, image]}
+          style={[{aspectRatio: 110 / 74}, image]}
           source={fallbackSource}
           resizeMethod="resize"
           resizeMode="cover"
