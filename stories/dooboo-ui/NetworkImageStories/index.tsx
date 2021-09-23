@@ -31,7 +31,7 @@ function NetworkImageStory(): React.ReactElement {
           margin: 20,
           alignSelf: 'center',
         }}
-        styles={{image: {borderRadius: 100, backgroundColor: 'red'}}}
+        styles={{image: {borderRadius: 100}}}
         url="https://upload.wikimedia.org/wikipedia/commons/6/69/Very_Large_Telescope_Ready_for_Action_%28ESO%29.jpg"
       />
 
@@ -39,7 +39,7 @@ function NetworkImageStory(): React.ReactElement {
         <NetworkImage
           style={{width: 300, height: 300, margin: 20, alignSelf: 'center'}}
           styles={{
-            loading: {backgroundColor: 'red', width: 300, height: 300},
+            loading: {width: 300, height: 300},
             image: {borderRadius: 45},
           }}
           loadingSource={
@@ -59,6 +59,7 @@ function NetworkImageStory(): React.ReactElement {
       <View>
         <NetworkImage
           style={{
+            backgroundColor: 'red',
             width: 300,
             height: 300,
           }}
