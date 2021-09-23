@@ -1,5 +1,9 @@
 ## Changelogs
 
+## 0.1.34
+
+- hotfix: Fix layout styles in [NetworkImage] (#124)
+
 ## 0.1.33
 
 - Rewrite NetworkImage (#123)
