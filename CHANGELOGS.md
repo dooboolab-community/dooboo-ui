@@ -1,5 +1,12 @@
 ## Changelogs
 
+## 0.1.33
+
+- Rewrite NetworkImage (#123)
+- Remove unecessary properties in Theme declaration (#121)
+- Remove `jsxBracketSameLine` from prettier config for deprecation at v2.4 (#120)
+- Remove nested component declaration in [AlertDialog] (#119)
+
 ## 0.1.32
 
 ### Features
