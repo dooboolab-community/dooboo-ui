@@ -1,9 +1,13 @@
-import {NetworkImage, ThemeProvider} from '../../../main';
+import {NetworkImage, ThemeProvider, Typography, useTheme} from '../../../main';
 import React, {ReactElement} from 'react';
+import {View} from 'react-native';
 
 import {ContainerDeco} from '../../../storybook/decorators';
 import {storiesOf} from '@storybook/react-native';
 import styled from '@emotion/native';
+
+import ArtifactsLogoDark from '../../../main/__assets__/artifacts_logo_d.png';
+import ArtifactsLogoLight from '../../../main/__assets__/artifacts_logo_l.png';
 
 const ScrollContainer = styled.ScrollView`
   width: 100%;
@@ -11,6 +15,8 @@ const ScrollContainer = styled.ScrollView`
 `;
 
 function NetworkImageStory(): React.ReactElement {
+  const {themeType} = useTheme();
+
   return (
     <ScrollContainer
       contentContainerStyle={{
@@ -20,38 +26,34 @@ function NetworkImageStory(): React.ReactElement {
       }}
     >
       <NetworkImage
-        style={{
-          margin: 20,
-          width: 400,
-          height: 300,
-        }}
-        styles={{image: {width: '50%'}}}
-        url="https://reactnative.dev/img/tiny_logo.png"
-      />
-      <NetworkImage
-        style={{
-          margin: 20,
-          width: 180,
-          height: 180,
-        }}
-        url="https://wronglink.co"
-      />
-      <NetworkImage
-        style={{
-          margin: 20,
-          width: 180,
-          height: 180,
-        }}
-        url="https://media.vlpt.us/images/luck2901/post/5745952f-eb96-4784-b01c-2eb90158ace7/React_Native_Tutorial.jpg"
-      />
-      <NetworkImage
-        style={{
-          margin: 20,
-          width: 180,
-          height: 180,
-        }}
+        style={{width: 300, height: 300, margin: 20, alignSelf: 'center'}}
+        styles={{image: {borderRadius: 100, backgroundColor: 'red'}}}
         url="https://upload.wikimedia.org/wikipedia/commons/6/69/Very_Large_Telescope_Ready_for_Action_%28ESO%29.jpg"
       />
+
+      <View style={{width: 300, height: 300, margin: 20}}>
+        <NetworkImage
+          styles={{
+            loading: {backgroundColor: 'red', width: 300, height: 300},
+            image: {borderRadius: 45},
+          }}
+          loadingSource={
+            themeType === 'light' ? ArtifactsLogoDark : ArtifactsLogoLight
+          }
+          url="https://reactnative.dev/img/tiny_logo.png"
+        />
+      </View>
+
+      <NetworkImage
+        style={{width: 300, height: 300, margin: 20, alignSelf: 'center'}}
+        styles={{image: {borderRadius: 45}}}
+        loadingSource={<Typography.Title>Loading</Typography.Title>}
+        url="https://reactnative.dev/img/tiny_logo.png"
+      />
+
+      <View style={{width: 300, height: 300, margin: 20}}>
+        <NetworkImage style={{alignSelf: 'center'}} url="wrong link" />
+      </View>
     </ScrollContainer>
   );
 }

@@ -1,118 +1,114 @@
 import {
   Image,
   ImageProps,
-  ImageSourcePropType,
+  ImageRequireSource,
   ImageStyle,
   StyleProp,
   View,
   ViewStyle,
 } from 'react-native';
-import React, {ReactElement, useLayoutEffect, useState} from 'react';
-import {LoadingIndicator} from './LoadingIndicator';
+import React, {ReactElement, useEffect, useState, isValidElement} from 'react';
 import {useTheme} from './theme';
 
 import ArtifactsLogoDark from './__assets__/artifacts_logo_d.png';
 import ArtifactsLogoLight from './__assets__/artifacts_logo_l.png';
 
 type Styles = {
-  activityIndicator?: ViewStyle;
-  image?: ImageStyle;
+  image?: Omit<ImageStyle, 'width' | 'height'>;
+  loading?: ImageStyle;
 };
 
 interface Props {
   style?: StyleProp<ViewStyle>;
   styles?: Styles;
   url: string | undefined;
-  defaultSource?: ImageSourcePropType;
-  loadingElement?: ReactElement;
+  loadingSource?: ImageRequireSource | ReactElement;
+  fallbackSource?: ImageRequireSource;
   imageProps?: Partial<ImageProps>;
-  LoadingIndicatorProps?: Partial<ImageProps>;
 }
 
-type ImageSize = {
-  width: number;
-  height: number;
-};
+function NetworkImage(props: Props): ReactElement {
+  const {theme, themeType} = useTheme();
 
-const fetchImageSize = (imageUrl: string): Promise<ImageSize> =>
-  new Promise<ImageSize>((resolve, reject) =>
-    Image.getSize(
-      imageUrl,
-      (width: number, height: number) =>
-        resolve({
-          width,
-          height,
-        }),
-      (error) => {
-        reject(error);
-      },
-    ),
+  const logo = themeType === 'light' ? ArtifactsLogoLight : ArtifactsLogoDark;
+
+  const {style, url, imageProps, fallbackSource = logo} = props;
+
+  const {image, loading} = props.styles ?? {};
+
+  const loadingSource: ReactElement = isValidElement(props?.loadingSource) ? (
+    props?.loadingSource
+  ) : (
+    <Image
+      style={[
+        {
+          aspectRatio: 110 / 74,
+          position: 'absolute',
+        },
+        loading,
+      ]}
+      source={props?.loadingSource ?? logo}
+      resizeMethod="resize"
+      resizeMode="cover"
+    />
   );
 
-function NetworkImage(props: Props): ReactElement {
-  const {themeType} = useTheme();
-
-  const {activityIndicator, image} = props.styles ?? {};
-
-  const {
-    style,
-    imageProps,
-    loadingElement = <LoadingIndicator style={activityIndicator} />,
-    url,
-    defaultSource = themeType === 'light'
-      ? ArtifactsLogoLight
-      : ArtifactsLogoDark,
-  } = props;
-
-  const [needLoading, setNeedLoading] = useState(true);
-  const [isValidSource, setIsValidSource] = useState(true);
-
-  const [size, setSize] = useState<ImageSize>({
-    width: 0,
-    height: 0,
+  const [{needLoading, isValidSource}, setImageInfo] = useState({
+    needLoading: !!url,
+    isValidSource: !!url,
   });
 
-  useLayoutEffect(() => {
-    if (!url) setIsValidSource(false);
-    else
-      fetchImageSize(url)
-        .then((value) => setSize(value))
-        .catch(() => setIsValidSource(false));
+  useEffect(() => {
+    if (url)
+      Image.prefetch(url)
+        .then(() => {
+          setImageInfo({needLoading: false, isValidSource: true});
+        })
+        .catch(() => {
+          setImageInfo({needLoading: false, isValidSource: false});
+        });
   }, [url]);
 
   return (
     <View
       style={[
         {
+          flex: 1,
+          alignSelf: 'stretch',
+
           justifyContent: 'center',
           alignItems: 'center',
         },
-        size,
         style,
       ]}
     >
-      <Image
-        style={[
-          isValidSource
-            ? undefined
-            : {
-                alignSelf: 'center',
-                width: 110,
-                height: 74,
-                margin: '8%',
-                aspectRatio: 110 / 74,
-              },
-          style as ImageStyle,
-          image,
-        ]}
-        resizeMethod="resize"
-        resizeMode="cover"
-        onLoad={() => setNeedLoading(false)}
-        source={isValidSource ? {url} : defaultSource}
-        {...imageProps}
-      />
+      {!needLoading && isValidSource && (
+        <Image
+          style={[
+            {flex: 1, alignSelf: 'stretch', backgroundColor: theme.paper},
+            image,
+          ]}
+          source={{uri: url}}
+          resizeMethod="resize"
+          resizeMode="cover"
+          {...imageProps}
+        />
+      )}
 
-      {needLoading && loadingElement}
+      {!needLoading && !isValidSource && (
+        <Image
+          style={[
+            {flex: 1, alignSelf: 'stretch', aspectRatio: 110 / 74},
+            image,
+          ]}
+          source={fallbackSource}
+          resizeMethod="resize"
+          resizeMode="cover"
+          {...imageProps}
+        />
+      )}
+
+      {needLoading && loadingSource}
     </View>
   );
 }
