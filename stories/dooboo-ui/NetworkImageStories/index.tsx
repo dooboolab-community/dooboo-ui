@@ -1,13 +1,12 @@
 import {NetworkImage, ThemeProvider, Typography, useTheme} from '../../../main';
 import React, {ReactElement} from 'react';
-import {View} from 'react-native';
-
-import {ContainerDeco} from '../../../storybook/decorators';
-import {storiesOf} from '@storybook/react-native';
-import styled from '@emotion/native';
 
 import ArtifactsLogoDark from '../../../main/__assets__/artifacts_logo_d.png';
 import ArtifactsLogoLight from '../../../main/__assets__/artifacts_logo_l.png';
+import {ContainerDeco} from '../../../storybook/decorators';
+import {View} from 'react-native';
+import {storiesOf} from '@storybook/react-native';
+import styled from '@emotion/native';
 
 const ScrollContainer = styled.ScrollView`
   width: 100%;
@@ -26,15 +25,21 @@ function NetworkImageStory(): React.ReactElement {
       }}
     >
       <NetworkImage
-        style={{width: 300, height: 300, margin: 20, alignSelf: 'center'}}
-        styles={{image: {borderRadius: 100, backgroundColor: 'red'}}}
+        style={{
+          width: 300,
+          height: 300,
+          margin: 20,
+          alignSelf: 'center',
+        }}
+        styles={{image: {borderRadius: 100}}}
         url="https://upload.wikimedia.org/wikipedia/commons/6/69/Very_Large_Telescope_Ready_for_Action_%28ESO%29.jpg"
       />
 
       <View style={{width: 300, height: 300, margin: 20}}>
         <NetworkImage
+          style={{width: 300, height: 300, margin: 20, alignSelf: 'center'}}
           styles={{
-            loading: {backgroundColor: 'red', width: 300, height: 300},
+            loading: {width: 300, height: 300},
             image: {borderRadius: 45},
           }}
           loadingSource={
@@ -51,8 +56,15 @@ function NetworkImageStory(): React.ReactElement {
         url="https://reactnative.dev/img/tiny_logo.png"
       />
 
-      <View style={{width: 300, height: 300, margin: 20}}>
-        <NetworkImage style={{alignSelf: 'center'}} url="wrong link" />
+      <View>
+        <NetworkImage
+          style={{
+            backgroundColor: 'red',
+            width: 300,
+            height: 300,
+          }}
+          url="wrong link"
+        />
       </View>
     </ScrollContainer>
   );
