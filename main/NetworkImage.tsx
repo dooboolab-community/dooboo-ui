@@ -7,14 +7,17 @@ import {
   View,
   ViewStyle,
 } from 'react-native';
-import React, {ReactElement, useEffect, useState, isValidElement} from 'react';
-import {useTheme} from './theme';
+import React, {ReactElement, isValidElement, useEffect, useState} from 'react';
 
 import ArtifactsLogoDark from './__assets__/artifacts_logo_d.png';
 import ArtifactsLogoLight from './__assets__/artifacts_logo_l.png';
+import {useTheme} from './theme';
 
 type Styles = {
-  image?: Omit<ImageStyle, 'width' | 'height'>;
+  image?: Omit<
+    ImageStyle,
+    'width' | 'height' | 'minHeight' | 'minWidth' | 'maxHeight' | 'maxWidth'
+  >;
   loading?: ImageStyle;
 };
 
@@ -73,9 +76,7 @@ function NetworkImage(props: Props): ReactElement {
     <View
       style={[
         {
-          flex: 1,
-          alignSelf: 'stretch',
-
+          flexDirection: 'column',
           justifyContent: 'center',
           alignItems: 'center',
         },
@@ -97,10 +98,7 @@ function NetworkImage(props: Props): ReactElement {
 
       {!needLoading && !isValidSource && (
         <Image
-          style={[
-            {flex: 1, alignSelf: 'stretch', aspectRatio: 110 / 74},
-            image,
-          ]}
+          style={[{width: '50%', height: '50%', aspectRatio: 110 / 74}, image]}
           source={fallbackSource}
           resizeMethod="resize"
           resizeMode="cover"
