@@ -1,0 +1,42 @@
+{
+  "name": "theme",
+  "version": "0.1.0",
+  "description": "dooboo-ui theme provider",
+  "homepage": "https://github.com/dooboolab/dooboo-ui#readme",
+  "license": "ISC",
+  "main": "lib/index.js",
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "lib"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yujong-lee/dooboo-ui.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  },
+  "bugs": {
+    "url": "https://github.com/yujong-lee/dooboo-ui/issues"
+  },
+  "keywords": [
+    "theme",
+    "dooboo-theme",
+    "dooboo-ui",
+    "dooboolab"
+  ],
+  "devDependencies": {
+    "@emotion/native": "^11.0.0",
+    "@emotion/react": "^11.1.5",
+    "typescript": "^4.2.4"
+  },
+  "peerDependencies": {
+    "@emotion/native": "*",
+    "@emotion/react": "*",
+    "react": ">=16.9",
+    "react-native": ">=0.58"
+  }
+}
