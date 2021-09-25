@@ -1,5 +1,9 @@
 ## Changelogs
 
+## 0.1.35
+
+- Fix fallbackImage and loadingImage style (#127)
+
 ## 0.1.34
 
 - hotfix: Fix layout styles in [NetworkImage] (#124)
