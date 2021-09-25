@@ -1,8 +1,6 @@
-import {NetworkImage, ThemeProvider, Typography, useTheme} from '../../../main';
+import {NetworkImage, ThemeProvider, Typography} from '../../../main';
 import React, {ReactElement} from 'react';
 
-import ArtifactsLogoDark from '../../../main/__assets__/artifacts_logo_d.png';
-import ArtifactsLogoLight from '../../../main/__assets__/artifacts_logo_l.png';
 import {ContainerDeco} from '../../../storybook/decorators';
 import {View} from 'react-native';
 import {storiesOf} from '@storybook/react-native';
@@ -14,8 +12,6 @@ const ScrollContainer = styled.ScrollView`
 `;
 
 function NetworkImageStory(): React.ReactElement {
-  const {themeType} = useTheme();
-
   return (
     <ScrollContainer
       contentContainerStyle={{
@@ -26,12 +22,12 @@ function NetworkImageStory(): React.ReactElement {
     >
       <NetworkImage
         style={{
-          width: 300,
-          height: 300,
+          width: 110,
+          height: 110,
           margin: 20,
           alignSelf: 'center',
         }}
-        styles={{image: {borderRadius: 100}}}
+        styles={{image: {borderRadius: 50}}}
         url="https://upload.wikimedia.org/wikipedia/commons/6/69/Very_Large_Telescope_Ready_for_Action_%28ESO%29.jpg"
       />
 
@@ -39,12 +35,9 @@ function NetworkImageStory(): React.ReactElement {
         <NetworkImage
           style={{width: 300, height: 300, margin: 20, alignSelf: 'center'}}
           styles={{
-            loading: {width: 300, height: 300},
+            loading: {maxWidth: 300, maxHeight: 300},
             image: {borderRadius: 45},
           }}
-          loadingSource={
-            themeType === 'light' ? ArtifactsLogoDark : ArtifactsLogoLight
-          }
           url="https://reactnative.dev/img/tiny_logo.png"
         />
       </View>

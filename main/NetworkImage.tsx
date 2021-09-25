@@ -12,6 +12,7 @@ import React, {ReactElement, isValidElement, useEffect, useState} from 'react';
 import ArtifactsLogoDark from './__assets__/artifacts_logo_d.png';
 import ArtifactsLogoLight from './__assets__/artifacts_logo_l.png';
 import {useTheme} from './theme';
+import {css} from '@emotion/native';
 
 type Styles = {
   image?: Omit<
@@ -30,6 +31,12 @@ interface Props {
   imageProps?: Partial<ImageProps>;
 }
 
+const defaultImage = css({
+  aspectRatio: 110 / 74,
+  maxWidth: '50%',
+  maxHeight: '50%',
+});
+
 function NetworkImage(props: Props): ReactElement {
   const {theme, themeType} = useTheme();
 
@@ -43,13 +50,7 @@ function NetworkImage(props: Props): ReactElement {
     props?.loadingSource
   ) : (
     <Image
-      style={[
-        {
-          aspectRatio: 110 / 74,
-          position: 'absolute',
-        },
-        loading,
-      ]}
+      style={[{position: 'absolute'}, defaultImage, loading]}
       source={props?.loadingSource ?? logo}
       resizeMethod="resize"
       resizeMode="cover"
@@ -98,7 +99,7 @@ function NetworkImage(props: Props): ReactElement {
 
       {!needLoading && !isValidSource && (
         <Image
-          style={[{width: '50%', height: '50%', aspectRatio: 110 / 74}, image]}
+          style={[defaultImage, image]}
           source={fallbackSource}
           resizeMethod="resize"
           resizeMode="cover"
