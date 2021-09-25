@@ -33,11 +33,8 @@ function NetworkImageStory(): React.ReactElement {
 
       <View style={{width: 300, height: 300, margin: 20}}>
         <NetworkImage
-          style={{width: 300, height: 300, margin: 20, alignSelf: 'center'}}
-          styles={{
-            loading: {maxWidth: 300, maxHeight: 300},
-            image: {borderRadius: 45},
-          }}
+          style={{flex: 1, margin: 20}}
+          styles={{image: {borderRadius: 45}}}
           url="https://reactnative.dev/img/tiny_logo.png"
         />
       </View>
