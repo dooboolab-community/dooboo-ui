@@ -33,8 +33,8 @@ interface Props {
 
 const defaultImage = css({
   aspectRatio: 110 / 74,
-  maxWidth: '50%',
-  maxHeight: '50%',
+  width: '50%',
+  height: 'auto',
 });
 
 function NetworkImage(props: Props): ReactElement {
