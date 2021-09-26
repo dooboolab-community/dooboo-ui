@@ -1,4 +1,4 @@
-import {ThemeProvider, useTheme, withTheme} from './themeprovider';
+import {ThemeProvider, useTheme, withTheme} from './index';
 import {act, renderHook} from '@testing-library/react-hooks';
 import {colors, dark, light} from './colors';
 
