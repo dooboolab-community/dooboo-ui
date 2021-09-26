@@ -34,6 +34,7 @@
     "typescript": "^4.2.4"
   },
   "peerDependencies": {
+    "@expo/match-media": "^0.1.0",
     "@emotion/native": "*",
     "@emotion/react": "*",
     "react": ">=16.9",
