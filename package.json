@@ -44,6 +44,7 @@
     "@babel/preset-react": "^7.14.5",
     "@dooboo/eslint-config": "^0.8.3",
     "@emotion/babel-plugin": "^11.3.0",
+    "@expo/match-media": "^0.1.0",
     "@expo/webpack-config": "^0.15.0",
     "@react-native-async-storage/async-storage": "^1.15.7",
     "@storybook/addon-actions": "6.3.7",

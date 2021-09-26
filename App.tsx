@@ -1,3 +1,5 @@
+import '@expo/match-media';
+
 import {configure, getStorybookUI} from '@storybook/react-native';
 
 import AsyncStorage from '@react-native-async-storage/async-storage';
