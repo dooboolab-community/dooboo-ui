@@ -1,5 +1,5 @@
 import {ReactElement} from 'react';
-import createDoobooContext from '../createDoobooContext';
+import createDoobooContext from './createDoobooContext';
 import {renderHook} from '@testing-library/react-hooks';
 
 describe('createDoobooContext', () => {

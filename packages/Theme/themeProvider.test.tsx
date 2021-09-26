@@ -1,6 +1,6 @@
-import {ThemeProvider, useTheme, withTheme} from '../themeProvider';
+import {ThemeProvider, useTheme, withTheme} from './themeprovider';
 import {act, renderHook} from '@testing-library/react-hooks';
-import {colors, dark, light} from '../colors';
+import {colors, dark, light} from './colors';
 
 import {ReactElement} from 'react';
 import {Context as ResponsiveContext} from 'react-responsive';

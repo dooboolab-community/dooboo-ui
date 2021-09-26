@@ -28,7 +28,7 @@ interface Context {
 
 const [useTheme, DoobooProvider] = createDoobooContext<Context>({
   theme: light,
-} as Context);
+} as unknown as Context);
 
 interface Props {
   children?: React.ReactElement;
