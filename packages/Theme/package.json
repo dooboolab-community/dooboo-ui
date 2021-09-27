@@ -1,6 +1,6 @@
 {
   "name": "@dooboo-ui/theme",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "dooboo-ui theme provider",
   "homepage": "https://github.com/dooboolab/dooboo-ui#readme",
   "license": "ISC",
@@ -13,14 +13,14 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/yujong-lee/dooboo-ui.git"
+    "url": "git+https://github.com/dooboolab/dooboo-ui.git"
   },
   "scripts": {
     "build": "tsc",
     "watch": "tsc -w"
   },
   "bugs": {
-    "url": "https://github.com/yujong-lee/dooboo-ui/issues"
+    "url": "https://github.com//dooboo-ui/issues"
   },
   "keywords": [
     "theme",
