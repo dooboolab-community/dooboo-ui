@@ -12,8 +12,8 @@ interface Styles {
   button?: StyleProp<ViewStyle>;
   circleColorOff?: string;
   circleColorOn?: string;
-  backgroundColorOff?: string;
   backgroundColorOn?: string;
+  backgroundColorOff?: string;
 }
 
 interface Props {
