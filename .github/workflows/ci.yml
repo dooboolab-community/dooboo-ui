@@ -12,9 +12,15 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+          check-latest: false
+          cache: 'yarn'
+          cache-dependency-path: '**/yarn.lock'
 
       - name: Install modules
-        run: yarn
+        run: yarn install --frozen-lockfile
 
       - name: Lerna init
         run: yarn pre
