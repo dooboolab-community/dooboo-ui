@@ -1,20 +1,28 @@
 import React, {Fragment, ReactElement} from 'react';
-import {SafeAreaView, View} from 'react-native';
 
 import {Accordion} from '../';
 import {Icon} from '../../Icon';
 import {ThemeProvider} from '@dooboo-ui/theme';
+import {View} from 'react-native';
 import styled from '@emotion/native';
 import {useFonts} from 'expo-font';
+import {useTheme} from '../../../main';
 
-const Container = styled.SafeAreaView`
+const StoryContainer = styled.View`
   flex: 1;
-  align-items: center;
-  justify-content: center;
+  align-self: stretch;
 `;
 
-const StyledIcon = styled(Icon)`
-  color: ${({theme}) => theme.textContrast};
+const ScrollContainer = styled.ScrollView`
+  width: 100%;
+`;
+
+const Container = styled.View`
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin-top: 20px;
+  margin-bottom: 20px;
 `;
 
 const Title = styled.Text`
@@ -46,41 +54,43 @@ const data = [
 ];
 
 export const AccordionDefault = (): ReactElement => {
+  const {theme} = useTheme();
+
   const [fontsLoaded] = useFonts({
     IcoMoon: require('../../../main/Icon/doobooui.ttf'),
   });
 
-  if (!fontsLoaded) {
-    return <View />;
-  }
+  if (!fontsLoaded) return <View />;
 
   return (
-    <ThemeProvider initialThemeType="light">
-      <Container>
-        <Accordion
-          data={data}
-          shouldAnimate={true}
-          collapseOnStart={true}
-          animDuration={400}
-          activeOpacity={1}
-        />
-      </Container>
-    </ThemeProvider>
+    <StoryContainer style={{backgroundColor: theme.background}}>
+      <ScrollContainer>
+        <Container>
+          <Accordion
+            data={data}
+            shouldAnimate={true}
+            collapseOnStart={true}
+            animDuration={400}
+            activeOpacity={1}
+          />
+        </Container>
+      </ScrollContainer>
+    </StoryContainer>
   );
 };
 
 export const AccordionCustomStyle = (): React.ReactElement => {
+  const {theme} = useTheme();
+
   const [fontsLoaded] = useFonts({
     IcoMoon: require('../../../main/Icon/doobooui.ttf'),
   });
 
-  if (!fontsLoaded) {
-    return <View />;
-  }
+  if (!fontsLoaded) return <View />;
 
   return (
-    <ThemeProvider initialThemeType="light">
-      <SafeAreaView style={{width: '100%', height: '100%'}}>
+    <StoryContainer style={{backgroundColor: theme.background}}>
+      <ScrollContainer>
         <Container>
           <Accordion
             data={data}
@@ -97,7 +107,7 @@ export const AccordionCustomStyle = (): React.ReactElement => {
                     flexDirection: 'row',
                   }}
                 >
-                  <StyledIcon name="search-light" />
+                  <Icon name="search-light" color={theme.textContrast} />
                   <Title>{item}</Title>
                 </View>
               );
@@ -109,7 +119,9 @@ export const AccordionCustomStyle = (): React.ReactElement => {
                 </Fragment>
               );
             }}
-            toggleElement={<StyledIcon name="chevron-down-light" />}
+            toggleElement={
+              <Icon name="chevron-down-light" color={theme.textContrast} />
+            }
             styles={{
               titleContainer: {
                 backgroundColor: 'gray',
@@ -120,7 +132,7 @@ export const AccordionCustomStyle = (): React.ReactElement => {
             }}
           />
         </Container>
-      </SafeAreaView>
-    </ThemeProvider>
+      </ScrollContainer>
+    </StoryContainer>
   );
 };

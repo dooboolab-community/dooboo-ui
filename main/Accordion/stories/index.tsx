@@ -1,6 +1,7 @@
 import {AccordionCustomStyle, AccordionDefault} from './DefaultStory';
 import React, {ReactElement} from 'react';
 
+import {ThemeProvider} from '../../../main/theme';
 import {storiesOf} from '@storybook/react-native';
 
 /**
@@ -25,9 +26,15 @@ toStorybook2.story = {
  * Below are stories for app
  */
 storiesOf('Accordion', module)
-  .add('default', () => <AccordionDefault />, {
-    notes: 'Simple explanation',
-  })
-  .add('CustomStyle', () => <AccordionCustomStyle />, {
-    notes: 'Can custom component',
-  });
+  .add('default', () => <AccordionDefault />)
+  .add('default-dark', () => (
+    <ThemeProvider initialThemeType="dark">
+      <AccordionDefault />
+    </ThemeProvider>
+  ))
+  .add('CustomStyle', () => <AccordionCustomStyle />)
+  .add('CustomStyle-dark', () => (
+    <ThemeProvider initialThemeType="dark">
+      <AccordionCustomStyle />
+    </ThemeProvider>
+  ));

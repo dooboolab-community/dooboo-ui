@@ -28,18 +28,19 @@ const ItemContainer = styled.View`
   flex-direction: row;
   align-items: center;
   width: 100%;
-  padding: 20px 20px;
+  padding: 20px 0px;
 `;
 
 const StyledTitle = styled.Text`
   font-weight: bold;
   color: ${({theme}) => theme.textContrast};
   position: absolute;
-  left: 20px;
+  padding: 0px 20px;
 `;
 
 const StyledItem = styled.Text`
   color: ${({theme}) => theme.text};
+  padding: 0px 20px;
 `;
 
 type ToggleIndicatorType = React.ReactElement | undefined;
@@ -65,6 +66,8 @@ interface Props {
 }
 
 const AccordionItem: FC<Props> = (props) => {
+  const {theme} = useTheme();
+
   const {
     testID,
     datum: item,
@@ -72,23 +75,19 @@ const AccordionItem: FC<Props> = (props) => {
     collapseOnStart = true,
     animDuration = 300,
     activeOpacity = 1,
-    toggleElement = <StyledIcon name="chevron-down-light" />,
+    toggleElement = <StyledIcon name="chevron-down-light" theme={theme} />,
     dropDownAnimValueList,
     sumOfPrecedingTranslateY,
-
+    renderTitle = (title) => <StyledTitle theme={theme}>{title}</StyledTitle>,
+    renderBody = (body) => <StyledItem theme={theme}>{body}</StyledItem>,
     styles,
     style,
   } = props;
 
-  const {theme} = useTheme();
-
-  const renderTitle = (title): ReactElement => (
-    <StyledTitle theme={theme}>{title}</StyledTitle>
-  );
-
-  const renderBody = (body): ReactElement => (
-    <StyledItem theme={theme}>{body}</StyledItem>
-  );
+  const {
+    titleContainer = {backgroundColor: theme.primary},
+    bodyContainer = {backgroundColor: theme.background},
+  } = styles ?? {};
 
   const rotateAnimValue = useRef(new Animated.Value(0)).current;
 
@@ -191,7 +190,7 @@ const AccordionItem: FC<Props> = (props) => {
         testID={`title_${testID}`}
         onPress={handlePress}
         activeOpacity={activeOpacity}
-        style={styles?.titleContainer}
+        style={titleContainer}
       >
         {renderTitle(item.title)}
         {renderIndicator(toggleElement)}
@@ -210,7 +209,7 @@ const AccordionItem: FC<Props> = (props) => {
         onLayout={handleBodyLayout}
       >
         {item.bodies.map((body, key) => (
-          <ItemContainer key={key} theme={theme} style={styles?.bodyContainer}>
+          <ItemContainer key={key} theme={theme} style={bodyContainer}>
             {renderBody(body)}
           </ItemContainer>
         ))}
