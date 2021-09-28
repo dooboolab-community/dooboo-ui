@@ -20,7 +20,7 @@ jobs:
           cache-dependency-path: '**/yarn.lock'
 
       - name: Install modules
-        run: yarn install --frozen-lockfile
+        run: yarn
 
       - name: Lerna init
         run: yarn pre
