@@ -87,7 +87,9 @@ const AccordionItem: FC<AccordionItemProps> = (props) => {
   const [bodyHeight, setBodyHeight] = useState(0);
 
   const handleBodyLayout = (e: LayoutChangeEvent): void => {
-    if (bodyMounted) return;
+    if (bodyMounted) {
+      return;
+    }
 
     const {height} = e.nativeEvent.layout;
 
@@ -124,7 +126,9 @@ const AccordionItem: FC<AccordionItemProps> = (props) => {
   useEffect(() => {
     const targetValue = collapsed ? 0 : 1;
 
-    if (!shouldAnimate) rotateAnimValue.setValue(targetValue);
+    if (!shouldAnimate) {
+      rotateAnimValue.setValue(targetValue);
+    }
 
     Animated.timing(rotateAnimValue, {
       toValue: targetValue,
@@ -142,12 +146,16 @@ const AccordionItem: FC<AccordionItemProps> = (props) => {
   }, [collapsed]);
 
   useEffect(() => {
-    if (bodyMounted) dropDownAnimValue.setValue(targetValueForDropdown);
+    if (bodyMounted) {
+      dropDownAnimValue.setValue(targetValueForDropdown);
+    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [bodyMounted]);
 
   useEffect(() => {
-    if (!shouldAnimate) dropDownAnimValue.setValue(targetValueForDropdown);
+    if (!shouldAnimate) {
+      dropDownAnimValue.setValue(targetValueForDropdown);
+    }
 
     Animated.timing(dropDownAnimValue, {
       toValue: targetValueForDropdown,
