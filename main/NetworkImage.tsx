@@ -11,8 +11,8 @@ import React, {ReactElement, isValidElement, useEffect, useState} from 'react';
 
 import ArtifactsLogoDark from './__assets__/artifacts_logo_d.png';
 import ArtifactsLogoLight from './__assets__/artifacts_logo_l.png';
-import {useTheme} from './theme';
 import {css} from '@emotion/native';
+import {useTheme} from './theme';
 
 type Styles = {
   image?: Omit<
@@ -20,6 +20,7 @@ type Styles = {
     'width' | 'height' | 'minHeight' | 'minWidth' | 'maxHeight' | 'maxWidth'
   >;
   loading?: ImageStyle;
+  fallback?: ImageStyle;
 };
 
 interface Props {
@@ -35,6 +36,7 @@ const defaultImage = css({
   aspectRatio: 110 / 74,
   width: '50%',
   height: 'auto',
+  maxHeight: '50%',
 });
 
 function NetworkImage(props: Props): ReactElement {
@@ -44,13 +46,13 @@ function NetworkImage(props: Props): ReactElement {
 
   const {style, url, imageProps, fallbackSource = logo} = props;
 
-  const {image, loading} = props.styles ?? {};
+  const {image, loading, fallback} = props.styles ?? {};
 
   const loadingSource: ReactElement = isValidElement(props?.loadingSource) ? (
     props?.loadingSource
   ) : (
     <Image
-      style={[{position: 'absolute'}, defaultImage, loading]}
+      style={[defaultImage, loading]}
       source={props?.loadingSource ?? logo}
       resizeMethod="resize"
       resizeMode="cover"
@@ -99,7 +101,7 @@ function NetworkImage(props: Props): ReactElement {
 
       {!needLoading && !isValidSource && (
         <Image
-          style={[defaultImage, image]}
+          style={[defaultImage, image, fallback]}
           source={fallbackSource}
           resizeMethod="resize"
           resizeMode="cover"
