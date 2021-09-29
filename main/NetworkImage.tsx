@@ -101,7 +101,7 @@ function NetworkImage(props: Props): ReactElement {
 
       {!needLoading && !isValidSource && (
         <Image
-          style={[defaultImage, image, fallback]}
+          style={[defaultImage, fallback]}
           source={fallbackSource}
           resizeMethod="resize"
           resizeMode="cover"
