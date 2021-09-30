@@ -79,7 +79,6 @@ function NetworkImage(props: Props): ReactElement {
     <View
       style={[
         {
-          flexDirection: 'column',
           justifyContent: 'center',
           alignItems: 'center',
         },
