@@ -22,6 +22,7 @@ interface Styles {
   FABItem?: StyleProp<ViewStyle>;
   buttonSize: ButtonSize;
   iconSize?: number;
+  gap?: number;
 }
 
 export interface FABItem {
@@ -53,12 +54,17 @@ function FloatingActionButtons<Item extends FABItem = FABItem>({
 }: FABProps<Item> & {
   theme: DoobooTheme;
 }): ReactElement {
-  const GAP = 15;
-  const {FAB, FABItem, buttonSize = 'large', iconSize = 24} = styles ?? {};
+  const {
+    FAB,
+    FABItem,
+    buttonSize = 'large',
+    iconSize = 24,
+    gap = 20,
+  } = styles ?? {};
 
-  const spinValue = useRef<Animated.Value>(new Animated.Value(0));
-  const positionValue = useRef<Animated.Value>(new Animated.Value(0));
-  const FABHeight = useRef<number>(0);
+  const spinValue = useRef(new Animated.Value(0));
+  const positionValue = useRef(new Animated.Value(0));
+  const FABHeight = useRef(0);
 
   useLayoutEffect(() => {
     const config = {
@@ -79,10 +85,10 @@ function FloatingActionButtons<Item extends FABItem = FABItem>({
       FABItems?.map((_, idx) =>
         positionValue.current.interpolate({
           inputRange: [0, 1],
-          outputRange: [0, -1 * (idx + 1) * (FABHeight.current + GAP)],
+          outputRange: [0, -1 * (idx + 1) * (FABHeight.current + gap)],
         }),
       ),
-    [FABItems, FABHeight],
+    [FABItems, FABHeight, gap],
   );
 
   const onLayout = (e: LayoutChangeEvent): void => {
