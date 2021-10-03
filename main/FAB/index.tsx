@@ -1,4 +1,11 @@
-import {Animated, Easing, StyleProp, View, ViewStyle} from 'react-native';
+import {
+  Animated,
+  Easing,
+  LayoutChangeEvent,
+  StyleProp,
+  View,
+  ViewStyle,
+} from 'react-native';
 import {ButtonSize, IconButton} from '../IconButton';
 import {DoobooTheme, withTheme} from '../theme';
 import {Icon, IconName} from '../Icon';
@@ -46,10 +53,12 @@ function FloatingActionButtons<Item extends FABItem = FABItem>({
 }: FABProps<Item> & {
   theme: DoobooTheme;
 }): ReactElement {
+  const GAP = 15;
   const {FAB, FABItem, buttonSize = 'large', iconSize = 24} = styles ?? {};
 
-  const spinValue = useRef(new Animated.Value(0));
-  const positionValue = useRef(new Animated.Value(0));
+  const spinValue = useRef<Animated.Value>(new Animated.Value(0));
+  const positionValue = useRef<Animated.Value>(new Animated.Value(0));
+  const FABHeight = useRef<number>(0);
 
   useLayoutEffect(() => {
     const config = {
@@ -70,11 +79,15 @@ function FloatingActionButtons<Item extends FABItem = FABItem>({
       FABItems?.map((_, idx) =>
         positionValue.current.interpolate({
           inputRange: [0, 1],
-          outputRange: ['0%', `-${(idx + 1) * 80}%`],
+          outputRange: [0, -1 * (idx + 1) * (FABHeight.current + GAP)],
         }),
       ),
-    [FABItems],
+    [FABItems, FABHeight],
   );
+
+  const onLayout = (e: LayoutChangeEvent): void => {
+    FABHeight.current = e.nativeEvent.layout.height;
+  };
 
   return (
     <View
@@ -97,7 +110,6 @@ function FloatingActionButtons<Item extends FABItem = FABItem>({
             key={id}
             style={[
               {
-                margin: 10,
                 position: 'absolute',
                 transform: [{translateY: offsets[idx]}],
               },
@@ -118,6 +130,7 @@ function FloatingActionButtons<Item extends FABItem = FABItem>({
         );
       })}
       <Animated.View
+        onLayout={onLayout}
         style={[
           {
             transform: [
@@ -128,7 +141,6 @@ function FloatingActionButtons<Item extends FABItem = FABItem>({
                 }),
               },
             ],
-            margin: 10,
           },
           FAB,
         ]}
