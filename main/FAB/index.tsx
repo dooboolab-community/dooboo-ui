@@ -54,6 +54,7 @@ function FloatingActionButtons<Item extends FABItem = FABItem>({
 }: FABProps<Item> & {
   theme: DoobooTheme;
 }): ReactElement {
+<<<<<<< HEAD
   const {
     FAB,
     FABItem,
@@ -65,6 +66,14 @@ function FloatingActionButtons<Item extends FABItem = FABItem>({
   const spinValue = useRef(new Animated.Value(0));
   const positionValue = useRef(new Animated.Value(0));
   const FABHeight = useRef(0);
+=======
+  const GAP = 15;
+  const {FAB, FABItem, buttonSize = 'large', iconSize = 24} = styles ?? {};
+
+  const spinValue = useRef<Animated.Value>(new Animated.Value(0));
+  const positionValue = useRef<Animated.Value>(new Animated.Value(0));
+  const FABHeight = useRef<number>(0);
+>>>>>>> 0083ecc (style fix.)
 
   useLayoutEffect(() => {
     const config = {
@@ -85,10 +94,17 @@ function FloatingActionButtons<Item extends FABItem = FABItem>({
       FABItems?.map((_, idx) =>
         positionValue.current.interpolate({
           inputRange: [0, 1],
+<<<<<<< HEAD
           outputRange: [0, -1 * (idx + 1) * (FABHeight.current + gap)],
         }),
       ),
     [FABItems, FABHeight, gap],
+=======
+          outputRange: [0, -1 * (idx + 1) * (FABHeight.current + GAP)],
+        }),
+      ),
+    [FABItems, FABHeight],
+>>>>>>> 0083ecc (style fix.)
   );
 
   const onLayout = (e: LayoutChangeEvent): void => {
