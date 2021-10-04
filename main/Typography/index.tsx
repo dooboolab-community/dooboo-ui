@@ -8,6 +8,8 @@ import {
   InvertedTitle,
 } from './TypographyInverted';
 
+import React from 'react';
+
 export const Typography = {
   Title,
   Heading1,
@@ -24,4 +26,23 @@ export const TypographyInverted = {
   Heading3: InvertedHeading3,
   Body1: InvertedBody1,
   Body2: InvertedBody2,
+};
+
+export const setFontFamiliy = (fontFamily: string): void => {
+  const style = {
+    includeFontPadding: false,
+    fontFamily,
+  };
+
+  // @ts-ignore
+  let oldRender = Text.render;
+
+  // @ts-ignore
+  Text.render = (...args: any) => {
+    let origin = oldRender.call(this, ...args);
+
+    return React.cloneElement(origin, {
+      style: [style, origin.props.style],
+    });
+  };
 };
