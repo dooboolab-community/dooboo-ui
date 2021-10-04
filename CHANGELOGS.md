@@ -2,6 +2,12 @@
 
 ## 0.1.35
 
+#### Feature
+
+- Add `setFontFamily` function to set global `fontFamily` (#138)
+
+#### Enhancement
+
 - Fix fallbackImage and loadingImage style (#127)
 
 ## 0.1.34
