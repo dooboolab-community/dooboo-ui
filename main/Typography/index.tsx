@@ -29,7 +29,7 @@ export const TypographyInverted = {
   Body2: InvertedBody2,
 };
 
-export const setFontFamiliy = (fontFamily: string): void => {
+export const setFontFamily = (fontFamily: string): void => {
   const style = {
     includeFontPadding: false,
     fontFamily,
