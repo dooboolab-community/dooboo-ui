@@ -17,33 +17,33 @@ import {FAB} from 'dooboo-ui';
 
 ## Props
 
-|                | Types                                       | Description | Default |
-| -------------- | ------------------------------------------- | ----------- | ------- |
-| isActive       | `boolean`                                   |             |         |
-| FABItems       | `Array<Item>`                               |             |         |
-| onPressFAB     | `() => void`                                |             |         |
-| onPressFABItem | `(item?: Item) => void`                     |             |         |
-| renderFAB?     | `() => ReactElement`                        |             |         |
-| renderFABItem? | `(item: Item, idx: number) => ReactElement` |             |         |
-| style?         | `Styles`                                    |             |         |
-| styles?        | `Styles`                                    |             |         |
+|                | Types                                       | Description                                | Default |
+| -------------- | ------------------------------------------- | ------------------------------------------ | ------- |
+| isActive       | `boolean`                                   |                                            |         |
+| FABItems       | `Array<Item>`                               | List of id and iconName form each FABItems |         |
+| onPressFAB     | `() => void`                                | Press callback for main FAB button         |         |
+| onPressFABItem | `(item?: Item) => void`                     | Press callback for main FAB button         |         |
+| renderFAB?     | `() => ReactElement`                        |                                            |         |
+| renderFABItem? | `(item: Item, idx: number) => ReactElement` |                                            |         |
+| style?         | `Styles`                                    |                                            |         |
+| styles?        | `Styles`                                    | Extra Props for FAB styles                 |         |
 
 ## FABItem
 
-|      | Types      | Description | Default |
-| ---- | ---------- | ----------- | ------- |
-| icon | `IconName` |             |         |
-| id   | `string`   |             |         |
+|      | Types      | Description                                                                        | Default |
+| ---- | ---------- | ---------------------------------------------------------------------------------- | ------- |
+| icon | `IconName` |                                                                                    |         |
+| id   | `string`   | Id for distinguishing from other FABItems that passed from onPressFABItem callback |         |
 
 ## Styles
 
-|            | Types                  | Description | Default |
-| ---------- | ---------------------- | ----------- | ------- |
-| FAB?       | `StyleProp<ViewStyle>` |             |         |
-| FABItem?   | `StyleProp<ViewStyle>` |             |         |
-| iconSize?  | `number`               |             | 24      |
-| buttonSize | `ButtonSize`           |             |         |
-| gap?       | `number`               |             | 20      |
+|            | Types                  | Description             | Default |
+| ---------- | ---------------------- | ----------------------- | ------- |
+| FAB?       | `StyleProp<ViewStyle>` | Style for main FAB      |         |
+| FABItem?   | `StyleProp<ViewStyle>` | Style for FABItem       |         |
+| iconSize?  | `number`               |                         | 24      |
+| buttonSize | `ButtonSize`           |                         |         |
+| gap?       | `number`               | Gap between FAB Buttons | 20      |
 
 ## Demo
 
