@@ -1,0 +1,56 @@
+import {Meta} from '@storybook/addon-docs/blocks';
+import {Light, Dark} from './index';
+
+<Meta title="Components/FAB" />
+
+# FAB
+
+> [FAB] Floating Action Button is a component for represent the primary action of screen
+
+## Usage
+
+```tsx
+import {FAB} from 'dooboo-ui';
+
+<FAB {...props} />;
+```
+
+## Props
+
+|                | Types                                       | Description | Default |
+| -------------- | ------------------------------------------- | ----------- | ------- |
+| isActive       | `boolean`                                   |             |         |
+| FABItems       | `Array<Item>`                               |             |         |
+| onPressFAB     | `() => void`                                |             |         |
+| onPressFABItem | `(item?: Item) => void`                     |             |         |
+| renderFAB?     | `() => ReactElement`                        |             |         |
+| renderFABItem? | `(item: Item, idx: number) => ReactElement` |             |         |
+| style?         | `Styles`                                    |             |         |
+| styles?        | `Styles`                                    |             |         |
+
+## FABItem
+
+|      | Types      | Description | Default |
+| ---- | ---------- | ----------- | ------- |
+| icon | `IconName` |             |         |
+| id   | `string`   |             |         |
+
+## Styles
+
+|            | Types                  | Description | Default |
+| ---------- | ---------------------- | ----------- | ------- |
+| FAB?       | `StyleProp<ViewStyle>` |             |         |
+| FABItem?   | `StyleProp<ViewStyle>` |             |         |
+| iconSize?  | `number`               |             | 24      |
+| buttonSize | `ButtonSize`           |             |         |
+| gap?       | `number`               |             | 20      |
+
+## Demo
+
+#### Light Theme
+
+<Light />
+
+#### Dark Theme
+
+<Dark />
