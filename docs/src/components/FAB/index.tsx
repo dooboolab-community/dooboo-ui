@@ -7,6 +7,8 @@ import {useFonts} from 'expo-font';
 
 const StoryContainer = styled.View`
   flex: 1;
+  width: 100%;
+  height: 300px;
   align-self: stretch;
   background-color: ${({theme}) => theme.background};
 `;
@@ -23,7 +25,8 @@ const FABContainer: FC = () => {
   return (
     <StoryContainer>
       <SafeAreaView style={{display: 'flex', width: '100%', height: '100%'}}>
-        {/* <FAB
+        <FAB
+          styles={{buttonSize: 'medium'}}
           isActive={active}
           FABItems={[
             {id: 'search', icon: 'home-light'},
@@ -31,7 +34,7 @@ const FABContainer: FC = () => {
           ]}
           onPressFAB={() => setActive((prev) => !prev)}
           onPressFABItem={() => {}}
-        /> */}
+        />
       </SafeAreaView>
     </StoryContainer>
   );
