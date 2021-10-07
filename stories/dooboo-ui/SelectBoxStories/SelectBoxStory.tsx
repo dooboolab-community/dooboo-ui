@@ -90,11 +90,14 @@ const SelectBoxStory: FC = () => {
             borderRightWidth: 0,
           },
           itemContainer: {
-            backgroundColor: theme.secondary,
+            backgroundColor: theme.paper,
             borderTopWidth: 0,
             borderBottomWidth: 0,
             borderLeftWidth: 0,
             borderRightWidth: 0,
+          },
+          hovered: {
+            backgroundColor: theme.secondary,
           },
         }}
       />

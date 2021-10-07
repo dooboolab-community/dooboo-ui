@@ -16,6 +16,7 @@ import {Icon} from '../Icon';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 import {Typography} from '../Typography';
 import styled from '@emotion/native';
+import {useHover} from 'react-native-web-hooks';
 import {withTheme} from '@emotion/react';
 
 const Title = styled.View`
@@ -45,6 +46,7 @@ type Styles = {
   rightElementContainer?: StyleProp<ViewStyle>;
   itemContainer?: StyleProp<ViewStyle>;
   itemText?: StyleProp<TextStyle>;
+  hovered?: StyleProp<ViewStyle>;
 };
 interface ItemCompProps<T> {
   value: T;
@@ -69,8 +71,11 @@ function ItemComp<T extends {value: string} | string>({
     setIsOpened(false);
   };
 
+  const ref = useRef(null);
+  const hover = useHover(ref);
+
   return (
-    <TouchableOpacity {...itemTouchableProps} onPress={handlePress}>
+    <TouchableOpacity {...itemTouchableProps} onPress={handlePress} ref={ref}>
       <Item
         style={[
           {
@@ -78,6 +83,8 @@ function ItemComp<T extends {value: string} | string>({
             backgroundColor: theme.textContrast,
           },
           styles?.itemContainer,
+          hover && {backgroundColor: theme.secondary},
+          hover && styles?.hovered,
         ]}
       >
         <Typography.Body2 style={styles?.itemText}>
