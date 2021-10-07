@@ -1,6 +1,11 @@
+import {
+  Accordion,
+  AccordionData,
+  AccordionListType,
+  AccordionStyles,
+} from '../';
 import React, {Fragment, ReactElement} from 'react';
 
-import {Accordion} from '../';
 import {Icon} from '../../Icon';
 import {ThemeProvider} from '@dooboo-ui/theme';
 import {View} from 'react-native';
@@ -38,7 +43,7 @@ const CustomStyledItem = styled.Text`
   left: 40px;
 `;
 
-const data = [
+const data: AccordionListType = [
   {
     title: 'Lists',
     bodies: ['user', 'mail', 'plan'],
@@ -52,6 +57,15 @@ const data = [
     bodies: ['report list', 'statistics'],
   },
 ];
+
+const customStyles: AccordionStyles = {
+  titleContainer: {
+    backgroundColor: 'gray',
+  },
+  bodyContainer: {
+    backgroundColor: 'lightgray',
+  },
+};
 
 export const AccordionDefault = (): ReactElement => {
   const {theme} = useTheme();
@@ -79,7 +93,7 @@ export const AccordionDefault = (): ReactElement => {
   );
 };
 
-export const AccordionCustomStyle = (): React.ReactElement => {
+export const AccordionCustomStyle = (): ReactElement => {
   const {theme} = useTheme();
 
   const [fontsLoaded] = useFonts({
@@ -93,43 +107,31 @@ export const AccordionCustomStyle = (): React.ReactElement => {
       <ScrollContainer>
         <Container>
           <Accordion
-            data={data}
+            data={data.map<AccordionData>((datum) => ({
+              ...datum,
+              title: datum.title.toUpperCase(),
+            }))}
             shouldAnimate={true}
             collapseOnStart={true}
             animDuration={300}
             activeOpacity={1}
-            renderTitle={(item) => {
-              return (
-                <View
-                  style={{
-                    paddingLeft: 20,
-                    alignItems: 'center',
-                    flexDirection: 'row',
-                  }}
-                >
-                  <Icon name="search-light" color={theme.textContrast} />
-                  <Title>{item}</Title>
-                </View>
-              );
-            }}
-            renderBody={(item) => {
-              return (
-                <Fragment>
-                  <CustomStyledItem>{item}</CustomStyledItem>
-                </Fragment>
-              );
-            }}
+            renderTitle={(item) => (
+              <View
+                style={{
+                  paddingLeft: 20,
+                  alignItems: 'center',
+                  flexDirection: 'row',
+                }}
+              >
+                <Icon name="search-light" color={theme.textContrast} />
+                <Title>{item}</Title>
+              </View>
+            )}
+            renderBody={(item) => <CustomStyledItem>{item}</CustomStyledItem>}
             toggleElement={
               <Icon name="chevron-down-light" color={theme.textContrast} />
             }
-            styles={{
-              titleContainer: {
-                backgroundColor: 'gray',
-              },
-              bodyContainer: {
-                backgroundColor: 'lightgray',
-              },
-            }}
+            styles={customStyles}
           />
         </Container>
       </ScrollContainer>

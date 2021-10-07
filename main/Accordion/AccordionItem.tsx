@@ -1,11 +1,5 @@
-import {
-  Animated,
-  Easing,
-  LayoutChangeEvent,
-  StyleProp,
-  ViewStyle,
-} from 'react-native';
-import {Datum, Styles} from './index';
+import {AccordionBaseProps, TOGGLE_ELEMENT_PROPERTY} from './Accordion';
+import {Animated, Easing, LayoutChangeEvent} from 'react-native';
 import React, {FC, ReactElement, useEffect, useRef, useState} from 'react';
 
 import {Icon} from '../Icon';
@@ -43,34 +37,29 @@ const StyledItem = styled.Text`
   padding: 0px 20px;
 `;
 
-type ToggleIndicatorType = React.ReactElement | undefined;
+export interface AccordionData {
+  title: string;
+  bodies: string[];
+}
 
 interface TranslateYType {
   translateY: Animated.Value;
 }
 
-interface Props {
+interface Props<T> extends AccordionBaseProps<T> {
   testID: string;
-  style?: StyleProp<ViewStyle>;
-  styles?: Styles;
-  datum: Datum;
-  collapseOnStart?: boolean;
-  shouldAnimate?: boolean;
-  animDuration?: number;
-  activeOpacity?: number;
-  toggleElement?: React.ReactElement;
   dropDownAnimValueList: Animated.Value;
   sumOfPrecedingTranslateY: TranslateYType[];
-  renderTitle?: (item: string) => React.ReactElement;
-  renderBody?: (item: string) => React.ReactElement;
 }
 
-const AccordionItem: FC<Props> = (props) => {
+type AccordionItemProps = Props<AccordionData>;
+
+const AccordionItem: FC<AccordionItemProps> = (props) => {
   const {theme} = useTheme();
 
   const {
     testID,
-    datum: item,
+    data: item,
     shouldAnimate = true,
     collapseOnStart = true,
     animDuration = 300,
@@ -113,8 +102,8 @@ const AccordionItem: FC<Props> = (props) => {
   };
 
   const renderIndicator = (
-    element: ToggleIndicatorType,
-  ): React.ReactElement => (
+    element: AccordionItemProps[typeof TOGGLE_ELEMENT_PROPERTY],
+  ): ReactElement => (
     <Animated.View
       style={{
         position: 'absolute',
