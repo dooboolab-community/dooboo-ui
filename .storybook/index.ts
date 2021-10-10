@@ -5,7 +5,7 @@ import '../stories/dooboo-ui/LoadingIndicatorStories';
 import '../stories/dooboo-ui/NetworkImageStories';
 import '../stories/dooboo-ui/RadioGroupStories';
 import '../stories/dooboo-ui/SnackbarStories';
-import '../stories/dooboo-ui/ButtonStories';
+import '../main/Button/ButtonStories/index';
 import '../stories/dooboo-ui/IconButtonStories';
 import '../stories/dooboo-ui/CheckboxStories';
 import '../stories/dooboo-ui/EditTextStories';

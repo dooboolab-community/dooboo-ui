@@ -1,11 +1,10 @@
-import {Button, Hr} from '../../../main';
-import {IC_FACEBOOK, IC_GOOGLE} from '../../Icon';
+import {Button, Hr} from '../..';
+import {IC_FACEBOOK, IC_GOOGLE} from '../../../.storybook/assets/icons';
 import {Image, View} from 'react-native';
 import React, {useState} from 'react';
 import styled, {css} from '@emotion/native';
 
 import type {FC} from 'react';
-import {action} from '@storybook/addon-actions';
 
 const StoryContainer = styled.View`
   flex: 1;
@@ -23,8 +22,8 @@ const ScrollContainer = styled.ScrollView`
 `;
 
 const ButtonDefault: FC = () => {
-  const [facebookLoading, setFacebookLoading] = useState<boolean>(false);
-  const [googleLoading, setGoogleLoading] = useState<boolean>(false);
+  const [facebookLoading, setFacebookLoading] = useState(false);
+  const [googleLoading, setGoogleLoading] = useState(false);
 
   return (
     <StoryContainer>
@@ -145,7 +144,6 @@ const ButtonDefault: FC = () => {
           }}
           onPress={(): void => {
             setGoogleLoading(true);
-            action('google btn clicked');
 
             const timeout = setTimeout(() => {
               setGoogleLoading(false);
@@ -178,7 +176,6 @@ const ButtonDefault: FC = () => {
           }}
           onPress={(): void => {
             setFacebookLoading(true);
-            action('facebook btn clicked');
 
             const timeout = setTimeout(() => {
               setFacebookLoading(false);
