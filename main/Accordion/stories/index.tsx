@@ -1,7 +1,7 @@
 import {AccordionCustomStyle, AccordionDefault} from './DefaultStory';
 import React, {ReactElement} from 'react';
 
-import {ThemeProvider} from '../../../main/theme';
+import {ThemeProvider} from '@dooboo-ui/theme';
 import {storiesOf} from '@storybook/react-native';
 
 /**

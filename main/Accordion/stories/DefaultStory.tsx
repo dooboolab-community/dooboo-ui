@@ -4,10 +4,9 @@ import {
   AccordionListType,
   AccordionStyles,
 } from '../';
-import React, {Fragment, ReactElement} from 'react';
+import React, {ReactElement} from 'react';
 
 import {Icon} from '../../Icon';
-import {ThemeProvider} from '@dooboo-ui/theme';
 import {View} from 'react-native';
 import styled from '@emotion/native';
 import {useFonts} from 'expo-font';
@@ -74,19 +73,15 @@ export const AccordionDefault = (): ReactElement => {
     IcoMoon: require('../../../main/Icon/doobooui.ttf'),
   });
 
-  if (!fontsLoaded) return <View />;
+  if (!fontsLoaded) {
+    return <View />;
+  }
 
   return (
     <StoryContainer style={{backgroundColor: theme.background}}>
       <ScrollContainer>
         <Container>
-          <Accordion
-            data={data}
-            shouldAnimate={true}
-            collapseOnStart={true}
-            animDuration={400}
-            activeOpacity={1}
-          />
+          <Accordion data={data} />
         </Container>
       </ScrollContainer>
     </StoryContainer>
@@ -100,7 +95,9 @@ export const AccordionCustomStyle = (): ReactElement => {
     IcoMoon: require('../../../main/Icon/doobooui.ttf'),
   });
 
-  if (!fontsLoaded) return <View />;
+  if (!fontsLoaded) {
+    return <View />;
+  }
 
   return (
     <StoryContainer style={{backgroundColor: theme.background}}>

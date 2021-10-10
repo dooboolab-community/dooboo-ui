@@ -63,10 +63,7 @@ const Accordion: FC<AccordionProps> = (props) => {
             shouldAnimate={shouldAnimate}
             animDuration={animDuration}
             activeOpacity={activeOpacity}
-            dropDownAnimValueList={dropDownAnimValueList[titleKey]}
-            sumOfPrecedingTranslateY={dropDownAnimValueList
-              .filter((item, idx) => idx < titleKey)
-              .map((value) => ({translateY: value}))}
+            dropDownAnimValue={dropDownAnimValueList[titleKey]}
             toggleElement={toggleElement}
             renderTitle={renderTitle}
             renderBody={renderBody}
