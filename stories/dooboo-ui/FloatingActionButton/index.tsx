@@ -1,6 +1,5 @@
 import React, {ReactElement} from 'react';
 
-import {ContainerDeco} from '../../../storybook/decorators';
 import {FABStory} from './FABStory';
 import {ThemeProvider} from '../../../main/theme';
 import {storiesOf} from '@storybook/react-native';
@@ -22,7 +21,6 @@ toStorybook.story = {
  * Below are stories for app
  */
 storiesOf('FAB', module)
-  .addDecorator(ContainerDeco)
   .add('FAB - light', () => (
     <ThemeProvider initialThemeType="light">
       <FABStory />

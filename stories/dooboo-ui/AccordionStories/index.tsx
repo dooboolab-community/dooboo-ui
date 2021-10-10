@@ -1,7 +1,6 @@
 import {AccordionCustomStyle, AccordionDefault} from './stories';
 import React, {ReactElement} from 'react';
 
-import {ContainerDeco} from '../../../storybook/decorators';
 import {storiesOf} from '@storybook/react-native';
 
 /**
@@ -26,7 +25,6 @@ toStorybook2.story = {
  * Below are stories for app
  */
 storiesOf('Accordion', module)
-  .addDecorator(ContainerDeco)
   .add('default', () => <AccordionDefault />, {
     notes: 'Simple explanation',
   })

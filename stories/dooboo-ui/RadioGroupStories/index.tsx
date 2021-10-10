@@ -1,6 +1,5 @@
 import React, {ReactElement} from 'react';
 
-import {ContainerDeco} from '../../../storybook/decorators';
 import RadioGroupDefaultStory from './RadioGroupStory';
 import {ThemeProvider} from '../../../main/theme';
 import {storiesOf} from '@storybook/react-native';
@@ -22,7 +21,6 @@ toStorybook.story = {
  * Below are stories for app
  */
 storiesOf('RadioGroup', module)
-  .addDecorator(ContainerDeco)
   .add('radio group - light', () => (
     <ThemeProvider initialThemeType="light">
       <RadioGroupDefaultStory />

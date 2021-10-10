@@ -1,7 +1,6 @@
 import {LoadingIndicator, ThemeProvider} from '../../../main';
 import React, {ReactElement} from 'react';
 
-import {ContainerDeco} from '../../../storybook/decorators';
 import CustomLoadingIndicator from './CustomLoadingIndicator';
 import {storiesOf} from '@storybook/react-native';
 import styled from '@emotion/native';
@@ -58,7 +57,6 @@ toStorybook.story = {
  * Below are stories for app
  */
 storiesOf('LoadingIndicator', module)
-  .addDecorator(ContainerDeco)
   .add('spinner - light', () => (
     <ThemeProvider initialThemeType="light">
       <Spinner />

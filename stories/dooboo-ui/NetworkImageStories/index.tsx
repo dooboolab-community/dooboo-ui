@@ -1,7 +1,6 @@
 import {NetworkImage, ThemeProvider, Typography} from '../../../main';
 import React, {ReactElement} from 'react';
 
-import {ContainerDeco} from '../../../storybook/decorators';
 import {View} from 'react-native';
 import {storiesOf} from '@storybook/react-native';
 import styled from '@emotion/native';
@@ -77,7 +76,6 @@ toStorybook.story = {
  * Below are stories for app
  */
 storiesOf('NetworkImage', module)
-  .addDecorator(ContainerDeco)
   .add('NetworkImage - light', () => (
     <ThemeProvider initialThemeType="light">
       <NetworkImageStory />

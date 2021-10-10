@@ -4,7 +4,6 @@ import 'intl/locale-data/jsonp/en';
 import React, {ReactElement, useState} from 'react';
 
 import CalendarCarousel from '../../../packages/CalendarCarousel/lib';
-import {ContainerDeco} from '../../../storybook/decorators';
 import {storiesOf} from '@storybook/react-native';
 import styled from '@emotion/native';
 
@@ -58,11 +57,7 @@ export default {
   title: 'Calendar',
 };
 
-export const toStorybook = (): ReactElement => (
-  <>
-    <Default />
-  </>
-);
+export const toStorybook = (): ReactElement => <Default />;
 
 toStorybook.story = {
   name: 'default',
@@ -72,10 +67,4 @@ toStorybook.story = {
  * Below are stories for app
  */
 
-storiesOf('Calendar', module)
-  .addDecorator(ContainerDeco)
-  .add('default', () => (
-    <>
-      <Default />
-    </>
-  ));
+storiesOf('Calendar', module).add('default', () => <Default />);

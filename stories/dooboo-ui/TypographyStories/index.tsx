@@ -1,6 +1,5 @@
 import React, {ReactElement} from 'react';
 
-import {ContainerDeco} from '../../../storybook/decorators';
 import {ThemeProvider} from '../../../main/theme';
 import {Typography} from '../../../main';
 import {View} from 'react-native';
@@ -70,7 +69,6 @@ toStorybook.story = {
  * Below are stories for app
  */
 storiesOf('Typography', module)
-  .addDecorator(ContainerDeco)
   .add('text - light', () => (
     <ThemeProvider initialThemeType="light">
       <TypographyDefault />

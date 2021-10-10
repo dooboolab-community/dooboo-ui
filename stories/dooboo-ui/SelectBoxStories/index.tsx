@@ -1,6 +1,5 @@
 import React, {ReactElement} from 'react';
 
-import {ContainerDeco} from '../../../storybook/decorators';
 import SelectBoxStory from './SelectBoxStory';
 import {ThemeProvider} from '../../../main/theme';
 import {View} from 'react-native';
@@ -23,7 +22,6 @@ toStorybook.story = {
  * Below are stories for app
  */
 storiesOf('SelectBox', module)
-  .addDecorator(ContainerDeco)
   .add('SelectBox - light', () => (
     <ThemeProvider initialThemeType="light">
       <SelectBoxStory />

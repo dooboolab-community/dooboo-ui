@@ -1,6 +1,5 @@
 import React, {ReactElement} from 'react';
 
-import {ContainerDeco} from '../../../storybook/decorators';
 import EditTextBoxed from './EditTextBoxedStory';
 import EditTextColumn from './EditTextColumnStory';
 import EditTextRow from './EditTextRowStory';
@@ -52,7 +51,6 @@ boxStory.dark = {
  * Below are stories for app
  */
 storiesOf('EditText', module)
-  .addDecorator(ContainerDeco)
   .add(
     columnStory.light.name,
     () => (
