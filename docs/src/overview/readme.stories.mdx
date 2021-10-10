@@ -35,6 +35,10 @@ import {Meta} from '@storybook/addon-docs/blocks';
 
 We love [react-hooks](https://code.fb.com/open-source/react-hooks) and willing to share our [react-native](https://facebook.github.io/react-native) ui components built in [function components](https://reactjs.org/docs/components-and-props.html#function-and-class-components) using hooks. Also the `dooboo-ui` is built on top of our favorite stacks like [emotion](https://emotion.sh/docs/@emotion/native), [typescript](https://www.typescriptlang.org/), [jest](https://jestjs.io), [react-testing-library](https://testing-library.com/docs/react-testing-library/intro), [expo](https://expo.io), [storybook](https://storybook.js.org), and so on.
 
+## Philosophy
+
+`dooboo-ui` aims to provide easy, lightweight, and flexible UI components.
+
 ## Notice
 
 Current project is forked from [dooboo-ui-legacy](https://github.com/dooboolab/dooboo-ui-legacy) to renew the project. We've made this decision because one of our sponsors wanted to rebrand this awesome project with better communication design and features. We are very happy to continue this project aggregating the aspiration of various people. The version of current project will start from `dooboo-ui@0.1.0` in [npm registry](https://www.npmjs.com).
@@ -43,16 +47,32 @@ Current project is forked from [dooboo-ui-legacy](https://github.com/dooboolab/d
 
 Hosted in [github pages](https://dooboolab.github.io/dooboo-ui)
 
-## Contributing to `dooboo-ui`
+## Install
 
-- See also
-  - dooboolab's [vision-and-mission](https://github.com/dooboolab/dooboolab.com/blob/master/vision-and-mission.md)
-  - dooboolab's [code of conduct](https://github.com/dooboolab/dooboolab.com/blob/master/code-of-conduct.md)
-- [Contributing](?path=/story/contributing-contributing--page)
-  - Please run `yarn pre` so that the packages are prepared.
-    - If you are having trouble, try to run `yarn install:packages`.
-  - Try to make awesome UI components and test them in `storybook`. Ensure to test in platforms we provide which are `iOS`, `android` and `web`. Then it's all good to go for `pull request`. Give it a try :blossom:.
-- While implementing UI components you should run `yarn watch` in order to build typescript files dynamically while implementing. This is currently the best solution to sync with your typescript code using `package.json`. If you find something more efficient, please give a pull request.
+### Expo
+
+```sh
+# npm
+npm install dooboo-ui
+
+# yarn
+yarn add dooboo-ui
+```
+
+### React Native CLI
+
+```sh
+# npm
+npm install dooboo-ui
+
+# yarn
+yarn add dooboo-ui
+```
+
+### dooboo-cli
+
+You can easily set boilerplate code with `dooboo-ui` by using [dooboo-cli](https://github.com/dooboolab/dooboo-cli).
+Please read the `doobo-cli` documents.
 
 ## Usage
 
@@ -65,7 +85,7 @@ import {ThemeProvider} from 'dooboo-ui';
 
 <ThemeProvider>
   <App/>
-</ThemeRpvoider>
+</ThemeProvider>
 ```
 
 ## Theming
