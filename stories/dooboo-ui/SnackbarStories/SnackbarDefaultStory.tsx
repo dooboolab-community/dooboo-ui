@@ -45,6 +45,7 @@ function SnackbarDefault(): React.ReactElement {
       {types.map((type) => (
         <Button
           type={type === 'default' ? 'primary' : type}
+          key={type}
           onPress={() => onPress(type)}
           text={`Open Snackbar - ${type}`}
           style={{margin: 20}}
