@@ -1,7 +1,6 @@
 import {ButtonGroup, ThemeProvider} from '../../../main';
 import React, {ReactElement, useState} from 'react';
 
-import {ContainerDeco} from '../../../storybook/decorators';
 import {View} from 'react-native';
 import {storiesOf} from '@storybook/react-native';
 import styled from '@emotion/native';
@@ -65,7 +64,6 @@ toStorybook.story = {
  * Below are stories for app
  */
 storiesOf('ButtonGroup', module)
-  .addDecorator(ContainerDeco)
   .add('ButtonGroup - light', () => (
     <ThemeProvider initialThemeType="light">
       <ButtonGroupStory />

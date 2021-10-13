@@ -3,7 +3,6 @@ import Modal from 'react-native-modalbox';
 import {TouchableOpacity} from 'react-native';
 
 import AlertDialog from '../../../packages/AlertDialog/lib';
-import {ContainerDeco} from '../../../storybook/decorators';
 import {storiesOf} from '@storybook/react-native';
 import styled from '@emotion/native';
 
@@ -141,11 +140,7 @@ export default {
   title: 'AlertDialog',
 };
 
-export const toStorybook = (): ReactElement => (
-  <>
-    <Dialog />
-  </>
-);
+export const toStorybook = (): ReactElement => <Dialog />;
 
 toStorybook.story = {
   name: 'dialog',
@@ -155,10 +150,4 @@ toStorybook.story = {
  * Below are stories for app
  */
 
-storiesOf('AlertDialog', module)
-  .addDecorator(ContainerDeco)
-  .add('dialog', () => (
-    <>
-      <Dialog />
-    </>
-  ));
+storiesOf('AlertDialog', module).add('dialog', () => <Dialog />);

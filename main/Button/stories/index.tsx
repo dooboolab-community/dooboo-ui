@@ -1,9 +1,10 @@
 import React, {ReactElement} from 'react';
 
 import ButtonDefault from './ButtonDefaultStory';
-import {ContainerDeco} from '../../../storybook/decorators';
-import {ThemeProvider} from '../../../main/theme';
+import {ThemeProvider} from '../../theme';
 import {storiesOf} from '@storybook/react-native';
+import {withActions} from '@storybook/addon-actions';
+import {withKnobs} from '@storybook/addon-knobs';
 
 /**
  * Below are stories for web
@@ -22,7 +23,8 @@ toStorybook.story = {
  * Below are stories for app
  */
 storiesOf('Button', module)
-  .addDecorator(ContainerDeco)
+  .addDecorator(withKnobs)
+  .addDecorator(withActions)
   .add('button - light', () => (
     <ThemeProvider initialThemeType="light">
       <ButtonDefault />

@@ -1,6 +1,5 @@
 import React, {ReactElement} from 'react';
 
-import {ContainerDeco} from '../../../storybook/decorators';
 import SnackbarDefaultStory from './SnackbarDefaultStory';
 import SnackbarWithActionStory from './SnackbarWithActionStory';
 import {ThemeProvider} from '../../../main/theme';
@@ -23,7 +22,6 @@ toStorybook.story = {
  * Below are stories for app
  */
 storiesOf('Snackbar', module)
-  .addDecorator(ContainerDeco)
   .add('Snackbar - light', () => (
     <ThemeProvider initialThemeType="light">
       <SnackbarDefaultStory />

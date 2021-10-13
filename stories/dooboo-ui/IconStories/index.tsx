@@ -1,6 +1,5 @@
 import React, {ReactElement} from 'react';
 
-import {ContainerDeco} from '../../../storybook/decorators';
 import IconStory from './IconStory';
 import {ThemeProvider} from '../../../main/theme';
 import {storiesOf} from '@storybook/react-native';
@@ -22,7 +21,6 @@ toStorybook.story = {
  * Below are stories for app
  */
 storiesOf('Icon', module)
-  .addDecorator(ContainerDeco)
   .add('font icons - light', () => (
     <ThemeProvider initialThemeType="light">
       <IconStory />
