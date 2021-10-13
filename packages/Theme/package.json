@@ -28,16 +28,19 @@
     "dooboo-ui",
     "dooboolab"
   ],
+  "dependencies": {
+    "react-responsive": "^8.2.0"
+  },
   "devDependencies": {
+    "typescript": "^4.2.4",
     "@emotion/native": "^11.0.0",
-    "@emotion/react": "^11.1.5",
-    "typescript": "^4.2.4"
+    "@emotion/react": "^11.1.5"
   },
   "peerDependencies": {
-    "@expo/match-media": "^0.1.0",
-    "@emotion/native": "*",
-    "@emotion/react": "*",
     "react": ">=16.9",
-    "react-native": ">=0.58"
+    "react-native": ">=0.58",
+    "@emotion/react": "*",
+    "@emotion/native": "*",
+    "@expo/match-media": "^0.1.0"
   }
 }
