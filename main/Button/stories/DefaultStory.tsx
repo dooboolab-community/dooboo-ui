@@ -1,5 +1,5 @@
 import {Button, Hr} from '../..';
-import {IC_FACEBOOK, IC_GOOGLE} from '../../../.storybook/assets/icons';
+import {IC_FACEBOOK, IC_GOOGLE} from '../../../storybook/assets/icons';
 import {Image, View} from 'react-native';
 import React, {useState} from 'react';
 import {boolean, select} from '@storybook/addon-knobs';

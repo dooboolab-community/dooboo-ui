@@ -1,7 +1,7 @@
 import {Animated, Easing, ImageStyle, StyleProp, View} from 'react-native';
 import React, {FC, useEffect, useState} from 'react';
 
-import {IC_MASK} from '../../../.storybook/assets/icons';
+import {IC_MASK} from '../../../storybook/assets/icons';
 
 type Props = {
   style?: StyleProp<ImageStyle>;

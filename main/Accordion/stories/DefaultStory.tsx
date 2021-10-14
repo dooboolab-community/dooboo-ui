@@ -1,13 +1,15 @@
-import {Accordion, Icon, ThemeProvider} from '../..';
 import React, {Fragment, ReactElement} from 'react';
 import {SafeAreaView, View} from 'react-native';
 
+import {Accordion} from '../';
+import {Icon} from '../../Icon';
+import {ThemeProvider} from '../../theme';
 import styled from '@emotion/native';
 import {useFonts} from 'expo-font';
 
-const Container = styled.View`
+const Container = styled.SafeAreaView`
   flex: 1;
-  align-items: flex-start;
+  align-items: center;
   justify-content: center;
 `;
 
@@ -52,17 +54,15 @@ export const AccordionDefault = (): ReactElement => {
 
   return (
     <ThemeProvider initialThemeType="light">
-      <SafeAreaView style={{top: 100}}>
-        <Container>
-          <Accordion
-            data={data}
-            shouldAnimate={true}
-            collapseOnStart={true}
-            animDuration={400}
-            activeOpacity={1}
-          />
-        </Container>
-      </SafeAreaView>
+      <Container>
+        <Accordion
+          data={data}
+          shouldAnimate={true}
+          collapseOnStart={true}
+          animDuration={400}
+          activeOpacity={1}
+        />
+      </Container>
     </ThemeProvider>
   );
 };
@@ -76,7 +76,7 @@ export const AccordionCustomStyle = (): React.ReactElement => {
 
   return (
     <ThemeProvider initialThemeType="light">
-      <SafeAreaView style={{top: 100}}>
+      <SafeAreaView style={{width: '100%', height: '100%'}}>
         <Container>
           <Accordion
             data={data}
