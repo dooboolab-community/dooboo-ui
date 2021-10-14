@@ -10,14 +10,13 @@ import {
 } from 'react-native';
 import React, {ReactElement, useEffect, useRef, useState} from 'react';
 
-import {DoobooTheme} from '../theme';
 import {GenericTouchableProps} from 'react-native-gesture-handler/lib/typescript/components/touchables/GenericTouchable';
 import {Icon} from '../Icon';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 import {Typography} from '../Typography';
 import styled from '@emotion/native';
 import {useHover} from 'react-native-web-hooks';
-import {withTheme} from '@emotion/react';
+import {DoobooTheme, useTheme} from '..';
 
 const Title = styled.View`
   width: 200px;
@@ -95,7 +94,7 @@ function ItemComp<T extends {value: string} | string>({
   );
 }
 
-export interface Props<T> {
+export interface SelectBoxProps<T> {
   data: T[];
   selectedIndex: number;
   onSelect: (item: T, index: number) => void;
@@ -110,8 +109,7 @@ export interface Props<T> {
   itemTouchableProps?: Partial<TouchableOpacityProps & GenericTouchableProps>;
 }
 
-function Component<T extends {value: string} | string>({
-  theme,
+export function SelectBox<T extends {value: string} | string>({
   data,
   selectedIndex = 0,
   onSelect,
@@ -124,12 +122,16 @@ function Component<T extends {value: string} | string>({
   disabled = false,
   titleTouchableProps = {activeOpacity: 1},
   itemTouchableProps = {activeOpacity: 1},
-}: Props<T> & {theme: DoobooTheme}): ReactElement {
+}: SelectBoxProps<T>): ReactElement {
   const [isOpened, setIsOpened] = useState(false);
 
   const selectedValue = data[selectedIndex];
 
   const rotateAnimValue = useRef(new Animated.Value(0)).current;
+
+  const {theme} = useTheme();
+
+  const {primary, textContrast} = theme;
 
   useEffect(() => {
     const toValue = isOpened ? 1 : 0;
@@ -157,8 +159,8 @@ function Component<T extends {value: string} | string>({
         <Title
           style={[
             {
-              borderColor: theme.primary,
-              backgroundColor: theme.textContrast,
+              borderColor: primary,
+              backgroundColor: textContrast,
             },
             styles?.titleContainer,
           ]}
@@ -211,5 +213,3 @@ function Component<T extends {value: string} | string>({
     </View>
   );
 }
-
-export const SelectBox = withTheme(Component);

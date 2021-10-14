@@ -12,7 +12,6 @@ import {
   RadioButtonWrapper,
   RadioWrapper,
 } from '../Styled/StyledComponents';
-import {DoobooTheme, light, withTheme} from '../theme';
 import React, {FC, useEffect, useRef, useState} from 'react';
 
 import styled from '@emotion/native';
@@ -39,7 +38,6 @@ export type RadioButtonProps = {
   styles?: Styles;
   type?: RadioButtonType;
   disabled?: boolean;
-  theme?: DoobooTheme;
   selected?: boolean;
   rightElement?: React.ReactElement;
   leftElement?: React.ReactElement;
@@ -78,7 +76,7 @@ const StyledRadioCircle = styled(RadioWrapper)<{
     innerLayout && `${innerLayout.width / 2}px`};
 `;
 
-const RadioButtonContainer: FC<RadioButtonProps> = ({
+export const RadioButton: FC<RadioButtonProps> = ({
   testID,
   style,
   styles,
@@ -180,7 +178,3 @@ const RadioButtonContainer: FC<RadioButtonProps> = ({
     </Container>
   );
 };
-
-RadioButtonContainer.defaultProps = {theme: light};
-
-export const RadioButton = withTheme(RadioButtonContainer);

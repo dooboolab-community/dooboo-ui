@@ -1,7 +1,8 @@
-import {DoobooTheme, dark} from '../theme';
+import {DoobooTheme, light, dark} from '../theme';
 
 import {Animated} from 'react-native';
 import styled from '@emotion/native';
+import {isEmptyObject} from '../utils';
 
 export type ButtonType =
   | 'primary'
@@ -27,6 +28,8 @@ export const ButtonWrapper = styled.View<{
 }>`
   border-width: ${({outlined}) => (outlined ? '1px' : undefined)};
   background-color: ${({theme, type, outlined, disabled}) => {
+    theme = isEmptyObject(theme) ? light : theme;
+
     if (disabled) return undefined;
 
     if (outlined) return theme.background;
@@ -47,6 +50,8 @@ export const ButtonText = styled.Text<{
   theme?: DoobooTheme;
 }>`
   color: ${({theme, outlined, type, disabled}) => {
+    theme = isEmptyObject(theme) ? light : theme;
+
     const isDarkBackground = theme.background === dark.background;
 
     if (outlined) {
@@ -77,6 +82,8 @@ export const CheckboxWrapperOutlined = styled(Animated.View)<{
 }>`
   border-width: 1px;
   border-color: ${({theme, type, disabled}) => {
+    theme = isEmptyObject(theme) ? light : theme;
+
     if (disabled) return theme.disabled;
 
     if (type === 'light') return theme.primary;
@@ -91,6 +98,8 @@ export const CheckboxWrapper = styled(Animated.View)<{
   checked?: boolean;
 }>`
   background-color: ${({theme, checked, type, disabled}) => {
+    theme = isEmptyObject(theme) ? light : theme;
+
     if (disabled) return undefined;
 
     if (!checked) return theme.background;
@@ -108,6 +117,8 @@ export const RadioButtonWrapper = styled.View<{
 }>`
   border-width: 1px;
   border-color: ${({theme, type, selected, disabled}) => {
+    theme = isEmptyObject(theme) ? light : theme;
+
     if (disabled) return theme.disabled;
 
     if (!selected) return theme.text;
@@ -124,6 +135,8 @@ export const RadioWrapper = styled(Animated.View)<{
   selected?: boolean;
 }>`
   background-color: ${({theme, selected, type, disabled}) => {
+    theme = isEmptyObject(theme) ? light : theme;
+
     if (disabled) return theme.disabled;
 
     if (!selected) return theme.background;
@@ -138,6 +151,8 @@ export const ColoredText = styled.Text<{
   selected?: boolean;
 }>`
   color: ${({theme, selected, type, disabled}) => {
+    theme = isEmptyObject(theme) ? light : theme;
+
     if (disabled) return undefined;
 
     if (!selected) return theme.text;
@@ -153,6 +168,8 @@ export const SnackbarWrapper = styled(Animated.View)<{
   checked?: boolean;
 }>`
   background-color: ${({theme, type}) => {
+    theme = isEmptyObject(theme) ? light : theme;
+
     if (type === 'default') return theme.paper;
 
     return theme[type ?? 'paper'];

@@ -1,5 +1,5 @@
 import {ActivityIndicator, Platform, TouchableOpacity} from 'react-native';
-import {DoobooTheme, light, withTheme} from '../theme';
+import {useTheme} from '../theme';
 import React, {useRef} from 'react';
 import type {
   StyleProp,
@@ -62,22 +62,26 @@ export interface IconButtonProps {
   size?: ButtonSize;
 }
 
-const StyledButton: FC<IconButtonProps & {theme: DoobooTheme}> = ({
-  testID,
-  theme,
-  disabled,
-  loading,
-  style,
-  styles,
-  indicatorColor = theme.disabled,
-  activeOpacity = 0.6,
-  icon,
-  onPress,
-  touchableOpacityProps,
-  type = 'primary',
-  outlined = false,
-  size = 'medium',
-}) => {
+export const IconButton: FC<IconButtonProps> = (props) => {
+  const {
+    testID,
+    disabled,
+    loading,
+    style,
+    styles,
+    activeOpacity = 0.6,
+    icon,
+    onPress,
+    touchableOpacityProps,
+    type = 'primary',
+    outlined = false,
+    size = 'medium',
+  } = props;
+
+  const {theme} = useTheme();
+
+  const indicatorColor = props.indicatorColor ?? theme.disabled;
+
   const ref = useRef<TouchableOpacity>(null);
   const hovered = useHover(ref);
 
@@ -150,7 +154,3 @@ const StyledButton: FC<IconButtonProps & {theme: DoobooTheme}> = ({
     </TouchableOpacity>
   );
 };
-
-StyledButton.defaultProps = {theme: light};
-
-export const IconButton = withTheme(StyledButton);

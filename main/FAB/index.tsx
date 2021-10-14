@@ -7,15 +7,10 @@ import {
   ViewStyle,
 } from 'react-native';
 import {ButtonSize, IconButton} from '../IconButton';
-import {DoobooTheme, withTheme} from '../theme';
 import {Icon, IconName} from '../Icon';
 import React, {ReactElement, useLayoutEffect, useMemo, useRef} from 'react';
 
-import styled from '@emotion/native';
-
-export const StyledIcon = styled(Icon)`
-  color: ${({theme}) => theme.textContrast};
-`;
+import {useTheme} from '..';
 
 interface Styles {
   FAB?: StyleProp<ViewStyle>;
@@ -51,9 +46,7 @@ function FloatingActionButtons<Item extends FABItem = FABItem>({
   onPressFABItem,
   renderFAB,
   renderFABItem,
-}: FABProps<Item> & {
-  theme: DoobooTheme;
-}): ReactElement {
+}: FABProps<Item>): ReactElement {
   const {
     FAB,
     FABItem,
@@ -61,6 +54,8 @@ function FloatingActionButtons<Item extends FABItem = FABItem>({
     iconSize = 24,
     gap = 20,
   } = styles ?? {};
+
+  const {theme} = useTheme();
 
   const spinValue = useRef(new Animated.Value(0));
   const positionValue = useRef(new Animated.Value(0));
@@ -128,7 +123,13 @@ function FloatingActionButtons<Item extends FABItem = FABItem>({
               <IconButton
                 testID={id}
                 size={buttonSize}
-                icon={<StyledIcon size={iconSize} name={icon} />}
+                icon={
+                  <Icon
+                    color={theme.textContrast}
+                    size={iconSize}
+                    name={icon}
+                  />
+                }
                 onPress={() => onPressFABItem(item)}
               />
             )}
@@ -157,7 +158,13 @@ function FloatingActionButtons<Item extends FABItem = FABItem>({
           <IconButton
             testID={'main_fab'}
             size={buttonSize}
-            icon={<StyledIcon size={iconSize} name="add-light" />}
+            icon={
+              <Icon
+                color={theme.textContrast}
+                size={iconSize}
+                name="add-light"
+              />
+            }
             onPress={onPressFAB}
           />
         )}
@@ -166,4 +173,4 @@ function FloatingActionButtons<Item extends FABItem = FABItem>({
   );
 }
 
-export const FAB = withTheme(FloatingActionButtons);
+export {FloatingActionButtons as FAB};

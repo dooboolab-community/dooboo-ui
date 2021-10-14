@@ -1,4 +1,3 @@
-import {DoobooTheme, light} from '../theme';
 import {
   RadioButton as RadioButtonComp,
   RadioButtonProps,
@@ -17,7 +16,6 @@ type Styles = {
 };
 
 type Props<T> = {
-  theme?: DoobooTheme;
   title?: string;
   data: T[];
   selectedValue: T;
@@ -27,7 +25,7 @@ type Props<T> = {
   style?: StyleProp<ViewStyle>;
   styles?: Styles;
   labels?: string[];
-  radioType?: Omit<RadioButtonProps, 'type' | 'theme'>;
+  radioType?: Omit<RadioButtonProps, 'type'>;
   labelPosition?: 'left' | 'right';
 };
 
@@ -79,8 +77,6 @@ function RadioGroupContainer<T>(
     </Container>
   );
 }
-
-RadioGroupContainer.defaultProps = {theme: light};
 
 export const RadioGroup = RadioGroupContainer;
 

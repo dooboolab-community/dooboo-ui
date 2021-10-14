@@ -3,12 +3,11 @@ import {
   CheckboxWrapper,
   CheckboxWrapperOutlined,
 } from '../Styled/StyledComponents';
-import {DoobooTheme, light} from '../theme';
 import React, {FC, useEffect, useRef} from 'react';
 
 import {Icon} from '../Icon';
 import styled from '@emotion/native';
-import {withTheme} from '@emotion/react';
+import {DoobooTheme, useTheme} from '..';
 
 type Styles = {
   checkbox?: StyleProp<ViewStyle>;
@@ -28,7 +27,6 @@ export interface CheckboxProps {
   styles?: Styles;
   type?: CheckboxType;
   disabled?: boolean;
-  theme?: DoobooTheme;
   checked?: boolean;
   rightElement?: React.ReactElement;
   leftElement?: React.ReactElement;
@@ -66,11 +64,11 @@ const StyledCheckbox = styled(CheckboxWrapper)<{
   align-items: center;
 `;
 
-const StyledCheck = styled(Icon)<{checked?: boolean}>`
+const StyledCheck = styled(Icon)<{theme: DoobooTheme; checked?: boolean}>`
   color: ${({theme, checked}) => (checked ? theme.background : 'transparent')};
 `;
 
-const CheckboxContainer: FC<CheckboxProps> = ({
+export const Checkbox: FC<CheckboxProps> = ({
   style,
   styles,
   rightElement,
@@ -83,6 +81,8 @@ const CheckboxContainer: FC<CheckboxProps> = ({
   const animatedValue = new Animated.Value(0);
   const fadeAnim = useRef(animatedValue).current;
   const scaleAnim = useRef(animatedValue).current;
+
+  const {theme} = useTheme();
 
   useEffect(() => {
     Animated.sequence([
@@ -135,7 +135,7 @@ const CheckboxContainer: FC<CheckboxProps> = ({
             type={type}
             disabled={disabled}
           >
-            <StyledCheck name="tick-light" checked={checked} />
+            <StyledCheck theme={theme} name="tick-light" checked={checked} />
           </StyledCheckbox>
         </StyledCheckboxOutlined>
         {rightElement}
@@ -143,7 +143,3 @@ const CheckboxContainer: FC<CheckboxProps> = ({
     </Container>
   );
 };
-
-CheckboxContainer.defaultProps = {theme: light};
-
-export const Checkbox = withTheme(CheckboxContainer);
