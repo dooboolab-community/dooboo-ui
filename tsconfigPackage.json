@@ -11,7 +11,7 @@
     "incremental": true,
     "skipLibCheck": true,
     "allowSyntheticDefaultImports": true,
-    "allowJS": false,
+    "allowJs": false,
     "declaration": true
   },
   "exclude": [

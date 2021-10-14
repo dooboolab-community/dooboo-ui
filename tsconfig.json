@@ -13,7 +13,7 @@
     "target": "es6",
     "sourceMap": true,
     "allowJs": false,
-    "rootDirs": ["src", "stories"],
+    "rootDirs": ["src"],
     "baseUrl": "src",
     "incremental": true,
     "forceConsistentCasingInFileNames": true,
@@ -28,7 +28,7 @@
     "emitDecoratorMetadata": true,
     "esModuleInterop": true,
     "noUnusedLocals": false,
-    "types": ["reflect-metadata", "jest"],
+    "types": ["jest"],
     "typeRoots": ["./types", "./node_modules/@types"]
   },
   "include": [
