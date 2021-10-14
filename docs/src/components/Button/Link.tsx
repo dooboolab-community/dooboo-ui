@@ -1,8 +1,9 @@
-import {Button, ThemeProvider} from 'dooboo-ui';
 import {Linking, StyleSheet, View} from 'react-native';
 
+import {Button} from 'dooboo-ui';
 import type {FC} from 'react';
 import React from 'react';
+import {ThemeProvider} from '@dooboo-ui/theme';
 
 const styles = StyleSheet.create({
   container: {

@@ -1,6 +1,7 @@
-import {Button, ThemeProvider, ThemeType} from 'dooboo-ui';
 import React, {useState} from 'react';
+import {ThemeProvider, ThemeType} from '@dooboo-ui/theme';
 
+import {Button} from 'dooboo-ui';
 import type {FC} from 'react';
 import {View} from 'react-native';
 import styled from '@emotion/native';
