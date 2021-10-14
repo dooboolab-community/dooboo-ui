@@ -11,6 +11,8 @@ import '../main/NetworkImage/stories';
 import '../main/RadioGroup/stories';
 import '../main/SelectBox/stories';
 import '../main/Snackbar/stories';
+import '../main/SwitchToggle/stories';
+import '../main/Typography/stories';
 import '../packages/AlertDialog/stories';
 import '../packages/CalendarCarousel/stories';
 // import '../packages/GiftedChat/stories';
