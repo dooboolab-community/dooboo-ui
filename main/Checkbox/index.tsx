@@ -21,7 +21,7 @@ export type CheckboxType =
   | 'warning'
   | 'info';
 
-export interface Props {
+export interface CheckboxProps {
   onPress?: () => void;
   style?: StyleProp<ViewStyle>;
   styles?: Styles;
@@ -68,7 +68,7 @@ const StyledCheck = styled(Icon)<{theme: DoobooTheme; checked?: boolean}>`
   color: ${({theme, checked}) => (checked ? theme.background : 'transparent')};
 `;
 
-export const Checkbox: FC<Props> = ({
+export const Checkbox: FC<CheckboxProps> = ({
   style,
   styles,
   rightElement,

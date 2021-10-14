@@ -46,7 +46,7 @@ const ButtonContainer = styled(ButtonWrapper)<{
   justify-content: center;
 `;
 
-export interface Props {
+export interface IconButtonProps {
   testID?: string;
   indicatorColor?: string;
   loading?: boolean;
@@ -62,7 +62,7 @@ export interface Props {
   size?: ButtonSize;
 }
 
-export const IconButton: FC<Props> = (props) => {
+export const IconButton: FC<IconButtonProps> = (props) => {
   const {
     testID,
     disabled,

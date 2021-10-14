@@ -94,7 +94,7 @@ function ItemComp<T extends {value: string} | string>({
   );
 }
 
-export interface Props<T> {
+export interface SelectBoxProps<T> {
   data: T[];
   selectedIndex: number;
   onSelect: (item: T, index: number) => void;
@@ -122,7 +122,7 @@ export function SelectBox<T extends {value: string} | string>({
   disabled = false,
   titleTouchableProps = {activeOpacity: 1},
   itemTouchableProps = {activeOpacity: 1},
-}: Props<T>): ReactElement {
+}: SelectBoxProps<T>): ReactElement {
   const [isOpened, setIsOpened] = useState(false);
 
   const selectedValue = data[selectedIndex];
