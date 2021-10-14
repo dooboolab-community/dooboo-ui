@@ -22,9 +22,6 @@ jobs:
       - name: Install modules
         run: yarn install --frozen-lockfile
 
-      - name: Lerna init
-        run: yarn pre
-
       - name: Check linting
         run: yarn lint
 
