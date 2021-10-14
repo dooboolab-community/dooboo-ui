@@ -1,4 +1,4 @@
-import {DoobooTheme, light, useTheme, withTheme} from '../theme';
+import {useTheme} from '../theme';
 import {
   StyleProp,
   StyleSheet,
@@ -19,7 +19,6 @@ interface Styles {
 
 interface Props<T> {
   testID?: string;
-  theme: DoobooTheme;
   borderRadius?: number;
   borderWidth?: number;
   style?: StyleProp<ViewStyle>;
@@ -30,7 +29,7 @@ interface Props<T> {
   selectedIndex?: number;
 }
 
-function StyledButtonGroup<T>(props: Props<T>): React.ReactElement {
+export function ButtonGroup<T>(props: Props<T>): React.ReactElement {
   const {theme} = useTheme();
 
   const {
@@ -142,8 +141,7 @@ function StyledButtonGroup<T>(props: Props<T>): React.ReactElement {
   );
 }
 
-StyledButtonGroup.defaultProps = {
-  theme: light,
+ButtonGroup.defaultProps = {
   styles: {
     container: {
       backgroundColor: 'transparent',
@@ -181,5 +179,3 @@ StyledButtonGroup.defaultProps = {
   },
   data: ['option 1', 'option 2'],
 };
-
-export const ButtonGroup = withTheme<any>(StyledButtonGroup);
