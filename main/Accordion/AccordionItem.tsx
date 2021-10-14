@@ -5,11 +5,12 @@ import {
   StyleProp,
   ViewStyle,
 } from 'react-native';
-import React, {FC, useEffect, useRef, useState} from 'react';
+import React, {FC, ReactElement, useEffect, useRef, useState} from 'react';
 
 import {Datum, Styles} from './index';
 import {Icon} from '../Icon';
 import styled from '@emotion/native';
+import {useTheme} from '..';
 
 const TitleContainer = styled.TouchableOpacity`
   justify-content: center;
@@ -74,11 +75,20 @@ const AccordionItem: FC<Props> = (props) => {
     toggleElement,
     dropDownAnimValueList,
     sumOfPrecedingTranslateY,
-    renderTitle = (title) => <StyledTitle>{title}</StyledTitle>,
-    renderBody = (body) => <StyledItem>{body}</StyledItem>,
+
     styles,
     style,
   } = props;
+
+  const {theme} = useTheme();
+
+  const renderTitle = (title): ReactElement => (
+    <StyledTitle theme={theme}>{title}</StyledTitle>
+  );
+
+  const renderBody = (body): ReactElement => (
+    <StyledItem theme={theme}>{body}</StyledItem>
+  );
 
   const rotateAnimValue = useRef(new Animated.Value(0)).current;
 
@@ -118,7 +128,7 @@ const AccordionItem: FC<Props> = (props) => {
         ],
       }}
     >
-      {element || <StyledIcon name="chevron-down-light" />}
+      {element || <StyledIcon theme={theme} name="chevron-down-light" />}
     </Animated.View>
   );
 
@@ -170,6 +180,7 @@ const AccordionItem: FC<Props> = (props) => {
       ]}
     >
       <TitleContainer
+        theme={theme}
         testID={`title_${testID}`}
         onPress={handlePress}
         activeOpacity={activeOpacity}
@@ -192,7 +203,7 @@ const AccordionItem: FC<Props> = (props) => {
         onLayout={handleBodyLayout}
       >
         {item.bodies.map((body, key) => (
-          <ItemContainer key={key} style={styles?.bodyContainer}>
+          <ItemContainer key={key} theme={theme} style={styles?.bodyContainer}>
             {renderBody(body)}
           </ItemContainer>
         ))}
