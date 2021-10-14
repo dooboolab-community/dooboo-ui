@@ -11,13 +11,15 @@
     "incremental": true,
     "skipLibCheck": true,
     "allowSyntheticDefaultImports": true,
+    "allowJs": false,
     "declaration": true
   },
   "exclude": [
     "node_modules",
     "package",
     "**/**/*/__tests__",
-    "dist"
+    "dist",
+    "stories"
   ],
   "types": [
     "jest"

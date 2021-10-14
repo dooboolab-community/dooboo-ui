@@ -1,10 +1,10 @@
 /* eslint-disable jest/no-identical-title */
-import {fireEvent, render, RenderAPI} from '@testing-library/react-native';
+import {RenderAPI, fireEvent, render} from '@testing-library/react-native';
 import {createComponent, createTestProps} from '../../test/testUtils';
 
-import {ButtonGroup} from '../../main';
-import {theme} from '../theme/colors';
+import {ButtonGroup} from '../ButtonGroup';
 import {ThemeProvider} from '../theme';
+import {theme} from '../theme/colors';
 
 describe('[ButtonGroup]', () => {
   const themeType = 'light';

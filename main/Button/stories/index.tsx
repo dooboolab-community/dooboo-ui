@@ -1,6 +1,6 @@
 import React, {ReactElement} from 'react';
 
-import ButtonDefault from './ButtonDefaultStory';
+import DefaultStory from './DefaultStory';
 import {ThemeProvider} from '../../theme';
 import {storiesOf} from '@storybook/react-native';
 import {withActions} from '@storybook/addon-actions';
@@ -13,7 +13,7 @@ export default {
   title: 'Button',
 };
 
-export const toStorybook = (): ReactElement => <ButtonDefault />;
+export const toStorybook = (): ReactElement => <DefaultStory />;
 
 toStorybook.story = {
   name: 'default',
@@ -27,11 +27,11 @@ storiesOf('Button', module)
   .addDecorator(withActions)
   .add('button - light', () => (
     <ThemeProvider initialThemeType="light">
-      <ButtonDefault />
+      <DefaultStory />
     </ThemeProvider>
   ))
   .add('button - dark', () => (
     <ThemeProvider initialThemeType="dark">
-      <ButtonDefault />
+      <DefaultStory />
     </ThemeProvider>
   ));

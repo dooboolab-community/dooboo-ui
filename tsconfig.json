@@ -13,7 +13,7 @@
     "target": "es6",
     "sourceMap": true,
     "allowJs": false,
-    "rootDirs": ["src", "stories"],
+    "rootDirs": ["src"],
     "baseUrl": "src",
     "incremental": true,
     "forceConsistentCasingInFileNames": true,
@@ -27,17 +27,15 @@
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
     "esModuleInterop": true,
-    "noUnusedLocals": false
+    "noUnusedLocals": false,
+    "types": ["jest"],
+    "typeRoots": ["./types", "./node_modules/@types"]
   },
   "include": [
     "main/**/*.ts",
     "main/**/*.tsx",
     "packages/**/*.ts",
-    "packages/**/*.tsx",
-    "stories/dooboo-ui/**/*.ts",
-    "stories/dooboo-ui/**/*.tsx",
-    "stories/packages/**/*.ts",
-    "stories/packages/**/*.tsx"
+    "packages/**/*.tsx"
   ],
   "exclude": ["node_modules", "**/*.test.tsx", "**/*.spec.ts"],
   "files": ["environment.d.ts", "main/theme/styled.d.ts"],
