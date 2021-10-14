@@ -47,7 +47,7 @@ module.exports = {
     '.example.',
     '__assets__',
     './main/theme',
-    'stories',
+    '/**/*/stories',
     '/node_modules/',
   ],
 };

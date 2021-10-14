@@ -5,7 +5,7 @@ export * from './Icon';
 export * from './Hr';
 export * from './Button';
 export * from './IconButton';
-export * from './ButtonGroup';
+export * from '.';
 export * from './Checkbox';
 export * from './EditText';
 export * from './NetworkImage';

@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import {ImageSlider} from '../../stories/packages/PinzoomStories/PinchZoomSlider';
+import {ImageSlider} from '../PinchZoom/stories/PinchZoomSlider';
 import {PanResponderCallbacks} from 'react-native';
 import renderer from 'react-test-renderer';
 

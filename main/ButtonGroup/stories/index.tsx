@@ -3,34 +3,30 @@ import React, {ReactElement} from 'react';
 import DefaultStory from './DefaultStory';
 import {ThemeProvider} from '../../theme';
 import {storiesOf} from '@storybook/react-native';
-import {withActions} from '@storybook/addon-actions';
-import {withKnobs} from '@storybook/addon-knobs';
 
 /**
  * Below are stories for web
  */
 export default {
-  title: 'Button',
+  title: 'ButtonGroup',
 };
 
 export const toStorybook = (): ReactElement => <DefaultStory />;
 
 toStorybook.story = {
-  name: 'default',
+  name: 'ButtonGroup - 4 buttons',
 };
 
 /**
  * Below are stories for app
  */
-storiesOf('Button', module)
-  .addDecorator(withKnobs)
-  .addDecorator(withActions)
-  .add('button - light', () => (
+storiesOf('ButtonGroup', module)
+  .add('ButtonGroup - light', () => (
     <ThemeProvider initialThemeType="light">
       <DefaultStory />
     </ThemeProvider>
   ))
-  .add('button - dark', () => (
+  .add('ButtonGroup - dark', () => (
     <ThemeProvider initialThemeType="dark">
       <DefaultStory />
     </ThemeProvider>
