@@ -9,7 +9,7 @@ import {
   ButtonType,
   ButtonWrapper,
 } from '../Styled/StyledComponents';
-import {DoobooTheme, light, withTheme} from '../theme';
+import {useTheme} from '../theme';
 import React, {ReactElement, useRef, useState} from 'react';
 import type {
   StyleProp,
@@ -53,7 +53,7 @@ const ButtonContainer = styled(ButtonWrapper)<{
   justify-content: center;
 `;
 
-export interface ButtonProps {
+export interface Props {
   testID?: string;
   indicatorColor?: string;
   loading?: boolean;
@@ -72,28 +72,32 @@ export interface ButtonProps {
   size?: ButtonSize;
 }
 
-const ButtonComponent: FC<ButtonProps & {theme: DoobooTheme}> = ({
-  testID,
-  theme,
-  disabled,
-  loading,
-  style,
-  styles,
-  indicatorColor = theme.text,
-  leftElement,
-  rightElement,
-  activeOpacity = 0.6,
-  text,
-  onPress,
-  touchableOpacityProps,
-  textProps,
-  type = 'primary',
-  size,
-  outlined = false,
-}) => {
+export const Button: FC<Props> = (props) => {
+  const {
+    testID,
+    disabled,
+    loading,
+    style,
+    styles,
+    leftElement,
+    rightElement,
+    activeOpacity = 0.6,
+    text,
+    onPress,
+    touchableOpacityProps,
+    textProps,
+    type = 'primary',
+    size,
+    outlined = false,
+  } = props;
+
   const ref = useRef<TouchableOpacity>(null);
   const hovered = useHover(ref);
   const [layout, setLayout] = useState<LayoutRectangle>();
+
+  const {theme} = useTheme();
+
+  const indicatorColor = props.indicatorColor ?? theme.text;
 
   const compositeStyles: Styles = {
     disabledButton: css`
@@ -182,7 +186,3 @@ const ButtonComponent: FC<ButtonProps & {theme: DoobooTheme}> = ({
     </TouchableOpacity>
   );
 };
-
-ButtonComponent.defaultProps = {theme: light};
-
-export const Button = withTheme(ButtonComponent);
