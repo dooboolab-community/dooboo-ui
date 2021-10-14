@@ -1,4 +1,3 @@
-import {DoobooTheme, light} from '../theme';
 import {Platform, Text, TextInput, View} from 'react-native';
 import React, {FC, LegacyRef, useRef, useState} from 'react';
 import type {
@@ -9,7 +8,7 @@ import type {
 } from 'react-native';
 
 import {useHover} from 'react-native-web-hooks';
-import {withTheme} from '@emotion/react';
+import {useTheme} from '..';
 
 type Styles = {
   container?: StyleProp<ViewStyle>;
@@ -21,10 +20,9 @@ type Styles = {
   counter?: StyleProp<TextStyle>;
 };
 
-export type EditTextProps = {
+export type Props = {
   testID?: TextInputProps['testID'];
   inputRef?: LegacyRef<TextInput>;
-  theme?: DoobooTheme;
   textInputProps?: TextInputProps;
   style?: StyleProp<ViewStyle>;
   styles?: Styles;
@@ -50,39 +48,45 @@ export type EditTextProps = {
   type?: 'row' | 'column' | 'boxed';
 };
 
-const Component: FC<EditTextProps & {theme: DoobooTheme}> = ({
-  theme,
-  testID,
-  inputRef,
-  textInputProps,
-  style,
-  styles,
-  labelText = '',
-  errorText = '',
-  value = '',
-  placeholder,
-  onChange,
-  onChangeText,
-  onFocus,
-  onBlur,
-  onSubmitEditing,
-  autoCapitalize = 'none',
-  secureTextEntry = false,
-  editable = true,
-  placeholderColor = theme.placeholder,
-  focusColor = theme.primary,
-  hoverColor = theme.primary,
-  errorColor = theme.danger,
-  disableColor = theme.disabled,
-  labelColor = theme.placeholder,
-  type = 'column',
-}) => {
+export const EditText: FC<Props> = (props) => {
+  const {
+    testID,
+    inputRef,
+    textInputProps,
+    style,
+    styles,
+    labelText = '',
+    errorText = '',
+    value = '',
+    placeholder,
+    onChange,
+    onChangeText,
+    onFocus,
+    onBlur,
+    onSubmitEditing,
+    autoCapitalize = 'none',
+    secureTextEntry = false,
+    editable = true,
+    type = 'column',
+  } = props;
+
+  const {theme} = useTheme();
+
   const [focused, setFocused] = useState(false);
   const ref = useRef<View>(null);
   const hovered = useHover(ref);
 
   const borderColor = theme.text;
   const textColor = theme.text;
+
+  const {
+    placeholderColor = theme.placeholder,
+    focusColor = theme.primary,
+    hoverColor = theme.primary,
+    errorColor = theme.danger,
+    disableColor = theme.disabled,
+    labelColor = theme.placeholder,
+  } = props;
 
   const compositeStyles: Styles =
     type === 'column'
@@ -387,7 +391,3 @@ const Component: FC<EditTextProps & {theme: DoobooTheme}> = ({
     </View>
   );
 };
-
-Component.defaultProps = {theme: light};
-
-export const EditText = withTheme(Component);
