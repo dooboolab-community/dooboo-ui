@@ -12,7 +12,7 @@ import {
   SnackbarType,
   SnackbarWrapper,
 } from '../Styled/StyledComponents';
-import {DoobooTheme, light, withTheme} from '../theme';
+import {useTheme} from '../theme';
 import React, {
   useCallback,
   useEffect,
@@ -30,7 +30,6 @@ type Styles = {
 
 export interface SnackbarProps {
   testID?: string;
-  theme?: DoobooTheme;
   ref: React.MutableRefObject<SnackbarRef>;
 }
 
@@ -97,6 +96,8 @@ const SnackbarContainer = (
     styles,
     timer = SnackbarTimer.SHORT,
   } = content;
+
+  const {theme} = useTheme();
 
   const {isShowing, isVisible, timeout} = showingState;
   const [fadeAnim] = useState(new Animated.Value(0));
@@ -181,6 +182,7 @@ const SnackbarContainer = (
           </ButtonText>
           {actionText && (
             <Divider
+              theme={theme}
               type={type}
               style={{
                 height: Platform.select({web: 24}),
@@ -189,7 +191,9 @@ const SnackbarContainer = (
           )}
           {actionText && (
             <TouchableOpacity onPress={onActionPress}>
-              <TextAction type={type}>{actionText}</TextAction>
+              <TextAction theme={theme} type={type}>
+                {actionText}
+              </TextAction>
             </TouchableOpacity>
           )}
         </SnackbarWrapper>
@@ -198,12 +202,6 @@ const SnackbarContainer = (
   );
 };
 
-const SnackbarComponent = React.forwardRef<SnackbarRef, SnackbarProps>(
+export const Snackbar = React.forwardRef<SnackbarRef, SnackbarProps>(
   SnackbarContainer,
 );
-
-SnackbarComponent.defaultProps = {
-  theme: light,
-};
-
-export const Snackbar = withTheme(SnackbarComponent);
