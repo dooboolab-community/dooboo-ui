@@ -4,8 +4,7 @@
   "scripts": {
     "pre": "lerna clean --yes && lerna bootstrap && lerna run build",
     "predeploy": "yarn build",
-    "preinstall": "yarn pre",
-    "postinstall": "dooboolab-welcome postinstall && rm -rf storybook && cp -R .storybook storybook",
+    "postinstall": "dooboolab-welcome postinstall && rm -rf storybook && cp -R .storybook storybook && yarn pre",
     "publish": "yarn build && cd lib && npm publish && cd ..",
     "publish:packages": "yarn pre && yarn build:packages && lerna exec -- npm publish",
     "lint": "eslint main packages docs --ext .ts,.tsx,.js,.jsx",
