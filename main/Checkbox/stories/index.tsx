@@ -1,7 +1,7 @@
 import React, {ReactElement} from 'react';
 
 import CheckboxStory from './DefaultStory';
-import {ThemeProvider} from '../../../main/theme';
+import {ThemeProvider} from '@dooboo-ui/theme';
 import {storiesOf} from '@storybook/react-native';
 
 /**

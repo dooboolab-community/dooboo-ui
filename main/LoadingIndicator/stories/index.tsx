@@ -1,7 +1,8 @@
-import {LoadingIndicator, ThemeProvider} from '../..';
 import React, {ReactElement} from 'react';
 
 import CustomLoadingIndicator from './CustomStory';
+import {LoadingIndicator} from '../..';
+import {ThemeProvider} from '@dooboo-ui/theme';
 import {storiesOf} from '@storybook/react-native';
 import styled from '@emotion/native';
 

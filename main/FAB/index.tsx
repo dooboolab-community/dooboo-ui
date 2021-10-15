@@ -10,7 +10,7 @@ import {ButtonSize, IconButton} from '../IconButton';
 import {Icon, IconName} from '../Icon';
 import React, {ReactElement, useLayoutEffect, useMemo, useRef} from 'react';
 
-import {useTheme} from '..';
+import {useTheme} from '@dooboo-ui/theme';
 
 interface Styles {
   FAB?: StyleProp<ViewStyle>;

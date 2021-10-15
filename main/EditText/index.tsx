@@ -8,7 +8,7 @@ import type {
 } from 'react-native';
 
 import {useHover} from 'react-native-web-hooks';
-import {useTheme} from '..';
+import {useTheme} from '@dooboo-ui/theme';
 
 type Styles = {
   container?: StyleProp<ViewStyle>;

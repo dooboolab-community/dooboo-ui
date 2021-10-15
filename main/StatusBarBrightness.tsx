@@ -1,8 +1,8 @@
 import React, {FC} from 'react';
-import {useTheme} from './theme';
 
 import {StatusBar} from 'react-native';
 import type {StatusBarStyle} from 'react-native';
+import {useTheme} from '@dooboo-ui/theme';
 
 export const StatusBarBrightness: FC = () => {
   const {themeType} = useTheme();

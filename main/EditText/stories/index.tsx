@@ -3,7 +3,7 @@ import React, {ReactElement} from 'react';
 import EditTextBoxed from './EditTextBoxedStory';
 import EditTextColumn from './EditTextColumnStory';
 import EditTextRow from './EditTextRowStory';
-import {ThemeProvider} from '../../theme';
+import {ThemeProvider} from '@dooboo-ui/theme';
 import {storiesOf} from '@storybook/react-native';
 
 /**

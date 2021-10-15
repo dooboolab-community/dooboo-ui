@@ -1,7 +1,6 @@
-import styled from '@emotion/native';
-
-import {light} from '.';
 import {isEmptyObject} from './utils';
+import {light} from '@dooboo-ui/theme';
+import styled from '@emotion/native';
 
 export const Hr = styled.View`
   height: 1px;

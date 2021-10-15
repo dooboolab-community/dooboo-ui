@@ -12,7 +12,7 @@ import React, {ReactElement, isValidElement, useEffect, useState} from 'react';
 import ArtifactsLogoDark from '../__assets__/artifacts_logo_d.png';
 import ArtifactsLogoLight from '../__assets__/artifacts_logo_l.png';
 import {css} from '@emotion/native';
-import {useTheme} from '../theme';
+import {useTheme} from '@dooboo-ui/theme';
 
 type Styles = {
   image?: Omit<

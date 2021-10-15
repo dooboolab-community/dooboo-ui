@@ -1,10 +1,11 @@
 import React, {useState} from 'react';
-import {SelectBox, useTheme} from '../..';
 
 import type {FC} from 'react';
+import {SelectBox} from '../..';
 import {View} from 'react-native';
 import styled from '@emotion/native';
 import {useFonts} from 'expo-font';
+import {useTheme} from '@dooboo-ui/theme';
 
 const fakeData1 = ['Item1', 'Item2', 'Item3', 'Item4'];
 

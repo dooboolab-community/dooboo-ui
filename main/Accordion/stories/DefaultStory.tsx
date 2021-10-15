@@ -3,7 +3,7 @@ import {SafeAreaView, View} from 'react-native';
 
 import {Accordion} from '../';
 import {Icon} from '../../Icon';
-import {ThemeProvider} from '../../theme';
+import {ThemeProvider} from '@dooboo-ui/theme';
 import styled from '@emotion/native';
 import {useFonts} from 'expo-font';
 

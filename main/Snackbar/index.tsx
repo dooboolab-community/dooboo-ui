@@ -12,7 +12,6 @@ import {
   SnackbarType,
   SnackbarWrapper,
 } from '../Styled/StyledComponents';
-import {useTheme} from '../theme';
 import React, {
   useCallback,
   useEffect,
@@ -21,6 +20,7 @@ import React, {
 } from 'react';
 
 import styled from '@emotion/native';
+import {useTheme} from '@dooboo-ui/theme';
 
 type Styles = {
   container?: StyleProp<ViewStyle>;

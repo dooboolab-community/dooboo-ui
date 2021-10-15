@@ -8,6 +8,7 @@ import {
   View,
   ViewStyle,
 } from 'react-native';
+import {DoobooTheme, useTheme} from '@dooboo-ui/theme';
 import React, {ReactElement, useEffect, useRef, useState} from 'react';
 
 import {GenericTouchableProps} from 'react-native-gesture-handler/lib/typescript/components/touchables/GenericTouchable';
@@ -16,7 +17,6 @@ import {TouchableOpacity} from 'react-native-gesture-handler';
 import {Typography} from '../Typography';
 import styled from '@emotion/native';
 import {useHover} from 'react-native-web-hooks';
-import {DoobooTheme, useTheme} from '..';
 
 const Title = styled.View`
   width: 200px;

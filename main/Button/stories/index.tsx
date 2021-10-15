@@ -1,7 +1,7 @@
 import React, {ReactElement} from 'react';
 
 import DefaultStory from './DefaultStory';
-import {ThemeProvider} from '../../theme';
+import {ThemeProvider} from '@dooboo-ui/theme';
 import {storiesOf} from '@storybook/react-native';
 import {withActions} from '@storybook/addon-actions';
 import {withKnobs} from '@storybook/addon-knobs';

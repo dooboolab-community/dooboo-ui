@@ -1,7 +1,7 @@
 import React, {ReactElement} from 'react';
 
 import {FABStory} from './DefaultStory';
-import {ThemeProvider} from '../../theme';
+import {ThemeProvider} from '@dooboo-ui/theme';
 import {storiesOf} from '@storybook/react-native';
 
 /**

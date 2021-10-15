@@ -1,4 +1,3 @@
-import {useTheme} from '../theme';
 import {
   StyleProp,
   StyleSheet,
@@ -8,6 +7,8 @@ import {
   View,
   ViewStyle,
 } from 'react-native';
+
+import {useTheme} from '@dooboo-ui/theme';
 
 interface Styles {
   container: StyleProp<ViewStyle>;

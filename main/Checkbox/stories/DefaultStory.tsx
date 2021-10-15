@@ -1,9 +1,10 @@
-import {Checkbox, CheckboxType, Hr, useTheme} from '../..';
+import {Checkbox, CheckboxType, Hr} from '../..';
 import {FC, ReactNode, useState} from 'react';
 
 import {View} from 'react-native';
 import styled from '@emotion/native';
 import {useFonts} from 'expo-font';
+import {useTheme} from '@dooboo-ui/theme';
 
 const ScrollContainer = styled.ScrollView`
   width: 100%;
