@@ -5,7 +5,7 @@ import type {ReactElement} from 'react';
 import type {RenderAPI} from '@testing-library/react-native';
 import {View} from 'react-native';
 import {createComponent} from '../../test/testUtils';
-import {light} from '../theme';
+import {light} from '@dooboo-ui/theme';
 import {render} from '@testing-library/react-native';
 
 let testingLib: RenderAPI;

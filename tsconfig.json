@@ -9,7 +9,7 @@
     "skipLibCheck": true,
     "resolveJsonModule": true,
     "outDir": "lib",
-    "module": "es2015",
+    "module": "esnext",
     "target": "es6",
     "sourceMap": true,
     "allowJs": false,

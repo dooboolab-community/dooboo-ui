@@ -1,10 +1,9 @@
 /* eslint-disable jest/no-identical-title */
 import {RenderAPI, fireEvent, render} from '@testing-library/react-native';
+import {ThemeProvider, theme} from '@dooboo-ui/theme';
 import {createComponent, createTestProps} from '../../test/testUtils';
 
 import {ButtonGroup} from '../ButtonGroup';
-import {ThemeProvider} from '../theme';
-import {theme} from '../theme/colors';
 
 describe('[ButtonGroup]', () => {
   const themeType = 'light';

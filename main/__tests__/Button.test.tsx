@@ -1,14 +1,13 @@
+import {ThemeProvider, dark, light} from '@dooboo-ui/theme';
 import {act, fireEvent, render} from '@testing-library/react-native';
-import {dark, light} from '../theme/colors';
 
 import {Button} from '../../main';
-import type {ButtonProps} from '../Button';
+import type {Props as ButtonProps} from '../Button';
 import {LoadingIndicator} from '../LoadingIndicator';
 import React from 'react';
 import type {ReactElement} from 'react';
 import type {RenderAPI} from '@testing-library/react-native';
 import {Text} from 'react-native';
-import {ThemeProvider} from '../theme';
 import {createComponent} from '../../test/testUtils';
 import {css} from '@emotion/native';
 

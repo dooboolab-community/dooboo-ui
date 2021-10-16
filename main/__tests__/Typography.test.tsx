@@ -3,7 +3,7 @@ import {Typography, TypographyInverted} from '../Typography';
 import React from 'react';
 import type {ReactElement} from 'react';
 import type {RenderAPI} from '@testing-library/react-native';
-import {ThemeProvider} from '../../main';
+import {ThemeProvider} from '@dooboo-ui/theme';
 import {View} from 'react-native';
 import {createComponent} from '../../test/testUtils';
 import {render} from '@testing-library/react-native';

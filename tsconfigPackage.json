@@ -5,9 +5,9 @@
     "noImplicitAny": false,
     "removeComments": false,
     "sourceMap": false,
-    "module": "es2015",
     "moduleResolution": "node",
-    "target": "es5",
+    "module": "esnext",
+    "target": "esnext",
     "incremental": true,
     "skipLibCheck": true,
     "allowSyntheticDefaultImports": true,
@@ -20,8 +20,5 @@
     "**/**/*/__tests__",
     "dist",
     "stories"
-  ],
-  "types": [
-    "jest"
   ]
 }
