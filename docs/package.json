@@ -40,7 +40,7 @@
     "webpack": "^5.52.0"
   },
   "scripts": {
-    "preinstall": "cd .. && yarn && yarn build",
+    "preinstall": "cd .. && yarn && yarn pre && yarn build",
     "build": "build-storybook --docs -o ./doc-build -c ./.storybook && cp -r ./src/assets ./doc-build",
     "start": "start-storybook --docs -p 9001 -c ./.storybook watch-css -s ./src"
   }

@@ -17,10 +17,6 @@ jobs:
         with:
           node-version: 15.x
 
-      - name: Preinstall packages
-        run: |
-          yarn && yarn build
-
       - name: Install packages and build storybook
         run: |
           pushd ./docs
