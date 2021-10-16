@@ -15,6 +15,7 @@ web-build/
 
 # Storybook build
 packages/*/lib
+theme/lib
 /lib/*
 !/lib/package.json
 

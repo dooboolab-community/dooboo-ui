@@ -1874,6 +1874,13 @@
   resolved "https://registry.yarnpkg.com/@discoveryjs/json-ext/-/json-ext-0.5.5.tgz#9283c9ce5b289a3c4f61c12757469e59377f81f3"
   integrity sha512-6nFkfkmSeV/rqSaS4oWHgmpnYw194f6hmWF5is6b0J1naJZoiD0NTc9AiUwPHvWsowkjuHErCZT1wa0jg+BLIA==
 
+"@dooboo-ui/theme@^0.3.0":
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/@dooboo-ui/theme/-/theme-0.3.0.tgz#741c00d7eefe5c6ff30426c902a342e652afd929"
+  integrity sha512-SQ2/3RCkN7dRRW3/m0iZWKW9Bztag5zWzbjkGyi9o3D/P5t0LlIZ3EyGXcBQp5EpYRtohIB4vIh8783qahhTxQ==
+  dependencies:
+    react-responsive "^8.2.0"
+
 "@dooboo/eslint-config@^0.9.0":
   version "0.9.0"
   resolved "https://registry.yarnpkg.com/@dooboo/eslint-config/-/eslint-config-0.9.0.tgz#67c08efb09cbbc20b22245ad9e8bce9147976c64"
@@ -20268,8 +20275,10 @@ watchpack@^1.6.1, watchpack@^1.7.4:
   resolved "https://registry.yarnpkg.com/watchpack/-/watchpack-1.7.5.tgz#1267e6c55e0b9b5be44c2023aed5437a2c26c453"
   integrity sha512-9P3MWk6SrKjHsGkLT2KHXdQ/9SNkyoJbabxnKOoJepsvJjJG8uYTR3yTPxPQvNDI3w4Nz1xnE0TLHK4RIVe/MQ==
   dependencies:
+    chokidar "^3.4.1"
     graceful-fs "^4.1.2"
     neo-async "^2.5.0"
+    watchpack-chokidar2 "^2.0.1"
   optionalDependencies:
     chokidar "^3.4.1"
     watchpack-chokidar2 "^2.0.1"
