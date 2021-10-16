@@ -1,5 +1,6 @@
 import {FC, useState} from 'react';
-import {SwitchToggle, ThemeProvider, ThemeType, Typography} from 'dooboo-ui';
+import {SwitchToggle, Typography} from 'dooboo-ui';
+import {ThemeProvider, ThemeType} from '@dooboo-ui/theme';
 
 import {View} from 'react-native';
 

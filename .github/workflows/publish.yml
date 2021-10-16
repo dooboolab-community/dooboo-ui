@@ -14,6 +14,7 @@ jobs:
           node-version: '14.x'
           registry-url: 'https://registry.npmjs.org'
       - run: yarn
+      - run: yarn pre
       - run: yarn build
       - run: cd lib && yarn publish
         env:

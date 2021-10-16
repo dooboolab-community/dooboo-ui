@@ -1,5 +1,4 @@
 import {ActivityIndicator, Platform, TouchableOpacity} from 'react-native';
-import {useTheme} from '../theme';
 import React, {useRef} from 'react';
 import type {
   StyleProp,
@@ -12,6 +11,7 @@ import {ButtonWrapper} from '../Styled/StyledComponents';
 import type {FC} from 'react';
 import styled from '@emotion/native';
 import {useHover} from 'react-native-web-hooks';
+import {useTheme} from '@dooboo-ui/theme';
 
 type Styles = {
   container?: StyleProp<ViewStyle>;

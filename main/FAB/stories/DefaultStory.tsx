@@ -4,7 +4,7 @@ import {SafeAreaView, View} from 'react-native';
 import {FAB} from '../..';
 import styled from '@emotion/native';
 import {useFonts} from 'expo-font';
-import {withTheme} from '../../theme/ThemeProvider';
+import {withTheme} from '@dooboo-ui/theme';
 
 const StoryContainer = styled.View`
   flex: 1;

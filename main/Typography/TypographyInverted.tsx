@@ -1,7 +1,7 @@
-import {DoobooTheme, light, withTheme} from '../theme';
+import {DoobooTheme, light, withTheme} from '@dooboo-ui/theme';
 
-import styled from '@emotion/native';
 import {isEmptyObject} from '../utils';
+import styled from '@emotion/native';
 
 // Title
 const InvertedStyledTitle = styled.Text<{theme: DoobooTheme}>`

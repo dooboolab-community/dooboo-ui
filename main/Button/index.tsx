@@ -9,7 +9,6 @@ import {
   ButtonType,
   ButtonWrapper,
 } from '../Styled/StyledComponents';
-import {useTheme} from '../theme';
 import React, {ReactElement, useRef, useState} from 'react';
 import type {
   StyleProp,
@@ -22,6 +21,7 @@ import styled, {css} from '@emotion/native';
 
 import type {FC} from 'react';
 import {useHover} from 'react-native-web-hooks';
+import {useTheme} from '@dooboo-ui/theme';
 
 type Styles = {
   container?: StyleProp<ViewStyle>;

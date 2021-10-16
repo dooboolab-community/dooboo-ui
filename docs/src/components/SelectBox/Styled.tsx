@@ -1,7 +1,8 @@
 import React, {useState} from 'react';
-import {SelectBox, ThemeProvider, ThemeType, useTheme} from 'dooboo-ui';
+import {ThemeProvider, ThemeType, useTheme} from '@dooboo-ui/theme';
 
 import type {FC} from 'react';
+import {SelectBox} from 'dooboo-ui';
 import {View} from 'react-native';
 import styled from '@emotion/native';
 import {useFonts} from 'expo-font';

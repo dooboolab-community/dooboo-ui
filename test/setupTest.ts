@@ -1,10 +1,8 @@
-import {cleanup} from '@testing-library/react-native';
-
 import '@testing-library/jest-native/extend-expect';
-
 import 'jest-plugin-context/setup';
-
 import 'givens/setup';
+
+import {cleanup} from '@testing-library/react-native';
 
 jest.mock('react-native/Libraries/Animated/src/NativeAnimatedHelper');
 

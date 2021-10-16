@@ -1,7 +1,8 @@
-import {FAB, ThemeProvider, withTheme} from 'dooboo-ui';
 import {FC, ReactElement, useState} from 'react';
 import {SafeAreaView, View} from 'react-native';
+import {ThemeProvider, withTheme} from '@dooboo-ui/theme';
 
+import {FAB} from 'dooboo-ui';
 import styled from '@emotion/native';
 import {useFonts} from 'expo-font';
 

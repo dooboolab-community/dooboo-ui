@@ -3,11 +3,11 @@ import {
   CheckboxWrapper,
   CheckboxWrapperOutlined,
 } from '../Styled/StyledComponents';
+import {DoobooTheme, useTheme} from '@dooboo-ui/theme';
 import React, {FC, useEffect, useRef} from 'react';
 
 import {Icon} from '../Icon';
 import styled from '@emotion/native';
-import {DoobooTheme, useTheme} from '..';
 
 type Styles = {
   checkbox?: StyleProp<ViewStyle>;

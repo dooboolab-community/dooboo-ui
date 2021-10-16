@@ -1,7 +1,7 @@
 import React, {ReactElement} from 'react';
 
 import NetworkImageStory from './DefaultStory';
-import {ThemeProvider} from '../..';
+import {ThemeProvider} from '@dooboo-ui/theme';
 import {storiesOf} from '@storybook/react-native';
 
 /**

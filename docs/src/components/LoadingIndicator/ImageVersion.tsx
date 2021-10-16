@@ -1,6 +1,8 @@
-import {LoadingIndicator, ThemeProvider, ThemeType, useTheme} from 'dooboo-ui';
-import {IC_GIF} from '../../icon';
+import {ThemeProvider, ThemeType, useTheme} from '@dooboo-ui/theme';
+
 import type {FC} from 'react';
+import {IC_GIF} from '../../icon';
+import {LoadingIndicator} from 'dooboo-ui';
 import {View} from 'react-native';
 
 const ImageComponent: FC = () => {

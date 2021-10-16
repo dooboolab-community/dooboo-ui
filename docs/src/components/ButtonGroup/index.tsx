@@ -1,6 +1,7 @@
-import {ButtonGroup, ThemeProvider} from 'dooboo-ui';
 import React, {ReactElement, useState} from 'react';
 
+import {ButtonGroup} from 'dooboo-ui';
+import {ThemeProvider} from '@dooboo-ui/theme';
 import {View} from 'react-native';
 import styled from '@emotion/native';
 

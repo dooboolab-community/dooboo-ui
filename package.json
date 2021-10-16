@@ -2,9 +2,9 @@
   "homepage": "https://dooboolab.github.io/dooboo-ui/",
   "private": true,
   "scripts": {
-    "pre": "lerna clean --yes && lerna bootstrap && lerna run build",
+    "pre": "lerna clean --yes && lerna bootstrap && lerna run build && yarn add @dooboo-ui/theme -W",
     "predeploy": "yarn build",
-    "postinstall": "dooboolab-welcome postinstall && rm -rf storybook && cp -R .storybook storybook && yarn pre",
+    "postinstall": "dooboolab-welcome postinstall && rm -rf storybook && cp -R .storybook storybook",
     "publish": "yarn build && cd lib && npm publish && cd ..",
     "publish:packages": "yarn pre && yarn build:packages && lerna exec -- npm publish",
     "lint": "eslint main packages docs --ext .ts,.tsx,.js,.jsx",
@@ -28,7 +28,11 @@
     "install:packages": "lerna exec -- yarn",
     "upgrade:packages": "lerna exec -- ncu -u && yarn install:packages"
   },
+  "peerDependencies": {
+    "@dooboo-ui/theme": "*"
+  },
   "dependencies": {
+    "@dooboo-ui/theme": "^0.3.0",
     "@emotion/native": "^11.0.0",
     "@emotion/react": "^11.4.1",
     "@expo/match-media": "^0.1.0",

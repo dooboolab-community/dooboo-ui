@@ -1,11 +1,6 @@
-import {
-  Checkbox,
-  LoadingIndicator,
-  ThemeProvider,
-  ThemeType,
-  useTheme,
-} from 'dooboo-ui';
+import {Checkbox, LoadingIndicator} from 'dooboo-ui';
 import React, {FC} from 'react';
+import {ThemeProvider, ThemeType, useTheme} from '@dooboo-ui/theme';
 
 import {View} from 'react-native';
 import {useFonts} from 'expo-font';

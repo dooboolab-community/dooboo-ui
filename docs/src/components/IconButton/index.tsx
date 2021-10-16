@@ -1,6 +1,7 @@
-import {ThemeProvider, IconButton, Icon} from 'dooboo-ui';
+import {Icon, IconButton} from 'dooboo-ui';
 import React, {ReactElement} from 'react';
 
+import {ThemeProvider} from '@dooboo-ui/theme';
 import {View} from 'react-native';
 import styled from '@emotion/native';
 import {useFonts} from 'expo-font';

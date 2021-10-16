@@ -2,7 +2,7 @@ import {Animated, StyleProp, TouchableOpacity, ViewStyle} from 'react-native';
 import React, {ReactElement, useEffect, useState} from 'react';
 
 import styled from '@emotion/native';
-import {useTheme} from '../theme';
+import {useTheme} from '@dooboo-ui/theme';
 
 interface Styles {
   container?: ViewStyle;

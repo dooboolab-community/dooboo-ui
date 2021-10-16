@@ -2,7 +2,7 @@ import React, {ReactElement} from 'react';
 
 import SnackbarDefaultStory from './DefaultStory';
 import SnackbarWithActionStory from './ActionStory';
-import {ThemeProvider} from '../../theme';
+import {ThemeProvider} from '@dooboo-ui/theme';
 import {storiesOf} from '@storybook/react-native';
 
 /**

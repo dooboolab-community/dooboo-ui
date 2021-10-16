@@ -8,8 +8,9 @@ import {
   View,
   ViewStyle,
 } from 'react-native';
-import {useTheme} from '../theme';
 import React, {ReactElement} from 'react';
+
+import {useTheme} from '@dooboo-ui/theme';
 
 const styles = StyleSheet.create({
   container: {

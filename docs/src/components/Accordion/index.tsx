@@ -1,7 +1,8 @@
-import {Accordion, ThemeProvider} from 'dooboo-ui';
 import React, {ReactElement} from 'react';
 
+import {Accordion} from 'dooboo-ui';
 import {IC_ARR_DOWN} from '../../icon';
+import {ThemeProvider} from '@dooboo-ui/theme';
 import styled from '@emotion/native';
 
 const Container = styled.View`

@@ -1,10 +1,11 @@
-import {Hr, IconButton, useTheme} from '../..';
+import {Hr, IconButton} from '../..';
 import {Text, View} from 'react-native';
 
 import type {FC} from 'react';
 import {Icon} from '../../Icon';
 import styled from '@emotion/native';
 import {useFonts} from 'expo-font';
+import {useTheme} from '@dooboo-ui/theme';
 
 const StoryContainer = styled.View`
   flex: 1;

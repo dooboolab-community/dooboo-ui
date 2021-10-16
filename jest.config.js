@@ -14,13 +14,7 @@ module.exports = {
   testMatch: ['**/__tests__/**/*.ts?(x)', '**/?(*.)+(spec|test).ts?(x)'],
   moduleFileExtensions: ['js', 'ts', 'tsx', 'svg', 'png', 'json'],
   globals: {
-    'ts-jest': {
-      babelConfig: true,
-      tsconfig: {
-        jsx: 'react',
-      },
-      diagnostics: false,
-    },
+    'ts-jest': {tsconfig: 'tsconfig.spec.json'},
   },
   modulePathIgnorePatterns: [
     '<rootDir>/server/',
@@ -41,7 +35,7 @@ module.exports = {
   },
   transformIgnorePatterns: [
     // eslint-disable-next-line max-len
-    'node_modules/(?!(jest-)?react-native|react-clone-referenced-element|@react-native-community|expo(nent)?|@expo(nent)?/.*|react-navigation|@react-navigation/.*|@unimodules/.*|unimodules|sentry-expo|native-base|@sentry/.*)',
+    'node_modules/(?!(jest-)?react-native|react-clone-referenced-element|@react-native-community|expo(nent)?|@expo(nent)?/.*|react-navigation|@react-navigation/.*|@unimodules/.*|unimodules|sentry-expo|native-base|@sentry/.*|dooboo-ui|@dooboo-ui)',
   ],
   coveragePathIgnorePatterns: [
     '.example.',

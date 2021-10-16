@@ -5,12 +5,12 @@ import {
   StyleProp,
   ViewStyle,
 } from 'react-native';
+import {Datum, Styles} from './index';
 import React, {FC, ReactElement, useEffect, useRef, useState} from 'react';
 
-import {Datum, Styles} from './index';
 import {Icon} from '../Icon';
 import styled from '@emotion/native';
-import {useTheme} from '..';
+import {useTheme} from '@dooboo-ui/theme';
 
 const TitleContainer = styled.TouchableOpacity`
   justify-content: center;

@@ -9,7 +9,7 @@
     "skipLibCheck": true,
     "resolveJsonModule": true,
     "outDir": "lib",
-    "module": "es2015",
+    "module": "esnext",
     "target": "es6",
     "sourceMap": true,
     "allowJs": false,
@@ -38,7 +38,7 @@
     "packages/**/*.tsx"
   ],
   "exclude": ["node_modules", "**/*.test.tsx", "**/*.spec.ts"],
-  "files": ["environment.d.ts", "main/theme/styled.d.ts"],
+  "files": ["environment.d.ts", "styled.d.ts"],
   "types": ["typePatches", "jest"],
   "extends": "expo/tsconfig.base"
 }

@@ -1,6 +1,8 @@
-import {EditText, useTheme} from '../../';
 import React, {useState} from 'react';
 import {SafeAreaView, ScrollView, View} from 'react-native';
+
+import {EditText} from '../../';
+import {useTheme} from '@dooboo-ui/theme';
 
 const EditTextRow = (): React.ReactElement => {
   const {theme} = useTheme();
