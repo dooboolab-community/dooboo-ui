@@ -5284,21 +5284,6 @@
   dependencies:
     "@types/react" "*"
 
-"@types/react-native-modalbox@^1.4.9":
-  version "1.4.9"
-  resolved "https://registry.yarnpkg.com/@types/react-native-modalbox/-/react-native-modalbox-1.4.9.tgz#762bd9a0c21bc79391bf5a245a30c3b588075e59"
-  integrity sha512-JWDH/K33edREuSR1EuR1sRFyfY19VM/v5yoHZt52dTi2WXJleT2Q4w1CwF3cTQxQOr4U/TvNlBkwgOn776cizA==
-  dependencies:
-    "@types/react" "*"
-    "@types/react-native" "*"
-
-"@types/react-native@*":
-  version "0.65.0"
-  resolved "https://registry.yarnpkg.com/@types/react-native/-/react-native-0.65.0.tgz#bef9ca619f421abafae891ac0629e27cbfe63b42"
-  integrity sha512-GgM6d47SQM9a6iOWKsdseFtTsKZGvmbr0FEaJMdCVy2SJmgtUq5JVpr3+aqHdrJQrg93e08VxPAWmz0qUtIPOg==
-  dependencies:
-    "@types/react" "*"
-
 "@types/react-native@0.65.5":
   version "0.65.5"
   resolved "https://registry.yarnpkg.com/@types/react-native/-/react-native-0.65.5.tgz#e5e473be8c7ed784419554f25cc8850b9c3ce68d"
@@ -17170,13 +17155,6 @@ react-native-modal@^11.0.2:
   dependencies:
     prop-types "^15.6.2"
     react-native-animatable "1.3.3"
-
-react-native-modalbox@^2.0.2:
-  version "2.0.2"
-  resolved "https://registry.yarnpkg.com/react-native-modalbox/-/react-native-modalbox-2.0.2.tgz#8a7b3d2e7be79b5d1cb9530b2c6bc535b1bc8c66"
-  integrity sha512-uSuoZ+siPPNqWGyw8NXhA/Aots7mOx2+qijFoeovequY0kczZEPZDd0ARHbzg+1cE3H3AATJEwGdkVA8lUxs0g==
-  dependencies:
-    prop-types "^15.5.10"
 
 react-native-safe-area-context@3.2.0:
   version "3.2.0"

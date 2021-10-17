@@ -1,6 +1,8 @@
-import React, {useState} from 'react';
 import Modal, {ModalProps} from 'react-native-modalbox';
+import React, {useState} from 'react';
+
 import styled from '@emotion/native';
+import {useTheme} from '@dooboo-ui/theme';
 
 const ModalButton = styled.TouchableOpacity<ButtonTypeProps>`
   width: 100%;
@@ -95,6 +97,7 @@ const AlertDialog = React.forwardRef<Modal, Props>(
     ref,
   ) => {
     const [input, setInput] = useState('');
+    const {theme} = useTheme();
 
     return (
       <Modal
@@ -104,7 +107,7 @@ const AlertDialog = React.forwardRef<Modal, Props>(
             width: '80%',
             height: 'auto',
             borderRadius: 40,
-            backgroundColor: '#EDEDED',
+            backgroundColor: theme.paper,
             shadowOffset: {width: 0, height: 4},
             shadowColor: 'black',
             padding: 20,

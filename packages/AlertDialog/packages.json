@@ -21,7 +21,8 @@
   "dependencies": {
     "@types/react-native-modalbox": "^1.4.9",
     "dooboolab-welcome": "^1.2.0",
-    "react-native-modalbox": "^2.0.2"
+    "react-native-modalbox": "^2.0.2",
+    "@dooboo-ui/theme": "^0.3.2"
   },
   "devDependencies": {
     "@emotion/native": "^11.0.0",
