@@ -1,5 +1,6 @@
 import Dialog from './DefaultStory';
 import {ReactElement} from 'react';
+import {ThemeProvider} from '@dooboo-ui/theme';
 import {storiesOf} from '@storybook/react-native';
 
 /**
@@ -19,4 +20,14 @@ toStorybook.story = {
  * Below are stories for app
  */
 
-storiesOf('AlertDialog', module).add('dialog', () => <Dialog />);
+storiesOf('AlertDialog', module)
+  .add('light', () => (
+    <ThemeProvider initialThemeType="light">
+      <Dialog />
+    </ThemeProvider>
+  ))
+  .add('dark', () => (
+    <ThemeProvider initialThemeType="dark">
+      <Dialog />
+    </ThemeProvider>
+  ));

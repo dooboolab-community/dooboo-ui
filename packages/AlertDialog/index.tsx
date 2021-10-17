@@ -1,44 +1,59 @@
-import React, {useState} from 'react';
+import {DoobooTheme, useTheme, withTheme} from '@dooboo-ui/theme';
 import Modal, {ModalProps} from 'react-native-modalbox';
+import React, {useState} from 'react';
+
 import styled from '@emotion/native';
 
-const ModalButton = styled.TouchableOpacity<ButtonTypeProps>`
+/**
+ * !Caveat:
+ * Currently, it is hard to make the typing work in `packages` due to
+ * collisions on lerna workspace symlinking and emotion styled package.
+ *
+ * Forcing types to work by declaring `DoobooThemeProp` manually.
+ */
+type DoobooThemeProp = {theme?: DoobooTheme};
+
+const ModalButton = styled.TouchableOpacity<ButtonTypeProps & DoobooThemeProp>`
   width: 100%;
   height: 40px;
-  border: 1px solid black;
+  border: 1px solid ${({theme}) => theme.text};
   border-radius: 20px;
   justify-content: center;
   align-items: center;
-  background-color: ${({isAdditional}) =>
-    isAdditional ? 'transparent' : 'black'};
+  background-color: ${({isAdditional, theme}) =>
+    isAdditional ? 'transparent' : theme.primary};
   margin-bottom: ${({isAdditional}) => (isAdditional ? '16px' : '0px')}; ;
 `;
 
-const ButtonText = styled.Text<ButtonTypeProps>`
+const ButtonText = styled.Text<ButtonTypeProps & DoobooThemeProp>`
   font-size: 14px;
   font-weight: bold;
-  color: ${({isAdditional}) => (isAdditional ? 'black' : 'white')}; ;
+  color: ${({theme, isAdditional}) =>
+    isAdditional ? theme.text : theme.background};
 `;
 
-const ModalInput = styled.TextInput`
+const ModalInput = styled.TextInput<DoobooThemeProp>`
   height: 40px;
   margin-bottom: 16px;
-  padding: 4px;
+  padding: 4px 12px;
   font-size: 14px;
-  border: 1px solid black;
+  border: 1px solid ${({theme}) => theme.text};
+  color: ${({theme}) => theme.text};
 `;
 
-const Title = styled.Text`
+const Title = styled.Text<DoobooThemeProp>`
   font-size: 17px;
   line-height: 20px;
   text-align: center;
   margin-bottom: 16px;
+  color: ${({theme}) => theme.text};
 `;
 
-const Content = styled.Text`
+const Content = styled.Text<DoobooThemeProp>`
   font-size: 16px;
   line-height: 20px;
   margin-bottom: 16px;
+  color: ${({theme}) => theme.text};
 `;
 
 interface ButtonTypeProps {
@@ -95,6 +110,7 @@ const AlertDialog = React.forwardRef<Modal, Props>(
     ref,
   ) => {
     const [input, setInput] = useState('');
+    const {theme} = useTheme();
 
     return (
       <Modal
@@ -104,9 +120,9 @@ const AlertDialog = React.forwardRef<Modal, Props>(
             width: '80%',
             height: 'auto',
             borderRadius: 40,
-            backgroundColor: '#EDEDED',
+            backgroundColor: theme.background,
             shadowOffset: {width: 0, height: 4},
-            shadowColor: 'black',
+            shadowColor: theme.text,
             padding: 20,
           },
           style,
@@ -144,4 +160,4 @@ const AlertDialog = React.forwardRef<Modal, Props>(
   },
 );
 
-export default AlertDialog;
+export default withTheme(AlertDialog);
