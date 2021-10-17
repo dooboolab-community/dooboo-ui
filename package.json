@@ -93,6 +93,7 @@
     "react-dom": "17.0.2",
     "react-native": "https://github.com/expo/react-native/archive/sdk-42.0.0.tar.gz",
     "react-native-get-random-values": "^1.7.0",
+    "react-native-modalbox": "^2.0.2",
     "react-native-svg": "^12.1.1",
     "react-native-web": "~0.17.5",
     "react-test-renderer": "^17.0.2",
