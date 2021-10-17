@@ -29,18 +29,18 @@
     "dooboolab"
   ],
   "dependencies": {
+    "@expo/match-media": "^0.1.0",
     "react-responsive": "^8.2.0"
   },
   "devDependencies": {
     "typescript": "^4.2.4",
     "@emotion/native": "^11.0.0",
-    "@emotion/react": "^11.1.5"
+    "@emotion/react": "^11.4.1"
   },
   "peerDependencies": {
     "react": ">=16.9",
     "react-native": ">=0.58",
-    "@emotion/react": "*",
-    "@emotion/native": "*",
-    "@expo/match-media": "^0.1.0"
+    "@emotion/react": ">=11",
+    "@emotion/native": ">=11"
   }
 }
