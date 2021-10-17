@@ -19,47 +19,48 @@ import {LoadingIndicator} from 'dooboo-ui';
 
 ## Props
 
-|                        | Necessary   | Types                                    | Description                                    | Default  |
-| ---------------------- | ----------- | ---------------------------------------- | ---------------------------------------------- | -------- |
-| containerStyle?        |             | `StyleProp<ViewStyle>`                   |   root VeiwStyle                               |          |
-| style?                 |             | `StyleProp<ViewStyle>`                   |   List of all style props within [LoadingIndicator].                              |          |
-| color?                 |             | `string`                                 |                                                |          |
-| size?                  |             | `number` &#124 `'small'` &#124 `'large'` |                                                |  `large` |
-| imgSource?             |             | `string`                                 |                                                |          |
-| renderCustomElement?   |             | `() => ReactElement`                     |                                                |          |
-| theme                 |             | `DoobooTheme`                            |                                                |  `light` |
+|                      | Necessary | Types                                    | Description                                        | Default |
+| -------------------- | --------- | ---------------------------------------- | -------------------------------------------------- | ------- |
+| containerStyle?      |           | `StyleProp<ViewStyle>`                   | root VeiwStyle                                     |         |
+| style?               |           | `StyleProp<ViewStyle>`                   | List of all style props within [LoadingIndicator]. |         |
+| color?               |           | `string`                                 |                                                    |         |
+| size?                |           | `number` &#124 `'small'` &#124 `'large'` |                                                    | `large` |
+| imgSource?           |           | `string`                                 |                                                    |         |
+| renderCustomElement? |           | `() => ReactElement`                     |                                                    |         |
+| theme                |           | `DoobooTheme`                            |                                                    | `light` |
 
-
-
-<br/>
+<br />
 
 ## Demo
 
 ### Basic Style
+
 ```tsx
 import {LoadingIndicator} from 'dooboo-ui';
 
 <LoadingIndicator />
 <LoadingIndicator size="small" color="#008299" />
 ```
-<Basic themeType="dark"/>
-<Basic themeType="light"/>
 
-<Link link="https://snack.expo.dev/@swda/loadingindicator_basic"/>
+<Basic themeType="dark" />
+<Basic themeType="light" />
 
-<br/>
+<Link link="https://snack.expo.dev/@swda/loadingindicator_basic" />
 
+<br />
 
 ### Image Version
+
 Using `imageSource` prop , you can generate your own loading indicator.
 
 `ImageSource` prop requires a gif uri.
 
 ```tsx
-<LoadingIndicator imageSource="..."/>
+<LoadingIndicator imageSource="..." />
 ```
-<ImageVersion themeType="light"/>
 
-<Link link="https://snack.expo.dev/@swda/loadingindicator_img"/>
+<ImageVersion themeType="light" />
 
-<br/>
+<Link link="https://snack.expo.dev/@swda/loadingindicator_img" />
+
+<br />

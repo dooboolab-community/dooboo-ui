@@ -62,8 +62,8 @@ const CheckboxStory: FC = () => {
           justifyContent: 'center',
         }}
       >
-        {types.map((type) => (
-          <LabelWapper key={type} label={type ?? 'default'}>
+        {types.map((type, i) => (
+          <LabelWapper key={`${type}_${i}`} label={type ?? 'default'}>
             <Checkbox
               style={{margin: 25}}
               checked={checked}

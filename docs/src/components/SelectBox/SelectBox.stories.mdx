@@ -3,7 +3,7 @@ import {Meta, Story, Canvas} from '@storybook/addon-docs/blocks';
 import {Basic} from './index.tsx';
 import {Disabled} from './Disabled.tsx';
 import {Animation} from './Animation.tsx';
-import {Styled} from './Styled.tsx'
+import {Styled} from './Styled.tsx';
 
 <Meta title="Components/SelectBox" />
 
@@ -38,6 +38,7 @@ import {SelectBox} from 'dooboo-ui';
 | itemTouchableProps  |           | Partial<TouchableOpacityProps & GenericTouchableProps> |        `{activeOpacity: 1} `        |                                                         |
 
 ### Basic Style
+
 `data` `onSelect` `selectedIndex` props are necessary.
 User can set items of select box by setting `data` array and represent index in `data` array of selected item by using `selectedIndex` prop.
 
@@ -57,10 +58,12 @@ function SelectBoxStory(): React.ReactElement {
   );
 }
 ```
-<Basic themeType="light"/>
-<Basic themeType="dark"/>
+
+<Basic themeType="light" />
+<Basic themeType="dark" />
 
 ### Disabled SelectBox
+
 The `disabled` prop can make disabled selectbox that user can't select items.
 
 ```tsx
@@ -81,11 +84,12 @@ function SelectBoxStory(): React.ReactElement {
   );
 }
 ```
-<Disabled themeType="light"/>
-<Disabled themeType="dark"/>
 
+<Disabled themeType="light" />
+<Disabled themeType="dark" />
 
 ### Animation and Event
+
 `rotateAnimDuration` `onPress`
 
 The `rotateAnimDuration` prop can adjust time the animation of right element operates.
@@ -100,23 +104,24 @@ function SelectBoxStory(): React.ReactElement {
 
   const handlePressIncrease = () => {
     setCount(count + 1);
-  }
+  };
 
   return (
     <Container>
       <View
-        style = {{
+        style={{
           flexDirection: 'row',
           flexWrap: 'wrap',
           justifyContent: 'center',
-        }}>
+        }}
+      >
         <SelectBox
-            data={data}
-            onSelect={(_, index) => setSelectedIndex(index)}
-            selectedIndex={selectedIndex}
-            rotateAnimDuration={1000}
-            onPress={handlePressIncrease}
-            style={{padding: 15}}
+          data={data}
+          onSelect={(_, index) => setSelectedIndex(index)}
+          selectedIndex={selectedIndex}
+          rotateAnimDuration={1000}
+          onPress={handlePressIncrease}
+          style={{padding: 15}}
         />
         <StyledText>press count : {count}</StyledText>
       </View>
@@ -124,9 +129,11 @@ function SelectBoxStory(): React.ReactElement {
   );
 }
 ```
-<Animation/>
+
+<Animation />
 
 ### Styled SelectBox
+
 The `styles` `style` props can make `SelectBox` custom as users want.
 
 ```tsx
@@ -167,5 +174,6 @@ function SelectBoxStory(): React.ReactElement {
   );
 }
 ```
-<Styled themeType="light"/>
-<Styled themeType="dark"/>
+
+<Styled themeType="light" />
+<Styled themeType="dark" />
