@@ -35,7 +35,7 @@ export const light = {
   textPrimary: colors.black,
   text: colors.black,
   placeholder: colors.gray,
-  textDisabled: colors.cloud,
+  textDisabled: colors.charcoalGray,
   textContrast: colors.white,
   textValidation: colors.ruddy,
 };
@@ -54,7 +54,7 @@ export const dark = {
   textPrimary: colors.white,
   text: colors.white,
   placeholder: colors.gray,
-  textDisabled: colors.charcoalGray,
+  textDisabled: colors.cloud,
   textContrast: colors.black,
   textValidation: colors.ruddy,
 };
