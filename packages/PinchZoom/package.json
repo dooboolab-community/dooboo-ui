@@ -19,11 +19,12 @@
   },
   "homepage": "https://github.com/dooboolab/dooboo-ui#readme",
   "dependencies": {
-    "dooboolab-welcome": "^1.3.1"
+    "dooboolab-welcome": "^1.3.2"
   },
   "devDependencies": {
     "@emotion/native": "^11.0.0",
     "@emotion/react": "^11.4.0",
+    "@dooboo-ui/theme": ">=0.3.3",
     "typescript": "^4.3.2"
   },
   "peerDependencies": {
