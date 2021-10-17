@@ -32,7 +32,7 @@
     "@dooboo-ui/theme": "*"
   },
   "dependencies": {
-    "@dooboo-ui/theme": "^0.3.0",
+    "@dooboo-ui/theme": "^0.3.1",
     "@emotion/native": "^11.0.0",
     "@emotion/react": "^11.4.1",
     "@expo/match-media": "^0.1.0",
