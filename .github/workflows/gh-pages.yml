@@ -6,7 +6,7 @@ on:
     branches:
       - master
     paths:
-      - 'stories/**'
+      - '**/*/stories/**/*'
 
 jobs:
   update:
