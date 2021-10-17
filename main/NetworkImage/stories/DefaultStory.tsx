@@ -3,6 +3,7 @@ import {NetworkImage, Typography} from '../..';
 import React from 'react';
 import {View} from 'react-native';
 import styled from '@emotion/native';
+import {useTheme} from '@dooboo-ui/theme';
 
 const ScrollContainer = styled.ScrollView`
   width: 100%;
@@ -10,6 +11,8 @@ const ScrollContainer = styled.ScrollView`
 `;
 
 function NetworkImageStory(): React.ReactElement {
+  const {theme} = useTheme();
+
   return (
     <ScrollContainer
       contentContainerStyle={{
@@ -47,7 +50,7 @@ function NetworkImageStory(): React.ReactElement {
       <View>
         <NetworkImage
           style={{
-            backgroundColor: 'red',
+            backgroundColor: theme.light,
             width: 300,
             height: 300,
           }}

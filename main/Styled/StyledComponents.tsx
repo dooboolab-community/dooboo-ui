@@ -25,10 +25,13 @@ export const ButtonWrapper = styled.View<{
   type?: ButtonType;
   outlined?: boolean;
   disabled?: boolean;
+  loading?: boolean;
 }>`
   border-width: ${({outlined}) => (outlined ? '1px' : undefined)};
-  background-color: ${({theme, type, outlined, disabled}) => {
+  background-color: ${({theme, type, outlined, loading, disabled}) => {
     theme = isEmptyObject(theme) ? light : theme;
+
+    if (loading) return theme[type ?? 'primary'];
 
     if (disabled) return undefined;
 

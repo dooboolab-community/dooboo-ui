@@ -38,6 +38,7 @@ const ButtonContainer = styled(ButtonWrapper)<{
   size?: ButtonSize;
   outlined?: boolean;
   disabled?: boolean;
+  loading?: boolean;
 }>`
   align-self: stretch;
   padding: ${({size}) =>
@@ -76,7 +77,7 @@ export const Button: FC<Props> = (props) => {
   const {
     testID,
     disabled,
-    loading,
+    loading = false,
     style,
     styles,
     leftElement,
@@ -97,15 +98,20 @@ export const Button: FC<Props> = (props) => {
 
   const {theme} = useTheme();
 
-  const indicatorColor = props.indicatorColor ?? theme.text;
+  const indicatorColor = props.indicatorColor ?? theme.background;
 
   const compositeStyles: Styles = {
     disabledButton: css`
-      background-color: ${!outlined ? theme.disabled : theme.background};
+      background-color: ${!outlined && !loading ? theme.disabled : undefined};
       border-color: ${theme.disabled};
     `,
     disabledText: {
-      color: !outlined ? theme.background : theme.textDisabled,
+      color:
+        disabled && !outlined && !loading
+          ? theme.textDisabled
+          : outlined
+          ? theme.disabled
+          : undefined,
     },
     hovered: {
       shadowColor: 'black',
@@ -150,6 +156,7 @@ export const Button: FC<Props> = (props) => {
           type={type}
           size={size}
           outlined={outlined}
+          loading={true}
         >
           <ActivityIndicator size="small" color={indicatorColor} />
         </ButtonContainer>

@@ -71,6 +71,7 @@ const ButtonDefault: FC = () => {
               'large',
               'Demo',
             )}
+            loading={boolean('Loading', false, 'Demo')}
             outlined={boolean('Outline', false, 'Demo')}
             disabled={boolean('Disable', false, 'Demo')}
             style={{padding: 8}}
