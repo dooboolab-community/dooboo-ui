@@ -19,34 +19,34 @@ import {Checkbox} from 'dooboo-ui';
 
 ## Props
 
-|                        | Necessary   | Types                                    | Description                                    | Default  |
-| ---------------------- | ----------- | ---------------------------------------- | ---------------------------------------------- | -------- |
-| onPress?               |             | `() => void`                             |                                                |          |
-| style?                 |             | `StyleProp<ViewStyle>`                   | root `ViewStyle`                               |          |
-| styles?                |             | `Styles`                                 | List of all style props within [Checkbox]      |          |
-| type?                  |             | `CheckboxType`                           |                                                | primary  |
-| disabled?              |             | `boolean`                                |                                                |          |
-| theme?                 |             | `DoobooTheme`                            |                                                |          |
-| chekced?               |             | `boolean`                                |                                                |          |
-| leftElement?           |             | `ReactElement`                           | Extra element to place on the left             |          |
-| rightElement?          |             | `ReactElement`                           | Extra element to place on the right            |          |
+|               | Necessary | Types                  | Description                               | Default |
+| ------------- | --------- | ---------------------- | ----------------------------------------- | ------- |
+| onPress?      |           | `() => void`           |                                           |         |
+| style?        |           | `StyleProp<ViewStyle>` | root `ViewStyle`                          |         |
+| styles?       |           | `Styles`               | List of all style props within [Checkbox] |         |
+| type?         |           | `CheckboxType`         |                                           | primary |
+| disabled?     |           | `boolean`              |                                           |         |
+| theme?        |           | `DoobooTheme`          |                                           |         |
+| chekced?      |           | `boolean`              |                                           |         |
+| leftElement?  |           | `ReactElement`         | Extra element to place on the left        |         |
+| rightElement? |           | `ReactElement`         | Extra element to place on the right       |         |
 
-
-<br/>
+<br />
 
 ## Demo
 
 ### Basic Style
+
 ```tsx
 <Checkbox text="check" checked={checked} onPress={() => setChecked(!checked)} />
 ```
 
-<Basic themeType="light"/>
-<Basic themeType="dark"/>
-<br/>
-
+<Basic themeType="light" />
+<Basic themeType="dark" />
+<br />
 
 ### Solid Color Types
+
 `primary` `secondary` `success` `warning` `info` `danger`
 
 The `type` prop can generate different color of Checkbox. The default value of type is `primary`.
@@ -86,10 +86,10 @@ The `type` prop can generate different color of Checkbox. The default value of t
 
 <Solid themeType="light" />
 <Solid themeType="dark" />
-<br/>
-
+<br />
 
 ### Disabled Checkbox
+
 The `disabled` prop can generate disabled Checkbox which is not pressable.
 
 It can't apply `type` prop at the same time.
@@ -100,10 +100,10 @@ It can't apply `type` prop at the same time.
 
 <Disabled themeType="light" />
 <Disabled themeType="dark" />
-<br/>
-
+<br />
 
 ### Checkbox with leftElement
+
 The `leftElement` prop can generate Checkbox following behind the element.
 
 It can be used with the `type` prop.
@@ -126,10 +126,9 @@ It can be used with the `type` prop.
 />
 ```
 
-<LeftElement themeType="light"/>
-<LeftElement themeType="dark"/>
-<br/>
-
+<LeftElement themeType="light" />
+<LeftElement themeType="dark" />
+<br />
 
 ### Checkbox with rightElement
 
@@ -155,7 +154,6 @@ It can be used with the `type` prop.
 />
 ```
 
-<RightElement themeType="light"/>
-<RightElement themeType="dark"/>
-<br/>
-
+<RightElement themeType="light" />
+<RightElement themeType="dark" />
+<br />

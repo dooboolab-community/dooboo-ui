@@ -9,7 +9,7 @@ import {
   Sizes,
   Solid,
   Disabled,
-  Link
+  Link,
 } from './index';
 
 <Meta title="Components/Button" />
@@ -80,7 +80,7 @@ The default value of type is `primary`.
 <Solid themeType="light" />
 <Solid themeType="dark" />
 
-<Link link="https://snack.expo.dev/@swda/solid-color-type"/>
+<Link link="https://snack.expo.dev/@swda/solid-color-type" />
 
 ### Outlined Color type
 
@@ -99,7 +99,7 @@ Generate bordering button by adding `outlined` prop.
 <Outlined themeType="light" />
 <Outlined themeType="dark" />
 
-<Link link="https://snack.expo.dev/@swda/outlined-color-type"/>
+<Link link="https://snack.expo.dev/@swda/outlined-color-type" />
 
 ### Disabled button
 
@@ -114,7 +114,7 @@ And it can't apply `type`.
 <Disabled themeType="light" />
 <Disabled themeType="dark" />
 
-<Link link="https://snack.expo.dev/@swda/disabled-button"/>
+<Link link="https://snack.expo.dev/@swda/disabled-button" />
 
 ### Loading
 
@@ -131,7 +131,7 @@ And change loading spinner color by using `indicatorColor` prop.
 <Loading themeType="light" />
 <Loading themeType="dark" />
 
-<Link link="https://snack.expo.dev/@swda/loading"/>
+<Link link="https://snack.expo.dev/@swda/loading" />
 
 ### Aspect of sizes
 
@@ -148,7 +148,7 @@ The `size` prop can generate many size buttons.
 <Sizes themeType="light" />
 <Sizes themeType="dark" />
 
-<Link link="https://snack.expo.dev/@swda/aspect-of-sizes"/>
+<Link link="https://snack.expo.dev/@swda/aspect-of-sizes" />
 
 ### `onPress` event
 
@@ -171,7 +171,8 @@ return (
           flexDirection: 'row',
           flexWrap: 'wrap',
           justifyContent: 'center',
-        }}>
+        }}
+      >
         <Button text="Increase" style={{padding: 8}} onPress={onIncrease} />
         <Button text="Decrease" style={{padding: 8}} onPress={onDecrease} />
         <span>value : {value}</span>
@@ -184,7 +185,7 @@ return (
 <OnPress themeType="light" />
 <OnPress themeType="dark" />
 
-<Link link="https://snack.expo.dev/@swda/onpress-event"/>
+<Link link="https://snack.expo.dev/@swda/onpress-event" />
 
 ### AdditionalElement
 
@@ -234,7 +235,8 @@ return (
             style={{
               position: 'absolute',
               left: 28,
-            }}>
+            }}
+          >
             <Image style={{width: 15, height: 28}} source={IC_FACEBOOK} />
           </View>
         }
@@ -267,4 +269,4 @@ return (
 <AdditionalElement themeType="light" />
 <AdditionalElement themeType="dark" />
 
-<Link link="https://snack.expo.dev/@swda/additionalelement"/>
+<Link link="https://snack.expo.dev/@swda/additionalelement" />
