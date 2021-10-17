@@ -1,6 +1,6 @@
 {
   "name": "@dooboo-ui/theme",
-  "version": "0.3.1",
+  "version": "0.3.3",
   "description": "dooboo-ui theme provider",
   "homepage": "https://github.com/dooboolab/dooboo-ui#readme",
   "license": "ISC",
@@ -20,7 +20,7 @@
     "watch": "tsc -w"
   },
   "bugs": {
-    "url": "https://github.com//dooboo-ui/issues"
+    "url": "https://github.com/dooboo-ui/issues"
   },
   "keywords": [
     "theme",
