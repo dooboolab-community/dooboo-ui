@@ -6,6 +6,7 @@
   "license": "MIT",
   "postinstall": "tsc && dooboolab-welcome postinstall",
   "scripts": {
+    "clean": "rm -rf lib",
     "build": "tsc",
     "watch": "tsc -w"
   },

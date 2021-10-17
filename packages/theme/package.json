@@ -16,6 +16,7 @@
     "url": "git+https://github.com/dooboolab/dooboo-ui.git"
   },
   "scripts": {
+    "clean": "rm -rf lib",
     "build": "tsc",
     "watch": "tsc -w"
   },

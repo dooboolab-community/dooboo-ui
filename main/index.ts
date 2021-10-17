@@ -15,3 +15,4 @@ export * from './StatusBarBrightness';
 export * from './SwitchToggle';
 export * from './SelectBox';
 export * from './FAB';
+export * from '@dooboo-ui/theme';
