@@ -1,11 +1,11 @@
 {
   "files": {
-    "app.js": "/dooboo-ui/static/js/app.ae06d01d.chunk.js",
-    "app.js.map": "/dooboo-ui/static/js/app.ae06d01d.chunk.js.map",
+    "app.js": "/dooboo-ui/static/js/app.abb3ce6c.chunk.js",
+    "app.js.map": "/dooboo-ui/static/js/app.abb3ce6c.chunk.js.map",
     "runtime~app.js": "/dooboo-ui/static/js/runtime~app.551cd881.js",
     "runtime~app.js.map": "/dooboo-ui/static/js/runtime~app.551cd881.js.map",
-    "static/js/2.8adddaa4.chunk.js": "/dooboo-ui/static/js/2.8adddaa4.chunk.js",
-    "static/js/2.8adddaa4.chunk.js.map": "/dooboo-ui/static/js/2.8adddaa4.chunk.js.map",
+    "static/js/2.f3c7e074.chunk.js": "/dooboo-ui/static/js/2.f3c7e074.chunk.js",
+    "static/js/2.f3c7e074.chunk.js.map": "/dooboo-ui/static/js/2.f3c7e074.chunk.js.map",
     "fonts/AntDesign.ttf": "/dooboo-ui/./fonts/AntDesign.ttf",
     "fonts/Entypo.ttf": "/dooboo-ui/./fonts/Entypo.ttf",
     "fonts/Feather.ttf": "/dooboo-ui/./fonts/Feather.ttf",
@@ -24,23 +24,17 @@
     "index.html": "/dooboo-ui/index.html",
     "manifest.json": "/dooboo-ui/manifest.json",
     "serve.json": "/dooboo-ui/serve.json",
-    "static/js/2.8adddaa4.chunk.js.LICENSE.txt": "/dooboo-ui/static/js/2.8adddaa4.chunk.js.LICENSE.txt",
+    "static/js/2.f3c7e074.chunk.js.LICENSE.txt": "/dooboo-ui/static/js/2.f3c7e074.chunk.js.LICENSE.txt",
     "static/media/artifacts_logo_d.png": "/dooboo-ui/static/media/artifacts_logo_d.ebf4ac96.png",
     "static/media/artifacts_logo_l.png": "/dooboo-ui/static/media/artifacts_logo_l.ad84f316.png",
     "static/media/color-circle.png": "/dooboo-ui/static/media/color-circle.aeee73f0.png",
-    "static/media/facebook.png": "/dooboo-ui/static/media/facebook.5466c537.png",
-    "static/media/google.png": "/dooboo-ui/static/media/google.3825992f.png",
     "static/media/hsv_triangle_mask.png": "/dooboo-ui/static/media/hsv_triangle_mask.cd409b9d.png",
-    "static/media/ic_arr_down.png": "/dooboo-ui/static/media/ic_arr_down.cad392c3.png",
-    "static/media/ic_arr_up.png": "/dooboo-ui/static/media/ic_arr_up.caac5374.png",
-    "static/media/ic_delete.png": "/dooboo-ui/static/media/ic_delete.7d8b16b3.png",
-    "static/media/ic_edit.png": "/dooboo-ui/static/media/ic_edit.2206248b.png",
     "static/media/magnifier.png": "/dooboo-ui/static/media/magnifier.9f82873e.png",
     "static/media/mask.png": "/dooboo-ui/static/media/mask.7a74ac5a.png"
   },
   "entrypoints": [
     "static/js/runtime~app.551cd881.js",
-    "static/js/2.8adddaa4.chunk.js",
-    "static/js/app.ae06d01d.chunk.js"
+    "static/js/2.f3c7e074.chunk.js",
+    "static/js/app.abb3ce6c.chunk.js"
   ]
 }
