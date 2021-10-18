@@ -31,7 +31,11 @@ export const ButtonWrapper = styled.View<{
   background-color: ${({theme, type, outlined, loading, disabled}) => {
     theme = isEmptyObject(theme) ? light : theme;
 
-    if (loading) return theme[type ?? 'primary'];
+    if (loading) {
+      if (outlined) return undefined;
+
+      return theme[type!];
+    }
 
     if (disabled) return undefined;
 
@@ -50,6 +54,7 @@ export const ButtonText = styled.Text<{
   outlined?: boolean;
   type?: ButtonType | SnackbarType;
   disabled?: boolean;
+  loading?: boolean;
   theme?: DoobooTheme;
 }>`
   color: ${({theme, outlined, type, disabled}) => {

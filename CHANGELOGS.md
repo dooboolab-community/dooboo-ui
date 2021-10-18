@@ -1,5 +1,24 @@
 ## Changelogs
 
+## 0.1.38
+
+#### Enhancement
+
+The button loading color does not look correct in the current status. Avoid changing background.
+
+The final result is below.
+<img src="https://user-images.githubusercontent.com/27461460/137771323-24a153bf-a1ca-4be7-8da0-5f6749f8011c.gif" width="280"/>
+
+##### Hotfix
+
+Apply new migrated @dooboo-ui/theme package which starts from 0.3.3.
+
+Organize dirty packages.
+
+#### Packages
+
+Apply new theme package to AlertDialog (#153)
+
 ## 0.1.35
 
 #### Feature

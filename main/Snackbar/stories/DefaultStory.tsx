@@ -43,8 +43,9 @@ function SnackbarDefault(): React.ReactElement {
       }}
     >
       <Snackbar ref={snackbar} />
-      {types.map((type) => (
+      {types.map((type, i) => (
         <Button
+          key={`${type}_i`}
           type={type === 'default' ? 'primary' : type}
           onPress={() => onPress(type)}
           text={`Open Snackbar - ${type}`}
