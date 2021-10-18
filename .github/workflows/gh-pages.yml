@@ -24,12 +24,14 @@ jobs:
         with:
           expo-version: 4.x
 
+      - name: Install dependencies
+        run: yarn install --ignore-engines
+
       - name: Lerna setup for packages
         run: yarn pre
 
       - name: Install packages and build storybook
         run: |
-          yarn install --ignore-engines
           yarn build:storybook
 
       - name: Deploy
