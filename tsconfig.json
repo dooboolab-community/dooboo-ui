@@ -28,7 +28,7 @@
     "emitDecoratorMetadata": true,
     "esModuleInterop": true,
     "noUnusedLocals": false,
-    "types": ["jest"],
+    "types": ["node","jest"],
     "typeRoots": ["./types", "./node_modules/@types"]
   },
   "include": [
