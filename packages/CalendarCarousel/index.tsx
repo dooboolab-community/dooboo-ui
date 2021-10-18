@@ -334,29 +334,36 @@ function CalendarCarousel({
         else if (hasEvent() && isSelected(dateItem))
           return (
             <TouchableOpacity
+              key={itemDay}
               onPress={(): void => {
                 selectDate?.(setItemDay);
                 setEventDay(itemDay);
               }}
             >
-              <View style={styles.activeView} key={itemDay}>
+              <View style={styles.activeView}>
                 <Text style={styles.activeText}>{`${itemDay}`}</Text>
-                <View style={styles.mark} key={itemDay} />
+                <View style={styles.mark} />
               </View>
             </TouchableOpacity>
           );
         else if (hasEvent())
           return (
-            <TouchableOpacity onPress={(): void => selectDate?.(setItemDay)}>
+            <TouchableOpacity
+              key={itemDay}
+              onPress={(): void => selectDate?.(setItemDay)}
+            >
               <View style={styles.defaultView} key={itemDay}>
                 <Text style={styles.notActiveText}>{`${itemDay}`}</Text>
-                <View style={styles.mark} key={itemDay} />
+                <View style={styles.mark} />
               </View>
             </TouchableOpacity>
           );
         else if (isSelected(dateItem))
           return (
-            <TouchableOpacity onPress={(): void => selectDate?.(setItemDay)}>
+            <TouchableOpacity
+              key={itemDay}
+              onPress={(): void => selectDate?.(setItemDay)}
+            >
               <View style={styles.activeView}>
                 <Text style={styles.activeText}>{`${itemDay}`}</Text>
               </View>
@@ -364,7 +371,10 @@ function CalendarCarousel({
           );
 
         return (
-          <TouchableOpacity onPress={(): void => selectDate?.(setItemDay)}>
+          <TouchableOpacity
+            key={itemDay}
+            onPress={(): void => selectDate?.(setItemDay)}
+          >
             <View style={styles.defaultView}>
               <Text style={styles.notActiveText}>{`${itemDay}`}</Text>
             </View>
@@ -380,7 +390,10 @@ function CalendarCarousel({
             markedYears.includes(year)
           )
             return (
-              <View style={styles.eventContainer} key={i}>
+              <View
+                style={styles.eventContainer}
+                key={`${JSON.stringify(markedDayEvent)}`}
+              >
                 <Text style={styles.eventDate}>
                   {markedDayEvents[i].selectedEventDate.getDate()}
                 </Text>
@@ -395,7 +408,7 @@ function CalendarCarousel({
       };
 
       return (
-        <View style={styles.calendarContainer}>
+        <View style={styles.calendarContainer} key={displayDate.toString()}>
           <View style={styles.headerStyle}>
             <TouchableOpacity onPress={(): void => changeMonth(true)}>
               <Text style={styles.arrowText}> &#8249;</Text>
