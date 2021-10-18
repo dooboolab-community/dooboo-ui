@@ -98,7 +98,14 @@ export const Button: FC<Props> = (props) => {
 
   const {theme} = useTheme();
 
-  const indicatorColor = props.indicatorColor ?? theme.background;
+  const disabledTextColor =
+    disabled && !outlined && !loading
+      ? theme.textDisabled
+      : outlined
+      ? theme.disabled
+      : undefined;
+
+  const indicatorColor = props.indicatorColor ?? disabledTextColor;
 
   const compositeStyles: Styles = {
     disabledButton: css`
@@ -106,12 +113,7 @@ export const Button: FC<Props> = (props) => {
       border-color: ${theme.disabled};
     `,
     disabledText: {
-      color:
-        disabled && !outlined && !loading
-          ? theme.textDisabled
-          : outlined
-          ? theme.disabled
-          : undefined,
+      color: disabledTextColor,
     },
     hovered: {
       shadowColor: 'black',

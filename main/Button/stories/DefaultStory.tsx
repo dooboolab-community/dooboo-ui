@@ -160,7 +160,7 @@ const ButtonDefault: FC = () => {
             }
             outlined
             loading={googleLoading}
-            style={{marginBottom: 20, marginTop: 30, marginRight: 30}}
+            style={{marginBottom: 20, marginTop: 30}}
             styles={{
               container: css`
                 border-radius: 80px;
@@ -183,7 +183,6 @@ const ButtonDefault: FC = () => {
           />
           <Button
             testID="btnFacebook"
-            outlined
             leftElement={
               <View
                 style={{
