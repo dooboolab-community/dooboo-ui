@@ -1,5 +1,3 @@
-import '@expo/match-media';
-
 import {Colors, ThemeParam, ThemeType, colors, dark, light} from './colors';
 import {ThemeProvider as EmotionThemeProvider, withTheme} from '@emotion/react';
 import React, {useEffect, useState} from 'react';
