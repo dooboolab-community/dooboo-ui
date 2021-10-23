@@ -13,6 +13,12 @@ jobs:
         with:
           node-version: '14.x'
           registry-url: 'https://registry.npmjs.org'
+
+      - name: Setup expo cli
+        uses: expo/expo-github-action@v5
+        with:
+          expo-version: 4.x
+
       - run: yarn
       - run: yarn pre
       - run: yarn build
