@@ -23,7 +23,7 @@ jobs:
         run: yarn global add expo-cli
 
       - name: Install modules
-        run: yarn install --frozen-lockfile
+        run: yarn install --network-concurrency 1 --frozen-lockfile
 
       - name: Prepare pacakges
         run: yarn pre
