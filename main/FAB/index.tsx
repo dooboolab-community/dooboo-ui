@@ -83,7 +83,7 @@ function FloatingActionButtons<Item extends FABItem = FABItem>({
           outputRange: [0, -1 * (idx + 1) * (FABHeight.current + gap)],
         }),
       ),
-    [FABItems, FABHeight, gap],
+    [],
   );
 
   const onLayout = (e: LayoutChangeEvent): void => {

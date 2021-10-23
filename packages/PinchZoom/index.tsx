@@ -319,15 +319,7 @@ function PinchZoom(props: Props, ref: Ref<PinchZoomRef>): ReactElement {
         },
       }),
     );
-  }, [
-    fixOverflowAfterRelease,
-    onRelease,
-    allowEmpty?.x,
-    allowEmpty?.y,
-    scale,
-    transformCache,
-    translate,
-  ]);
+  }, [fixOverflowAfterRelease, onRelease, scale, transformCache, translate]);
 
   useImperativeHandle(ref, () => ({
     animatedValue: {scale, translate},
@@ -340,7 +332,7 @@ function PinchZoom(props: Props, ref: Ref<PinchZoomRef>): ReactElement {
   return (
     <Animated.View
       testID="PINCH_ZOOM_CONTAINER"
-      //! @JongtaekChoi Hope you havve time to remove underlying ts ignore.
+      //! @JongtaekChoi Hope you have time to remove underlying ts ignore.
       // @ts-ignore
       ref={(pinchViewRef: NativeMethods | undefined) => {
         containerView.current = pinchViewRef;
