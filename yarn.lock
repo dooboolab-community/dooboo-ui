@@ -1394,14 +1394,6 @@
   resolved "https://registry.yarnpkg.com/@discoveryjs/json-ext/-/json-ext-0.5.5.tgz#9283c9ce5b289a3c4f61c12757469e59377f81f3"
   integrity sha512-6nFkfkmSeV/rqSaS4oWHgmpnYw194f6hmWF5is6b0J1naJZoiD0NTc9AiUwPHvWsowkjuHErCZT1wa0jg+BLIA==
 
-"@dooboo-ui/theme@^0.4.2":
-  version "0.4.2"
-  resolved "https://registry.yarnpkg.com/@dooboo-ui/theme/-/theme-0.4.2.tgz#2bcff41e407706aa453ea4e091ae823016934b70"
-  integrity sha512-6nXDEiKhC1VkNdicDwOnvMwy1iRQ6tzx1LQPva/EytluzzTiIjxPM7+lUDtJV5fOVRjHN7lGlKtgx5EzMIEI2A==
-  dependencies:
-    "@expo/match-media" "git+https://github.com/zhigang1992/match-media.git#fix/screenOrientationUnimodule"
-    react-responsive "^8.2.0"
-
 "@dooboo/eslint-config@^1.1.1":
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/@dooboo/eslint-config/-/eslint-config-1.1.1.tgz#e7b9031cf6e04908e8d4d5b1cf6cca0b2d491482"
@@ -1529,7 +1521,7 @@
   dependencies:
     css-to-react-native "^3.0.0"
 
-"@emotion/react@^11.5.0":
+"@emotion/react@^11.4.0", "@emotion/react@^11.4.1", "@emotion/react@^11.5.0":
   version "11.5.0"
   resolved "https://registry.yarnpkg.com/@emotion/react/-/react-11.5.0.tgz#19b5771bbfbda5e8517e948a2d9064810f0022bd"
   integrity sha512-MYq/bzp3rYbee4EMBORCn4duPQfgpiEB5XzrZEBnUZAL80Qdfr7CEv/T80jwaTl/dnZmt9SnTa8NkTrwFNpLlw==
@@ -4759,7 +4751,7 @@
   dependencies:
     "@types/react" "*"
 
-"@types/react@*", "@types/react@17.0.8", "@types/react@>=16.9.0":
+"@types/react@*", "@types/react@>=16.9.0":
   version "17.0.8"
   resolved "https://registry.yarnpkg.com/@types/react/-/react-17.0.8.tgz#fe76e3ba0fbb5602704110fd1e3035cf394778e3"
   integrity sha512-3sx4c0PbXujrYAKwXxNONXUtRp9C+hE2di0IuxFyf5BELD+B+AXL8G7QrmSKhVwKZDbv0igiAjQAMhXj8Yg3aw==
@@ -18774,6 +18766,11 @@ typedarray@^0.0.6:
   version "0.0.6"
   resolved "https://registry.yarnpkg.com/typedarray/-/typedarray-0.0.6.tgz#867ac74e3864187b1d3d47d996a78ec5c8830777"
   integrity sha1-hnrHTjhkGHsdPUfZlqeOxciDB3c=
+
+typescript@^4.2.4, typescript@^4.3.2:
+  version "4.4.4"
+  resolved "https://registry.yarnpkg.com/typescript/-/typescript-4.4.4.tgz#2cd01a1a1f160704d3101fd5a58ff0f9fcb8030c"
+  integrity sha512-DqGhF5IKoBl8WNf8C1gu8q0xZSInh9j1kJJMqT3a94w1JzVaBU4EXOSMrz9yDqMT0xt3selp83fuFMQ0uzv6qA==
 
 typescript@~4.3.5:
   version "4.3.5"

@@ -104,9 +104,6 @@
   "jest": {
     "preset": "react-native"
   },
-  "resolutions": {
-    "@types/react": "17.0.8"
-  },
   "workspaces": {
     "packages": [
       "packages/*"
