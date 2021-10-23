@@ -9,7 +9,7 @@ import {storiesOf} from '@storybook/react-native';
  * Below are stories for web
  */
 export default {
-  title: 'LoadingIndicator',
+  title: 'SelectBox',
 };
 
 export const toStorybook = (): ReactElement => <SelectBoxStory />;
