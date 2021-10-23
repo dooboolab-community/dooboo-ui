@@ -77,7 +77,13 @@ const Container = styled.View`
 
 ### Orientation support
 
-If you also want to check the `orientation` change detection, you need to import `@expo/match-media` in root of your app.
+If you also want to check the `orientation` change detection, you need to install `@expo/match-media`.
+
+```sh
+yarn add @expo/match-media
+```
+
+Then import it in your root.
 
 ```ts
 import '@expo/match-media';

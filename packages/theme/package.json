@@ -30,13 +30,13 @@
     "dooboolab"
   ],
   "dependencies": {
-    "react-responsive": "^8.2.0",
-    "@expo/match-media": "git+https://github.com/zhigang1992/match-media.git#fix/screenOrientationUnimodule"
+    "react-responsive": "^8.2.0"
   },
   "devDependencies": {
     "typescript": "^4.2.4",
     "@emotion/native": "^11.0.0",
-    "@emotion/react": "^11.4.1"
+    "@emotion/react": "^11.4.1",
+    "@expo/match-media": "*"
   },
   "peerDependencies": {
     "react": ">=16.9",
