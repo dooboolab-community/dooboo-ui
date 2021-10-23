@@ -83,6 +83,7 @@ function FloatingActionButtons<Item extends FABItem = FABItem>({
           outputRange: [0, -1 * (idx + 1) * (FABHeight.current + gap)],
         }),
       ),
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     [FABItems, FABHeight, gap],
   );
 
