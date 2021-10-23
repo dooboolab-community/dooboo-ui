@@ -16,13 +16,17 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@master
         with:
-          node-version: 15.x
+          node-version: '14'
+          check-latest: false
+
+      - name: Install Expo CLI
+        run: yarn global add expo-cli
 
       - name: Install packages and build storybook
         run: |
           pushd ./docs
           yarn preinstall
-          yarn
+          yarn install --frozen-lockfile --network-concurrency 1
           yarn build
           popd
 

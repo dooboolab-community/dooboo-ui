@@ -8,57 +8,57 @@ import {Meta} from '@storybook/addon-docs/blocks';
 
 ## Installation
 
-1. Import
+#### 1. Import
 
-   ```ts
-   import {ThemeProvider} from 'dooboo-ui';
-   ```
+```ts
+import {ThemeProvider} from 'dooboo-ui';
+```
 
-   or
+- if you only want to use `theme` pacakage, you can install it seperately.
 
-   ```ts
-   import {ThemeProvider} from '@dooboo-ui/theme';
-   ```
+  `import {ThemeProvider} from '@dooboo-ui/theme';`
 
-2. Wrap your component with `ThemeProvider` with given customTheme.
-   ```tsx
-   <ThemeProvider>
-     <App />
-   </ThemeProvider>
-   ```
+#### 2. Wrap your component with `ThemeProvider` with given customTheme.
+
+```tsx
+<ThemeProvider>
+  <App />
+</ThemeProvider>
+```
 
 ## Usage
 
-1. Import `useTheme`
+#### 1. Import `useTheme`
 
-   ```ts
-   import {useTheme} from 'dooboo-ui';
-   ```
+```ts
+import {useTheme} from 'dooboo-ui';
+```
 
-2. Retrive theme.
+#### 2. Retrive theme
 
-   ```ts
-   const {theme} = useTheme();
-   ```
+```ts
+const {theme} = useTheme();
+```
 
-3. Use it in style.
+#### 3. Use it in style.
 
-   ```ts
-   {
-     backgroundColor: theme.background,
-     borderBottomColor: theme.primaryLight,
-   }
-   ```
+```ts
+{
+  backgroundColor: theme.background,
+  borderBottomColor: theme.primaryLight,
+}
+```
 
-4. Also availabe with [emotion](https://emotion.sh/docs/@emotion/native).
-   ```ts
-   const StyledContainer = styled.SafeAreaView`
-     flex: 1;
-     background-color: ${({theme}) => theme.background};
-     flex-direction: column;
-     align-items: center;
-   `;
-   ```
+#### Also availabe with [emotion](https://emotion.sh/docs/@emotion/native).
+
+```tsx
+const StyledContainer = styled.SafeAreaView`
+  flex: 1;
+  background-color: ${({theme}) => theme.background};
+  flex-direction: column;
+  align-items: center;
+`;
+```
 
 #### With Expo
 
@@ -70,70 +70,73 @@ userInterfaceStyle: 'automatic',
 
 ## Customizing theme
 
-1. Define colors for `light` and `dark` theme.
+#### 1. Define colors for `light` and `dark` theme.
 
-   ```ts
-   export const colors = {
-     black: 'black',
-     white: 'white',
-     charcoalGray: '#414141',
-     gray: '#6D6D6D',
-     cloud: '#C4C4C4',
-     lightGray: '#EDEDED',
-     brightTurquoise: '#00D9D5',
-     ruddy: '#FF002E',
-     yellow: '#FFEB14',
-     blueberry: '#5398FF',
-     apple: '#151E22',
-     google: '#E04238',
-     facebook: '#345997',
-     negative: '#ff7676',
-     positive: '#00BA90',
-   };
+```ts
+export const colors = {
+  black: 'black',
+  white: 'white',
+  charcoalGray: '#414141',
+  gray: '#6D6D6D',
+  cloud: '#C4C4C4',
+  lightGray: '#EDEDED',
+  brightTurquoise: '#00D9D5',
+  ruddy: '#FF002E',
+  yellow: '#FFEB14',
+  blueberry: '#5398FF',
+  apple: '#151E22',
+  google: '#E04238',
+  facebook: '#345997',
+  negative: '#ff7676',
+  positive: '#00BA90',
+};
 
-   export type Colors = typeof colors;
+export type Colors = typeof colors;
 
-   export const light = {
-     primary: colors.black,
-     disabled: colors.cloud,
-     background: colors.white,
-     secondary: colors.brightTurquoise,
-     danger: colors.ruddy,
-     warning: colors.yellow,
-     info: colors.blueberry,
-     success: colors.harlequin,
-     textPrimary: colors.black,
-     text: colors.black,
-     placeholder: colors.gray,
-     textDisabled: colors.cloud,
-     textContrast: colors.white,
-     textValidation: colors.ruddy,
-   };
+export const light = {
+  primary: colors.black,
+  disabled: colors.cloud,
+  background: colors.white,
+  secondary: colors.brightTurquoise,
+  danger: colors.ruddy,
+  warning: colors.yellow,
+  info: colors.blueberry,
+  success: colors.harlequin,
+  textPrimary: colors.black,
+  text: colors.black,
+  placeholder: colors.gray,
+  textDisabled: colors.cloud,
+  textContrast: colors.white,
+  textValidation: colors.ruddy,
+};
 
-   export const dark = {
-     primary: colors.black,
-     disabled: colors.cloud,
-     background: colors.white,
-     secondary: colors.brightTurquoise,
-     danger: colors.ruddy,
-     warning: colors.yellow,
-     info: colors.blueberry,
-     success: colors.harlequin,
-     textPrimary: colors.black,
-     text: colors.black,
-     placeholder: colors.gray,
-     textDisabled: colors.cloud,
-     textContrast: colors.white,
-     textValidation: colors.ruddy,
-   };
-   ```
+export const dark = {
+  primary: colors.black,
+  disabled: colors.cloud,
+  background: colors.white,
+  secondary: colors.brightTurquoise,
+  danger: colors.ruddy,
+  warning: colors.yellow,
+  info: colors.blueberry,
+  success: colors.harlequin,
+  textPrimary: colors.black,
+  text: colors.black,
+  placeholder: colors.gray,
+  textDisabled: colors.cloud,
+  textContrast: colors.white,
+  textValidation: colors.ruddy,
+};
+```
 
-2. Wrap your component with `ThemeProvider` with given customTheme.
-   ```tsx
-   <ThemeProvider customTheme={{light, dark}}>
-     <App />
-   </ThemeProvider>
-   ```
+#### 2. Wrap your component with `ThemeProvider` with given customTheme.
+
+```tsx
+<ThemeProvider customTheme={{light, dark}}>
+  <App />
+</ThemeProvider>
+```
+
+- [Example theme.ts](https://github.com/dooboolab/hackatalk/blob/master/client/src/theme.ts)
 
 ### Typescript with [emotion](https://emotion.sh/docs/typescript#define-a-theme)
 
@@ -155,4 +158,56 @@ declare module '@emotion/react' {
     background: string;
   }
 }
+```
+
+- [Example styled.d.ts](https://github.com/dooboolab/hackatalk/blob/master/client/src/styled.d.ts).
+
+### Media support
+
+`@dooboo-ui/theme` also supports `mediaQuery` with `isMobile`, `isTablet`, and `isDesktop` props. Example below.
+
+```tsx
+const Container = styled.View`
+  flex-direction: column;
+  align-items: flex-start;
+  align-self: stretch;
+
+  ${({theme: {isMobile}}) =>
+    isMobile &&
+    css`
+      flex: 1;
+      margin-left: 48px;
+    `}
+`;
+```
+
+### Orientation support
+
+If you also want to check the `orientation` change detection, you need to install `@expo/match-media`.
+
+```sh
+yarn add @expo/match-media
+```
+
+Then import it in your root.
+
+```ts
+import '@expo/match-media';
+```
+
+After that you can use `isPortrait` props in `@dooboo-ui/theme` to detect the orientation or your app. Example below.
+
+```tsx
+const Container = styled.View`
+  flex-direction: column;
+  align-items: flex-start;
+  align-self: stretch;
+
+  ${({theme: {isPortrait}}) =>
+    isPortrait &&
+    css`
+      flex: 1;
+      margin-left: 48px;
+    `}
+`;
 ```

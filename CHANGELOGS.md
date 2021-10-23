@@ -1,5 +1,19 @@
 ## Changelogs
 
+## 0.1.40
+
+Upgrade project to expo sdk 43 (#158)
+
+## 0.1.39
+
+Organize packages and manage deps (#157)
+
+- Update @dooboo-ui/theme readme and dependencies
+
+- Organize packages and update installation guide
+
+- Update installation readme for `expo`
+
 ## 0.1.38
 
 #### Enhancement
