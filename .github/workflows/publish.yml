@@ -19,7 +19,7 @@ jobs:
         with:
           expo-version: 4.x
 
-      - run: yarn
+      - run: yarn --network-concurrency 1
       - run: yarn pre
       - run: yarn build
       - run: cd lib && yarn publish
