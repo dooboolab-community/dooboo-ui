@@ -52,6 +52,7 @@ module.exports = {
     '@typescript-eslint/no-empty-function': 0,
     '@typescript-eslint/ban-ts-comment': 0,
     'no-unused-expressions': 'off',
+    'react-hooks/exhaustive-deps': 'warn',
     '@typescript-eslint/no-unused-expressions': [
       'error',
       {

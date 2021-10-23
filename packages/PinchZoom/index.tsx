@@ -160,9 +160,7 @@ function PinchZoom(props: Props, ref: Ref<PinchZoomRef>): ReactElement {
     scale,
     transformCache,
     translate,
-    // eslint-disable-next-line react-hooks/exhaustive-deps
     allowEmpty?.x,
-    // eslint-disable-next-line react-hooks/exhaustive-deps
     allowEmpty?.y,
   ]);
 
