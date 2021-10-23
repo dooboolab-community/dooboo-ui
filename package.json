@@ -55,6 +55,7 @@
     "@babel/preset-react": "^7.14.5",
     "@dooboo/eslint-config": "^1.1.1",
     "@emotion/babel-plugin": "^11.3.0",
+    "@jest/types": "^27.2.5",
     "@react-native-async-storage/async-storage": "~1.15.0",
     "@storybook/addon-actions": "^6.3.12",
     "@storybook/addon-controls": "^6.3.12",
