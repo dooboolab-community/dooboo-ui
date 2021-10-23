@@ -19,11 +19,8 @@ jobs:
           cache: 'yarn'
           cache-dependency-path: '**/yarn.lock'
 
-      - name: Install yarn
-        run: npm install -g yarn
-
       - name: Install modules
-        run: yarn install --immutable
+        run: yarn install
 
       - name: Prepare pacakges
         run: yarn pre
