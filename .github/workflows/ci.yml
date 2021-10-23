@@ -19,8 +19,11 @@ jobs:
           cache: 'yarn'
           cache-dependency-path: '**/yarn.lock'
 
+      - name: Install Expo CLI
+        run: yarn global add expo-cli
+
       - name: Install modules
-        run: yarn install
+        run: yarn install --frozen-lockfile
 
       - name: Prepare pacakges
         run: yarn pre
