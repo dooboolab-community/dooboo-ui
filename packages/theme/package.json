@@ -1,6 +1,6 @@
 {
   "name": "@dooboo-ui/theme",
-  "version": "0.4.0",
+  "version": "0.4.2",
   "description": "dooboo-ui theme provider",
   "homepage": "https://github.com/dooboolab/dooboo-ui#readme",
   "license": "ISC",
@@ -30,7 +30,8 @@
     "dooboolab"
   ],
   "dependencies": {
-    "react-responsive": "^8.2.0"
+    "react-responsive": "^8.2.0",
+    "@expo/match-media": "git+https://github.com/zhigang1992/match-media.git#fix/screenOrientationUnimodule"
   },
   "devDependencies": {
     "typescript": "^4.2.4",
@@ -41,7 +42,6 @@
     "react": ">=16.9",
     "react-native": ">=0.58",
     "@emotion/react": ">=11",
-    "@emotion/native": ">=11",
-    "@expo/match-media": "^0.1.0"
+    "@emotion/native": ">=11"
   }
 }
