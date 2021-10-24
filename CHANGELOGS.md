@@ -1,5 +1,11 @@
 ## Changelogs
 
+## 0.1.41
+
+Revert default theme at `@dooboo-ui/theme` (#159)
+
+- This design does not sync the theme provided in emotion styles. We would like to sync both theme props and if not possible, we would not want this design.
+
 ## 0.1.40
 
 Upgrade project to expo sdk 43 (#158)
