@@ -1,9 +1,12 @@
 import {Colors, ThemeParam, ThemeType, colors, dark, light} from './colors';
-import {ThemeProvider as EmotionThemeProvider, withTheme} from '@emotion/react';
+import {
+  Theme as DefaultTheme,
+  ThemeProvider as EmotionThemeProvider,
+  withTheme,
+} from '@emotion/react';
 import React, {useEffect, useState} from 'react';
 
 import {ColorSchemeName} from 'react-native';
-import {DoobooTheme} from './';
 import createDoobooContext from './createDoobooContext';
 import useColorScheme from './useColorScheme';
 import {useMediaQuery} from 'react-responsive';
@@ -16,7 +19,7 @@ interface Context {
     isTablet: boolean;
     isDesktop: boolean;
   };
-  theme: DoobooTheme;
+  theme: DefaultTheme;
   changeThemeType: (themeType?: ColorSchemeName) => void;
   colors: Colors;
 }
