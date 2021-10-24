@@ -34,13 +34,13 @@ import {ThemeProvider} from 'dooboo-ui';
 import {useTheme} from 'dooboo-ui';
 ```
 
-#### 2. Retrive theme
+#### 2. Retrive theme and use it
 
 ```ts
 const {theme} = useTheme();
 ```
 
-#### 3. Use it in style.
+Then use theme props inside your component.
 
 ```ts
 {
@@ -138,7 +138,7 @@ export const dark = {
 
 - [Example theme.ts](https://github.com/dooboolab/hackatalk/blob/master/client/src/theme.ts)
 
-### Typescript with [emotion](https://emotion.sh/docs/typescript#define-a-theme)
+### Typescript support with [emotion](https://emotion.sh/docs/typescript#define-a-theme)
 
 > Inside `src` dir, add `styled.d.ts`.
 
@@ -195,7 +195,7 @@ Then import it in your root.
 import '@expo/match-media';
 ```
 
-After that you can use `isPortrait` props in `@dooboo-ui/theme` to detect the orientation or your app. Example below.
+After that you can use `isPortrait` props in `@dooboo-ui/theme` to detect the orientation of your app. Example below.
 
 ```tsx
 const Container = styled.View`
