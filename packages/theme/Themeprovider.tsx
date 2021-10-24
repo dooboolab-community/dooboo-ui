@@ -21,9 +21,7 @@ interface Context {
   colors: Colors;
 }
 
-const [useTheme, DoobooProvider] = createDoobooContext<Context>({
-  theme: light,
-} as unknown as Context);
+const [useCtx, DoobooProvider] = createDoobooContext<Context>();
 
 interface Props {
   children?: React.ReactElement;
@@ -88,4 +86,4 @@ function ThemeProvider({
   );
 }
 
-export {useTheme, ThemeProvider, withTheme};
+export {useCtx as useTheme, ThemeProvider, withTheme};

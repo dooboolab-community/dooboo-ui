@@ -80,7 +80,9 @@ exports[`[Accordion] render test should adjust duration of animation depends on 
                 "fontSize": 12,
               },
               Array [
-                Object {},
+                Object {
+                  "color": "black",
+                },
                 Array [
                   Object {
                     "color": "white",
@@ -279,7 +281,9 @@ exports[`[Accordion] render test should adjust duration of animation depends on 
                 "fontSize": 12,
               },
               Array [
-                Object {},
+                Object {
+                  "color": "black",
+                },
                 Array [
                   Object {
                     "color": "white",
@@ -481,7 +485,9 @@ exports[`[Accordion] render test should adjust duration of animation depends on 
                 "fontSize": 12,
               },
               Array [
-                Object {},
+                Object {
+                  "color": "black",
+                },
                 Array [
                   Object {
                     "color": "white",
@@ -691,7 +697,9 @@ exports[`[Accordion] render test should operate animation when isAnimated props 
                 "fontSize": 12,
               },
               Array [
-                Object {},
+                Object {
+                  "color": "black",
+                },
                 Array [
                   Object {
                     "color": "white",
@@ -890,7 +898,9 @@ exports[`[Accordion] render test should operate animation when isAnimated props 
                 "fontSize": 12,
               },
               Array [
-                Object {},
+                Object {
+                  "color": "black",
+                },
                 Array [
                   Object {
                     "color": "white",
@@ -1092,7 +1102,9 @@ exports[`[Accordion] render test should operate animation when isAnimated props 
                 "fontSize": 12,
               },
               Array [
-                Object {},
+                Object {
+                  "color": "black",
+                },
                 Array [
                   Object {
                     "color": "white",
@@ -1302,7 +1314,9 @@ exports[`[Accordion] render test should render collapsed when collapseOnStart pr
                 "fontSize": 12,
               },
               Array [
-                Object {},
+                Object {
+                  "color": "black",
+                },
                 Array [
                   Object {
                     "color": "white",
@@ -1501,7 +1515,9 @@ exports[`[Accordion] render test should render collapsed when collapseOnStart pr
                 "fontSize": 12,
               },
               Array [
-                Object {},
+                Object {
+                  "color": "black",
+                },
                 Array [
                   Object {
                     "color": "white",
@@ -1703,7 +1719,9 @@ exports[`[Accordion] render test should render collapsed when collapseOnStart pr
                 "fontSize": 12,
               },
               Array [
-                Object {},
+                Object {
+                  "color": "black",
+                },
                 Array [
                   Object {
                     "color": "white",

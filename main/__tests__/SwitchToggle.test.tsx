@@ -15,7 +15,7 @@ describe('[SwitchToggle]', () => {
 
   it('handles press event', () => {
     const {getByA11yRole} = render(
-      <SwitchToggle isOn={false} onPress={handlePress} />,
+      createComponent(<SwitchToggle isOn={false} onPress={handlePress} />),
     );
 
     fireEvent.press(getByA11yRole('switch'));
