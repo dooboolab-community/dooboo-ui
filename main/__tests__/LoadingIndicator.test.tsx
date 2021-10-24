@@ -28,7 +28,7 @@ describe('[LoadingIndicator] render', () => {
       renderCustomElement: (): React.ReactElement => <View />,
     });
 
-    component = <LoadingIndicator {...props} />;
+    component = createComponent(<LoadingIndicator {...props} />);
 
     const rendered = renderer.create(component).toJSON();
 
@@ -41,7 +41,7 @@ describe('[LoadingIndicator] render', () => {
       imgSource: 'http',
     });
 
-    component = <LoadingIndicator {...props} />;
+    component = createComponent(<LoadingIndicator {...props} />);
 
     const rendered = renderer.create(component).toJSON();
 
@@ -55,7 +55,7 @@ describe('[LoadingIndicator] render', () => {
       size: 'small',
     });
 
-    component = <LoadingIndicator {...props} />;
+    component = createComponent(<LoadingIndicator {...props} />);
 
     const rendered = renderer.create(component).toJSON();
 
@@ -69,7 +69,7 @@ describe('[LoadingIndicator] render', () => {
       size: undefined,
     });
 
-    component = <LoadingIndicator {...props} />;
+    component = createComponent(<LoadingIndicator {...props} />);
 
     const rendered = renderer.create(component).toJSON();
 
@@ -83,7 +83,7 @@ describe('[LoadingIndicator] render', () => {
       size: null,
     });
 
-    component = <LoadingIndicator {...props} />;
+    component = createComponent(<LoadingIndicator {...props} />);
 
     const rendered = renderer.create(component).toJSON();
 
@@ -97,7 +97,7 @@ describe('[LoadingIndicator] render', () => {
       size: null,
     });
 
-    component = <LoadingIndicator {...props} />;
+    component = createComponent(<LoadingIndicator {...props} />);
 
     const rendered = renderer.create(component).toJSON();
 
@@ -111,7 +111,7 @@ describe('[LoadingIndicator] render', () => {
       size: 'test',
     });
 
-    component = <LoadingIndicator {...props} />;
+    component = createComponent(<LoadingIndicator {...props} />);
 
     const rendered = renderer.create(component).toJSON();
 
@@ -124,7 +124,7 @@ describe('[LoadingIndicator] render', () => {
       imgSource: 'http',
     });
 
-    component = <LoadingIndicator {...props} />;
+    component = createComponent(<LoadingIndicator {...props} />);
 
     const rendered = renderer.create(component).toJSON();
 
@@ -138,7 +138,7 @@ describe('[LoadingIndicator] render', () => {
       size: 'small',
     });
 
-    component = <LoadingIndicator {...props} />;
+    component = createComponent(<LoadingIndicator {...props} />);
 
     const rendered = renderer.create(component).toJSON();
 
@@ -152,7 +152,7 @@ describe('[LoadingIndicator] render', () => {
       size: undefined,
     });
 
-    component = <LoadingIndicator {...props} />;
+    component = createComponent(<LoadingIndicator {...props} />);
 
     const rendered = renderer.create(component).toJSON();
 
@@ -166,7 +166,7 @@ describe('[LoadingIndicator] render', () => {
       size: null,
     });
 
-    component = <LoadingIndicator {...props} />;
+    component = createComponent(<LoadingIndicator {...props} />);
 
     const rendered = renderer.create(component).toJSON();
 
@@ -180,7 +180,7 @@ describe('[LoadingIndicator] render', () => {
       size: 'test',
     });
 
-    component = <LoadingIndicator {...props} />;
+    component = createComponent(<LoadingIndicator {...props} />);
 
     const rendered = renderer.create(component).toJSON();
 

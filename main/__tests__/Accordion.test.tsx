@@ -42,7 +42,7 @@ describe('[Accordion] render test', () => {
       data: data,
     });
 
-    component = <Accordion {...props} />;
+    component = createComponent(<Accordion {...props} />);
     testingLib = render(component);
 
     const json = testingLib.toJSON();
@@ -58,7 +58,7 @@ describe('[Accordion] render test', () => {
       data: data,
     });
 
-    component = <Accordion {...props} />;
+    component = createComponent(<Accordion {...props} />);
     jest.runAllTimers();
 
     testingLib = render(component);
@@ -74,7 +74,7 @@ describe('[Accordion] render test', () => {
       data: data,
     });
 
-    component = <Accordion {...props} />;
+    component = createComponent(<Accordion {...props} />);
     testingLib = render(component);
 
     const json = testingLib.toJSON();
@@ -89,7 +89,7 @@ describe('[Accordion] event test', () => {
       data: data,
     });
 
-    component = <Accordion {...props} />;
+    component = createComponent(<Accordion {...props} />);
     testingLib = render(component);
   });
 

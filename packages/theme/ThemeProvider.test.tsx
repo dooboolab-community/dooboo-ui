@@ -15,14 +15,6 @@ const integerBetween = (min: number, max: number): number =>
   Math.floor(Math.random() * (max - min + 1)) + min;
 
 describe('doobooContext', () => {
-  context('when theme provider does not exists', () => {
-    it('returns default theme only', () => {
-      const {result} = renderHook(() => useTheme());
-
-      expect(result.current).toEqual({theme: light});
-    });
-  });
-
   context('when theme provider exists', () => {
     describe('themeType, theme, colors, changeThemeType', () => {
       const themeType = 'dark';
