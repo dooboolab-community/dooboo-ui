@@ -9,7 +9,6 @@ import '../main/IconButton/stories';
 import '../main/LoadingIndicator/stories';
 import '../main/NetworkImage/stories';
 import '../main/RadioGroup/stories';
-import '../main/SelectBox/stories';
 import '../main/Snackbar/stories';
 import '../main/SwitchToggle/stories';
 import '../main/Typography/stories';

@@ -1,5 +1,11 @@
 ## Changelogs
 
+## 0.1.44
+
+Remove `SelectBox` from `main` component.
+
+- This decision was made because the mobile restricts multiple scrolling in the same directions. This will be added to `package` component along with modalbox in the future.
+
 ## 0.1.41
 
 Revert default theme at `@dooboo-ui/theme` (#159)
