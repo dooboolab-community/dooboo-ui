@@ -103,7 +103,7 @@ export const Button: FC<Props> = (props) => {
       ? theme.textDisabled
       : outlined
       ? theme.disabled
-      : undefined;
+      : theme.light;
 
   const indicatorColor = props.indicatorColor ?? disabledTextColor;
 
