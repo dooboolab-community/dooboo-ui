@@ -3,6 +3,7 @@ import {Icon} from '..';
 import {View} from 'react-native';
 import styled from '@emotion/native';
 import {useFonts} from 'expo-font';
+import React from 'react';
 
 const StoryContainer = styled.View`
   flex: 1;

@@ -1,6 +1,7 @@
 import {Hr, IconButton} from '../..';
 import {Text, View} from 'react-native';
 
+import React from 'react';
 import type {FC} from 'react';
 import {Icon} from '../../Icon';
 import styled from '@emotion/native';

@@ -1,7 +1,8 @@
-import Dialog from './DefaultStory';
-import {ReactElement} from 'react';
-import {ThemeProvider} from '@dooboo-ui/theme';
+import React, {ReactElement} from 'react';
 import {storiesOf} from '@storybook/react-native';
+import {ThemeProvider} from '@dooboo-ui/theme';
+
+import Dialog from './DefaultStory';
 
 /**
  * Below are stories for web

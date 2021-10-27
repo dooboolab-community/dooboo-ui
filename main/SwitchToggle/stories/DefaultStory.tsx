@@ -1,8 +1,8 @@
-import {FC, useState} from 'react';
-import {SwitchToggle, Typography} from '../..';
-
-import styled from '@emotion/native';
+import React, {FC, useState} from 'react';
 import {useTheme} from '@dooboo-ui/theme';
+import styled from '@emotion/native';
+
+import {SwitchToggle, Typography} from '../..';
 
 const StoryContainer = styled.View`
   flex: 1;
