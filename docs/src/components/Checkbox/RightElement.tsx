@@ -18,7 +18,9 @@ const Component: FC = () => {
     IcoMoon: require('../../assets/doobooui.ttf'),
   });
 
-  if (!fontsLoaded) return <LoadingIndicator />;
+  if (!fontsLoaded) {
+    return <LoadingIndicator />;
+  }
 
   return (
     <View

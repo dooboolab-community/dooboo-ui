@@ -50,7 +50,9 @@ export const AccordionDefault = (): ReactElement => {
     IcoMoon: require('../../../main/Icon/doobooui.ttf'),
   });
 
-  if (!fontsLoaded) return <View />;
+  if (!fontsLoaded) {
+    return <View />;
+  }
 
   return (
     <ThemeProvider initialThemeType="light">
@@ -72,7 +74,9 @@ export const AccordionCustomStyle = (): React.ReactElement => {
     IcoMoon: require('../../../main/Icon/doobooui.ttf'),
   });
 
-  if (!fontsLoaded) return <View />;
+  if (!fontsLoaded) {
+    return <View />;
+  }
 
   return (
     <ThemeProvider initialThemeType="light">

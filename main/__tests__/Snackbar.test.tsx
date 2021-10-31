@@ -16,20 +16,23 @@ function SnackbarDefault(): React.ReactElement {
 
   const onPress = useCallback(
     (type?: SnackbarType): void => {
-      if (snackbar)
-        if (type === 'danger')
+      if (snackbar) {
+        if (type === 'danger') {
           return snackbar.current?.show({
             text: 'Lorem ipsum dolor sit amet',
             type,
             actionText: 'Action',
           });
+        }
+      }
 
-      if (type === 'info')
+      if (type === 'info') {
         return snackbar.current?.show({
           text: 'Lorem ipsum dolor sit amet',
           type,
           actionText: 'Action',
         });
+      }
 
       snackbar.current?.show({
         text: 'Lorem ipsum dolor sit amet',

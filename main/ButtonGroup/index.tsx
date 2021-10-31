@@ -80,16 +80,21 @@ export function ButtonGroup<T>(props: Props<T>): React.ReactElement {
       borderBottomWidth: borderWidth,
     };
 
-    if (data.length === 1) return fullWidthAndRadius;
+    if (data.length === 1) {
+      return fullWidthAndRadius;
+    }
 
-    if (isFirst) return borderForFirstElement;
+    if (isFirst) {
+      return borderForFirstElement;
+    }
 
     if (isLast) {
-      if (data.length === 2)
+      if (data.length === 2) {
         return {
           ...borderForLastElement,
           borderLeftWidth: undefined,
         };
+      }
 
       return borderForLastElement;
     }
@@ -113,7 +118,9 @@ export function ButtonGroup<T>(props: Props<T>): React.ReactElement {
             activeOpacity={0.85}
             style={{flex: 1}}
             onPress={(): void => {
-              if (onPress) onPress(i);
+              if (onPress) {
+                onPress(i);
+              }
             }}
           >
             <View

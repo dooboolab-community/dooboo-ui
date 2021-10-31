@@ -65,7 +65,7 @@ function NetworkImage(props: Props): ReactElement {
   });
 
   useEffect(() => {
-    if (url)
+    if (url) {
       Image.prefetch(url)
         .then(() => {
           setImageInfo({needLoading: false, isValidSource: true});
@@ -73,6 +73,7 @@ function NetworkImage(props: Props): ReactElement {
         .catch(() => {
           setImageInfo({needLoading: false, isValidSource: false});
         });
+    }
   }, [url]);
 
   return (

@@ -8,7 +8,9 @@ const StyledTitle = styled.Text<{theme: DoobooTheme}>`
   font-size: 28px;
   font-weight: 400;
   color: ${({theme}) => {
-    if (isEmptyObject(theme)) return light.text;
+    if (isEmptyObject(theme)) {
+      return light.text;
+    }
 
     return theme.text;
   }};
@@ -25,7 +27,9 @@ const StyledHeading1 = styled.Text<{theme: DoobooTheme}>`
   font-size: 22px;
   font-weight: 400;
   color: ${({theme}) => {
-    if (isEmptyObject(theme)) return light.text;
+    if (isEmptyObject(theme)) {
+      return light.text;
+    }
 
     return theme.text;
   }};
@@ -42,7 +46,9 @@ const StyledHeading2 = styled.Text<{theme: DoobooTheme}>`
   font-size: 17px;
   font-weight: 400;
   color: ${({theme}) => {
-    if (isEmptyObject(theme)) return light.text;
+    if (isEmptyObject(theme)) {
+      return light.text;
+    }
 
     return theme.text;
   }};
@@ -59,7 +65,9 @@ const StyledHeading3 = styled.Text<{theme: DoobooTheme}>`
   font-size: 16px;
   font-weight: 400;
   color: ${({theme}) => {
-    if (isEmptyObject(theme)) return light.text;
+    if (isEmptyObject(theme)) {
+      return light.text;
+    }
 
     return theme.text;
   }};
@@ -75,7 +83,9 @@ export const Heading3 = withTheme(StyledHeading3);
 const StyledBody1 = styled.Text<{theme: DoobooTheme}>`
   font-size: 16px;
   color: ${({theme}) => {
-    if (isEmptyObject(theme)) return light.text;
+    if (isEmptyObject(theme)) {
+      return light.text;
+    }
 
     return theme.text;
   }};
@@ -91,7 +101,9 @@ export const Body1 = withTheme(StyledBody1);
 const StyledBody2 = styled.Text<{theme: DoobooTheme}>`
   font-size: 14px;
   color: ${({theme}) => {
-    if (isEmptyObject(theme)) return light.text;
+    if (isEmptyObject(theme)) {
+      return light.text;
+    }
 
     return theme.text;
   }};

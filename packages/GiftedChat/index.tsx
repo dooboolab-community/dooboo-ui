@@ -108,9 +108,12 @@ function Shared<T>(props: Props<T>): React.ReactElement {
   const keyboard = useRef(Keyboard);
 
   useEffect(() => {
-    if (showMenu) Keyboard.dismiss();
-    else {
-      if (!isFirstTime) input1?.current?.focus();
+    if (showMenu) {
+      Keyboard.dismiss();
+    } else {
+      if (!isFirstTime) {
+        input1?.current?.focus();
+      }
 
       setIsFirstTime(false);
     }
@@ -134,9 +137,13 @@ function Shared<T>(props: Props<T>): React.ReactElement {
     );
 
     return (): void => {
-      if (keyboardShowListener) keyboardShowListener.remove();
+      if (keyboardShowListener) {
+        keyboardShowListener.remove();
+      }
 
-      if (backHandlerListner) backHandlerListner.remove();
+      if (backHandlerListner) {
+        backHandlerListner.remove();
+      }
     };
   }, []);
 

@@ -8,7 +8,9 @@ const InvertedStyledTitle = styled.Text<{theme: DoobooTheme}>`
   font-size: 28px;
   font-weight: 400;
   color: ${({theme}) => {
-    if (isEmptyObject(theme)) return light.textContrast;
+    if (isEmptyObject(theme)) {
+      return light.textContrast;
+    }
 
     return theme.textContrast;
   }};
@@ -25,7 +27,9 @@ const InvertedStyledHeading1 = styled.Text<{theme: DoobooTheme}>`
   font-size: 22px;
   font-weight: 400;
   color: ${({theme}) => {
-    if (isEmptyObject(theme)) return light.textContrast;
+    if (isEmptyObject(theme)) {
+      return light.textContrast;
+    }
 
     return theme.textContrast;
   }};
@@ -42,7 +46,9 @@ const InvertedStyledHeading2 = styled.Text<{theme: DoobooTheme}>`
   font-size: 17px;
   font-weight: 400;
   color: ${({theme}) => {
-    if (isEmptyObject(theme)) return light.textContrast;
+    if (isEmptyObject(theme)) {
+      return light.textContrast;
+    }
 
     return theme.textContrast;
   }};
@@ -59,7 +65,9 @@ const InvertedStyledHeading3 = styled.Text<{theme: DoobooTheme}>`
   font-size: 16px;
   font-weight: 400;
   color: ${({theme}) => {
-    if (isEmptyObject(theme)) return light.textContrast;
+    if (isEmptyObject(theme)) {
+      return light.textContrast;
+    }
 
     return theme.textContrast;
   }};
@@ -75,7 +83,9 @@ export const InvertedHeading3 = withTheme(InvertedStyledHeading3);
 const InvertedStyledBody1 = styled.Text<{theme: DoobooTheme}>`
   font-size: 16px;
   color: ${({theme}) => {
-    if (isEmptyObject(theme)) return light.textContrast;
+    if (isEmptyObject(theme)) {
+      return light.textContrast;
+    }
 
     return theme.textContrast;
   }};
@@ -91,7 +101,9 @@ export const InvertedBody1 = withTheme(InvertedStyledBody1);
 const InvertedStyledBody2 = styled.Text<{theme: DoobooTheme}>`
   font-size: 14px;
   color: ${({theme}) => {
-    if (isEmptyObject(theme)) return light.textContrast;
+    if (isEmptyObject(theme)) {
+      return light.textContrast;
+    }
 
     return theme.textContrast;
   }};

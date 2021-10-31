@@ -32,19 +32,27 @@ export const ButtonWrapper = styled.View<{
     theme = isEmptyObject(theme) ? light : theme;
 
     if (loading) {
-      if (outlined) return undefined;
+      if (outlined) {
+        return undefined;
+      }
 
       return theme[type!];
     }
 
-    if (disabled) return undefined;
+    if (disabled) {
+      return undefined;
+    }
 
-    if (outlined) return theme.background;
+    if (outlined) {
+      return theme.background;
+    }
 
     return theme[type ?? 'primary'];
   }};
   border-color: ${({theme, type, disabled}) => {
-    if (disabled) return theme.disabled;
+    if (disabled) {
+      return theme.disabled;
+    }
 
     return theme[type!];
   }};
@@ -66,18 +74,24 @@ export const ButtonText = styled.Text<{
       if (
         !isDarkBackground ||
         ['light', 'default', 'warning', undefined].includes(type)
-      )
+      ) {
         return theme.text;
+      }
 
       return theme[type!];
     }
 
-    if (isDarkBackground)
+    if (isDarkBackground) {
       return ['default', 'danger', 'light'].includes(type!) ? 'white' : 'black';
+    }
 
-    if (disabled) return theme.disabled;
+    if (disabled) {
+      return theme.disabled;
+    }
 
-    if (['primary', 'danger'].includes(type!)) return theme.textContrast;
+    if (['primary', 'danger'].includes(type!)) {
+      return theme.textContrast;
+    }
 
     return 'black';
   }};
@@ -92,9 +106,13 @@ export const CheckboxWrapperOutlined = styled(Animated.View)<{
   border-color: ${({theme, type, disabled}) => {
     theme = isEmptyObject(theme) ? light : theme;
 
-    if (disabled) return theme.disabled;
+    if (disabled) {
+      return theme.disabled;
+    }
 
-    if (type === 'light') return theme.primary;
+    if (type === 'light') {
+      return theme.primary;
+    }
 
     return theme[type ?? 'primary'];
   }};
@@ -108,11 +126,17 @@ export const CheckboxWrapper = styled(Animated.View)<{
   background-color: ${({theme, checked, type, disabled}) => {
     theme = isEmptyObject(theme) ? light : theme;
 
-    if (disabled) return undefined;
+    if (disabled) {
+      return undefined;
+    }
 
-    if (!checked) return theme.background;
+    if (!checked) {
+      return theme.background;
+    }
 
-    if (type === 'light') return theme.primary;
+    if (type === 'light') {
+      return theme.primary;
+    }
 
     return theme[type ?? 'primary'];
   }};
@@ -127,11 +151,17 @@ export const RadioButtonWrapper = styled.View<{
   border-color: ${({theme, type, selected, disabled}) => {
     theme = isEmptyObject(theme) ? light : theme;
 
-    if (disabled) return theme.disabled;
+    if (disabled) {
+      return theme.disabled;
+    }
 
-    if (!selected) return theme.text;
+    if (!selected) {
+      return theme.text;
+    }
 
-    if (type === 'light') return theme.primary;
+    if (type === 'light') {
+      return theme.primary;
+    }
 
     return theme[type ?? 'primary'];
   }};
@@ -145,9 +175,13 @@ export const RadioWrapper = styled(Animated.View)<{
   background-color: ${({theme, selected, type, disabled}) => {
     theme = isEmptyObject(theme) ? light : theme;
 
-    if (disabled) return theme.disabled;
+    if (disabled) {
+      return theme.disabled;
+    }
 
-    if (!selected) return theme.background;
+    if (!selected) {
+      return theme.background;
+    }
 
     return theme[type ?? 'primary'];
   }};
@@ -161,11 +195,17 @@ export const ColoredText = styled.Text<{
   color: ${({theme, selected, type, disabled}) => {
     theme = isEmptyObject(theme) ? light : theme;
 
-    if (disabled) return undefined;
+    if (disabled) {
+      return undefined;
+    }
 
-    if (!selected) return theme.text;
+    if (!selected) {
+      return theme.text;
+    }
 
-    if (type === 'light') return theme.primary;
+    if (type === 'light') {
+      return theme.primary;
+    }
 
     return theme[type ?? 'primary'];
   }};
@@ -178,7 +218,9 @@ export const SnackbarWrapper = styled(Animated.View)<{
   background-color: ${({theme, type}) => {
     theme = isEmptyObject(theme) ? light : theme;
 
-    if (type === 'default') return theme.paper;
+    if (type === 'default') {
+      return theme.paper;
+    }
 
     return theme[type ?? 'paper'];
   }};

@@ -88,8 +88,9 @@ function ImageItem({
           <Image
             style={{width, height: 200, backgroundColor: '#fff'}}
             onLoad={({nativeEvent: {source}}): void => {
-              if (source && source.width && source.height)
+              if (source && source.width && source.height) {
                 setWidth((200 * source.width) / source.height);
+              }
             }}
             source={imageSource}
             resizeMode={'contain'}
@@ -130,8 +131,9 @@ function AutoHeightImage(
       {...props}
       style={[style, {height: heightPerWidth * style.width || style.width}]}
       onLoad={({nativeEvent: {source}}): void => {
-        if (source && source.width && source.height)
+        if (source && source.width && source.height) {
           setHightPerWidth(source.height / source.width);
+        }
       }}
     />
   );
@@ -174,7 +176,7 @@ export const ImageSlider = ({
     const movePrev = animValues.prevTranslateX > WIDTH / 2;
     const targetTranslate = pinchZoom.current?.animatedValue.translate;
 
-    if (moveNext && currentIndex < imageSources.length - 1 && targetTranslate)
+    if (moveNext && currentIndex < imageSources.length - 1 && targetTranslate) {
       Animated.timing(targetTranslate, {
         toValue: {x: (-(animValues.scale + 1) / 2) * WIDTH, y: animValues.y},
         useNativeDriver: true,
@@ -185,7 +187,7 @@ export const ImageSlider = ({
         setCurrentIndex(currentIndex + 1);
         pinchZoom.current?.setValues({scale: 1, translate: {x: 0, y: 0}});
       });
-    else if (movePrev && currentIndex > 0 && targetTranslate)
+    } else if (movePrev && currentIndex > 0 && targetTranslate) {
       Animated.timing(targetTranslate, {
         toValue: {x: ((animValues.scale + 1) / 2) * WIDTH, y: animValues.y},
         useNativeDriver: true,
@@ -196,7 +198,7 @@ export const ImageSlider = ({
         setCurrentIndex(currentIndex - 1);
         pinchZoom.current?.setValues({scale: 1, translate: {x: 0, y: 0}});
       });
-    else if (animValues.nextTranslateX < 0 && targetTranslate)
+    } else if (animValues.nextTranslateX < 0 && targetTranslate) {
       Animated.timing(targetTranslate, {
         toValue: {x: ((1 - animValues.scale) * WIDTH) / 2, y: animValues.y},
         useNativeDriver: true,
@@ -209,7 +211,7 @@ export const ImageSlider = ({
           },
         });
       });
-    else if (animValues.prevTranslateX > 0 && targetTranslate)
+    } else if (animValues.prevTranslateX > 0 && targetTranslate) {
       Animated.timing(targetTranslate, {
         toValue: {x: ((animValues.scale - 1) * WIDTH) / 2, y: animValues.y},
         useNativeDriver: true,
@@ -222,6 +224,7 @@ export const ImageSlider = ({
           },
         });
       });
+    }
   }, [
     animValues.nextTranslateX,
     animValues.prevTranslateX,

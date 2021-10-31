@@ -15,7 +15,9 @@ const IconButtonStory = (): React.ReactElement => {
     IcoMoon: require('../../../../main/Icon/doobooui.ttf'),
   });
 
-  if (!fontsLoaded) return <View />;
+  if (!fontsLoaded) {
+    return <View />;
+  }
 
   return (
     <View

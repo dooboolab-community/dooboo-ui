@@ -1,6 +1,9 @@
 {
   "reject": [
     "react",
-    "react-native"
+    "react-native",
+    "@types/react",
+    "@types/react-dom",
+    "@types/react-native"
   ]
 }

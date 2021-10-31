@@ -47,7 +47,9 @@ function ThemeProvider({
   const [themeType, setThemeType] = useState(initialThemeType ?? colorScheme);
 
   useEffect(() => {
-    if (!initialThemeType) setThemeType(colorScheme);
+    if (!initialThemeType) {
+      setThemeType(colorScheme);
+    }
   }, [colorScheme, initialThemeType]);
 
   const changeThemeType = (themeTypeProp?: ColorSchemeName): void => {

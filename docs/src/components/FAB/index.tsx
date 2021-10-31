@@ -21,7 +21,9 @@ const FABContainer: FC = () => {
     IcoMoon: require('../../assets/doobooui.ttf'),
   });
 
-  if (!fontsLoaded) return <View />;
+  if (!fontsLoaded) {
+    return <View />;
+  }
 
   return (
     <StoryContainer>

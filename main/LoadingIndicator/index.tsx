@@ -48,19 +48,23 @@ export function LoadingIndicator(props: Props): ReactElement {
   const {theme} = useTheme();
 
   const handleImgSize = (imgSize: number | string | undefined): ImageStyle => {
-    if (imgSize === 'large')
+    if (imgSize === 'large') {
       return {
         width: 80,
         height: 80,
       };
+    }
 
-    if (imgSize === 'small')
+    if (imgSize === 'small') {
       return {
         width: 50,
         height: 50,
       };
+    }
 
-    if (!imgSize) return {};
+    if (!imgSize) {
+      return {};
+    }
 
     return {
       width: imgSize,
@@ -71,10 +75,11 @@ export function LoadingIndicator(props: Props): ReactElement {
   const handleImgSourceType = (
     src: string | ImageSourcePropType,
   ): ImageSourcePropType => {
-    if (typeof src === 'string')
+    if (typeof src === 'string') {
       return {
         uri: src,
       };
+    }
 
     return src;
   };

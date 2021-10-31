@@ -22,11 +22,12 @@ function SnackbarDefault(): React.ReactElement {
 
   const onPress = useCallback(
     (type?: SnackbarType): void => {
-      if (snackbar)
+      if (snackbar) {
         snackbar.current?.show({
           text: 'Lorem ipsum dolor sit amet',
           type,
         });
+      }
     },
     [snackbar],
   );

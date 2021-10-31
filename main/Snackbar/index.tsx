@@ -130,9 +130,10 @@ const SnackbarContainer = (
   );
 
   useEffect(() => {
-    if (isShowing)
-      if (isVisible) hide(50);
-      else {
+    if (isShowing) {
+      if (isVisible) {
+        hide(50);
+      } else {
         const hideTimeout = setTimeout(() => {
           hide();
         }, timer + 200);
@@ -152,6 +153,7 @@ const SnackbarContainer = (
           }),
         }).start();
       }
+    }
   }, [showingState, fadeAnim, hide, isShowing, isVisible, timer]);
 
   useImperativeHandle(ref, () => ({show}));

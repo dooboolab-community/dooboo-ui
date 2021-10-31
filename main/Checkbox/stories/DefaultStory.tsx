@@ -47,7 +47,9 @@ const CheckboxStory: FC = () => {
     IcoMoon: require('../../../main/Icon/doobooui.ttf'),
   });
 
-  if (!fontsLoaded) return <View />;
+  if (!fontsLoaded) {
+    return <View />;
+  }
 
   const CheckboxForms: FC = () => (
     <>

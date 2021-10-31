@@ -194,18 +194,21 @@ function CalendarCarousel({
     const xValue = Math.floor(e.nativeEvent.contentOffset.x);
     const maxLayoutFloor = Math.floor(layoutWidth) * 2;
 
-    if (!layoutWidth || layoutWidth === 1) return;
+    if (!layoutWidth || layoutWidth === 1) {
+      return;
+    }
 
     if (xValue === 0) {
       if (scrollRef && scrollRef.current) {
         scrollToMiddleCalendar();
         setCurrentDate(prevMonth);
       }
-    } else if (xValue === maxLayoutFloor)
+    } else if (xValue === maxLayoutFloor) {
       if (scrollRef && scrollRef.current) {
         scrollToMiddleCalendar();
         setCurrentDate(nextMonth);
       }
+    }
   };
 
   const changeMonth = (toPrevMonth?: boolean): void => {
@@ -262,14 +265,17 @@ function CalendarCarousel({
 
       const dates: Date[] = [];
 
-      for (let idx = 1; idx <= lastDate; idx++)
+      for (let idx = 1; idx <= lastDate; idx++) {
         dates.push(new Date(year, month, idx));
+      }
 
       const nextDates: Date[] = [];
 
-      if (6 - lastWeekday >= 1)
-        for (let idx = 1; idx <= 6 - lastWeekday; idx++)
+      if (6 - lastWeekday >= 1) {
+        for (let idx = 1; idx <= 6 - lastWeekday; idx++) {
           nextDates.push(new Date(year, month + 1, idx));
+        }
+      }
 
       const calendarDates: Date[] = [...prevDates, ...dates, ...nextDates];
 
@@ -319,19 +325,19 @@ function CalendarCarousel({
           );
         };
 
-        if (itemMonth !== month)
+        if (itemMonth !== month) {
           return (
             <View style={styles.defaultView} key={itemDay}>
               <Text style={styles.otherDaysText}>{`${itemDay}`}</Text>
             </View>
           );
-        else if (isToday(dateItem))
+        } else if (isToday(dateItem)) {
           return (
             <View style={styles.currentDayView} key={itemDay}>
               <Text style={styles.currentDayText}>{`${itemDay}`}</Text>
             </View>
           );
-        else if (hasEvent() && isSelected(dateItem))
+        } else if (hasEvent() && isSelected(dateItem)) {
           return (
             <TouchableOpacity
               key={itemDay}
@@ -346,7 +352,7 @@ function CalendarCarousel({
               </View>
             </TouchableOpacity>
           );
-        else if (hasEvent())
+        } else if (hasEvent()) {
           return (
             <TouchableOpacity
               key={itemDay}
@@ -358,7 +364,7 @@ function CalendarCarousel({
               </View>
             </TouchableOpacity>
           );
-        else if (isSelected(dateItem))
+        } else if (isSelected(dateItem)) {
           return (
             <TouchableOpacity
               key={itemDay}
@@ -369,6 +375,7 @@ function CalendarCarousel({
               </View>
             </TouchableOpacity>
           );
+        }
 
         return (
           <TouchableOpacity
@@ -388,7 +395,7 @@ function CalendarCarousel({
             markedDates[i] === eventDay &&
             markedMonths.includes(month) &&
             markedYears.includes(year)
-          )
+          ) {
             return (
               <View
                 style={styles.eventContainer}
@@ -402,6 +409,7 @@ function CalendarCarousel({
                 </Text>
               </View>
             );
+          }
 
           return <View />;
         });
