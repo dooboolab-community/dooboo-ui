@@ -2,13 +2,10 @@ import {Appearance, ColorSchemeName} from 'react-native';
 import {useEffect, useState} from 'react';
 
 export const useColorScheme = (): ColorSchemeName => {
-  const deviceThemeType = Appearance.getColorScheme();
-  const [colorType, setColorType] = useState(deviceThemeType);
+  const [colorType, setColorType] = useState(Appearance.getColorScheme());
 
   useEffect(() => {
-    const listener = ({colorScheme}): void => {
-      setColorType(colorScheme);
-    };
+    const listener = (): void => setColorType(Appearance.getColorScheme());
 
     Appearance.addChangeListener(listener);
 
