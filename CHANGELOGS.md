@@ -1,5 +1,9 @@
 ## Changelogs
 
+## 0.1.47
+
+Fix the dark mode detection from iOS background (#162)
+
 ## 0.1.46
 
 Add new props shouldImageRatioFixed to support image's own aspectRatio before render (#161)
