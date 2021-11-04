@@ -7,7 +7,13 @@ import {
   View,
   ViewStyle,
 } from 'react-native';
-import React, {ReactElement, isValidElement, useEffect, useState} from 'react';
+import React, {
+  ReactElement,
+  isValidElement,
+  useCallback,
+  useEffect,
+  useState,
+} from 'react';
 
 import ArtifactsLogoDark from '../__assets__/artifacts_logo_d.png';
 import ArtifactsLogoLight from '../__assets__/artifacts_logo_l.png';
@@ -26,11 +32,11 @@ type Styles = {
 interface Props {
   style?: StyleProp<ViewStyle>;
   styles?: Styles;
-  url: string | undefined;
+  url: string;
   loadingSource?: ImageRequireSource | ReactElement;
   fallbackSource?: ImageRequireSource;
   imageProps?: Partial<ImageProps>;
-  shouldImageRatioFixed?: boolean;
+  shouldFixImageRatio?: boolean;
 }
 
 const defaultImage = css({
@@ -50,11 +56,16 @@ function NetworkImage(props: Props): ReactElement {
     url,
     imageProps,
     fallbackSource = logo,
-    shouldImageRatioFixed = false,
+    shouldFixImageRatio = false,
   } = props;
 
   const {image, loading, fallback} = props.styles ?? {};
-  const [imageRatio, setImageRatio] = useState(110 / 74);
+  const [imageRatio, setImageRatio] = useState(0);
+
+  const [{needLoading, isValidSource}, setImageInfo] = useState({
+    needLoading: !!url,
+    isValidSource: !!url,
+  });
 
   const loadingSource: ReactElement = isValidElement(props?.loadingSource) ? (
     props?.loadingSource
@@ -67,61 +78,59 @@ function NetworkImage(props: Props): ReactElement {
     />
   );
 
-  const [{needLoading, isValidSource}, setImageInfo] = useState({
-    needLoading: !!url,
-    isValidSource: !!url,
-  });
+  const renderImage = useCallback(
+    () => (
+      <Image
+        style={[
+          {flex: 1, alignSelf: 'stretch', backgroundColor: theme.paper},
+          image,
+        ]}
+        source={{uri: url}}
+        resizeMethod="resize"
+        resizeMode="cover"
+        {...imageProps}
+      />
+    ),
+    [image, imageProps, url, theme.paper],
+  );
+
+  const renderLoading = useCallback(
+    () => (
+      <Image
+        style={[defaultImage, fallback]}
+        source={fallbackSource}
+        resizeMethod="resize"
+        resizeMode="cover"
+        {...imageProps}
+      />
+    ),
+    [fallback, fallbackSource, imageProps],
+  );
 
   useEffect(() => {
-    if (url) {
-      Image.prefetch(url)
-        .then(() => {
-          setImageInfo({needLoading: false, isValidSource: true});
-        })
-        .catch(() => {
-          setImageInfo({needLoading: false, isValidSource: false});
-        });
-    }
-  }, [url]);
-
-  useEffect(() => {
-    if (url && isValidSource) {
-      Image.getSize(url, (width, height) => {
+    Image.getSize(
+      url,
+      (width, height) => {
+        setImageInfo({needLoading: false, isValidSource: true});
         setImageRatio(width / height);
-      });
-    }
-  }, [isValidSource, url]);
+      },
+      () => {
+        setImageInfo({needLoading: false, isValidSource: false});
+      },
+    );
+  }, [isValidSource, url, shouldFixImageRatio]);
 
   return (
     <View
       style={[
-        shouldImageRatioFixed && {aspectRatio: imageRatio},
+        shouldFixImageRatio && {aspectRatio: imageRatio},
         {justifyContent: 'center', alignItems: 'center'},
         style,
       ]}
     >
-      {!needLoading && isValidSource && (
-        <Image
-          style={[
-            {flex: 1, alignSelf: 'stretch', backgroundColor: theme.paper},
-            image,
-          ]}
-          source={{uri: url}}
-          resizeMethod="resize"
-          resizeMode="cover"
-          {...imageProps}
-        />
-      )}
+      {!needLoading && isValidSource && renderImage()}
 
-      {!needLoading && !isValidSource && (
-        <Image
-          style={[defaultImage, fallback]}
-          source={fallbackSource}
-          resizeMethod="resize"
-          resizeMode="cover"
-          {...imageProps}
-        />
-      )}
+      {!needLoading && !isValidSource && renderLoading()}
 
       {needLoading && loadingSource}
     </View>
