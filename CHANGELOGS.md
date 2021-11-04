@@ -1,5 +1,13 @@
 ## Changelogs
 
+## 0.1.46
+
+Add new props shouldImageRatioFixed to support image's own aspectRatio before render (#161)
+
+## 0.1.45
+
+hotfix: Update default ActivitiyIndicator color in [Button]
+
 ## 0.1.44
 
 Remove `SelectBox` from `main` component.
