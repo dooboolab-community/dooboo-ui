@@ -1,4 +1,4 @@
-import {Appearance, ColorSchemeName} from 'react-native';
+import {Appearance, ColorSchemeName, Platform} from 'react-native';
 import {useEffect, useState} from 'react';
 
 export const useColorScheme = (): ColorSchemeName => {
@@ -7,7 +7,10 @@ export const useColorScheme = (): ColorSchemeName => {
 
   useEffect(() => {
     const listener = ({colorScheme}): void => {
-      setColorType(colorScheme);
+      const platformColorScheme =
+        Platform.OS === 'ios' ? Appearance.getColorScheme() : colorScheme;
+
+      setColorType(platformColorScheme);
     };
 
     Appearance.addChangeListener(listener);
