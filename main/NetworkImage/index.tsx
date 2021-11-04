@@ -30,6 +30,7 @@ interface Props {
   loadingSource?: ImageRequireSource | ReactElement;
   fallbackSource?: ImageRequireSource;
   imageProps?: Partial<ImageProps>;
+  shouldImageRatioFixed?: boolean;
 }
 
 const defaultImage = css({
@@ -44,9 +45,16 @@ function NetworkImage(props: Props): ReactElement {
 
   const logo = themeType === 'light' ? ArtifactsLogoLight : ArtifactsLogoDark;
 
-  const {style, url, imageProps, fallbackSource = logo} = props;
+  const {
+    style,
+    url,
+    imageProps,
+    fallbackSource = logo,
+    shouldImageRatioFixed = false,
+  } = props;
 
   const {image, loading, fallback} = props.styles ?? {};
+  const [imageRatio, setImageRatio] = useState(110 / 74);
 
   const loadingSource: ReactElement = isValidElement(props?.loadingSource) ? (
     props?.loadingSource
@@ -76,13 +84,19 @@ function NetworkImage(props: Props): ReactElement {
     }
   }, [url]);
 
+  useEffect(() => {
+    if (url && isValidSource) {
+      Image.getSize(url, (width, height) => {
+        setImageRatio(width / height);
+      });
+    }
+  }, [isValidSource, url]);
+
   return (
     <View
       style={[
-        {
-          justifyContent: 'center',
-          alignItems: 'center',
-        },
+        shouldImageRatioFixed && {aspectRatio: imageRatio},
+        {justifyContent: 'center', alignItems: 'center'},
         style,
       ]}
     >

@@ -1,0 +1,40 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`[NetworkImage] render should render without crashing 1`] = `
+<View
+  style={
+    Array [
+      false,
+      Object {
+        "alignItems": "center",
+        "justifyContent": "center",
+      },
+      undefined,
+    ]
+  }
+>
+  <Image
+    resizeMethod="resize"
+    resizeMode="cover"
+    source={
+      Object {
+        "canInstrument": true,
+        "createTransformer": [Function],
+        "getCacheKey": [Function],
+        "process": [Function],
+      }
+    }
+    style={
+      Array [
+        Object {
+          "aspectRatio": 1.4864864864864864,
+          "height": "auto",
+          "maxHeight": "50%",
+          "width": "50%",
+        },
+        undefined,
+      ]
+    }
+  />
+</View>
+`;
