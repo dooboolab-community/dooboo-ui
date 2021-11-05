@@ -1,5 +1,9 @@
 ## Changelogs
 
+## 0.1.48
+
+Enhance performance on [NetworkImage] (#163)
+
 ## 0.1.47
 
 Fix the dark mode detection from iOS background (#162)
