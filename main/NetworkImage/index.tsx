@@ -32,7 +32,7 @@ type Styles = {
 interface Props {
   style?: StyleProp<ViewStyle>;
   styles?: Styles;
-  url: string;
+  url: string | undefined;
   loadingSource?: ImageRequireSource | ReactElement;
   fallbackSource?: ImageRequireSource;
   imageProps?: Partial<ImageProps>;
@@ -108,6 +108,10 @@ function NetworkImage(props: Props): ReactElement {
   );
 
   useEffect(() => {
+    if (!url) {
+      return;
+    }
+
     Image.getSize(
       url,
       (width, height) => {
