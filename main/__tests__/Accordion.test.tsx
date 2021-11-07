@@ -50,16 +50,13 @@ describe('[Accordion] render test', () => {
     expect(json).toMatchSnapshot();
   });
 
-  it('should operate animation when isAnimated props is true', () => {
-    jest.useFakeTimers();
-
+  it('should operate animation when shouldAnimate props is true', () => {
     props = createTestProps({
-      isAnimated: true,
+      shouldAnimate: true,
       data: data,
     });
 
     component = createComponent(<Accordion {...props} />);
-    jest.runAllTimers();
 
     testingLib = render(component);
 

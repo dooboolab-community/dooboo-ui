@@ -17,7 +17,6 @@ exports[`[Accordion] render test should adjust duration of animation depends on 
       Object {
         "backgroundColor": "transparent",
         "overflow": "hidden",
-        "transform": Array [],
         "width": 300,
       }
     }
@@ -111,11 +110,6 @@ exports[`[Accordion] render test should adjust duration of animation depends on 
       style={
         Object {
           "height": undefined,
-          "transform": Array [
-            Object {
-              "translateY": 0,
-            },
-          ],
         }
       }
       testID="body_0"
@@ -235,11 +229,6 @@ exports[`[Accordion] render test should adjust duration of animation depends on 
       Object {
         "backgroundColor": "transparent",
         "overflow": "hidden",
-        "transform": Array [
-          Object {
-            "translateY": 0,
-          },
-        ],
         "width": 300,
       }
     }
@@ -333,11 +322,6 @@ exports[`[Accordion] render test should adjust duration of animation depends on 
       style={
         Object {
           "height": undefined,
-          "transform": Array [
-            Object {
-              "translateY": 0,
-            },
-          ],
         }
       }
       testID="body_1"
@@ -457,14 +441,6 @@ exports[`[Accordion] render test should adjust duration of animation depends on 
       Object {
         "backgroundColor": "transparent",
         "overflow": "hidden",
-        "transform": Array [
-          Object {
-            "translateY": 0,
-          },
-          Object {
-            "translateY": 0,
-          },
-        ],
         "width": 300,
       }
     }
@@ -558,11 +534,6 @@ exports[`[Accordion] render test should adjust duration of animation depends on 
       style={
         Object {
           "height": undefined,
-          "transform": Array [
-            Object {
-              "translateY": 0,
-            },
-          ],
         }
       }
       testID="body_2"
@@ -680,7 +651,7 @@ exports[`[Accordion] render test should adjust duration of animation depends on 
 </View>
 `;
 
-exports[`[Accordion] render test should operate animation when isAnimated props is true 1`] = `
+exports[`[Accordion] render test should operate animation when shouldAnimate props is true 1`] = `
 <View
   style={
     Array [
@@ -697,7 +668,6 @@ exports[`[Accordion] render test should operate animation when isAnimated props 
       Object {
         "backgroundColor": "transparent",
         "overflow": "hidden",
-        "transform": Array [],
         "width": 300,
       }
     }
@@ -791,11 +761,6 @@ exports[`[Accordion] render test should operate animation when isAnimated props 
       style={
         Object {
           "height": undefined,
-          "transform": Array [
-            Object {
-              "translateY": 0,
-            },
-          ],
         }
       }
       testID="body_0"
@@ -915,11 +880,6 @@ exports[`[Accordion] render test should operate animation when isAnimated props 
       Object {
         "backgroundColor": "transparent",
         "overflow": "hidden",
-        "transform": Array [
-          Object {
-            "translateY": 0,
-          },
-        ],
         "width": 300,
       }
     }
@@ -1013,11 +973,6 @@ exports[`[Accordion] render test should operate animation when isAnimated props 
       style={
         Object {
           "height": undefined,
-          "transform": Array [
-            Object {
-              "translateY": 0,
-            },
-          ],
         }
       }
       testID="body_1"
@@ -1137,14 +1092,6 @@ exports[`[Accordion] render test should operate animation when isAnimated props 
       Object {
         "backgroundColor": "transparent",
         "overflow": "hidden",
-        "transform": Array [
-          Object {
-            "translateY": 0,
-          },
-          Object {
-            "translateY": 0,
-          },
-        ],
         "width": 300,
       }
     }
@@ -1238,11 +1185,6 @@ exports[`[Accordion] render test should operate animation when isAnimated props 
       style={
         Object {
           "height": undefined,
-          "transform": Array [
-            Object {
-              "translateY": 0,
-            },
-          ],
         }
       }
       testID="body_2"
@@ -1377,7 +1319,6 @@ exports[`[Accordion] render test should render collapsed when collapseOnStart pr
       Object {
         "backgroundColor": "transparent",
         "overflow": "hidden",
-        "transform": Array [],
         "width": 300,
       }
     }
@@ -1471,11 +1412,6 @@ exports[`[Accordion] render test should render collapsed when collapseOnStart pr
       style={
         Object {
           "height": undefined,
-          "transform": Array [
-            Object {
-              "translateY": 0,
-            },
-          ],
         }
       }
       testID="body_0"
@@ -1595,11 +1531,6 @@ exports[`[Accordion] render test should render collapsed when collapseOnStart pr
       Object {
         "backgroundColor": "transparent",
         "overflow": "hidden",
-        "transform": Array [
-          Object {
-            "translateY": 0,
-          },
-        ],
         "width": 300,
       }
     }
@@ -1693,11 +1624,6 @@ exports[`[Accordion] render test should render collapsed when collapseOnStart pr
       style={
         Object {
           "height": undefined,
-          "transform": Array [
-            Object {
-              "translateY": 0,
-            },
-          ],
         }
       }
       testID="body_1"
@@ -1817,14 +1743,6 @@ exports[`[Accordion] render test should render collapsed when collapseOnStart pr
       Object {
         "backgroundColor": "transparent",
         "overflow": "hidden",
-        "transform": Array [
-          Object {
-            "translateY": 0,
-          },
-          Object {
-            "translateY": 0,
-          },
-        ],
         "width": 300,
       }
     }
@@ -1918,11 +1836,6 @@ exports[`[Accordion] render test should render collapsed when collapseOnStart pr
       style={
         Object {
           "height": undefined,
-          "transform": Array [
-            Object {
-              "translateY": 0,
-            },
-          ],
         }
       }
       testID="body_2"
@@ -2057,7 +1970,6 @@ exports[`[Accordion] render test should render without crashing 1`] = `
       Object {
         "backgroundColor": "transparent",
         "overflow": "hidden",
-        "transform": Array [],
         "width": 300,
       }
     }
@@ -2122,11 +2034,6 @@ exports[`[Accordion] render test should render without crashing 1`] = `
       style={
         Object {
           "height": undefined,
-          "transform": Array [
-            Object {
-              "translateY": 0,
-            },
-          ],
         }
       }
       testID="body_0"
@@ -2246,11 +2153,6 @@ exports[`[Accordion] render test should render without crashing 1`] = `
       Object {
         "backgroundColor": "transparent",
         "overflow": "hidden",
-        "transform": Array [
-          Object {
-            "translateY": 0,
-          },
-        ],
         "width": 300,
       }
     }
@@ -2315,11 +2217,6 @@ exports[`[Accordion] render test should render without crashing 1`] = `
       style={
         Object {
           "height": undefined,
-          "transform": Array [
-            Object {
-              "translateY": 0,
-            },
-          ],
         }
       }
       testID="body_1"
@@ -2439,14 +2336,6 @@ exports[`[Accordion] render test should render without crashing 1`] = `
       Object {
         "backgroundColor": "transparent",
         "overflow": "hidden",
-        "transform": Array [
-          Object {
-            "translateY": 0,
-          },
-          Object {
-            "translateY": 0,
-          },
-        ],
         "width": 300,
       }
     }
@@ -2511,11 +2400,6 @@ exports[`[Accordion] render test should render without crashing 1`] = `
       style={
         Object {
           "height": undefined,
-          "transform": Array [
-            Object {
-              "translateY": 0,
-            },
-          ],
         }
       }
       testID="body_2"
