@@ -1,5 +1,10 @@
 ## Changelogs
 
+## 0.1.51
+
+Fix [NetworkImage] loading source style (#166)
+
+
 ## 0.1.49
 
 Fix network images overlapping when shoudFixImageRatio is true (#165)
