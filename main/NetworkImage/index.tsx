@@ -124,6 +124,10 @@ function NetworkImage(props: Props): ReactElement {
     );
   }, [isValidSource, url, shouldFixImageRatio]);
 
+  if (needLoading) {
+    return <View style={style}>{loadingSource}</View>;
+  }
+
   return (
     <View
       style={[
@@ -132,11 +136,9 @@ function NetworkImage(props: Props): ReactElement {
         style,
       ]}
     >
-      {!needLoading && isValidSource && renderImage()}
+      {isValidSource && renderImage()}
 
-      {!needLoading && !isValidSource && renderLoading()}
-
-      {needLoading && loadingSource}
+      {!isValidSource && renderLoading()}
     </View>
   );
 }
