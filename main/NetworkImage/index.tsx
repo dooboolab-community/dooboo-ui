@@ -125,7 +125,11 @@ function NetworkImage(props: Props): ReactElement {
   }, [isValidSource, url, shouldFixImageRatio]);
 
   if (needLoading) {
-    return <View style={style}>{loadingSource}</View>;
+    return (
+      <View style={[{justifyContent: 'center', alignItems: 'center'}, style]}>
+        {loadingSource}
+      </View>
+    );
   }
 
   return (
