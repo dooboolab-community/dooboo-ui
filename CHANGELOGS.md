@@ -1,5 +1,9 @@
 ## Changelogs
 
+## 0.1.49
+
+Fix network images overlapping when shoudFixImageRatio is true (#165)
+
 ## 0.1.48
 
 Enhance performance on [NetworkImage] (#163)

@@ -13,10 +13,10 @@ export const useColorScheme = (): ColorSchemeName => {
       setColorType(platformColorScheme);
     };
 
-    Appearance.addChangeListener(listener);
+    const {remove} = Appearance.addChangeListener(listener);
 
     return function cleanup() {
-      Appearance.removeChangeListener(listener);
+      remove();
     };
   }, []);
 
