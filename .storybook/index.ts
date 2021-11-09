@@ -8,6 +8,7 @@ import '../main/Icon/stories';
 import '../main/IconButton/stories';
 import '../main/LoadingIndicator/stories';
 import '../main/NetworkImage/stories';
+import '../main/Progressbar/stories';
 import '../main/RadioGroup/stories';
 import '../main/Snackbar/stories';
 import '../main/SwitchToggle/stories';
