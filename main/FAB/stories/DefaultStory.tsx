@@ -1,5 +1,5 @@
 import React, {FC, useState} from 'react';
-import {SafeAreaView, View} from 'react-native';
+import {Alert, SafeAreaView, View} from 'react-native';
 
 import {FAB} from '../..';
 import styled from '@emotion/native';
@@ -35,7 +35,11 @@ const FABContainer: FC = () => {
           ]}
           onPressFAB={() => setActive((prev) => !prev)}
           onPressFABItem={(item) => {
-            console.log(item);
+            if (!item) {
+              return;
+            }
+
+            Alert.alert(item.id);
           }}
         />
       </SafeAreaView>

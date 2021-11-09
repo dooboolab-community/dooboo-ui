@@ -26,9 +26,8 @@ const Progress = styled.View<ProgressProps>`
   width: ${({number}) => `${number}%`};
   background-color: ${({theme, type}) => {
     theme = isEmptyObject(theme) ? light : theme;
-    if (type === 'light') return theme.primary;
 
-    return theme[type ?? 'primary'];
+    return theme[type ?? 'info'];
   }};
   height: 100%;
 `;
@@ -42,7 +41,7 @@ const NumberText = styled.Text`
 
 export type ProgressbarType = 'success' | 'danger' | 'warning' | 'info';
 
-export type Styles = {
+export type ProgressbarStyles = {
   backgroundStyle?: StyleProp<ViewStyle>;
   progressStyle?: StyleProp<ViewStyle>;
   numberTextStyle?: StyleProp<TextStyle>;
@@ -56,7 +55,7 @@ interface ProgressProps {
 interface Props {
   number: number;
   type?: ProgressbarType;
-  styles?: Styles;
+  styles?: ProgressbarStyles;
 }
 
 export const Progressbar: React.FC<Props> = (props) => {
