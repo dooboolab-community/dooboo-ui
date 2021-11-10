@@ -12,6 +12,7 @@ import React, {
   isValidElement,
   useCallback,
   useEffect,
+  useMemo,
   useState,
 } from 'react';
 
@@ -39,15 +40,8 @@ interface Props {
   shouldFixImageRatio?: boolean;
 }
 
-const defaultImage = css({
-  aspectRatio: 110 / 74,
-  width: '50%',
-  height: 'auto',
-  maxHeight: '50%',
-});
-
 function NetworkImage(props: Props): ReactElement {
-  const {theme, themeType} = useTheme();
+  const {themeType} = useTheme();
 
   const logo = themeType === 'light' ? ArtifactsLogoLight : ArtifactsLogoDark;
 
@@ -59,52 +53,63 @@ function NetworkImage(props: Props): ReactElement {
     shouldFixImageRatio = false,
   } = props;
 
+  const defaultImageStyle = useMemo(
+    () =>
+      css({
+        aspectRatio: 110 / 74,
+        width: '50%',
+        height: 'auto',
+        maxHeight: '50%',
+      }),
+    [],
+  );
+
   const {image, loading, fallback} = props.styles ?? {};
   const [imageRatio, setImageRatio] = useState(0);
 
   const [{needLoading, isValidSource}, setImageInfo] = useState({
     needLoading: !!url,
-    isValidSource: !!url,
+    isValidSource: false,
   });
 
-  const loadingSource: ReactElement = isValidElement(props?.loadingSource) ? (
-    props?.loadingSource
-  ) : (
-    <Image
-      style={[defaultImage, loading]}
-      source={props?.loadingSource ?? logo}
-      resizeMethod="resize"
-      resizeMode="cover"
-    />
-  );
-
-  const renderImage = useCallback(
-    () => (
+  const renderLoading = useCallback(() => {
+    return isValidElement(props?.loadingSource) ? (
+      props?.loadingSource
+    ) : (
       <Image
-        style={[
-          {flex: 1, alignSelf: 'stretch', backgroundColor: theme.paper},
-          image,
-        ]}
-        source={{uri: url}}
+        style={[defaultImageStyle, loading]}
+        source={props.loadingSource ?? logo}
         resizeMethod="resize"
         resizeMode="cover"
-        {...imageProps}
       />
-    ),
-    [image, imageProps, url, theme.paper],
-  );
+    );
+  }, [defaultImageStyle, loading, logo, props.loadingSource]);
 
-  const renderLoading = useCallback(
+  const renderFallback = useCallback(
     () => (
       <Image
-        style={[defaultImage, fallback]}
+        style={[defaultImageStyle, fallback]}
         source={fallbackSource}
         resizeMethod="resize"
         resizeMode="cover"
         {...imageProps}
       />
     ),
-    [fallback, fallbackSource, imageProps],
+    [fallback, fallbackSource, imageProps, defaultImageStyle],
+  );
+
+  const renderImage = useCallback(
+    () => (
+      <Image
+        key={url}
+        style={[{flex: 1, alignSelf: 'stretch'}, image]}
+        source={{uri: url, cache: 'force-cache'}}
+        resizeMethod="resize"
+        resizeMode="cover"
+        {...imageProps}
+      />
+    ),
+    [image, imageProps, url],
   );
 
   useEffect(() => {
@@ -112,22 +117,37 @@ function NetworkImage(props: Props): ReactElement {
       return;
     }
 
-    Image.getSize(
-      url,
-      (width, height) => {
-        setImageInfo({needLoading: false, isValidSource: true});
-        setImageRatio(width / height);
-      },
-      () => {
-        setImageInfo({needLoading: false, isValidSource: false});
-      },
-    );
-  }, [isValidSource, url, shouldFixImageRatio]);
+    let mounted = true;
+
+    const preload = async (): Promise<void> => {
+      if (mounted) {
+        await Image.getSize(
+          url,
+          (width, height) => {
+            if (shouldFixImageRatio) {
+              setImageRatio(width / height);
+            }
+
+            setImageInfo({needLoading: false, isValidSource: true});
+          },
+          () => {
+            return setImageInfo({needLoading: false, isValidSource: false});
+          },
+        );
+      }
+    };
+
+    preload();
+
+    return () => {
+      mounted = false;
+    };
+  }, [isValidSource, url, shouldFixImageRatio, needLoading]);
 
   if (needLoading) {
     return (
       <View style={[{justifyContent: 'center', alignItems: 'center'}, style]}>
-        {loadingSource}
+        {renderLoading()}
       </View>
     );
   }
@@ -135,14 +155,12 @@ function NetworkImage(props: Props): ReactElement {
   return (
     <View
       style={[
-        shouldFixImageRatio && {aspectRatio: imageRatio},
         {justifyContent: 'center', alignItems: 'center'},
+        shouldFixImageRatio && {aspectRatio: imageRatio},
         style,
       ]}
     >
-      {isValidSource && renderImage()}
-
-      {!isValidSource && renderLoading()}
+      {isValidSource ? renderImage() : renderFallback()}
     </View>
   );
 }
