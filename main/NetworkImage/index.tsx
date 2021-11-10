@@ -2,7 +2,6 @@ import {
   Image,
   ImageProps,
   ImageRequireSource,
-  ImageStyle,
   StyleProp,
   View,
   ViewStyle,
@@ -21,21 +20,10 @@ import ArtifactsLogoLight from '../__assets__/artifacts_logo_l.png';
 import {css} from '@emotion/native';
 import {useTheme} from '@dooboo-ui/theme';
 
-type Styles = {
-  image?: Omit<
-    ImageStyle,
-    'width' | 'height' | 'minHeight' | 'minWidth' | 'maxHeight' | 'maxWidth'
-  >;
-  loading?: ImageStyle;
-  fallback?: ImageStyle;
-};
-
 interface Props {
   style?: StyleProp<ViewStyle>;
-  styles?: Styles;
   url: string | undefined;
   loadingSource?: ImageRequireSource | ReactElement;
-  fallbackSource?: ImageRequireSource;
   imageProps?: Partial<ImageProps>;
   shouldFixImageRatio?: boolean;
 }
@@ -45,13 +33,9 @@ function NetworkImage(props: Props): ReactElement {
 
   const logo = themeType === 'light' ? ArtifactsLogoLight : ArtifactsLogoDark;
 
-  const {
-    style,
-    url,
-    imageProps,
-    fallbackSource = logo,
-    shouldFixImageRatio = false,
-  } = props;
+  const {style, url, imageProps, shouldFixImageRatio = false} = props;
+
+  const [isValidSource, setIsValidSource] = useState(true);
 
   const defaultImageStyle = useMemo(
     () =>
@@ -64,52 +48,34 @@ function NetworkImage(props: Props): ReactElement {
     [],
   );
 
-  const {image, loading, fallback} = props.styles ?? {};
   const [imageRatio, setImageRatio] = useState(0);
+  const [loading, setLoading] = useState(true);
 
-  const [{needLoading, isValidSource}, setImageInfo] = useState({
-    needLoading: !!url,
-    isValidSource: false,
-  });
-
-  const renderLoading = useCallback(() => {
+  const renderFallback = useCallback(() => {
     return isValidElement(props?.loadingSource) ? (
       props?.loadingSource
     ) : (
       <Image
-        style={[defaultImageStyle, loading]}
+        style={[defaultImageStyle]}
         source={props.loadingSource ?? logo}
         resizeMethod="resize"
         resizeMode="cover"
       />
     );
-  }, [defaultImageStyle, loading, logo, props.loadingSource]);
-
-  const renderFallback = useCallback(
-    () => (
-      <Image
-        style={[defaultImageStyle, fallback]}
-        source={fallbackSource}
-        resizeMethod="resize"
-        resizeMode="cover"
-        {...imageProps}
-      />
-    ),
-    [fallback, fallbackSource, imageProps, defaultImageStyle],
-  );
+  }, [defaultImageStyle, logo, props.loadingSource]);
 
   const renderImage = useCallback(
     () => (
       <Image
         key={url}
-        style={[{flex: 1, alignSelf: 'stretch'}, image]}
+        style={[{flex: 1, alignSelf: 'stretch'}]}
         source={{uri: url, cache: 'force-cache'}}
         resizeMethod="resize"
         resizeMode="cover"
         {...imageProps}
       />
     ),
-    [image, imageProps, url],
+    [imageProps, url],
   );
 
   useEffect(() => {
@@ -128,26 +94,29 @@ function NetworkImage(props: Props): ReactElement {
               setImageRatio(width / height);
             }
 
-            setImageInfo({needLoading: false, isValidSource: true});
+            setLoading(false);
           },
           () => {
-            return setImageInfo({needLoading: false, isValidSource: false});
+            setIsValidSource(false);
+            setLoading(false);
           },
         );
       }
     };
 
-    preload();
+    if (loading && isValidSource) {
+      preload();
+    }
 
     return () => {
       mounted = false;
     };
-  }, [isValidSource, url, shouldFixImageRatio, needLoading]);
+  }, [url, shouldFixImageRatio, loading, isValidSource]);
 
-  if (needLoading) {
+  if (loading) {
     return (
       <View style={[{justifyContent: 'center', alignItems: 'center'}, style]}>
-        {renderLoading()}
+        {renderFallback()}
       </View>
     );
   }
@@ -156,11 +125,11 @@ function NetworkImage(props: Props): ReactElement {
     <View
       style={[
         {justifyContent: 'center', alignItems: 'center'},
-        shouldFixImageRatio && {aspectRatio: imageRatio},
+        shouldFixImageRatio && {aspectRatio: imageRatio || 110 / 74},
         style,
       ]}
     >
-      {isValidSource ? renderImage() : renderFallback()}
+      {renderImage()}
     </View>
   );
 }
