@@ -4,11 +4,11 @@ exports[`[NetworkImage] render should render without crashing 1`] = `
 <View
   style={
     Array [
-      false,
       Object {
         "alignItems": "center",
         "justifyContent": "center",
       },
+      false,
       undefined,
     ]
   }
