@@ -1,9 +1,12 @@
 ## Changelogs
 
+## 0.1.52
+
+Fix [NetworkImage] ios render issue
+
 ## 0.1.51
 
 Fix [NetworkImage] loading source style (#166)
-
 
 ## 0.1.49
 
