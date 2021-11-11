@@ -124,7 +124,7 @@ function NetworkImage(props: Props): ReactElement {
   return (
     <View
       style={[
-        {justifyContent: 'center', alignItems: 'center'},
+        {justifyContent: 'center', alignItems: 'center', overflow: 'hidden'},
         shouldFixImageRatio && {aspectRatio: imageRatio || 110 / 74},
         style,
       ]}
