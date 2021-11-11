@@ -28,21 +28,24 @@ function NetworkImageStory(): React.ReactElement {
           margin: 20,
           alignSelf: 'center',
         }}
-        styles={{image: {borderRadius: 50}}}
         url="https://upload.wikimedia.org/wikipedia/commons/6/69/Very_Large_Telescope_Ready_for_Action_%28ESO%29.jpg"
       />
 
       <View style={{width: 300, height: 300, margin: 20}}>
         <NetworkImage
-          style={{flex: 1, margin: 20}}
-          styles={{image: {borderRadius: 45}}}
+          style={{flex: 1, margin: 20, borderRadius: 45}}
           url="https://reactnative.dev/img/tiny_logo.png"
         />
       </View>
 
       <NetworkImage
-        style={{width: 300, height: 300, margin: 20, alignSelf: 'center'}}
-        styles={{image: {borderRadius: 45}}}
+        style={{
+          width: 300,
+          height: 300,
+          margin: 20,
+          alignSelf: 'center',
+          borderRadius: 45,
+        }}
         loadingSource={<Typography.Title>Loading</Typography.Title>}
         url="https://reactnative.dev/img/tiny_logo.png"
       />
