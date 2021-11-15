@@ -1,5 +1,5 @@
 import React, {FC, useState} from 'react';
-import {Alert, SafeAreaView, View} from 'react-native';
+import {SafeAreaView, View} from 'react-native';
 
 import {FAB} from '../..';
 import styled from '@emotion/native';
@@ -12,7 +12,18 @@ const StoryContainer = styled.View`
   background-color: ${({theme}) => theme.background};
 `;
 
+const ContentContainer = styled.View`
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+`;
+
+const ItemText = styled.Text`
+  font-size: 24px;
+`;
+
 const FABContainer: FC = () => {
+  const [selectItem, setSelectItem] = useState<string>('none');
   const [active, setActive] = useState<boolean>(false);
 
   const [fontsLoaded] = useFonts({
@@ -26,6 +37,9 @@ const FABContainer: FC = () => {
   return (
     <StoryContainer>
       <SafeAreaView style={{display: 'flex', width: '100%', height: '100%'}}>
+        <ContentContainer>
+          <ItemText>{`clicked item: ${selectItem}`}</ItemText>
+        </ContentContainer>
         <FAB
           isActive={active}
           styles={{buttonSize: 'medium', iconSize: 25}}
@@ -39,7 +53,7 @@ const FABContainer: FC = () => {
               return;
             }
 
-            Alert.alert(item.id);
+            setSelectItem(item.id);
           }}
         />
       </SafeAreaView>
