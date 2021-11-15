@@ -58,15 +58,28 @@ interface Props {
   styles?: ProgressbarStyles;
 }
 
+export {Props as ProgressbarProps};
+
 export const Progressbar: React.FC<Props> = (props) => {
   const {number, type = 'info', styles = {}} = props;
 
   return (
     <Container>
-      <BackgroundView style={styles?.backgroundStyle}>
-        <Progress style={styles?.progressStyle} number={number} type={type} />
+      <BackgroundView
+        style={styles?.backgroundStyle}
+        testID="progressbar-background"
+      >
+        <Progress
+          style={styles?.progressStyle}
+          number={number}
+          type={type}
+          testID="progressbar-main"
+        />
       </BackgroundView>
-      <NumberText style={styles?.numberTextStyle}>{`${number}%`}</NumberText>
+      <NumberText
+        style={styles?.numberTextStyle}
+        testID="progressbar-text"
+      >{`${number}%`}</NumberText>
     </Container>
   );
 };
