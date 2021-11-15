@@ -42,9 +42,9 @@ const NumberText = styled.Text`
 export type ProgressbarType = 'success' | 'danger' | 'warning' | 'info';
 
 export type ProgressbarStyles = {
-  backgroundStyle?: StyleProp<ViewStyle>;
-  progressStyle?: StyleProp<ViewStyle>;
-  numberTextStyle?: StyleProp<TextStyle>;
+  background?: StyleProp<ViewStyle>;
+  progress?: StyleProp<ViewStyle>;
+  value?: StyleProp<TextStyle>;
 };
 
 interface ProgressProps {
@@ -66,18 +66,18 @@ export const Progressbar: React.FC<Props> = (props) => {
   return (
     <Container>
       <BackgroundView
-        style={styles?.backgroundStyle}
+        style={styles?.background}
         testID="progressbar-background"
       >
         <Progress
-          style={styles?.progressStyle}
+          style={styles?.progress}
           number={number}
           type={type}
           testID="progressbar-main"
         />
       </BackgroundView>
       <NumberText
-        style={styles?.numberTextStyle}
+        style={styles?.value}
         testID="progressbar-text"
       >{`${number}%`}</NumberText>
     </Container>

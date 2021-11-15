@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from '@emotion/native';
-import {Progressbar} from '../index';
+import {Progressbar} from '../';
 
 const StoryContainer = styled.View`
   flex: 1;
@@ -17,7 +17,6 @@ const Section = styled.View`
 `;
 
 const Title = styled.Text`
-  width: 100%;
   font-size: 20px;
   text-align: center;
   margin-top: 20px;
@@ -26,7 +25,6 @@ const Title = styled.Text`
 `;
 
 const SubTitle = styled.Text`
-  width: 100%;
   font-size: 14px;
   text-align: center;
   margin-top: 10px;
