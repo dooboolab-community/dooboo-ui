@@ -5,8 +5,10 @@ import {
   AccordionStyles,
 } from '../';
 import React, {ReactElement} from 'react';
+import {boolean, number} from '@storybook/addon-knobs';
 
 import {Icon} from '../../Icon';
+import {Typography} from '../../Typography';
 import {View} from 'react-native';
 import styled from '@emotion/native';
 import {useFonts} from 'expo-font';
@@ -81,37 +83,25 @@ export const AccordionDefault = (): ReactElement => {
     <StoryContainer style={{backgroundColor: theme.background}}>
       <ScrollContainer>
         <Container>
-          <Accordion data={data} />
+          <Typography.Heading3 style={{fontSize: 18, marginBottom: 8}}>
+            Demo
+          </Typography.Heading3>
+          <Accordion
+            data={data}
+            shouldAnimate={boolean('shouldAnimate', true)}
+            animDuration={number('animDuration', 200)}
+          />
         </Container>
-      </ScrollContainer>
-    </StoryContainer>
-  );
-};
 
-export const AccordionCustomStyle = (): ReactElement => {
-  const {theme} = useTheme();
-
-  const [fontsLoaded] = useFonts({
-    IcoMoon: require('../../../main/Icon/doobooui.ttf'),
-  });
-
-  if (!fontsLoaded) {
-    return <View />;
-  }
-
-  return (
-    <StoryContainer style={{backgroundColor: theme.background}}>
-      <ScrollContainer>
         <Container>
+          <Typography.Heading3 style={{fontSize: 18, marginBottom: 8}}>
+            Custom Style
+          </Typography.Heading3>
           <Accordion
             data={data.map<AccordionData>((datum) => ({
               ...datum,
               title: datum.title.toUpperCase(),
             }))}
-            shouldAnimate={true}
-            collapseOnStart={true}
-            animDuration={300}
-            activeOpacity={1}
             renderTitle={(item) => (
               <View
                 style={{
