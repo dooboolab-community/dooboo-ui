@@ -17,7 +17,7 @@ export interface Styles {
 
 export interface AccordionBaseProps<T> {
   data: T;
-  style?: ViewStyle;
+  style?: StyleProp<ViewStyle>;
   styles?: Styles;
   shouldAnimate?: boolean;
   collapseOnStart?: boolean;
