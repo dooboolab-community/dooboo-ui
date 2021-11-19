@@ -9,6 +9,7 @@ export * from './IconButton';
 export * from './Checkbox';
 export * from './EditText';
 export * from './NetworkImage';
+export * from './Progressbar';
 export * from './LoadingIndicator';
 export * from './Accordion';
 export * from './StatusBarBrightness';

@@ -12,7 +12,18 @@ const StoryContainer = styled.View`
   background-color: ${({theme}) => theme.background};
 `;
 
+const ContentContainer = styled.View`
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+`;
+
+const ItemText = styled.Text`
+  font-size: 24px;
+`;
+
 const FABContainer: FC = () => {
+  const [selectItem, setSelectItem] = useState<string>('none');
   const [active, setActive] = useState<boolean>(false);
 
   const [fontsLoaded] = useFonts({
@@ -26,6 +37,9 @@ const FABContainer: FC = () => {
   return (
     <StoryContainer>
       <SafeAreaView style={{display: 'flex', width: '100%', height: '100%'}}>
+        <ContentContainer>
+          <ItemText>{`clicked item: ${selectItem}`}</ItemText>
+        </ContentContainer>
         <FAB
           isActive={active}
           styles={{buttonSize: 'medium', iconSize: 25}}
@@ -35,7 +49,11 @@ const FABContainer: FC = () => {
           ]}
           onPressFAB={() => setActive((prev) => !prev)}
           onPressFABItem={(item) => {
-            console.log(item);
+            if (!item) {
+              return;
+            }
+
+            setSelectItem(item.id);
           }}
         />
       </SafeAreaView>

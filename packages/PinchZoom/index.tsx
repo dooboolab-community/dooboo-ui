@@ -338,7 +338,15 @@ function PinchZoom(props: Props, ref: Ref<PinchZoomRef>): ReactElement {
         },
       }),
     );
-  }, [fixOverflowAfterRelease, onRelease, scale, transformCache, translate]);
+  }, [
+    allowEmpty?.x,
+    allowEmpty?.y,
+    fixOverflowAfterRelease,
+    onRelease,
+    scale,
+    transformCache,
+    translate,
+  ]);
 
   useImperativeHandle(ref, () => ({
     animatedValue: {scale, translate},

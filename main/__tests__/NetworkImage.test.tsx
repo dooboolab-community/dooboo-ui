@@ -3,7 +3,6 @@ import * as React from 'react';
 import {createComponent, createTestProps} from '../../test/testUtils';
 
 import {NetworkImage} from '../../main';
-import {View} from 'react-native';
 import renderer from 'react-test-renderer';
 
 let props: any;
