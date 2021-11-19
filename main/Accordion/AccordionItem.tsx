@@ -188,21 +188,19 @@ const AccordionItem: FC<AccordionItemProps> = (props) => {
         {renderIndicator(toggleElement)}
       </TitleContainer>
 
-      {
-        <Animated.View
-          testID={`body_${testID}`}
-          style={{
-            height: bodyMounted ? dropDownAnimValue : undefined,
-          }}
-          onLayout={handleBodyLayout}
-        >
-          {item.bodies.map((body, key) => (
-            <ItemContainer key={key} style={bodyContainer}>
-              {renderBody(body)}
-            </ItemContainer>
-          ))}
-        </Animated.View>
-      }
+      <Animated.View
+        testID={`body_${testID}`}
+        style={{
+          height: bodyMounted ? dropDownAnimValue : undefined,
+        }}
+        onLayout={handleBodyLayout}
+      >
+        {item.bodies.map((body, key) => (
+          <ItemContainer key={key} style={bodyContainer}>
+            {renderBody(body)}
+          </ItemContainer>
+        ))}
+      </Animated.View>
     </Animated.View>
   );
 };
