@@ -1,10 +1,11 @@
+import {Progressbar, ProgressbarProps} from '../../main';
+
 import React from 'react';
 import type {ReactElement} from 'react';
 import type {RenderAPI} from '@testing-library/react-native';
 import {createComponent} from '../../test/testUtils';
 import {light} from '@dooboo-ui/theme';
 import {render} from '@testing-library/react-native';
-import {Progressbar, ProgressbarProps} from '../../main';
 
 let testingLib: RenderAPI;
 
@@ -23,7 +24,7 @@ describe('[Progressbar]', () => {
   it('should render background-color', () => {
     testingLib = render(
       Component({
-        number: 50,
+        value: 50,
       }),
     );
 
@@ -34,7 +35,7 @@ describe('[Progressbar]', () => {
   it('should render text', () => {
     testingLib = render(
       Component({
-        number: 50,
+        value: 50,
       }),
     );
 
@@ -47,7 +48,7 @@ describe('[Progressbar]', () => {
       testingLib = render(
         Component({
           type: 'info',
-          number: 25,
+          value: 25,
         }),
       );
 
@@ -59,7 +60,7 @@ describe('[Progressbar]', () => {
       testingLib = render(
         Component({
           type: 'success',
-          number: 50,
+          value: 50,
         }),
       );
 
@@ -71,7 +72,7 @@ describe('[Progressbar]', () => {
       testingLib = render(
         Component({
           type: 'danger',
-          number: 75,
+          value: 75,
         }),
       );
 
@@ -83,7 +84,7 @@ describe('[Progressbar]', () => {
       testingLib = render(
         Component({
           type: 'warning',
-          number: 100,
+          value: 100,
         }),
       );
 

@@ -1,6 +1,6 @@
+import {Progressbar} from '../';
 import React from 'react';
 import styled from '@emotion/native';
-import {Progressbar} from '../';
 
 const StoryContainer = styled.View`
   flex: 1;
@@ -38,19 +38,19 @@ const ProgressbarDefault: React.FC = () => {
       <Title>Progressbar</Title>
       <Section>
         <SubTitle>Info</SubTitle>
-        <Progressbar number={25} />
+        <Progressbar value={25} />
       </Section>
       <Section>
         <SubTitle>Warning</SubTitle>
-        <Progressbar number={50} type="warning" />
+        <Progressbar value={50} type="warning" />
       </Section>
       <Section>
         <SubTitle>Danger</SubTitle>
-        <Progressbar number={75} type="danger" />
+        <Progressbar value={75} type="danger" />
       </Section>
       <Section>
         <SubTitle>Success</SubTitle>
-        <Progressbar number={100} type="success" />
+        <Progressbar value={100} type="success" />
       </Section>
     </StoryContainer>
   );

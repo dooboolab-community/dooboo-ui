@@ -1,8 +1,9 @@
-import React from 'react';
 import {StyleProp, TextStyle, ViewStyle} from 'react-native';
-import styled from '@emotion/native';
-import {light} from '@dooboo-ui/theme';
+
+import React from 'react';
 import {isEmptyObject} from '../utils';
+import {light} from '@dooboo-ui/theme';
+import styled from '@emotion/native';
 
 const Container = styled.View`
   flex-direction: row;
@@ -23,7 +24,7 @@ const BackgroundView = styled.View`
 `;
 
 const Progress = styled.View<ProgressProps>`
-  width: ${({number}) => `${number}%`};
+  width: ${({value}) => `${value}%`};
   background-color: ${({theme, type}) => {
     theme = isEmptyObject(theme) ? light : theme;
 
@@ -44,16 +45,16 @@ export type ProgressbarType = 'success' | 'danger' | 'warning' | 'info';
 export type ProgressbarStyles = {
   background?: StyleProp<ViewStyle>;
   progress?: StyleProp<ViewStyle>;
-  value?: StyleProp<TextStyle>;
+  text?: StyleProp<TextStyle>;
 };
 
 interface ProgressProps {
   type?: string;
-  number?: number;
+  value?: number;
 }
 
 interface Props {
-  number: number;
+  value: number;
   type?: ProgressbarType;
   styles?: ProgressbarStyles;
 }
@@ -61,7 +62,7 @@ interface Props {
 export {Props as ProgressbarProps};
 
 export const Progressbar: React.FC<Props> = (props) => {
-  const {number, type = 'info', styles = {}} = props;
+  const {value, type = 'info', styles = {}} = props;
 
   return (
     <Container>
@@ -71,15 +72,15 @@ export const Progressbar: React.FC<Props> = (props) => {
       >
         <Progress
           style={styles?.progress}
-          number={number}
+          value={value}
           type={type}
           testID="progressbar-main"
         />
       </BackgroundView>
       <NumberText
-        style={styles?.value}
+        style={styles?.text}
         testID="progressbar-text"
-      >{`${number}%`}</NumberText>
+      >{`${value}%`}</NumberText>
     </Container>
   );
 };
