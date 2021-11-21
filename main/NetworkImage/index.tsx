@@ -69,7 +69,7 @@ function NetworkImage(props: Props): ReactElement {
       <Image
         key={url}
         style={[{flex: 1, alignSelf: 'stretch'}]}
-        source={{uri: url, cache: 'force-cache'}}
+        source={{uri: url}}
         resizeMethod="resize"
         resizeMode="cover"
         {...imageProps}

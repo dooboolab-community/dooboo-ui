@@ -1,5 +1,13 @@
 ## Changelogs
 
+## 0.1.54
+
+Implement [ProgressBar] (#167)
+
+### Contributors
+
+- doreen0224
+
 ## 0.1.53
 
 Refactor [NetworkImage] and simplified the codebase (#169)
