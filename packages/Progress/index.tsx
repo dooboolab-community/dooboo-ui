@@ -62,6 +62,7 @@ const ProgressCircle: React.FC<Props> = ({
         viewBox={`0 0 ${size} ${size}`}
       >
         <AnimCircle
+          fill="transparent"
           cx={`${size / 2}`}
           cy={`${size / 2}`}
           originX={`${size / 2}`}
@@ -77,6 +78,7 @@ const ProgressCircle: React.FC<Props> = ({
           })}
         />
         <Circle
+          fill="transparent"
           cx={`${size / 2}`}
           cy={`${size / 2}`}
           originX={`${size / 2}`}
