@@ -13,6 +13,7 @@ interface Props {
   color?: string;
   bgColor?: string;
   progress: number;
+  strokeWidth?: number;
 }
 
 const Container = styled.View`
@@ -30,6 +31,7 @@ const ProgressCircle: React.FC<Props> = ({
   radius = 30,
   style,
   progress,
+  strokeWidth = 5,
 }) => {
   const animValue = useRef(new Animated.Value(progress));
 
@@ -37,18 +39,22 @@ const ProgressCircle: React.FC<Props> = ({
     const value = Math.max(0, Math.min(progress, 1));
 
     animValue.current.stopAnimation(() => {
-      Animated.timing(animValue.current, {
-        toValue: value,
-        useNativeDriver: false,
-        duration: 100,
-      }).start();
+      if (value === 0) {
+        animValue.current.setValue(0);
+      } else {
+        Animated.timing(animValue.current, {
+          toValue: value,
+          useNativeDriver: false,
+          duration: 100,
+        }).start();
+      }
     });
 
     return value;
   }, [progress, animValue]);
 
   return (
-    <Container style={style?.container}>
+    <Container style={[{width: size, height: size}, style?.container]}>
       <Svg
         style={{position: 'absolute'}}
         width={size}
@@ -61,7 +67,7 @@ const ProgressCircle: React.FC<Props> = ({
           originX={`${size / 2}`}
           originY={`${size / 2}`}
           r={radius}
-          strokeWidth={5}
+          strokeWidth={strokeWidth}
           stroke={color}
           rotation={-90}
           strokeDasharray={2 * Math.PI * radius}
@@ -69,6 +75,15 @@ const ProgressCircle: React.FC<Props> = ({
             inputRange: [0, 1],
             outputRange: [2 * Math.PI * radius, 0],
           })}
+        />
+        <Circle
+          cx={`${size / 2}`}
+          cy={`${size / 2}`}
+          originX={`${size / 2}`}
+          originY={`${size / 2}`}
+          r={radius + strokeWidth / 2}
+          strokeWidth={1}
+          stroke={color}
         />
       </Svg>
       <Text style={style?.text}>{Math.floor(clampedValue * 100)}%</Text>
