@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 
 import Progress from '@dooboo-ui/progress';
-import {ThemeProvider, ThemeType, useTheme} from '@dooboo-ui/theme';
+import {ThemeProvider, useTheme} from '@dooboo-ui/theme';
 import styled from '@emotion/native';
 
 const Container = styled.View`
@@ -51,7 +51,7 @@ const ProgressView: React.FC = () => {
       <Progress.Circle
         progress={progress}
         color={theme.primary}
-        style={{text: {color: theme.text}}}
+        styles={{text: {color: theme.text}}}
       />
     </Container>
   );

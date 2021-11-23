@@ -4,10 +4,11 @@ import Svg, {Circle} from 'react-native-svg';
 import {Animated, TextStyle, ViewStyle} from 'react-native';
 
 interface Props {
-  style?: {
+  styles?: {
     container?: ViewStyle;
     text?: TextStyle;
   };
+  style?: ViewStyle;
   size?: number;
   radius?: number;
   color?: string;
@@ -30,6 +31,7 @@ const ProgressCircle: React.FC<Props> = ({
   size = 70,
   radius = 30,
   style,
+  styles,
   progress,
   strokeWidth = 5,
 }) => {
@@ -54,7 +56,7 @@ const ProgressCircle: React.FC<Props> = ({
   }, [progress, animValue]);
 
   return (
-    <Container style={[{width: size, height: size}, style?.container]}>
+    <Container style={[{width: size, height: size}, style, styles?.container]}>
       <Svg
         style={{position: 'absolute'}}
         width={size}
@@ -88,7 +90,7 @@ const ProgressCircle: React.FC<Props> = ({
           stroke={color}
         />
       </Svg>
-      <Text style={style?.text}>{Math.floor(clampedValue * 100)}%</Text>
+      <Text style={styles?.text}>{Math.floor(clampedValue * 100)}%</Text>
     </Container>
   );
 };

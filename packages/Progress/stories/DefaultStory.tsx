@@ -64,7 +64,7 @@ const DefaultStory: React.FC = () => {
         size={numberInput('size', 70)}
         radius={numberInput('radius', 30)}
         color={color}
-        style={{
+        styles={{
           text: {
             color: colorInput('text color', '#000'),
           },
