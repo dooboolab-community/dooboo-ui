@@ -2,7 +2,10 @@ import React, {useMemo, useRef} from 'react';
 import styled from '@emotion/native';
 import Svg, {Circle} from 'react-native-svg';
 import {Animated, TextStyle, ViewStyle} from 'react-native';
+import {useTheme, DoobooTheme, withTheme} from '@dooboo-ui/theme';
 
+type DoobooThemeContext = {theme: DoobooTheme};
+type ProgressType = 'success' | 'danger' | 'warning' | 'info';
 interface Props {
   styles?: {
     container?: ViewStyle;
@@ -12,6 +15,7 @@ interface Props {
   size?: number;
   radius?: number;
   color?: string;
+  type?: ProgressType;
   bgColor?: string;
   progress: number;
   strokeWidth?: number;
@@ -27,14 +31,17 @@ const AnimCircle = Animated.createAnimatedComponent(Circle);
 const Text = styled.Text``;
 
 const ProgressCircle: React.FC<Props> = ({
-  color = '#00f',
+  color,
   size = 70,
   radius = 30,
   style,
   styles,
   progress,
+  type = 'info',
   strokeWidth = 5,
 }) => {
+  const {theme} = useTheme() as unknown as DoobooThemeContext;
+  const strokeColor = color ?? theme[type];
   const animValue = useRef(new Animated.Value(progress));
 
   const clampedValue = useMemo(() => {
@@ -71,7 +78,7 @@ const ProgressCircle: React.FC<Props> = ({
           originY={`${size / 2}`}
           r={radius}
           strokeWidth={strokeWidth}
-          stroke={color}
+          stroke={strokeColor}
           rotation={-90}
           strokeDasharray={2 * Math.PI * radius}
           strokeDashoffset={animValue.current.interpolate({
@@ -87,14 +94,16 @@ const ProgressCircle: React.FC<Props> = ({
           originY={`${size / 2}`}
           r={radius + strokeWidth / 2}
           strokeWidth={1}
-          stroke={color}
+          stroke={strokeColor}
         />
       </Svg>
-      <Text style={styles?.text}>{Math.floor(clampedValue * 100)}%</Text>
+      <Text style={[styles?.text, {color: strokeColor}]}>
+        {Math.floor(clampedValue * 100)}%
+      </Text>
     </Container>
   );
 };
 
 export default {
-  Circle: ProgressCircle,
+  Circle: withTheme(ProgressCircle),
 };

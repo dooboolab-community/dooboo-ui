@@ -5,21 +5,31 @@ import styled from '@emotion/native';
 import {
   number as numberInput,
   boolean as booleanInput,
-  color as colorInput,
+  select as selectInput,
 } from '@storybook/addon-knobs';
+import {DoobooTheme, useTheme} from '@dooboo-ui/theme';
 
-const Container = styled.View`
+type DoobooThemeContext = {theme?: DoobooTheme};
+
+const Container = styled.View<DoobooThemeContext>`
   flex: 1;
   justify-content: center;
   align-items: center;
   padding: 10px;
-  background-color: #fff;
+  background-color: ${({theme}) => theme.background};
 `;
 
 const DefaultStory: React.FC = () => {
+  const {changeThemeType} = useTheme();
   const progressInput = numberInput('progress', 0);
   const autoPlay = booleanInput('auto play', true);
-  const color = colorInput('color', '#00f');
+
+  const type = selectInput(
+    'type',
+    ['success', 'info', 'warning', 'danger'],
+    'info',
+  );
+  const themeType = selectInput('themeType', ['light', 'dark'], 'light');
   const [progress, setProgress] = useState(0);
 
   useEffect(() => {
@@ -56,19 +66,18 @@ const DefaultStory: React.FC = () => {
     return () => clearTimeout(timeout);
   }, [progressInput, autoPlay]);
 
+  useEffect(() => {
+    changeThemeType(themeType);
+  }, [changeThemeType, themeType]);
+
   return (
     <Container>
       <Progress.Circle
+        type={type}
         progress={progress}
         strokeWidth={numberInput('strokeWidth', 5)}
         size={numberInput('size', 70)}
         radius={numberInput('radius', 30)}
-        color={color}
-        styles={{
-          text: {
-            color: colorInput('text color', '#000'),
-          },
-        }}
       />
     </Container>
   );
