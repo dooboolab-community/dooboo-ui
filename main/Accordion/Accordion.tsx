@@ -9,7 +9,6 @@ const Container = styled.View`
   align-items: center;
 `;
 
-export const TOGGLE_ELEMENT_PROPERTY = 'toggleElement';
 export interface Styles {
   titleContainer?: StyleProp<ViewStyle>;
   bodyContainer?: StyleProp<ViewStyle>;
@@ -23,7 +22,7 @@ export interface AccordionBaseProps<T> {
   collapseOnStart?: boolean;
   animDuration?: number;
   activeOpacity?: number;
-  [TOGGLE_ELEMENT_PROPERTY]?: ReactElement | null;
+  toggleElement?: ReactElement | null;
   renderTitle?: (item: string) => ReactElement;
   renderBody?: (item: string) => ReactElement;
 }

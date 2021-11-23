@@ -1,4 +1,3 @@
-import {AccordionBaseProps, TOGGLE_ELEMENT_PROPERTY} from './Accordion';
 import {Animated, Easing, LayoutChangeEvent} from 'react-native';
 import React, {
   FC,
@@ -9,6 +8,7 @@ import React, {
   useState,
 } from 'react';
 
+import {AccordionBaseProps} from './Accordion';
 import {Icon} from '../Icon';
 import styled from '@emotion/native';
 import {useTheme} from '@dooboo-ui/theme';
@@ -102,9 +102,7 @@ const AccordionItem: FC<AccordionItemProps> = (props) => {
     setCollapsed(!collapsed);
   };
 
-  const renderIndicator = (
-    element: AccordionItemProps[typeof TOGGLE_ELEMENT_PROPERTY],
-  ): ReactElement => (
+  const renderIndicator = (element: ReactElement | null): ReactElement => (
     <Animated.View
       style={{
         position: 'absolute',
