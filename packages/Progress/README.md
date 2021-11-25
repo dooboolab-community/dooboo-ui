@@ -14,7 +14,9 @@ This package is made for show progress of time consuming work as graph. Currentl
 
 ## Install
 
-This package is not published yet. We will update this doc after it published.
+```
+yarn add @dooboo-ui/progress
+```
 
 ## Usage
 
