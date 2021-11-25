@@ -1,0 +1,35 @@
+import {Meta, Story, Canvas} from '@storybook/addon-docs/blocks';
+import Basic from './index';
+
+<Meta title="Components/Progress" />
+
+# Progress
+
+> [Progress] can be used to display the progress of time-consuming works.
+
+<br />
+
+## install
+
+This package is not published yet. We will update this doc after it published.
+
+## Usage
+
+```tsx
+import Progress from '@dooboo-ui/Progress';
+
+...
+<Progress progress={progressValue} />;
+```
+
+| Props    | Types                                                                                                                                                                                                                                                                                                                                                                                              | Description                                                                                                         | Required | Default   |
+| -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- | -------- | --------- |
+| styles   | {<br/>&nbsp;&nbsp;&nbsp;&nbsp;container?: ViewStyle;<br/>&nbsp;&nbsp;&nbsp;&nbsp;text?: TextStyle;<br/>&nbsp;&nbsp;&nbsp;&nbsp;circle?: {<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;radius?: number;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;color?: string;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;strokeWidth?: number;<br/>&nbsp;&nbsp;&nbsp;&nbsp;};<br/> } | This props determine styles of the component. You don't need to fill this props because the default values are set. |          | undefined |
+| progress | number                                                                                                                                                                                                                                                                                                                                                                                             | Progress value. It must be between 0 to 1.                                                                          | v        |           |
+| type     | "success" &#124; "danger" &#124; "warning" &#124; "info"                                                                                                                                                                                                                                                                                                                                           | Progress theme type. This value determined the color of the shape if prop color is undefined.                       |          | "info"    |
+
+<br />
+
+## Demo
+
+<Basic />

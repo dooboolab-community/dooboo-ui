@@ -17,3 +17,4 @@ import '../packages/AlertDialog/stories';
 import '../packages/CalendarCarousel/stories';
 // import '../packages/GiftedChat/stories';
 import '../packages/PinchZoom/stories';
+import '../packages/Progress/stories';
