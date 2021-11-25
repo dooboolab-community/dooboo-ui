@@ -36,7 +36,7 @@ const ProgressCircle: React.FC<Props> = ({
   progress,
   type = 'info',
 }) => {
-  const {color, radius = 30, strokeWidth = 5} = styles?.circle;
+  const {color, radius = 30, strokeWidth = 5} = styles?.circle || {};
   const {theme} = useTheme() as unknown as DoobooThemeContext;
   const strokeColor = color ?? theme[type];
   const animValue = useRef(new Animated.Value(progress));
