@@ -1,4 +1,4 @@
-import React, {useMemo, useRef} from 'react';
+import React, {useMemo, useRef, useState} from 'react';
 import styled from '@emotion/native';
 import Svg, {Circle} from 'react-native-svg';
 import {Animated, TextStyle, ViewStyle} from 'react-native';
@@ -10,15 +10,15 @@ interface Props {
   styles?: {
     container?: ViewStyle;
     text?: TextStyle;
+    circle?: {
+      radius?: number;
+      color?: string;
+      strokeWidth?: number;
+    };
   };
   style?: ViewStyle;
-  size?: number;
-  radius?: number;
-  color?: string;
   type?: ProgressType;
-  bgColor?: string;
   progress: number;
-  strokeWidth?: number;
 }
 
 const Container = styled.View`
@@ -31,18 +31,32 @@ const AnimCircle = Animated.createAnimatedComponent(Circle);
 const Text = styled.Text``;
 
 const ProgressCircle: React.FC<Props> = ({
-  color,
-  size = 70,
-  radius = 30,
   style,
   styles,
   progress,
   type = 'info',
-  strokeWidth = 5,
 }) => {
+  const {color, radius = 30, strokeWidth = 5} = styles?.circle;
   const {theme} = useTheme() as unknown as DoobooThemeContext;
   const strokeColor = color ?? theme[type];
   const animValue = useRef(new Animated.Value(progress));
+
+  const [containerLayout, setContainerLayout] = useState({
+    width: 70,
+    height: 70,
+  });
+
+  const circleProps = useMemo(() => {
+    const x = containerLayout.width / 2;
+    const y = containerLayout.height / 2;
+
+    return {
+      cx: x,
+      cy: y,
+      originX: x,
+      originY: y,
+    };
+  }, [containerLayout]);
 
   const clampedValue = useMemo(() => {
     const value = Math.max(0, Math.min(progress, 1));
@@ -63,19 +77,22 @@ const ProgressCircle: React.FC<Props> = ({
   }, [progress, animValue]);
 
   return (
-    <Container style={[{width: size, height: size}, style, styles?.container]}>
+    <Container
+      onLayout={(e) => {
+        const {height, width} = e.nativeEvent.layout;
+        setContainerLayout({width, height});
+      }}
+      style={[containerLayout, style, styles?.container]}
+    >
       <Svg
         style={{position: 'absolute'}}
-        width={size}
-        height={size}
-        viewBox={`0 0 ${size} ${size}`}
+        width={containerLayout.width}
+        height={containerLayout.height}
+        viewBox={`0 0 ${containerLayout.width} ${containerLayout.height}`}
       >
         <AnimCircle
           fill="transparent"
-          cx={`${size / 2}`}
-          cy={`${size / 2}`}
-          originX={`${size / 2}`}
-          originY={`${size / 2}`}
+          {...circleProps}
           r={radius}
           strokeWidth={strokeWidth}
           stroke={strokeColor}
@@ -88,10 +105,7 @@ const ProgressCircle: React.FC<Props> = ({
         />
         <Circle
           fill="transparent"
-          cx={`${size / 2}`}
-          cy={`${size / 2}`}
-          originX={`${size / 2}`}
-          originY={`${size / 2}`}
+          {...circleProps}
           r={radius + strokeWidth / 2}
           strokeWidth={1}
           stroke={strokeColor}

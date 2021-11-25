@@ -72,13 +72,7 @@ const DefaultStory: React.FC = () => {
 
   return (
     <Container>
-      <Progress.Circle
-        type={type}
-        progress={progress}
-        strokeWidth={numberInput('strokeWidth', 5)}
-        size={numberInput('size', 70)}
-        radius={numberInput('radius', 30)}
-      />
+      <Progress.Circle type={type} progress={progress} />
     </Container>
   );
 };
