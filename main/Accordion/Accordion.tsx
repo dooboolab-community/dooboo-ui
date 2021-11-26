@@ -9,7 +9,7 @@ const Container = styled.View`
   align-items: center;
 `;
 
-export interface Styles {
+interface Styles {
   titleContainer?: StyleProp<ViewStyle>;
   bodyContainer?: StyleProp<ViewStyle>;
 }

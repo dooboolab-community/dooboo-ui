@@ -1,9 +1,4 @@
-import {
-  Accordion,
-  AccordionData,
-  AccordionListType,
-  AccordionStyles,
-} from '../';
+import {Accordion, AccordionData, AccordionListType} from '../';
 import React, {ReactElement} from 'react';
 import {boolean, number} from '@storybook/addon-knobs';
 
@@ -59,15 +54,6 @@ const data: AccordionListType = [
   },
 ];
 
-const customStyles: AccordionStyles = {
-  titleContainer: {
-    backgroundColor: 'gray',
-  },
-  bodyContainer: {
-    backgroundColor: 'lightgray',
-  },
-};
-
 export const AccordionDefault = (): ReactElement => {
   const {theme} = useTheme();
 
@@ -118,7 +104,14 @@ export const AccordionDefault = (): ReactElement => {
             toggleElement={
               <Icon name="chevron-down-light" color={theme.textContrast} />
             }
-            styles={customStyles}
+            styles={{
+              titleContainer: {
+                backgroundColor: 'gray',
+              },
+              bodyContainer: {
+                backgroundColor: 'lightgray',
+              },
+            }}
           />
         </Container>
       </ScrollContainer>

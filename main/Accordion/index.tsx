@@ -1,9 +1,6 @@
-import Accordion, {
-  AccordionListType,
-  Styles as AccordionStyles,
-} from './Accordion';
+import Accordion, {AccordionListType} from './Accordion';
 
 import {AccordionData} from './AccordionItem';
 
 export {Accordion};
-export type {AccordionData, AccordionListType, AccordionStyles};
+export type {AccordionData, AccordionListType};
