@@ -113,7 +113,7 @@ function NetworkImage(props: Props): ReactElement {
     };
   }, [url, shouldFixImageRatio, loading, isValidSource]);
 
-  if (loading) {
+  if (loading || !isValidSource) {
     return (
       <View style={[{justifyContent: 'center', alignItems: 'center'}, style]}>
         {renderFallback()}

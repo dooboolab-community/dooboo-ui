@@ -8,7 +8,7 @@ import {storiesOf} from '@storybook/react-native';
  * Below are stories for web
  */
 export default {
-  title: 'NetowkrImage',
+  title: 'NetworkImage',
 };
 
 export const toStorybook = (): ReactElement => <NetworkImageStory />;
