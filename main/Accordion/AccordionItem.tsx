@@ -2,8 +2,8 @@ import {Animated, Easing, LayoutChangeEvent} from 'react-native';
 import React, {
   FC,
   ReactElement,
+  useCallback,
   useEffect,
-  useMemo,
   useRef,
   useState,
 } from 'react';
@@ -79,12 +79,11 @@ const AccordionItem: FC<AccordionItemProps> = (props) => {
     bodyContainer = {backgroundColor: theme.background},
   } = styles ?? {};
 
-  const rotateAnimValue = useRef(new Animated.Value(0)).current;
+  const rotateAnimValueRef = useRef(new Animated.Value(0));
+  const dropDownAnimValueRef = useRef(dropDownAnimValue);
 
-  const [collapsed, setCollapsed] = useState(collapseOnStart);
-
+  const bodyHeight = useRef(0);
   const [bodyMounted, setBodyMounted] = useState(false);
-  const [bodyHeight, setBodyHeight] = useState(0);
 
   const handleBodyLayout = (e: LayoutChangeEvent): void => {
     if (bodyMounted) {
@@ -93,14 +92,48 @@ const AccordionItem: FC<AccordionItemProps> = (props) => {
 
     const {height} = e.nativeEvent.layout;
 
-    setBodyHeight(height);
-
+    bodyHeight.current = height;
     setBodyMounted(true);
   };
+
+  const [collapsed, setCollapsed] = useState(collapseOnStart);
 
   const handlePress = (): void => {
     setCollapsed(!collapsed);
   };
+
+  const startAnimation = useCallback(() => {
+    const rotateTargetValue = collapsed ? 0 : 1;
+    const dropDownTargetValue = collapsed ? 0 : bodyHeight.current;
+
+    if (!shouldAnimate) {
+      rotateAnimValueRef.current.setValue(rotateTargetValue);
+      dropDownAnimValueRef.current.setValue(dropDownTargetValue);
+
+      return;
+    }
+
+    const config = {
+      duration: animDuration,
+      easing: Easing.linear,
+      useNativeDriver: false,
+    };
+
+    Animated.parallel([
+      Animated.timing(rotateAnimValueRef.current, {
+        ...config,
+        toValue: rotateTargetValue,
+      }),
+      Animated.timing(dropDownAnimValueRef.current, {
+        ...config,
+        toValue: dropDownTargetValue,
+      }),
+    ]).start();
+  }, [collapsed, shouldAnimate, animDuration]);
+
+  useEffect(() => {
+    startAnimation();
+  }, [startAnimation]);
 
   const renderIndicator = (element: ReactElement | null): ReactElement => (
     <Animated.View
@@ -109,7 +142,7 @@ const AccordionItem: FC<AccordionItemProps> = (props) => {
         right: 20,
         transform: [
           {
-            rotate: rotateAnimValue.interpolate({
+            rotate: rotateAnimValueRef.current.interpolate({
               inputRange: [0, 1],
               outputRange: ['0deg', '180deg'],
             }),
@@ -120,49 +153,6 @@ const AccordionItem: FC<AccordionItemProps> = (props) => {
       {element}
     </Animated.View>
   );
-
-  useEffect(() => {
-    const targetValue = collapsed ? 0 : 1;
-
-    if (!shouldAnimate) {
-      rotateAnimValue.setValue(targetValue);
-    }
-
-    Animated.timing(rotateAnimValue, {
-      toValue: targetValue,
-      duration: 200,
-      easing: Easing.linear,
-      useNativeDriver: false,
-    }).start();
-
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [collapsed]);
-
-  const targetValueForDropdown = useMemo(() => {
-    return collapsed ? 0 : bodyHeight;
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [collapsed]);
-
-  useEffect(() => {
-    if (bodyMounted) {
-      dropDownAnimValue.setValue(targetValueForDropdown);
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [bodyMounted]);
-
-  useEffect(() => {
-    if (!shouldAnimate) {
-      dropDownAnimValue.setValue(targetValueForDropdown);
-    }
-
-    Animated.timing(dropDownAnimValue, {
-      toValue: targetValueForDropdown,
-      duration: animDuration,
-      easing: Easing.linear,
-      useNativeDriver: false,
-    }).start();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [targetValueForDropdown]);
 
   return (
     <Animated.View
@@ -189,7 +179,7 @@ const AccordionItem: FC<AccordionItemProps> = (props) => {
       <Animated.View
         testID={`body_${testID}`}
         style={{
-          height: bodyMounted ? dropDownAnimValue : undefined,
+          height: bodyMounted ? dropDownAnimValueRef.current : undefined,
         }}
         onLayout={handleBodyLayout}
       >
