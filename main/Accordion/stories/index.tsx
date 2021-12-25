@@ -1,7 +1,9 @@
-import {AccordionCustomStyle, AccordionDefault} from './DefaultStory';
 import React, {ReactElement} from 'react';
 
+import {AccordionDefault} from './DefaultStory';
+import {ThemeProvider} from '@dooboo-ui/theme';
 import {storiesOf} from '@storybook/react-native';
+import {withKnobs} from '@storybook/addon-knobs';
 
 /**
  * Below are stories for web
@@ -10,24 +12,24 @@ export default {
   title: 'Accordion',
 };
 
-export const toStorybook1 = (): ReactElement => <AccordionDefault />;
-export const toStorybook2 = (): ReactElement => <AccordionCustomStyle />;
+export const toStorybook = (): ReactElement => <AccordionDefault />;
 
-toStorybook1.story = {
+toStorybook.story = {
   name: 'default',
-};
-
-toStorybook2.story = {
-  name: 'CustomStyle',
 };
 
 /**
  * Below are stories for app
  */
 storiesOf('Accordion', module)
-  .add('default', () => <AccordionDefault />, {
-    notes: 'Simple explanation',
-  })
-  .add('CustomStyle', () => <AccordionCustomStyle />, {
-    notes: 'Can custom component',
-  });
+  .addDecorator(withKnobs)
+  .add('Accordion - light', () => (
+    <ThemeProvider initialThemeType="light">
+      <AccordionDefault />
+    </ThemeProvider>
+  ))
+  .add('Accordion - dark', () => (
+    <ThemeProvider initialThemeType="dark">
+      <AccordionDefault />
+    </ThemeProvider>
+  ));

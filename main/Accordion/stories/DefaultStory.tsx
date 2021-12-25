@@ -1,20 +1,29 @@
-import React, {Fragment, ReactElement} from 'react';
-import {SafeAreaView, View} from 'react-native';
+import {Accordion, AccordionData, AccordionListType} from '../';
+import React, {ReactElement} from 'react';
+import {boolean, number} from '@storybook/addon-knobs';
 
-import {Accordion} from '../';
 import {Icon} from '../../Icon';
-import {ThemeProvider} from '@dooboo-ui/theme';
+import {Typography} from '../../Typography';
+import {View} from 'react-native';
 import styled from '@emotion/native';
 import {useFonts} from 'expo-font';
+import {useTheme} from '../../../main';
 
-const Container = styled.SafeAreaView`
+const StoryContainer = styled.View`
   flex: 1;
-  align-items: center;
-  justify-content: center;
+  align-self: stretch;
 `;
 
-const StyledIcon = styled(Icon)`
-  color: ${({theme}) => theme.textContrast};
+const ScrollContainer = styled.ScrollView`
+  width: 100%;
+`;
+
+const Container = styled.View`
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin-top: 20px;
+  margin-bottom: 20px;
 `;
 
 const Title = styled.Text`
@@ -30,7 +39,7 @@ const CustomStyledItem = styled.Text`
   left: 40px;
 `;
 
-const data = [
+const data: AccordionListType = [
   {
     title: 'Lists',
     bodies: ['user', 'mail', 'plan'],
@@ -46,6 +55,8 @@ const data = [
 ];
 
 export const AccordionDefault = (): ReactElement => {
+  const {theme} = useTheme();
+
   const [fontsLoaded] = useFonts({
     IcoMoon: require('../../../main/Icon/doobooui.ttf'),
   });
@@ -55,61 +66,44 @@ export const AccordionDefault = (): ReactElement => {
   }
 
   return (
-    <ThemeProvider initialThemeType="light">
-      <Container>
-        <Accordion
-          data={data}
-          shouldAnimate={true}
-          collapseOnStart={true}
-          animDuration={400}
-          activeOpacity={1}
-        />
-      </Container>
-    </ThemeProvider>
-  );
-};
-
-export const AccordionCustomStyle = (): React.ReactElement => {
-  const [fontsLoaded] = useFonts({
-    IcoMoon: require('../../../main/Icon/doobooui.ttf'),
-  });
-
-  if (!fontsLoaded) {
-    return <View />;
-  }
-
-  return (
-    <ThemeProvider initialThemeType="light">
-      <SafeAreaView style={{width: '100%', height: '100%'}}>
+    <StoryContainer style={{backgroundColor: theme.background}}>
+      <ScrollContainer>
         <Container>
+          <Typography.Heading3 style={{fontSize: 18, marginBottom: 8}}>
+            Demo
+          </Typography.Heading3>
           <Accordion
             data={data}
-            shouldAnimate={true}
-            collapseOnStart={true}
-            animDuration={300}
-            activeOpacity={1}
-            renderTitle={(item) => {
-              return (
-                <View
-                  style={{
-                    paddingLeft: 20,
-                    alignItems: 'center',
-                    flexDirection: 'row',
-                  }}
-                >
-                  <StyledIcon name="search-light" />
-                  <Title>{item}</Title>
-                </View>
-              );
-            }}
-            renderBody={(item) => {
-              return (
-                <Fragment>
-                  <CustomStyledItem>{item}</CustomStyledItem>
-                </Fragment>
-              );
-            }}
-            toggleElement={<StyledIcon name="chevron-down-light" />}
+            shouldAnimate={boolean('shouldAnimate', true)}
+            animDuration={number('animDuration', 200)}
+          />
+        </Container>
+
+        <Container>
+          <Typography.Heading3 style={{fontSize: 18, marginBottom: 8}}>
+            Custom Style
+          </Typography.Heading3>
+          <Accordion
+            data={data.map<AccordionData>((datum) => ({
+              ...datum,
+              title: datum.title.toUpperCase(),
+            }))}
+            renderTitle={(item) => (
+              <View
+                style={{
+                  paddingLeft: 20,
+                  alignItems: 'center',
+                  flexDirection: 'row',
+                }}
+              >
+                <Icon name="search-light" color={theme.textContrast} />
+                <Title>{item}</Title>
+              </View>
+            )}
+            renderBody={(item) => <CustomStyledItem>{item}</CustomStyledItem>}
+            toggleElement={
+              <Icon name="chevron-down-light" color={theme.textContrast} />
+            }
             styles={{
               titleContainer: {
                 backgroundColor: 'gray',
@@ -120,7 +114,7 @@ export const AccordionCustomStyle = (): React.ReactElement => {
             }}
           />
         </Container>
-      </SafeAreaView>
-    </ThemeProvider>
+      </ScrollContainer>
+    </StoryContainer>
   );
 };

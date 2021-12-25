@@ -1,13 +1,14 @@
-import {
-  Animated,
-  Easing,
-  LayoutChangeEvent,
-  StyleProp,
-  ViewStyle,
-} from 'react-native';
-import {Datum, Styles} from './index';
-import React, {FC, ReactElement, useEffect, useRef, useState} from 'react';
+import {Animated, Easing, LayoutChangeEvent} from 'react-native';
+import React, {
+  FC,
+  ReactElement,
+  useCallback,
+  useEffect,
+  useRef,
+  useState,
+} from 'react';
 
+import {AccordionBaseProps} from './Accordion';
 import {Icon} from '../Icon';
 import styled from '@emotion/native';
 import {useTheme} from '@dooboo-ui/theme';
@@ -28,74 +29,61 @@ const ItemContainer = styled.View`
   flex-direction: row;
   align-items: center;
   width: 100%;
-  padding: 20px 20px;
+  padding: 20px 0px;
 `;
 
 const StyledTitle = styled.Text`
   font-weight: bold;
   color: ${({theme}) => theme.textContrast};
   position: absolute;
-  left: 20px;
+  padding: 0px 20px;
 `;
 
 const StyledItem = styled.Text`
   color: ${({theme}) => theme.text};
+  padding: 0px 20px;
 `;
 
-type ToggleIndicatorType = React.ReactElement | undefined;
-
-interface TranslateYType {
-  translateY: Animated.Value;
+export interface AccordionData {
+  title: string;
+  bodies: string[];
 }
 
-interface Props {
+interface Props<T> extends AccordionBaseProps<T> {
   testID: string;
-  style?: StyleProp<ViewStyle>;
-  styles?: Styles;
-  datum: Datum;
-  collapseOnStart: boolean;
-  shouldAnimate: boolean;
-  animDuration?: number;
-  activeOpacity?: number;
-  toggleElement?: React.ReactElement;
-  dropDownAnimValueList: Animated.Value;
-  sumOfPrecedingTranslateY: TranslateYType[];
-  renderTitle?: (item: string) => React.ReactElement;
-  renderBody?: (item: string) => React.ReactElement;
+  dropDownAnimValue: Animated.Value;
 }
 
-const AccordionItem: FC<Props> = (props) => {
+type AccordionItemProps = Props<AccordionData>;
+
+const AccordionItem: FC<AccordionItemProps> = (props) => {
+  const {theme} = useTheme();
+
   const {
     testID,
-    datum: item,
+    data: item,
     shouldAnimate = true,
     collapseOnStart = true,
-    animDuration,
-    activeOpacity,
-    toggleElement,
-    dropDownAnimValueList,
-    sumOfPrecedingTranslateY,
-
+    animDuration = 200,
+    activeOpacity = 1,
+    toggleElement = <StyledIcon name="chevron-down-light" theme={theme} />,
+    renderTitle = (title) => <StyledTitle theme={theme}>{title}</StyledTitle>,
+    renderBody = (body) => <StyledItem theme={theme}>{body}</StyledItem>,
+    dropDownAnimValue,
     styles,
     style,
   } = props;
 
-  const {theme} = useTheme();
+  const {
+    titleContainer = {backgroundColor: theme.primary},
+    bodyContainer = {backgroundColor: theme.background},
+  } = styles ?? {};
 
-  const renderTitle = (title): ReactElement => (
-    <StyledTitle theme={theme}>{title}</StyledTitle>
-  );
+  const rotateAnimValueRef = useRef(new Animated.Value(0));
+  const dropDownAnimValueRef = useRef(dropDownAnimValue);
 
-  const renderBody = (body): ReactElement => (
-    <StyledItem theme={theme}>{body}</StyledItem>
-  );
-
-  const rotateAnimValue = useRef(new Animated.Value(0)).current;
-
-  const [collapsed, setCollapsed] = useState(collapseOnStart);
-
+  const bodyHeight = useRef(0);
   const [bodyMounted, setBodyMounted] = useState(false);
-  const [bodyHeight, setBodyHeight] = useState(0);
 
   const handleBodyLayout = (e: LayoutChangeEvent): void => {
     if (bodyMounted) {
@@ -104,25 +92,57 @@ const AccordionItem: FC<Props> = (props) => {
 
     const {height} = e.nativeEvent.layout;
 
-    setBodyHeight(height);
-
+    bodyHeight.current = height;
     setBodyMounted(true);
   };
+
+  const [collapsed, setCollapsed] = useState(collapseOnStart);
 
   const handlePress = (): void => {
     setCollapsed(!collapsed);
   };
 
-  const renderIndicator = (
-    element: ToggleIndicatorType,
-  ): React.ReactElement => (
+  const startAnimation = useCallback(() => {
+    const rotateTargetValue = collapsed ? 0 : 1;
+    const dropDownTargetValue = collapsed ? 0 : bodyHeight.current;
+
+    if (!shouldAnimate) {
+      rotateAnimValueRef.current.setValue(rotateTargetValue);
+      dropDownAnimValueRef.current.setValue(dropDownTargetValue);
+
+      return;
+    }
+
+    const config = {
+      duration: animDuration,
+      easing: Easing.linear,
+      useNativeDriver: false,
+    };
+
+    Animated.parallel([
+      Animated.timing(rotateAnimValueRef.current, {
+        ...config,
+        toValue: rotateTargetValue,
+      }),
+      Animated.timing(dropDownAnimValueRef.current, {
+        ...config,
+        toValue: dropDownTargetValue,
+      }),
+    ]).start();
+  }, [collapsed, shouldAnimate, animDuration]);
+
+  useEffect(() => {
+    startAnimation();
+  }, [startAnimation]);
+
+  const renderIndicator = (element: ReactElement | null): ReactElement => (
     <Animated.View
       style={{
         position: 'absolute',
         right: 20,
         transform: [
           {
-            rotate: rotateAnimValue.interpolate({
+            rotate: rotateAnimValueRef.current.interpolate({
               inputRange: [0, 1],
               outputRange: ['0deg', '180deg'],
             }),
@@ -130,49 +150,9 @@ const AccordionItem: FC<Props> = (props) => {
         ],
       }}
     >
-      {element || <StyledIcon theme={theme} name="chevron-down-light" />}
+      {element}
     </Animated.View>
   );
-
-  useEffect(() => {
-    if (bodyMounted) {
-      dropDownAnimValueList.setValue(collapsed ? -bodyHeight : 0);
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [bodyMounted]);
-
-  useEffect(() => {
-    const targetValue = collapsed ? -bodyHeight : 0;
-
-    if (!shouldAnimate) {
-      dropDownAnimValueList.setValue(targetValue);
-    }
-
-    Animated.timing(dropDownAnimValueList, {
-      toValue: targetValue,
-      duration: animDuration || 300,
-      useNativeDriver: true,
-    }).start();
-
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [collapsed]);
-
-  useEffect(() => {
-    const targetValue = collapsed ? 0 : 1;
-
-    if (!shouldAnimate) {
-      rotateAnimValue.setValue(targetValue);
-    }
-
-    Animated.timing(rotateAnimValue, {
-      toValue: targetValue,
-      duration: 200,
-      easing: Easing.linear,
-      useNativeDriver: true,
-    }).start();
-
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [collapsed]);
 
   return (
     <Animated.View
@@ -181,7 +161,6 @@ const AccordionItem: FC<Props> = (props) => {
           backgroundColor: 'transparent',
           overflow: 'hidden',
           width: 300,
-          transform: sumOfPrecedingTranslateY,
         },
         style,
       ]}
@@ -191,7 +170,7 @@ const AccordionItem: FC<Props> = (props) => {
         testID={`title_${testID}`}
         onPress={handlePress}
         activeOpacity={activeOpacity}
-        style={styles?.titleContainer}
+        style={titleContainer}
       >
         {renderTitle(item.title)}
         {renderIndicator(toggleElement)}
@@ -200,17 +179,12 @@ const AccordionItem: FC<Props> = (props) => {
       <Animated.View
         testID={`body_${testID}`}
         style={{
-          height: bodyMounted ? bodyHeight : undefined,
-          transform: [
-            {
-              translateY: dropDownAnimValueList,
-            },
-          ],
+          height: bodyMounted ? dropDownAnimValueRef.current : undefined,
         }}
         onLayout={handleBodyLayout}
       >
         {item.bodies.map((body, key) => (
-          <ItemContainer key={key} theme={theme} style={styles?.bodyContainer}>
+          <ItemContainer key={key} style={bodyContainer}>
             {renderBody(body)}
           </ItemContainer>
         ))}
