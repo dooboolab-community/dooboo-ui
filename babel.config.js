@@ -16,7 +16,7 @@ module.exports = (api) => {
       ],
     ],
     plugins: [
-      '@emotion/babel-plugin',
+      '@emotion',
       '@babel/plugin-syntax-dynamic-import',
       '@babel/plugin-transform-modules-commonjs',
     ],

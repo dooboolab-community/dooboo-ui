@@ -18,7 +18,7 @@
     "test": "jest",
     "test:all": "lerna run build && yarn lint && yarn tsc && jest",
     "test:post": "jest",
-    "prebuild": "cp ./main/react-native.config.js ./lib/react-native.config.js && rm -rf ./lib/tsconfig* && cp README.md ./lib/README.md ",
+    "prebuild": "cp ./main/react-native.config.cjs ./lib/react-native.config.cjs && rm -rf ./lib/tsconfig* && cp README.md ./lib/README.md ",
     "build": "yarn prebuild && tsc --project tsconfigBuild.json && yarn cp:icon",
     "cp:icon": "mkdir -p `dirname ./lib/Icon/selection.json` && cp ./main/Icon/selection.json ./lib/Icon/selection.json && cp ./main/Icon/doobooui.ttf ./lib/Icon/doobooui.ttf",
     "postbuild": "cp -R main/__assets__ lib",

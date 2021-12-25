@@ -1,4 +1,5 @@
 import type {Config} from '@jest/types';
+import expoPreset from 'jest-expo/jest-preset';
 
 process.env.TZ = 'Asia/Seoul';
 
@@ -26,7 +27,11 @@ export default async (): Promise<Config.InitialOptions> => {
       '\\.svg': '<rootDir>/__mocks__/svgMock.js',
       '.+\\.(css|styl|less|sass|scss|png|jpg|ttf|woff|woff2)$': 'babel-jest',
     },
-    setupFiles: ['<rootDir>/test/jestSetup.ts'],
+    setupFiles: [
+      ...expoPreset.setupFiles,
+      '<rootDir>/test/jestSetup.ts',
+      './node_modules/react-native-gesture-handler/jestSetup.js',
+    ],
     cacheDirectory: '.jest/cache',
     setupFilesAfterEnv: ['./test/setupTest.ts'],
     haste: {
