@@ -17,7 +17,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@master
         with:
-          node-version: 14.x
+          node-version: 16.x
 
       - name: Setup expo cli
         uses: expo/expo-github-action@v5

@@ -1,5 +1,9 @@
 ## Changelogs
 
+## 0.1.55
+
+Deploy bugfixes (#174)
+
 ## 0.1.54
 
 Implement [ProgressBar] (#167)
