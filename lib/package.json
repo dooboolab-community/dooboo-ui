@@ -18,7 +18,7 @@
     "@emotion/react": ">=11.0.0",
     "react": ">=16.9",
     "react-native": ">=0.58",
-    "react-native-gestuer-handler": "*",
+    "react-native-gesture-handler": "*",
     "react-native-vector-icons": "*"
   },
   "dependencies": {
