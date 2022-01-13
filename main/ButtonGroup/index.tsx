@@ -70,6 +70,7 @@ export function ButtonGroup<T>(props: Props<T>): React.ReactElement {
 
     const borderForLastElement = {
       ...fullWidthAndRadius,
+      borderLeftWidth: undefined,
       borderTopLeftRadius: undefined,
       borderBottomLeftRadius: undefined,
     };
