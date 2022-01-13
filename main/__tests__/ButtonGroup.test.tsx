@@ -167,6 +167,7 @@ describe('[ButtonGroup]', () => {
 
         expect(getByTestId('CHILD_2')).toHaveStyle({
           ...fullWidthAndRadius,
+          borderLeftWidth: undefined,
           borderTopLeftRadius: undefined,
           borderBottomLeftRadius: undefined,
         });
