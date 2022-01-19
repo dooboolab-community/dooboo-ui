@@ -9,18 +9,18 @@ import Default from './index';
 
 ## Props
 
-|                 | necessary | types                                                                                                   | default               |
-| --------------- | --------- | ------------------------------------------------------------------------------------------------------- | --------------------- |
-| style           |           | ViewStyle                                                                                               | `undefined`           |
-| styles          |           | Styles                                                                                                  | `undefined`           |
-| data            | ✓         | Array<{<br/>&nbsp;&nbsp;&nbsp;&nbsp;title: string;<br/>&nbsp;&nbsp;&nbsp;&nbsp;bodies: string[];<br/>}> |                       |
-| shouldAnimate   |           | boolean                                                                                                 | `true`                |
-| collapseOnStart |           | boolean                                                                                                 | `true `               |
-| animDuration    |           | number                                                                                                  | `300`                 |
-| activeOpacity   |           | number                                                                                                  | `1`                   |
-| toggleElement   |           | React.ReactElement                                                                                      | `default arrow image` |
-| renderTitle     |           | (string) => JSX.Element                                                                                 | `default wrapper`     |
-| renderBody      |           | (string) => JSX.Element                                                                                 | `default wrapper`     |
+|                 | necessary | types                   | default               |
+| --------------- | --------- | ----------------------- | --------------------- |
+| style           |           | ViewStyle               | `undefined`           |
+| styles          |           | Styles                  | `undefined`           |
+| data            | ✓         | AccordionListType       |                       |
+| shouldAnimate   |           | boolean                 | `true`                |
+| collapseOnStart |           | boolean                 | `true `               |
+| animDuration    |           | number                  | `300`                 |
+| activeOpacity   |           | number                  | `1`                   |
+| toggleElement   |           | React.ReactElement      | `default arrow image` |
+| renderTitle     |           | (string) => JSX.Element | `default wrapper`     |
+| renderBody      |           | (string) => JSX.Element | `default wrapper`     |
 
 ## Installation
 
@@ -31,10 +31,10 @@ yarn add dooboo-ui
 ## Usage
 
 ```javascript
-import {Accordion} from 'dooboo-ui';
+import {Accordion, AccordionListType} from 'dooboo-ui';
 
 const Default = (): React.ReactElement => {
-  const data = [
+  const data: AccordionListType = [
     {
       title: 'Default-title-01',
       bodies: ['Default body01', 'Default body02'],
