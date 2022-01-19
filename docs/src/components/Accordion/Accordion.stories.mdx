@@ -9,18 +9,18 @@ import Default from './index';
 
 ## Props
 
-|                 | necessary | types                   | default               |
-| --------------- | --------- | ----------------------- | --------------------- |
-| style           |           | ViewStyle               | `undefined`           |
-| styles          |           | Styles                  | `undefined`           |
-| data            | ✓         | array                   |                       |
-| shouldAnimate   |           | boolean                 | `true`                |
-| collapseOnStart |           | boolean                 | `true `               |
-| animDuration    |           | number                  | `300`                 |
-| activeOpacity   |           | number                  | `1`                   |
-| toggleElement   |           | React.ReactElement      | `default arrow image` |
-| renderTitle     |           | (string) => JSX.Element | `default wrapper`     |
-| renderBody      |           | (string) => JSX.Element | `default wrapper`     |
+|                 | necessary | types                                                                                                   | default               |
+| --------------- | --------- | ------------------------------------------------------------------------------------------------------- | --------------------- |
+| style           |           | ViewStyle                                                                                               | `undefined`           |
+| styles          |           | Styles                                                                                                  | `undefined`           |
+| data            | ✓         | Array<{<br/>&nbsp;&nbsp;&nbsp;&nbsp;title: string;<br/>&nbsp;&nbsp;&nbsp;&nbsp;bodies: string[];<br/>}> |                       |
+| shouldAnimate   |           | boolean                                                                                                 | `true`                |
+| collapseOnStart |           | boolean                                                                                                 | `true `               |
+| animDuration    |           | number                                                                                                  | `300`                 |
+| activeOpacity   |           | number                                                                                                  | `1`                   |
+| toggleElement   |           | React.ReactElement                                                                                      | `default arrow image` |
+| renderTitle     |           | (string) => JSX.Element                                                                                 | `default wrapper`     |
+| renderBody      |           | (string) => JSX.Element                                                                                 | `default wrapper`     |
 
 ## Installation
 
@@ -36,43 +36,16 @@ import {Accordion} from 'dooboo-ui';
 const Default = (): React.ReactElement => {
   const data = [
     {
-      title: {
-        name: <StyledTitle>Default-title-01</StyledTitle>,
-      },
-      bodies: [
-        {
-          name: <StyledItem>Default body01</StyledItem>,
-        },
-        {
-          name: <StyledItem>Default body02</StyledItem>,
-        },
-      ],
+      title: 'Default-title-01',
+      bodies: ['Default body01', 'Default body02'],
     },
     {
-      title: {
-        name: <StyledTitle>Default-title-02</StyledTitle>,
-      },
-      bodies: [
-        {
-          name: <StyledItem>Default body01</StyledItem>,
-        },
-        {
-          name: <StyledItem>Default body02</StyledItem>,
-        },
-      ],
+      title: 'Default-title-02',
+      bodies: ['Default body01', 'Default body02'],
     },
     {
-      title: {
-        name: <StyledTitle>Default-title-03</StyledTitle>,
-      },
-      bodies: [
-        {
-          name: <StyledItem>Default body01</StyledItem>,
-        },
-        {
-          name: <StyledItem>Default body02</StyledItem>,
-        },
-      ],
+      title: 'Default-title-03',
+      bodies: ['Default body01', 'Default body02'],
     },
   ];
 
