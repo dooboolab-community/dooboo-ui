@@ -7,63 +7,31 @@ import Default from './index';
 
 > Simple drop down item component for react-native. This component supports drop down toggle with animation.<br/>
 
-## Props
-
-|                 | necessary | types                   | default               |
-| --------------- | --------- | ----------------------- | --------------------- |
-| style           |           | ViewStyle               | `undefined`           |
-| styles          |           | Styles                  | `undefined`           |
-| data            | ✓         | AccordionListType       |                       |
-| shouldAnimate   |           | boolean                 | `true`                |
-| collapseOnStart |           | boolean                 | `true `               |
-| animDuration    |           | number                  | `300`                 |
-| activeOpacity   |           | number                  | `1`                   |
-| toggleElement   |           | React.ReactElement      | `default arrow image` |
-| renderTitle     |           | (string) => JSX.Element | `default wrapper`     |
-| renderBody      |           | (string) => JSX.Element | `default wrapper`     |
-
-## Installation
-
-```sh
-yarn add dooboo-ui
-```
-
 ## Usage
 
-```javascript
-import {Accordion, AccordionListType} from 'dooboo-ui';
+```jsx
+import {Accordion} from 'dooboo-ui';
 
-const Default = (): React.ReactElement => {
-  const data: AccordionListType = [
-    {
-      title: 'Default-title-01',
-      bodies: ['Default body01', 'Default body02'],
-    },
-    {
-      title: 'Default-title-02',
-      bodies: ['Default body01', 'Default body02'],
-    },
-    {
-      title: 'Default-title-03',
-      bodies: ['Default body01', 'Default body02'],
-    },
-  ];
-
-  return (
-    <Container>
-      <Accordion
-        data={data}
-        shouldAnimate={true}
-        collapseOnStart={true}
-        animDuration={400}
-        activeOpacity={1}
-        toggleElement={<Arrow />}
-      />
-    </Container>
-  );
-};
+<Accordion {...props} />;
 ```
 
-<Canvas withSource="none">
-  <Default />
-</Canvas>
+## Props
+
+|                 | necessary | Types                   | Description | Default               |
+| --------------- | --------- | ----------------------- | ----------- | --------------------- |
+| style           |           | ViewStyle               |             | `undefined`           |
+| styles          |           | Styles                  |             | `undefined`           |
+| data            | ✓         | array                   |             |                       |
+| shouldAnimate   |           | boolean                 |             | `true`                |
+| collapseOnStart |           | boolean                 |             | `true `               |
+| animDuration    |           | number                  |             | `300`                 |
+| activeOpacity   |           | number                  |             | `1`                   |
+| toggleElement   |           | React.ReactElement      |             | `default arrow image` |
+| renderTitle     |           | (string) => JSX.Element |             | `default wrapper`     |
+| renderBody      |           | (string) => JSX.Element |             | `default wrapper`     |
+
+## Demo
+
+### Basic accordion
+
+<Default />
