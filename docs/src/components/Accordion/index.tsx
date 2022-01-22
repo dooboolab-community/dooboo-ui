@@ -1,23 +1,18 @@
+import {Accordion, AccordionListType} from 'dooboo-ui';
 import React, {ReactElement} from 'react';
+import {StyleProp, ViewStyle} from 'react-native';
+import {ThemeProvider, ThemeType} from '@dooboo-ui/theme';
 
-import {Accordion} from 'dooboo-ui';
-import {IC_ARR_DOWN} from '../../icon';
-import {ThemeProvider} from '@dooboo-ui/theme';
 import styled from '@emotion/native';
 
 const Container = styled.View`
-  flex: 1;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
+  padding: 20px;
+  width: 50%;
+  display: inline-block;
+  background-color: ${({theme}) => theme.background};
 `;
 
-const Arrow = styled.Image`
-  width: 20px;
-  height: 20px;
-`;
-
-const data = [
+export const sampleData: AccordionListType = [
   {
     title: 'Lists',
     bodies: ['user', 'mail', 'plan'],
@@ -32,27 +27,32 @@ const data = [
   },
 ];
 
-export const AccordionStory = (): ReactElement => {
-  return (
-    <Container>
-      <Accordion
-        data={data}
-        shouldAnimate={true}
-        collapseOnStart={true}
-        animDuration={400}
-        activeOpacity={1}
-        toggleElement={
-          <Arrow style={{tintColor: 'white'}} source={IC_ARR_DOWN} />
-        }
-      />
-    </Container>
-  );
-};
+interface AccordionStoryProps {
+  theme: ThemeType;
+  data: AccordionListType;
+  style?: StyleProp<ViewStyle>;
+  styles?: {
+    titleContainer?: StyleProp<ViewStyle>;
+    bodyContainer?: StyleProp<ViewStyle>;
+  };
+  shouldAnimate?: boolean;
+  collapseOnStart?: boolean;
+  animDuration?: number;
+  activeOpacity?: number;
+  toggleElement?: ReactElement | null;
+  renderTitle?: (item: string) => ReactElement;
+  renderBody?: (item: string) => ReactElement;
+}
 
-const Default = (): ReactElement => (
-  <ThemeProvider initialThemeType="light">
-    <AccordionStory />
+const AccordionStory = ({
+  theme,
+  ...props
+}: AccordionStoryProps): ReactElement => (
+  <ThemeProvider initialThemeType={theme}>
+    <Container>
+      <Accordion {...props} />
+    </Container>
   </ThemeProvider>
 );
 
-export default Default;
+export default AccordionStory;

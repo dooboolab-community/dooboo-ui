@@ -1,5 +1,5 @@
 import {Meta, Story, Canvas} from '@storybook/addon-docs/blocks';
-import Default from './index';
+import AccordionStory, {sampleData} from './index';
 
 <Meta title="Components/Accordion" />
 
@@ -34,4 +34,5 @@ import {Accordion} from 'dooboo-ui';
 
 ### Basic accordion
 
-<Default />
+<AccordionStory theme="light" data={sampleData} />
+<AccordionStory theme="dark" data={sampleData} />
