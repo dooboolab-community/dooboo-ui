@@ -13,7 +13,7 @@ import Default from './index';
 | --------------- | --------- | ----------------------- | --------------------- |
 | style           |           | ViewStyle               | `undefined`           |
 | styles          |           | Styles                  | `undefined`           |
-| data            | ✓         | array                   |                       |
+| data            | ✓         | AccordionListType       |                       |
 | shouldAnimate   |           | boolean                 | `true`                |
 | collapseOnStart |           | boolean                 | `true `               |
 | animDuration    |           | number                  | `300`                 |
@@ -31,48 +31,21 @@ yarn add dooboo-ui
 ## Usage
 
 ```javascript
-import {Accordion} from 'dooboo-ui';
+import {Accordion, AccordionListType} from 'dooboo-ui';
 
 const Default = (): React.ReactElement => {
-  const data = [
+  const data: AccordionListType = [
     {
-      title: {
-        name: <StyledTitle>Default-title-01</StyledTitle>,
-      },
-      bodies: [
-        {
-          name: <StyledItem>Default body01</StyledItem>,
-        },
-        {
-          name: <StyledItem>Default body02</StyledItem>,
-        },
-      ],
+      title: 'Default-title-01',
+      bodies: ['Default body01', 'Default body02'],
     },
     {
-      title: {
-        name: <StyledTitle>Default-title-02</StyledTitle>,
-      },
-      bodies: [
-        {
-          name: <StyledItem>Default body01</StyledItem>,
-        },
-        {
-          name: <StyledItem>Default body02</StyledItem>,
-        },
-      ],
+      title: 'Default-title-02',
+      bodies: ['Default body01', 'Default body02'],
     },
     {
-      title: {
-        name: <StyledTitle>Default-title-03</StyledTitle>,
-      },
-      bodies: [
-        {
-          name: <StyledItem>Default body01</StyledItem>,
-        },
-        {
-          name: <StyledItem>Default body02</StyledItem>,
-        },
-      ],
+      title: 'Default-title-03',
+      bodies: ['Default body01', 'Default body02'],
     },
   ];
 
