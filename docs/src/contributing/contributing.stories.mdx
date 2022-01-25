@@ -20,8 +20,8 @@ import {Meta} from '@storybook/addon-docs/blocks';
 > You can check out more on [our goal](https://github.com/dooboolab/dooboo-ui/discussions/8#discussioncomment-1015465) for the project.
 
 - See also
-  - dooboolab's [vision-and-mission](https://github.com/dooboolab/dooboolab.com/blob/master/vision-and-mission.md)
-  - dooboolab's [code of conduct](https://github.com/dooboolab/dooboolab.com/blob/master/code-of-conduct.md)
+  - dooboolab's [vision-and-mission](https://github.com/dooboolab/dooboolab.com/blob/main/vision-and-mission.md)
+  - dooboolab's [code of conduct](https://github.com/dooboolab/dooboolab.com/blob/main/code-of-conduct.md)
 - [Contributing](?path=/story/contributing-contributing--page)
   - Please run `yarn pre` so that the packages are prepared.
     - If you are having trouble, try to run `yarn install:packages`.
@@ -31,13 +31,13 @@ import {Meta} from '@storybook/addon-docs/blocks';
 ### Installation
 
 1. Fork our project to yours.
-   - Recommended to have `forked` master branch to be updated to upstream.
+   - Recommended to have `forked` main branch to be updated to upstream.
    - Configure [Syncing a fork](https://help.github.com/articles/configuring-a-remote-for-a-fork/).
      - `git remote add upstream https://github.com/dooboolab/dooboo-ui`
      - Check it with `git remote -v`
    - Fetch the branches from upstream repository by `git fetch upstream`
    - When you want to give `PR`, make new branch `git checkout -b [feature_name]`
-     - Before pushing `PR`, do `git fetch upstream` from master branch then try the rebase by `git rebase master`
+     - Before pushing `PR`, do `git fetch upstream` from main branch then try the rebase by `git rebase main`
      - Check your status by `git log --decorate --oneline --all --graph`
 
 2. Git clone your forked repository.
@@ -78,7 +78,7 @@ import {Meta} from '@storybook/addon-docs/blocks';
 
    - Example vscode [setting.json](https://gist.github.com/hyochan/815e9040593180c4725d7694d863e5a1)
 
-6. While implementing UI component in [packages](https://github.com/dooboolab/dooboo-ui/tree/master/packages), you should run `yarn watch` in order to build typescript file dynamically while coding.
+6. While implementing UI component in [packages](https://github.com/dooboolab/dooboo-ui/tree/main/packages), you should run `yarn watch` in order to build typescript file dynamically while coding.
    This is currently the best solution to sync with your typescript code using `package.json`. If you find something more efficient, please give a pull request.
 
    > **Finally, you might want to check out [short story for the design](https://github.com/dooboolab/dooboo-ui/pull/49#issuecomment-894665037).**
@@ -103,7 +103,7 @@ This post called [How to Write a Git Commit Message](https://chris.beams.io/post
 
 ### Pull request(PR)
 
-PR is available to `master` branch.
+PR is available to `main` branch.
 
 Each PR should correspond to one idea and implement it coherently. This idea may be a feature that spans several parts of the codebase. For example, changing an API may include changes to the Android, iOS, and web implementations, the JavaScript SDK, and the docs for the API.
 
@@ -147,7 +147,7 @@ There are also few others to be considered specific to `dooboo-ui`.
 
 3. Provide `react element` when you find that there are more possibilities to have in your component.
 
-   For example, see the [CheckBox](https://github.com/dooboolab/dooboo-ui/blob/master/main/Checkbox/index.tsx) component.
+   For example, see the [CheckBox](https://github.com/dooboolab/dooboo-ui/blob/main/main/Checkbox/index.tsx) component.
 
    ```tsx
    <Checkbox

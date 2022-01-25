@@ -22,6 +22,6 @@ will likely get reverted accidentally sooner or later. PRs must include tests fo
 
 Before you create this PR confirms that it meets all requirements listed below by checking the relevant checkboxes (`[x]`). This will ensure a smooth and quick review process.
 
-- [ ] I read the [Contributor Guide](https://github.com/dooboolab/dooboo-ui/blob/master/CONTRIBUTING.md) and followed the process outlined there for submitting PRs.
+- [ ] I read the [Contributor Guide](https://github.com/dooboolab/dooboo-ui/blob/main/CONTRIBUTING.md) and followed the process outlined there for submitting PRs.
 - [ ] Run `yarn test:all` and make sure nothing fails. You can run `yarn test -u` to update snapshots if needed.
 - [ ] I am willing to follow-up on review comments in a timely manner.

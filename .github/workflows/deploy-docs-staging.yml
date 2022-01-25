@@ -2,7 +2,7 @@ name: Deploy Preview Hosting on PR
 on:
   pull_request:
     branches:
-      - master
+      - main
     paths:
       - 'docs/**'
 
