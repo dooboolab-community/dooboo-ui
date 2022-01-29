@@ -101,7 +101,7 @@ exports[`[Accordion] render test should adjust duration of animation depends on 
             ]
           }
         >
-          
+          
         </Text>
       </View>
     </View>
@@ -313,7 +313,7 @@ exports[`[Accordion] render test should adjust duration of animation depends on 
             ]
           }
         >
-          
+          
         </Text>
       </View>
     </View>
@@ -525,7 +525,7 @@ exports[`[Accordion] render test should adjust duration of animation depends on 
             ]
           }
         >
-          
+          
         </Text>
       </View>
     </View>
@@ -752,7 +752,7 @@ exports[`[Accordion] render test should operate animation when shouldAnimate pro
             ]
           }
         >
-          
+          
         </Text>
       </View>
     </View>
@@ -964,7 +964,7 @@ exports[`[Accordion] render test should operate animation when shouldAnimate pro
             ]
           }
         >
-          
+          
         </Text>
       </View>
     </View>
@@ -1176,7 +1176,7 @@ exports[`[Accordion] render test should operate animation when shouldAnimate pro
             ]
           }
         >
-          
+          
         </Text>
       </View>
     </View>
@@ -1403,7 +1403,7 @@ exports[`[Accordion] render test should render collapsed when collapseOnStart pr
             ]
           }
         >
-          
+          
         </Text>
       </View>
     </View>
@@ -1615,7 +1615,7 @@ exports[`[Accordion] render test should render collapsed when collapseOnStart pr
             ]
           }
         >
-          
+          
         </Text>
       </View>
     </View>
@@ -1827,7 +1827,7 @@ exports[`[Accordion] render test should render collapsed when collapseOnStart pr
             ]
           }
         >
-          
+          
         </Text>
       </View>
     </View>
