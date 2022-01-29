@@ -20,7 +20,7 @@ export type IconName =
   | 'collect-light'
   | 'download-light'
   | 'facebook-solid'
-  | 'fastfoward-light'
+  | 'fastforward-light'
   | 'google-solid'
   | 'happy-light'
   | 'instagram_reel-solid'
