@@ -1,5 +1,11 @@
 ## Changelogs
 
+## 0.1.60
+
+Add more icons (#181)
+
+<img width="600" alt="Screen Shot 2022-01-29 at 1 38 25 PM" src="https://user-images.githubusercontent.com/27461460/151647488-e1180419-ef3d-412d-97d1-176e573d6165.png">
+
 ## 0.1.55
 
 Deploy bugfixes (#174)
