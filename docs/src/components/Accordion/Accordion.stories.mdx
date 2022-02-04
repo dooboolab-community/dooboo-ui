@@ -1,5 +1,6 @@
 import {Meta, Story, Canvas} from '@storybook/addon-docs/blocks';
 import AccordionStory, {sampleData} from './index';
+import AnimationAccordion from './Animation';
 
 <Meta title="Components/Accordion" />
 
@@ -34,5 +35,16 @@ import {Accordion} from 'dooboo-ui';
 
 ### Basic accordion
 
+#### light
+
 <AccordionStory theme="light" data={sampleData} />
+
+#### dark
+
 <AccordionStory theme="dark" data={sampleData} />
+
+### Animation Setting
+
+This component supports drop down toggle with animation. Animation actions are based [Animated](https://reactnative.dev/docs/animated) library for React-Native, You can set an animation effect starts and duration when this component is mounted.
+
+<AnimationAccordion data={sampleData} />

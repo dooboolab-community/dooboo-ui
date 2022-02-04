@@ -7,9 +7,11 @@ import styled from '@emotion/native';
 
 const Container = styled.View`
   padding: 20px;
-  width: 50%;
+  width: 100%;
   display: inline-block;
   background-color: ${({theme}) => theme.background};
+  justify-content: center;
+  align-items: center;
 `;
 
 export const sampleData: AccordionListType = [
@@ -27,9 +29,12 @@ export const sampleData: AccordionListType = [
   },
 ];
 
-interface AccordionStoryProps {
-  theme: ThemeType;
+export interface AccordionStoryBaseProps {
+  theme?: ThemeType;
   data: AccordionListType;
+}
+
+interface AccordionStoryProps extends AccordionStoryBaseProps {
   style?: StyleProp<ViewStyle>;
   styles?: {
     titleContainer?: StyleProp<ViewStyle>;
@@ -42,14 +47,17 @@ interface AccordionStoryProps {
   toggleElement?: ReactElement | null;
   renderTitle?: (item: string) => ReactElement;
   renderBody?: (item: string) => ReactElement;
+  children?: React.ReactNode;
 }
 
 const AccordionStory = ({
-  theme,
+  theme = 'light',
+  children,
   ...props
 }: AccordionStoryProps): ReactElement => (
   <ThemeProvider initialThemeType={theme}>
     <Container>
+      {children}
       <Accordion {...props} />
     </Container>
   </ThemeProvider>
