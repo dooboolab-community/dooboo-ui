@@ -1,5 +1,4 @@
 import '@testing-library/jest-native/extend-expect';
-import '@testing-library/jest-dom';
 import 'jest-plugin-context/setup';
 import 'givens/setup';
 
