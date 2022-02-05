@@ -1,6 +1,7 @@
 import {Meta, Story, Canvas} from '@storybook/addon-docs/blocks';
 import AccordionStory, {sampleData} from './index';
 import AnimationAccordion from './Animation';
+import RenderItem from './RenderItem';
 
 <Meta title="Components/Accordion" />
 
@@ -94,3 +95,47 @@ Customize `titleContainer` or `bodyContainer` style with style object.
     },
   }}
 />
+
+### Using render function
+
+It supports seperate render function for Accordion. You can customize the look of each component with the `renderTitle` or `renderBody` function.
+
+```tsx
+import {Icon} from 'dooboo-ui';
+import styled from '@emotion/native';
+
+const Container = styled.View`
+  padding-left: 20;
+  align-items: center;
+  flex-direction: row;
+`;
+
+const Title = styled.Text`
+  margin-left: 20px;
+  color: white;
+  font-size: 18px;
+`;
+
+const Body = styled.Text`
+  flex: 1;
+  width: 80;
+  font-weight: bold;
+`;
+
+<Accordion
+  renderTitle={(item) => (
+    <Container>
+      <Icon name="search-light" color="white" />
+      <Title>{item}</Title>
+    </Container>
+  )}
+  renderBody={(item) => (
+    <Container>
+      <Body numberOfLines={1}>{item.toUpperCase()}</Body>
+    </Container>
+  )}
+  {...props}
+/>;
+```
+
+<RenderItem data={sampleData} />
