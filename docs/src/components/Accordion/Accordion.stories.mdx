@@ -10,7 +10,7 @@ import AnimationAccordion from './Animation';
 
 ## Usage
 
-```jsx
+```tsx
 import {Accordion} from 'dooboo-ui';
 
 <Accordion {...props} />;
@@ -48,3 +48,49 @@ import {Accordion} from 'dooboo-ui';
 This component supports drop down toggle with animation. Animation actions are based [Animated](https://reactnative.dev/docs/animated) library for React-Native, You can set an animation effect starts and duration when this component is mounted.
 
 <AnimationAccordion data={sampleData} />
+
+## Customization
+
+### Styled accordion
+
+Customize `titleContainer` or `bodyContainer` style with style object.
+
+```tsx
+<Accordion
+  styles={{
+    titleContainer: {
+      backgroundColor: 'gray',
+      alignItems: 'flex-end',
+      height: 60,
+    },
+    bodyContainer: {
+      backgroundColor: 'lightgray',
+      borderTopWidth: 0,
+      borderWidth: 0.5,
+      borderColor: 'gray',
+      justifyContent: 'center',
+      height: 20,
+    },
+  }}
+  {...props}
+/>
+```
+
+<AccordionStory
+  data={sampleData}
+  styles={{
+    titleContainer: {
+      backgroundColor: 'gray',
+      alignItems: 'flex-end',
+      height: 60,
+    },
+    bodyContainer: {
+      backgroundColor: 'lightgray',
+      borderTopWidth: 0,
+      borderWidth: 0.5,
+      borderColor: 'gray',
+      justifyContent: 'center',
+      height: 20,
+    },
+  }}
+/>
