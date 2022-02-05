@@ -35,7 +35,8 @@
     "main/**/*.ts",
     "main/**/*.tsx",
     "packages/**/*.ts",
-    "packages/**/*.tsx"
+    "packages/**/*.tsx",
+    "setupTest.ts",
   ],
   "exclude": ["node_modules", "**/*.test.tsx", "**/*.spec.ts"],
   "files": ["environment.d.ts", "styled.d.ts"],
