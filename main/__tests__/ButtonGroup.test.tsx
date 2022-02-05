@@ -1,4 +1,3 @@
-/* eslint-disable jest/no-identical-title */
 import {RenderAPI, fireEvent, render} from '@testing-library/react-native';
 import {ThemeProvider, dark, light} from '@dooboo-ui/theme';
 import {createComponent, createTestProps} from '../../test/testUtils';
@@ -140,6 +139,7 @@ describe('[ButtonGroup]', () => {
     context('when data size is 3', () => {
       given('data', () => ['Option 1', 'Option 2', 'Option 3']);
 
+      /* eslint-disable jest/no-identical-title */
       it('depends on position of element', () => {
         const {getByTestId} = renderButtonGroup();
 
