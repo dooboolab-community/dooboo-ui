@@ -139,3 +139,20 @@ const Body = styled.Text`
 ```
 
 <RenderItem data={sampleData} />
+
+### Using custom toggle element
+
+You can also use custom toggle element, which switches the status of each accordion item, with `toggleElement`.
+
+```tsx
+import {Accordion, Icon} from 'dooboo-ui';
+
+const toggleElement = () => <Icon name="chevron-right" />;
+
+<Accordion toggleElement={toggleElement} />;
+```
+
+<Accordion
+  data={sampleData}
+  toggleElement={() => <Icon name="chevron-right" />}
+/>
