@@ -147,12 +147,12 @@ You can also use custom toggle element, which switches the status of each accord
 ```tsx
 import {Accordion, Icon} from 'dooboo-ui';
 
-const toggleElement = () => <Icon name="chevron-right" />;
+const toggleElement = <Icon name="chevron-right" />;
 
 <Accordion toggleElement={toggleElement} />;
 ```
 
 <AccordionStory
   data={sampleData}
-  toggleElement={() => <Icon name="chevron-right" />}
+  toggleElement={<Icon name="chevron-right" />}
 />
