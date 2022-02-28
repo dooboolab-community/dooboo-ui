@@ -1,5 +1,5 @@
 import React, {ReactElement} from 'react';
-import {RenderAPI, fireEvent, render} from '@testing-library/react-native';
+import {RenderAPI, act, fireEvent, render} from '@testing-library/react-native';
 import {createComponent, createTestProps} from '../../test/testUtils';
 
 import {Accordion} from '../../main';
@@ -77,6 +77,34 @@ describe('[Accordion] render test', () => {
     const json = testingLib.toJSON();
 
     expect(json).toMatchSnapshot();
+  });
+
+  describe('[Accordion] - Change default value', () => {
+    it('should expand the accordion by default when collapseOnStart props is false', () => {
+      props = createTestProps({
+        collapseOnStart: false,
+        data: data,
+      });
+
+      const comp = createComponent(<Accordion {...props} />);
+
+      testingLib = render(comp);
+
+      const body0 = testingLib.queryByTestId('body_0');
+
+      act(() => {
+        fireEvent(body0, 'layout', {
+          nativeEvent: {
+            layout: {
+              height: 170,
+            },
+          },
+        });
+      });
+
+      expect(body0.props.style.height).toBeDefined();
+      expect(body0.props.accessibilityState.expanded).toBeTruthy();
+    });
   });
 });
 
