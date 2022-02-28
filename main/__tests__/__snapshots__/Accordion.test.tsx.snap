@@ -106,6 +106,11 @@ exports[`[Accordion] render test should adjust duration of animation depends on 
       </View>
     </View>
     <View
+      accessibilityState={
+        Object {
+          "expanded": false,
+        }
+      }
       onLayout={[Function]}
       style={
         Object {
@@ -318,6 +323,11 @@ exports[`[Accordion] render test should adjust duration of animation depends on 
       </View>
     </View>
     <View
+      accessibilityState={
+        Object {
+          "expanded": false,
+        }
+      }
       onLayout={[Function]}
       style={
         Object {
@@ -530,6 +540,11 @@ exports[`[Accordion] render test should adjust duration of animation depends on 
       </View>
     </View>
     <View
+      accessibilityState={
+        Object {
+          "expanded": false,
+        }
+      }
       onLayout={[Function]}
       style={
         Object {
@@ -757,6 +772,11 @@ exports[`[Accordion] render test should operate animation when shouldAnimate pro
       </View>
     </View>
     <View
+      accessibilityState={
+        Object {
+          "expanded": false,
+        }
+      }
       onLayout={[Function]}
       style={
         Object {
@@ -969,6 +989,11 @@ exports[`[Accordion] render test should operate animation when shouldAnimate pro
       </View>
     </View>
     <View
+      accessibilityState={
+        Object {
+          "expanded": false,
+        }
+      }
       onLayout={[Function]}
       style={
         Object {
@@ -1181,6 +1206,11 @@ exports[`[Accordion] render test should operate animation when shouldAnimate pro
       </View>
     </View>
     <View
+      accessibilityState={
+        Object {
+          "expanded": false,
+        }
+      }
       onLayout={[Function]}
       style={
         Object {
@@ -1408,6 +1438,11 @@ exports[`[Accordion] render test should render collapsed when collapseOnStart pr
       </View>
     </View>
     <View
+      accessibilityState={
+        Object {
+          "expanded": false,
+        }
+      }
       onLayout={[Function]}
       style={
         Object {
@@ -1620,6 +1655,11 @@ exports[`[Accordion] render test should render collapsed when collapseOnStart pr
       </View>
     </View>
     <View
+      accessibilityState={
+        Object {
+          "expanded": false,
+        }
+      }
       onLayout={[Function]}
       style={
         Object {
@@ -1832,6 +1872,11 @@ exports[`[Accordion] render test should render collapsed when collapseOnStart pr
       </View>
     </View>
     <View
+      accessibilityState={
+        Object {
+          "expanded": false,
+        }
+      }
       onLayout={[Function]}
       style={
         Object {
@@ -2030,6 +2075,11 @@ exports[`[Accordion] render test should render without crashing 1`] = `
       </View>
     </View>
     <View
+      accessibilityState={
+        Object {
+          "expanded": false,
+        }
+      }
       onLayout={[Function]}
       style={
         Object {
@@ -2213,6 +2263,11 @@ exports[`[Accordion] render test should render without crashing 1`] = `
       </View>
     </View>
     <View
+      accessibilityState={
+        Object {
+          "expanded": false,
+        }
+      }
       onLayout={[Function]}
       style={
         Object {
@@ -2396,6 +2451,11 @@ exports[`[Accordion] render test should render without crashing 1`] = `
       </View>
     </View>
     <View
+      accessibilityState={
+        Object {
+          "expanded": false,
+        }
+      }
       onLayout={[Function]}
       style={
         Object {
