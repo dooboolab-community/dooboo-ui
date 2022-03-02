@@ -29,7 +29,7 @@ export interface AccordionBaseProps<T> {
 
 export type AccordionListType = AccordionData[];
 
-type AccordionProps = AccordionBaseProps<AccordionListType>;
+export type AccordionProps = AccordionBaseProps<AccordionListType>;
 
 const Accordion: FC<AccordionProps> = (props) => {
   const {
