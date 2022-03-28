@@ -82,8 +82,9 @@ const AccordionItem: FC<AccordionItemProps> = (props) => {
   const rotateAnimValueRef = useRef(new Animated.Value(0));
   const dropDownAnimValueRef = useRef(dropDownAnimValue);
 
-  const bodyHeight = useRef(0);
+  const [bodyHeight, setBodyHeight] = useState(0);
   const [bodyMounted, setBodyMounted] = useState(false);
+  const [collapsed, setCollapsed] = useState(collapseOnStart);
 
   const handleBodyLayout = (e: LayoutChangeEvent): void => {
     if (bodyMounted) {
@@ -92,23 +93,20 @@ const AccordionItem: FC<AccordionItemProps> = (props) => {
 
     const {height} = e.nativeEvent.layout;
 
-    bodyHeight.current = height;
+    setBodyHeight(height);
     setBodyMounted(true);
   };
-
-  const [collapsed, setCollapsed] = useState(collapseOnStart);
 
   const handlePress = (): void => {
     setCollapsed(!collapsed);
   };
 
   const startAnimation = useCallback(() => {
-    const rotateTargetValue = collapsed ? 0 : 1;
-    const dropDownTargetValue = collapsed ? 0 : bodyHeight.current;
+    const targetValue = collapsed ? 0 : 1;
 
     if (!shouldAnimate) {
-      rotateAnimValueRef.current.setValue(rotateTargetValue);
-      dropDownAnimValueRef.current.setValue(dropDownTargetValue);
+      rotateAnimValueRef.current.setValue(targetValue);
+      dropDownAnimValueRef.current.setValue(targetValue);
 
       return;
     }
@@ -117,17 +115,12 @@ const AccordionItem: FC<AccordionItemProps> = (props) => {
       duration: animDuration,
       easing: Easing.linear,
       useNativeDriver: false,
+      toValue: targetValue,
     };
 
     Animated.parallel([
-      Animated.timing(rotateAnimValueRef.current, {
-        ...config,
-        toValue: rotateTargetValue,
-      }),
-      Animated.timing(dropDownAnimValueRef.current, {
-        ...config,
-        toValue: dropDownTargetValue,
-      }),
+      Animated.timing(rotateAnimValueRef.current, config),
+      Animated.timing(dropDownAnimValueRef.current, config),
     ]).start();
   }, [collapsed, shouldAnimate, animDuration]);
 
@@ -179,9 +172,17 @@ const AccordionItem: FC<AccordionItemProps> = (props) => {
       <Animated.View
         testID={`body_${testID}`}
         style={{
-          height: bodyMounted ? dropDownAnimValueRef.current : undefined,
+          height: bodyMounted
+            ? dropDownAnimValueRef.current.interpolate({
+                inputRange: [0, 1],
+                outputRange: [0, bodyHeight],
+              })
+            : undefined,
         }}
         onLayout={handleBodyLayout}
+        accessibilityState={{
+          expanded: !collapsed,
+        }}
       >
         {item.bodies.map((body, key) => (
           <ItemContainer key={key} style={bodyContainer}>
