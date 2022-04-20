@@ -24,7 +24,9 @@ function SnackbarDefault(): React.ReactElement {
     (type?: SnackbarType): void => {
       if (snackbar) {
         snackbar.current?.show({
-          text: 'Lorem ipsum dolor sit amet',
+          content: {
+            text: 'Lorem ipsum dolor sit amet',
+          },
           type,
         });
       }

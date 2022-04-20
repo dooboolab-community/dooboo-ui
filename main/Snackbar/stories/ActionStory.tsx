@@ -2,6 +2,7 @@ import {Button, Snackbar, SnackbarRef} from '../..';
 import React, {useCallback, useRef} from 'react';
 
 import {SnackbarType} from '../../Styled/StyledComponents';
+import {Typography} from '../../Typography';
 import styled from '@emotion/native';
 
 const types: SnackbarType[] = [
@@ -24,12 +25,26 @@ function SnackbarDefault(): React.ReactElement {
     (type?: SnackbarType): void => {
       if (snackbar) {
         snackbar.current?.show({
-          text: 'Lorem ipsum dolor sit amet',
+          content: {
+            element: (
+              <Typography.Body1>
+                <Typography.Body1
+                  style={{
+                    fontSize: 18,
+                    fontWeight: 'bold',
+                  }}
+                >
+                  Lorem ipsum
+                </Typography.Body1>
+                &nbsp;dolor sit amet
+              </Typography.Body1>
+            ),
+          },
           type,
           actionText: 'Cancel',
           onActionPress: () =>
             snackbar.current?.show({
-              text: 'Cancel pressed!!!',
+              content: {text: 'Cancel pressed!!!'},
               type,
             }),
         });
