@@ -13,6 +13,7 @@ import {
   SnackbarWrapper,
 } from '../Styled/StyledComponents';
 import React, {
+  ReactElement,
   useCallback,
   useEffect,
   useImperativeHandle,
@@ -33,14 +34,14 @@ export interface SnackbarProps {
   ref: React.MutableRefObject<SnackbarRef>;
 }
 
-export interface SnackbarContent {
-  text: string;
+export type SnackbarContent = {
   timer?: SnackbarTimer;
   styles?: Styles;
   actionText?: string;
   onActionPress?: () => void;
   type?: SnackbarType;
-}
+  content: {element?: ReactElement; text?: string};
+};
 
 interface ShowingState {
   isVisible?: boolean;
@@ -83,19 +84,19 @@ const SnackbarContainer = (
     isShowing: false,
   });
 
-  const [content, setContent] = useState<SnackbarContent>({
-    text: '',
+  const [snackbar, setSnackbar] = useState<SnackbarContent>({
+    content: {text: ''},
     timer: SnackbarTimer.SHORT,
   });
 
   const {
-    text,
+    content,
     type = 'default',
     actionText,
     onActionPress,
     styles,
     timer = SnackbarTimer.SHORT,
-  } = content;
+  } = snackbar;
 
   const {theme} = useTheme();
 
@@ -103,7 +104,7 @@ const SnackbarContainer = (
   const [fadeAnim] = useState(new Animated.Value(0));
 
   const show = (c: SnackbarContent): void => {
-    setContent(c);
+    setSnackbar(c);
     timeout && clearTimeout(timeout);
 
     setShowingState((prevState) =>
@@ -179,21 +180,25 @@ const SnackbarContainer = (
             {opacity: fadeAnim},
           ]}
         >
-          <ButtonText style={styles?.text} type={type}>
-            {text}
-          </ButtonText>
+          {content.element ? (
+            content.element
+          ) : (
+            <ButtonText style={styles?.text} type={type}>
+              {content.text}
+            </ButtonText>
+          )}
           {actionText && (
             <Divider
               theme={theme}
               type={type}
               style={{
-                height: Platform.select({web: 24}),
+                height: Platform.select({web: 24, default: 12}),
               }}
             />
           )}
           {actionText && (
             <TouchableOpacity onPress={onActionPress}>
-              <TextAction theme={theme} type={type}>
+              <TextAction theme={theme} type={type} style={styles?.text}>
                 {actionText}
               </TextAction>
             </TouchableOpacity>

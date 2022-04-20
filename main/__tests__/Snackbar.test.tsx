@@ -1,11 +1,11 @@
 import React, {useCallback, useRef} from 'react';
 import {RenderAPI, fireEvent, render} from '@testing-library/react-native';
+import {Text, View} from 'react-native';
 
 import {Button} from '../Button';
 import {Snackbar} from '../../main';
 import {SnackbarRef} from '../Snackbar';
 import {SnackbarType} from '../Styled/StyledComponents';
-import {View} from 'react-native';
 import {createComponent} from '../../test/testUtils';
 
 let component: React.ReactElement;
@@ -19,7 +19,9 @@ function SnackbarDefault(): React.ReactElement {
       if (snackbar) {
         if (type === 'danger') {
           return snackbar.current?.show({
-            text: 'Lorem ipsum dolor sit amet',
+            content: {
+              text: 'Lorem ipsum dolor sit amet',
+            },
             type,
             actionText: 'Action',
           });
@@ -28,14 +30,18 @@ function SnackbarDefault(): React.ReactElement {
 
       if (type === 'info') {
         return snackbar.current?.show({
-          text: 'Lorem ipsum dolor sit amet',
+          content: {
+            text: 'Lorem ipsum dolor sit amet',
+          },
           type,
           actionText: 'Action',
         });
       }
 
       snackbar.current?.show({
-        text: 'Lorem ipsum dolor sit amet',
+        content: {
+          element: <Text>Lorem ipsum dolor sit amet</Text>,
+        },
         type,
       });
     },
