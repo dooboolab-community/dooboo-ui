@@ -1,4 +1,10 @@
-import {Animated, StyleProp, TouchableOpacity, ViewStyle} from 'react-native';
+import {
+  Animated,
+  Platform,
+  StyleProp,
+  TouchableOpacity,
+  ViewStyle,
+} from 'react-native';
 import React, {ReactElement, useEffect, useState} from 'react';
 
 import styled from '@emotion/native';
@@ -122,7 +128,10 @@ export function SwitchToggle(props: Props): ReactElement {
           transform: [
             {
               translateX: animXValue.interpolate({
-                inputRange: [0, 1],
+                inputRange: Platform.select({
+                  web: [-0.2, 2.4],
+                  default: [0, 1],
+                }),
                 outputRange: [
                   circlePosXStart as string | number,
                   circlePosXEnd as string | number,
