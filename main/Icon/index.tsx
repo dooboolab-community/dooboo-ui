@@ -101,7 +101,9 @@ export type IconName =
   | 'dots-light'
   | 'follow-shape'
   | 'wifi-unable-light'
-  | 'wifi-light';
+  | 'wifi-light'
+  | 'playlist-light'
+  | 'playlist-solid';
 
 type Props = {
   name: IconName;

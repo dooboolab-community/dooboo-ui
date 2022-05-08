@@ -152,6 +152,8 @@ const IconStory: FC = () => {
       <IconWithLabel name="follow-shape" />
       <IconWithLabel name="wifi-unable-light" />
       <IconWithLabel name="wifi-light" />
+      <IconWithLabel name="playlist-light" />
+      <IconWithLabel name="playlist-solid" />
     </StoryContainer>
   );
 };
