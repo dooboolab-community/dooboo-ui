@@ -2,7 +2,13 @@
 
 exports[`[RadioButton] colors should render \`disabled color 1`] = `
 <View
+  accessibilityState={
+    Object {
+      "disabled": true,
+    }
+  }
   accessible={true}
+  collapsable={false}
   focusable={false}
   onClick={[Function]}
   onResponderGrant={[Function]}
@@ -71,6 +77,7 @@ exports[`[RadioButton] colors should render \`disabled color 1`] = `
       type="primary"
     >
       <View
+        collapsable={false}
         disabled={true}
         onLayout={[Function]}
         selected={false}
@@ -165,7 +172,13 @@ exports[`[RadioButton] colors should render all colors 1`] = `
         }
       >
         <View
+          accessibilityState={
+            Object {
+              "disabled": false,
+            }
+          }
           accessible={true}
+          collapsable={false}
           focusable={true}
           onClick={[Function]}
           onResponderGrant={[Function]}
@@ -235,6 +248,7 @@ exports[`[RadioButton] colors should render all colors 1`] = `
               type="primary"
             >
               <View
+                collapsable={false}
                 disabled={false}
                 onLayout={[Function]}
                 selected={true}
@@ -275,7 +289,13 @@ exports[`[RadioButton] colors should render all colors 1`] = `
           </View>
         </View>
         <View
+          accessibilityState={
+            Object {
+              "disabled": false,
+            }
+          }
           accessible={true}
+          collapsable={false}
           focusable={true}
           onClick={[Function]}
           onResponderGrant={[Function]}
@@ -345,6 +365,7 @@ exports[`[RadioButton] colors should render all colors 1`] = `
               type="primary"
             >
               <View
+                collapsable={false}
                 disabled={false}
                 onLayout={[Function]}
                 selected={false}
@@ -385,7 +406,13 @@ exports[`[RadioButton] colors should render all colors 1`] = `
           </View>
         </View>
         <View
+          accessibilityState={
+            Object {
+              "disabled": false,
+            }
+          }
           accessible={true}
+          collapsable={false}
           focusable={true}
           onClick={[Function]}
           onResponderGrant={[Function]}
@@ -455,6 +482,7 @@ exports[`[RadioButton] colors should render all colors 1`] = `
               type="primary"
             >
               <View
+                collapsable={false}
                 disabled={false}
                 onLayout={[Function]}
                 selected={false}
@@ -495,7 +523,13 @@ exports[`[RadioButton] colors should render all colors 1`] = `
           </View>
         </View>
         <View
+          accessibilityState={
+            Object {
+              "disabled": false,
+            }
+          }
           accessible={true}
+          collapsable={false}
           focusable={true}
           onClick={[Function]}
           onResponderGrant={[Function]}
@@ -565,6 +599,7 @@ exports[`[RadioButton] colors should render all colors 1`] = `
               type="primary"
             >
               <View
+                collapsable={false}
                 disabled={false}
                 onLayout={[Function]}
                 selected={false}
@@ -660,7 +695,13 @@ exports[`[RadioButton] colors should render all colors 1`] = `
         }
       >
         <View
+          accessibilityState={
+            Object {
+              "disabled": false,
+            }
+          }
           accessible={true}
+          collapsable={false}
           focusable={true}
           onClick={[Function]}
           onResponderGrant={[Function]}
@@ -730,6 +771,7 @@ exports[`[RadioButton] colors should render all colors 1`] = `
               type="secondary"
             >
               <View
+                collapsable={false}
                 disabled={false}
                 onLayout={[Function]}
                 selected={true}
@@ -770,7 +812,13 @@ exports[`[RadioButton] colors should render all colors 1`] = `
           </View>
         </View>
         <View
+          accessibilityState={
+            Object {
+              "disabled": false,
+            }
+          }
           accessible={true}
+          collapsable={false}
           focusable={true}
           onClick={[Function]}
           onResponderGrant={[Function]}
@@ -840,6 +888,7 @@ exports[`[RadioButton] colors should render all colors 1`] = `
               type="secondary"
             >
               <View
+                collapsable={false}
                 disabled={false}
                 onLayout={[Function]}
                 selected={false}
@@ -880,7 +929,13 @@ exports[`[RadioButton] colors should render all colors 1`] = `
           </View>
         </View>
         <View
+          accessibilityState={
+            Object {
+              "disabled": false,
+            }
+          }
           accessible={true}
+          collapsable={false}
           focusable={true}
           onClick={[Function]}
           onResponderGrant={[Function]}
@@ -950,6 +1005,7 @@ exports[`[RadioButton] colors should render all colors 1`] = `
               type="secondary"
             >
               <View
+                collapsable={false}
                 disabled={false}
                 onLayout={[Function]}
                 selected={false}
@@ -990,7 +1046,13 @@ exports[`[RadioButton] colors should render all colors 1`] = `
           </View>
         </View>
         <View
+          accessibilityState={
+            Object {
+              "disabled": false,
+            }
+          }
           accessible={true}
+          collapsable={false}
           focusable={true}
           onClick={[Function]}
           onResponderGrant={[Function]}
@@ -1060,6 +1122,7 @@ exports[`[RadioButton] colors should render all colors 1`] = `
               type="secondary"
             >
               <View
+                collapsable={false}
                 disabled={false}
                 onLayout={[Function]}
                 selected={false}
@@ -1155,7 +1218,13 @@ exports[`[RadioButton] colors should render all colors 1`] = `
         }
       >
         <View
+          accessibilityState={
+            Object {
+              "disabled": false,
+            }
+          }
           accessible={true}
+          collapsable={false}
           focusable={true}
           onClick={[Function]}
           onResponderGrant={[Function]}
@@ -1225,6 +1294,7 @@ exports[`[RadioButton] colors should render all colors 1`] = `
               type="success"
             >
               <View
+                collapsable={false}
                 disabled={false}
                 onLayout={[Function]}
                 selected={true}
@@ -1265,7 +1335,13 @@ exports[`[RadioButton] colors should render all colors 1`] = `
           </View>
         </View>
         <View
+          accessibilityState={
+            Object {
+              "disabled": false,
+            }
+          }
           accessible={true}
+          collapsable={false}
           focusable={true}
           onClick={[Function]}
           onResponderGrant={[Function]}
@@ -1335,6 +1411,7 @@ exports[`[RadioButton] colors should render all colors 1`] = `
               type="success"
             >
               <View
+                collapsable={false}
                 disabled={false}
                 onLayout={[Function]}
                 selected={false}
@@ -1375,7 +1452,13 @@ exports[`[RadioButton] colors should render all colors 1`] = `
           </View>
         </View>
         <View
+          accessibilityState={
+            Object {
+              "disabled": false,
+            }
+          }
           accessible={true}
+          collapsable={false}
           focusable={true}
           onClick={[Function]}
           onResponderGrant={[Function]}
@@ -1445,6 +1528,7 @@ exports[`[RadioButton] colors should render all colors 1`] = `
               type="success"
             >
               <View
+                collapsable={false}
                 disabled={false}
                 onLayout={[Function]}
                 selected={false}
@@ -1485,7 +1569,13 @@ exports[`[RadioButton] colors should render all colors 1`] = `
           </View>
         </View>
         <View
+          accessibilityState={
+            Object {
+              "disabled": false,
+            }
+          }
           accessible={true}
+          collapsable={false}
           focusable={true}
           onClick={[Function]}
           onResponderGrant={[Function]}
@@ -1555,6 +1645,7 @@ exports[`[RadioButton] colors should render all colors 1`] = `
               type="success"
             >
               <View
+                collapsable={false}
                 disabled={false}
                 onLayout={[Function]}
                 selected={false}
@@ -1650,7 +1741,13 @@ exports[`[RadioButton] colors should render all colors 1`] = `
         }
       >
         <View
+          accessibilityState={
+            Object {
+              "disabled": false,
+            }
+          }
           accessible={true}
+          collapsable={false}
           focusable={true}
           onClick={[Function]}
           onResponderGrant={[Function]}
@@ -1720,6 +1817,7 @@ exports[`[RadioButton] colors should render all colors 1`] = `
               type="info"
             >
               <View
+                collapsable={false}
                 disabled={false}
                 onLayout={[Function]}
                 selected={true}
@@ -1760,7 +1858,13 @@ exports[`[RadioButton] colors should render all colors 1`] = `
           </View>
         </View>
         <View
+          accessibilityState={
+            Object {
+              "disabled": false,
+            }
+          }
           accessible={true}
+          collapsable={false}
           focusable={true}
           onClick={[Function]}
           onResponderGrant={[Function]}
@@ -1830,6 +1934,7 @@ exports[`[RadioButton] colors should render all colors 1`] = `
               type="info"
             >
               <View
+                collapsable={false}
                 disabled={false}
                 onLayout={[Function]}
                 selected={false}
@@ -1870,7 +1975,13 @@ exports[`[RadioButton] colors should render all colors 1`] = `
           </View>
         </View>
         <View
+          accessibilityState={
+            Object {
+              "disabled": false,
+            }
+          }
           accessible={true}
+          collapsable={false}
           focusable={true}
           onClick={[Function]}
           onResponderGrant={[Function]}
@@ -1940,6 +2051,7 @@ exports[`[RadioButton] colors should render all colors 1`] = `
               type="info"
             >
               <View
+                collapsable={false}
                 disabled={false}
                 onLayout={[Function]}
                 selected={false}
@@ -1980,7 +2092,13 @@ exports[`[RadioButton] colors should render all colors 1`] = `
           </View>
         </View>
         <View
+          accessibilityState={
+            Object {
+              "disabled": false,
+            }
+          }
           accessible={true}
+          collapsable={false}
           focusable={true}
           onClick={[Function]}
           onResponderGrant={[Function]}
@@ -2050,6 +2168,7 @@ exports[`[RadioButton] colors should render all colors 1`] = `
               type="info"
             >
               <View
+                collapsable={false}
                 disabled={false}
                 onLayout={[Function]}
                 selected={false}
@@ -2145,7 +2264,13 @@ exports[`[RadioButton] colors should render all colors 1`] = `
         }
       >
         <View
+          accessibilityState={
+            Object {
+              "disabled": false,
+            }
+          }
           accessible={true}
+          collapsable={false}
           focusable={true}
           onClick={[Function]}
           onResponderGrant={[Function]}
@@ -2215,6 +2340,7 @@ exports[`[RadioButton] colors should render all colors 1`] = `
               type="warning"
             >
               <View
+                collapsable={false}
                 disabled={false}
                 onLayout={[Function]}
                 selected={true}
@@ -2255,7 +2381,13 @@ exports[`[RadioButton] colors should render all colors 1`] = `
           </View>
         </View>
         <View
+          accessibilityState={
+            Object {
+              "disabled": false,
+            }
+          }
           accessible={true}
+          collapsable={false}
           focusable={true}
           onClick={[Function]}
           onResponderGrant={[Function]}
@@ -2325,6 +2457,7 @@ exports[`[RadioButton] colors should render all colors 1`] = `
               type="warning"
             >
               <View
+                collapsable={false}
                 disabled={false}
                 onLayout={[Function]}
                 selected={false}
@@ -2365,7 +2498,13 @@ exports[`[RadioButton] colors should render all colors 1`] = `
           </View>
         </View>
         <View
+          accessibilityState={
+            Object {
+              "disabled": false,
+            }
+          }
           accessible={true}
+          collapsable={false}
           focusable={true}
           onClick={[Function]}
           onResponderGrant={[Function]}
@@ -2435,6 +2574,7 @@ exports[`[RadioButton] colors should render all colors 1`] = `
               type="warning"
             >
               <View
+                collapsable={false}
                 disabled={false}
                 onLayout={[Function]}
                 selected={false}
@@ -2475,7 +2615,13 @@ exports[`[RadioButton] colors should render all colors 1`] = `
           </View>
         </View>
         <View
+          accessibilityState={
+            Object {
+              "disabled": false,
+            }
+          }
           accessible={true}
+          collapsable={false}
           focusable={true}
           onClick={[Function]}
           onResponderGrant={[Function]}
@@ -2545,6 +2691,7 @@ exports[`[RadioButton] colors should render all colors 1`] = `
               type="warning"
             >
               <View
+                collapsable={false}
                 disabled={false}
                 onLayout={[Function]}
                 selected={false}
@@ -2640,7 +2787,13 @@ exports[`[RadioButton] colors should render all colors 1`] = `
         }
       >
         <View
+          accessibilityState={
+            Object {
+              "disabled": false,
+            }
+          }
           accessible={true}
+          collapsable={false}
           focusable={true}
           onClick={[Function]}
           onResponderGrant={[Function]}
@@ -2710,6 +2863,7 @@ exports[`[RadioButton] colors should render all colors 1`] = `
               type="danger"
             >
               <View
+                collapsable={false}
                 disabled={false}
                 onLayout={[Function]}
                 selected={true}
@@ -2750,7 +2904,13 @@ exports[`[RadioButton] colors should render all colors 1`] = `
           </View>
         </View>
         <View
+          accessibilityState={
+            Object {
+              "disabled": false,
+            }
+          }
           accessible={true}
+          collapsable={false}
           focusable={true}
           onClick={[Function]}
           onResponderGrant={[Function]}
@@ -2820,6 +2980,7 @@ exports[`[RadioButton] colors should render all colors 1`] = `
               type="danger"
             >
               <View
+                collapsable={false}
                 disabled={false}
                 onLayout={[Function]}
                 selected={false}
@@ -2860,7 +3021,13 @@ exports[`[RadioButton] colors should render all colors 1`] = `
           </View>
         </View>
         <View
+          accessibilityState={
+            Object {
+              "disabled": false,
+            }
+          }
           accessible={true}
+          collapsable={false}
           focusable={true}
           onClick={[Function]}
           onResponderGrant={[Function]}
@@ -2930,6 +3097,7 @@ exports[`[RadioButton] colors should render all colors 1`] = `
               type="danger"
             >
               <View
+                collapsable={false}
                 disabled={false}
                 onLayout={[Function]}
                 selected={false}
@@ -2970,7 +3138,13 @@ exports[`[RadioButton] colors should render all colors 1`] = `
           </View>
         </View>
         <View
+          accessibilityState={
+            Object {
+              "disabled": false,
+            }
+          }
           accessible={true}
+          collapsable={false}
           focusable={true}
           onClick={[Function]}
           onResponderGrant={[Function]}
@@ -3040,6 +3214,7 @@ exports[`[RadioButton] colors should render all colors 1`] = `
               type="danger"
             >
               <View
+                collapsable={false}
                 disabled={false}
                 onLayout={[Function]}
                 selected={false}
@@ -3140,7 +3315,13 @@ exports[`[RadioButton] render label should render \`labels\` 1`] = `
         }
       >
         <View
+          accessibilityState={
+            Object {
+              "disabled": false,
+            }
+          }
           accessible={true}
+          collapsable={false}
           focusable={true}
           onClick={[Function]}
           onResponderGrant={[Function]}
@@ -3210,6 +3391,7 @@ exports[`[RadioButton] render label should render \`labels\` 1`] = `
               type="primary"
             >
               <View
+                collapsable={false}
                 disabled={false}
                 onLayout={[Function]}
                 selected={true}
@@ -3250,7 +3432,13 @@ exports[`[RadioButton] render label should render \`labels\` 1`] = `
           </View>
         </View>
         <View
+          accessibilityState={
+            Object {
+              "disabled": false,
+            }
+          }
           accessible={true}
+          collapsable={false}
           focusable={true}
           onClick={[Function]}
           onResponderGrant={[Function]}
@@ -3320,6 +3508,7 @@ exports[`[RadioButton] render label should render \`labels\` 1`] = `
               type="primary"
             >
               <View
+                collapsable={false}
                 disabled={false}
                 onLayout={[Function]}
                 selected={false}
@@ -3360,7 +3549,13 @@ exports[`[RadioButton] render label should render \`labels\` 1`] = `
           </View>
         </View>
         <View
+          accessibilityState={
+            Object {
+              "disabled": false,
+            }
+          }
           accessible={true}
+          collapsable={false}
           focusable={true}
           onClick={[Function]}
           onResponderGrant={[Function]}
@@ -3430,6 +3625,7 @@ exports[`[RadioButton] render label should render \`labels\` 1`] = `
               type="primary"
             >
               <View
+                collapsable={false}
                 disabled={false}
                 onLayout={[Function]}
                 selected={false}
@@ -3470,7 +3666,13 @@ exports[`[RadioButton] render label should render \`labels\` 1`] = `
           </View>
         </View>
         <View
+          accessibilityState={
+            Object {
+              "disabled": false,
+            }
+          }
           accessible={true}
+          collapsable={false}
           focusable={true}
           onClick={[Function]}
           onResponderGrant={[Function]}
@@ -3540,6 +3742,7 @@ exports[`[RadioButton] render label should render \`labels\` 1`] = `
               type="primary"
             >
               <View
+                collapsable={false}
                 disabled={false}
                 onLayout={[Function]}
                 selected={false}
@@ -3640,7 +3843,13 @@ exports[`[RadioButton] render label should render \`labels\` with left position 
         }
       >
         <View
+          accessibilityState={
+            Object {
+              "disabled": false,
+            }
+          }
           accessible={true}
+          collapsable={false}
           focusable={true}
           onClick={[Function]}
           onResponderGrant={[Function]}
@@ -3725,6 +3934,7 @@ exports[`[RadioButton] render label should render \`labels\` with left position 
               type="primary"
             >
               <View
+                collapsable={false}
                 disabled={false}
                 onLayout={[Function]}
                 selected={true}
@@ -3750,7 +3960,13 @@ exports[`[RadioButton] render label should render \`labels\` with left position 
           </View>
         </View>
         <View
+          accessibilityState={
+            Object {
+              "disabled": false,
+            }
+          }
           accessible={true}
+          collapsable={false}
           focusable={true}
           onClick={[Function]}
           onResponderGrant={[Function]}
@@ -3835,6 +4051,7 @@ exports[`[RadioButton] render label should render \`labels\` with left position 
               type="primary"
             >
               <View
+                collapsable={false}
                 disabled={false}
                 onLayout={[Function]}
                 selected={false}
@@ -3860,7 +4077,13 @@ exports[`[RadioButton] render label should render \`labels\` with left position 
           </View>
         </View>
         <View
+          accessibilityState={
+            Object {
+              "disabled": false,
+            }
+          }
           accessible={true}
+          collapsable={false}
           focusable={true}
           onClick={[Function]}
           onResponderGrant={[Function]}
@@ -3945,6 +4168,7 @@ exports[`[RadioButton] render label should render \`labels\` with left position 
               type="primary"
             >
               <View
+                collapsable={false}
                 disabled={false}
                 onLayout={[Function]}
                 selected={false}
@@ -3970,7 +4194,13 @@ exports[`[RadioButton] render label should render \`labels\` with left position 
           </View>
         </View>
         <View
+          accessibilityState={
+            Object {
+              "disabled": false,
+            }
+          }
           accessible={true}
+          collapsable={false}
           focusable={true}
           onClick={[Function]}
           onResponderGrant={[Function]}
@@ -4055,6 +4285,7 @@ exports[`[RadioButton] render label should render \`labels\` with left position 
               type="primary"
             >
               <View
+                collapsable={false}
                 disabled={false}
                 onLayout={[Function]}
                 selected={false}
@@ -4139,7 +4370,13 @@ exports[`[RadioButton] render should render without crashing 1`] = `
       }
     >
       <View
+        accessibilityState={
+          Object {
+            "disabled": false,
+          }
+        }
         accessible={true}
+        collapsable={false}
         focusable={true}
         onClick={[Function]}
         onResponderGrant={[Function]}
@@ -4209,6 +4446,7 @@ exports[`[RadioButton] render should render without crashing 1`] = `
             type="primary"
           >
             <View
+              collapsable={false}
               disabled={false}
               onLayout={[Function]}
               selected={true}
@@ -4234,7 +4472,13 @@ exports[`[RadioButton] render should render without crashing 1`] = `
         </View>
       </View>
       <View
+        accessibilityState={
+          Object {
+            "disabled": false,
+          }
+        }
         accessible={true}
+        collapsable={false}
         focusable={true}
         onClick={[Function]}
         onResponderGrant={[Function]}
@@ -4304,6 +4548,7 @@ exports[`[RadioButton] render should render without crashing 1`] = `
             type="primary"
           >
             <View
+              collapsable={false}
               disabled={false}
               onLayout={[Function]}
               selected={false}
@@ -4329,7 +4574,13 @@ exports[`[RadioButton] render should render without crashing 1`] = `
         </View>
       </View>
       <View
+        accessibilityState={
+          Object {
+            "disabled": false,
+          }
+        }
         accessible={true}
+        collapsable={false}
         focusable={true}
         onClick={[Function]}
         onResponderGrant={[Function]}
@@ -4399,6 +4650,7 @@ exports[`[RadioButton] render should render without crashing 1`] = `
             type="primary"
           >
             <View
+              collapsable={false}
               disabled={false}
               onLayout={[Function]}
               selected={false}
@@ -4424,7 +4676,13 @@ exports[`[RadioButton] render should render without crashing 1`] = `
         </View>
       </View>
       <View
+        accessibilityState={
+          Object {
+            "disabled": false,
+          }
+        }
         accessible={true}
+        collapsable={false}
         focusable={true}
         onClick={[Function]}
         onResponderGrant={[Function]}
@@ -4494,6 +4752,7 @@ exports[`[RadioButton] render should render without crashing 1`] = `
             type="primary"
           >
             <View
+              collapsable={false}
               disabled={false}
               onLayout={[Function]}
               selected={false}

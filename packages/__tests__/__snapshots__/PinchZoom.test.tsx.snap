@@ -39,6 +39,7 @@ exports[`PinchZoom of ImageSlider should renders without crashing 1`] = `
     }
   >
     <View
+      collapsable={false}
       forwardedRef={[Function]}
       style={
         Object {
@@ -81,6 +82,7 @@ exports[`PinchZoom of ImageSlider should renders without crashing 1`] = `
       />
     </View>
     <View
+      collapsable={false}
       forwardedRef={[Function]}
       style={
         Object {
