@@ -19,6 +19,7 @@ import React, {
 
 type Props = PropsWithChildren<{
   style?: ViewStyle;
+  children?: any;
   onScaleChanged?(value: number): void;
   onTranslateChanged?(valueXY: {x: number; y: number}): void;
   onRelease?(): void;
