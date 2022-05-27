@@ -17,6 +17,7 @@ exports[`[ButtonGroup] renders without crashing 1`] = `
 >
   <View
     accessible={true}
+    collapsable={false}
     focusable={true}
     onClick={[Function]}
     onResponderGrant={[Function]}
@@ -73,6 +74,7 @@ exports[`[ButtonGroup] renders without crashing 1`] = `
   </View>
   <View
     accessible={true}
+    collapsable={false}
     focusable={true}
     onClick={[Function]}
     onResponderGrant={[Function]}

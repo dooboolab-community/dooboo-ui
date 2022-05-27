@@ -176,20 +176,22 @@ export const Button: FC<Props> = (props) => {
           disabled={disabled}
           outlined={outlined}
         >
-          {leftElement}
-          <ButtonText
-            outlined={outlined}
-            type={type}
-            disabled={disabled}
-            style={[
-              compositeStyles.text,
-              disabled && compositeStyles.disabledText,
-            ]}
-            {...textProps}
-          >
-            {text}
-          </ButtonText>
-          {rightElement}
+          <>
+            {leftElement}
+            <ButtonText
+              outlined={outlined}
+              type={type}
+              disabled={disabled}
+              style={[
+                compositeStyles.text,
+                disabled && compositeStyles.disabledText,
+              ]}
+              {...textProps}
+            >
+              {text}
+            </ButtonText>
+            {rightElement}
+          </>
         </ButtonContainer>
       )}
     </TouchableOpacity>

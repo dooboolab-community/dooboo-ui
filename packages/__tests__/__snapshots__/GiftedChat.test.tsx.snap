@@ -24,7 +24,7 @@ exports[`[GiftedChatInput] render renders without crashing 1`] = `
   }
 >
   <RCTScrollView
-    ListEmptyComponent={<View />}
+    ListEmptyComponent={[Function]}
     ListHeaderComponent={
       <View
         style={
@@ -42,18 +42,14 @@ exports[`[GiftedChatInput] render renders without crashing 1`] = `
       }
     }
     data={Array []}
-    disableVirtualization={false}
     getItem={[Function]}
     getItemCount={[Function]}
-    horizontal={false}
-    initialNumToRender={10}
     invertStickyHeaders={true}
     inverted={true}
     keyExtractor={[Function]}
-    maxToRenderPerBatch={10}
     onContentSizeChange={[Function]}
-    onEndReachedThreshold={2}
     onLayout={[Function]}
+    onMomentumScrollBegin={[Function]}
     onMomentumScrollEnd={[Function]}
     onScroll={[Function]}
     onScrollBeginDrag={[Function]}
@@ -76,9 +72,7 @@ exports[`[GiftedChatInput] render renders without crashing 1`] = `
         },
       ]
     }
-    updateCellsBatchingPeriod={50}
     viewabilityConfigCallbackPairs={Array []}
-    windowSize={21}
   >
     <View>
       <View
@@ -101,18 +95,7 @@ exports[`[GiftedChatInput] render renders without crashing 1`] = `
           }
         />
       </View>
-      <View
-        onLayout={[Function]}
-        style={
-          Object {
-            "transform": Array [
-              Object {
-                "scaleY": -1,
-              },
-            ],
-          }
-        }
-      />
+      <View />
     </View>
   </RCTScrollView>
   <View
@@ -141,13 +124,11 @@ exports[`[GiftedChatInput] render renders without crashing 1`] = `
     }
   >
     <TextInput
-      allowFontScaling={true}
       defaultValue=""
       multiline={true}
       onChangeText={[Function]}
       onFocus={[Function]}
       placeholder=""
-      rejectResponderTermination={true}
       style={
         Array [
           Object {
@@ -168,11 +149,11 @@ exports[`[GiftedChatInput] render renders without crashing 1`] = `
         ]
       }
       testID="input-chat"
-      underlineColorAndroid="transparent"
       value=""
     />
     <View
       accessible={true}
+      collapsable={false}
       focusable={true}
       onClick={[Function]}
       onResponderGrant={[Function]}

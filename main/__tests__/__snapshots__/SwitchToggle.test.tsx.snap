@@ -4,6 +4,7 @@ exports[`[SwitchToggle] when switch toggle is off renders as off state 1`] = `
 <View
   accessibilityRole="switch"
   accessible={true}
+  collapsable={false}
   focusable={true}
   onClick={[Function]}
   onResponderGrant={[Function]}
@@ -20,6 +21,7 @@ exports[`[SwitchToggle] when switch toggle is off renders as off state 1`] = `
   }
 >
   <View
+    collapsable={false}
     style={
       Object {
         "alignItems": "center",
@@ -31,6 +33,7 @@ exports[`[SwitchToggle] when switch toggle is off renders as off state 1`] = `
     }
   >
     <View
+      collapsable={false}
       style={
         Object {
           "opacity": 1,
@@ -43,6 +46,7 @@ exports[`[SwitchToggle] when switch toggle is off renders as off state 1`] = `
       </Text>
     </View>
     <View
+      collapsable={false}
       style={
         Object {
           "backgroundColor": "rgba(510, 0, -255, 1)",
@@ -63,6 +67,7 @@ exports[`[SwitchToggle] when switch toggle is on renders as on state 1`] = `
 <View
   accessibilityRole="switch"
   accessible={true}
+  collapsable={false}
   focusable={true}
   onClick={[Function]}
   onResponderGrant={[Function]}
@@ -79,6 +84,7 @@ exports[`[SwitchToggle] when switch toggle is on renders as on state 1`] = `
   }
 >
   <View
+    collapsable={false}
     style={
       Object {
         "alignItems": "center",
@@ -90,6 +96,7 @@ exports[`[SwitchToggle] when switch toggle is on renders as on state 1`] = `
     }
   >
     <View
+      collapsable={false}
       style={
         Object {
           "opacity": 1,
@@ -102,6 +109,7 @@ exports[`[SwitchToggle] when switch toggle is on renders as on state 1`] = `
       </Text>
     </View>
     <View
+      collapsable={false}
       style={
         Object {
           "backgroundColor": "rgba(0, 0, 255, 1)",

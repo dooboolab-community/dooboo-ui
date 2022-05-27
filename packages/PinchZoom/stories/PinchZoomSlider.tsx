@@ -108,6 +108,7 @@ export function ImageList(): React.ReactElement {
         data={images}
         style={{flex: 1}}
         keyExtractor={(item): string => item.uri}
+        // @ts-ignore
         renderItem={({item, index}): React.ReactElement => (
           <ImageItem
             source={item}

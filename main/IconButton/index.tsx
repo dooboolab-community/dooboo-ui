@@ -55,7 +55,7 @@ export interface IconButtonProps {
   style?: StyleProp<ViewStyle>;
   styles?: Styles;
   activeOpacity?: TouchableOpacityProps['activeOpacity'];
-  icon: React.ReactElement;
+  icon: any;
   onPress?: TouchableOpacityProps['onPress'];
   touchableOpacityProps?: Partial<TouchableOpacityProps>;
   type?: ButtonType;

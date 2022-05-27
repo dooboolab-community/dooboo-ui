@@ -38,7 +38,7 @@ jobs:
         run: yarn build
 
       - name: Test
-        run: yarn test --coverage
+        run: yarn test --coverage --forceExit --silent -u
 
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v1

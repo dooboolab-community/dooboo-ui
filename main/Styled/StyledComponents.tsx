@@ -97,7 +97,7 @@ export const ButtonText = styled.Text<{
   }};
 `;
 
-export const CheckboxWrapperOutlined = styled(Animated.View)<{
+export const CheckboxWrapperOutlined = styled(Animated.View as any)<{
   type: ButtonType;
   disabled?: boolean;
   checked?: boolean;
@@ -118,7 +118,7 @@ export const CheckboxWrapperOutlined = styled(Animated.View)<{
   }};
 `;
 
-export const CheckboxWrapper = styled(Animated.View)<{
+export const CheckboxWrapper = styled(Animated.View as any)<{
   type: ButtonType;
   disabled?: boolean;
   checked?: boolean;
@@ -167,7 +167,7 @@ export const RadioButtonWrapper = styled.View<{
   }};
 `;
 
-export const RadioWrapper = styled(Animated.View)<{
+export const RadioWrapper = styled(Animated.View as any)<{
   type: ButtonType;
   disabled?: boolean;
   selected?: boolean;
@@ -211,7 +211,7 @@ export const ColoredText = styled.Text<{
   }};
 `;
 
-export const SnackbarWrapper = styled(Animated.View)<{
+export const SnackbarWrapper = styled(Animated.View as any)<{
   type?: SnackbarType;
   checked?: boolean;
 }>`

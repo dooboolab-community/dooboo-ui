@@ -30,11 +30,8 @@ interface Props {
 
 function NetworkImage(props: Props): ReactElement {
   const {themeType} = useTheme();
-
   const logo = themeType === 'light' ? ArtifactsLogoLight : ArtifactsLogoDark;
-
   const {style, url, imageProps, shouldFixImageRatio = false} = props;
-
   const [isValidSource, setIsValidSource] = useState(true);
 
   const defaultImageStyle = useMemo(

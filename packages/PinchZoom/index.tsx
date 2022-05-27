@@ -19,6 +19,7 @@ import React, {
 
 type Props = PropsWithChildren<{
   style?: ViewStyle;
+  children?: any;
   onScaleChanged?(value: number): void;
   onTranslateChanged?(valueXY: {x: number; y: number}): void;
   onRelease?(): void;
@@ -90,12 +91,13 @@ function PinchZoom(props: Props, ref: Ref<PinchZoomRef>): ReactElement {
   const initialDistance = useRef<number>();
   const initialTouchesCenter = useRef<TouchePosition>();
 
-  const layout = useRef<{
-    width: number;
-    height: number;
-    pageX: number;
-    pageY: number;
-  }>();
+  const layout =
+    useRef<{
+      width: number;
+      height: number;
+      pageX: number;
+      pageY: number;
+    }>();
 
   const decayingTranslateAnimation = useRef<Animated.CompositeAnimation>();
   const isResponderActive = useRef(false);

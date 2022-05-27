@@ -417,37 +417,44 @@ function CalendarCarousel({
 
       return (
         <View style={styles.calendarContainer} key={displayDate.toString()}>
-          <View style={styles.headerStyle}>
-            <TouchableOpacity onPress={(): void => changeMonth(true)}>
-              <Text style={styles.arrowText}> &#8249;</Text>
-            </TouchableOpacity>
-            <View style={styles.titleContainer}>
-              <Text style={styles.titleText}>{monthName}</Text>
-              <Text style={styles.yearText}>{year}</Text>
+          <>
+            <View style={styles.headerStyle}>
+              <TouchableOpacity onPress={(): void => changeMonth(true)}>
+                <Text style={styles.arrowText}> &#8249;</Text>
+              </TouchableOpacity>
+              <View style={styles.titleContainer}>
+                <Text style={styles.titleText}>{monthName}</Text>
+                <Text style={styles.yearText}>{year}</Text>
+              </View>
+              <TouchableOpacity onPress={(): void => changeMonth(false)}>
+                <Text style={styles.arrowText}>&#8250;</Text>
+              </TouchableOpacity>
             </View>
-            <TouchableOpacity onPress={(): void => changeMonth(false)}>
-              <Text style={styles.arrowText}>&#8250;</Text>
-            </TouchableOpacity>
-          </View>
-          <View style={styles.rowContainer}>{weekdays}</View>
-          <FlatList
-            style={styles.dayContainer}
-            data={calendarDates}
-            numColumns={7}
-            renderItem={({item}): ReactElement => renderDates(item)}
-            keyExtractor={(item, id): string => id.toString()}
-            scrollEnabled={false}
-          />
-          {renderEvent()}
+            <View style={styles.rowContainer}>
+              <>{weekdays}</>
+            </View>
+            <FlatList
+              style={styles.dayContainer}
+              data={calendarDates}
+              numColumns={7}
+              // @ts-ignore
+              renderItem={({item}): ReactElement => renderDates(item)}
+              keyExtractor={(item, id): string => id.toString()}
+              scrollEnabled={false}
+            />
+            {renderEvent()}
+          </>
         </View>
       );
     };
 
     return (
       <View style={styles.rowContainer}>
-        {renderCalendar(prevMonth)}
-        {renderCalendar(currentDate)}
-        {renderCalendar(nextMonth)}
+        <>
+          {renderCalendar(prevMonth)}
+          {renderCalendar(currentDate)}
+          {renderCalendar(nextMonth)}
+        </>
       </View>
     );
   };
@@ -468,7 +475,7 @@ function CalendarCarousel({
         ref={scrollRef}
         onMomentumScrollEnd={scrollEffect}
       >
-        {renderCalendars()}
+        <>{renderCalendars()}</>
       </ScrollView>
     </SafeAreaView>
   );

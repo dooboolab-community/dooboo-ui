@@ -1,8 +1,9 @@
-import React, {useMemo, useRef, useState} from 'react';
-import styled from '@emotion/native';
-import Svg, {Circle} from 'react-native-svg';
 import {Animated, TextStyle, ViewStyle} from 'react-native';
-import {useTheme, DoobooTheme, withTheme} from '@dooboo-ui/theme';
+import {DoobooTheme, useTheme, withTheme} from '@dooboo-ui/theme';
+import React, {useMemo, useRef, useState} from 'react';
+import Svg, {Circle} from 'react-native-svg';
+
+import styled from '@emotion/native';
 
 type DoobooThemeContext = {theme: DoobooTheme};
 type ProgressType = 'success' | 'danger' | 'warning' | 'info';
@@ -26,6 +27,7 @@ const Container = styled.View`
   justify-content: center;
 `;
 
+// @ts-ignore
 const AnimCircle = Animated.createAnimatedComponent(Circle);
 
 const Text = styled.Text``;
@@ -84,6 +86,7 @@ const ProgressCircle: React.FC<Props> = ({
       }}
       style={[containerLayout, style, styles?.container]}
     >
+      {/* @ts-ignore */}
       <Svg
         style={{position: 'absolute'}}
         width={containerLayout.width}
@@ -103,6 +106,7 @@ const ProgressCircle: React.FC<Props> = ({
             outputRange: [2 * Math.PI * radius, 0],
           })}
         />
+        {/* @ts-ignore */}
         <Circle
           fill="transparent"
           {...circleProps}

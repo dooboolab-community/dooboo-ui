@@ -57,14 +57,12 @@ exports[`[EditText] interactions !editable renders \`errorText\` 1`] = `
       label
     </Text>
     <TextInput
-      allowFontScaling={true}
       autoCapitalize="none"
       editable={false}
       multiline={false}
       onBlur={[Function]}
       onFocus={[Function]}
       placeholderTextColor="#6D6D6D"
-      rejectResponderTermination={true}
       secureTextEntry={false}
       style={
         Array [
@@ -80,7 +78,6 @@ exports[`[EditText] interactions !editable renders \`errorText\` 1`] = `
           false,
         ]
       }
-      underlineColorAndroid="transparent"
       value=""
     />
   </View>
@@ -144,14 +141,12 @@ exports[`[EditText] interactions !editable renders \`labelText\` 1`] = `
       label
     </Text>
     <TextInput
-      allowFontScaling={true}
       autoCapitalize="none"
       editable={false}
       multiline={false}
       onBlur={[Function]}
       onFocus={[Function]}
       placeholderTextColor="#6D6D6D"
-      rejectResponderTermination={true}
       secureTextEntry={false}
       style={
         Array [
@@ -167,7 +162,6 @@ exports[`[EditText] interactions !editable renders \`labelText\` 1`] = `
           false,
         ]
       }
-      underlineColorAndroid="transparent"
       value=""
     />
   </View>
@@ -211,14 +205,12 @@ exports[`[EditText] interactions !editable renders without crashing 1`] = `
     }
   >
     <TextInput
-      allowFontScaling={true}
       autoCapitalize="none"
       editable={false}
       multiline={false}
       onBlur={[Function]}
       onFocus={[Function]}
       placeholderTextColor="#6D6D6D"
-      rejectResponderTermination={true}
       secureTextEntry={false}
       style={
         Array [
@@ -234,7 +226,6 @@ exports[`[EditText] interactions !editable renders without crashing 1`] = `
           false,
         ]
       }
-      underlineColorAndroid="transparent"
       value=""
     />
   </View>
@@ -278,14 +269,12 @@ exports[`[EditText] interactions Type: [boxed] should render \`!editable\` statu
     }
   >
     <TextInput
-      allowFontScaling={true}
       autoCapitalize="none"
       editable={true}
       multiline={false}
       onBlur={[Function]}
       onFocus={[Function]}
       placeholderTextColor="#6D6D6D"
-      rejectResponderTermination={true}
       secureTextEntry={false}
       style={
         Array [
@@ -301,7 +290,6 @@ exports[`[EditText] interactions Type: [boxed] should render \`!editable\` statu
           false,
         ]
       }
-      underlineColorAndroid="transparent"
       value=""
     />
   </View>
@@ -376,14 +364,12 @@ exports[`[EditText] interactions Type: [boxed] should render \`errorText\` 1`] =
     }
   >
     <TextInput
-      allowFontScaling={true}
       autoCapitalize="none"
       editable={true}
       multiline={false}
       onBlur={[Function]}
       onFocus={[Function]}
       placeholderTextColor="#6D6D6D"
-      rejectResponderTermination={true}
       secureTextEntry={false}
       style={
         Array [
@@ -399,7 +385,6 @@ exports[`[EditText] interactions Type: [boxed] should render \`errorText\` 1`] =
           false,
         ]
       }
-      underlineColorAndroid="transparent"
       value=""
     />
   </View>
@@ -474,14 +459,12 @@ exports[`[EditText] interactions Type: [boxed] should render \`maxLength\` count
     }
   >
     <TextInput
-      allowFontScaling={true}
       autoCapitalize="none"
       editable={true}
       multiline={false}
       onBlur={[Function]}
       onFocus={[Function]}
       placeholderTextColor="#6D6D6D"
-      rejectResponderTermination={true}
       secureTextEntry={false}
       style={
         Array [
@@ -497,7 +480,6 @@ exports[`[EditText] interactions Type: [boxed] should render \`maxLength\` count
           false,
         ]
       }
-      underlineColorAndroid="transparent"
       value=""
     />
   </View>
@@ -572,14 +554,12 @@ exports[`[EditText] interactions Type: [boxed] should render without crashing 1`
     }
   >
     <TextInput
-      allowFontScaling={true}
       autoCapitalize="none"
       editable={true}
       multiline={false}
       onBlur={[Function]}
       onFocus={[Function]}
       placeholderTextColor="#6D6D6D"
-      rejectResponderTermination={true}
       secureTextEntry={false}
       style={
         Array [
@@ -595,7 +575,6 @@ exports[`[EditText] interactions Type: [boxed] should render without crashing 1`
           false,
         ]
       }
-      underlineColorAndroid="transparent"
       value=""
     />
   </View>
@@ -670,14 +649,12 @@ exports[`[EditText] interactions Type: [column] - default renders custom styles 
     }
   >
     <TextInput
-      allowFontScaling={true}
       autoCapitalize="none"
       editable={true}
       multiline={false}
       onBlur={[Function]}
       onFocus={[Function]}
       placeholderTextColor="#6D6D6D"
-      rejectResponderTermination={true}
       secureTextEntry={false}
       style={
         Array [
@@ -693,7 +670,6 @@ exports[`[EditText] interactions Type: [column] - default renders custom styles 
           false,
         ]
       }
-      underlineColorAndroid="transparent"
       value=""
     />
   </View>
@@ -768,14 +744,12 @@ exports[`[EditText] interactions Type: [column] - default renders without crashi
     }
   >
     <TextInput
-      allowFontScaling={true}
       autoCapitalize="none"
       editable={true}
       multiline={false}
       onBlur={[Function]}
       onFocus={[Function]}
       placeholderTextColor="#6D6D6D"
-      rejectResponderTermination={true}
       secureTextEntry={false}
       style={
         Array [
@@ -791,7 +765,6 @@ exports[`[EditText] interactions Type: [column] - default renders without crashi
           false,
         ]
       }
-      underlineColorAndroid="transparent"
       value=""
     />
   </View>
@@ -866,14 +839,12 @@ exports[`[EditText] interactions Type: [column] - default should render \`maxLen
     }
   >
     <TextInput
-      allowFontScaling={true}
       autoCapitalize="none"
       editable={true}
       multiline={false}
       onBlur={[Function]}
       onFocus={[Function]}
       placeholderTextColor="#6D6D6D"
-      rejectResponderTermination={true}
       secureTextEntry={false}
       style={
         Array [
@@ -889,7 +860,6 @@ exports[`[EditText] interactions Type: [column] - default should render \`maxLen
           false,
         ]
       }
-      underlineColorAndroid="transparent"
       value=""
     />
   </View>
@@ -964,14 +934,12 @@ exports[`[EditText] interactions Type: [column] - default should render \`maxLen
     }
   >
     <TextInput
-      allowFontScaling={true}
       autoCapitalize="none"
       editable={true}
       multiline={false}
       onBlur={[Function]}
       onFocus={[Function]}
       placeholderTextColor="#6D6D6D"
-      rejectResponderTermination={true}
       secureTextEntry={false}
       style={
         Array [
@@ -987,7 +955,6 @@ exports[`[EditText] interactions Type: [column] - default should render \`maxLen
           false,
         ]
       }
-      underlineColorAndroid="transparent"
       value=""
     />
   </View>
@@ -1062,14 +1029,12 @@ exports[`[EditText] interactions Type: [row] should render \`!editable\` status 
     }
   >
     <TextInput
-      allowFontScaling={true}
       autoCapitalize="none"
       editable={true}
       multiline={false}
       onBlur={[Function]}
       onFocus={[Function]}
       placeholderTextColor="#6D6D6D"
-      rejectResponderTermination={true}
       secureTextEntry={false}
       style={
         Array [
@@ -1085,7 +1050,6 @@ exports[`[EditText] interactions Type: [row] should render \`!editable\` status 
           false,
         ]
       }
-      underlineColorAndroid="transparent"
       value=""
     />
   </View>
@@ -1160,14 +1124,12 @@ exports[`[EditText] interactions Type: [row] should render \`errorText\` 1`] = `
     }
   >
     <TextInput
-      allowFontScaling={true}
       autoCapitalize="none"
       editable={true}
       multiline={false}
       onBlur={[Function]}
       onFocus={[Function]}
       placeholderTextColor="#6D6D6D"
-      rejectResponderTermination={true}
       secureTextEntry={false}
       style={
         Array [
@@ -1183,7 +1145,6 @@ exports[`[EditText] interactions Type: [row] should render \`errorText\` 1`] = `
           false,
         ]
       }
-      underlineColorAndroid="transparent"
       value=""
     />
   </View>
@@ -1258,14 +1219,12 @@ exports[`[EditText] interactions Type: [row] should render \`maxLength\` counter
     }
   >
     <TextInput
-      allowFontScaling={true}
       autoCapitalize="none"
       editable={true}
       multiline={false}
       onBlur={[Function]}
       onFocus={[Function]}
       placeholderTextColor="#6D6D6D"
-      rejectResponderTermination={true}
       secureTextEntry={false}
       style={
         Array [
@@ -1281,7 +1240,6 @@ exports[`[EditText] interactions Type: [row] should render \`maxLength\` counter
           false,
         ]
       }
-      underlineColorAndroid="transparent"
       value=""
     />
   </View>
@@ -1356,14 +1314,12 @@ exports[`[EditText] interactions Type: [row] should render without crashing 1`] 
     }
   >
     <TextInput
-      allowFontScaling={true}
       autoCapitalize="none"
       editable={true}
       multiline={false}
       onBlur={[Function]}
       onFocus={[Function]}
       placeholderTextColor="#6D6D6D"
-      rejectResponderTermination={true}
       secureTextEntry={false}
       style={
         Array [
@@ -1379,7 +1335,6 @@ exports[`[EditText] interactions Type: [row] should render without crashing 1`] 
           false,
         ]
       }
-      underlineColorAndroid="transparent"
       value=""
     />
   </View>
@@ -1454,14 +1409,12 @@ exports[`[EditText] interactions web renders without crashing 1`] = `
     }
   >
     <TextInput
-      allowFontScaling={true}
       autoCapitalize="none"
       editable={true}
       multiline={false}
       onBlur={[Function]}
       onFocus={[Function]}
       placeholderTextColor="#6D6D6D"
-      rejectResponderTermination={true}
       secureTextEntry={false}
       style={
         Array [
@@ -1479,7 +1432,6 @@ exports[`[EditText] interactions web renders without crashing 1`] = `
           },
         ]
       }
-      underlineColorAndroid="transparent"
       value=""
     />
   </View>
