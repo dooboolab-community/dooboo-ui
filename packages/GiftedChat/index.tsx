@@ -172,7 +172,7 @@ function Shared<T>(props: Props<T>): React.ReactElement {
           data={chats}
           renderItem={renderItem}
           onEndReached={onEndReached}
-          ListEmptyComponent={emptyItem}
+          ListEmptyComponent={() => emptyItem}
           ListHeaderComponent={
             <View style={{height: showMenu ? keyboardHeight + 80 : 28}} />
           }
@@ -211,6 +211,7 @@ function Shared<T>(props: Props<T>): React.ReactElement {
                 setShowMenu(true);
               }}
             >
+              {/* @ts-ignore */}
               {optionView}
             </StyledTouchMenu>
             <View
@@ -220,6 +221,7 @@ function Shared<T>(props: Props<T>): React.ReactElement {
                 marginVertical: 8,
               }}
             >
+              {/* @ts-ignore */}
               {renderSendButton?.()}
             </View>
           </StyledViewChat>
@@ -252,6 +254,7 @@ function Shared<T>(props: Props<T>): React.ReactElement {
               testID="touch-menu"
               onPress={(): void => setShowMenu(false)}
             >
+              {/* @ts-ignore */}
               {optionView}
             </StyledTouchMenu>
             <View
@@ -260,6 +263,7 @@ function Shared<T>(props: Props<T>): React.ReactElement {
                 right: 8,
               }}
             >
+              {/* @ts-ignore */}
               {renderSendButton?.()}
             </View>
           </StyledViewChat>
@@ -270,6 +274,7 @@ function Shared<T>(props: Props<T>): React.ReactElement {
               backgroundColor: backgroundColor,
             }}
           >
+            {/* @ts-ignore */}
             {renderViewMenu?.()}
           </StyledViewMenu>
         </StyledViewBottom>
