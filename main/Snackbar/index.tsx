@@ -209,6 +209,5 @@ const SnackbarContainer = (
   );
 };
 
-export const Snackbar = React.forwardRef<SnackbarRef, SnackbarProps>(
-  SnackbarContainer,
-);
+export const Snackbar =
+  React.forwardRef<SnackbarRef, SnackbarProps>(SnackbarContainer);
