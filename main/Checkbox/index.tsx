@@ -118,27 +118,29 @@ export const Checkbox: FC<CheckboxProps> = ({
           paddingRight: rightElement ? 6 : 0,
         }}
       >
-        {leftElement}
-        <StyledCheckboxOutlined
-          testID="doobooui-checkbox"
-          checked={checked}
-          type={type}
-          disabled={disabled}
-          style={styles?.checkbox}
-        >
-          <StyledCheckbox
-            style={[
-              styles?.checkbox,
-              {opacity: fadeAnim, transform: [{scale: scaleAnim}]},
-            ]}
+        <>
+          {leftElement}
+          <StyledCheckboxOutlined
+            testID="doobooui-checkbox"
             checked={checked}
             type={type}
             disabled={disabled}
+            style={styles?.checkbox}
           >
-            <StyledCheck theme={theme} name="tick-light" checked={checked} />
-          </StyledCheckbox>
-        </StyledCheckboxOutlined>
-        {rightElement}
+            <StyledCheckbox
+              style={[
+                styles?.checkbox,
+                {opacity: fadeAnim, transform: [{scale: scaleAnim}]},
+              ]}
+              checked={checked}
+              type={type}
+              disabled={disabled}
+            >
+              <StyledCheck theme={theme} name="tick-light" checked={checked} />
+            </StyledCheckbox>
+          </StyledCheckboxOutlined>
+          {rightElement}
+        </>
       </View>
     </Container>
   );

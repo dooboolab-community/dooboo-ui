@@ -128,7 +128,7 @@ const AccordionItem: FC<AccordionItemProps> = (props) => {
     startAnimation();
   }, [startAnimation]);
 
-  const renderIndicator = (element: ReactElement | null): ReactElement => (
+  const renderIndicator = (element): ReactElement => (
     <Animated.View
       style={{
         position: 'absolute',
@@ -165,8 +165,10 @@ const AccordionItem: FC<AccordionItemProps> = (props) => {
         activeOpacity={activeOpacity}
         style={titleContainer}
       >
-        {renderTitle(item.title)}
-        {renderIndicator(toggleElement)}
+        <>
+          {renderTitle(item.title)}
+          {renderIndicator(toggleElement)}
+        </>
       </TitleContainer>
 
       <Animated.View

@@ -133,47 +133,49 @@ export const RadioButton: FC<RadioButtonProps> = ({
           alignItems: 'center',
         }}
       >
-        {leftElement}
-        {label && labelPosition === 'left' ? (
-          <ColoredText
-            type={type}
+        <>
+          {leftElement}
+          {label && labelPosition === 'left' ? (
+            <ColoredText
+              type={type}
+              selected={!!selected}
+              disabled={!!disabled}
+              style={styles?.label}
+            >
+              {label}
+            </ColoredText>
+          ) : null}
+          <StyledRadioButton
+            style={styles?.radio}
             selected={!!selected}
-            disabled={!!disabled}
-            style={styles?.label}
+            type={type}
+            disabled={disabled}
           >
-            {label}
-          </ColoredText>
-        ) : null}
-        <StyledRadioButton
-          style={styles?.radio}
-          selected={!!selected}
-          type={type}
-          disabled={disabled}
-        >
-          <StyledRadioCircle
-            testID={`circle-${testID}`}
-            type={type}
-            selected={!!selected}
-            disabled={!!disabled}
-            innerLayout={innerLayout}
-            onLayout={(e) => setInnerLayout(e.nativeEvent.layout)}
-            style={{
-              opacity: fadeAnim,
-              transform: [{scale: scaleAnim}],
-            }}
-          />
-        </StyledRadioButton>
-        {label && labelPosition === 'right' ? (
-          <ColoredText
-            type={type}
-            selected={!!selected}
-            disabled={!!disabled}
-            style={styles?.label}
-          >
-            {label}
-          </ColoredText>
-        ) : null}
-        {rightElement}
+            <StyledRadioCircle
+              testID={`circle-${testID}`}
+              type={type}
+              selected={!!selected}
+              disabled={!!disabled}
+              innerLayout={innerLayout}
+              onLayout={(e) => setInnerLayout(e.nativeEvent.layout)}
+              style={{
+                opacity: fadeAnim,
+                transform: [{scale: scaleAnim}],
+              }}
+            />
+          </StyledRadioButton>
+          {label && labelPosition === 'right' ? (
+            <ColoredText
+              type={type}
+              selected={!!selected}
+              disabled={!!disabled}
+              style={styles?.label}
+            >
+              {label}
+            </ColoredText>
+          ) : null}
+          {rightElement}
+        </>
       </View>
     </Container>
   );

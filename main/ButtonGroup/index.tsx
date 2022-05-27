@@ -1,4 +1,3 @@
-import React from 'react';
 import {
   StyleProp,
   StyleSheet,
@@ -9,6 +8,7 @@ import {
   ViewStyle,
 } from 'react-native';
 
+import React from 'react';
 import {useTheme} from '@dooboo-ui/theme';
 
 interface Styles {
@@ -19,19 +19,19 @@ interface Styles {
   selectedText: StyleProp<TextStyle>;
 }
 
-interface Props<T> {
+interface Props {
   testID?: string;
   borderRadius?: number;
   borderWidth?: number;
   style?: StyleProp<ViewStyle>;
   styles?: Styles;
-  data: T[];
+  data: string[];
   color?: string;
   onPress?: (i: number) => void;
   selectedIndex?: number;
 }
 
-export function ButtonGroup<T>(props: Props<T>): React.ReactElement {
+export function ButtonGroup(props: Props): React.ReactElement {
   const {theme} = useTheme();
 
   const {

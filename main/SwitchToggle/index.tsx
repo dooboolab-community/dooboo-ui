@@ -28,8 +28,8 @@ interface Props {
   style?: StyleProp<ViewStyle>;
   styles?: Styles;
   duration?: number;
-  onElement?: ReactElement;
-  offElement?: ReactElement;
+  onElement?: any;
+  offElement?: any;
   onPress?: () => void;
 }
 
