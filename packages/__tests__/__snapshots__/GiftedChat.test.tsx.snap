@@ -24,7 +24,7 @@ exports[`[GiftedChatInput] render renders without crashing 1`] = `
   }
 >
   <RCTScrollView
-    ListEmptyComponent={<View />}
+    ListEmptyComponent={[Function]}
     ListHeaderComponent={
       <View
         style={
@@ -95,18 +95,7 @@ exports[`[GiftedChatInput] render renders without crashing 1`] = `
           }
         />
       </View>
-      <View
-        onLayout={[Function]}
-        style={
-          Object {
-            "transform": Array [
-              Object {
-                "scaleY": -1,
-              },
-            ],
-          }
-        }
-      />
+      <View />
     </View>
   </RCTScrollView>
   <View
