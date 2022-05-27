@@ -6,21 +6,21 @@
 
 ## Props
 
-|                  | necessary | types               | default |
-| ---------------- | --------- | ------------------- | ------- |
-| chats            |           | any[]               |         |
-| borderColor      |           | string              |         |
-| backgroundColor  |           | string              |         |
-| fontColor        |           | string              |         |
-| keyboardOffset   |           | number              |         |
-| renderItem       |           | ListRenderItem<any> |         |
-| emptyItem        |           | ReactElement        |         |
-| renderViewMenu   |           | () => ReactElement  |         |
-| optionView       |           | ReactElement        |         |
-| onChangeMessage  |           | Function            |         |
-| placeholder      |           | string              |         |
-| placeholderColor |           | string              |         |
-| renderSendButton |           | () => ReactElement  |         |
+|                    | necessary | types               | default |
+| ------------------ | --------- | ------------------- | ------- |
+| chats              |           | any[]               |         |
+| borderColor        |           | string              |         |
+| backgroundColor    |           | string              |         |
+| fontColor          |           | string              |         |
+| keyboardOffset     |           | number              |         |
+| renderItem         |           | ListRenderItem<any> |         |
+| ListEmptyComponent |           | ReactElement        |         |
+| renderViewMenu     |           | () => ReactElement  |         |
+| optionView         |           | ReactElement        |         |
+| onChangeMessage    |           | Function            |         |
+| placeholder        |           | string              |         |
+| placeholderColor   |           | string              |         |
+| renderSendButton   |           | () => ReactElement  |         |
 
 ## Installation
 
@@ -181,7 +181,7 @@ yarn add @dooboo-ui/gifted-chat
               source={IC_SMILE}
             />
           }
-          emptyItem={<EmptyListItem>{getString('NO_CONTENT')}</EmptyListItem>}
+          ListEmptyComponent={<EmptyListItem>{getString('NO_CONTENT')}</EmptyListItem>}
           renderViewMenu={(): React.ReactElement => (
             <View
               style={{
