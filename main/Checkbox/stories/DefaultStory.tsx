@@ -33,10 +33,90 @@ const LabelWapper: FC<{
       alignItems: 'center',
     }}
   >
-    <StyledText>{label}</StyledText>
-
-    {children}
+    <>
+      <StyledText>{label}</StyledText>
+      {children}
+    </>
   </View>
+);
+
+type CheckBoxProps = {
+  setChecked: (checked: boolean) => void;
+  checked: boolean;
+};
+
+const CheckboxForms: FC<CheckBoxProps> = ({setChecked, checked}) => (
+  <>
+    <StyledText style={{fontSize: 18, marginTop: 24, marginBottom: 12}}>
+      Checkbox
+    </StyledText>
+
+    <View
+      style={{
+        flexDirection: 'row',
+        flexWrap: 'wrap',
+        justifyContent: 'center',
+      }}
+    >
+      {types.map((type, i) => (
+        <LabelWapper key={`${type}_${i}`} label={type ?? 'default'}>
+          <Checkbox
+            style={{margin: 25}}
+            checked={checked}
+            onPress={() => setChecked(!checked)}
+            type={type}
+          />
+        </LabelWapper>
+      ))}
+
+      <LabelWapper label="disabled">
+        <Checkbox
+          style={{margin: 25}}
+          checked={checked}
+          onPress={() => setChecked(!checked)}
+          disabled
+        />
+      </LabelWapper>
+    </View>
+  </>
+);
+
+const CheckboxWithRightElement: FC<CheckBoxProps> = ({setChecked, checked}) => (
+  <>
+    <StyledText style={{fontSize: 18, marginTop: 24, marginBottom: 12}}>
+      Checkbox with right element
+    </StyledText>
+
+    <View style={{flexDirection: 'column'}}>
+      {[1, 2, 3].map((i) => (
+        <Checkbox
+          key={i}
+          checked={checked}
+          onPress={() => setChecked(!checked)}
+          rightElement={<StyledText>Hello this is a checkbox</StyledText>}
+        />
+      ))}
+    </View>
+  </>
+);
+
+const CheckboxWithLeftElement: FC<CheckBoxProps> = ({setChecked, checked}) => (
+  <>
+    <StyledText style={{fontSize: 18, marginTop: 24, marginBottom: 12}}>
+      Checkbox with left element
+    </StyledText>
+
+    <View style={{flexDirection: 'column'}}>
+      {[1, 2, 3].map((i) => (
+        <Checkbox
+          key={i}
+          checked={checked}
+          onPress={() => setChecked(!checked)}
+          leftElement={<StyledText>Hello this is a checkbox</StyledText>}
+        />
+      ))}
+    </View>
+  </>
 );
 
 const CheckboxStory: FC = () => {
@@ -50,80 +130,6 @@ const CheckboxStory: FC = () => {
   if (!fontsLoaded) {
     return <View />;
   }
-
-  const CheckboxForms: FC = () => (
-    <>
-      <StyledText style={{fontSize: 18, marginTop: 24, marginBottom: 12}}>
-        Checkbox
-      </StyledText>
-
-      <View
-        style={{
-          flexDirection: 'row',
-          flexWrap: 'wrap',
-          justifyContent: 'center',
-        }}
-      >
-        {types.map((type, i) => (
-          <LabelWapper key={`${type}_${i}`} label={type ?? 'default'}>
-            <Checkbox
-              style={{margin: 25}}
-              checked={checked}
-              onPress={() => setChecked(!checked)}
-              type={type}
-            />
-          </LabelWapper>
-        ))}
-
-        <LabelWapper label="disabled">
-          <Checkbox
-            style={{margin: 25}}
-            checked={checked}
-            onPress={() => setChecked(!checked)}
-            disabled
-          />
-        </LabelWapper>
-      </View>
-    </>
-  );
-
-  const CheckboxWithRightElement: FC = () => (
-    <>
-      <StyledText style={{fontSize: 18, marginTop: 24, marginBottom: 12}}>
-        Checkbox with right element
-      </StyledText>
-
-      <View style={{flexDirection: 'column'}}>
-        {[1, 2, 3].map((i) => (
-          <Checkbox
-            key={i}
-            checked={checked}
-            onPress={() => setChecked(!checked)}
-            rightElement={<StyledText>Hello this is a checkbox</StyledText>}
-          />
-        ))}
-      </View>
-    </>
-  );
-
-  const CheckboxWithLeftElement: FC = () => (
-    <>
-      <StyledText style={{fontSize: 18, marginTop: 24, marginBottom: 12}}>
-        Checkbox with left element
-      </StyledText>
-
-      <View style={{flexDirection: 'column'}}>
-        {[1, 2, 3].map((i) => (
-          <Checkbox
-            key={i}
-            checked={checked}
-            onPress={() => setChecked(!checked)}
-            leftElement={<StyledText>Hello this is a checkbox</StyledText>}
-          />
-        ))}
-      </View>
-    </>
-  );
 
   return (
     <View
@@ -141,13 +147,13 @@ const CheckboxStory: FC = () => {
           alignItems: 'center',
         }}
       >
-        <CheckboxForms />
+        <CheckboxForms setChecked={setChecked} checked={checked} />
         <Hr style={{marginTop: 40}} />
 
-        <CheckboxWithRightElement />
+        <CheckboxWithRightElement setChecked={setChecked} checked={checked} />
         <Hr style={{marginTop: 40}} />
 
-        <CheckboxWithLeftElement />
+        <CheckboxWithLeftElement setChecked={setChecked} checked={checked} />
       </ScrollContainer>
     </View>
   );
