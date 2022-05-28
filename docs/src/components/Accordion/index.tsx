@@ -4,6 +4,7 @@ import {StyleProp, ViewStyle} from 'react-native';
 import {ThemeProvider, ThemeType} from '@dooboo-ui/theme';
 
 import styled from '@emotion/native';
+import {useFonts} from 'expo-font';
 
 const Container = styled.View`
   padding: 20px;
@@ -54,13 +55,23 @@ const AccordionStory = ({
   theme = 'light',
   children,
   ...props
-}: AccordionStoryProps): ReactElement => (
-  <ThemeProvider initialThemeType={theme}>
-    <Container>
-      {children}
-      <Accordion {...props} />
-    </Container>
-  </ThemeProvider>
-);
+}: AccordionStoryProps): ReactElement => {
+  const [fontsLoaded] = useFonts({
+    IcoMoon: require('../../assets/doobooui.ttf'),
+  });
+
+  if (!fontsLoaded) {
+    return <Container />;
+  }
+
+  return (
+    <ThemeProvider initialThemeType={theme}>
+      <Container>
+        {children}
+        <Accordion {...props} />
+      </Container>
+    </ThemeProvider>
+  );
+};
 
 export default AccordionStory;
