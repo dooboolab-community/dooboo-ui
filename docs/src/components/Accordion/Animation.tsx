@@ -3,6 +3,7 @@ import {EditText, SwitchToggle, Typography} from 'dooboo-ui';
 import React, {useState} from 'react';
 
 import {View} from 'react-native';
+import {css} from '@emotion/native';
 
 function Animation(baseProps: AccordionStoryProps): React.ReactElement {
   const [shouldAnimate, setShouldAnimate] = useState(true);
@@ -28,17 +29,20 @@ function Animation(baseProps: AccordionStoryProps): React.ReactElement {
               isOn={shouldAnimate}
               onPress={() => setShouldAnimate(!shouldAnimate)}
               styles={{
-                container: {
-                  width: 50,
-                  height: 25,
-                  borderRadius: 25,
-                  padding: 5,
-                },
-                circle: {
-                  width: 15,
-                  height: 15,
-                  borderRadius: 20,
-                },
+                container: css`
+                  margin-left: 8px;
+                  width: 36px;
+                  height: 21px;
+                  border-radius: 50px;
+                  border-width: 2px;
+                  padding: 4px;
+                  border-width: 0px;
+                `,
+                circle: css`
+                  width: 12px;
+                  height: 12px;
+                  border-radius: 50px;
+                `,
               }}
             />
             <Typography.Body1 style={{marginLeft: 10}}>

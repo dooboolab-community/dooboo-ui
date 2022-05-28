@@ -4,7 +4,7 @@ import {Icon} from 'dooboo-ui';
 import styled from '@emotion/native';
 
 const Container = styled.View`
-  padding-left: 20;
+  padding-left: 20px;
   align-items: center;
   flex-direction: row;
 `;
@@ -17,7 +17,7 @@ const Title = styled.Text`
 
 const Body = styled.Text`
   flex: 1;
-  width: 80;
+  width: 80px;
   font-weight: bold;
 `;
 
