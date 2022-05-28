@@ -1,8 +1,8 @@
-import AccordionStory, {AccordionStoryBaseProps} from '.';
+import AccordionStory, {AccordionStoryProps} from '.';
 
 import {Icon} from 'dooboo-ui';
 
-function ToggleElement(baseProps: AccordionStoryBaseProps): React.ReactElement {
+function ToggleElement(baseProps: AccordionStoryProps): React.ReactElement {
   return (
     <AccordionStory
       {...baseProps}

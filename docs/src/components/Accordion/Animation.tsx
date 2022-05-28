@@ -1,10 +1,10 @@
-import AccordionStory, {AccordionStoryBaseProps} from '.';
+import AccordionStory, {AccordionStoryProps} from '.';
 import {EditText, SwitchToggle, Typography} from 'dooboo-ui';
 import React, {useState} from 'react';
 
 import {View} from 'react-native';
 
-function Animation(baseProps: AccordionStoryBaseProps): React.ReactElement {
+function Animation(baseProps: AccordionStoryProps): React.ReactElement {
   const [shouldAnimate, setShouldAnimate] = useState(true);
   const [animDuration, onChangeAnimDuration] = useState(200);
 

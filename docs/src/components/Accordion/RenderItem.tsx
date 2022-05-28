@@ -1,4 +1,4 @@
-import AccordionStory, {AccordionStoryBaseProps} from '.';
+import AccordionStory, {AccordionStoryProps} from '.';
 
 import {Icon} from 'dooboo-ui';
 import styled from '@emotion/native';
@@ -21,7 +21,7 @@ const Body = styled.Text`
   font-weight: bold;
 `;
 
-function RenderItem(baseProps: AccordionStoryBaseProps): React.ReactElement {
+function RenderItem(baseProps: AccordionStoryProps): React.ReactElement {
   return (
     <AccordionStory
       {...baseProps}

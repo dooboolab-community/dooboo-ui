@@ -1,6 +1,5 @@
-import {Accordion, AccordionListType} from 'dooboo-ui';
+import {Accordion, AccordionListType, AccordionProps} from 'dooboo-ui';
 import React, {ReactElement} from 'react';
-import {StyleProp, ViewStyle} from 'react-native';
 import {ThemeProvider, ThemeType} from '@dooboo-ui/theme';
 
 import styled from '@emotion/native';
@@ -30,24 +29,8 @@ export const sampleData: AccordionListType = [
   },
 ];
 
-export interface AccordionStoryBaseProps {
+export interface AccordionStoryProps extends AccordionProps {
   theme?: ThemeType;
-  data: AccordionListType;
-}
-
-interface AccordionStoryProps extends AccordionStoryBaseProps {
-  style?: StyleProp<ViewStyle>;
-  styles?: {
-    titleContainer?: StyleProp<ViewStyle>;
-    bodyContainer?: StyleProp<ViewStyle>;
-  };
-  shouldAnimate?: boolean;
-  collapseOnStart?: boolean;
-  animDuration?: number;
-  activeOpacity?: number;
-  toggleElement?: ReactElement | null;
-  renderTitle?: (item: string) => ReactElement;
-  renderBody?: (item: string) => ReactElement;
   children?: React.ReactNode;
 }
 
