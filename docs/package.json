@@ -40,6 +40,9 @@
     "url-loader": "^4.1.1",
     "webpack": "^5.72.1"
   },
+  "resolutions": {
+    "@types/react": "17.0.40"
+  },
   "scripts": {
     "preinstall": "cd .. && yarn && yarn pre && yarn build",
     "build": "build-storybook --docs -o ./doc-build -c ./.storybook && cp -r ./src/assets ./doc-build",
