@@ -21,7 +21,7 @@ const Body = styled.Text`
   font-weight: bold;
 `;
 
-function RenderItem(baseProps: AccordionStoryProps): React.ReactElement {
+function ExRenderFunction(baseProps: AccordionStoryProps): React.ReactElement {
   return (
     <AccordionStory
       {...baseProps}
@@ -40,4 +40,4 @@ function RenderItem(baseProps: AccordionStoryProps): React.ReactElement {
   );
 }
 
-export default RenderItem;
+export default ExRenderFunction;

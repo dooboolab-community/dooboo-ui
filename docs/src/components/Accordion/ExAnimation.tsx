@@ -5,7 +5,7 @@ import React, {useState} from 'react';
 import {View} from 'react-native';
 import {css} from '@emotion/native';
 
-function Animation(baseProps: AccordionStoryProps): React.ReactElement {
+function ExAnimation(baseProps: AccordionStoryProps): React.ReactElement {
   const [shouldAnimate, setShouldAnimate] = useState(true);
   const [animDuration, onChangeAnimDuration] = useState(200);
 
@@ -77,4 +77,4 @@ function Animation(baseProps: AccordionStoryProps): React.ReactElement {
   );
 }
 
-export default Animation;
+export default ExAnimation;

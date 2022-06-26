@@ -2,7 +2,7 @@ import AccordionStory, {AccordionStoryProps} from '.';
 
 import {Icon} from 'dooboo-ui';
 
-function ToggleElement(baseProps: AccordionStoryProps): React.ReactElement {
+function ExToggleElement(baseProps: AccordionStoryProps): React.ReactElement {
   return (
     <AccordionStory
       {...baseProps}
@@ -11,4 +11,4 @@ function ToggleElement(baseProps: AccordionStoryProps): React.ReactElement {
   );
 }
 
-export default ToggleElement;
+export default ExToggleElement;
