@@ -1,8 +1,8 @@
 import {Meta, Story, Canvas} from '@storybook/addon-docs/blocks';
 import AccordionStory, {sampleData} from './index';
-import AnimationAccordion from './Animation';
-import RenderItem from './RenderItem';
-import ToggleElement from './ToggleElement';
+import ExAnimation from './ExAnimation';
+import ExRenderFunction from './ExRenderFunction';
+import ExToggleElement from './ExToggleElement';
 
 <Meta title="Components/Accordion" />
 
@@ -49,7 +49,7 @@ import {Accordion} from 'dooboo-ui';
 
 This component supports drop down toggle with animation. Animation actions are based [Animated](https://reactnative.dev/docs/animated) library for React-Native, You can set an animation effect starts and duration when this component is mounted.
 
-<AnimationAccordion data={sampleData} />
+<ExAnimation data={sampleData} />
 
 ## Customization
 
@@ -80,6 +80,7 @@ Customize `titleContainer` or `bodyContainer` style with style object.
 
 <AccordionStory
   data={sampleData}
+  collapseOnStart={false}
   styles={{
     titleContainer: {
       backgroundColor: 'gray',
@@ -102,9 +103,6 @@ Customize `titleContainer` or `bodyContainer` style with style object.
 It supports seperate render function for Accordion. You can customize the look of each component with the `renderTitle` or `renderBody` function.
 
 ```tsx
-import {Icon} from 'dooboo-ui';
-import styled from '@emotion/native';
-
 const Container = styled.View`
   padding-left: 20px;
   align-items: center;
@@ -139,18 +137,17 @@ const Body = styled.Text`
 />;
 ```
 
-<RenderItem data={sampleData} />
+<ExRenderFunction data={sampleData} />
 
 ### Using custom toggle element
 
 You can also use custom toggle element, which switches the status of each accordion item, with `toggleElement`.
 
 ```tsx
-import {Accordion, Icon} from 'dooboo-ui';
-
-const toggleElement = <Icon name="chevron-right" color="white" />;
-
-<Accordion toggleElement={toggleElement} />;
+<Accordion
+  toggleElement={<Icon name="chevron-right" color="white" />}
+  {...props}
+/>
 ```
 
-<ToggleElement data={sampleData} />
+<ExToggleElement data={sampleData} />
