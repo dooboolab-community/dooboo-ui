@@ -14,11 +14,11 @@ describe('[SwitchToggle]', () => {
   });
 
   it('handles press event', () => {
-    const {getByA11yRole} = render(
+    const {getByRole} = render(
       createComponent(<SwitchToggle isOn={false} onPress={handlePress} />),
     );
 
-    fireEvent.press(getByA11yRole('switch'));
+    fireEvent.press(getByRole('switch'));
     expect(handlePress).toBeCalled();
   });
 

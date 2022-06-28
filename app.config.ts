@@ -5,7 +5,7 @@ export default {
     privacy: 'public',
     platforms: ['ios', 'android', 'web'],
     orientation: 'default',
-    icon: './assets/icon192.png',
+    icon: './assets/icon.png',
     userInterfaceStyle: 'automatic',
     assetBundlePatterns: ['**/*'],
   },

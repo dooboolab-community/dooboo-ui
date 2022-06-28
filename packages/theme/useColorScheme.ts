@@ -1,4 +1,9 @@
-import {Appearance, ColorSchemeName, Platform} from 'react-native';
+import {
+  Appearance,
+  ColorSchemeName,
+  NativeEventSubscription,
+  Platform,
+} from 'react-native';
 import {useEffect, useState} from 'react';
 
 export const useColorScheme = (): ColorSchemeName => {
@@ -13,10 +18,10 @@ export const useColorScheme = (): ColorSchemeName => {
       setColorType(platformColorScheme);
     };
 
-    Appearance.addChangeListener(listener);
+    const sub: NativeEventSubscription = Appearance.addChangeListener(listener);
 
     return function cleanup() {
-      Appearance.removeChangeListener(listener);
+      sub.remove();
     };
   }, []);
 
