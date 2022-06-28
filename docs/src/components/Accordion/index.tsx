@@ -1,24 +1,20 @@
+import {Accordion, AccordionListType, AccordionProps} from 'dooboo-ui';
 import React, {ReactElement} from 'react';
+import {ThemeProvider, ThemeType} from '@dooboo-ui/theme';
 
-import {Accordion} from 'dooboo-ui';
-import {IC_ARR_DOWN} from '../../icon';
-import {ThemeProvider} from '@dooboo-ui/theme';
 import styled from '@emotion/native';
+import {useFonts} from 'expo-font';
 
 const Container = styled.View`
-  flex: 1;
+  padding: 20px;
+  width: 100%;
+  display: inline-block;
+  background-color: ${({theme}) => theme.background};
   justify-content: center;
-  flex-direction: column;
   align-items: center;
-  min-height: 600px;
 `;
 
-const Arrow = styled.Image`
-  width: 20px;
-  height: 20px;
-`;
-
-const data = [
+export const sampleData: AccordionListType = [
   {
     title: 'Lists',
     bodies: ['user', 'mail', 'plan'],
@@ -33,27 +29,32 @@ const data = [
   },
 ];
 
-export const AccordionStory = (): ReactElement => {
+export interface AccordionStoryProps extends AccordionProps {
+  theme?: ThemeType;
+  children?: React.ReactNode;
+}
+
+const AccordionStory = ({
+  theme = 'light',
+  children,
+  ...props
+}: AccordionStoryProps): ReactElement => {
+  const [fontsLoaded] = useFonts({
+    IcoMoon: require('../../assets/doobooui.ttf'),
+  });
+
+  if (!fontsLoaded) {
+    return <Container />;
+  }
+
   return (
-    <Container>
-      <Accordion
-        data={data}
-        shouldAnimate={true}
-        collapseOnStart={true}
-        animDuration={400}
-        activeOpacity={1}
-        toggleElement={
-          <Arrow style={{tintColor: 'white'}} source={IC_ARR_DOWN} />
-        }
-      />
-    </Container>
+    <ThemeProvider initialThemeType={theme}>
+      <Container>
+        {children}
+        <Accordion {...props} />
+      </Container>
+    </ThemeProvider>
   );
 };
 
-const Default = (): ReactElement => (
-  <ThemeProvider initialThemeType="light">
-    <AccordionStory />
-  </ThemeProvider>
-);
-
-export default Default;
+export default AccordionStory;
