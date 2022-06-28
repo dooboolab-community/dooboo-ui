@@ -25,7 +25,7 @@ jobs:
       - name: Install modules
         run: yarn install --frozen-lockfile --network-concurrency 1
 
-      - name: Prepare pacakges
+      - name: Prepare packages
         run: yarn pre
 
       - name: Check linting
@@ -36,6 +36,9 @@ jobs:
 
       - name: Build
         run: yarn build
+
+      - name: Remove theme built lib
+        run: rm -rf packages/theme/lib
 
       - name: Test
         run: yarn test --coverage --forceExit --silent -u
