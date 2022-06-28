@@ -4,7 +4,7 @@ export default create({
   base: 'dark',
   brandTitle: 'dooboo-ui',
   brandUrl: 'https://dooboolab.github.io/dooboo-ui',
-  brandImage: '/assets/icon192.png',
+  brandImage: '/assets/icon.png',
 
   colorPrimary: 'white',
   colorSecondary: '#00D9D5',
