@@ -3,7 +3,7 @@
 > React Native UI components built by `dooboolab`. Which follows the Neutral Design.
 
 <img
-  src="https://user-images.githubusercontent.com/27461460/161415284-b91e8269-4914-4819-a752-41d53c03cea3.png"
+  src="https://user-images.githubusercontent.com/27461460/176166985-eff1611b-5e0a-4106-823f-fbeff24f7f9f.png"
   width="420"
 />
 
