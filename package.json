@@ -29,7 +29,7 @@
     "upgrade:packages": "lerna exec -- ncu -u && yarn install:packages"
   },
   "dependencies": {
-    "@dooboo-ui/theme": "^0.4.6",
+    "@dooboo-ui/theme": "^0.4.7",
     "@emotion/native": "^11.9.3",
     "@emotion/react": "^11.9.3",
     "@expo/match-media": "^0.3.0",
