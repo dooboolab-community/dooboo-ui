@@ -4457,10 +4457,10 @@ exports[`[RadioButton] render should render without crashing 1`] = `
                   "flexBasis": 0,
                   "flexGrow": 1,
                   "flexShrink": 1,
-                  "opacity": 0.00011425836668732536,
+                  "opacity": 0,
                   "transform": Array [
                     Object {
-                      "scale": 0.00011425836668732536,
+                      "scale": 0,
                     },
                   ],
                 }
