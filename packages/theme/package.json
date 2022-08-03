@@ -13,7 +13,8 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/dooboolab/dooboo-ui.git"
+    "url": "git+https://github.com/dooboolab/dooboo-ui.git",
+    "directory": "packages/theme"
   },
   "scripts": {
     "clean": "rm -rf lib",
@@ -22,6 +23,9 @@
   },
   "bugs": {
     "url": "https://github.com/dooboo-ui/issues"
+  },
+  "publishConfig": {
+    "access": "public"
   },
   "keywords": [
     "theme",

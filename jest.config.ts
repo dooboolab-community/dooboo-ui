@@ -45,7 +45,6 @@ export default async (): Promise<Config.InitialOptions> => {
     coveragePathIgnorePatterns: [
       '.example.',
       '__assets__',
-      './main/theme',
       'stories',
       '/node_modules/',
     ],
