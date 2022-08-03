@@ -320,9 +320,7 @@ exports[`[EditText] interactions Type: [boxed] should render \`!editable\` statu
           },
         ]
       }
-    >
-      
-    </Text>
+    />
   </View>
 </View>
 `;
@@ -415,9 +413,7 @@ exports[`[EditText] interactions Type: [boxed] should render \`errorText\` 1`] =
           },
         ]
       }
-    >
-      
-    </Text>
+    />
   </View>
 </View>
 `;
@@ -510,9 +506,7 @@ exports[`[EditText] interactions Type: [boxed] should render \`maxLength\` count
           },
         ]
       }
-    >
-      
-    </Text>
+    />
   </View>
 </View>
 `;
@@ -605,9 +599,7 @@ exports[`[EditText] interactions Type: [boxed] should render without crashing 1`
           },
         ]
       }
-    >
-      
-    </Text>
+    />
   </View>
 </View>
 `;
@@ -700,9 +692,7 @@ exports[`[EditText] interactions Type: [column] - default renders custom styles 
           },
         ]
       }
-    >
-      
-    </Text>
+    />
   </View>
 </View>
 `;
@@ -795,9 +785,7 @@ exports[`[EditText] interactions Type: [column] - default renders without crashi
           },
         ]
       }
-    >
-      
-    </Text>
+    />
   </View>
 </View>
 `;
@@ -890,9 +878,7 @@ exports[`[EditText] interactions Type: [column] - default should render \`maxLen
           },
         ]
       }
-    >
-      
-    </Text>
+    />
   </View>
 </View>
 `;
@@ -985,9 +971,7 @@ exports[`[EditText] interactions Type: [column] - default should render \`maxLen
           },
         ]
       }
-    >
-      
-    </Text>
+    />
   </View>
 </View>
 `;
@@ -1080,9 +1064,7 @@ exports[`[EditText] interactions Type: [row] should render \`!editable\` status 
           },
         ]
       }
-    >
-      
-    </Text>
+    />
   </View>
 </View>
 `;
@@ -1175,9 +1157,7 @@ exports[`[EditText] interactions Type: [row] should render \`errorText\` 1`] = `
           },
         ]
       }
-    >
-      
-    </Text>
+    />
   </View>
 </View>
 `;
@@ -1270,9 +1250,7 @@ exports[`[EditText] interactions Type: [row] should render \`maxLength\` counter
           },
         ]
       }
-    >
-      
-    </Text>
+    />
   </View>
 </View>
 `;
@@ -1365,9 +1343,7 @@ exports[`[EditText] interactions Type: [row] should render without crashing 1`] 
           },
         ]
       }
-    >
-      
-    </Text>
+    />
   </View>
 </View>
 `;
@@ -1462,9 +1438,7 @@ exports[`[EditText] interactions web renders without crashing 1`] = `
           },
         ]
       }
-    >
-      
-    </Text>
+    />
   </View>
 </View>
 `;

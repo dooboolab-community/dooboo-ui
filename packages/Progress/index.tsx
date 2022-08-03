@@ -27,7 +27,6 @@ const Container = styled.View`
   justify-content: center;
 `;
 
-// @ts-ignore
 const AnimCircle = Animated.createAnimatedComponent(Circle);
 
 const Text = styled.Text``;
@@ -86,7 +85,6 @@ const ProgressCircle: React.FC<Props> = ({
       }}
       style={[containerLayout, style, styles?.container]}
     >
-      {/* @ts-ignore */}
       <Svg
         style={{position: 'absolute'}}
         width={containerLayout.width}
@@ -94,8 +92,8 @@ const ProgressCircle: React.FC<Props> = ({
         viewBox={`0 0 ${containerLayout.width} ${containerLayout.height}`}
       >
         <AnimCircle
+          // @ts-ignore => PR given https://github.com/react-native-svg/react-native-svg/pull/1822
           fill="transparent"
-          {...circleProps}
           r={radius}
           strokeWidth={strokeWidth}
           stroke={strokeColor}
@@ -105,14 +103,14 @@ const ProgressCircle: React.FC<Props> = ({
             inputRange: [0, 1],
             outputRange: [2 * Math.PI * radius, 0],
           })}
+          {...circleProps}
         />
-        {/* @ts-ignore */}
         <Circle
           fill="transparent"
-          {...circleProps}
           r={radius + strokeWidth / 2}
           strokeWidth={1}
           stroke={strokeColor}
+          {...circleProps}
         />
       </Svg>
       <Text style={[styles?.text, {color: strokeColor}]}>
