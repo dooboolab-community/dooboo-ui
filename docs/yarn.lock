@@ -2917,11 +2917,6 @@
   resolved "https://registry.yarnpkg.com/@types/pretty-hrtime/-/pretty-hrtime-1.0.1.tgz#72a26101dc567b0d68fd956cf42314556e42d601"
   integrity sha512-VjID5MJb1eGKthz2qUerWT8+R4b9N+CHvGCzg9fn4kWZgaF9AhdYikQio3R7wV8YY1NsQKPaCwKz1Yff+aHNUQ==
 
-"@types/prop-types@*":
-  version "15.7.5"
-  resolved "https://registry.yarnpkg.com/@types/prop-types/-/prop-types-15.7.5.tgz#5f19d2b85a98e9558036f6a3cacc8819420f05cf"
-  integrity sha512-JCB8C6SnDoQf0cNycqd/35A7MjcnK+ZTqE7judS6o7utxUCg6imJg3QK2qzHKszlTjcj2cn+NwMB2i96ubpj7w==
-
 "@types/q@^1.5.1":
   version "1.5.5"
   resolved "https://registry.yarnpkg.com/@types/q/-/q-1.5.5.tgz#75a2a8e7d8ab4b230414505d92335d1dcb53a6df"
@@ -2931,20 +2926,6 @@
   version "6.9.7"
   resolved "https://registry.yarnpkg.com/@types/qs/-/qs-6.9.7.tgz#63bb7d067db107cc1e457c303bc25d511febf6cb"
   integrity sha512-FGa1F62FT09qcrueBA6qYTrJPVDzah9a+493+o2PCXsesWHIn27G98TsSMs3WPNbZIEj4+VJf6saSFpvD+3Zsw==
-
-"@types/react@17.0.40":
-  version "17.0.40"
-  resolved "https://registry.yarnpkg.com/@types/react/-/react-17.0.40.tgz#dc010cee6254d5239a138083f3799a16638e6bad"
-  integrity sha512-UrXhD/JyLH+W70nNSufXqMZNuUD2cXHu6UjCllC6pmOQgBX4SGXOH8fjRka0O0Ee0HrFxapDD8Bwn81Kmiz6jQ==
-  dependencies:
-    "@types/prop-types" "*"
-    "@types/scheduler" "*"
-    csstype "^3.0.2"
-
-"@types/scheduler@*":
-  version "0.16.2"
-  resolved "https://registry.yarnpkg.com/@types/scheduler/-/scheduler-0.16.2.tgz#1a62f89525723dde24ba1b01b092bf5df8ad4d39"
-  integrity sha512-hppQEBDmlwhFAXKJX2KnWLYu5yMfi91yazPb2l+lbJiwW+wdo1gNeRA+3RgNSO39WYX2euey41KEwnqesU2Jew==
 
 "@types/source-list-map@*":
   version "0.1.2"
@@ -6008,11 +5989,12 @@ expo-file-system@~11.1.3:
     expo-modules-core "~0.2.0"
     uuid "^3.4.0"
 
-expo-font@^10.2.0:
-  version "10.2.0"
-  resolved "https://registry.yarnpkg.com/expo-font/-/expo-font-10.2.0.tgz#881f767e13b2b534a4d3ffaedcf675ce6b63439d"
-  integrity sha512-2V4EcpmhNoppaLn+lPprZVS+3bmV9hxLPKttKh2u8ghjH/oX9bv3u4JVo77SYh0EfrWO4toqVyXn8pXH8GpbIg==
+expo-font@^9.2.1:
+  version "9.3.0"
+  resolved "https://registry.yarnpkg.com/expo-font/-/expo-font-9.3.0.tgz#ef569c57f6742f9db72f9e9de3645d3935aa2d82"
+  integrity sha512-1Hgdos2KBUS/7U/r7BjHM5wh7EYr7KFVtEciQPLE1Zm1xlf+p1ZHdFkyOVagwLdovsfxhxeQQagUeOdtMKfmrQ==
   dependencies:
+    expo-modules-core "~0.3.0"
     fontfaceobserver "^2.1.0"
 
 expo-image-loader@~2.2.0:
@@ -6035,6 +6017,14 @@ expo-modules-core@~0.2.0:
   version "0.2.0"
   resolved "https://registry.yarnpkg.com/expo-modules-core/-/expo-modules-core-0.2.0.tgz#68e5b6e53d0afbf8d131578831aed657589a2d42"
   integrity sha512-inpfZ5X/BaTtbj2wG9PA9AC0MN8VyId6KSRlVuEg7+ziurHBy/kKDFxpOddUokhwiln2uhoYPSStJjR/tKypdw==
+
+expo-modules-core@~0.3.0:
+  version "0.3.2"
+  resolved "https://registry.yarnpkg.com/expo-modules-core/-/expo-modules-core-0.3.2.tgz#b0b92b4100c6c13b69ef80ff0a8e97f2cc4f20b6"
+  integrity sha512-7ESMwkO5AwRflGDwcF0Yki98244/0n57alUJA/87TNZdciU0wa0joHi2Eb/fT2ggLT8ta1/bnavb1i3xGftj1Q==
+  dependencies:
+    compare-versions "^3.4.0"
+    invariant "^2.2.4"
 
 expo-pwa@0.0.122:
   version "0.0.122"
@@ -10490,7 +10480,7 @@ react-docgen@^5.0.0:
     node-dir "^0.1.10"
     strip-indent "^3.0.0"
 
-react-dom@^18.2.0:
+react-dom@^18.0.0:
   version "18.2.0"
   resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-18.2.0.tgz#22aaf38708db2674ed9ada224ca4aa708d821e3d"
   integrity sha512-6IMTriUmvsjHUjNtEDudZfuDQUoWXVxKHhlEGSk81n4YFS+r/Kl99wXiwlVXtPBtJenozv2P+hxDsw9eA7Xo6g==
@@ -10605,13 +10595,12 @@ react-responsive@^8.2.0:
     prop-types "^15.6.1"
     shallow-equal "^1.1.0"
 
-react@^17.0.2:
-  version "17.0.2"
-  resolved "https://registry.yarnpkg.com/react/-/react-17.0.2.tgz#d0b5cc516d29eb3eee383f75b62864cfb6800037"
-  integrity sha512-gnhPt75i/dq/z3/6q/0asP78D0u592D5L1pd7M8P+dck6Fu/jJeL6iVVK23fptSUZj8Vjf++7wXA8UNclGQcbA==
+react@^18.0.0:
+  version "18.2.0"
+  resolved "https://registry.yarnpkg.com/react/-/react-18.2.0.tgz#555bd98592883255fa00de14f1151a917b5d77d5"
+  integrity sha512-/3IjMdb2L9QbBdWiW5e3P2/npwMBaU9mHCSCUzNln0ZCYbcfTsGbTJrU/kGemdH2IWmB2ioZ+zkxtmq6g09fGQ==
   dependencies:
     loose-envify "^1.1.0"
-    object-assign "^4.1.1"
 
 read-pkg-up@^1.0.1:
   version "1.0.1"
