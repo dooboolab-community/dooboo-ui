@@ -25,14 +25,14 @@ jobs:
       - name: Install modules
         run: yarn install --frozen-lockfile --network-concurrency 1
 
-      - name: Check commit message is valid
-        uses: wagoid/commitlint-github-action@v5
-
       - name: Prepare packages
         run: yarn pre
 
       - name: Check linting
         run: yarn lint
+
+      - name: Check commitlint
+        run: yarn lint:ci
 
       - name: Build typescript
         run: yarn tsc
