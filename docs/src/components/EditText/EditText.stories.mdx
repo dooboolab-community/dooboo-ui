@@ -1,0 +1,79 @@
+import {Meta, Story, Canvas} from '@storybook/addon-docs/blocks';
+import {ThemeProvider, ThemeType} from '@dooboo-ui/theme';
+import Default from './index';
+
+<Meta title="Components/EditText" />
+
+# EditText
+
+> `EditText` helps decorating react-native [TextInput](https://reactnative.dev/docs/textinput) faster. It even helps you to decorate web component style like `hovered` mode.
+
+<br />
+
+## Usage
+
+```tsx
+import {EditText} from 'dooboo-ui';
+
+<EditText
+  type="row"
+  placeholder="Default EditText"
+  value={email}
+  onChangeText={(text) => onTextChanged('EMAIL', text)}
+  style={{marginTop: 20, marginBottom: 24, paddingHorizontal: 36}}
+/>;
+```
+
+## Props
+
+```tsx
+export type EditTextProps = {
+  testID?: TextInputProps['testID'];
+  inputRef?: LegacyRef<TextInput>;
+  textInputProps?: TextInputProps;
+  style?: StyleProp<ViewStyle>;
+  styles?: Styles;
+  labelText?: string;
+  errorText?: string;
+  value?: TextInputProps['value'];
+  onChange?: TextInputProps['onChange'];
+  onChangeText?: TextInputProps['onChangeText'];
+  placeholder?: TextInputProps['placeholder'];
+  placeholderColor?: TextInputProps['placeholderTextColor'];
+  onFocus?: TextInputProps['onFocus'] | undefined;
+  onBlur?: TextInputProps['onBlur'] | undefined;
+  editable?: TextInputProps['editable'];
+  autoCapitalize?: TextInputProps['autoCapitalize'];
+  secureTextEntry?: TextInputProps['secureTextEntry'];
+  onSubmitEditing?: TextInputProps['onSubmitEditing'];
+
+  focusColor?: string;
+  hoverColor?: string;
+  errorColor?: string;
+  disableColor?: string;
+  labelColor?: string;
+  type?: 'row' | 'column' | 'boxed';
+};
+```
+
+## Demo
+
+<br />
+
+### Default
+
+<p>
+  <Default type="row" placeholder="Default EditText" labelText="Label" />
+</p>
+
+### Column
+
+<p>
+  <Default type="column" placeholder="Default EditText" labelText="Label" />
+</p>
+
+### boxed
+
+<p>
+  <Default type="boxed" placeholder="Write a message"/>
+</p>
