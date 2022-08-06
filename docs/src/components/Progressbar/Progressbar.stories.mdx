@@ -1,0 +1,62 @@
+import {Meta, Story, Canvas} from '@storybook/addon-docs/blocks';
+import Default from './index';
+import {ThemeProvider, ThemeType} from '@dooboo-ui/theme';
+
+<Meta title="Components/Progressbar" />
+
+# Progressbar
+
+> `Progressbar` is be used to display the bar graph.
+
+<br />
+
+## Usage
+
+```tsx
+import {Progressbar} from 'dooboo-ui';
+
+...
+<Progressbar value={25} />;
+```
+
+| Props  | Types             | Description                                                                                                         | Required | Default   |
+| ------ | ----------------- | ------------------------------------------------------------------------------------------------------------------- | -------- | --------- |
+| styles | ProgressbarStyles | This props determine styles of the component. You don't need to fill this props because the default values are set. |          | undefined |
+| value  | number            | Progress value. It must be between 0 to 1.                                                                          | v        |           |
+| type   | ProgressbarType   | Progress theme type. This value determined the color of the shape if prop color is undefined.                       |          | "info"    |
+
+<br />
+
+## Demo
+
+### Default
+
+<ThemeProvider>
+  <Default />
+</ThemeProvider>
+
+### Danger
+
+<ThemeProvider>
+  <Default type="success"/>
+</ThemeProvider>
+
+### Danger
+
+<ThemeProvider>
+  <Default type="danger"/>
+</ThemeProvider>
+
+### Warning
+
+<ThemeProvider>
+  <Default type="warning"/>
+</ThemeProvider>
+
+### Info
+
+<ThemeProvider>
+  <Default type="info"/>
+</ThemeProvider>
+
+### 
