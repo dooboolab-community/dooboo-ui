@@ -31,9 +31,6 @@ jobs:
       - name: Check linting
         run: yarn lint
 
-      - name: Check commitlint
-        run: yarn lint:ci
-
       - name: Build typescript
         run: yarn tsc
 
