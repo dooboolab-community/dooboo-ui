@@ -5399,10 +5399,10 @@ domutils@^2.0.0, domutils@^2.5.2, domutils@^2.8.0:
     domelementtype "^2.2.0"
     domhandler "^4.2.0"
 
-dooboo-ui@^0.1.66:
-  version "0.1.66"
-  resolved "https://registry.yarnpkg.com/dooboo-ui/-/dooboo-ui-0.1.66.tgz#e15501bc68143fb80ad59a7b551d6599e0db835d"
-  integrity sha512-fEMmcZqFguSiPGtAznb7NERHO37qmvQjCHeVSzCbssmzKoEEcfTKM8hj6czdMZtVk2MYzaQycjkAILdrL+n5Ng==
+dooboo-ui@^0.1.67:
+  version "0.1.67"
+  resolved "https://registry.yarnpkg.com/dooboo-ui/-/dooboo-ui-0.1.67.tgz#0e1c6b9484c4a6f52bf843ab62083a8f9b3807cf"
+  integrity sha512-hZVk4F8bV2mbD4sRMy+LVeLEQfcPkq7q6m1WKW6OI7zeZvL8noC0P97FWMQtemSdZmASCnl6jSWxYBmOZLtn8g==
   dependencies:
     "@dooboo-ui/theme" "^0.4.7"
     dooboolab-welcome "^1.3.2"
