@@ -14,7 +14,7 @@
     "jest": "jest --runInBand",
     "android": "expo start --android",
     "ios": "expo start --ios",
-    "web": "start-storybook -p 6006",
+    "web": "expo start --web",
     "eject": "expo eject",
     "test": "jest",
     "test:all": "lerna run build && yarn lint && yarn tsc && jest",
@@ -42,7 +42,7 @@
     "expo-font": "~10.2.0",
     "expo-linear-gradient": "~11.4.0",
     "expo-screen-orientation": "~4.3.0",
-    "react-native": "0.69.3",
+    "react-native": "0.69.4",
     "react-native-gesture-handler": "~2.5.0",
     "react-native-modalbox": "^2.0.2",
     "react-native-svg": "12.3.0",
@@ -106,7 +106,8 @@
     "react-useinterval": "^1.0.2",
     "ts-jest": "^28.0.7",
     "ts-node": "^10.9.1",
-    "typescript": "~4.7.4"
+    "typescript": "~4.7.4",
+    "webpack-dev-server": "^3.11.3"
   },
   "workspaces": {
     "packages": [
