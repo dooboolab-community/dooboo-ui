@@ -19,7 +19,6 @@ type Props<T> = {
   title?: string;
   data: T[];
   selectedValue: T;
-  renderItem?: ({item: T, i: number}) => ReactElement;
   selectValue?: (item: T) => void;
   type?: RadioButtonType;
   style?: StyleProp<ViewStyle>;
