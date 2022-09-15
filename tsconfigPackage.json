@@ -12,7 +12,9 @@
     "skipLibCheck": true,
     "allowSyntheticDefaultImports": true,
     "allowJs": false,
-    "declaration": true
+    "declaration": true,
+    "declarationMap": true,
+    "preserveSymlinks": true
   },
   "exclude": [
     "node_modules",

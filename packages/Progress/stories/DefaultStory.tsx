@@ -1,13 +1,13 @@
-import Progress from '../lib';
+import {DoobooTheme, useTheme} from '@dooboo-ui/theme';
 import React, {useEffect, useState} from 'react';
-
-import styled from '@emotion/native';
 import {
-  number as numberInput,
   boolean as booleanInput,
+  number as numberInput,
   select as selectInput,
 } from '@storybook/addon-knobs';
-import {DoobooTheme, useTheme} from '@dooboo-ui/theme';
+
+import Progress from '../lib';
+import styled from '@emotion/native';
 
 type DoobooThemeContext = {theme?: DoobooTheme};
 
