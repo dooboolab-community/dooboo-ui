@@ -1,25 +1,18 @@
 {
   "name": "@dooboo-ui/theme",
-  "version": "0.6.0",
+  "version": "0.9.0",
   "description": "dooboo-ui theme provider",
   "homepage": "https://github.com/dooboolab/dooboo-ui#readme",
   "license": "ISC",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
-  "directories": {
-    "lib": "lib"
-  },
-  "files": [
-    "lib"
-  ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/dooboolab/dooboo-ui.git",
     "directory": "packages/theme"
   },
   "scripts": {
     "clean": "rm -rf lib",
-    "build": "tsc",
+    "build": "yarn clean && tsc",
     "watch": "tsc -w"
   },
   "bugs": {
