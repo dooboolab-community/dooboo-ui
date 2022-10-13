@@ -19,7 +19,7 @@ exports[`[EditText] interactions !editable renders \`errorText\` 1`] = `
         Array [
           Object {
             "alignSelf": "stretch",
-            "borderBottomColor": "black",
+            "borderBottomColor": "#000000",
             "borderBottomWidth": 2,
             "flexDirection": "column",
             "justifyContent": "space-between",
@@ -103,7 +103,7 @@ exports[`[EditText] interactions !editable renders \`labelText\` 1`] = `
         Array [
           Object {
             "alignSelf": "stretch",
-            "borderBottomColor": "black",
+            "borderBottomColor": "#000000",
             "borderBottomWidth": 1,
             "flexDirection": "column",
             "justifyContent": "space-between",
@@ -187,7 +187,7 @@ exports[`[EditText] interactions !editable renders without crashing 1`] = `
         Array [
           Object {
             "alignSelf": "stretch",
-            "borderBottomColor": "black",
+            "borderBottomColor": "#000000",
             "borderBottomWidth": 1,
             "flexDirection": "column",
             "justifyContent": "space-between",
@@ -251,7 +251,7 @@ exports[`[EditText] interactions Type: [boxed] should render \`!editable\` statu
         Array [
           Object {
             "alignSelf": "stretch",
-            "borderBottomColor": "black",
+            "borderBottomColor": "#000000",
             "borderBottomWidth": 1,
             "flexDirection": "column",
             "justifyContent": "space-between",
@@ -260,10 +260,10 @@ exports[`[EditText] interactions Type: [boxed] should render \`!editable\` statu
         ],
         false,
         Object {
-          "borderColor": "black",
+          "borderColor": "#000000",
         },
         Object {
-          "borderBottomColor": "black",
+          "borderBottomColor": "#000000",
         },
       ]
     }
@@ -280,7 +280,7 @@ exports[`[EditText] interactions Type: [boxed] should render \`!editable\` statu
         Array [
           Array [
             Object {
-              "color": "black",
+              "color": "#000000",
               "fontSize": 14,
               "paddingHorizontal": 10,
               "paddingVertical": 10,
@@ -344,7 +344,7 @@ exports[`[EditText] interactions Type: [boxed] should render \`errorText\` 1`] =
         Array [
           Object {
             "alignSelf": "stretch",
-            "borderBottomColor": "black",
+            "borderBottomColor": "#000000",
             "borderBottomWidth": 1,
             "flexDirection": "column",
             "justifyContent": "space-between",
@@ -353,10 +353,10 @@ exports[`[EditText] interactions Type: [boxed] should render \`errorText\` 1`] =
         ],
         false,
         Object {
-          "borderColor": "black",
+          "borderColor": "#000000",
         },
         Object {
-          "borderBottomColor": "black",
+          "borderBottomColor": "#000000",
         },
       ]
     }
@@ -373,7 +373,7 @@ exports[`[EditText] interactions Type: [boxed] should render \`errorText\` 1`] =
         Array [
           Array [
             Object {
-              "color": "black",
+              "color": "#000000",
               "fontSize": 14,
               "paddingHorizontal": 10,
               "paddingVertical": 10,
@@ -437,7 +437,7 @@ exports[`[EditText] interactions Type: [boxed] should render \`maxLength\` count
         Array [
           Object {
             "alignSelf": "stretch",
-            "borderBottomColor": "black",
+            "borderBottomColor": "#000000",
             "borderBottomWidth": 1,
             "flexDirection": "column",
             "justifyContent": "space-between",
@@ -446,10 +446,10 @@ exports[`[EditText] interactions Type: [boxed] should render \`maxLength\` count
         ],
         false,
         Object {
-          "borderColor": "black",
+          "borderColor": "#000000",
         },
         Object {
-          "borderBottomColor": "black",
+          "borderBottomColor": "#000000",
         },
       ]
     }
@@ -466,7 +466,7 @@ exports[`[EditText] interactions Type: [boxed] should render \`maxLength\` count
         Array [
           Array [
             Object {
-              "color": "black",
+              "color": "#000000",
               "fontSize": 14,
               "paddingHorizontal": 10,
               "paddingVertical": 10,
@@ -530,7 +530,7 @@ exports[`[EditText] interactions Type: [boxed] should render without crashing 1`
         Array [
           Object {
             "alignSelf": "stretch",
-            "borderBottomColor": "black",
+            "borderBottomColor": "#000000",
             "borderBottomWidth": 1,
             "flexDirection": "column",
             "justifyContent": "space-between",
@@ -539,10 +539,10 @@ exports[`[EditText] interactions Type: [boxed] should render without crashing 1`
         ],
         false,
         Object {
-          "borderColor": "black",
+          "borderColor": "#000000",
         },
         Object {
-          "borderBottomColor": "black",
+          "borderBottomColor": "#000000",
         },
       ]
     }
@@ -559,7 +559,7 @@ exports[`[EditText] interactions Type: [boxed] should render without crashing 1`
         Array [
           Array [
             Object {
-              "color": "black",
+              "color": "#000000",
               "fontSize": 14,
               "paddingHorizontal": 10,
               "paddingVertical": 10,
@@ -623,7 +623,7 @@ exports[`[EditText] interactions Type: [column] - default renders custom styles 
         Array [
           Object {
             "alignSelf": "stretch",
-            "borderBottomColor": "black",
+            "borderBottomColor": "#000000",
             "borderBottomWidth": 1,
             "flexDirection": "column",
             "justifyContent": "space-between",
@@ -632,10 +632,10 @@ exports[`[EditText] interactions Type: [column] - default renders custom styles 
         ],
         false,
         Object {
-          "borderColor": "black",
+          "borderColor": "#000000",
         },
         Object {
-          "borderBottomColor": "black",
+          "borderBottomColor": "#000000",
         },
       ]
     }
@@ -652,7 +652,7 @@ exports[`[EditText] interactions Type: [column] - default renders custom styles 
         Array [
           Array [
             Object {
-              "color": "black",
+              "color": "#000000",
               "fontSize": 14,
               "paddingHorizontal": 10,
               "paddingVertical": 10,
@@ -716,7 +716,7 @@ exports[`[EditText] interactions Type: [column] - default renders without crashi
         Array [
           Object {
             "alignSelf": "stretch",
-            "borderBottomColor": "black",
+            "borderBottomColor": "#000000",
             "borderBottomWidth": 1,
             "flexDirection": "column",
             "justifyContent": "space-between",
@@ -725,10 +725,10 @@ exports[`[EditText] interactions Type: [column] - default renders without crashi
         ],
         false,
         Object {
-          "borderColor": "black",
+          "borderColor": "#000000",
         },
         Object {
-          "borderBottomColor": "black",
+          "borderBottomColor": "#000000",
         },
       ]
     }
@@ -745,7 +745,7 @@ exports[`[EditText] interactions Type: [column] - default renders without crashi
         Array [
           Array [
             Object {
-              "color": "black",
+              "color": "#000000",
               "fontSize": 14,
               "paddingHorizontal": 10,
               "paddingVertical": 10,
@@ -809,7 +809,7 @@ exports[`[EditText] interactions Type: [column] - default should render \`maxLen
         Array [
           Object {
             "alignSelf": "stretch",
-            "borderBottomColor": "black",
+            "borderBottomColor": "#000000",
             "borderBottomWidth": 1,
             "flexDirection": "column",
             "justifyContent": "space-between",
@@ -818,10 +818,10 @@ exports[`[EditText] interactions Type: [column] - default should render \`maxLen
         ],
         false,
         Object {
-          "borderColor": "black",
+          "borderColor": "#000000",
         },
         Object {
-          "borderBottomColor": "black",
+          "borderBottomColor": "#000000",
         },
       ]
     }
@@ -838,7 +838,7 @@ exports[`[EditText] interactions Type: [column] - default should render \`maxLen
         Array [
           Array [
             Object {
-              "color": "black",
+              "color": "#000000",
               "fontSize": 14,
               "paddingHorizontal": 10,
               "paddingVertical": 10,
@@ -902,7 +902,7 @@ exports[`[EditText] interactions Type: [column] - default should render \`maxLen
         Array [
           Object {
             "alignSelf": "stretch",
-            "borderBottomColor": "black",
+            "borderBottomColor": "#000000",
             "borderBottomWidth": 1,
             "flexDirection": "column",
             "justifyContent": "space-between",
@@ -911,10 +911,10 @@ exports[`[EditText] interactions Type: [column] - default should render \`maxLen
         ],
         false,
         Object {
-          "borderColor": "black",
+          "borderColor": "#000000",
         },
         Object {
-          "borderBottomColor": "black",
+          "borderBottomColor": "#000000",
         },
       ]
     }
@@ -931,7 +931,7 @@ exports[`[EditText] interactions Type: [column] - default should render \`maxLen
         Array [
           Array [
             Object {
-              "color": "black",
+              "color": "#000000",
               "fontSize": 14,
               "paddingHorizontal": 10,
               "paddingVertical": 10,
@@ -995,7 +995,7 @@ exports[`[EditText] interactions Type: [row] should render \`!editable\` status 
         Array [
           Object {
             "alignSelf": "stretch",
-            "borderBottomColor": "black",
+            "borderBottomColor": "#000000",
             "borderBottomWidth": 1,
             "flexDirection": "column",
             "justifyContent": "space-between",
@@ -1004,10 +1004,10 @@ exports[`[EditText] interactions Type: [row] should render \`!editable\` status 
         ],
         false,
         Object {
-          "borderColor": "black",
+          "borderColor": "#000000",
         },
         Object {
-          "borderBottomColor": "black",
+          "borderBottomColor": "#000000",
         },
       ]
     }
@@ -1024,7 +1024,7 @@ exports[`[EditText] interactions Type: [row] should render \`!editable\` status 
         Array [
           Array [
             Object {
-              "color": "black",
+              "color": "#000000",
               "fontSize": 14,
               "paddingHorizontal": 10,
               "paddingVertical": 10,
@@ -1088,7 +1088,7 @@ exports[`[EditText] interactions Type: [row] should render \`errorText\` 1`] = `
         Array [
           Object {
             "alignSelf": "stretch",
-            "borderBottomColor": "black",
+            "borderBottomColor": "#000000",
             "borderBottomWidth": 1,
             "flexDirection": "column",
             "justifyContent": "space-between",
@@ -1097,10 +1097,10 @@ exports[`[EditText] interactions Type: [row] should render \`errorText\` 1`] = `
         ],
         false,
         Object {
-          "borderColor": "black",
+          "borderColor": "#000000",
         },
         Object {
-          "borderBottomColor": "black",
+          "borderBottomColor": "#000000",
         },
       ]
     }
@@ -1117,7 +1117,7 @@ exports[`[EditText] interactions Type: [row] should render \`errorText\` 1`] = `
         Array [
           Array [
             Object {
-              "color": "black",
+              "color": "#000000",
               "fontSize": 14,
               "paddingHorizontal": 10,
               "paddingVertical": 10,
@@ -1181,7 +1181,7 @@ exports[`[EditText] interactions Type: [row] should render \`maxLength\` counter
         Array [
           Object {
             "alignSelf": "stretch",
-            "borderBottomColor": "black",
+            "borderBottomColor": "#000000",
             "borderBottomWidth": 1,
             "flexDirection": "column",
             "justifyContent": "space-between",
@@ -1190,10 +1190,10 @@ exports[`[EditText] interactions Type: [row] should render \`maxLength\` counter
         ],
         false,
         Object {
-          "borderColor": "black",
+          "borderColor": "#000000",
         },
         Object {
-          "borderBottomColor": "black",
+          "borderBottomColor": "#000000",
         },
       ]
     }
@@ -1210,7 +1210,7 @@ exports[`[EditText] interactions Type: [row] should render \`maxLength\` counter
         Array [
           Array [
             Object {
-              "color": "black",
+              "color": "#000000",
               "fontSize": 14,
               "paddingHorizontal": 10,
               "paddingVertical": 10,
@@ -1274,7 +1274,7 @@ exports[`[EditText] interactions Type: [row] should render without crashing 1`] 
         Array [
           Object {
             "alignSelf": "stretch",
-            "borderBottomColor": "black",
+            "borderBottomColor": "#000000",
             "borderBottomWidth": 1,
             "flexDirection": "column",
             "justifyContent": "space-between",
@@ -1283,10 +1283,10 @@ exports[`[EditText] interactions Type: [row] should render without crashing 1`] 
         ],
         false,
         Object {
-          "borderColor": "black",
+          "borderColor": "#000000",
         },
         Object {
-          "borderBottomColor": "black",
+          "borderBottomColor": "#000000",
         },
       ]
     }
@@ -1303,7 +1303,7 @@ exports[`[EditText] interactions Type: [row] should render without crashing 1`] 
         Array [
           Array [
             Object {
-              "color": "black",
+              "color": "#000000",
               "fontSize": 14,
               "paddingHorizontal": 10,
               "paddingVertical": 10,
@@ -1367,7 +1367,7 @@ exports[`[EditText] interactions web renders without crashing 1`] = `
         Array [
           Object {
             "alignSelf": "stretch",
-            "borderBottomColor": "black",
+            "borderBottomColor": "#000000",
             "borderBottomWidth": 1,
             "flexDirection": "column",
             "justifyContent": "space-between",
@@ -1376,10 +1376,10 @@ exports[`[EditText] interactions web renders without crashing 1`] = `
         ],
         false,
         Object {
-          "borderColor": "black",
+          "borderColor": "#000000",
         },
         Object {
-          "borderBottomColor": "black",
+          "borderBottomColor": "#000000",
         },
       ]
     }
@@ -1396,7 +1396,7 @@ exports[`[EditText] interactions web renders without crashing 1`] = `
         Array [
           Array [
             Object {
-              "color": "black",
+              "color": "#000000",
               "fontSize": 14,
               "paddingHorizontal": 10,
               "paddingVertical": 10,

@@ -1,13 +1,16 @@
-import {Animated, Platform, StyleProp, View, ViewStyle} from 'react-native';
+import {Animated, Platform, View} from 'react-native';
 import {
   CheckboxWrapper,
   CheckboxWrapperOutlined,
 } from '../Styled/StyledComponents';
-import {DoobooTheme, useTheme} from '@dooboo-ui/theme';
-import React, {FC, useEffect, useRef} from 'react';
+import React, {useEffect, useRef} from 'react';
+import type {StyleProp, ViewStyle} from 'react-native';
 
+import type {DoobooTheme} from '@dooboo-ui/theme';
+import type {FC} from 'react';
 import {Icon} from '../Icon';
 import styled from '@emotion/native';
+import {useTheme} from '@dooboo-ui/theme';
 
 type Styles = {
   checkbox?: StyleProp<ViewStyle>;
@@ -65,7 +68,7 @@ const StyledCheckbox = styled(CheckboxWrapper)<{
 `;
 
 const StyledCheck = styled(Icon)<{theme: DoobooTheme; checked?: boolean}>`
-  color: ${({theme, checked}) => (checked ? theme.background : 'transparent')};
+  color: ${({theme, checked}) => (checked ? theme.bg.default : 'transparent')};
 `;
 
 export const Checkbox: FC<CheckboxProps> = ({

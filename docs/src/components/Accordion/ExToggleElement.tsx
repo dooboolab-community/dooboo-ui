@@ -1,4 +1,5 @@
-import AccordionStory, {AccordionStoryProps} from '.';
+import type {AccordionStoryProps} from '.';
+import AccordionStory from '.';
 
 import {Icon} from 'dooboo-ui';
 

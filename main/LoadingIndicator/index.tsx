@@ -1,15 +1,13 @@
-import {
-  ActivityIndicator,
-  Image,
+import {ActivityIndicator, Image, StyleSheet, View} from 'react-native';
+import type {
   ImageSourcePropType,
   ImageStyle,
   StyleProp,
-  StyleSheet,
-  View,
   ViewStyle,
 } from 'react-native';
-import React, {ReactElement} from 'react';
 
+import React from 'react';
+import type {ReactElement} from 'react';
 import {useTheme} from '@dooboo-ui/theme';
 
 const styles = StyleSheet.create({
@@ -92,7 +90,7 @@ export function LoadingIndicator(props: Props): ReactElement {
         <ActivityIndicator
           style={style}
           size={size}
-          color={color || theme.secondary}
+          color={color || theme.role.secondary}
         />
       ) : (
         <Image

@@ -1,5 +1,5 @@
-import {FC} from 'react';
-import {ViewStyle} from 'react-native';
+import type {FC} from 'react';
+import type {ViewStyle} from 'react-native';
 import collectingFontIconSelection from './selection.json';
 import {createIconSetFromIcoMoon} from 'react-native-vector-icons';
 import styled from '@emotion/native';
@@ -119,5 +119,5 @@ const Ico: FC<Props> = createIconSetFromIcoMoon(
 );
 
 export const Icon = styled(Ico)`
-  color: ${({theme, color}) => color || theme.text};
+  color: ${({theme, color}) => color || theme.text.default};
 `;

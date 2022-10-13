@@ -1,12 +1,5 @@
-import {
-  StyleProp,
-  StyleSheet,
-  Text,
-  TextStyle,
-  TouchableOpacity,
-  View,
-  ViewStyle,
-} from 'react-native';
+import type {StyleProp, TextStyle, ViewStyle} from 'react-native';
+import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 
 import React from 'react';
 import {useTheme} from '@dooboo-ui/theme';
@@ -38,7 +31,7 @@ export function ButtonGroup(props: Props): React.ReactElement {
     borderRadius = 0,
     selectedIndex = 0,
     borderWidth = 1,
-    color = theme.text,
+    color = theme.text.default,
     testID,
     style,
     data,
@@ -106,11 +99,7 @@ export function ButtonGroup(props: Props): React.ReactElement {
   return (
     <View
       testID={testID}
-      style={StyleSheet.flatten([
-        {borderColor: color},
-        styles?.container,
-        style,
-      ])}
+      style={[{borderColor: color}, styles?.container, style]}
     >
       {data.map((text, i) => {
         return (
@@ -137,8 +126,8 @@ export function ButtonGroup(props: Props): React.ReactElement {
               <Text
                 style={
                   selectedIndex === i
-                    ? [styles?.selectedText, {color: theme.textContrast}]
-                    : [styles?.text, {color: theme.text}]
+                    ? [styles?.selectedText, {color: theme.text.contrast}]
+                    : [styles?.text, {color: theme.text.default}]
                 }
               >
                 {text}

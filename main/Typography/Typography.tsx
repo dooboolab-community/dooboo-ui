@@ -1,7 +1,7 @@
-import {DoobooTheme, light, withTheme} from '@dooboo-ui/theme';
-
+import type {DoobooTheme} from '@dooboo-ui/theme';
 import {isEmptyObject} from '../utils';
 import styled from '@emotion/native';
+import {withTheme} from '@dooboo-ui/theme';
 
 // Title
 const StyledTitle = styled.Text<{theme: DoobooTheme}>`
@@ -9,10 +9,10 @@ const StyledTitle = styled.Text<{theme: DoobooTheme}>`
   font-weight: 400;
   color: ${({theme}) => {
     if (isEmptyObject(theme)) {
-      return light.text;
+      return theme.text.disabled;
     }
 
-    return theme.text;
+    return theme.text.default;
   }};
 `;
 
@@ -28,10 +28,10 @@ const StyledHeading1 = styled.Text<{theme: DoobooTheme}>`
   font-weight: 400;
   color: ${({theme}) => {
     if (isEmptyObject(theme)) {
-      return light.text;
+      return theme.text.disabled;
     }
 
-    return theme.text;
+    return theme.text.default;
   }};
 `;
 
@@ -47,10 +47,10 @@ const StyledHeading2 = styled.Text<{theme: DoobooTheme}>`
   font-weight: 400;
   color: ${({theme}) => {
     if (isEmptyObject(theme)) {
-      return light.text;
+      return theme.text.disabled;
     }
 
-    return theme.text;
+    return theme.text.default;
   }};
 `;
 
@@ -66,10 +66,10 @@ const StyledHeading3 = styled.Text<{theme: DoobooTheme}>`
   font-weight: 400;
   color: ${({theme}) => {
     if (isEmptyObject(theme)) {
-      return light.text;
+      return theme.text.disabled;
     }
 
-    return theme.text;
+    return theme.text.default;
   }};
 `;
 
@@ -84,10 +84,10 @@ const StyledBody1 = styled.Text<{theme: DoobooTheme}>`
   font-size: 16px;
   color: ${({theme}) => {
     if (isEmptyObject(theme)) {
-      return light.text;
+      return theme.text.disabled;
     }
 
-    return theme.text;
+    return theme.text.default;
   }};
 `;
 
@@ -102,10 +102,10 @@ const StyledBody2 = styled.Text<{theme: DoobooTheme}>`
   font-size: 14px;
   color: ${({theme}) => {
     if (isEmptyObject(theme)) {
-      return light.text;
+      return theme.text.disabled;
     }
 
-    return theme.text;
+    return theme.text.default;
   }};
 `;
 

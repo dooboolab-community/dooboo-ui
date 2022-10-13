@@ -1,5 +1,7 @@
-import {EditText, EditTextProps, ThemeProvider} from 'dooboo-ui';
-import React, {FC, useState} from 'react';
+import type {EditTextProps} from 'dooboo-ui';
+import {EditText, ThemeProvider} from 'dooboo-ui';
+import type {FC} from 'react';
+import React, {useState} from 'react';
 
 type Props = {} & EditTextProps;
 

@@ -1,5 +1,7 @@
-import {Animated, Easing, ImageStyle, StyleProp, View} from 'react-native';
-import React, {FC, useEffect, useState} from 'react';
+import type {ImageStyle, StyleProp} from 'react-native';
+import {Animated, Easing, View} from 'react-native';
+import type {FC} from 'react';
+import React, {useEffect, useState} from 'react';
 
 import {IC_MASK} from '../../../storybook/assets/icons';
 

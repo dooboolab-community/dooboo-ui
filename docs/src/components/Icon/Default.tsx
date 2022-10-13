@@ -1,14 +1,15 @@
-import {Icon, IconName} from 'dooboo-ui';
-import {ThemeProvider, ThemeType} from '@dooboo-ui/theme';
-
 import type {FC} from 'react';
+import {Icon} from 'dooboo-ui';
+import type {IconName} from 'dooboo-ui';
+import {ThemeProvider} from '@dooboo-ui/theme';
+import type {ThemeType} from '@dooboo-ui/theme';
 import {View} from 'react-native';
 import styled from '@emotion/native';
 import {useFonts} from 'expo-font';
 
 const StoryContainer = styled.View`
   flex-wrap: wrap;
-  background-color: ${({theme}) => theme.background};
+  background-color: ${({theme}) => theme.bg.default};
   padding: 20px;
 
   flex-direction: row;
@@ -22,7 +23,7 @@ const StyledIcon = styled(Icon)`
 
 const StyledText = styled.Text`
   text-align: center;
-  color: ${({theme}) => theme.text};
+  color: ${({theme}) => theme.text.default};
 `;
 
 const IconWithLabel: FC<{name: IconName}> = ({name}) => {

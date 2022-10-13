@@ -1,7 +1,9 @@
 import {Checkbox, LoadingIndicator} from 'dooboo-ui';
-import React, {FC} from 'react';
-import {ThemeProvider, ThemeType, useTheme} from '@dooboo-ui/theme';
+import {ThemeProvider, useTheme} from '@dooboo-ui/theme';
 
+import type {FC} from 'react';
+import React from 'react';
+import type {ThemeType} from '@dooboo-ui/theme';
 import {View} from 'react-native';
 import {useFonts} from 'expo-font';
 
@@ -19,7 +21,7 @@ const Component: FC = () => {
   return (
     <View
       style={{
-        backgroundColor: theme.background,
+        backgroundColor: theme.bg.default,
         flex: 1,
         alignSelf: 'stretch',
         flexDirection: 'row',

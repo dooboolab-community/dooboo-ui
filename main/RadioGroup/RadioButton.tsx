@@ -1,18 +1,17 @@
-import {
-  Animated,
+import type {
   LayoutRectangle,
-  Platform,
   StyleProp,
   TextStyle,
-  View,
   ViewStyle,
 } from 'react-native';
+import {Animated, Platform, View} from 'react-native';
 import {
   ColoredText,
   RadioButtonWrapper,
   RadioWrapper,
 } from '../Styled/StyledComponents';
-import React, {FC, useEffect, useRef, useState} from 'react';
+import type {FC} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 
 import styled from '@emotion/native';
 

@@ -1,5 +1,6 @@
-import {DoobooTheme, light, withTheme} from '@dooboo-ui/theme';
+import {light, withTheme} from '@dooboo-ui/theme';
 
+import type {DoobooTheme} from '@dooboo-ui/theme';
 import {isEmptyObject} from '../utils';
 import styled from '@emotion/native';
 
@@ -9,10 +10,10 @@ const InvertedStyledTitle = styled.Text<{theme: DoobooTheme}>`
   font-weight: 400;
   color: ${({theme}) => {
     if (isEmptyObject(theme)) {
-      return light.textContrast;
+      return light.text.contrast;
     }
 
-    return theme.textContrast;
+    return theme.text.contrast;
   }};
 `;
 
@@ -28,10 +29,10 @@ const InvertedStyledHeading1 = styled.Text<{theme: DoobooTheme}>`
   font-weight: 400;
   color: ${({theme}) => {
     if (isEmptyObject(theme)) {
-      return light.textContrast;
+      return light.text.contrast;
     }
 
-    return theme.textContrast;
+    return theme.text.contrast;
   }};
 `;
 
@@ -47,10 +48,10 @@ const InvertedStyledHeading2 = styled.Text<{theme: DoobooTheme}>`
   font-weight: 400;
   color: ${({theme}) => {
     if (isEmptyObject(theme)) {
-      return light.textContrast;
+      return light.text.contrast;
     }
 
-    return theme.textContrast;
+    return theme.text.contrast;
   }};
 `;
 
@@ -66,10 +67,10 @@ const InvertedStyledHeading3 = styled.Text<{theme: DoobooTheme}>`
   font-weight: 400;
   color: ${({theme}) => {
     if (isEmptyObject(theme)) {
-      return light.textContrast;
+      return light.text.contrast;
     }
 
-    return theme.textContrast;
+    return theme.text.contrast;
   }};
 `;
 
@@ -84,10 +85,10 @@ const InvertedStyledBody1 = styled.Text<{theme: DoobooTheme}>`
   font-size: 16px;
   color: ${({theme}) => {
     if (isEmptyObject(theme)) {
-      return light.textContrast;
+      return light.text.contrast;
     }
 
-    return theme.textContrast;
+    return theme.text.contrast;
   }};
 `;
 
@@ -102,10 +103,10 @@ const InvertedStyledBody2 = styled.Text<{theme: DoobooTheme}>`
   font-size: 14px;
   color: ${({theme}) => {
     if (isEmptyObject(theme)) {
-      return light.textContrast;
+      return light.text.contrast;
     }
 
-    return theme.textContrast;
+    return theme.text.contrast;
   }};
 `;
 

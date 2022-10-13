@@ -1,31 +1,26 @@
-import {Animated, Easing, LayoutChangeEvent} from 'react-native';
-import React, {
-  FC,
-  ReactElement,
-  useCallback,
-  useEffect,
-  useRef,
-  useState,
-} from 'react';
+import {Animated, Easing} from 'react-native';
+import type {FC, ReactElement} from 'react';
+import React, {useCallback, useEffect, useRef, useState} from 'react';
 
-import {AccordionBaseProps} from './Accordion';
+import type {AccordionBaseProps} from './Accordion';
 import {Icon} from '../Icon';
+import type {LayoutChangeEvent} from 'react-native';
 import styled from '@emotion/native';
 import {useTheme} from '@dooboo-ui/theme';
 
 const TitleContainer = styled.TouchableOpacity`
   justify-content: center;
-  background-color: ${({theme}) => theme.text};
+  background-color: ${({theme}) => theme.text.default};
   height: 50px;
   z-index: 10;
 `;
 
 const StyledIcon = styled(Icon)`
-  color: ${({theme}) => theme.textContrast};
+  color: ${({theme}) => theme.text.contrast};
 `;
 
 const ItemContainer = styled.View`
-  background-color: ${({theme}) => theme.background};
+  background-color: ${({theme}) => theme.bg.default};
   flex-direction: row;
   align-items: center;
   width: 100%;
@@ -34,13 +29,13 @@ const ItemContainer = styled.View`
 
 const StyledTitle = styled.Text`
   font-weight: bold;
-  color: ${({theme}) => theme.textContrast};
+  color: ${({theme}) => theme.text.contrast};
   position: absolute;
   padding: 0px 20px;
 `;
 
 const StyledItem = styled.Text`
-  color: ${({theme}) => theme.text};
+  color: ${({theme}) => theme.text.default};
   padding: 0px 20px;
 `;
 
@@ -75,8 +70,8 @@ const AccordionItem: FC<AccordionItemProps> = (props) => {
   } = props;
 
   const {
-    titleContainer = {backgroundColor: theme.primary},
-    bodyContainer = {backgroundColor: theme.background},
+    titleContainer = {backgroundColor: theme.role.primary},
+    bodyContainer = {backgroundColor: theme.bg.default},
   } = styles ?? {};
 
   const rotateAnimValueRef = useRef(new Animated.Value(0));

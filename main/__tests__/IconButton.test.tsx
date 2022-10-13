@@ -1,4 +1,5 @@
-import {IconButton, IconButtonProps} from '../../main';
+import type {IconButtonProps} from '../../main';
+import {IconButton} from '../../main';
 
 import React from 'react';
 import type {ReactElement} from 'react';

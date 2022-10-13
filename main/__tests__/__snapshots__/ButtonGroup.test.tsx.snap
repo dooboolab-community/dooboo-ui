@@ -3,16 +3,21 @@
 exports[`[ButtonGroup] renders without crashing 1`] = `
 <View
   style={
-    Object {
-      "alignItems": "center",
-      "alignSelf": "stretch",
-      "backgroundColor": "transparent",
-      "borderColor": "black",
-      "flexDirection": "row",
-      "justifyContent": "center",
-      "marginTop": 24,
-      "minHeight": 40,
-    }
+    Array [
+      Object {
+        "borderColor": "#000000",
+      },
+      Object {
+        "alignItems": "center",
+        "alignSelf": "stretch",
+        "backgroundColor": "transparent",
+        "flexDirection": "row",
+        "justifyContent": "center",
+        "marginTop": 24,
+        "minHeight": 40,
+      },
+      undefined,
+    ]
   }
 >
   <View
@@ -38,11 +43,11 @@ exports[`[ButtonGroup] renders without crashing 1`] = `
         Object {
           "alignItems": "center",
           "alignSelf": "stretch",
-          "backgroundColor": "black",
+          "backgroundColor": "#000000",
           "borderBottomLeftRadius": 0,
           "borderBottomRightRadius": undefined,
           "borderBottomWidth": 1,
-          "borderColor": "black",
+          "borderColor": "#000000",
           "borderLeftWidth": 1,
           "borderRightWidth": 1,
           "borderTopLeftRadius": 0,
@@ -63,7 +68,7 @@ exports[`[ButtonGroup] renders without crashing 1`] = `
               "textAlign": "center",
             },
             Object {
-              "color": "white",
+              "color": "#FFFFFF",
             },
           ]
         }
@@ -98,7 +103,7 @@ exports[`[ButtonGroup] renders without crashing 1`] = `
           "borderBottomLeftRadius": undefined,
           "borderBottomRightRadius": 0,
           "borderBottomWidth": 1,
-          "borderColor": "black",
+          "borderColor": "#000000",
           "borderLeftWidth": undefined,
           "borderRightWidth": 1,
           "borderTopLeftRadius": undefined,
@@ -119,7 +124,7 @@ exports[`[ButtonGroup] renders without crashing 1`] = `
               "textAlign": "center",
             },
             Object {
-              "color": "black",
+              "color": "#000000",
             },
           ]
         }

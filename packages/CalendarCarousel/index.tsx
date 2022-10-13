@@ -1,20 +1,23 @@
 import 'intl';
 import 'intl/locale-data/jsonp/en';
 
-import {
-  FlatList,
+import type {
   NativeScrollEvent,
   NativeSyntheticEvent,
+  TextStyle,
+  ViewStyle,
+} from 'react-native';
+import {
+  FlatList,
   SafeAreaView,
   ScrollView,
   StyleSheet,
   Text,
-  TextStyle,
   TouchableOpacity,
   View,
-  ViewStyle,
 } from 'react-native';
-import React, {PropsWithChildren, ReactElement, useRef, useState} from 'react';
+import type {PropsWithChildren, ReactElement} from 'react';
+import React, {useRef, useState} from 'react';
 
 interface Style {
   wrapperContainer: ViewStyle;

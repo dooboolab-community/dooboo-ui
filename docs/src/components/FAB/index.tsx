@@ -1,17 +1,18 @@
-import {FC, ReactElement, useState} from 'react';
+import type {FC, ReactElement} from 'react';
 import {SafeAreaView, View} from 'react-native';
 import {ThemeProvider, withTheme} from '@dooboo-ui/theme';
 
 import {FAB} from 'dooboo-ui';
 import styled from '@emotion/native';
 import {useFonts} from 'expo-font';
+import {useState} from 'react';
 
 const StoryContainer = styled.View`
   flex: 1;
   width: 100%;
   height: 300px;
   align-self: stretch;
-  background-color: ${({theme}) => theme.background};
+  background-color: ${({theme}) => theme.bg.default};
 `;
 
 const FABContainer: FC = () => {

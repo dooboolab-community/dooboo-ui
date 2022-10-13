@@ -2,7 +2,7 @@ import {ThemeProvider, useTheme, withTheme} from './index';
 import {act, renderHook} from '@testing-library/react-hooks';
 import {colors, dark} from './colors';
 
-import {ReactElement} from 'react';
+import type {ReactElement} from 'react';
 import {Context as ResponsiveContext} from 'react-responsive';
 import {Text} from 'react-native';
 import getGiven from 'givens';

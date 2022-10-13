@@ -1,6 +1,8 @@
-import {Checkbox, CheckboxType, Hr} from '../..';
-import React, {FC, ReactNode, useState} from 'react';
+import {Checkbox, Hr} from '../..';
+import type {FC, ReactNode} from 'react';
+import React, {useState} from 'react';
 
+import type {CheckboxType} from '../..';
 import {View} from 'react-native';
 import styled from '@emotion/native';
 import {useFonts} from 'expo-font';
@@ -11,7 +13,7 @@ const ScrollContainer = styled.ScrollView`
 `;
 
 const StyledText = styled.Text`
-  color: ${({theme}) => theme.text};
+  color: ${({theme}) => theme.text.default};
 `;
 
 const types: (CheckboxType | undefined)[] = [
@@ -134,7 +136,7 @@ const CheckboxStory: FC = () => {
   return (
     <View
       style={{
-        backgroundColor: theme.background,
+        backgroundColor: theme.bg.default,
         flex: 1,
         alignSelf: 'stretch',
       }}

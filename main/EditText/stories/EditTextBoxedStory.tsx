@@ -22,7 +22,7 @@ const EditTextRow = (): React.ReactElement => {
           flexDirection: 'column',
           justifyContent: 'center',
           alignItems: 'center',
-          backgroundColor: theme.background,
+          backgroundColor: theme.bg.default,
         }}
       >
         <EditText

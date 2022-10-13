@@ -1,5 +1,7 @@
-import {Progressbar, ProgressbarStyles, ProgressbarType} from 'dooboo-ui';
-import React, {FC, useEffect, useState} from 'react';
+import type {ProgressbarStyles, ProgressbarType} from 'dooboo-ui';
+import {Progressbar} from 'dooboo-ui';
+import type {FC} from 'react';
+import React, {useEffect, useState} from 'react';
 
 type Props = {
   type: ProgressbarType;

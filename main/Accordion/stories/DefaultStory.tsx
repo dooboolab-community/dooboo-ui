@@ -1,13 +1,15 @@
-import {Accordion, AccordionData, AccordionListType} from '../';
-import React, {ReactElement} from 'react';
+import type {AccordionData, AccordionListType} from '../';
 import {boolean, number} from '@storybook/addon-knobs';
 
+import {Accordion} from '../';
 import {Icon} from '../../Icon';
+import React from 'react';
+import type {ReactElement} from 'react';
 import {Typography} from '../../Typography';
 import {View} from 'react-native';
 import styled from '@emotion/native';
 import {useFonts} from 'expo-font';
-import {useTheme} from '../../../main';
+import {useTheme} from '@dooboo-ui/theme';
 
 const StoryContainer = styled.View`
   flex: 1;
@@ -66,7 +68,7 @@ export const AccordionDefault = (): ReactElement => {
   }
 
   return (
-    <StoryContainer style={{backgroundColor: theme.background}}>
+    <StoryContainer style={{backgroundColor: theme.bg.default}}>
       <ScrollContainer>
         <Container>
           <Typography.Heading3 style={{fontSize: 18, marginBottom: 8}}>
@@ -96,13 +98,13 @@ export const AccordionDefault = (): ReactElement => {
                   flexDirection: 'row',
                 }}
               >
-                <Icon name="search-light" color={theme.textContrast} />
+                <Icon name="search-light" color={theme.text.contrast} />
                 <Title>{item}</Title>
               </View>
             )}
             renderBody={(item) => <CustomStyledItem>{item}</CustomStyledItem>}
             toggleElement={
-              <Icon name="chevron-down-light" color={theme.textContrast} />
+              <Icon name="chevron-down-light" color={theme.text.contrast} />
             }
             styles={{
               titleContainer: {

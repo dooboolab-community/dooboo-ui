@@ -1,7 +1,7 @@
-import {DoobooTheme, dark, light} from '@dooboo-ui/theme';
-
 import {Animated} from 'react-native';
+import type {DoobooTheme} from '@dooboo-ui/theme';
 import {isEmptyObject} from '../utils';
+import {light} from '@dooboo-ui/theme';
 import styled from '@emotion/native';
 
 export type ButtonType =
@@ -36,7 +36,7 @@ export const ButtonWrapper = styled.View<{
         return undefined;
       }
 
-      return theme[type!];
+      return theme.button[type!].bg;
     }
 
     if (disabled) {
@@ -44,17 +44,17 @@ export const ButtonWrapper = styled.View<{
     }
 
     if (outlined) {
-      return theme.background;
+      return theme.bg.default;
     }
 
-    return theme[type ?? 'primary'];
+    return theme.button[type ?? 'primary'].bg;
   }};
   border-color: ${({theme, type, disabled}) => {
     if (disabled) {
-      return theme.disabled;
+      return theme.bg.default;
     }
 
-    return theme[type!];
+    return theme.button[type!].bg;
   }};
 `;
 
@@ -68,32 +68,15 @@ export const ButtonText = styled.Text<{
   color: ${({theme, outlined, type, disabled}) => {
     theme = isEmptyObject(theme) ? light : theme;
 
-    const isDarkBackground = theme.background === dark.background;
-
     if (outlined) {
-      if (
-        !isDarkBackground ||
-        ['light', 'default', 'warning', undefined].includes(type)
-      ) {
-        return theme.text;
-      }
-
-      return theme[type!];
-    }
-
-    if (isDarkBackground) {
-      return ['default', 'danger', 'light'].includes(type!) ? 'white' : 'black';
+      return theme.text.default;
     }
 
     if (disabled) {
-      return theme.disabled;
+      return theme.text.disabled;
     }
 
-    if (['primary', 'danger'].includes(type!)) {
-      return theme.textContrast;
-    }
-
-    return 'black';
+    return theme.button[type!].text;
   }};
 `;
 
@@ -107,14 +90,14 @@ export const CheckboxWrapperOutlined = styled(Animated.View as any)<{
     theme = isEmptyObject(theme) ? light : theme;
 
     if (disabled) {
-      return theme.disabled;
+      return theme.bg.disabled;
     }
 
     if (type === 'light') {
-      return theme.primary;
+      return theme.role.primary;
     }
 
-    return theme[type ?? 'primary'];
+    return theme.button[type ?? 'primary'].bg;
   }};
 `;
 
@@ -131,14 +114,14 @@ export const CheckboxWrapper = styled(Animated.View as any)<{
     }
 
     if (!checked) {
-      return theme.background;
+      return theme.bg.disabled;
     }
 
     if (type === 'light') {
-      return theme.primary;
+      return theme.role.primary;
     }
 
-    return theme[type ?? 'primary'];
+    return theme.button[type ?? 'primary'].bg;
   }};
 `;
 
@@ -152,18 +135,18 @@ export const RadioButtonWrapper = styled.View<{
     theme = isEmptyObject(theme) ? light : theme;
 
     if (disabled) {
-      return theme.disabled;
+      return theme.bg.disabled;
     }
 
     if (!selected) {
-      return theme.text;
+      return theme.text.default;
     }
 
     if (type === 'light') {
-      return theme.primary;
+      return theme.role.primary;
     }
 
-    return theme[type ?? 'primary'];
+    return theme.button[type ?? 'primary'].bg;
   }};
 `;
 
@@ -176,14 +159,14 @@ export const RadioWrapper = styled(Animated.View as any)<{
     theme = isEmptyObject(theme) ? light : theme;
 
     if (disabled) {
-      return theme.disabled;
+      return theme.bg.disabled;
     }
 
     if (!selected) {
-      return theme.background;
+      return theme.role.primary;
     }
 
-    return theme[type ?? 'primary'];
+    return theme.button[type ?? 'primary'].bg;
   }};
 `;
 
@@ -200,14 +183,14 @@ export const ColoredText = styled.Text<{
     }
 
     if (!selected) {
-      return theme.text;
+      return theme.text.default;
     }
 
     if (type === 'light') {
-      return theme.primary;
+      return theme.role.primary;
     }
 
-    return theme[type ?? 'primary'];
+    return theme.button[type ?? 'primary'].bg;
   }};
 `;
 
@@ -219,10 +202,10 @@ export const SnackbarWrapper = styled(Animated.View as any)<{
     theme = isEmptyObject(theme) ? light : theme;
 
     if (type === 'default') {
-      return theme.paper;
+      return theme.bg.disabled;
     }
 
-    return theme[type ?? 'paper'];
+    return theme.button[type ?? 'light'].bg;
   }};
   flex-direction: row;
   text-align: left;

@@ -1,15 +1,16 @@
 import {IC_FACEBOOK, IC_GOOGLE} from '../../icon';
 import {Image, View} from 'react-native';
 import React, {useState} from 'react';
-import {ThemeProvider, ThemeType} from '@dooboo-ui/theme';
 import styled, {css} from '@emotion/native';
 
 import {Button} from 'dooboo-ui';
 import type {FC} from 'react';
+import {ThemeProvider} from '@dooboo-ui/theme';
+import type {ThemeType} from '@dooboo-ui/theme';
 import {action} from '@storybook/addon-actions';
 
 const StoryContainer = styled.View`
-  background-color: ${({theme}) => theme.background};
+  background-color: ${({theme}) => theme.bg.default};
   flex: 1;
   align-self: stretch;
 

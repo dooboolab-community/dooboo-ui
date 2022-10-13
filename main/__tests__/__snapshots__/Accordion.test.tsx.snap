@@ -35,7 +35,7 @@ exports[`[Accordion] render test should adjust duration of animation depends on 
       onStartShouldSetResponder={[Function]}
       style={
         Object {
-          "backgroundColor": "black",
+          "backgroundColor": "#000000",
           "height": 50,
           "justifyContent": "center",
           "opacity": 1,
@@ -48,7 +48,7 @@ exports[`[Accordion] render test should adjust duration of animation depends on 
         style={
           Array [
             Object {
-              "color": "white",
+              "color": "#FFFFFF",
               "fontWeight": "bold",
               "paddingBottom": 0,
               "paddingLeft": 20,
@@ -86,10 +86,12 @@ exports[`[Accordion] render test should adjust duration of animation depends on 
                 "fontSize": 12,
               },
               Array [
-                Object {},
+                Object {
+                  "color": "#000000",
+                },
                 Array [
                   Object {
-                    "color": "white",
+                    "color": "#FFFFFF",
                   },
                   undefined,
                 ],
@@ -127,6 +129,7 @@ exports[`[Accordion] render test should adjust duration of animation depends on 
           Array [
             Object {
               "alignItems": "center",
+              "backgroundColor": "#FFFFFF",
               "flexDirection": "row",
               "paddingBottom": 20,
               "paddingLeft": 0,
@@ -135,7 +138,7 @@ exports[`[Accordion] render test should adjust duration of animation depends on 
               "width": "100%",
             },
             Object {
-              "backgroundColor": "white",
+              "backgroundColor": "#FFFFFF",
             },
           ]
         }
@@ -144,7 +147,7 @@ exports[`[Accordion] render test should adjust duration of animation depends on 
           style={
             Array [
               Object {
-                "color": "black",
+                "color": "#000000",
                 "paddingBottom": 0,
                 "paddingLeft": 20,
                 "paddingRight": 20,
@@ -162,6 +165,7 @@ exports[`[Accordion] render test should adjust duration of animation depends on 
           Array [
             Object {
               "alignItems": "center",
+              "backgroundColor": "#FFFFFF",
               "flexDirection": "row",
               "paddingBottom": 20,
               "paddingLeft": 0,
@@ -170,7 +174,7 @@ exports[`[Accordion] render test should adjust duration of animation depends on 
               "width": "100%",
             },
             Object {
-              "backgroundColor": "white",
+              "backgroundColor": "#FFFFFF",
             },
           ]
         }
@@ -179,7 +183,7 @@ exports[`[Accordion] render test should adjust duration of animation depends on 
           style={
             Array [
               Object {
-                "color": "black",
+                "color": "#000000",
                 "paddingBottom": 0,
                 "paddingLeft": 20,
                 "paddingRight": 20,
@@ -197,6 +201,7 @@ exports[`[Accordion] render test should adjust duration of animation depends on 
           Array [
             Object {
               "alignItems": "center",
+              "backgroundColor": "#FFFFFF",
               "flexDirection": "row",
               "paddingBottom": 20,
               "paddingLeft": 0,
@@ -205,7 +210,7 @@ exports[`[Accordion] render test should adjust duration of animation depends on 
               "width": "100%",
             },
             Object {
-              "backgroundColor": "white",
+              "backgroundColor": "#FFFFFF",
             },
           ]
         }
@@ -214,7 +219,7 @@ exports[`[Accordion] render test should adjust duration of animation depends on 
           style={
             Array [
               Object {
-                "color": "black",
+                "color": "#000000",
                 "paddingBottom": 0,
                 "paddingLeft": 20,
                 "paddingRight": 20,
@@ -252,7 +257,7 @@ exports[`[Accordion] render test should adjust duration of animation depends on 
       onStartShouldSetResponder={[Function]}
       style={
         Object {
-          "backgroundColor": "black",
+          "backgroundColor": "#000000",
           "height": 50,
           "justifyContent": "center",
           "opacity": 1,
@@ -265,7 +270,7 @@ exports[`[Accordion] render test should adjust duration of animation depends on 
         style={
           Array [
             Object {
-              "color": "white",
+              "color": "#FFFFFF",
               "fontWeight": "bold",
               "paddingBottom": 0,
               "paddingLeft": 20,
@@ -303,10 +308,12 @@ exports[`[Accordion] render test should adjust duration of animation depends on 
                 "fontSize": 12,
               },
               Array [
-                Object {},
+                Object {
+                  "color": "#000000",
+                },
                 Array [
                   Object {
-                    "color": "white",
+                    "color": "#FFFFFF",
                   },
                   undefined,
                 ],
@@ -344,6 +351,7 @@ exports[`[Accordion] render test should adjust duration of animation depends on 
           Array [
             Object {
               "alignItems": "center",
+              "backgroundColor": "#FFFFFF",
               "flexDirection": "row",
               "paddingBottom": 20,
               "paddingLeft": 0,
@@ -352,7 +360,7 @@ exports[`[Accordion] render test should adjust duration of animation depends on 
               "width": "100%",
             },
             Object {
-              "backgroundColor": "white",
+              "backgroundColor": "#FFFFFF",
             },
           ]
         }
@@ -361,7 +369,7 @@ exports[`[Accordion] render test should adjust duration of animation depends on 
           style={
             Array [
               Object {
-                "color": "black",
+                "color": "#000000",
                 "paddingBottom": 0,
                 "paddingLeft": 20,
                 "paddingRight": 20,
@@ -379,6 +387,7 @@ exports[`[Accordion] render test should adjust duration of animation depends on 
           Array [
             Object {
               "alignItems": "center",
+              "backgroundColor": "#FFFFFF",
               "flexDirection": "row",
               "paddingBottom": 20,
               "paddingLeft": 0,
@@ -387,7 +396,7 @@ exports[`[Accordion] render test should adjust duration of animation depends on 
               "width": "100%",
             },
             Object {
-              "backgroundColor": "white",
+              "backgroundColor": "#FFFFFF",
             },
           ]
         }
@@ -396,7 +405,7 @@ exports[`[Accordion] render test should adjust duration of animation depends on 
           style={
             Array [
               Object {
-                "color": "black",
+                "color": "#000000",
                 "paddingBottom": 0,
                 "paddingLeft": 20,
                 "paddingRight": 20,
@@ -414,6 +423,7 @@ exports[`[Accordion] render test should adjust duration of animation depends on 
           Array [
             Object {
               "alignItems": "center",
+              "backgroundColor": "#FFFFFF",
               "flexDirection": "row",
               "paddingBottom": 20,
               "paddingLeft": 0,
@@ -422,7 +432,7 @@ exports[`[Accordion] render test should adjust duration of animation depends on 
               "width": "100%",
             },
             Object {
-              "backgroundColor": "white",
+              "backgroundColor": "#FFFFFF",
             },
           ]
         }
@@ -431,7 +441,7 @@ exports[`[Accordion] render test should adjust duration of animation depends on 
           style={
             Array [
               Object {
-                "color": "black",
+                "color": "#000000",
                 "paddingBottom": 0,
                 "paddingLeft": 20,
                 "paddingRight": 20,
@@ -469,7 +479,7 @@ exports[`[Accordion] render test should adjust duration of animation depends on 
       onStartShouldSetResponder={[Function]}
       style={
         Object {
-          "backgroundColor": "black",
+          "backgroundColor": "#000000",
           "height": 50,
           "justifyContent": "center",
           "opacity": 1,
@@ -482,7 +492,7 @@ exports[`[Accordion] render test should adjust duration of animation depends on 
         style={
           Array [
             Object {
-              "color": "white",
+              "color": "#FFFFFF",
               "fontWeight": "bold",
               "paddingBottom": 0,
               "paddingLeft": 20,
@@ -520,10 +530,12 @@ exports[`[Accordion] render test should adjust duration of animation depends on 
                 "fontSize": 12,
               },
               Array [
-                Object {},
+                Object {
+                  "color": "#000000",
+                },
                 Array [
                   Object {
-                    "color": "white",
+                    "color": "#FFFFFF",
                   },
                   undefined,
                 ],
@@ -561,6 +573,7 @@ exports[`[Accordion] render test should adjust duration of animation depends on 
           Array [
             Object {
               "alignItems": "center",
+              "backgroundColor": "#FFFFFF",
               "flexDirection": "row",
               "paddingBottom": 20,
               "paddingLeft": 0,
@@ -569,7 +582,7 @@ exports[`[Accordion] render test should adjust duration of animation depends on 
               "width": "100%",
             },
             Object {
-              "backgroundColor": "white",
+              "backgroundColor": "#FFFFFF",
             },
           ]
         }
@@ -578,7 +591,7 @@ exports[`[Accordion] render test should adjust duration of animation depends on 
           style={
             Array [
               Object {
-                "color": "black",
+                "color": "#000000",
                 "paddingBottom": 0,
                 "paddingLeft": 20,
                 "paddingRight": 20,
@@ -596,6 +609,7 @@ exports[`[Accordion] render test should adjust duration of animation depends on 
           Array [
             Object {
               "alignItems": "center",
+              "backgroundColor": "#FFFFFF",
               "flexDirection": "row",
               "paddingBottom": 20,
               "paddingLeft": 0,
@@ -604,7 +618,7 @@ exports[`[Accordion] render test should adjust duration of animation depends on 
               "width": "100%",
             },
             Object {
-              "backgroundColor": "white",
+              "backgroundColor": "#FFFFFF",
             },
           ]
         }
@@ -613,7 +627,7 @@ exports[`[Accordion] render test should adjust duration of animation depends on 
           style={
             Array [
               Object {
-                "color": "black",
+                "color": "#000000",
                 "paddingBottom": 0,
                 "paddingLeft": 20,
                 "paddingRight": 20,
@@ -631,6 +645,7 @@ exports[`[Accordion] render test should adjust duration of animation depends on 
           Array [
             Object {
               "alignItems": "center",
+              "backgroundColor": "#FFFFFF",
               "flexDirection": "row",
               "paddingBottom": 20,
               "paddingLeft": 0,
@@ -639,7 +654,7 @@ exports[`[Accordion] render test should adjust duration of animation depends on 
               "width": "100%",
             },
             Object {
-              "backgroundColor": "white",
+              "backgroundColor": "#FFFFFF",
             },
           ]
         }
@@ -648,7 +663,7 @@ exports[`[Accordion] render test should adjust duration of animation depends on 
           style={
             Array [
               Object {
-                "color": "black",
+                "color": "#000000",
                 "paddingBottom": 0,
                 "paddingLeft": 20,
                 "paddingRight": 20,
@@ -701,7 +716,7 @@ exports[`[Accordion] render test should operate animation when shouldAnimate pro
       onStartShouldSetResponder={[Function]}
       style={
         Object {
-          "backgroundColor": "black",
+          "backgroundColor": "#000000",
           "height": 50,
           "justifyContent": "center",
           "opacity": 1,
@@ -714,7 +729,7 @@ exports[`[Accordion] render test should operate animation when shouldAnimate pro
         style={
           Array [
             Object {
-              "color": "white",
+              "color": "#FFFFFF",
               "fontWeight": "bold",
               "paddingBottom": 0,
               "paddingLeft": 20,
@@ -752,10 +767,12 @@ exports[`[Accordion] render test should operate animation when shouldAnimate pro
                 "fontSize": 12,
               },
               Array [
-                Object {},
+                Object {
+                  "color": "#000000",
+                },
                 Array [
                   Object {
-                    "color": "white",
+                    "color": "#FFFFFF",
                   },
                   undefined,
                 ],
@@ -793,6 +810,7 @@ exports[`[Accordion] render test should operate animation when shouldAnimate pro
           Array [
             Object {
               "alignItems": "center",
+              "backgroundColor": "#FFFFFF",
               "flexDirection": "row",
               "paddingBottom": 20,
               "paddingLeft": 0,
@@ -801,7 +819,7 @@ exports[`[Accordion] render test should operate animation when shouldAnimate pro
               "width": "100%",
             },
             Object {
-              "backgroundColor": "white",
+              "backgroundColor": "#FFFFFF",
             },
           ]
         }
@@ -810,7 +828,7 @@ exports[`[Accordion] render test should operate animation when shouldAnimate pro
           style={
             Array [
               Object {
-                "color": "black",
+                "color": "#000000",
                 "paddingBottom": 0,
                 "paddingLeft": 20,
                 "paddingRight": 20,
@@ -828,6 +846,7 @@ exports[`[Accordion] render test should operate animation when shouldAnimate pro
           Array [
             Object {
               "alignItems": "center",
+              "backgroundColor": "#FFFFFF",
               "flexDirection": "row",
               "paddingBottom": 20,
               "paddingLeft": 0,
@@ -836,7 +855,7 @@ exports[`[Accordion] render test should operate animation when shouldAnimate pro
               "width": "100%",
             },
             Object {
-              "backgroundColor": "white",
+              "backgroundColor": "#FFFFFF",
             },
           ]
         }
@@ -845,7 +864,7 @@ exports[`[Accordion] render test should operate animation when shouldAnimate pro
           style={
             Array [
               Object {
-                "color": "black",
+                "color": "#000000",
                 "paddingBottom": 0,
                 "paddingLeft": 20,
                 "paddingRight": 20,
@@ -863,6 +882,7 @@ exports[`[Accordion] render test should operate animation when shouldAnimate pro
           Array [
             Object {
               "alignItems": "center",
+              "backgroundColor": "#FFFFFF",
               "flexDirection": "row",
               "paddingBottom": 20,
               "paddingLeft": 0,
@@ -871,7 +891,7 @@ exports[`[Accordion] render test should operate animation when shouldAnimate pro
               "width": "100%",
             },
             Object {
-              "backgroundColor": "white",
+              "backgroundColor": "#FFFFFF",
             },
           ]
         }
@@ -880,7 +900,7 @@ exports[`[Accordion] render test should operate animation when shouldAnimate pro
           style={
             Array [
               Object {
-                "color": "black",
+                "color": "#000000",
                 "paddingBottom": 0,
                 "paddingLeft": 20,
                 "paddingRight": 20,
@@ -918,7 +938,7 @@ exports[`[Accordion] render test should operate animation when shouldAnimate pro
       onStartShouldSetResponder={[Function]}
       style={
         Object {
-          "backgroundColor": "black",
+          "backgroundColor": "#000000",
           "height": 50,
           "justifyContent": "center",
           "opacity": 1,
@@ -931,7 +951,7 @@ exports[`[Accordion] render test should operate animation when shouldAnimate pro
         style={
           Array [
             Object {
-              "color": "white",
+              "color": "#FFFFFF",
               "fontWeight": "bold",
               "paddingBottom": 0,
               "paddingLeft": 20,
@@ -969,10 +989,12 @@ exports[`[Accordion] render test should operate animation when shouldAnimate pro
                 "fontSize": 12,
               },
               Array [
-                Object {},
+                Object {
+                  "color": "#000000",
+                },
                 Array [
                   Object {
-                    "color": "white",
+                    "color": "#FFFFFF",
                   },
                   undefined,
                 ],
@@ -1010,6 +1032,7 @@ exports[`[Accordion] render test should operate animation when shouldAnimate pro
           Array [
             Object {
               "alignItems": "center",
+              "backgroundColor": "#FFFFFF",
               "flexDirection": "row",
               "paddingBottom": 20,
               "paddingLeft": 0,
@@ -1018,7 +1041,7 @@ exports[`[Accordion] render test should operate animation when shouldAnimate pro
               "width": "100%",
             },
             Object {
-              "backgroundColor": "white",
+              "backgroundColor": "#FFFFFF",
             },
           ]
         }
@@ -1027,7 +1050,7 @@ exports[`[Accordion] render test should operate animation when shouldAnimate pro
           style={
             Array [
               Object {
-                "color": "black",
+                "color": "#000000",
                 "paddingBottom": 0,
                 "paddingLeft": 20,
                 "paddingRight": 20,
@@ -1045,6 +1068,7 @@ exports[`[Accordion] render test should operate animation when shouldAnimate pro
           Array [
             Object {
               "alignItems": "center",
+              "backgroundColor": "#FFFFFF",
               "flexDirection": "row",
               "paddingBottom": 20,
               "paddingLeft": 0,
@@ -1053,7 +1077,7 @@ exports[`[Accordion] render test should operate animation when shouldAnimate pro
               "width": "100%",
             },
             Object {
-              "backgroundColor": "white",
+              "backgroundColor": "#FFFFFF",
             },
           ]
         }
@@ -1062,7 +1086,7 @@ exports[`[Accordion] render test should operate animation when shouldAnimate pro
           style={
             Array [
               Object {
-                "color": "black",
+                "color": "#000000",
                 "paddingBottom": 0,
                 "paddingLeft": 20,
                 "paddingRight": 20,
@@ -1080,6 +1104,7 @@ exports[`[Accordion] render test should operate animation when shouldAnimate pro
           Array [
             Object {
               "alignItems": "center",
+              "backgroundColor": "#FFFFFF",
               "flexDirection": "row",
               "paddingBottom": 20,
               "paddingLeft": 0,
@@ -1088,7 +1113,7 @@ exports[`[Accordion] render test should operate animation when shouldAnimate pro
               "width": "100%",
             },
             Object {
-              "backgroundColor": "white",
+              "backgroundColor": "#FFFFFF",
             },
           ]
         }
@@ -1097,7 +1122,7 @@ exports[`[Accordion] render test should operate animation when shouldAnimate pro
           style={
             Array [
               Object {
-                "color": "black",
+                "color": "#000000",
                 "paddingBottom": 0,
                 "paddingLeft": 20,
                 "paddingRight": 20,
@@ -1135,7 +1160,7 @@ exports[`[Accordion] render test should operate animation when shouldAnimate pro
       onStartShouldSetResponder={[Function]}
       style={
         Object {
-          "backgroundColor": "black",
+          "backgroundColor": "#000000",
           "height": 50,
           "justifyContent": "center",
           "opacity": 1,
@@ -1148,7 +1173,7 @@ exports[`[Accordion] render test should operate animation when shouldAnimate pro
         style={
           Array [
             Object {
-              "color": "white",
+              "color": "#FFFFFF",
               "fontWeight": "bold",
               "paddingBottom": 0,
               "paddingLeft": 20,
@@ -1186,10 +1211,12 @@ exports[`[Accordion] render test should operate animation when shouldAnimate pro
                 "fontSize": 12,
               },
               Array [
-                Object {},
+                Object {
+                  "color": "#000000",
+                },
                 Array [
                   Object {
-                    "color": "white",
+                    "color": "#FFFFFF",
                   },
                   undefined,
                 ],
@@ -1227,6 +1254,7 @@ exports[`[Accordion] render test should operate animation when shouldAnimate pro
           Array [
             Object {
               "alignItems": "center",
+              "backgroundColor": "#FFFFFF",
               "flexDirection": "row",
               "paddingBottom": 20,
               "paddingLeft": 0,
@@ -1235,7 +1263,7 @@ exports[`[Accordion] render test should operate animation when shouldAnimate pro
               "width": "100%",
             },
             Object {
-              "backgroundColor": "white",
+              "backgroundColor": "#FFFFFF",
             },
           ]
         }
@@ -1244,7 +1272,7 @@ exports[`[Accordion] render test should operate animation when shouldAnimate pro
           style={
             Array [
               Object {
-                "color": "black",
+                "color": "#000000",
                 "paddingBottom": 0,
                 "paddingLeft": 20,
                 "paddingRight": 20,
@@ -1262,6 +1290,7 @@ exports[`[Accordion] render test should operate animation when shouldAnimate pro
           Array [
             Object {
               "alignItems": "center",
+              "backgroundColor": "#FFFFFF",
               "flexDirection": "row",
               "paddingBottom": 20,
               "paddingLeft": 0,
@@ -1270,7 +1299,7 @@ exports[`[Accordion] render test should operate animation when shouldAnimate pro
               "width": "100%",
             },
             Object {
-              "backgroundColor": "white",
+              "backgroundColor": "#FFFFFF",
             },
           ]
         }
@@ -1279,7 +1308,7 @@ exports[`[Accordion] render test should operate animation when shouldAnimate pro
           style={
             Array [
               Object {
-                "color": "black",
+                "color": "#000000",
                 "paddingBottom": 0,
                 "paddingLeft": 20,
                 "paddingRight": 20,
@@ -1297,6 +1326,7 @@ exports[`[Accordion] render test should operate animation when shouldAnimate pro
           Array [
             Object {
               "alignItems": "center",
+              "backgroundColor": "#FFFFFF",
               "flexDirection": "row",
               "paddingBottom": 20,
               "paddingLeft": 0,
@@ -1305,7 +1335,7 @@ exports[`[Accordion] render test should operate animation when shouldAnimate pro
               "width": "100%",
             },
             Object {
-              "backgroundColor": "white",
+              "backgroundColor": "#FFFFFF",
             },
           ]
         }
@@ -1314,7 +1344,7 @@ exports[`[Accordion] render test should operate animation when shouldAnimate pro
           style={
             Array [
               Object {
-                "color": "black",
+                "color": "#000000",
                 "paddingBottom": 0,
                 "paddingLeft": 20,
                 "paddingRight": 20,
@@ -1367,7 +1397,7 @@ exports[`[Accordion] render test should render collapsed when collapseOnStart pr
       onStartShouldSetResponder={[Function]}
       style={
         Object {
-          "backgroundColor": "black",
+          "backgroundColor": "#000000",
           "height": 50,
           "justifyContent": "center",
           "opacity": 1,
@@ -1380,7 +1410,7 @@ exports[`[Accordion] render test should render collapsed when collapseOnStart pr
         style={
           Array [
             Object {
-              "color": "white",
+              "color": "#FFFFFF",
               "fontWeight": "bold",
               "paddingBottom": 0,
               "paddingLeft": 20,
@@ -1418,10 +1448,12 @@ exports[`[Accordion] render test should render collapsed when collapseOnStart pr
                 "fontSize": 12,
               },
               Array [
-                Object {},
+                Object {
+                  "color": "#000000",
+                },
                 Array [
                   Object {
-                    "color": "white",
+                    "color": "#FFFFFF",
                   },
                   undefined,
                 ],
@@ -1459,6 +1491,7 @@ exports[`[Accordion] render test should render collapsed when collapseOnStart pr
           Array [
             Object {
               "alignItems": "center",
+              "backgroundColor": "#FFFFFF",
               "flexDirection": "row",
               "paddingBottom": 20,
               "paddingLeft": 0,
@@ -1467,7 +1500,7 @@ exports[`[Accordion] render test should render collapsed when collapseOnStart pr
               "width": "100%",
             },
             Object {
-              "backgroundColor": "white",
+              "backgroundColor": "#FFFFFF",
             },
           ]
         }
@@ -1476,7 +1509,7 @@ exports[`[Accordion] render test should render collapsed when collapseOnStart pr
           style={
             Array [
               Object {
-                "color": "black",
+                "color": "#000000",
                 "paddingBottom": 0,
                 "paddingLeft": 20,
                 "paddingRight": 20,
@@ -1494,6 +1527,7 @@ exports[`[Accordion] render test should render collapsed when collapseOnStart pr
           Array [
             Object {
               "alignItems": "center",
+              "backgroundColor": "#FFFFFF",
               "flexDirection": "row",
               "paddingBottom": 20,
               "paddingLeft": 0,
@@ -1502,7 +1536,7 @@ exports[`[Accordion] render test should render collapsed when collapseOnStart pr
               "width": "100%",
             },
             Object {
-              "backgroundColor": "white",
+              "backgroundColor": "#FFFFFF",
             },
           ]
         }
@@ -1511,7 +1545,7 @@ exports[`[Accordion] render test should render collapsed when collapseOnStart pr
           style={
             Array [
               Object {
-                "color": "black",
+                "color": "#000000",
                 "paddingBottom": 0,
                 "paddingLeft": 20,
                 "paddingRight": 20,
@@ -1529,6 +1563,7 @@ exports[`[Accordion] render test should render collapsed when collapseOnStart pr
           Array [
             Object {
               "alignItems": "center",
+              "backgroundColor": "#FFFFFF",
               "flexDirection": "row",
               "paddingBottom": 20,
               "paddingLeft": 0,
@@ -1537,7 +1572,7 @@ exports[`[Accordion] render test should render collapsed when collapseOnStart pr
               "width": "100%",
             },
             Object {
-              "backgroundColor": "white",
+              "backgroundColor": "#FFFFFF",
             },
           ]
         }
@@ -1546,7 +1581,7 @@ exports[`[Accordion] render test should render collapsed when collapseOnStart pr
           style={
             Array [
               Object {
-                "color": "black",
+                "color": "#000000",
                 "paddingBottom": 0,
                 "paddingLeft": 20,
                 "paddingRight": 20,
@@ -1584,7 +1619,7 @@ exports[`[Accordion] render test should render collapsed when collapseOnStart pr
       onStartShouldSetResponder={[Function]}
       style={
         Object {
-          "backgroundColor": "black",
+          "backgroundColor": "#000000",
           "height": 50,
           "justifyContent": "center",
           "opacity": 1,
@@ -1597,7 +1632,7 @@ exports[`[Accordion] render test should render collapsed when collapseOnStart pr
         style={
           Array [
             Object {
-              "color": "white",
+              "color": "#FFFFFF",
               "fontWeight": "bold",
               "paddingBottom": 0,
               "paddingLeft": 20,
@@ -1635,10 +1670,12 @@ exports[`[Accordion] render test should render collapsed when collapseOnStart pr
                 "fontSize": 12,
               },
               Array [
-                Object {},
+                Object {
+                  "color": "#000000",
+                },
                 Array [
                   Object {
-                    "color": "white",
+                    "color": "#FFFFFF",
                   },
                   undefined,
                 ],
@@ -1676,6 +1713,7 @@ exports[`[Accordion] render test should render collapsed when collapseOnStart pr
           Array [
             Object {
               "alignItems": "center",
+              "backgroundColor": "#FFFFFF",
               "flexDirection": "row",
               "paddingBottom": 20,
               "paddingLeft": 0,
@@ -1684,7 +1722,7 @@ exports[`[Accordion] render test should render collapsed when collapseOnStart pr
               "width": "100%",
             },
             Object {
-              "backgroundColor": "white",
+              "backgroundColor": "#FFFFFF",
             },
           ]
         }
@@ -1693,7 +1731,7 @@ exports[`[Accordion] render test should render collapsed when collapseOnStart pr
           style={
             Array [
               Object {
-                "color": "black",
+                "color": "#000000",
                 "paddingBottom": 0,
                 "paddingLeft": 20,
                 "paddingRight": 20,
@@ -1711,6 +1749,7 @@ exports[`[Accordion] render test should render collapsed when collapseOnStart pr
           Array [
             Object {
               "alignItems": "center",
+              "backgroundColor": "#FFFFFF",
               "flexDirection": "row",
               "paddingBottom": 20,
               "paddingLeft": 0,
@@ -1719,7 +1758,7 @@ exports[`[Accordion] render test should render collapsed when collapseOnStart pr
               "width": "100%",
             },
             Object {
-              "backgroundColor": "white",
+              "backgroundColor": "#FFFFFF",
             },
           ]
         }
@@ -1728,7 +1767,7 @@ exports[`[Accordion] render test should render collapsed when collapseOnStart pr
           style={
             Array [
               Object {
-                "color": "black",
+                "color": "#000000",
                 "paddingBottom": 0,
                 "paddingLeft": 20,
                 "paddingRight": 20,
@@ -1746,6 +1785,7 @@ exports[`[Accordion] render test should render collapsed when collapseOnStart pr
           Array [
             Object {
               "alignItems": "center",
+              "backgroundColor": "#FFFFFF",
               "flexDirection": "row",
               "paddingBottom": 20,
               "paddingLeft": 0,
@@ -1754,7 +1794,7 @@ exports[`[Accordion] render test should render collapsed when collapseOnStart pr
               "width": "100%",
             },
             Object {
-              "backgroundColor": "white",
+              "backgroundColor": "#FFFFFF",
             },
           ]
         }
@@ -1763,7 +1803,7 @@ exports[`[Accordion] render test should render collapsed when collapseOnStart pr
           style={
             Array [
               Object {
-                "color": "black",
+                "color": "#000000",
                 "paddingBottom": 0,
                 "paddingLeft": 20,
                 "paddingRight": 20,
@@ -1801,7 +1841,7 @@ exports[`[Accordion] render test should render collapsed when collapseOnStart pr
       onStartShouldSetResponder={[Function]}
       style={
         Object {
-          "backgroundColor": "black",
+          "backgroundColor": "#000000",
           "height": 50,
           "justifyContent": "center",
           "opacity": 1,
@@ -1814,7 +1854,7 @@ exports[`[Accordion] render test should render collapsed when collapseOnStart pr
         style={
           Array [
             Object {
-              "color": "white",
+              "color": "#FFFFFF",
               "fontWeight": "bold",
               "paddingBottom": 0,
               "paddingLeft": 20,
@@ -1852,10 +1892,12 @@ exports[`[Accordion] render test should render collapsed when collapseOnStart pr
                 "fontSize": 12,
               },
               Array [
-                Object {},
+                Object {
+                  "color": "#000000",
+                },
                 Array [
                   Object {
-                    "color": "white",
+                    "color": "#FFFFFF",
                   },
                   undefined,
                 ],
@@ -1893,6 +1935,7 @@ exports[`[Accordion] render test should render collapsed when collapseOnStart pr
           Array [
             Object {
               "alignItems": "center",
+              "backgroundColor": "#FFFFFF",
               "flexDirection": "row",
               "paddingBottom": 20,
               "paddingLeft": 0,
@@ -1901,7 +1944,7 @@ exports[`[Accordion] render test should render collapsed when collapseOnStart pr
               "width": "100%",
             },
             Object {
-              "backgroundColor": "white",
+              "backgroundColor": "#FFFFFF",
             },
           ]
         }
@@ -1910,7 +1953,7 @@ exports[`[Accordion] render test should render collapsed when collapseOnStart pr
           style={
             Array [
               Object {
-                "color": "black",
+                "color": "#000000",
                 "paddingBottom": 0,
                 "paddingLeft": 20,
                 "paddingRight": 20,
@@ -1928,6 +1971,7 @@ exports[`[Accordion] render test should render collapsed when collapseOnStart pr
           Array [
             Object {
               "alignItems": "center",
+              "backgroundColor": "#FFFFFF",
               "flexDirection": "row",
               "paddingBottom": 20,
               "paddingLeft": 0,
@@ -1936,7 +1980,7 @@ exports[`[Accordion] render test should render collapsed when collapseOnStart pr
               "width": "100%",
             },
             Object {
-              "backgroundColor": "white",
+              "backgroundColor": "#FFFFFF",
             },
           ]
         }
@@ -1945,7 +1989,7 @@ exports[`[Accordion] render test should render collapsed when collapseOnStart pr
           style={
             Array [
               Object {
-                "color": "black",
+                "color": "#000000",
                 "paddingBottom": 0,
                 "paddingLeft": 20,
                 "paddingRight": 20,
@@ -1963,6 +2007,7 @@ exports[`[Accordion] render test should render collapsed when collapseOnStart pr
           Array [
             Object {
               "alignItems": "center",
+              "backgroundColor": "#FFFFFF",
               "flexDirection": "row",
               "paddingBottom": 20,
               "paddingLeft": 0,
@@ -1971,7 +2016,7 @@ exports[`[Accordion] render test should render collapsed when collapseOnStart pr
               "width": "100%",
             },
             Object {
-              "backgroundColor": "white",
+              "backgroundColor": "#FFFFFF",
             },
           ]
         }
@@ -1980,7 +2025,7 @@ exports[`[Accordion] render test should render collapsed when collapseOnStart pr
           style={
             Array [
               Object {
-                "color": "black",
+                "color": "#000000",
                 "paddingBottom": 0,
                 "paddingLeft": 20,
                 "paddingRight": 20,
@@ -2033,7 +2078,7 @@ exports[`[Accordion] render test should render without crashing 1`] = `
       onStartShouldSetResponder={[Function]}
       style={
         Object {
-          "backgroundColor": "black",
+          "backgroundColor": "#000000",
           "height": 50,
           "justifyContent": "center",
           "opacity": 1,
@@ -2046,7 +2091,7 @@ exports[`[Accordion] render test should render without crashing 1`] = `
         style={
           Array [
             Object {
-              "color": "white",
+              "color": "#FFFFFF",
               "fontWeight": "bold",
               "paddingBottom": 0,
               "paddingLeft": 20,
@@ -2097,6 +2142,7 @@ exports[`[Accordion] render test should render without crashing 1`] = `
           Array [
             Object {
               "alignItems": "center",
+              "backgroundColor": "#FFFFFF",
               "flexDirection": "row",
               "paddingBottom": 20,
               "paddingLeft": 0,
@@ -2105,7 +2151,7 @@ exports[`[Accordion] render test should render without crashing 1`] = `
               "width": "100%",
             },
             Object {
-              "backgroundColor": "white",
+              "backgroundColor": "#FFFFFF",
             },
           ]
         }
@@ -2114,7 +2160,7 @@ exports[`[Accordion] render test should render without crashing 1`] = `
           style={
             Array [
               Object {
-                "color": "black",
+                "color": "#000000",
                 "paddingBottom": 0,
                 "paddingLeft": 20,
                 "paddingRight": 20,
@@ -2132,6 +2178,7 @@ exports[`[Accordion] render test should render without crashing 1`] = `
           Array [
             Object {
               "alignItems": "center",
+              "backgroundColor": "#FFFFFF",
               "flexDirection": "row",
               "paddingBottom": 20,
               "paddingLeft": 0,
@@ -2140,7 +2187,7 @@ exports[`[Accordion] render test should render without crashing 1`] = `
               "width": "100%",
             },
             Object {
-              "backgroundColor": "white",
+              "backgroundColor": "#FFFFFF",
             },
           ]
         }
@@ -2149,7 +2196,7 @@ exports[`[Accordion] render test should render without crashing 1`] = `
           style={
             Array [
               Object {
-                "color": "black",
+                "color": "#000000",
                 "paddingBottom": 0,
                 "paddingLeft": 20,
                 "paddingRight": 20,
@@ -2167,6 +2214,7 @@ exports[`[Accordion] render test should render without crashing 1`] = `
           Array [
             Object {
               "alignItems": "center",
+              "backgroundColor": "#FFFFFF",
               "flexDirection": "row",
               "paddingBottom": 20,
               "paddingLeft": 0,
@@ -2175,7 +2223,7 @@ exports[`[Accordion] render test should render without crashing 1`] = `
               "width": "100%",
             },
             Object {
-              "backgroundColor": "white",
+              "backgroundColor": "#FFFFFF",
             },
           ]
         }
@@ -2184,7 +2232,7 @@ exports[`[Accordion] render test should render without crashing 1`] = `
           style={
             Array [
               Object {
-                "color": "black",
+                "color": "#000000",
                 "paddingBottom": 0,
                 "paddingLeft": 20,
                 "paddingRight": 20,
@@ -2222,7 +2270,7 @@ exports[`[Accordion] render test should render without crashing 1`] = `
       onStartShouldSetResponder={[Function]}
       style={
         Object {
-          "backgroundColor": "black",
+          "backgroundColor": "#000000",
           "height": 50,
           "justifyContent": "center",
           "opacity": 1,
@@ -2235,7 +2283,7 @@ exports[`[Accordion] render test should render without crashing 1`] = `
         style={
           Array [
             Object {
-              "color": "white",
+              "color": "#FFFFFF",
               "fontWeight": "bold",
               "paddingBottom": 0,
               "paddingLeft": 20,
@@ -2286,6 +2334,7 @@ exports[`[Accordion] render test should render without crashing 1`] = `
           Array [
             Object {
               "alignItems": "center",
+              "backgroundColor": "#FFFFFF",
               "flexDirection": "row",
               "paddingBottom": 20,
               "paddingLeft": 0,
@@ -2294,7 +2343,7 @@ exports[`[Accordion] render test should render without crashing 1`] = `
               "width": "100%",
             },
             Object {
-              "backgroundColor": "white",
+              "backgroundColor": "#FFFFFF",
             },
           ]
         }
@@ -2303,7 +2352,7 @@ exports[`[Accordion] render test should render without crashing 1`] = `
           style={
             Array [
               Object {
-                "color": "black",
+                "color": "#000000",
                 "paddingBottom": 0,
                 "paddingLeft": 20,
                 "paddingRight": 20,
@@ -2321,6 +2370,7 @@ exports[`[Accordion] render test should render without crashing 1`] = `
           Array [
             Object {
               "alignItems": "center",
+              "backgroundColor": "#FFFFFF",
               "flexDirection": "row",
               "paddingBottom": 20,
               "paddingLeft": 0,
@@ -2329,7 +2379,7 @@ exports[`[Accordion] render test should render without crashing 1`] = `
               "width": "100%",
             },
             Object {
-              "backgroundColor": "white",
+              "backgroundColor": "#FFFFFF",
             },
           ]
         }
@@ -2338,7 +2388,7 @@ exports[`[Accordion] render test should render without crashing 1`] = `
           style={
             Array [
               Object {
-                "color": "black",
+                "color": "#000000",
                 "paddingBottom": 0,
                 "paddingLeft": 20,
                 "paddingRight": 20,
@@ -2356,6 +2406,7 @@ exports[`[Accordion] render test should render without crashing 1`] = `
           Array [
             Object {
               "alignItems": "center",
+              "backgroundColor": "#FFFFFF",
               "flexDirection": "row",
               "paddingBottom": 20,
               "paddingLeft": 0,
@@ -2364,7 +2415,7 @@ exports[`[Accordion] render test should render without crashing 1`] = `
               "width": "100%",
             },
             Object {
-              "backgroundColor": "white",
+              "backgroundColor": "#FFFFFF",
             },
           ]
         }
@@ -2373,7 +2424,7 @@ exports[`[Accordion] render test should render without crashing 1`] = `
           style={
             Array [
               Object {
-                "color": "black",
+                "color": "#000000",
                 "paddingBottom": 0,
                 "paddingLeft": 20,
                 "paddingRight": 20,
@@ -2411,7 +2462,7 @@ exports[`[Accordion] render test should render without crashing 1`] = `
       onStartShouldSetResponder={[Function]}
       style={
         Object {
-          "backgroundColor": "black",
+          "backgroundColor": "#000000",
           "height": 50,
           "justifyContent": "center",
           "opacity": 1,
@@ -2424,7 +2475,7 @@ exports[`[Accordion] render test should render without crashing 1`] = `
         style={
           Array [
             Object {
-              "color": "white",
+              "color": "#FFFFFF",
               "fontWeight": "bold",
               "paddingBottom": 0,
               "paddingLeft": 20,
@@ -2475,6 +2526,7 @@ exports[`[Accordion] render test should render without crashing 1`] = `
           Array [
             Object {
               "alignItems": "center",
+              "backgroundColor": "#FFFFFF",
               "flexDirection": "row",
               "paddingBottom": 20,
               "paddingLeft": 0,
@@ -2483,7 +2535,7 @@ exports[`[Accordion] render test should render without crashing 1`] = `
               "width": "100%",
             },
             Object {
-              "backgroundColor": "white",
+              "backgroundColor": "#FFFFFF",
             },
           ]
         }
@@ -2492,7 +2544,7 @@ exports[`[Accordion] render test should render without crashing 1`] = `
           style={
             Array [
               Object {
-                "color": "black",
+                "color": "#000000",
                 "paddingBottom": 0,
                 "paddingLeft": 20,
                 "paddingRight": 20,
@@ -2510,6 +2562,7 @@ exports[`[Accordion] render test should render without crashing 1`] = `
           Array [
             Object {
               "alignItems": "center",
+              "backgroundColor": "#FFFFFF",
               "flexDirection": "row",
               "paddingBottom": 20,
               "paddingLeft": 0,
@@ -2518,7 +2571,7 @@ exports[`[Accordion] render test should render without crashing 1`] = `
               "width": "100%",
             },
             Object {
-              "backgroundColor": "white",
+              "backgroundColor": "#FFFFFF",
             },
           ]
         }
@@ -2527,7 +2580,7 @@ exports[`[Accordion] render test should render without crashing 1`] = `
           style={
             Array [
               Object {
-                "color": "black",
+                "color": "#000000",
                 "paddingBottom": 0,
                 "paddingLeft": 20,
                 "paddingRight": 20,
@@ -2545,6 +2598,7 @@ exports[`[Accordion] render test should render without crashing 1`] = `
           Array [
             Object {
               "alignItems": "center",
+              "backgroundColor": "#FFFFFF",
               "flexDirection": "row",
               "paddingBottom": 20,
               "paddingLeft": 0,
@@ -2553,7 +2607,7 @@ exports[`[Accordion] render test should render without crashing 1`] = `
               "width": "100%",
             },
             Object {
-              "backgroundColor": "white",
+              "backgroundColor": "#FFFFFF",
             },
           ]
         }
@@ -2562,7 +2616,7 @@ exports[`[Accordion] render test should render without crashing 1`] = `
           style={
             Array [
               Object {
-                "color": "black",
+                "color": "#000000",
                 "paddingBottom": 0,
                 "paddingLeft": 20,
                 "paddingRight": 20,

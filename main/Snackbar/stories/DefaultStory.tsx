@@ -1,7 +1,8 @@
-import {Button, Snackbar, SnackbarRef} from '../..';
+import {Button, Snackbar} from '../..';
 import React, {useCallback, useRef} from 'react';
 
-import {SnackbarType} from '../../Styled/StyledComponents';
+import type {SnackbarRef} from '../..';
+import type {SnackbarType} from '../../Styled/StyledComponents';
 import styled from '@emotion/native';
 
 const types: SnackbarType[] = [
@@ -14,7 +15,7 @@ const types: SnackbarType[] = [
 ];
 
 const Container = styled.SafeAreaView`
-  background-color: ${({theme}) => theme.background};
+  background-color: ${({theme}) => theme.bg.default};
 `;
 
 function SnackbarDefault(): React.ReactElement {

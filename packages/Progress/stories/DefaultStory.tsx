@@ -1,4 +1,3 @@
-import {DoobooTheme, useTheme} from '@dooboo-ui/theme';
 import React, {useEffect, useState} from 'react';
 import {
   boolean as booleanInput,
@@ -6,8 +5,10 @@ import {
   select as selectInput,
 } from '@storybook/addon-knobs';
 
+import type {DoobooTheme} from '@dooboo-ui/theme';
 import Progress from '../lib';
 import styled from '@emotion/native';
+import {useTheme} from '@dooboo-ui/theme';
 
 type DoobooThemeContext = {theme?: DoobooTheme};
 
@@ -16,7 +17,7 @@ const Container = styled.View<DoobooThemeContext>`
   justify-content: center;
   align-items: center;
   padding: 10px;
-  background-color: ${({theme}) => theme.background};
+  background-color: ${({theme}) => theme.bg.default};
 `;
 
 const DefaultStory: React.FC = () => {

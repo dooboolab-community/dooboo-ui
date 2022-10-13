@@ -1,25 +1,15 @@
-import {
-  Animated,
-  Dimensions,
-  Platform,
-  StyleProp,
-  TextStyle,
-  TouchableOpacity,
-  ViewStyle,
-} from 'react-native';
-import {
-  ButtonText,
-  SnackbarType,
-  SnackbarWrapper,
-} from '../Styled/StyledComponents';
+import {Animated, Dimensions, Platform, TouchableOpacity} from 'react-native';
+import {ButtonText, SnackbarWrapper} from '../Styled/StyledComponents';
 import React, {
-  ReactElement,
   useCallback,
   useEffect,
   useImperativeHandle,
   useState,
 } from 'react';
+import type {StyleProp, TextStyle, ViewStyle} from 'react-native';
 
+import type {ReactElement} from 'react';
+import type {SnackbarType} from '../Styled/StyledComponents';
 import styled from '@emotion/native';
 import {useTheme} from '@dooboo-ui/theme';
 
@@ -60,7 +50,7 @@ export enum SnackbarTimer {
 
 const TextAction = styled.Text<{type: SnackbarType}>`
   color: ${({theme, type}) =>
-    type === 'danger' ? theme.textContrast : theme.text};
+    type === 'danger' ? theme.text.contrast : theme.text.default};
 `;
 
 const Divider = styled.View<{type: SnackbarType}>`
@@ -70,7 +60,7 @@ const Divider = styled.View<{type: SnackbarType}>`
   opacity: 0.4;
 
   background-color: ${({theme, type}) =>
-    type === 'danger' ? theme.textContrast : theme.text};
+    type === 'danger' ? theme.text.contrast : theme.text.default};
 `;
 
 const SnackbarContainer = (

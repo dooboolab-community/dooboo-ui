@@ -1,6 +1,8 @@
-import {Animated, StyleProp, TouchableOpacity, ViewStyle} from 'react-native';
-import React, {ReactElement, useEffect, useState} from 'react';
+import {Animated, TouchableOpacity} from 'react-native';
+import React, {useEffect, useState} from 'react';
+import type {StyleProp, ViewStyle} from 'react-native';
 
+import type {ReactElement} from 'react';
 import styled from '@emotion/native';
 import {useTheme} from '@dooboo-ui/theme';
 
@@ -59,15 +61,13 @@ export function SwitchToggle(props: Props): ReactElement {
     onPress,
   } = props;
 
-  const {
-    theme: {primary, disabled, textContrast, placeholder},
-  } = useTheme();
+  const {theme} = useTheme();
 
   const {
-    backgroundColorOn = primary,
-    backgroundColorOff = disabled,
-    circleColorOn = textContrast,
-    circleColorOff = placeholder,
+    backgroundColorOn = theme.role.primary,
+    backgroundColorOff = theme.bg.disabled,
+    circleColorOn = theme.text.contrast,
+    circleColorOff = theme.text.default,
     container = defaultContainer,
     circle = defaultCircle,
     button,

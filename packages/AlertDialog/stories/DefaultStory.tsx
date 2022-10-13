@@ -1,7 +1,7 @@
 import React, {useRef, useState} from 'react';
 
 import AlertDialog from '../';
-import Modal from 'react-native-modalbox';
+import type Modal from 'react-native-modalbox';
 import {TouchableOpacity} from 'react-native';
 import styled from '@emotion/native';
 

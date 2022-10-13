@@ -1,5 +1,4 @@
 import {isEmptyObject} from './utils';
-import {light} from '@dooboo-ui/theme';
 import styled from '@emotion/native';
 
 export const Hr = styled.View`
@@ -7,9 +6,9 @@ export const Hr = styled.View`
   width: 100%;
   background-color: ${({theme}) => {
     if (isEmptyObject(theme)) {
-      return light.placeholder;
+      return theme.text.placeholder;
     }
 
-    return theme.placeholder;
+    return theme.text.placeholder;
   }};
 `;

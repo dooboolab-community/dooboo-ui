@@ -1,8 +1,10 @@
-import {RenderAPI, fireEvent, render} from '@testing-library/react-native';
 import {ThemeProvider, dark, light} from '@dooboo-ui/theme';
 import {createComponent, createTestProps} from '../../test/testUtils';
+import {fireEvent, render} from '@testing-library/react-native';
 
 import {ButtonGroup} from '../ButtonGroup';
+import React from 'react';
+import type {RenderAPI} from '@testing-library/react-native';
 import getGiven from 'givens';
 
 const given = getGiven();
@@ -53,11 +55,11 @@ describe('[ButtonGroup]', () => {
       const {getByText} = renderButtonGroup();
 
       expect(getByText('option 1')).toHaveStyle({
-        color: theme[themeType].textContrast,
+        color: theme[themeType].text.contrast,
       });
 
       expect(getByText('option 2')).toHaveStyle({
-        color: theme[themeType].text,
+        color: theme[themeType].text.default,
       });
     });
   });
@@ -69,11 +71,11 @@ describe('[ButtonGroup]', () => {
       const {getByText} = renderButtonGroup();
 
       expect(getByText('option 1')).toHaveStyle({
-        color: theme[themeType].text,
+        color: theme[themeType].text.default,
       });
 
       expect(getByText('option 2')).toHaveStyle({
-        color: theme[themeType].textContrast,
+        color: theme[themeType].text.contrast,
       });
     });
   });

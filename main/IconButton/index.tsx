@@ -80,18 +80,18 @@ export const IconButton: FC<IconButtonProps> = (props) => {
 
   const {theme} = useTheme();
 
-  const indicatorColor = props.indicatorColor ?? theme.disabled;
+  const indicatorColor = props.indicatorColor ?? theme.bg.disabled;
 
   const ref = useRef<TouchableOpacity>(null);
   const hovered = useHover(ref);
 
   const compositeStyles: Styles = {
     disabledButton: {
-      backgroundColor: !outlined ? theme.disabled : theme.background,
-      borderColor: theme.disabled,
+      backgroundColor: !outlined ? theme.bg.disabled : theme.bg.default,
+      borderColor: theme.bg.disabled,
     },
     disabledText: {
-      color: !outlined ? theme.background : theme.textDisabled,
+      color: !outlined ? theme.text.contrast : theme.text.disabled,
     },
     hovered: {
       shadowColor: 'black',

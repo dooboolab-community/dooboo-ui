@@ -1,5 +1,5 @@
-import {Progressbar, ProgressbarProps} from '../../main';
-
+import {Progressbar} from '../../main';
+import type {ProgressbarProps} from '../../main';
 import React from 'react';
 import type {ReactElement} from 'react';
 import type {RenderAPI} from '@testing-library/react-native';
@@ -10,7 +10,7 @@ import {render} from '@testing-library/react-native';
 let testingLib: RenderAPI;
 
 const Component = (props?: ProgressbarProps): ReactElement =>
-  createComponent(<Progressbar {...props} />);
+  createComponent(<Progressbar value={0} {...props} />);
 
 describe('[Progressbar]', () => {
   it('should render without crashing', () => {
@@ -29,7 +29,9 @@ describe('[Progressbar]', () => {
     );
 
     const progressbar = testingLib.getByTestId('progressbar-background');
-    expect(progressbar.props.style[0].backgroundColor).toEqual(light.light);
+    expect(progressbar.props.style[0].backgroundColor).toEqual(
+      light.role.light,
+    );
   });
 
   it('should render text', () => {
@@ -40,7 +42,7 @@ describe('[Progressbar]', () => {
     );
 
     const progressbar = testingLib.getByTestId('progressbar-text');
-    expect(progressbar.props.style[0].color).toEqual(light.text);
+    expect(progressbar.props.style[0].color).toEqual(light.text.default);
   });
 
   describe('type', () => {
@@ -53,7 +55,9 @@ describe('[Progressbar]', () => {
       );
 
       const progressbar = testingLib.getByTestId('progressbar-main');
-      expect(progressbar.props.style[0].backgroundColor).toEqual(light.info);
+      expect(progressbar.props.style[0].backgroundColor).toEqual(
+        light.role.info,
+      );
     });
 
     it('should render type==="success"', () => {
@@ -65,7 +69,9 @@ describe('[Progressbar]', () => {
       );
 
       const progressbar = testingLib.getByTestId('progressbar-main');
-      expect(progressbar.props.style[0].backgroundColor).toEqual(light.success);
+      expect(progressbar.props.style[0].backgroundColor).toEqual(
+        light.role.success,
+      );
     });
 
     it('should render type==="danger"', () => {
@@ -77,7 +83,9 @@ describe('[Progressbar]', () => {
       );
 
       const progressbar = testingLib.getByTestId('progressbar-main');
-      expect(progressbar.props.style[0].backgroundColor).toEqual(light.danger);
+      expect(progressbar.props.style[0].backgroundColor).toEqual(
+        light.role.danger,
+      );
     });
 
     it('should render type==="warning"', () => {
@@ -89,7 +97,9 @@ describe('[Progressbar]', () => {
       );
 
       const progressbar = testingLib.getByTestId('progressbar-main');
-      expect(progressbar.props.style[0].backgroundColor).toEqual(light.warning);
+      expect(progressbar.props.style[0].backgroundColor).toEqual(
+        light.role.warning,
+      );
     });
   });
 });

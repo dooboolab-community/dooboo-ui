@@ -1,4 +1,4 @@
-import {StyleProp, TextStyle, ViewStyle} from 'react-native';
+import type {StyleProp, TextStyle, ViewStyle} from 'react-native';
 
 import React from 'react';
 import {isEmptyObject} from '../utils';
@@ -14,7 +14,7 @@ const Container = styled.View`
 
 const BackgroundView = styled.View`
   flex: 1;
-  background-color: ${({theme}) => theme.light};
+  background-color: ${({theme}) => theme.bg.paper};
   height: 24px;
   border-radius: 4px;
   margin-left: 10px;
@@ -28,7 +28,7 @@ const Progress = styled.View<ProgressProps>`
   background-color: ${({theme, type}) => {
     theme = isEmptyObject(theme) ? light : theme;
 
-    return theme[type ?? 'info'];
+    return theme.role[type ?? 'info'];
   }};
   height: 100%;
 `;
@@ -37,7 +37,7 @@ const NumberText = styled.Text`
   position: absolute;
   font-size: 14px;
   z-index: 2;
-  color: ${({theme}) => theme.text};
+  color: ${({theme}) => theme.text.default};
 `;
 
 export type ProgressbarType = 'success' | 'danger' | 'warning' | 'info';

@@ -6,7 +6,7 @@ const StoryContainer = styled.View`
   flex: 1;
   width: 100%;
   align-self: stretch;
-  background-color: ${({theme}) => theme.background};
+  background-color: ${({theme}) => theme.bg.default};
   justify-content: center;
   align-items: center;
 `;
@@ -21,7 +21,7 @@ const Title = styled.Text`
   text-align: center;
   margin-top: 20px;
   margin-bottom: 20px;
-  color: ${({theme}) => theme.primary};
+  color: ${({theme}) => theme.role.primary};
 `;
 
 const SubTitle = styled.Text`
@@ -29,7 +29,7 @@ const SubTitle = styled.Text`
   text-align: center;
   margin-top: 10px;
   margin-bottom: 10px;
-  color: ${({theme}) => theme.primary};
+  color: ${({theme}) => theme.role.primary};
 `;
 
 const ProgressbarDefault: React.FC = () => {

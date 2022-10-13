@@ -1,13 +1,5 @@
-import {
-  BackHandler,
-  BackHandlerStatic,
-  FlatList,
-  Keyboard,
-  ListRenderItem,
-  Platform,
-  TextInput,
-  View,
-} from 'react-native';
+import type {BackHandlerStatic, ListRenderItem, TextInput} from 'react-native';
+import {BackHandler, FlatList, Keyboard, Platform, View} from 'react-native';
 import React, {useEffect, useRef, useState} from 'react';
 
 import styled from '@emotion/native';
