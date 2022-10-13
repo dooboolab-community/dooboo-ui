@@ -25,7 +25,7 @@ jobs:
         run: |
           pushd ./docs
           yarn preinstall
-          yarn install --frozen-lockfile --network-concurrency 1
+          yarn install --network-concurrency 1
           yarn build
           popd
 
