@@ -1,14 +1,14 @@
-import type {FC} from 'react';
 import React, {useState} from 'react';
-import {useTheme} from '@dooboo-ui/theme';
-import styled from '@emotion/native';
-
 import {SwitchToggle, Typography} from '../..';
+
+import type {FC} from 'react';
+import styled from '@emotion/native';
+import {useTheme} from '@dooboo-ui/theme';
 
 const StoryContainer = styled.View`
   flex: 1;
   align-self: stretch;
-  background-color: ${({theme}) => theme.background};
+  background-color: ${({theme}) => theme.bg.default};
 `;
 
 const ScrollContainer = styled.ScrollView`
@@ -16,7 +16,7 @@ const ScrollContainer = styled.ScrollView`
 `;
 
 const Container = styled.View`
-  background-color: ${({theme}) => theme.background};
+  background-color: ${({theme}) => theme.bg.default};
   align-items: center;
   justify-content: center;
   width: 100%;
@@ -47,10 +47,10 @@ const SwitchToggleDefault: FC = () => {
             isOn={on}
             onPress={() => off(!on)}
             styles={{
-              circleColorOff: theme.disabled,
-              circleColorOn: theme.secondary,
-              backgroundColorOn: theme.placeholder,
-              backgroundColorOff: theme.textDisabled,
+              circleColorOff: theme.text.disabled,
+              circleColorOn: theme.text.secondary,
+              backgroundColorOn: theme.bg.paper,
+              backgroundColorOff: theme.bg.disabled,
             }}
           />
         </Container>

@@ -11,12 +11,12 @@ import {action} from '@storybook/addon-actions';
 const StoryContainer = styled.View`
   flex: 1;
   align-self: stretch;
-  background-color: ${({theme}) => theme.background};
+  background-color: ${({theme}) => theme.bg.default};
 `;
 
 const StyledText = styled.Text`
   margin: 8px;
-  color: ${({theme}) => theme.text};
+  color: ${({theme}) => theme.text.default};
 `;
 
 const ScrollContainer = styled.ScrollView`

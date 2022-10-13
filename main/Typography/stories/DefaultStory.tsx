@@ -6,7 +6,7 @@ import styled from '@emotion/native';
 const Container = styled.View`
   flex: 1;
   width: 100%;
-  background-color: ${({theme}) => theme.background};
+  background-color: ${({theme}) => theme.bg.default};
 
   align-items: center;
   justify-content: center;

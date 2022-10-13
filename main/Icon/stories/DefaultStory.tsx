@@ -1,14 +1,14 @@
 import type {FC} from 'react';
 import {Icon} from '..';
+import React from 'react';
 import {View} from 'react-native';
 import styled from '@emotion/native';
 import {useFonts} from 'expo-font';
-import React from 'react';
 
 const StoryContainer = styled.View`
   flex: 1;
   align-self: stretch;
-  background-color: ${({theme}) => theme.background};
+  background-color: ${({theme}) => theme.bg.default};
 `;
 
 const ScrollContainer = styled.ScrollView`
@@ -19,7 +19,7 @@ const Container = styled.View`
   flex: 1;
   align-self: stretch;
   flex-wrap: wrap;
-  background-color: ${({theme}) => theme.background};
+  background-color: ${({theme}) => theme.bg.default};
   width: 100%;
   margin-top: 20px;
   margin-bottom: 20px;

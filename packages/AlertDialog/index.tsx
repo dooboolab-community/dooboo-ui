@@ -1,9 +1,9 @@
-import type {DoobooTheme} from '@dooboo-ui/theme';
-import {useTheme, withTheme} from '@dooboo-ui/theme';
-import type {ModalProps} from 'react-native-modalbox';
-import Modal from 'react-native-modalbox';
 import React, {useState} from 'react';
+import {useTheme, withTheme} from '@dooboo-ui/theme';
 
+import type {DoobooTheme} from '@dooboo-ui/theme';
+import Modal from 'react-native-modalbox';
+import type {ModalProps} from 'react-native-modalbox';
 import styled from '@emotion/native';
 
 /**
@@ -18,12 +18,12 @@ type DoobooThemeProp = {theme?: DoobooTheme};
 const ModalButton = styled.TouchableOpacity<ButtonTypeProps & DoobooThemeProp>`
   width: 100%;
   height: 40px;
-  border: 1px solid ${({theme}) => theme.text};
+  border: 1px solid ${({theme}) => theme.text.default};
   border-radius: 20px;
   justify-content: center;
   align-items: center;
   background-color: ${({isAdditional, theme}) =>
-    isAdditional ? 'transparent' : theme.primary};
+    isAdditional ? 'transparent' : theme.role.primary};
   margin-bottom: ${({isAdditional}) => (isAdditional ? '16px' : '0px')}; ;
 `;
 
@@ -31,7 +31,7 @@ const ButtonText = styled.Text<ButtonTypeProps & DoobooThemeProp>`
   font-size: 14px;
   font-weight: bold;
   color: ${({theme, isAdditional}) =>
-    isAdditional ? theme.text : theme.background};
+    isAdditional ? theme.text.default : theme.bg.default};
 `;
 
 const ModalInput = styled.TextInput<DoobooThemeProp>`
@@ -39,8 +39,8 @@ const ModalInput = styled.TextInput<DoobooThemeProp>`
   margin-bottom: 16px;
   padding: 4px 12px;
   font-size: 14px;
-  border: 1px solid ${({theme}) => theme.text};
-  color: ${({theme}) => theme.text};
+  border: 1px solid ${({theme}) => theme.text.default};
+  color: ${({theme}) => theme.text.default};
 `;
 
 const Title = styled.Text<DoobooThemeProp>`
@@ -48,14 +48,14 @@ const Title = styled.Text<DoobooThemeProp>`
   line-height: 20px;
   text-align: center;
   margin-bottom: 16px;
-  color: ${({theme}) => theme.text};
+  color: ${({theme}) => theme.text.default};
 `;
 
 const Content = styled.Text<DoobooThemeProp>`
   font-size: 16px;
   line-height: 20px;
   margin-bottom: 16px;
-  color: ${({theme}) => theme.text};
+  color: ${({theme}) => theme.text.default};
 `;
 
 interface ButtonTypeProps {
@@ -122,9 +122,9 @@ const AlertDialog = React.forwardRef<Modal, Props>(
             width: '80%',
             height: 'auto',
             borderRadius: 40,
-            backgroundColor: theme.background,
+            backgroundColor: theme.bg.default,
             shadowOffset: {width: 0, height: 4},
-            shadowColor: theme.text,
+            shadowColor: theme.text.default,
             padding: 20,
           },
           style,

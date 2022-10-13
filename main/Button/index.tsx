@@ -1,18 +1,18 @@
 import {ActivityIndicator, Platform, TouchableOpacity} from 'react-native';
-import type {ButtonType} from '../Styled/StyledComponents';
 import {ButtonText, ButtonWrapper} from '../Styled/StyledComponents';
-import React, {useRef, useState} from 'react';
+import type {FC, ReactElement} from 'react';
 import type {
+  LayoutRectangle,
   StyleProp,
   TextProps,
   TextStyle,
   TouchableOpacityProps,
   ViewStyle,
-  LayoutRectangle,
 } from 'react-native';
+import React, {useRef, useState} from 'react';
 import styled, {css} from '@emotion/native';
 
-import type {FC, ReactElement} from 'react';
+import type {ButtonType} from '../Styled/StyledComponents';
 import {useHover} from 'react-native-web-hooks';
 import {useTheme} from '@dooboo-ui/theme';
 
@@ -93,17 +93,19 @@ export const Button: FC<Props> = (props) => {
 
   const disabledTextColor =
     disabled && !outlined && !loading
-      ? theme.textDisabled
+      ? theme.text.disabled
       : outlined
-      ? theme.disabled
-      : theme.light;
+      ? theme.bg.disabled
+      : theme.bg.paper;
 
   const indicatorColor = props.indicatorColor ?? disabledTextColor;
 
   const compositeStyles: Styles = {
     disabledButton: css`
-      background-color: ${!outlined && !loading ? theme.disabled : undefined};
-      border-color: ${theme.disabled};
+      background-color: ${!outlined && !loading
+        ? theme.bg.disabled
+        : undefined};
+      border-color: ${theme.bg.disabled};
     `,
     disabledText: {
       color: disabledTextColor,

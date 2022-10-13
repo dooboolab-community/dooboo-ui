@@ -31,7 +31,7 @@
     "prepare": "husky install"
   },
   "dependencies": {
-    "@dooboo-ui/theme": "^0.4.7",
+    "@dooboo-ui/theme": "^0.5.2",
     "@emotion/native": "^11.10.0",
     "@emotion/react": "^11.10.4",
     "@expo/match-media": "^0.3.0",

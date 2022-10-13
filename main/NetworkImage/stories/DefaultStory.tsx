@@ -7,7 +7,7 @@ import {useTheme} from '@dooboo-ui/theme';
 
 const ScrollContainer = styled.ScrollView`
   width: 100%;
-  background-color: ${({theme}) => theme.background};
+  background-color: ${({theme}) => theme.bg.default};
 `;
 
 function NetworkImageStory(): React.ReactElement {
@@ -53,7 +53,7 @@ function NetworkImageStory(): React.ReactElement {
       <View>
         <NetworkImage
           style={{
-            backgroundColor: theme.light,
+            backgroundColor: theme.bg.paper,
             width: 300,
             height: 300,
           }}

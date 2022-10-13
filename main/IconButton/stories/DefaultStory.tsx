@@ -1,9 +1,9 @@
 import {Hr, IconButton} from '../..';
 import {Text, View} from 'react-native';
 
-import React from 'react';
 import type {FC} from 'react';
 import {Icon} from '../../Icon';
+import React from 'react';
 import styled from '@emotion/native';
 import {useFonts} from 'expo-font';
 import {useTheme} from '@dooboo-ui/theme';
@@ -11,7 +11,7 @@ import {useTheme} from '@dooboo-ui/theme';
 const StoryContainer = styled.View`
   flex: 1;
   align-self: stretch;
-  background-color: ${({theme}) => theme.background};
+  background-color: ${({theme}) => theme.bg.default};
 `;
 
 const ScrollContainer = styled.ScrollView`
@@ -19,7 +19,7 @@ const ScrollContainer = styled.ScrollView`
 `;
 
 const StyledIcon = styled(Icon)`
-  color: ${({theme}) => theme.textContrast};
+  color: ${({theme}) => theme.text.contrast};
 `;
 
 const IconButtonStory: FC = () => {
@@ -49,7 +49,7 @@ const IconButtonStory: FC = () => {
             fontSize: 18,
             marginTop: 24,
             marginBottom: 8,
-            color: theme.text,
+            color: theme.text.default,
           }}
         >
           Medium IconButton (default)
@@ -76,7 +76,7 @@ const IconButtonStory: FC = () => {
             fontSize: 18,
             marginTop: 24,
             marginBottom: 8,
-            color: theme.text,
+            color: theme.text.default,
           }}
         >
           Large IconButton
@@ -107,7 +107,7 @@ const IconButtonStory: FC = () => {
             fontSize: 18,
             marginTop: 24,
             marginBottom: 8,
-            color: theme.text,
+            color: theme.text.default,
           }}
         >
           Small IconButton

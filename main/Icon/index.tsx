@@ -119,5 +119,5 @@ const Ico: FC<Props> = createIconSetFromIcoMoon(
 );
 
 export const Icon = styled(Ico)`
-  color: ${({theme, color}) => color || theme.text};
+  color: ${({theme, color}) => color || theme.text.default};
 `;

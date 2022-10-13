@@ -1,12 +1,12 @@
-import type {LayoutChangeEvent, StyleProp, ViewStyle} from 'react-native';
 import {Animated, Easing, View} from 'react-native';
-import type {ButtonSize} from '../IconButton';
-import {IconButton} from '../IconButton';
-import type {IconName} from '../Icon';
-import {Icon} from '../Icon';
-import type {ReactElement} from 'react';
+import type {LayoutChangeEvent, StyleProp, ViewStyle} from 'react-native';
 import React, {useLayoutEffect, useMemo, useRef} from 'react';
 
+import type {ButtonSize} from '../IconButton';
+import {Icon} from '../Icon';
+import {IconButton} from '../IconButton';
+import type {IconName} from '../Icon';
+import type {ReactElement} from 'react';
 import {useTheme} from '@dooboo-ui/theme';
 
 interface Styles {
@@ -123,7 +123,7 @@ function FloatingActionButtons<Item extends FABItem = FABItem>({
                 size={buttonSize}
                 icon={
                   <Icon
-                    color={theme.textContrast}
+                    color={theme.text.contrast}
                     size={iconSize}
                     name={icon}
                   />
@@ -158,7 +158,7 @@ function FloatingActionButtons<Item extends FABItem = FABItem>({
             size={buttonSize}
             icon={
               <Icon
-                color={theme.textContrast}
+                color={theme.text.contrast}
                 size={iconSize}
                 name="add-light"
               />

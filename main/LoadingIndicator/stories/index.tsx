@@ -1,8 +1,7 @@
-import type {ReactElement} from 'react';
-import React from 'react';
-
 import CustomLoadingIndicator from './CustomStory';
 import {LoadingIndicator} from '../..';
+import React from 'react';
+import type {ReactElement} from 'react';
 import {ThemeProvider} from '@dooboo-ui/theme';
 import {storiesOf} from '@storybook/react-native';
 import styled from '@emotion/native';
@@ -10,7 +9,7 @@ import styled from '@emotion/native';
 const Container = styled.View`
   flex: 1;
   width: 100%;
-  background-color: ${({theme}) => theme.background};
+  background-color: ${({theme}) => theme.bg.default};
   align-items: center;
   justify-content: center;
   flex-direction: row;

@@ -1,18 +1,18 @@
-import type {FC} from 'react';
 import React, {useState} from 'react';
+
+import type {FC} from 'react';
+import type {RadioButtonType} from '../RadioButton';
+import {RadioGroup} from '../..';
 import {View} from 'react-native';
 import styled from '@emotion/native';
 import {useTheme} from '@dooboo-ui/theme';
-
-import type {RadioButtonType} from '../RadioButton';
-import {RadioGroup} from '../..';
 
 const ScrollContainer = styled.ScrollView`
   width: 100%;
 `;
 
 const StyledText = styled.Text`
-  color: ${({theme}) => theme.text};
+  color: ${({theme}) => theme.text.default};
 `;
 
 const types = ['primary', 'secondary', 'success', 'info', 'warning', 'danger'];
@@ -25,7 +25,7 @@ const RadioButtonStory: FC = () => {
   return (
     <View
       style={{
-        backgroundColor: theme.background,
+        backgroundColor: theme.bg.default,
         flex: 1,
         alignSelf: 'stretch',
       }}

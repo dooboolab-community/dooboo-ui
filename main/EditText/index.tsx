@@ -1,5 +1,5 @@
-import {Platform, Text, TextInput, View} from 'react-native';
 import type {FC, LegacyRef} from 'react';
+import {Platform, Text, TextInput, View} from 'react-native';
 import React, {useRef, useState} from 'react';
 import type {
   StyleProp,
@@ -77,16 +77,16 @@ export const EditText: FC<EditTextProps> = (props) => {
   const ref = useRef<View>(null);
   const hovered = useHover(ref);
 
-  const borderColor = theme.text;
-  const textColor = theme.text;
+  const borderColor = theme.text.disabled;
+  const textColor = theme.text.default;
 
   const {
-    placeholderColor = theme.placeholder,
-    focusColor = theme.primary,
-    hoverColor = theme.primary,
-    errorColor = theme.danger,
-    disableColor = theme.disabled,
-    labelColor = theme.placeholder,
+    placeholderColor = theme.text.placeholder,
+    focusColor = theme.role.primary,
+    hoverColor = theme.role.primary,
+    errorColor = theme.role.danger,
+    disableColor = theme.text.disabled,
+    labelColor = theme.text.placeholder,
   } = props;
 
   const compositeStyles: Styles =

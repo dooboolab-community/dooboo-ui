@@ -1,7 +1,7 @@
-import type {DoobooTheme} from '@dooboo-ui/theme';
 import {dark, light} from '@dooboo-ui/theme';
 
 import {Animated} from 'react-native';
+import type {DoobooTheme} from '@dooboo-ui/theme';
 import {isEmptyObject} from '../utils';
 import styled from '@emotion/native';
 
@@ -45,14 +45,14 @@ export const ButtonWrapper = styled.View<{
     }
 
     if (outlined) {
-      return theme.background;
+      return theme.bg.default;
     }
 
     return theme[type ?? 'primary'];
   }};
   border-color: ${({theme, type, disabled}) => {
     if (disabled) {
-      return theme.disabled;
+      return theme.bg.default;
     }
 
     return theme[type!];
@@ -69,14 +69,14 @@ export const ButtonText = styled.Text<{
   color: ${({theme, outlined, type, disabled}) => {
     theme = isEmptyObject(theme) ? light : theme;
 
-    const isDarkBackground = theme.background === dark.background;
+    const isDarkBackground = theme.bg.default === dark.bg.default;
 
     if (outlined) {
       if (
         !isDarkBackground ||
         ['light', 'default', 'warning', undefined].includes(type)
       ) {
-        return theme.text;
+        return theme.text.default;
       }
 
       return theme[type!];
@@ -87,11 +87,11 @@ export const ButtonText = styled.Text<{
     }
 
     if (disabled) {
-      return theme.disabled;
+      return theme.text.disabled;
     }
 
     if (['primary', 'danger'].includes(type!)) {
-      return theme.textContrast;
+      return theme.text.contrast;
     }
 
     return 'black';
@@ -153,15 +153,15 @@ export const RadioButtonWrapper = styled.View<{
     theme = isEmptyObject(theme) ? light : theme;
 
     if (disabled) {
-      return theme.disabled;
+      return theme.bg.disabled;
     }
 
     if (!selected) {
-      return theme.text;
+      return theme.text.default;
     }
 
     if (type === 'light') {
-      return theme.primary;
+      return theme.role.primary;
     }
 
     return theme[type ?? 'primary'];
@@ -205,7 +205,7 @@ export const ColoredText = styled.Text<{
     }
 
     if (type === 'light') {
-      return theme.primary;
+      return theme.role.primary;
     }
 
     return theme[type ?? 'primary'];
