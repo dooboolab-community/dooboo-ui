@@ -1,8 +1,7 @@
-import {dark, light} from '@dooboo-ui/theme';
-
 import {Animated} from 'react-native';
 import type {DoobooTheme} from '@dooboo-ui/theme';
 import {isEmptyObject} from '../utils';
+import {light} from '@dooboo-ui/theme';
 import styled from '@emotion/native';
 
 export type ButtonType =
@@ -37,7 +36,7 @@ export const ButtonWrapper = styled.View<{
         return undefined;
       }
 
-      return theme.role[type!];
+      return theme.button[type!].bg;
     }
 
     if (disabled) {
@@ -48,14 +47,14 @@ export const ButtonWrapper = styled.View<{
       return theme.bg.default;
     }
 
-    return theme.role[type ?? 'primary'];
+    return theme.button[type ?? 'primary'].bg;
   }};
   border-color: ${({theme, type, disabled}) => {
     if (disabled) {
       return theme.bg.default;
     }
 
-    return theme.role[type!];
+    return theme.button[type!].bg;
   }};
 `;
 
@@ -69,32 +68,15 @@ export const ButtonText = styled.Text<{
   color: ${({theme, outlined, type, disabled}) => {
     theme = isEmptyObject(theme) ? light : theme;
 
-    const isDarkBackground = theme.bg.default === dark.bg.default;
-
     if (outlined) {
-      if (
-        !isDarkBackground ||
-        ['light', 'default', 'warning', undefined].includes(type)
-      ) {
-        return theme.text.default;
-      }
-
-      return theme.role[type!];
-    }
-
-    if (isDarkBackground) {
-      return ['default', 'danger', 'light'].includes(type!) ? 'white' : 'black';
+      return theme.text.default;
     }
 
     if (disabled) {
       return theme.text.disabled;
     }
 
-    if (['primary', 'danger', 'secondary'].includes(type!)) {
-      return theme.text.contrast;
-    }
-
-    return theme.text.default;
+    return theme.button[type!].text;
   }};
 `;
 
@@ -115,7 +97,7 @@ export const CheckboxWrapperOutlined = styled(Animated.View as any)<{
       return theme.role.primary;
     }
 
-    return theme.role[type ?? 'primary'];
+    return theme.button[type ?? 'primary'].bg;
   }};
 `;
 
@@ -139,7 +121,7 @@ export const CheckboxWrapper = styled(Animated.View as any)<{
       return theme.role.primary;
     }
 
-    return theme.role[type ?? 'primary'];
+    return theme.button[type ?? 'primary'].bg;
   }};
 `;
 
@@ -164,7 +146,7 @@ export const RadioButtonWrapper = styled.View<{
       return theme.role.primary;
     }
 
-    return theme.role[type ?? 'primary'];
+    return theme.button[type ?? 'primary'].bg;
   }};
 `;
 
@@ -184,7 +166,7 @@ export const RadioWrapper = styled(Animated.View as any)<{
       return theme.role.primary;
     }
 
-    return theme.role[type ?? 'primary'];
+    return theme.button[type ?? 'primary'].bg;
   }};
 `;
 
@@ -208,7 +190,7 @@ export const ColoredText = styled.Text<{
       return theme.role.primary;
     }
 
-    return theme.role[type ?? 'primary'];
+    return theme.button[type ?? 'primary'].bg;
   }};
 `;
 
@@ -223,7 +205,7 @@ export const SnackbarWrapper = styled(Animated.View as any)<{
       return theme.bg.disabled;
     }
 
-    return theme.role[type ?? 'paper'];
+    return theme.button[type ?? 'light'].bg;
   }};
   flex-direction: row;
   text-align: left;

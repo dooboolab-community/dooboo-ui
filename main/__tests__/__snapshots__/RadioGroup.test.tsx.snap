@@ -736,13 +736,13 @@ exports[`[RadioButton] colors should render all colors 1`] = `
               style={
                 Array [
                   Object {
-                    "borderBottomColor": "#414141",
+                    "borderBottomColor": "#00D9D5",
                     "borderBottomWidth": 1,
-                    "borderLeftColor": "#414141",
+                    "borderLeftColor": "#00D9D5",
                     "borderLeftWidth": 1,
-                    "borderRightColor": "#414141",
+                    "borderRightColor": "#00D9D5",
                     "borderRightWidth": 1,
-                    "borderTopColor": "#414141",
+                    "borderTopColor": "#00D9D5",
                     "borderTopWidth": 1,
                   },
                   Array [
@@ -778,7 +778,7 @@ exports[`[RadioButton] colors should render all colors 1`] = `
                 style={
                   Object {
                     "alignSelf": "stretch",
-                    "backgroundColor": "#414141",
+                    "backgroundColor": "#00D9D5",
                     "flexBasis": 0,
                     "flexGrow": 1,
                     "flexShrink": 1,
@@ -800,7 +800,7 @@ exports[`[RadioButton] colors should render all colors 1`] = `
               style={
                 Array [
                   Object {
-                    "color": "#414141",
+                    "color": "#00D9D5",
                   },
                   undefined,
                 ]
