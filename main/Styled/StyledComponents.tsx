@@ -37,7 +37,7 @@ export const ButtonWrapper = styled.View<{
         return undefined;
       }
 
-      return theme[type!];
+      return theme.role[type!];
     }
 
     if (disabled) {
@@ -48,14 +48,14 @@ export const ButtonWrapper = styled.View<{
       return theme.bg.default;
     }
 
-    return theme[type ?? 'primary'];
+    return theme.role[type ?? 'primary'];
   }};
   border-color: ${({theme, type, disabled}) => {
     if (disabled) {
       return theme.bg.default;
     }
 
-    return theme[type!];
+    return theme.role[type!];
   }};
 `;
 
@@ -79,7 +79,7 @@ export const ButtonText = styled.Text<{
         return theme.text.default;
       }
 
-      return theme[type!];
+      return theme.role[type!];
     }
 
     if (isDarkBackground) {
@@ -90,11 +90,11 @@ export const ButtonText = styled.Text<{
       return theme.text.disabled;
     }
 
-    if (['primary', 'danger'].includes(type!)) {
+    if (['primary', 'danger', 'secondary'].includes(type!)) {
       return theme.text.contrast;
     }
 
-    return 'black';
+    return theme.text.default;
   }};
 `;
 
@@ -108,14 +108,14 @@ export const CheckboxWrapperOutlined = styled(Animated.View as any)<{
     theme = isEmptyObject(theme) ? light : theme;
 
     if (disabled) {
-      return theme.disabled;
+      return theme.bg.disabled;
     }
 
     if (type === 'light') {
-      return theme.primary;
+      return theme.role.primary;
     }
 
-    return theme[type ?? 'primary'];
+    return theme.role[type ?? 'primary'];
   }};
 `;
 
@@ -132,14 +132,14 @@ export const CheckboxWrapper = styled(Animated.View as any)<{
     }
 
     if (!checked) {
-      return theme.background;
+      return theme.bg.disabled;
     }
 
     if (type === 'light') {
-      return theme.primary;
+      return theme.role.primary;
     }
 
-    return theme[type ?? 'primary'];
+    return theme.role[type ?? 'primary'];
   }};
 `;
 
@@ -164,7 +164,7 @@ export const RadioButtonWrapper = styled.View<{
       return theme.role.primary;
     }
 
-    return theme[type ?? 'primary'];
+    return theme.role[type ?? 'primary'];
   }};
 `;
 
@@ -177,14 +177,14 @@ export const RadioWrapper = styled(Animated.View as any)<{
     theme = isEmptyObject(theme) ? light : theme;
 
     if (disabled) {
-      return theme.disabled;
+      return theme.bg.disabled;
     }
 
     if (!selected) {
-      return theme.background;
+      return theme.role.primary;
     }
 
-    return theme[type ?? 'primary'];
+    return theme.role[type ?? 'primary'];
   }};
 `;
 
@@ -201,14 +201,14 @@ export const ColoredText = styled.Text<{
     }
 
     if (!selected) {
-      return theme.text;
+      return theme.text.default;
     }
 
     if (type === 'light') {
       return theme.role.primary;
     }
 
-    return theme[type ?? 'primary'];
+    return theme.role[type ?? 'primary'];
   }};
 `;
 
@@ -220,10 +220,10 @@ export const SnackbarWrapper = styled(Animated.View as any)<{
     theme = isEmptyObject(theme) ? light : theme;
 
     if (type === 'default') {
-      return theme.paper;
+      return theme.bg.disabled;
     }
 
-    return theme[type ?? 'paper'];
+    return theme.role[type ?? 'paper'];
   }};
   flex-direction: row;
   text-align: left;

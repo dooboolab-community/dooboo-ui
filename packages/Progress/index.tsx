@@ -41,7 +41,7 @@ const ProgressCircleComponent: React.FC<Props> = ({
 }) => {
   const {color, radius = 30, strokeWidth = 5} = styles?.circle || {};
   const {theme} = useTheme() as unknown as DoobooThemeContext;
-  const strokeColor = color ?? theme[type];
+  const strokeColor = color ?? theme.role[type];
   const animValue = useRef(new Animated.Value(progress));
 
   const [containerLayout, setContainerLayout] = useState({

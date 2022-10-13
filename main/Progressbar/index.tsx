@@ -28,7 +28,7 @@ const Progress = styled.View<ProgressProps>`
   background-color: ${({theme, type}) => {
     theme = isEmptyObject(theme) ? light : theme;
 
-    return theme[type ?? 'info'];
+    return theme.role[type ?? 'info'];
   }};
   height: 100%;
 `;

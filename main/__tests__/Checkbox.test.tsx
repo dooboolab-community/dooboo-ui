@@ -1,6 +1,5 @@
-import type {CheckboxProps} from '../../main';
 import {Checkbox} from '../../main';
-
+import type {CheckboxProps} from '../../main';
 import React from 'react';
 import type {ReactElement} from 'react';
 import type {RenderAPI} from '@testing-library/react-native';
@@ -70,7 +69,7 @@ describe('[Checkbox]', () => {
 
       const checkbox = testingLib.getByTestId('doobooui-checkbox');
 
-      expect(checkbox.props.style.borderTopColor).toEqual(light.info);
+      expect(checkbox.props.style.borderTopColor).toEqual(light.role.info);
     });
 
     it('should render type==="primary"', () => {
@@ -83,7 +82,7 @@ describe('[Checkbox]', () => {
 
       const checkbox = testingLib.getByTestId('doobooui-checkbox');
 
-      expect(checkbox.props.style.borderTopColor).toEqual(light.primary);
+      expect(checkbox.props.style.borderTopColor).toEqual(light.role.primary);
     });
 
     it('should render type==="secondary"', () => {
@@ -96,7 +95,7 @@ describe('[Checkbox]', () => {
 
       const checkbox = testingLib.getByTestId('doobooui-checkbox');
 
-      expect(checkbox.props.style.borderTopColor).toEqual(light.secondary);
+      expect(checkbox.props.style.borderTopColor).toEqual(light.role.secondary);
     });
 
     it('should render type==="success"', () => {
@@ -109,7 +108,7 @@ describe('[Checkbox]', () => {
 
       const checkbox = testingLib.getByTestId('doobooui-checkbox');
 
-      expect(checkbox.props.style.borderTopColor).toEqual(light.success);
+      expect(checkbox.props.style.borderTopColor).toEqual(light.role.success);
     });
 
     it('should render type==="danger"', () => {
@@ -122,7 +121,7 @@ describe('[Checkbox]', () => {
 
       const checkbox = testingLib.getByTestId('doobooui-checkbox');
 
-      expect(checkbox.props.style.borderTopColor).toEqual(light.danger);
+      expect(checkbox.props.style.borderTopColor).toEqual(light.role.danger);
     });
 
     it('should render type==="warning"', () => {
@@ -135,7 +134,7 @@ describe('[Checkbox]', () => {
 
       const checkbox = testingLib.getByTestId('doobooui-checkbox');
 
-      expect(checkbox.props.style.borderTopColor).toEqual(light.warning);
+      expect(checkbox.props.style.borderTopColor).toEqual(light.role.warning);
     });
   });
 });

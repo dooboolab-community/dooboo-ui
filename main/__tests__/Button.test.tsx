@@ -47,7 +47,9 @@ describe('[Button]', () => {
 
       const loadingView = testingLib.getByTestId('loading-view');
 
-      expect(loadingView.props.style[0].borderTopColor).toEqual(light.disabled);
+      expect(loadingView.props.style[0].borderTopColor).toEqual(
+        light.text.contrast,
+      );
     });
 
     it('should render disabled button style when disabled', () => {
@@ -65,7 +67,9 @@ describe('[Button]', () => {
 
       const loadingView = testingLib.getByTestId('loading-view');
 
-      expect(loadingView.props.style[0].borderTopColor).toEqual(light.disabled);
+      expect(loadingView.props.style[0].borderTopColor).toEqual(
+        light.text.contrast,
+      );
     });
 
     it('should render custom container', () => {
@@ -205,7 +209,7 @@ describe('[Button]', () => {
       const button = testingLib.getByTestId('button-container');
       const buttonStyle = button.props.style[0];
 
-      expect(buttonStyle.backgroundColor).toEqual(light.info);
+      expect(buttonStyle.backgroundColor).toEqual(light.role.info);
     });
 
     it('should render [type=secondary] button', () => {
@@ -214,7 +218,7 @@ describe('[Button]', () => {
       const button = testingLib.getByTestId('button-container');
       const buttonStyle = button.props.style[0];
 
-      expect(buttonStyle.backgroundColor).toEqual(light.secondary);
+      expect(buttonStyle.backgroundColor).toEqual(light.role.secondary);
     });
 
     it('should render [type=success] button', () => {
@@ -223,7 +227,7 @@ describe('[Button]', () => {
       const button = testingLib.getByTestId('button-container');
       const buttonStyle = button.props.style[0];
 
-      expect(buttonStyle.backgroundColor).toEqual(light.success);
+      expect(buttonStyle.backgroundColor).toEqual(light.role.success);
     });
 
     it('should render [type=danger] button', () => {
@@ -232,7 +236,7 @@ describe('[Button]', () => {
       const button = testingLib.getByTestId('button-container');
       const buttonStyle = button.props.style[0];
 
-      expect(buttonStyle.backgroundColor).toEqual(light.danger);
+      expect(buttonStyle.backgroundColor).toEqual(light.role.danger);
     });
 
     it('should render [type=warning] button', () => {
@@ -241,7 +245,7 @@ describe('[Button]', () => {
       const button = testingLib.getByTestId('button-container');
       const buttonStyle = button.props.style[0];
 
-      expect(buttonStyle.backgroundColor).toEqual(light.warning);
+      expect(buttonStyle.backgroundColor).toEqual(light.role.warning);
     });
 
     it('should render [type=light] button', () => {
@@ -250,7 +254,7 @@ describe('[Button]', () => {
       const button = testingLib.getByTestId('button-container');
       const buttonStyle = button.props.style[0];
 
-      expect(buttonStyle.backgroundColor).toEqual(light.light);
+      expect(buttonStyle.backgroundColor).toEqual(light.role.light);
     });
   });
 
@@ -268,7 +272,7 @@ describe('[Button]', () => {
       const text = testingLib.getByText('my-button');
       const textStyle = text.props.style[0];
 
-      expect(buttonStyle.backgroundColor).toEqual(dark.text);
+      expect(buttonStyle.backgroundColor).toEqual(dark.text.default);
       expect(textStyle.color).toEqual('black');
     });
 
@@ -285,7 +289,7 @@ describe('[Button]', () => {
       const text = testingLib.getByText('my-button');
       const textStyle = text.props.style[0];
 
-      expect(buttonStyle.backgroundColor).toEqual(dark.danger);
+      expect(buttonStyle.backgroundColor).toEqual(dark.role.danger);
       expect(textStyle.color).toEqual('white');
     });
   });
@@ -298,7 +302,7 @@ describe('[Button]', () => {
       const buttonStyle = button.props.style[0];
 
       expect(button.props.outlined).toBeTruthy();
-      expect(buttonStyle.backgroundColor).toEqual(light.background);
+      expect(buttonStyle.backgroundColor).toEqual(light.bg.default);
     });
 
     it('should render outlined button with [type=secondary]', () => {
@@ -308,8 +312,8 @@ describe('[Button]', () => {
       const buttonStyle = button.props.style[0];
 
       expect(button.props.outlined).toBeTruthy();
-      expect(buttonStyle.backgroundColor).toEqual(light.background);
-      expect(buttonStyle.borderBottomColor).toEqual(light.secondary);
+      expect(buttonStyle.backgroundColor).toEqual(light.bg.default);
+      expect(buttonStyle.borderBottomColor).toEqual(light.role.secondary);
     });
 
     it('should render outlined button with [type=danger]', () => {
@@ -319,8 +323,8 @@ describe('[Button]', () => {
       const buttonStyle = button.props.style[0];
 
       expect(button.props.outlined).toBeTruthy();
-      expect(buttonStyle.backgroundColor).toEqual(light.background);
-      expect(buttonStyle.borderBottomColor).toEqual(light.danger);
+      expect(buttonStyle.backgroundColor).toEqual(light.bg.default);
+      expect(buttonStyle.borderBottomColor).toEqual(light.role.danger);
     });
 
     it('should render outlined button with [type=info]', () => {
@@ -330,8 +334,8 @@ describe('[Button]', () => {
       const buttonStyle = button.props.style[0];
 
       expect(button.props.outlined).toBeTruthy();
-      expect(buttonStyle.backgroundColor).toEqual(light.background);
-      expect(buttonStyle.borderBottomColor).toEqual(light.info);
+      expect(buttonStyle.backgroundColor).toEqual(light.bg.default);
+      expect(buttonStyle.borderBottomColor).toEqual(light.role.info);
     });
 
     it('should render outlined button with [type=warning]', () => {
@@ -341,8 +345,8 @@ describe('[Button]', () => {
       const buttonStyle = button.props.style[0];
 
       expect(button.props.outlined).toBeTruthy();
-      expect(buttonStyle.backgroundColor).toEqual(light.background);
-      expect(buttonStyle.borderBottomColor).toEqual(light.warning);
+      expect(buttonStyle.backgroundColor).toEqual(light.bg.default);
+      expect(buttonStyle.borderBottomColor).toEqual(light.role.warning);
     });
 
     it('should render `disabled` outlined button', () => {
@@ -352,7 +356,7 @@ describe('[Button]', () => {
       const buttonStyle = button.props.style[0];
 
       expect(button.props.outlined).toBeTruthy();
-      expect(buttonStyle.borderBottomColor).toEqual(light.text);
+      expect(buttonStyle.borderBottomColor).toEqual(light.text.default);
     });
 
     describe('Outlined - dark mode', () => {
@@ -366,7 +370,7 @@ describe('[Button]', () => {
         const button = testingLib.getByTestId('button-container');
         const buttonStyle = button.props.style[0];
 
-        expect(buttonStyle.borderBottomColor).toEqual(dark.primary);
+        expect(buttonStyle.borderBottomColor).toEqual(dark.role.primary);
       });
 
       it('should render [type=secondary] outlined button', () => {
@@ -379,7 +383,7 @@ describe('[Button]', () => {
         const button = testingLib.getByTestId('button-container');
         const buttonStyle = button.props.style[0];
 
-        expect(buttonStyle.borderBottomColor).toEqual(dark.secondary);
+        expect(buttonStyle.borderBottomColor).toEqual(dark.role.secondary);
       });
 
       it('should render [type=success] outlined button', () => {
@@ -392,7 +396,7 @@ describe('[Button]', () => {
         const button = testingLib.getByTestId('button-container');
         const buttonStyle = button.props.style[0];
 
-        expect(buttonStyle.borderBottomColor).toEqual(dark.success);
+        expect(buttonStyle.borderBottomColor).toEqual(dark.role.success);
       });
 
       it('should render [type=info] outlined button', () => {
@@ -405,7 +409,7 @@ describe('[Button]', () => {
         const button = testingLib.getByTestId('button-container');
         const buttonStyle = button.props.style[0];
 
-        expect(buttonStyle.borderBottomColor).toEqual(dark.info);
+        expect(buttonStyle.borderBottomColor).toEqual(dark.role.info);
       });
 
       it('should render [type=warning] outlined button', () => {
@@ -418,7 +422,7 @@ describe('[Button]', () => {
         const button = testingLib.getByTestId('button-container');
         const buttonStyle = button.props.style[0];
 
-        expect(buttonStyle.borderBottomColor).toEqual(dark.warning);
+        expect(buttonStyle.borderBottomColor).toEqual(dark.role.warning);
       });
 
       it('should render [type=danger] outlined button', () => {
@@ -431,7 +435,7 @@ describe('[Button]', () => {
         const button = testingLib.getByTestId('button-container');
         const buttonStyle = button.props.style[0];
 
-        expect(buttonStyle.borderBottomColor).toEqual(dark.danger);
+        expect(buttonStyle.borderBottomColor).toEqual(dark.role.danger);
       });
 
       it('should [type=light] outlined button', () => {
@@ -444,7 +448,7 @@ describe('[Button]', () => {
         const button = testingLib.getByTestId('button-container');
         const buttonStyle = button.props.style[0];
 
-        expect(buttonStyle.borderBottomColor).toEqual(dark.light);
+        expect(buttonStyle.borderBottomColor).toEqual(dark.bg.paper);
       });
     });
 
@@ -454,7 +458,7 @@ describe('[Button]', () => {
       const button = testingLib.getByTestId('button-container');
       const buttonStyle = button.props.style[0];
 
-      expect(buttonStyle.borderBottomColor).toEqual(light.disabled);
+      expect(buttonStyle.borderBottomColor).toEqual(light.bg.default);
     });
   });
 

@@ -22,6 +22,7 @@ export const light = {
     warning: '#FFEB14',
     info: '#5398FF',
     success: '#33FF2F',
+    light: '#EDEDED',
   },
   text: {
     default: '#000000',
@@ -50,6 +51,7 @@ export const dark: typeof light = {
     warning: '#FFEB14',
     info: '#5398FF',
     success: '#33FF2F',
+    light: '#414141',
   },
   text: {
     default: '#FFFFFF',

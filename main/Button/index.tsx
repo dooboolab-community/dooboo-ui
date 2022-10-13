@@ -93,7 +93,7 @@ export const Button: FC<Props> = (props) => {
 
   const disabledTextColor =
     disabled && !outlined && !loading
-      ? theme.text.disabled
+      ? theme.text.contrast
       : outlined
       ? theme.bg.disabled
       : theme.bg.paper;

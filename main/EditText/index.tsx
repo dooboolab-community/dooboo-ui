@@ -77,7 +77,7 @@ export const EditText: FC<EditTextProps> = (props) => {
   const ref = useRef<View>(null);
   const hovered = useHover(ref);
 
-  const borderColor = theme.text.disabled;
+  const borderColor = theme.text.default;
   const textColor = theme.text.default;
 
   const {
