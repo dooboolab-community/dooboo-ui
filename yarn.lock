@@ -5215,7 +5215,7 @@
   dependencies:
     "@types/react" "*"
 
-"@types/react-native@^0.69.5":
+"@types/react-native@^0.69.6":
   version "0.69.13"
   resolved "https://registry.yarnpkg.com/@types/react-native/-/react-native-0.69.13.tgz#f947b2bd00439126f8101441945739698bb5051e"
   integrity sha512-jEKIkqKjmYI7NeRssLrn/zRtFeI6S1FNe5p45OKbBxrQArXpF2lJelztFTEZKIv1PSfYKcAk5x6+1sdZFEFAkA==
