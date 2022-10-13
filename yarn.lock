@@ -1857,13 +1857,6 @@
     json5 "^1.0.1"
     write-file-atomic "^2.3.0"
 
-"@expo/match-media@*":
-  version "0.4.0"
-  resolved "https://registry.yarnpkg.com/@expo/match-media/-/match-media-0.4.0.tgz#3c2a4bd4978a8c39b475b28f28a6cad47eeb5b3f"
-  integrity sha512-8itv719IZJNITYERLQf+aDZJZyM2eigzCwq9Z8pYF9PevJLjQhjS3RJikug+d2MoKvlwwpjiaE1tA+f2hHxsMg==
-  dependencies:
-    css-mediaquery "^0.1.2"
-
 "@expo/match-media@^0.3.0":
   version "0.3.0"
   resolved "https://registry.yarnpkg.com/@expo/match-media/-/match-media-0.3.0.tgz#e22360d9bd69b76d97f6c2da220e5d806fbadb92"
@@ -19932,7 +19925,7 @@ typedarray@^0.0.6:
   resolved "https://registry.yarnpkg.com/typedarray/-/typedarray-0.0.6.tgz#867ac74e3864187b1d3d47d996a78ec5c8830777"
   integrity sha512-/aCDEGatGvZ2BIk+HmLf4ifCJFwvKFNb9/JeZPMulfgFracn9QFcAf5GO8B/mweUjSoblS5In0cWhqpfs/5PQA==
 
-"typescript@^3 || ^4", typescript@^4.2.4, typescript@^4.3.2, typescript@^4.6.4, typescript@^4.8.3, typescript@^4.8.4, typescript@~4.8.3:
+"typescript@^3 || ^4", typescript@^4.2.4, typescript@^4.3.2, typescript@^4.6.4, typescript@^4.8.3, typescript@~4.8.3:
   version "4.8.4"
   resolved "https://registry.yarnpkg.com/typescript/-/typescript-4.8.4.tgz#c464abca159669597be5f96b8943500b238e60e6"
   integrity sha512-QCh+85mCy+h0IGff8r5XWzOVSbBO+KfeYrMQh7NJ58QujwcE22u+NUSmUxqF+un70P9GXKxa2HCNiTTMJknyjQ==
