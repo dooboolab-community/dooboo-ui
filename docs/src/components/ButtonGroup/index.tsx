@@ -1,7 +1,7 @@
-import type {ReactElement} from 'react';
 import React, {useState} from 'react';
 
 import {ButtonGroup} from 'dooboo-ui';
+import type {ReactElement} from 'react';
 import {ThemeProvider} from '@dooboo-ui/theme';
 import {View} from 'react-native';
 import styled from '@emotion/native';
@@ -9,7 +9,7 @@ import styled from '@emotion/native';
 const Container = styled.SafeAreaView`
   flex: 1;
   align-self: stretch;
-  background-color: ${({theme}) => theme.background};
+  background-color: ${({theme}) => theme.bg.default};
   align-self: stretch;
   padding: 0 24px;
 
@@ -19,7 +19,7 @@ const Container = styled.SafeAreaView`
 `;
 
 const StyledText = styled.Text`
-  color: ${({theme}) => theme.text};
+  color: ${({theme}) => theme.text.default};
   font-size: 32px;
 `;
 

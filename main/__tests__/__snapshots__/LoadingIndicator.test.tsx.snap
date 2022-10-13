@@ -358,7 +358,7 @@ exports[`[LoadingIndicator] render should render without crashing 1`] = `
   }
 >
   <ActivityIndicator
-    color="#00D9D5"
+    color="#414141"
     size="large"
   />
 </View>

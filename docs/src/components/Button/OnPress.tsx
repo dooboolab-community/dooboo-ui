@@ -1,23 +1,23 @@
 import React, {useState} from 'react';
-import type {ThemeType} from '@dooboo-ui/theme';
-import {ThemeProvider} from '@dooboo-ui/theme';
 
 import {Button} from 'dooboo-ui';
 import type {FC} from 'react';
+import {ThemeProvider} from '@dooboo-ui/theme';
+import type {ThemeType} from '@dooboo-ui/theme';
 import {View} from 'react-native';
 import styled from '@emotion/native';
 
 const StoryContainer = styled.View`
   flex: 1;
   align-self: stretch;
-  background-color: ${({theme}) => theme.background};
+  background-color: ${({theme}) => theme.bg.default};
 
   justify-content: center;
   align-items: center;
 `;
 
 const StyledText = styled.Text`
-  color: ${({theme}) => theme.text};
+  color: ${({theme}) => theme.text.default};
   font-size: 16px;
   margin: 20px;
 `;

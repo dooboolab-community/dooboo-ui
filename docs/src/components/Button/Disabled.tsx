@@ -1,16 +1,15 @@
-import type {ThemeType} from '@dooboo-ui/theme';
-import {ThemeProvider} from '@dooboo-ui/theme';
-
 import {Button} from 'dooboo-ui';
 import type {FC} from 'react';
 import React from 'react';
+import {ThemeProvider} from '@dooboo-ui/theme';
+import type {ThemeType} from '@dooboo-ui/theme';
 import {View} from 'react-native';
 import styled from '@emotion/native';
 
 const StoryContainer = styled.View`
   flex: 1;
   align-self: stretch;
-  background-color: ${({theme}) => theme.background};
+  background-color: ${({theme}) => theme.bg.default};
 
   justify-content: center;
   align-items: center;
