@@ -73,58 +73,68 @@ userInterfaceStyle: 'automatic',
 #### 1. Define colors for `light` and `dark` theme.
 
 ```ts
+import {Theme} from '@emotion/react';
+
+export type ThemeType = 'light' | 'dark';
+
 export const colors = {
-  black: 'black',
-  white: 'white',
-  charcoalGray: '#414141',
-  gray: '#6D6D6D',
-  cloud: '#C4C4C4',
-  lightGray: '#EDEDED',
-  brightTurquoise: '#00D9D5',
-  ruddy: '#FF002E',
-  yellow: '#FFEB14',
-  blueberry: '#5398FF',
   apple: '#151E22',
   google: '#E04238',
   facebook: '#345997',
-  negative: '#ff7676',
-  positive: '#00BA90',
 };
-
-export type Colors = typeof colors;
 
 export const light = {
-  primary: colors.black,
-  disabled: colors.cloud,
-  background: colors.white,
-  secondary: colors.brightTurquoise,
-  danger: colors.ruddy,
-  warning: colors.yellow,
-  info: colors.blueberry,
-  success: colors.harlequin,
-  textPrimary: colors.black,
-  text: colors.black,
-  placeholder: colors.gray,
-  textDisabled: colors.cloud,
-  textContrast: colors.white,
-  textValidation: colors.ruddy,
+  bg: {
+    default: '#FFFFFF',
+    paper: '#EDEDED',
+    disabled: '#C4C4C4',
+  },
+  role: {
+    primary: '#000000',
+    secondary: '#414141',
+    danger: '#FF002E',
+    warning: '#FFEB14',
+    info: '#5398FF',
+    success: '#33FF2F',
+  },
+  text: {
+    default: '#000000',
+    primary: '#000000',
+    placeholder: '#6D6D6D',
+    disabled: '#C4C4C4',
+    contrast: '#FFFFFF',
+    validation: '#FF002E',
+    secondary: '#404040',
+    link: '#393D7A',
+    accent: '#B446BF',
+  },
 };
 
-export const dark = {
-  primary: colors.black,
-  disabled: colors.cloud,
-  background: colors.white,
-  secondary: colors.brightTurquoise,
-  danger: colors.ruddy,
-  warning: colors.yellow,
-  info: colors.blueberry,
-  success: colors.harlequin,
-  textPrimary: colors.black,
-  text: colors.black,
-  placeholder: colors.gray,
-  textDisabled: colors.cloud,
-  textContrast: colors.white,
-  textValidation: colors.ruddy,
+export const dark: typeof light = {
+  bg: {
+    default: '#000000',
+    paper: '#414141',
+    disabled: '#C4C4C4',
+  },
+  role: {
+    primary: '#FFFFFF',
+    secondary: '#FFFFFF',
+    danger: '#FF002E',
+    warning: '#FFEB14',
+    info: '#5398FF',
+    success: '#33FF2F',
+  },
+  text: {
+    default: '#FFFFFF',
+    primary: '#000000',
+    placeholder: '#6D6D6D',
+    disabled: '#C4C4C4',
+    contrast: '#000000',
+    validation: '#FF002E',
+    secondary: '#D3D8E8',
+    link: '#E0E0E0',
+    accent: '#8A96DC',
+  },
 };
 ```
 
