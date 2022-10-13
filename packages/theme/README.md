@@ -21,6 +21,7 @@ export const light = {
     default: '#FFFFFF',
     paper: '#EDEDED',
     disabled: '#C4C4C4',
+    border: 'rgba(0,0,0,0.2)',
   },
   role: {
     primary: '#000000',
@@ -48,6 +49,7 @@ export const dark: typeof light = {
     default: '#000000',
     paper: '#414141',
     disabled: '#C4C4C4',
+    border: 'rgba(255,255,255,0.2)',
   },
   role: {
     primary: '#FFFFFF',
