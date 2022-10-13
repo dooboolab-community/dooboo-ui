@@ -1397,7 +1397,7 @@
   resolved "https://registry.yarnpkg.com/@discoveryjs/json-ext/-/json-ext-0.5.7.tgz#1d572bfbbe14b7704e0ba0f39b74815b84870d70"
   integrity sha512-dBVuXR082gk3jsFp7Rd/JI4kytwGHecnCoTtXFb7DB6CNHp4rg5k1bhg0nWdLGLnOV71lmDzGQaLMy8iPLY0pw==
 
-"@dooboo/eslint-config-react-native@^1.0.3":
+"@dooboo/eslint-config-react-native@^1.0.1":
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/@dooboo/eslint-config-react-native/-/eslint-config-react-native-1.0.3.tgz#4e95592684d738e81fea2389b2c55562cc2a6fab"
   integrity sha512-YkHy9lDAMaHkjkvD6ON7J5rIY6OFuGQrsk3Ir88XMX6/fnzkhER0DRamKPnyfZeqHJbe5T296CCw6jAWTsRvqg==
@@ -16776,7 +16776,7 @@ promise@^7.1.1:
   dependencies:
     asap "~2.0.3"
 
-promise@^8.2.0:
+promise@^8.0.3:
   version "8.2.0"
   resolved "https://registry.yarnpkg.com/promise/-/promise-8.2.0.tgz#a1f6280ab67457fbfc8aad2b198c9497e9e5c806"
   integrity sha512-+CMAlLHqwRYwBMXKCP+o8ns7DN+xHDUiI+0nArsiJ9y+kJVPLFxEaSw6Ha9s9H0tftxg2Yzl25wqj9G7m5wLZg==
@@ -17380,10 +17380,10 @@ react-native-web@~0.18.9:
     postcss-value-parser "^4.2.0"
     styleq "^0.1.2"
 
-react-native@0.69.6:
-  version "0.69.6"
-  resolved "https://registry.yarnpkg.com/react-native/-/react-native-0.69.6.tgz#cdd1a5757d902b91b165c28fdda4e518ed6f683a"
-  integrity sha512-wwXpqM+12kdEYdBZCJUb5SBu95CzgejrwFeYJ78RzHZV/Sj6DBRekbsHGrDDsY4R25QXALQxy4DQYQCObVvWjA==
+react-native@0.69.5:
+  version "0.69.5"
+  resolved "https://registry.yarnpkg.com/react-native/-/react-native-0.69.5.tgz#959142bfef21beed837160b54aa17313f5e1898f"
+  integrity sha512-4Psrj1nDMLQjBXVH8n3UikzOHQc8+sa6NbxZQR0XKtpx8uC3HiJBgX+/FIum/RWxfi5J/Dt/+A2gLGmq2Hps8g==
   dependencies:
     "@jest/create-cache-key-function" "^27.0.1"
     "@react-native-community/cli" "^8.0.4"
@@ -17406,7 +17406,7 @@ react-native@0.69.6:
     mkdirp "^0.5.1"
     nullthrows "^1.1.1"
     pretty-format "^26.5.2"
-    promise "^8.2.0"
+    promise "^8.0.3"
     react-devtools-core "4.24.0"
     react-native-codegen "^0.69.2"
     react-native-gradle-plugin "^0.0.7"
@@ -19932,7 +19932,7 @@ typedarray@^0.0.6:
   resolved "https://registry.yarnpkg.com/typedarray/-/typedarray-0.0.6.tgz#867ac74e3864187b1d3d47d996a78ec5c8830777"
   integrity sha512-/aCDEGatGvZ2BIk+HmLf4ifCJFwvKFNb9/JeZPMulfgFracn9QFcAf5GO8B/mweUjSoblS5In0cWhqpfs/5PQA==
 
-"typescript@^3 || ^4", typescript@^4.6.4, typescript@^4.8.4, typescript@~4.8.4:
+"typescript@^3 || ^4", typescript@^4.6.4, typescript@^4.8.4, typescript@~4.8.3:
   version "4.8.4"
   resolved "https://registry.yarnpkg.com/typescript/-/typescript-4.8.4.tgz#c464abca159669597be5f96b8943500b238e60e6"
   integrity sha512-QCh+85mCy+h0IGff8r5XWzOVSbBO+KfeYrMQh7NJ58QujwcE22u+NUSmUxqF+un70P9GXKxa2HCNiTTMJknyjQ==
