@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
-import {ThemeProvider, ThemeType} from '@dooboo-ui/theme';
+import type {ThemeType} from '@dooboo-ui/theme';
+import {ThemeProvider} from '@dooboo-ui/theme';
 
 import {Button} from 'dooboo-ui';
 import type {FC} from 'react';

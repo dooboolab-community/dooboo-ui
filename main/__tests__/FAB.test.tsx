@@ -1,5 +1,7 @@
-import {FAB, FABItem, FABProps} from '../../main';
-import React, {ReactElement} from 'react';
+import type {FABItem, FABProps} from '../../main';
+import {FAB} from '../../main';
+import type {ReactElement} from 'react';
+import React from 'react';
 import {fireEvent, render} from '@testing-library/react-native';
 
 import {View} from 'react-native';

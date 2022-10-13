@@ -1,5 +1,7 @@
-import {Animated, TextStyle, ViewStyle} from 'react-native';
-import {DoobooTheme, useTheme, withTheme} from '@dooboo-ui/theme';
+import type {TextStyle, ViewStyle} from 'react-native';
+import {Animated} from 'react-native';
+import type {DoobooTheme} from '@dooboo-ui/theme';
+import {useTheme, withTheme} from '@dooboo-ui/theme';
 import React, {useMemo, useRef, useState} from 'react';
 import Svg, {Circle} from 'react-native-svg';
 

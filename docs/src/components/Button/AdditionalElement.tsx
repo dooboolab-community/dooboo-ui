@@ -1,7 +1,8 @@
 import {IC_FACEBOOK, IC_GOOGLE} from '../../icon';
 import {Image, View} from 'react-native';
 import React, {useState} from 'react';
-import {ThemeProvider, ThemeType} from '@dooboo-ui/theme';
+import type {ThemeType} from '@dooboo-ui/theme';
+import {ThemeProvider} from '@dooboo-ui/theme';
 import styled, {css} from '@emotion/native';
 
 import {Button} from 'dooboo-ui';

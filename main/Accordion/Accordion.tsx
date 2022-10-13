@@ -1,6 +1,9 @@
-import AccordionItem, {AccordionData} from './AccordionItem';
-import {Animated, StyleProp, ViewStyle} from 'react-native';
-import React, {FC, ReactElement, useRef} from 'react';
+import type {AccordionData} from './AccordionItem';
+import AccordionItem from './AccordionItem';
+import type {StyleProp, ViewStyle} from 'react-native';
+import {Animated} from 'react-native';
+import type {FC, ReactElement} from 'react';
+import React, {useRef} from 'react';
 
 import styled from '@emotion/native';
 

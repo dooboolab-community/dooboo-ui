@@ -1,6 +1,9 @@
-import {Accordion, AccordionListType, AccordionProps} from 'dooboo-ui';
-import React, {ReactElement} from 'react';
-import {ThemeProvider, ThemeType} from '@dooboo-ui/theme';
+import type {AccordionListType, AccordionProps} from 'dooboo-ui';
+import {Accordion} from 'dooboo-ui';
+import type {ReactElement} from 'react';
+import React from 'react';
+import type {ThemeType} from '@dooboo-ui/theme';
+import {ThemeProvider} from '@dooboo-ui/theme';
 
 import styled from '@emotion/native';
 import {useFonts} from 'expo-font';

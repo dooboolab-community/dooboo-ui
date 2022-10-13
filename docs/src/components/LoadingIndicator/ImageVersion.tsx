@@ -1,4 +1,5 @@
-import {ThemeProvider, ThemeType, useTheme} from '@dooboo-ui/theme';
+import type {ThemeType} from '@dooboo-ui/theme';
+import {ThemeProvider, useTheme} from '@dooboo-ui/theme';
 
 import type {FC} from 'react';
 import {IC_GIF} from '../../icon';

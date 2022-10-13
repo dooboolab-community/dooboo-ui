@@ -1,7 +1,8 @@
-import {Button, Snackbar, SnackbarRef} from '../..';
+import type {SnackbarRef} from '../..';
+import {Button, Snackbar} from '../..';
 import React, {useCallback, useRef} from 'react';
 
-import {SnackbarType} from '../../Styled/StyledComponents';
+import type {SnackbarType} from '../../Styled/StyledComponents';
 import {Typography} from '../../Typography';
 import styled from '@emotion/native';
 

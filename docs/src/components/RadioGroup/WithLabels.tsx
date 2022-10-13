@@ -1,5 +1,7 @@
-import React, {FC} from 'react';
-import {ThemeProvider, ThemeType, useTheme} from '@dooboo-ui/theme';
+import type {FC} from 'react';
+import React from 'react';
+import type {ThemeType} from '@dooboo-ui/theme';
+import {ThemeProvider, useTheme} from '@dooboo-ui/theme';
 
 import {RadioGroup} from 'dooboo-ui';
 import {View} from 'react-native';

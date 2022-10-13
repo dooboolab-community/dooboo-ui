@@ -1,12 +1,10 @@
-import {Colors, ThemeParam, ThemeType, colors, dark, light} from './colors';
-import {
-  Theme as DefaultTheme,
-  ThemeProvider as EmotionThemeProvider,
-  withTheme,
-} from '@emotion/react';
+import type {Colors, ThemeParam, ThemeType} from './colors';
+import {colors, dark, light} from './colors';
+import type {Theme as DefaultTheme} from '@emotion/react';
+import {ThemeProvider as EmotionThemeProvider, withTheme} from '@emotion/react';
 import React, {useEffect, useState} from 'react';
 
-import {ColorSchemeName} from 'react-native';
+import type {ColorSchemeName} from 'react-native';
 import createDoobooContext from './createDoobooContext';
 import useColorScheme from './useColorScheme';
 import {useMediaQuery} from 'react-responsive';

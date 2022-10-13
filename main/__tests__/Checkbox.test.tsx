@@ -1,4 +1,5 @@
-import {Checkbox, CheckboxProps} from '../../main';
+import type {CheckboxProps} from '../../main';
+import {Checkbox} from '../../main';
 
 import React from 'react';
 import type {ReactElement} from 'react';

@@ -1,5 +1,7 @@
-import {Checkbox, CheckboxType, Hr} from '../..';
-import React, {FC, ReactNode, useState} from 'react';
+import type {CheckboxType} from '../..';
+import {Checkbox, Hr} from '../..';
+import type {FC, ReactNode} from 'react';
+import React, {useState} from 'react';
 
 import {View} from 'react-native';
 import styled from '@emotion/native';

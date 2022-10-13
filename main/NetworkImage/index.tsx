@@ -1,13 +1,12 @@
-import {
-  Image,
+import type {
   ImageProps,
   ImageRequireSource,
   StyleProp,
-  View,
   ViewStyle,
 } from 'react-native';
+import {Image, View} from 'react-native';
+import type {ReactElement} from 'react';
 import React, {
-  ReactElement,
   isValidElement,
   useCallback,
   useEffect,

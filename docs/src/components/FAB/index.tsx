@@ -1,4 +1,5 @@
-import {FC, ReactElement, useState} from 'react';
+import type {FC, ReactElement} from 'react';
+import {useState} from 'react';
 import {SafeAreaView, View} from 'react-native';
 import {ThemeProvider, withTheme} from '@dooboo-ui/theme';
 

@@ -1,12 +1,5 @@
-import {
-  StyleProp,
-  StyleSheet,
-  Text,
-  TextStyle,
-  TouchableOpacity,
-  View,
-  ViewStyle,
-} from 'react-native';
+import type {StyleProp, TextStyle, ViewStyle} from 'react-native';
+import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 
 import React from 'react';
 import {useTheme} from '@dooboo-ui/theme';

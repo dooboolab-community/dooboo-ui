@@ -1,4 +1,5 @@
-import {DoobooTheme, dark, light} from '@dooboo-ui/theme';
+import type {DoobooTheme} from '@dooboo-ui/theme';
+import {dark, light} from '@dooboo-ui/theme';
 
 import {Animated} from 'react-native';
 import {isEmptyObject} from '../utils';

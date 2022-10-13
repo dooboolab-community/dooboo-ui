@@ -1,4 +1,4 @@
-import {StyleProp, TextStyle, ViewStyle} from 'react-native';
+import type {StyleProp, TextStyle, ViewStyle} from 'react-native';
 
 import React from 'react';
 import {isEmptyObject} from '../utils';

@@ -1,25 +1,18 @@
-import {
-  ActivityIndicator,
-  LayoutRectangle,
-  Platform,
-  TouchableOpacity,
-} from 'react-native';
-import {
-  ButtonText,
-  ButtonType,
-  ButtonWrapper,
-} from '../Styled/StyledComponents';
-import React, {ReactElement, useRef, useState} from 'react';
+import {ActivityIndicator, Platform, TouchableOpacity} from 'react-native';
+import type {ButtonType} from '../Styled/StyledComponents';
+import {ButtonText, ButtonWrapper} from '../Styled/StyledComponents';
+import React, {useRef, useState} from 'react';
 import type {
   StyleProp,
   TextProps,
   TextStyle,
   TouchableOpacityProps,
   ViewStyle,
+  LayoutRectangle,
 } from 'react-native';
 import styled, {css} from '@emotion/native';
 
-import type {FC} from 'react';
+import type {FC, ReactElement} from 'react';
 import {useHover} from 'react-native-web-hooks';
 import {useTheme} from '@dooboo-ui/theme';
 

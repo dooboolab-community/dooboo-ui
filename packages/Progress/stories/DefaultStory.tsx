@@ -1,4 +1,5 @@
-import {DoobooTheme, useTheme} from '@dooboo-ui/theme';
+import type {DoobooTheme} from '@dooboo-ui/theme';
+import {useTheme} from '@dooboo-ui/theme';
 import React, {useEffect, useState} from 'react';
 import {
   boolean as booleanInput,

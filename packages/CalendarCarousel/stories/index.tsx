@@ -1,7 +1,8 @@
 import 'intl';
 import 'intl/locale-data/jsonp/en';
 
-import React, {ReactElement} from 'react';
+import type {ReactElement} from 'react';
+import React from 'react';
 
 import Default from './DefaultStory';
 import {storiesOf} from '@storybook/react-native';

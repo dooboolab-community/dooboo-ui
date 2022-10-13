@@ -1,14 +1,11 @@
-import {
-  Animated,
-  Easing,
-  LayoutChangeEvent,
-  StyleProp,
-  View,
-  ViewStyle,
-} from 'react-native';
-import {ButtonSize, IconButton} from '../IconButton';
-import {Icon, IconName} from '../Icon';
-import React, {ReactElement, useLayoutEffect, useMemo, useRef} from 'react';
+import type {LayoutChangeEvent, StyleProp, ViewStyle} from 'react-native';
+import {Animated, Easing, View} from 'react-native';
+import type {ButtonSize} from '../IconButton';
+import {IconButton} from '../IconButton';
+import type {IconName} from '../Icon';
+import {Icon} from '../Icon';
+import type {ReactElement} from 'react';
+import React, {useLayoutEffect, useMemo, useRef} from 'react';
 
 import {useTheme} from '@dooboo-ui/theme';
 

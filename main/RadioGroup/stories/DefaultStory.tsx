@@ -1,9 +1,10 @@
-import React, {FC, useState} from 'react';
+import type {FC} from 'react';
+import React, {useState} from 'react';
 import {View} from 'react-native';
 import styled from '@emotion/native';
 import {useTheme} from '@dooboo-ui/theme';
 
-import {RadioButtonType} from '../RadioButton';
+import type {RadioButtonType} from '../RadioButton';
 import {RadioGroup} from '../..';
 
 const ScrollContainer = styled.ScrollView`

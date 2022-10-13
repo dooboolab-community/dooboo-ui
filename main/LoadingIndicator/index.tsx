@@ -1,14 +1,12 @@
-import {
-  ActivityIndicator,
-  Image,
+import type {
   ImageSourcePropType,
   ImageStyle,
   StyleProp,
-  StyleSheet,
-  View,
   ViewStyle,
 } from 'react-native';
-import React, {ReactElement} from 'react';
+import {ActivityIndicator, Image, StyleSheet, View} from 'react-native';
+import type {ReactElement} from 'react';
+import React from 'react';
 
 import {useTheme} from '@dooboo-ui/theme';
 

@@ -1,4 +1,5 @@
-import {Progressbar, ProgressbarProps} from '../../main';
+import type {ProgressbarProps} from '../../main';
+import {Progressbar} from '../../main';
 
 import React from 'react';
 import type {ReactElement} from 'react';

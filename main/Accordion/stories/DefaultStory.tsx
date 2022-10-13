@@ -1,5 +1,7 @@
-import {Accordion, AccordionData, AccordionListType} from '../';
-import React, {ReactElement} from 'react';
+import type {AccordionData, AccordionListType} from '../';
+import {Accordion} from '../';
+import type {ReactElement} from 'react';
+import React from 'react';
 import {boolean, number} from '@storybook/addon-knobs';
 
 import {Icon} from '../../Icon';

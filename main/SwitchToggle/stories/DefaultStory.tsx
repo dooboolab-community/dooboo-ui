@@ -1,4 +1,5 @@
-import React, {FC, useState} from 'react';
+import type {FC} from 'react';
+import React, {useState} from 'react';
 import {useTheme} from '@dooboo-ui/theme';
 import styled from '@emotion/native';
 

@@ -1,5 +1,7 @@
-import {Icon, IconName} from 'dooboo-ui';
-import {ThemeProvider, ThemeType} from '@dooboo-ui/theme';
+import type {IconName} from 'dooboo-ui';
+import {Icon} from 'dooboo-ui';
+import type {ThemeType} from '@dooboo-ui/theme';
+import {ThemeProvider} from '@dooboo-ui/theme';
 
 import type {FC} from 'react';
 import {View} from 'react-native';

@@ -1,5 +1,6 @@
 import {Platform, Text, TextInput, View} from 'react-native';
-import React, {FC, LegacyRef, useRef, useState} from 'react';
+import type {FC, LegacyRef} from 'react';
+import React, {useRef, useState} from 'react';
 import type {
   StyleProp,
   TextInputProps,

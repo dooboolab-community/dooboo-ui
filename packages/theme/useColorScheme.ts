@@ -1,9 +1,5 @@
-import {
-  Appearance,
-  ColorSchemeName,
-  NativeEventSubscription,
-  Platform,
-} from 'react-native';
+import type {ColorSchemeName, NativeEventSubscription} from 'react-native';
+import {Appearance, Platform} from 'react-native';
 import {useEffect, useState} from 'react';
 
 export const useColorScheme = (): ColorSchemeName => {

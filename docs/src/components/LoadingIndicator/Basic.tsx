@@ -1,4 +1,5 @@
-import {ThemeProvider, ThemeType} from '@dooboo-ui/theme';
+import type {ThemeType} from '@dooboo-ui/theme';
+import {ThemeProvider} from '@dooboo-ui/theme';
 
 import type {FC} from 'react';
 import {LoadingIndicator} from 'dooboo-ui';

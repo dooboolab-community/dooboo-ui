@@ -1,14 +1,9 @@
-import {Animated, Easing, LayoutChangeEvent} from 'react-native';
-import React, {
-  FC,
-  ReactElement,
-  useCallback,
-  useEffect,
-  useRef,
-  useState,
-} from 'react';
+import type {LayoutChangeEvent} from 'react-native';
+import {Animated, Easing} from 'react-native';
+import type {FC, ReactElement} from 'react';
+import React, {useCallback, useEffect, useRef, useState} from 'react';
 
-import {AccordionBaseProps} from './Accordion';
+import type {AccordionBaseProps} from './Accordion';
 import {Icon} from '../Icon';
 import styled from '@emotion/native';
 import {useTheme} from '@dooboo-ui/theme';

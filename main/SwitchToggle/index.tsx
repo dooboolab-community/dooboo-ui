@@ -1,5 +1,7 @@
-import {Animated, StyleProp, TouchableOpacity, ViewStyle} from 'react-native';
-import React, {ReactElement, useEffect, useState} from 'react';
+import type {StyleProp, ViewStyle} from 'react-native';
+import {Animated, TouchableOpacity} from 'react-native';
+import type {ReactElement} from 'react';
+import React, {useEffect, useState} from 'react';
 
 import styled from '@emotion/native';
 import {useTheme} from '@dooboo-ui/theme';

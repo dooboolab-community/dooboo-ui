@@ -1,4 +1,5 @@
-import AccordionStory, {AccordionStoryProps} from '.';
+import type {AccordionStoryProps} from '.';
+import AccordionStory from '.';
 import {EditText, SwitchToggle, Typography} from 'dooboo-ui';
 import React, {useState} from 'react';
 

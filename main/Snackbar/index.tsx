@@ -1,19 +1,9 @@
-import {
-  Animated,
-  Dimensions,
-  Platform,
-  StyleProp,
-  TextStyle,
-  TouchableOpacity,
-  ViewStyle,
-} from 'react-native';
-import {
-  ButtonText,
-  SnackbarType,
-  SnackbarWrapper,
-} from '../Styled/StyledComponents';
+import type {StyleProp, TextStyle, ViewStyle} from 'react-native';
+import {Animated, Dimensions, Platform, TouchableOpacity} from 'react-native';
+import type {SnackbarType} from '../Styled/StyledComponents';
+import {ButtonText, SnackbarWrapper} from '../Styled/StyledComponents';
+import type {ReactElement} from 'react';
 import React, {
-  ReactElement,
   useCallback,
   useEffect,
   useImperativeHandle,

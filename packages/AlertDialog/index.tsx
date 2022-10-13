@@ -1,5 +1,7 @@
-import {DoobooTheme, useTheme, withTheme} from '@dooboo-ui/theme';
-import Modal, {ModalProps} from 'react-native-modalbox';
+import type {DoobooTheme} from '@dooboo-ui/theme';
+import {useTheme, withTheme} from '@dooboo-ui/theme';
+import type {ModalProps} from 'react-native-modalbox';
+import Modal from 'react-native-modalbox';
 import React, {useState} from 'react';
 
 import styled from '@emotion/native';
