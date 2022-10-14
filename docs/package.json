@@ -14,7 +14,7 @@
     "@emotion/react": "^11.10.0",
     "@expo/config": "^7.0.0",
     "@expo/vector-icons": "^13.0.0",
-    "dooboo-ui": "^0.1.67",
+    "dooboo-ui": "^0.1.91",
     "expo-font": "^9.2.1",
     "metro-react-native-babel-preset": "^0.72.0",
     "react-native-gesture-handler": "^2.5.0",
