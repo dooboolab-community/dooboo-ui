@@ -1,7 +1,6 @@
-import type {ReactElement} from 'react';
 import React from 'react';
-
-import {ThemeProvider} from '@dooboo-ui/theme';
+import type {ReactElement} from 'react';
+import {ThemeProvider} from '../../../packages/theme';
 import TypographyDefault from './DefaultStory';
 import TypographyWithTheme from './DefaultStoryWithTheme';
 import {View} from 'react-native';

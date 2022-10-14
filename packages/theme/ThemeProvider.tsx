@@ -30,10 +30,61 @@ interface Props {
   customTheme?: ThemeParam;
 }
 
+const genTheme = (type: ThemeType, themeParam: ThemeParam): any => {
+  const theme = type === 'light' ? light : dark;
+
+  return {
+    ...themeParam?.[type],
+    bg: {
+      ...theme.bg,
+      ...(themeParam?.[type]?.bg || {}),
+    },
+    role: {
+      ...theme.role,
+      ...(themeParam?.[type]?.role || {}),
+    },
+    text: {
+      ...theme.text,
+      ...(themeParam?.[type]?.text || {}),
+    },
+    button: {
+      ...theme.button,
+      primary: {
+        ...theme.button.primary,
+        ...(themeParam?.[type]?.button?.primary || {}),
+      },
+      secondary: {
+        ...theme.button.secondary,
+        ...(themeParam?.[type]?.button?.secondary || {}),
+      },
+      success: {
+        ...theme.button.success,
+        ...(themeParam?.[type]?.button?.success || {}),
+      },
+      danger: {
+        ...theme.button.danger,
+        ...(themeParam?.[type]?.button?.danger || {}),
+      },
+      warning: {
+        ...theme.button.warning,
+        ...(themeParam?.[type]?.button?.warning || {}),
+      },
+      info: {
+        ...theme.button.info,
+        ...(themeParam?.[type]?.button?.info || {}),
+      },
+      light: {
+        ...theme.button.light,
+        ...(themeParam?.[type]?.button?.light || {}),
+      },
+    },
+  };
+};
+
 function ThemeProvider({
   children,
   initialThemeType,
-  customTheme,
+  customTheme = {},
 }: Props): React.ReactElement {
   const isPortrait = useMediaQuery({orientation: 'portrait'});
   const isMobile = useMediaQuery({maxWidth: 767});
@@ -60,9 +111,12 @@ function ThemeProvider({
     setThemeType(themeTypeProp);
   };
 
-  const theme = {
-    light: {...light, ...customTheme?.light},
-    dark: {...dark, ...customTheme?.dark},
+  const theme: Omit<
+    DoobooTheme,
+    'isPortrait' | 'isMobile' | 'isTablet' | 'isDesktop'
+  > = {
+    light: genTheme('light', customTheme),
+    dark: genTheme('dark', customTheme),
   }[themeType ?? 'light'];
 
   const media = {

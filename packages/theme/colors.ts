@@ -1,5 +1,3 @@
-import type {Theme} from '@emotion/react';
-
 export type ThemeType = 'light' | 'dark';
 
 export const colors = {
@@ -143,7 +141,14 @@ export type DoobooTheme = typeof light & {
   isMobile?: boolean;
 };
 
+export type ThemeObjParams = {
+  bg: Partial<typeof light.bg>;
+  role: Partial<typeof light.role>;
+  text: Partial<typeof light.text>;
+  button: Partial<typeof light.button>;
+};
+
 export interface ThemeParam {
-  light?: Partial<Theme>;
-  dark?: Partial<Theme>;
+  light?: Partial<ThemeObjParams & any>;
+  dark?: Partial<ThemeObjParams & any>;
 }

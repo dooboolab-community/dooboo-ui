@@ -1,10 +1,9 @@
-import type {ReactElement} from 'react';
-import React from 'react';
-
 import EditTextBoxed from './EditTextBoxedStory';
 import EditTextColumn from './EditTextColumnStory';
 import EditTextRow from './EditTextRowStory';
-import {ThemeProvider} from '@dooboo-ui/theme';
+import React from 'react';
+import type {ReactElement} from 'react';
+import {ThemeProvider} from '../../../packages/theme';
 import {storiesOf} from '@storybook/react-native';
 
 /**

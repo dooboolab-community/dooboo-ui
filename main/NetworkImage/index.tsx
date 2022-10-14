@@ -1,11 +1,10 @@
+import {Image, View} from 'react-native';
 import type {
   ImageProps,
   ImageRequireSource,
   StyleProp,
   ViewStyle,
 } from 'react-native';
-import {Image, View} from 'react-native';
-import type {ReactElement} from 'react';
 import React, {
   isValidElement,
   useCallback,
@@ -16,6 +15,7 @@ import React, {
 
 import ArtifactsLogoDark from '../__assets__/artifacts_logo_d.png';
 import ArtifactsLogoLight from '../__assets__/artifacts_logo_l.png';
+import type {ReactElement} from 'react';
 import {css} from '@emotion/native';
 import {useTheme} from '@dooboo-ui/theme';
 
