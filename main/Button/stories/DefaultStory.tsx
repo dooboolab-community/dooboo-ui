@@ -6,8 +6,7 @@ import styled, {css} from '@emotion/native';
 
 import type {FC} from 'react';
 import {action} from '@storybook/addon-actions';
-import {Button} from '..';
-import {Hr} from '../../Hr';
+import {Hr, Button} from '../..';
 
 const StoryContainer = styled.View`
   flex: 1;
