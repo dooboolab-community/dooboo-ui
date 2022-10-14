@@ -1,11 +1,11 @@
 {
   "files": {
-    "app.js": "/dooboo-ui/static/js/app.2103283b.chunk.js",
-    "app.js.map": "/dooboo-ui/static/js/app.2103283b.chunk.js.map",
+    "app.js": "/dooboo-ui/static/js/app.91e4fcaf.chunk.js",
+    "app.js.map": "/dooboo-ui/static/js/app.91e4fcaf.chunk.js.map",
     "runtime~app.js": "/dooboo-ui/static/js/runtime~app.ec57c3fc.js",
     "runtime~app.js.map": "/dooboo-ui/static/js/runtime~app.ec57c3fc.js.map",
-    "static/js/2.e47121ad.chunk.js": "/dooboo-ui/static/js/2.e47121ad.chunk.js",
-    "static/js/2.e47121ad.chunk.js.map": "/dooboo-ui/static/js/2.e47121ad.chunk.js.map",
+    "static/js/2.e075cf29.chunk.js": "/dooboo-ui/static/js/2.e075cf29.chunk.js",
+    "static/js/2.e075cf29.chunk.js.map": "/dooboo-ui/static/js/2.e075cf29.chunk.js.map",
     "fonts/AntDesign.ttf": "/dooboo-ui/./fonts/AntDesign.ttf",
     "fonts/Entypo.ttf": "/dooboo-ui/./fonts/Entypo.ttf",
     "fonts/Feather.ttf": "/dooboo-ui/./fonts/Feather.ttf",
@@ -24,7 +24,7 @@
     "index.html": "/dooboo-ui/index.html",
     "manifest.json": "/dooboo-ui/manifest.json",
     "serve.json": "/dooboo-ui/serve.json",
-    "static/js/2.e47121ad.chunk.js.LICENSE.txt": "/dooboo-ui/static/js/2.e47121ad.chunk.js.LICENSE.txt",
+    "static/js/2.e075cf29.chunk.js.LICENSE.txt": "/dooboo-ui/static/js/2.e075cf29.chunk.js.LICENSE.txt",
     "static/media/artifacts_logo_d.png": "/dooboo-ui/static/media/artifacts_logo_d.ebf4ac96.png",
     "static/media/artifacts_logo_l.png": "/dooboo-ui/static/media/artifacts_logo_l.ad84f316.png",
     "static/media/color-circle.png": "/dooboo-ui/static/media/color-circle.aeee73f0.png",
@@ -34,7 +34,7 @@
   },
   "entrypoints": [
     "static/js/runtime~app.ec57c3fc.js",
-    "static/js/2.e47121ad.chunk.js",
-    "static/js/app.2103283b.chunk.js"
+    "static/js/2.e075cf29.chunk.js",
+    "static/js/app.91e4fcaf.chunk.js"
   ]
 }
