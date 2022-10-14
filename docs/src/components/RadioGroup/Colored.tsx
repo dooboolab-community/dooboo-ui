@@ -1,5 +1,5 @@
 import type {FC} from 'react';
-import React from 'react';
+import {useState} from 'react';
 import type {ThemeType} from '@dooboo-ui/theme';
 import {ThemeProvider, useTheme} from '@dooboo-ui/theme';
 
@@ -10,7 +10,7 @@ const data = ['one', 'two', 'three', 'four'];
 
 const RadioGroupStory: FC = () => {
   const {theme} = useTheme();
-  const selectedValue = data[0];
+  const [curValue, setCurValue] = useState<string>(data[0]);
 
   return (
     <View
@@ -26,38 +26,44 @@ const RadioGroupStory: FC = () => {
         title="Primary"
         type="primary"
         data={data}
-        selectedValue={selectedValue}
+        selectedValue={curValue}
+        selectValue={setCurValue}
       />
       <RadioGroup
         title="Secondary"
         type="secondary"
         data={data}
-        selectedValue={selectedValue}
+        selectedValue={curValue}
+        selectValue={setCurValue}
       />
       <RadioGroup
         title="Success"
         type="success"
         data={data}
-        selectedValue={selectedValue}
+        selectedValue={curValue}
+        selectValue={setCurValue}
       />
       <RadioGroup
         title="Warning"
         type="warning"
         data={data}
-        selectedValue={selectedValue}
+        selectedValue={curValue}
+        selectValue={setCurValue}
       />
 
       <RadioGroup
         title="Info"
         type="info"
         data={data}
-        selectedValue={selectedValue}
+        selectedValue={curValue}
+        selectValue={setCurValue}
       />
       <RadioGroup
         title="Danger"
         type="danger"
         data={data}
-        selectedValue={selectedValue}
+        selectedValue={curValue}
+        selectValue={setCurValue}
       />
     </View>
   );

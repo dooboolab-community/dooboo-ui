@@ -3,7 +3,7 @@ import {NetworkImage, Typography} from '../..';
 import React from 'react';
 import {View} from 'react-native';
 import styled from '@emotion/native';
-import {useTheme} from '../../../packages/theme';
+import {useTheme} from '@dooboo-ui/theme';
 
 const ScrollContainer = styled.ScrollView`
   width: 100%;

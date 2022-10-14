@@ -47,7 +47,11 @@ const AccordionStory = ({
   });
 
   if (!fontsLoaded) {
-    return <Container />;
+    return (
+      <ThemeProvider initialThemeType={theme}>
+        <Container />
+      </ThemeProvider>
+    );
   }
 
   return (
