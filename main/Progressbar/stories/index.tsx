@@ -1,8 +1,7 @@
-import type {ReactElement} from 'react';
-import React from 'react';
-
 import ProgressbarDefaultStory from './DefaultStory';
-import {ThemeProvider} from '@dooboo-ui/theme';
+import React from 'react';
+import type {ReactElement} from 'react';
+import {ThemeProvider} from '../../../packages/theme';
 import {storiesOf} from '@storybook/react-native';
 import {withActions} from '@storybook/addon-actions';
 import {withKnobs} from '@storybook/addon-knobs';

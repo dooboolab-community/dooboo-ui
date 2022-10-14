@@ -1,7 +1,6 @@
-import type {ReactElement} from 'react';
-import React from 'react';
-
 import NetworkImageStory from './DefaultStory';
+import React from 'react';
+import type {ReactElement} from 'react';
 import {ThemeProvider} from '@dooboo-ui/theme';
 import {storiesOf} from '@storybook/react-native';
 

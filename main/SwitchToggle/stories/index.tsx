@@ -1,8 +1,7 @@
-import type {ReactElement} from 'react';
 import React from 'react';
-
+import type {ReactElement} from 'react';
 import SwitchToggleDefaultStory from './DefaultStory';
-import {ThemeProvider} from '@dooboo-ui/theme';
+import {ThemeProvider} from '../../../packages/theme';
 import {storiesOf} from '@storybook/react-native';
 
 /**
