@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import {SafeAreaView, ScrollView, View} from 'react-native';
 
 import {EditText} from '../../';
-import {useTheme} from '../../../packages/theme';
+import {useTheme} from '@dooboo-ui/theme';
 
 const EditTextColumn = (): React.ReactElement => {
   const {theme} = useTheme();

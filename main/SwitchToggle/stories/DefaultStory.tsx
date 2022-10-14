@@ -3,7 +3,7 @@ import {SwitchToggle, Typography} from '../..';
 
 import type {FC} from 'react';
 import styled from '@emotion/native';
-import {useTheme} from '../../../packages/theme';
+import {useTheme} from '@dooboo-ui/theme';
 
 const StoryContainer = styled.View`
   flex: 1;

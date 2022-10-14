@@ -1,7 +1,7 @@
 import DefaultStory from './DefaultStory';
 import React from 'react';
 import type {ReactElement} from 'react';
-import {ThemeProvider} from '../../../packages/theme';
+import {ThemeProvider} from '@dooboo-ui/theme';
 import {storiesOf} from '@storybook/react-native';
 
 /**
@@ -11,7 +11,11 @@ export default {
   title: 'ButtonGroup',
 };
 
-export const toStorybook = (): ReactElement => <DefaultStory />;
+export const toStorybook = (): ReactElement => (
+  <ThemeProvider initialThemeType="light">
+    <DefaultStory />
+  </ThemeProvider>
+);
 
 toStorybook.story = {
   name: 'ButtonGroup - 4 buttons',

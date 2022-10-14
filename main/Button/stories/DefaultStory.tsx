@@ -1,4 +1,3 @@
-import {Button, Hr} from '../..';
 import {IC_FACEBOOK, IC_GOOGLE} from '../../../storybook/assets/icons';
 import {Image, View} from 'react-native';
 import React, {useState} from 'react';
@@ -7,6 +6,8 @@ import styled, {css} from '@emotion/native';
 
 import type {FC} from 'react';
 import {action} from '@storybook/addon-actions';
+import {Button} from '..';
+import {Hr} from '../../Hr';
 
 const StoryContainer = styled.View`
   flex: 1;
