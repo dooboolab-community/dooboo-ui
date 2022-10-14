@@ -29,7 +29,7 @@
     "typescript": "^4.8.4"
   },
   "peerDependencies": {
-    "@dooboo-ui/theme": ">=0.9.0",
+    "@dooboo-ui/theme": ">=0.9.5",
     "@emotion/native": ">=11",
     "@emotion/react": ">=11",
     "react": ">=16.9",

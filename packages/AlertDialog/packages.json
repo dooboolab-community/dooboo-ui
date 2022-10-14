@@ -32,7 +32,7 @@
   "peerDependencies": {
     "@emotion/react": ">=11",
     "@emotion/native": ">=11",
-    "@dooboo-ui/theme": ">=0.9.0",
+    "@dooboo-ui/theme": ">=0.9.5",
     "react": ">=16.9",
     "react-native": ">=0.58"
   },
