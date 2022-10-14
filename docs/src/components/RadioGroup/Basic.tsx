@@ -1,5 +1,5 @@
 import type {FC} from 'react';
-import React from 'react';
+import {useState} from 'react';
 import type {ThemeType} from '@dooboo-ui/theme';
 import {ThemeProvider, useTheme} from '@dooboo-ui/theme';
 
@@ -10,6 +10,7 @@ const data = ['one', 'two', 'three', 'four'];
 
 const RadioGroupStory: FC = () => {
   const {theme} = useTheme();
+  const [curValue, setCurValue] = useState<string>(data[0]);
 
   return (
     <View
@@ -21,7 +22,11 @@ const RadioGroupStory: FC = () => {
         padding: 15,
       }}
     >
-      <RadioGroup data={data} selectedValue={data[0]} />
+      <RadioGroup
+        data={data}
+        selectedValue={curValue}
+        selectValue={setCurValue}
+      />
     </View>
   );
 };
