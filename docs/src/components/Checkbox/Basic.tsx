@@ -22,7 +22,7 @@ const Component: FC = () => {
   return (
     <View
       style={{
-        backgroundColor: theme.background,
+        backgroundColor: theme.bg.default,
         flex: 1,
         alignSelf: 'stretch',
         flexDirection: 'row',

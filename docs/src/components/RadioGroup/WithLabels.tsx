@@ -20,7 +20,7 @@ const RadioGroupStory: FC<{labelPosition: 'left' | 'right'}> = ({
         flex: 1,
         alignSelf: 'stretch',
         alignItems: 'center',
-        backgroundColor: theme.background,
+        backgroundColor: theme.bg.default,
         padding: 15,
       }}
     >

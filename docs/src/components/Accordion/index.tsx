@@ -12,7 +12,7 @@ const Container = styled.View`
   padding: 20px;
   width: 100%;
   display: inline-block;
-  background-color: ${({theme}) => theme.background};
+  background-color: ${({theme}) => theme.bg.default};
   justify-content: center;
   align-items: center;
 `;

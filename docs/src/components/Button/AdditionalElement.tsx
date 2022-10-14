@@ -1,6 +1,6 @@
 import {IC_FACEBOOK, IC_GOOGLE} from '../../icon';
 import {Image, View} from 'react-native';
-import React, {useState} from 'react';
+import {useState} from 'react';
 import styled, {css} from '@emotion/native';
 
 import {Button} from 'dooboo-ui';

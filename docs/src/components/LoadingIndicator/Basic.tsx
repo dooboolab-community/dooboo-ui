@@ -7,7 +7,7 @@ import styled from '@emotion/native';
 
 const StyledView = styled.View`
   height: 60;
-  background-color: ${({theme}) => theme.background};
+  background-color: ${({theme}) => theme.bg.default};
   align-self: 'stretch';
   justify-content: 'center';
 `;

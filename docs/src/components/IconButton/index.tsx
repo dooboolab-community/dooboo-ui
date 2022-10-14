@@ -8,7 +8,7 @@ import styled from '@emotion/native';
 import {useFonts} from 'expo-font';
 
 const StyledIcon = styled(Icon)`
-  color: ${({theme}) => theme.textContrast};
+  color: ${({theme}) => theme.text.contrast};
 `;
 
 const IconButtonStory = (): React.ReactElement => {
