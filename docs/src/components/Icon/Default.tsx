@@ -74,7 +74,7 @@ const IconStory: FC = () => {
       <IconWithLabel name="fastforward-light" />
       <IconWithLabel name="google-solid" />
       <IconWithLabel name="happy-light" />
-      <IconWithLabel name="instagram_reel-solid" />
+      <IconWithLabel name="instagram-reel-solid" />
       <IconWithLabel name="instagram-solid" />
       <IconWithLabel name="ios-solid" />
       <IconWithLabel name="location-light" />
