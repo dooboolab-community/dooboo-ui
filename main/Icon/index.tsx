@@ -23,7 +23,7 @@ export type IconName =
   | 'fastforward-light'
   | 'google-solid'
   | 'happy-light'
-  | 'instagram_reel-solid'
+  | 'instagram-reel-solid'
   | 'instagram-solid'
   | 'ios-solid'
   | 'location-light'
