@@ -3,8 +3,8 @@
 exports[`[NetworkImage] render should render without crashing 1`] = `
 <View
   style={
-    Array [
-      Object {
+    [
+      {
         "alignItems": "center",
         "justifyContent": "center",
       },
@@ -16,7 +16,7 @@ exports[`[NetworkImage] render should render without crashing 1`] = `
     resizeMethod="resize"
     resizeMode="cover"
     source={
-      Object {
+      {
         "canInstrument": true,
         "createTransformer": [Function],
         "getCacheKey": [Function],
@@ -24,8 +24,8 @@ exports[`[NetworkImage] render should render without crashing 1`] = `
       }
     }
     style={
-      Array [
-        Object {
+      [
+        {
           "aspectRatio": 1.4864864864864864,
           "height": "auto",
           "maxHeight": "50%",

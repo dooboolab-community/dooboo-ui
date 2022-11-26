@@ -14,7 +14,7 @@ exports[`[SwitchToggle] when switch toggle is off renders as off state 1`] = `
   onResponderTerminationRequest={[Function]}
   onStartShouldSetResponder={[Function]}
   style={
-    Object {
+    {
       "opacity": 1,
       "padding": 6,
     }
@@ -23,7 +23,7 @@ exports[`[SwitchToggle] when switch toggle is off renders as off state 1`] = `
   <View
     collapsable={false}
     style={
-      Object {
+      {
         "alignItems": "center",
         "backgroundColor": "rgba(128, 128, 128, 1)",
         "flexDirection": "row",
@@ -35,7 +35,7 @@ exports[`[SwitchToggle] when switch toggle is off renders as off state 1`] = `
     <View
       collapsable={false}
       style={
-        Object {
+        {
           "opacity": 1,
           "padding": 3,
         }
@@ -48,11 +48,11 @@ exports[`[SwitchToggle] when switch toggle is off renders as off state 1`] = `
     <View
       collapsable={false}
       style={
-        Object {
+        {
           "backgroundColor": "rgba(510, 0, -255, 1)",
           "padding": 1,
-          "transform": Array [
-            Object {
+          "transform": [
+            {
               "translateX": 0,
             },
           ],
@@ -77,7 +77,7 @@ exports[`[SwitchToggle] when switch toggle is on renders as on state 1`] = `
   onResponderTerminationRequest={[Function]}
   onStartShouldSetResponder={[Function]}
   style={
-    Object {
+    {
       "opacity": 1,
       "padding": 6,
     }
@@ -86,7 +86,7 @@ exports[`[SwitchToggle] when switch toggle is on renders as on state 1`] = `
   <View
     collapsable={false}
     style={
-      Object {
+      {
         "alignItems": "center",
         "backgroundColor": "rgba(0, 128, 0, 1)",
         "flexDirection": "row",
@@ -98,7 +98,7 @@ exports[`[SwitchToggle] when switch toggle is on renders as on state 1`] = `
     <View
       collapsable={false}
       style={
-        Object {
+        {
           "opacity": 1,
           "padding": 4,
         }
@@ -111,11 +111,11 @@ exports[`[SwitchToggle] when switch toggle is on renders as on state 1`] = `
     <View
       collapsable={false}
       style={
-        Object {
+        {
           "backgroundColor": "rgba(0, 0, 255, 1)",
           "padding": 1,
-          "transform": Array [
-            Object {
+          "transform": [
+            {
               "translateX": 37,
             },
           ],

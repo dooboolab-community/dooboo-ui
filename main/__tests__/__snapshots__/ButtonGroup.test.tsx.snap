@@ -3,11 +3,11 @@
 exports[`[ButtonGroup] renders without crashing 1`] = `
 <View
   style={
-    Array [
-      Object {
+    [
+      {
         "borderColor": "#000000",
       },
-      Object {
+      {
         "alignItems": "center",
         "alignSelf": "stretch",
         "backgroundColor": "transparent",
@@ -32,7 +32,7 @@ exports[`[ButtonGroup] renders without crashing 1`] = `
     onResponderTerminationRequest={[Function]}
     onStartShouldSetResponder={[Function]}
     style={
-      Object {
+      {
         "flex": 1,
         "opacity": 1,
       }
@@ -40,7 +40,7 @@ exports[`[ButtonGroup] renders without crashing 1`] = `
   >
     <View
       style={
-        Object {
+        {
           "alignItems": "center",
           "alignSelf": "stretch",
           "backgroundColor": "#000000",
@@ -61,13 +61,13 @@ exports[`[ButtonGroup] renders without crashing 1`] = `
     >
       <Text
         style={
-          Array [
-            Object {
+          [
+            {
               "alignSelf": "center",
               "fontSize": 14,
               "textAlign": "center",
             },
-            Object {
+            {
               "color": "#FFFFFF",
             },
           ]
@@ -89,7 +89,7 @@ exports[`[ButtonGroup] renders without crashing 1`] = `
     onResponderTerminationRequest={[Function]}
     onStartShouldSetResponder={[Function]}
     style={
-      Object {
+      {
         "flex": 1,
         "opacity": 1,
       }
@@ -97,7 +97,7 @@ exports[`[ButtonGroup] renders without crashing 1`] = `
   >
     <View
       style={
-        Object {
+        {
           "alignItems": "center",
           "alignSelf": "stretch",
           "borderBottomLeftRadius": undefined,
@@ -117,13 +117,13 @@ exports[`[ButtonGroup] renders without crashing 1`] = `
     >
       <Text
         style={
-          Array [
-            Object {
+          [
+            {
               "alignSelf": "center",
               "fontSize": 14,
               "textAlign": "center",
             },
-            Object {
+            {
               "color": "#000000",
             },
           ]

@@ -36,6 +36,5 @@
   "files": [
     "environment.d.ts",
   ],
-  "types": ["typePatches", "jest"],
-  "extends": "expo/tsconfig.base"
+  "types": ["typePatches", "jest"]
 }

@@ -3,8 +3,8 @@
 exports[`[EditText] interactions !editable renders \`errorText\` 1`] = `
 <View
   style={
-    Array [
-      Object {
+    [
+      {
         "alignSelf": "stretch",
         "flexDirection": "column",
       },
@@ -15,9 +15,9 @@ exports[`[EditText] interactions !editable renders \`errorText\` 1`] = `
 >
   <View
     style={
-      Array [
-        Array [
-          Object {
+      [
+        [
+          {
             "alignSelf": "stretch",
             "borderBottomColor": "#000000",
             "borderBottomWidth": 2,
@@ -27,10 +27,10 @@ exports[`[EditText] interactions !editable renders \`errorText\` 1`] = `
           undefined,
         ],
         false,
-        Object {
+        {
           "borderColor": "#C4C4C4",
         },
-        Object {
+        {
           "borderBottomColor": "#C4C4C4",
         },
       ]
@@ -38,9 +38,9 @@ exports[`[EditText] interactions !editable renders \`errorText\` 1`] = `
   >
     <Text
       style={
-        Array [
-          Array [
-            Object {
+        [
+          [
+            {
               "color": "#6D6D6D",
               "fontSize": 14,
               "paddingHorizontal": 4,
@@ -48,7 +48,7 @@ exports[`[EditText] interactions !editable renders \`errorText\` 1`] = `
             undefined,
           ],
           false,
-          Object {
+          {
             "color": "#C4C4C4",
           },
         ]
@@ -65,9 +65,9 @@ exports[`[EditText] interactions !editable renders \`errorText\` 1`] = `
       placeholderTextColor="#6D6D6D"
       secureTextEntry={false}
       style={
-        Array [
-          Array [
-            Object {
+        [
+          [
+            {
               "color": "#C4C4C4",
               "fontSize": 14,
               "paddingHorizontal": 10,
@@ -87,8 +87,8 @@ exports[`[EditText] interactions !editable renders \`errorText\` 1`] = `
 exports[`[EditText] interactions !editable renders \`labelText\` 1`] = `
 <View
   style={
-    Array [
-      Object {
+    [
+      {
         "alignSelf": "stretch",
         "flexDirection": "column",
       },
@@ -99,9 +99,9 @@ exports[`[EditText] interactions !editable renders \`labelText\` 1`] = `
 >
   <View
     style={
-      Array [
-        Array [
-          Object {
+      [
+        [
+          {
             "alignSelf": "stretch",
             "borderBottomColor": "#000000",
             "borderBottomWidth": 1,
@@ -111,10 +111,10 @@ exports[`[EditText] interactions !editable renders \`labelText\` 1`] = `
           undefined,
         ],
         false,
-        Object {
+        {
           "borderColor": "#C4C4C4",
         },
-        Object {
+        {
           "borderBottomColor": "#C4C4C4",
         },
       ]
@@ -122,9 +122,9 @@ exports[`[EditText] interactions !editable renders \`labelText\` 1`] = `
   >
     <Text
       style={
-        Array [
-          Array [
-            Object {
+        [
+          [
+            {
               "color": "#6D6D6D",
               "fontSize": 14,
               "paddingHorizontal": 4,
@@ -132,7 +132,7 @@ exports[`[EditText] interactions !editable renders \`labelText\` 1`] = `
             undefined,
           ],
           false,
-          Object {
+          {
             "color": "#C4C4C4",
           },
         ]
@@ -149,9 +149,9 @@ exports[`[EditText] interactions !editable renders \`labelText\` 1`] = `
       placeholderTextColor="#6D6D6D"
       secureTextEntry={false}
       style={
-        Array [
-          Array [
-            Object {
+        [
+          [
+            {
               "color": "#C4C4C4",
               "fontSize": 14,
               "paddingHorizontal": 10,
@@ -171,8 +171,8 @@ exports[`[EditText] interactions !editable renders \`labelText\` 1`] = `
 exports[`[EditText] interactions !editable renders without crashing 1`] = `
 <View
   style={
-    Array [
-      Object {
+    [
+      {
         "alignSelf": "stretch",
         "flexDirection": "column",
       },
@@ -183,9 +183,9 @@ exports[`[EditText] interactions !editable renders without crashing 1`] = `
 >
   <View
     style={
-      Array [
-        Array [
-          Object {
+      [
+        [
+          {
             "alignSelf": "stretch",
             "borderBottomColor": "#000000",
             "borderBottomWidth": 1,
@@ -195,10 +195,10 @@ exports[`[EditText] interactions !editable renders without crashing 1`] = `
           undefined,
         ],
         false,
-        Object {
+        {
           "borderColor": "#C4C4C4",
         },
-        Object {
+        {
           "borderBottomColor": "#C4C4C4",
         },
       ]
@@ -213,9 +213,9 @@ exports[`[EditText] interactions !editable renders without crashing 1`] = `
       placeholderTextColor="#6D6D6D"
       secureTextEntry={false}
       style={
-        Array [
-          Array [
-            Object {
+        [
+          [
+            {
               "color": "#C4C4C4",
               "fontSize": 14,
               "paddingHorizontal": 10,
@@ -235,8 +235,8 @@ exports[`[EditText] interactions !editable renders without crashing 1`] = `
 exports[`[EditText] interactions Type: [boxed] should render \`!editable\` status 1`] = `
 <View
   style={
-    Array [
-      Object {
+    [
+      {
         "alignSelf": "stretch",
         "flexDirection": "column",
       },
@@ -247,9 +247,9 @@ exports[`[EditText] interactions Type: [boxed] should render \`!editable\` statu
 >
   <View
     style={
-      Array [
-        Array [
-          Object {
+      [
+        [
+          {
             "alignSelf": "stretch",
             "borderBottomColor": "#000000",
             "borderBottomWidth": 1,
@@ -259,10 +259,10 @@ exports[`[EditText] interactions Type: [boxed] should render \`!editable\` statu
           undefined,
         ],
         false,
-        Object {
+        {
           "borderColor": "#000000",
         },
-        Object {
+        {
           "borderBottomColor": "#000000",
         },
       ]
@@ -277,9 +277,9 @@ exports[`[EditText] interactions Type: [boxed] should render \`!editable\` statu
       placeholderTextColor="#6D6D6D"
       secureTextEntry={false}
       style={
-        Array [
-          Array [
-            Object {
+        [
+          [
+            {
               "color": "#000000",
               "fontSize": 14,
               "paddingHorizontal": 10,
@@ -295,7 +295,7 @@ exports[`[EditText] interactions Type: [boxed] should render \`!editable\` statu
   </View>
   <View
     style={
-      Object {
+      {
         "flex": 1,
         "flexDirection": "row",
         "justifyContent": "space-between",
@@ -304,9 +304,9 @@ exports[`[EditText] interactions Type: [boxed] should render \`!editable\` statu
   >
     <Text
       style={
-        Array [
-          Array [
-            Object {
+        [
+          [
+            {
               "color": "#FF002E",
               "fontSize": 12,
               "marginTop": 8,
@@ -314,7 +314,7 @@ exports[`[EditText] interactions Type: [boxed] should render \`!editable\` statu
             },
             undefined,
           ],
-          Object {
+          {
             "color": "#FF002E",
             "flex": 1,
           },
@@ -328,8 +328,8 @@ exports[`[EditText] interactions Type: [boxed] should render \`!editable\` statu
 exports[`[EditText] interactions Type: [boxed] should render \`errorText\` 1`] = `
 <View
   style={
-    Array [
-      Object {
+    [
+      {
         "alignSelf": "stretch",
         "flexDirection": "column",
       },
@@ -340,9 +340,9 @@ exports[`[EditText] interactions Type: [boxed] should render \`errorText\` 1`] =
 >
   <View
     style={
-      Array [
-        Array [
-          Object {
+      [
+        [
+          {
             "alignSelf": "stretch",
             "borderBottomColor": "#000000",
             "borderBottomWidth": 1,
@@ -352,10 +352,10 @@ exports[`[EditText] interactions Type: [boxed] should render \`errorText\` 1`] =
           undefined,
         ],
         false,
-        Object {
+        {
           "borderColor": "#000000",
         },
-        Object {
+        {
           "borderBottomColor": "#000000",
         },
       ]
@@ -370,9 +370,9 @@ exports[`[EditText] interactions Type: [boxed] should render \`errorText\` 1`] =
       placeholderTextColor="#6D6D6D"
       secureTextEntry={false}
       style={
-        Array [
-          Array [
-            Object {
+        [
+          [
+            {
               "color": "#000000",
               "fontSize": 14,
               "paddingHorizontal": 10,
@@ -388,7 +388,7 @@ exports[`[EditText] interactions Type: [boxed] should render \`errorText\` 1`] =
   </View>
   <View
     style={
-      Object {
+      {
         "flex": 1,
         "flexDirection": "row",
         "justifyContent": "space-between",
@@ -397,9 +397,9 @@ exports[`[EditText] interactions Type: [boxed] should render \`errorText\` 1`] =
   >
     <Text
       style={
-        Array [
-          Array [
-            Object {
+        [
+          [
+            {
               "color": "#FF002E",
               "fontSize": 12,
               "marginTop": 8,
@@ -407,7 +407,7 @@ exports[`[EditText] interactions Type: [boxed] should render \`errorText\` 1`] =
             },
             undefined,
           ],
-          Object {
+          {
             "color": "#FF002E",
             "flex": 1,
           },
@@ -421,8 +421,8 @@ exports[`[EditText] interactions Type: [boxed] should render \`errorText\` 1`] =
 exports[`[EditText] interactions Type: [boxed] should render \`maxLength\` counter 1`] = `
 <View
   style={
-    Array [
-      Object {
+    [
+      {
         "alignSelf": "stretch",
         "flexDirection": "column",
       },
@@ -433,9 +433,9 @@ exports[`[EditText] interactions Type: [boxed] should render \`maxLength\` count
 >
   <View
     style={
-      Array [
-        Array [
-          Object {
+      [
+        [
+          {
             "alignSelf": "stretch",
             "borderBottomColor": "#000000",
             "borderBottomWidth": 1,
@@ -445,10 +445,10 @@ exports[`[EditText] interactions Type: [boxed] should render \`maxLength\` count
           undefined,
         ],
         false,
-        Object {
+        {
           "borderColor": "#000000",
         },
-        Object {
+        {
           "borderBottomColor": "#000000",
         },
       ]
@@ -463,9 +463,9 @@ exports[`[EditText] interactions Type: [boxed] should render \`maxLength\` count
       placeholderTextColor="#6D6D6D"
       secureTextEntry={false}
       style={
-        Array [
-          Array [
-            Object {
+        [
+          [
+            {
               "color": "#000000",
               "fontSize": 14,
               "paddingHorizontal": 10,
@@ -481,7 +481,7 @@ exports[`[EditText] interactions Type: [boxed] should render \`maxLength\` count
   </View>
   <View
     style={
-      Object {
+      {
         "flex": 1,
         "flexDirection": "row",
         "justifyContent": "space-between",
@@ -490,9 +490,9 @@ exports[`[EditText] interactions Type: [boxed] should render \`maxLength\` count
   >
     <Text
       style={
-        Array [
-          Array [
-            Object {
+        [
+          [
+            {
               "color": "#FF002E",
               "fontSize": 12,
               "marginTop": 8,
@@ -500,7 +500,7 @@ exports[`[EditText] interactions Type: [boxed] should render \`maxLength\` count
             },
             undefined,
           ],
-          Object {
+          {
             "color": "#FF002E",
             "flex": 1,
           },
@@ -514,8 +514,8 @@ exports[`[EditText] interactions Type: [boxed] should render \`maxLength\` count
 exports[`[EditText] interactions Type: [boxed] should render without crashing 1`] = `
 <View
   style={
-    Array [
-      Object {
+    [
+      {
         "alignSelf": "stretch",
         "flexDirection": "column",
       },
@@ -526,9 +526,9 @@ exports[`[EditText] interactions Type: [boxed] should render without crashing 1`
 >
   <View
     style={
-      Array [
-        Array [
-          Object {
+      [
+        [
+          {
             "alignSelf": "stretch",
             "borderBottomColor": "#000000",
             "borderBottomWidth": 1,
@@ -538,10 +538,10 @@ exports[`[EditText] interactions Type: [boxed] should render without crashing 1`
           undefined,
         ],
         false,
-        Object {
+        {
           "borderColor": "#000000",
         },
-        Object {
+        {
           "borderBottomColor": "#000000",
         },
       ]
@@ -556,9 +556,9 @@ exports[`[EditText] interactions Type: [boxed] should render without crashing 1`
       placeholderTextColor="#6D6D6D"
       secureTextEntry={false}
       style={
-        Array [
-          Array [
-            Object {
+        [
+          [
+            {
               "color": "#000000",
               "fontSize": 14,
               "paddingHorizontal": 10,
@@ -574,7 +574,7 @@ exports[`[EditText] interactions Type: [boxed] should render without crashing 1`
   </View>
   <View
     style={
-      Object {
+      {
         "flex": 1,
         "flexDirection": "row",
         "justifyContent": "space-between",
@@ -583,9 +583,9 @@ exports[`[EditText] interactions Type: [boxed] should render without crashing 1`
   >
     <Text
       style={
-        Array [
-          Array [
-            Object {
+        [
+          [
+            {
               "color": "#FF002E",
               "fontSize": 12,
               "marginTop": 8,
@@ -593,7 +593,7 @@ exports[`[EditText] interactions Type: [boxed] should render without crashing 1`
             },
             undefined,
           ],
-          Object {
+          {
             "color": "#FF002E",
             "flex": 1,
           },
@@ -607,8 +607,8 @@ exports[`[EditText] interactions Type: [boxed] should render without crashing 1`
 exports[`[EditText] interactions Type: [column] - default renders custom styles without crashing 1`] = `
 <View
   style={
-    Array [
-      Object {
+    [
+      {
         "alignSelf": "stretch",
         "flexDirection": "column",
       },
@@ -619,22 +619,22 @@ exports[`[EditText] interactions Type: [column] - default renders custom styles 
 >
   <View
     style={
-      Array [
-        Array [
-          Object {
+      [
+        [
+          {
             "alignSelf": "stretch",
             "borderBottomColor": "#000000",
             "borderBottomWidth": 1,
             "flexDirection": "column",
             "justifyContent": "space-between",
           },
-          Object {},
+          {},
         ],
         false,
-        Object {
+        {
           "borderColor": "#000000",
         },
-        Object {
+        {
           "borderBottomColor": "#000000",
         },
       ]
@@ -649,15 +649,15 @@ exports[`[EditText] interactions Type: [column] - default renders custom styles 
       placeholderTextColor="#6D6D6D"
       secureTextEntry={false}
       style={
-        Array [
-          Array [
-            Object {
+        [
+          [
+            {
               "color": "#000000",
               "fontSize": 14,
               "paddingHorizontal": 10,
               "paddingVertical": 10,
             },
-            Object {},
+            {},
           ],
           false,
         ]
@@ -667,7 +667,7 @@ exports[`[EditText] interactions Type: [column] - default renders custom styles 
   </View>
   <View
     style={
-      Object {
+      {
         "flex": 1,
         "flexDirection": "row",
         "justifyContent": "space-between",
@@ -676,17 +676,17 @@ exports[`[EditText] interactions Type: [column] - default renders custom styles 
   >
     <Text
       style={
-        Array [
-          Array [
-            Object {
+        [
+          [
+            {
               "color": "#FF002E",
               "fontSize": 12,
               "marginTop": 8,
               "paddingHorizontal": 10,
             },
-            Object {},
+            {},
           ],
-          Object {
+          {
             "color": "#FF002E",
             "flex": 1,
           },
@@ -700,8 +700,8 @@ exports[`[EditText] interactions Type: [column] - default renders custom styles 
 exports[`[EditText] interactions Type: [column] - default renders without crashing 1`] = `
 <View
   style={
-    Array [
-      Object {
+    [
+      {
         "alignSelf": "stretch",
         "flexDirection": "column",
       },
@@ -712,9 +712,9 @@ exports[`[EditText] interactions Type: [column] - default renders without crashi
 >
   <View
     style={
-      Array [
-        Array [
-          Object {
+      [
+        [
+          {
             "alignSelf": "stretch",
             "borderBottomColor": "#000000",
             "borderBottomWidth": 1,
@@ -724,10 +724,10 @@ exports[`[EditText] interactions Type: [column] - default renders without crashi
           undefined,
         ],
         false,
-        Object {
+        {
           "borderColor": "#000000",
         },
-        Object {
+        {
           "borderBottomColor": "#000000",
         },
       ]
@@ -742,9 +742,9 @@ exports[`[EditText] interactions Type: [column] - default renders without crashi
       placeholderTextColor="#6D6D6D"
       secureTextEntry={false}
       style={
-        Array [
-          Array [
-            Object {
+        [
+          [
+            {
               "color": "#000000",
               "fontSize": 14,
               "paddingHorizontal": 10,
@@ -760,7 +760,7 @@ exports[`[EditText] interactions Type: [column] - default renders without crashi
   </View>
   <View
     style={
-      Object {
+      {
         "flex": 1,
         "flexDirection": "row",
         "justifyContent": "space-between",
@@ -769,9 +769,9 @@ exports[`[EditText] interactions Type: [column] - default renders without crashi
   >
     <Text
       style={
-        Array [
-          Array [
-            Object {
+        [
+          [
+            {
               "color": "#FF002E",
               "fontSize": 12,
               "marginTop": 8,
@@ -779,7 +779,7 @@ exports[`[EditText] interactions Type: [column] - default renders without crashi
             },
             undefined,
           ],
-          Object {
+          {
             "color": "#FF002E",
             "flex": 1,
           },
@@ -793,8 +793,8 @@ exports[`[EditText] interactions Type: [column] - default renders without crashi
 exports[`[EditText] interactions Type: [column] - default should render \`maxLength\` counter 1`] = `
 <View
   style={
-    Array [
-      Object {
+    [
+      {
         "alignSelf": "stretch",
         "flexDirection": "column",
       },
@@ -805,9 +805,9 @@ exports[`[EditText] interactions Type: [column] - default should render \`maxLen
 >
   <View
     style={
-      Array [
-        Array [
-          Object {
+      [
+        [
+          {
             "alignSelf": "stretch",
             "borderBottomColor": "#000000",
             "borderBottomWidth": 1,
@@ -817,10 +817,10 @@ exports[`[EditText] interactions Type: [column] - default should render \`maxLen
           undefined,
         ],
         false,
-        Object {
+        {
           "borderColor": "#000000",
         },
-        Object {
+        {
           "borderBottomColor": "#000000",
         },
       ]
@@ -835,9 +835,9 @@ exports[`[EditText] interactions Type: [column] - default should render \`maxLen
       placeholderTextColor="#6D6D6D"
       secureTextEntry={false}
       style={
-        Array [
-          Array [
-            Object {
+        [
+          [
+            {
               "color": "#000000",
               "fontSize": 14,
               "paddingHorizontal": 10,
@@ -853,7 +853,7 @@ exports[`[EditText] interactions Type: [column] - default should render \`maxLen
   </View>
   <View
     style={
-      Object {
+      {
         "flex": 1,
         "flexDirection": "row",
         "justifyContent": "space-between",
@@ -862,9 +862,9 @@ exports[`[EditText] interactions Type: [column] - default should render \`maxLen
   >
     <Text
       style={
-        Array [
-          Array [
-            Object {
+        [
+          [
+            {
               "color": "#FF002E",
               "fontSize": 12,
               "marginTop": 8,
@@ -872,7 +872,7 @@ exports[`[EditText] interactions Type: [column] - default should render \`maxLen
             },
             undefined,
           ],
-          Object {
+          {
             "color": "#FF002E",
             "flex": 1,
           },
@@ -886,8 +886,8 @@ exports[`[EditText] interactions Type: [column] - default should render \`maxLen
 exports[`[EditText] interactions Type: [column] - default should render \`maxLength\` counter with error style 1`] = `
 <View
   style={
-    Array [
-      Object {
+    [
+      {
         "alignSelf": "stretch",
         "flexDirection": "column",
       },
@@ -898,9 +898,9 @@ exports[`[EditText] interactions Type: [column] - default should render \`maxLen
 >
   <View
     style={
-      Array [
-        Array [
-          Object {
+      [
+        [
+          {
             "alignSelf": "stretch",
             "borderBottomColor": "#000000",
             "borderBottomWidth": 1,
@@ -910,10 +910,10 @@ exports[`[EditText] interactions Type: [column] - default should render \`maxLen
           undefined,
         ],
         false,
-        Object {
+        {
           "borderColor": "#000000",
         },
-        Object {
+        {
           "borderBottomColor": "#000000",
         },
       ]
@@ -928,9 +928,9 @@ exports[`[EditText] interactions Type: [column] - default should render \`maxLen
       placeholderTextColor="#6D6D6D"
       secureTextEntry={false}
       style={
-        Array [
-          Array [
-            Object {
+        [
+          [
+            {
               "color": "#000000",
               "fontSize": 14,
               "paddingHorizontal": 10,
@@ -946,7 +946,7 @@ exports[`[EditText] interactions Type: [column] - default should render \`maxLen
   </View>
   <View
     style={
-      Object {
+      {
         "flex": 1,
         "flexDirection": "row",
         "justifyContent": "space-between",
@@ -955,9 +955,9 @@ exports[`[EditText] interactions Type: [column] - default should render \`maxLen
   >
     <Text
       style={
-        Array [
-          Array [
-            Object {
+        [
+          [
+            {
               "color": "#FF002E",
               "fontSize": 12,
               "marginTop": 8,
@@ -965,7 +965,7 @@ exports[`[EditText] interactions Type: [column] - default should render \`maxLen
             },
             undefined,
           ],
-          Object {
+          {
             "color": "#FF002E",
             "flex": 1,
           },
@@ -979,8 +979,8 @@ exports[`[EditText] interactions Type: [column] - default should render \`maxLen
 exports[`[EditText] interactions Type: [row] should render \`!editable\` status 1`] = `
 <View
   style={
-    Array [
-      Object {
+    [
+      {
         "alignSelf": "stretch",
         "flexDirection": "column",
       },
@@ -991,9 +991,9 @@ exports[`[EditText] interactions Type: [row] should render \`!editable\` status 
 >
   <View
     style={
-      Array [
-        Array [
-          Object {
+      [
+        [
+          {
             "alignSelf": "stretch",
             "borderBottomColor": "#000000",
             "borderBottomWidth": 1,
@@ -1003,10 +1003,10 @@ exports[`[EditText] interactions Type: [row] should render \`!editable\` status 
           undefined,
         ],
         false,
-        Object {
+        {
           "borderColor": "#000000",
         },
-        Object {
+        {
           "borderBottomColor": "#000000",
         },
       ]
@@ -1021,9 +1021,9 @@ exports[`[EditText] interactions Type: [row] should render \`!editable\` status 
       placeholderTextColor="#6D6D6D"
       secureTextEntry={false}
       style={
-        Array [
-          Array [
-            Object {
+        [
+          [
+            {
               "color": "#000000",
               "fontSize": 14,
               "paddingHorizontal": 10,
@@ -1039,7 +1039,7 @@ exports[`[EditText] interactions Type: [row] should render \`!editable\` status 
   </View>
   <View
     style={
-      Object {
+      {
         "flex": 1,
         "flexDirection": "row",
         "justifyContent": "space-between",
@@ -1048,9 +1048,9 @@ exports[`[EditText] interactions Type: [row] should render \`!editable\` status 
   >
     <Text
       style={
-        Array [
-          Array [
-            Object {
+        [
+          [
+            {
               "color": "#FF002E",
               "fontSize": 12,
               "marginTop": 8,
@@ -1058,7 +1058,7 @@ exports[`[EditText] interactions Type: [row] should render \`!editable\` status 
             },
             undefined,
           ],
-          Object {
+          {
             "color": "#FF002E",
             "flex": 1,
           },
@@ -1072,8 +1072,8 @@ exports[`[EditText] interactions Type: [row] should render \`!editable\` status 
 exports[`[EditText] interactions Type: [row] should render \`errorText\` 1`] = `
 <View
   style={
-    Array [
-      Object {
+    [
+      {
         "alignSelf": "stretch",
         "flexDirection": "column",
       },
@@ -1084,9 +1084,9 @@ exports[`[EditText] interactions Type: [row] should render \`errorText\` 1`] = `
 >
   <View
     style={
-      Array [
-        Array [
-          Object {
+      [
+        [
+          {
             "alignSelf": "stretch",
             "borderBottomColor": "#000000",
             "borderBottomWidth": 1,
@@ -1096,10 +1096,10 @@ exports[`[EditText] interactions Type: [row] should render \`errorText\` 1`] = `
           undefined,
         ],
         false,
-        Object {
+        {
           "borderColor": "#000000",
         },
-        Object {
+        {
           "borderBottomColor": "#000000",
         },
       ]
@@ -1114,9 +1114,9 @@ exports[`[EditText] interactions Type: [row] should render \`errorText\` 1`] = `
       placeholderTextColor="#6D6D6D"
       secureTextEntry={false}
       style={
-        Array [
-          Array [
-            Object {
+        [
+          [
+            {
               "color": "#000000",
               "fontSize": 14,
               "paddingHorizontal": 10,
@@ -1132,7 +1132,7 @@ exports[`[EditText] interactions Type: [row] should render \`errorText\` 1`] = `
   </View>
   <View
     style={
-      Object {
+      {
         "flex": 1,
         "flexDirection": "row",
         "justifyContent": "space-between",
@@ -1141,9 +1141,9 @@ exports[`[EditText] interactions Type: [row] should render \`errorText\` 1`] = `
   >
     <Text
       style={
-        Array [
-          Array [
-            Object {
+        [
+          [
+            {
               "color": "#FF002E",
               "fontSize": 12,
               "marginTop": 8,
@@ -1151,7 +1151,7 @@ exports[`[EditText] interactions Type: [row] should render \`errorText\` 1`] = `
             },
             undefined,
           ],
-          Object {
+          {
             "color": "#FF002E",
             "flex": 1,
           },
@@ -1165,8 +1165,8 @@ exports[`[EditText] interactions Type: [row] should render \`errorText\` 1`] = `
 exports[`[EditText] interactions Type: [row] should render \`maxLength\` counter 1`] = `
 <View
   style={
-    Array [
-      Object {
+    [
+      {
         "alignSelf": "stretch",
         "flexDirection": "column",
       },
@@ -1177,9 +1177,9 @@ exports[`[EditText] interactions Type: [row] should render \`maxLength\` counter
 >
   <View
     style={
-      Array [
-        Array [
-          Object {
+      [
+        [
+          {
             "alignSelf": "stretch",
             "borderBottomColor": "#000000",
             "borderBottomWidth": 1,
@@ -1189,10 +1189,10 @@ exports[`[EditText] interactions Type: [row] should render \`maxLength\` counter
           undefined,
         ],
         false,
-        Object {
+        {
           "borderColor": "#000000",
         },
-        Object {
+        {
           "borderBottomColor": "#000000",
         },
       ]
@@ -1207,9 +1207,9 @@ exports[`[EditText] interactions Type: [row] should render \`maxLength\` counter
       placeholderTextColor="#6D6D6D"
       secureTextEntry={false}
       style={
-        Array [
-          Array [
-            Object {
+        [
+          [
+            {
               "color": "#000000",
               "fontSize": 14,
               "paddingHorizontal": 10,
@@ -1225,7 +1225,7 @@ exports[`[EditText] interactions Type: [row] should render \`maxLength\` counter
   </View>
   <View
     style={
-      Object {
+      {
         "flex": 1,
         "flexDirection": "row",
         "justifyContent": "space-between",
@@ -1234,9 +1234,9 @@ exports[`[EditText] interactions Type: [row] should render \`maxLength\` counter
   >
     <Text
       style={
-        Array [
-          Array [
-            Object {
+        [
+          [
+            {
               "color": "#FF002E",
               "fontSize": 12,
               "marginTop": 8,
@@ -1244,7 +1244,7 @@ exports[`[EditText] interactions Type: [row] should render \`maxLength\` counter
             },
             undefined,
           ],
-          Object {
+          {
             "color": "#FF002E",
             "flex": 1,
           },
@@ -1258,8 +1258,8 @@ exports[`[EditText] interactions Type: [row] should render \`maxLength\` counter
 exports[`[EditText] interactions Type: [row] should render without crashing 1`] = `
 <View
   style={
-    Array [
-      Object {
+    [
+      {
         "alignSelf": "stretch",
         "flexDirection": "column",
       },
@@ -1270,9 +1270,9 @@ exports[`[EditText] interactions Type: [row] should render without crashing 1`] 
 >
   <View
     style={
-      Array [
-        Array [
-          Object {
+      [
+        [
+          {
             "alignSelf": "stretch",
             "borderBottomColor": "#000000",
             "borderBottomWidth": 1,
@@ -1282,10 +1282,10 @@ exports[`[EditText] interactions Type: [row] should render without crashing 1`] 
           undefined,
         ],
         false,
-        Object {
+        {
           "borderColor": "#000000",
         },
-        Object {
+        {
           "borderBottomColor": "#000000",
         },
       ]
@@ -1300,9 +1300,9 @@ exports[`[EditText] interactions Type: [row] should render without crashing 1`] 
       placeholderTextColor="#6D6D6D"
       secureTextEntry={false}
       style={
-        Array [
-          Array [
-            Object {
+        [
+          [
+            {
               "color": "#000000",
               "fontSize": 14,
               "paddingHorizontal": 10,
@@ -1318,7 +1318,7 @@ exports[`[EditText] interactions Type: [row] should render without crashing 1`] 
   </View>
   <View
     style={
-      Object {
+      {
         "flex": 1,
         "flexDirection": "row",
         "justifyContent": "space-between",
@@ -1327,9 +1327,9 @@ exports[`[EditText] interactions Type: [row] should render without crashing 1`] 
   >
     <Text
       style={
-        Array [
-          Array [
-            Object {
+        [
+          [
+            {
               "color": "#FF002E",
               "fontSize": 12,
               "marginTop": 8,
@@ -1337,7 +1337,7 @@ exports[`[EditText] interactions Type: [row] should render without crashing 1`] 
             },
             undefined,
           ],
-          Object {
+          {
             "color": "#FF002E",
             "flex": 1,
           },
@@ -1351,8 +1351,8 @@ exports[`[EditText] interactions Type: [row] should render without crashing 1`] 
 exports[`[EditText] interactions web renders without crashing 1`] = `
 <View
   style={
-    Array [
-      Object {
+    [
+      {
         "alignSelf": "stretch",
         "flexDirection": "column",
       },
@@ -1363,9 +1363,9 @@ exports[`[EditText] interactions web renders without crashing 1`] = `
 >
   <View
     style={
-      Array [
-        Array [
-          Object {
+      [
+        [
+          {
             "alignSelf": "stretch",
             "borderBottomColor": "#000000",
             "borderBottomWidth": 1,
@@ -1375,10 +1375,10 @@ exports[`[EditText] interactions web renders without crashing 1`] = `
           undefined,
         ],
         false,
-        Object {
+        {
           "borderColor": "#000000",
         },
-        Object {
+        {
           "borderBottomColor": "#000000",
         },
       ]
@@ -1393,9 +1393,9 @@ exports[`[EditText] interactions web renders without crashing 1`] = `
       placeholderTextColor="#6D6D6D"
       secureTextEntry={false}
       style={
-        Array [
-          Array [
-            Object {
+        [
+          [
+            {
               "color": "#000000",
               "fontSize": 14,
               "paddingHorizontal": 10,
@@ -1403,7 +1403,7 @@ exports[`[EditText] interactions web renders without crashing 1`] = `
             },
             undefined,
           ],
-          Object {
+          {
             "outlineWidth": 0,
           },
         ]
@@ -1413,7 +1413,7 @@ exports[`[EditText] interactions web renders without crashing 1`] = `
   </View>
   <View
     style={
-      Object {
+      {
         "flex": 1,
         "flexDirection": "row",
         "justifyContent": "space-between",
@@ -1422,9 +1422,9 @@ exports[`[EditText] interactions web renders without crashing 1`] = `
   >
     <Text
       style={
-        Array [
-          Array [
-            Object {
+        [
+          [
+            {
               "color": "#FF002E",
               "fontSize": 12,
               "marginTop": 8,
@@ -1432,7 +1432,7 @@ exports[`[EditText] interactions web renders without crashing 1`] = `
             },
             undefined,
           ],
-          Object {
+          {
             "color": "#FF002E",
             "flex": 1,
           },

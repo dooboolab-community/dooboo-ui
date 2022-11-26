@@ -3,7 +3,7 @@
 exports[`[LoadingIndicator] render renders with !size with none string imgSource 1`] = `
 <View
   style={
-    Object {
+    {
       "alignItems": "center",
       "alignSelf": "center",
       "backgroundColor": "transparent",
@@ -18,7 +18,7 @@ exports[`[LoadingIndicator] render renders with !size with none string imgSource
 >
   <Image
     source={10}
-    style={Object {}}
+    style={{}}
   />
 </View>
 `;
@@ -26,7 +26,7 @@ exports[`[LoadingIndicator] render renders with !size with none string imgSource
 exports[`[LoadingIndicator] render renders with !size with string imgSource 1`] = `
 <View
   style={
-    Object {
+    {
       "alignItems": "center",
       "alignSelf": "center",
       "backgroundColor": "transparent",
@@ -41,11 +41,11 @@ exports[`[LoadingIndicator] render renders with !size with string imgSource 1`] 
 >
   <Image
     source={
-      Object {
+      {
         "uri": "test",
       }
     }
-    style={Object {}}
+    style={{}}
   />
 </View>
 `;
@@ -53,7 +53,7 @@ exports[`[LoadingIndicator] render renders with !size with string imgSource 1`] 
 exports[`[LoadingIndicator] render renders with [imgSource] 1`] = `
 <View
   style={
-    Object {
+    {
       "alignItems": "center",
       "alignSelf": "center",
       "backgroundColor": "transparent",
@@ -68,12 +68,12 @@ exports[`[LoadingIndicator] render renders with [imgSource] 1`] = `
 >
   <Image
     source={
-      Object {
+      {
         "uri": "http",
       }
     }
     style={
-      Object {
+      {
         "height": 80,
         "width": 80,
       }
@@ -85,7 +85,7 @@ exports[`[LoadingIndicator] render renders with [imgSource] 1`] = `
 exports[`[LoadingIndicator] render renders with size=small 1`] = `
 <View
   style={
-    Object {
+    {
       "alignItems": "center",
       "alignSelf": "center",
       "backgroundColor": "transparent",
@@ -100,12 +100,12 @@ exports[`[LoadingIndicator] render renders with size=small 1`] = `
 >
   <Image
     source={
-      Object {
+      {
         "uri": "http",
       }
     }
     style={
-      Object {
+      {
         "height": 50,
         "width": 50,
       }
@@ -117,7 +117,7 @@ exports[`[LoadingIndicator] render renders with size=small 1`] = `
 exports[`[LoadingIndicator] render renders with size=test 1`] = `
 <View
   style={
-    Object {
+    {
       "alignItems": "center",
       "alignSelf": "center",
       "backgroundColor": "transparent",
@@ -133,7 +133,7 @@ exports[`[LoadingIndicator] render renders with size=test 1`] = `
   <Image
     source={10}
     style={
-      Object {
+      {
         "height": "test",
         "width": "test",
       }
@@ -145,7 +145,7 @@ exports[`[LoadingIndicator] render renders with size=test 1`] = `
 exports[`[LoadingIndicator] render renders with size=undefined 1`] = `
 <View
   style={
-    Object {
+    {
       "alignItems": "center",
       "alignSelf": "center",
       "backgroundColor": "transparent",
@@ -160,12 +160,12 @@ exports[`[LoadingIndicator] render renders with size=undefined 1`] = `
 >
   <Image
     source={
-      Object {
+      {
         "uri": "http",
       }
     }
     style={
-      Object {
+      {
         "height": 80,
         "width": 80,
       }
@@ -177,7 +177,7 @@ exports[`[LoadingIndicator] render renders with size=undefined 1`] = `
 exports[`[LoadingIndicator] render should render [customElement] 1`] = `
 <View
   style={
-    Object {
+    {
       "alignItems": "center",
       "alignSelf": "center",
       "backgroundColor": "transparent",
@@ -197,7 +197,7 @@ exports[`[LoadingIndicator] render should render [customElement] 1`] = `
 exports[`[LoadingIndicator] render should render with !size with none string imgSource 1`] = `
 <View
   style={
-    Object {
+    {
       "alignItems": "center",
       "alignSelf": "center",
       "backgroundColor": "transparent",
@@ -212,7 +212,7 @@ exports[`[LoadingIndicator] render should render with !size with none string img
 >
   <Image
     source={10}
-    style={Object {}}
+    style={{}}
   />
 </View>
 `;
@@ -220,7 +220,7 @@ exports[`[LoadingIndicator] render should render with !size with none string img
 exports[`[LoadingIndicator] render should render with [imgSource] 1`] = `
 <View
   style={
-    Object {
+    {
       "alignItems": "center",
       "alignSelf": "center",
       "backgroundColor": "transparent",
@@ -235,12 +235,12 @@ exports[`[LoadingIndicator] render should render with [imgSource] 1`] = `
 >
   <Image
     source={
-      Object {
+      {
         "uri": "http",
       }
     }
     style={
-      Object {
+      {
         "height": 80,
         "width": 80,
       }
@@ -252,7 +252,7 @@ exports[`[LoadingIndicator] render should render with [imgSource] 1`] = `
 exports[`[LoadingIndicator] render should render with size=small 1`] = `
 <View
   style={
-    Object {
+    {
       "alignItems": "center",
       "alignSelf": "center",
       "backgroundColor": "transparent",
@@ -267,12 +267,12 @@ exports[`[LoadingIndicator] render should render with size=small 1`] = `
 >
   <Image
     source={
-      Object {
+      {
         "uri": "http",
       }
     }
     style={
-      Object {
+      {
         "height": 50,
         "width": 50,
       }
@@ -284,7 +284,7 @@ exports[`[LoadingIndicator] render should render with size=small 1`] = `
 exports[`[LoadingIndicator] render should render with size=test 1`] = `
 <View
   style={
-    Object {
+    {
       "alignItems": "center",
       "alignSelf": "center",
       "backgroundColor": "transparent",
@@ -300,7 +300,7 @@ exports[`[LoadingIndicator] render should render with size=test 1`] = `
   <Image
     source={10}
     style={
-      Object {
+      {
         "height": "test",
         "width": "test",
       }
@@ -312,7 +312,7 @@ exports[`[LoadingIndicator] render should render with size=test 1`] = `
 exports[`[LoadingIndicator] render should render with size=undefined 1`] = `
 <View
   style={
-    Object {
+    {
       "alignItems": "center",
       "alignSelf": "center",
       "backgroundColor": "transparent",
@@ -327,12 +327,12 @@ exports[`[LoadingIndicator] render should render with size=undefined 1`] = `
 >
   <Image
     source={
-      Object {
+      {
         "uri": "http",
       }
     }
     style={
-      Object {
+      {
         "height": 80,
         "width": 80,
       }
@@ -344,7 +344,7 @@ exports[`[LoadingIndicator] render should render with size=undefined 1`] = `
 exports[`[LoadingIndicator] render should render without crashing 1`] = `
 <View
   style={
-    Object {
+    {
       "alignItems": "center",
       "alignSelf": "center",
       "backgroundColor": "transparent",

@@ -3,8 +3,8 @@
 exports[`[Accordion] render test should adjust duration of animation depends on animDuration props value 1`] = `
 <View
   style={
-    Array [
-      Object {
+    [
+      {
         "alignItems": "center",
         "flexDirection": "column",
       },
@@ -15,7 +15,7 @@ exports[`[Accordion] render test should adjust duration of animation depends on 
   <View
     collapsable={false}
     style={
-      Object {
+      {
         "backgroundColor": "transparent",
         "overflow": "hidden",
         "width": 300,
@@ -34,7 +34,7 @@ exports[`[Accordion] render test should adjust duration of animation depends on 
       onResponderTerminationRequest={[Function]}
       onStartShouldSetResponder={[Function]}
       style={
-        Object {
+        {
           "backgroundColor": "#000000",
           "height": 50,
           "justifyContent": "center",
@@ -46,8 +46,8 @@ exports[`[Accordion] render test should adjust duration of animation depends on 
     >
       <Text
         style={
-          Array [
-            Object {
+          [
+            {
               "color": "#FFFFFF",
               "fontWeight": "bold",
               "paddingBottom": 0,
@@ -65,11 +65,11 @@ exports[`[Accordion] render test should adjust duration of animation depends on 
       <View
         collapsable={false}
         style={
-          Object {
+          {
             "position": "absolute",
             "right": 20,
-            "transform": Array [
-              Object {
+            "transform": [
+              {
                 "rotate": "0deg",
               },
             ],
@@ -80,45 +80,45 @@ exports[`[Accordion] render test should adjust duration of animation depends on 
           allowFontScaling={false}
           selectable={false}
           style={
-            Array [
-              Object {
+            [
+              {
                 "color": undefined,
                 "fontSize": 12,
               },
-              Array [
-                Object {
+              [
+                {
                   "color": "#000000",
                 },
-                Array [
-                  Object {
+                [
+                  {
                     "color": "#FFFFFF",
                   },
                   undefined,
                 ],
               ],
-              Object {
+              {
                 "fontFamily": "IcoMoon",
                 "fontStyle": "normal",
                 "fontWeight": "normal",
               },
-              Object {},
+              {},
             ]
           }
         >
-          
+          
         </Text>
       </View>
     </View>
     <View
       accessibilityState={
-        Object {
+        {
           "expanded": false,
         }
       }
       collapsable={false}
       onLayout={[Function]}
       style={
-        Object {
+        {
           "height": undefined,
         }
       }
@@ -126,8 +126,8 @@ exports[`[Accordion] render test should adjust duration of animation depends on 
     >
       <View
         style={
-          Array [
-            Object {
+          [
+            {
               "alignItems": "center",
               "backgroundColor": "#FFFFFF",
               "flexDirection": "row",
@@ -137,7 +137,7 @@ exports[`[Accordion] render test should adjust duration of animation depends on 
               "paddingTop": 20,
               "width": "100%",
             },
-            Object {
+            {
               "backgroundColor": "#FFFFFF",
             },
           ]
@@ -145,8 +145,8 @@ exports[`[Accordion] render test should adjust duration of animation depends on 
       >
         <Text
           style={
-            Array [
-              Object {
+            [
+              {
                 "color": "#000000",
                 "paddingBottom": 0,
                 "paddingLeft": 20,
@@ -162,8 +162,8 @@ exports[`[Accordion] render test should adjust duration of animation depends on 
       </View>
       <View
         style={
-          Array [
-            Object {
+          [
+            {
               "alignItems": "center",
               "backgroundColor": "#FFFFFF",
               "flexDirection": "row",
@@ -173,7 +173,7 @@ exports[`[Accordion] render test should adjust duration of animation depends on 
               "paddingTop": 20,
               "width": "100%",
             },
-            Object {
+            {
               "backgroundColor": "#FFFFFF",
             },
           ]
@@ -181,8 +181,8 @@ exports[`[Accordion] render test should adjust duration of animation depends on 
       >
         <Text
           style={
-            Array [
-              Object {
+            [
+              {
                 "color": "#000000",
                 "paddingBottom": 0,
                 "paddingLeft": 20,
@@ -198,8 +198,8 @@ exports[`[Accordion] render test should adjust duration of animation depends on 
       </View>
       <View
         style={
-          Array [
-            Object {
+          [
+            {
               "alignItems": "center",
               "backgroundColor": "#FFFFFF",
               "flexDirection": "row",
@@ -209,7 +209,7 @@ exports[`[Accordion] render test should adjust duration of animation depends on 
               "paddingTop": 20,
               "width": "100%",
             },
-            Object {
+            {
               "backgroundColor": "#FFFFFF",
             },
           ]
@@ -217,8 +217,8 @@ exports[`[Accordion] render test should adjust duration of animation depends on 
       >
         <Text
           style={
-            Array [
-              Object {
+            [
+              {
                 "color": "#000000",
                 "paddingBottom": 0,
                 "paddingLeft": 20,
@@ -237,7 +237,7 @@ exports[`[Accordion] render test should adjust duration of animation depends on 
   <View
     collapsable={false}
     style={
-      Object {
+      {
         "backgroundColor": "transparent",
         "overflow": "hidden",
         "width": 300,
@@ -256,7 +256,7 @@ exports[`[Accordion] render test should adjust duration of animation depends on 
       onResponderTerminationRequest={[Function]}
       onStartShouldSetResponder={[Function]}
       style={
-        Object {
+        {
           "backgroundColor": "#000000",
           "height": 50,
           "justifyContent": "center",
@@ -268,8 +268,8 @@ exports[`[Accordion] render test should adjust duration of animation depends on 
     >
       <Text
         style={
-          Array [
-            Object {
+          [
+            {
               "color": "#FFFFFF",
               "fontWeight": "bold",
               "paddingBottom": 0,
@@ -287,11 +287,11 @@ exports[`[Accordion] render test should adjust duration of animation depends on 
       <View
         collapsable={false}
         style={
-          Object {
+          {
             "position": "absolute",
             "right": 20,
-            "transform": Array [
-              Object {
+            "transform": [
+              {
                 "rotate": "0deg",
               },
             ],
@@ -302,45 +302,45 @@ exports[`[Accordion] render test should adjust duration of animation depends on 
           allowFontScaling={false}
           selectable={false}
           style={
-            Array [
-              Object {
+            [
+              {
                 "color": undefined,
                 "fontSize": 12,
               },
-              Array [
-                Object {
+              [
+                {
                   "color": "#000000",
                 },
-                Array [
-                  Object {
+                [
+                  {
                     "color": "#FFFFFF",
                   },
                   undefined,
                 ],
               ],
-              Object {
+              {
                 "fontFamily": "IcoMoon",
                 "fontStyle": "normal",
                 "fontWeight": "normal",
               },
-              Object {},
+              {},
             ]
           }
         >
-          
+          
         </Text>
       </View>
     </View>
     <View
       accessibilityState={
-        Object {
+        {
           "expanded": false,
         }
       }
       collapsable={false}
       onLayout={[Function]}
       style={
-        Object {
+        {
           "height": undefined,
         }
       }
@@ -348,8 +348,8 @@ exports[`[Accordion] render test should adjust duration of animation depends on 
     >
       <View
         style={
-          Array [
-            Object {
+          [
+            {
               "alignItems": "center",
               "backgroundColor": "#FFFFFF",
               "flexDirection": "row",
@@ -359,7 +359,7 @@ exports[`[Accordion] render test should adjust duration of animation depends on 
               "paddingTop": 20,
               "width": "100%",
             },
-            Object {
+            {
               "backgroundColor": "#FFFFFF",
             },
           ]
@@ -367,8 +367,8 @@ exports[`[Accordion] render test should adjust duration of animation depends on 
       >
         <Text
           style={
-            Array [
-              Object {
+            [
+              {
                 "color": "#000000",
                 "paddingBottom": 0,
                 "paddingLeft": 20,
@@ -384,8 +384,8 @@ exports[`[Accordion] render test should adjust duration of animation depends on 
       </View>
       <View
         style={
-          Array [
-            Object {
+          [
+            {
               "alignItems": "center",
               "backgroundColor": "#FFFFFF",
               "flexDirection": "row",
@@ -395,7 +395,7 @@ exports[`[Accordion] render test should adjust duration of animation depends on 
               "paddingTop": 20,
               "width": "100%",
             },
-            Object {
+            {
               "backgroundColor": "#FFFFFF",
             },
           ]
@@ -403,8 +403,8 @@ exports[`[Accordion] render test should adjust duration of animation depends on 
       >
         <Text
           style={
-            Array [
-              Object {
+            [
+              {
                 "color": "#000000",
                 "paddingBottom": 0,
                 "paddingLeft": 20,
@@ -420,8 +420,8 @@ exports[`[Accordion] render test should adjust duration of animation depends on 
       </View>
       <View
         style={
-          Array [
-            Object {
+          [
+            {
               "alignItems": "center",
               "backgroundColor": "#FFFFFF",
               "flexDirection": "row",
@@ -431,7 +431,7 @@ exports[`[Accordion] render test should adjust duration of animation depends on 
               "paddingTop": 20,
               "width": "100%",
             },
-            Object {
+            {
               "backgroundColor": "#FFFFFF",
             },
           ]
@@ -439,8 +439,8 @@ exports[`[Accordion] render test should adjust duration of animation depends on 
       >
         <Text
           style={
-            Array [
-              Object {
+            [
+              {
                 "color": "#000000",
                 "paddingBottom": 0,
                 "paddingLeft": 20,
@@ -459,7 +459,7 @@ exports[`[Accordion] render test should adjust duration of animation depends on 
   <View
     collapsable={false}
     style={
-      Object {
+      {
         "backgroundColor": "transparent",
         "overflow": "hidden",
         "width": 300,
@@ -478,7 +478,7 @@ exports[`[Accordion] render test should adjust duration of animation depends on 
       onResponderTerminationRequest={[Function]}
       onStartShouldSetResponder={[Function]}
       style={
-        Object {
+        {
           "backgroundColor": "#000000",
           "height": 50,
           "justifyContent": "center",
@@ -490,8 +490,8 @@ exports[`[Accordion] render test should adjust duration of animation depends on 
     >
       <Text
         style={
-          Array [
-            Object {
+          [
+            {
               "color": "#FFFFFF",
               "fontWeight": "bold",
               "paddingBottom": 0,
@@ -509,11 +509,11 @@ exports[`[Accordion] render test should adjust duration of animation depends on 
       <View
         collapsable={false}
         style={
-          Object {
+          {
             "position": "absolute",
             "right": 20,
-            "transform": Array [
-              Object {
+            "transform": [
+              {
                 "rotate": "0deg",
               },
             ],
@@ -524,45 +524,45 @@ exports[`[Accordion] render test should adjust duration of animation depends on 
           allowFontScaling={false}
           selectable={false}
           style={
-            Array [
-              Object {
+            [
+              {
                 "color": undefined,
                 "fontSize": 12,
               },
-              Array [
-                Object {
+              [
+                {
                   "color": "#000000",
                 },
-                Array [
-                  Object {
+                [
+                  {
                     "color": "#FFFFFF",
                   },
                   undefined,
                 ],
               ],
-              Object {
+              {
                 "fontFamily": "IcoMoon",
                 "fontStyle": "normal",
                 "fontWeight": "normal",
               },
-              Object {},
+              {},
             ]
           }
         >
-          
+          
         </Text>
       </View>
     </View>
     <View
       accessibilityState={
-        Object {
+        {
           "expanded": false,
         }
       }
       collapsable={false}
       onLayout={[Function]}
       style={
-        Object {
+        {
           "height": undefined,
         }
       }
@@ -570,8 +570,8 @@ exports[`[Accordion] render test should adjust duration of animation depends on 
     >
       <View
         style={
-          Array [
-            Object {
+          [
+            {
               "alignItems": "center",
               "backgroundColor": "#FFFFFF",
               "flexDirection": "row",
@@ -581,7 +581,7 @@ exports[`[Accordion] render test should adjust duration of animation depends on 
               "paddingTop": 20,
               "width": "100%",
             },
-            Object {
+            {
               "backgroundColor": "#FFFFFF",
             },
           ]
@@ -589,8 +589,8 @@ exports[`[Accordion] render test should adjust duration of animation depends on 
       >
         <Text
           style={
-            Array [
-              Object {
+            [
+              {
                 "color": "#000000",
                 "paddingBottom": 0,
                 "paddingLeft": 20,
@@ -606,8 +606,8 @@ exports[`[Accordion] render test should adjust duration of animation depends on 
       </View>
       <View
         style={
-          Array [
-            Object {
+          [
+            {
               "alignItems": "center",
               "backgroundColor": "#FFFFFF",
               "flexDirection": "row",
@@ -617,7 +617,7 @@ exports[`[Accordion] render test should adjust duration of animation depends on 
               "paddingTop": 20,
               "width": "100%",
             },
-            Object {
+            {
               "backgroundColor": "#FFFFFF",
             },
           ]
@@ -625,8 +625,8 @@ exports[`[Accordion] render test should adjust duration of animation depends on 
       >
         <Text
           style={
-            Array [
-              Object {
+            [
+              {
                 "color": "#000000",
                 "paddingBottom": 0,
                 "paddingLeft": 20,
@@ -642,8 +642,8 @@ exports[`[Accordion] render test should adjust duration of animation depends on 
       </View>
       <View
         style={
-          Array [
-            Object {
+          [
+            {
               "alignItems": "center",
               "backgroundColor": "#FFFFFF",
               "flexDirection": "row",
@@ -653,7 +653,7 @@ exports[`[Accordion] render test should adjust duration of animation depends on 
               "paddingTop": 20,
               "width": "100%",
             },
-            Object {
+            {
               "backgroundColor": "#FFFFFF",
             },
           ]
@@ -661,8 +661,8 @@ exports[`[Accordion] render test should adjust duration of animation depends on 
       >
         <Text
           style={
-            Array [
-              Object {
+            [
+              {
                 "color": "#000000",
                 "paddingBottom": 0,
                 "paddingLeft": 20,
@@ -684,8 +684,8 @@ exports[`[Accordion] render test should adjust duration of animation depends on 
 exports[`[Accordion] render test should operate animation when shouldAnimate props is true 1`] = `
 <View
   style={
-    Array [
-      Object {
+    [
+      {
         "alignItems": "center",
         "flexDirection": "column",
       },
@@ -696,7 +696,7 @@ exports[`[Accordion] render test should operate animation when shouldAnimate pro
   <View
     collapsable={false}
     style={
-      Object {
+      {
         "backgroundColor": "transparent",
         "overflow": "hidden",
         "width": 300,
@@ -715,7 +715,7 @@ exports[`[Accordion] render test should operate animation when shouldAnimate pro
       onResponderTerminationRequest={[Function]}
       onStartShouldSetResponder={[Function]}
       style={
-        Object {
+        {
           "backgroundColor": "#000000",
           "height": 50,
           "justifyContent": "center",
@@ -727,8 +727,8 @@ exports[`[Accordion] render test should operate animation when shouldAnimate pro
     >
       <Text
         style={
-          Array [
-            Object {
+          [
+            {
               "color": "#FFFFFF",
               "fontWeight": "bold",
               "paddingBottom": 0,
@@ -746,11 +746,11 @@ exports[`[Accordion] render test should operate animation when shouldAnimate pro
       <View
         collapsable={false}
         style={
-          Object {
+          {
             "position": "absolute",
             "right": 20,
-            "transform": Array [
-              Object {
+            "transform": [
+              {
                 "rotate": "0deg",
               },
             ],
@@ -761,45 +761,45 @@ exports[`[Accordion] render test should operate animation when shouldAnimate pro
           allowFontScaling={false}
           selectable={false}
           style={
-            Array [
-              Object {
+            [
+              {
                 "color": undefined,
                 "fontSize": 12,
               },
-              Array [
-                Object {
+              [
+                {
                   "color": "#000000",
                 },
-                Array [
-                  Object {
+                [
+                  {
                     "color": "#FFFFFF",
                   },
                   undefined,
                 ],
               ],
-              Object {
+              {
                 "fontFamily": "IcoMoon",
                 "fontStyle": "normal",
                 "fontWeight": "normal",
               },
-              Object {},
+              {},
             ]
           }
         >
-          
+          
         </Text>
       </View>
     </View>
     <View
       accessibilityState={
-        Object {
+        {
           "expanded": false,
         }
       }
       collapsable={false}
       onLayout={[Function]}
       style={
-        Object {
+        {
           "height": undefined,
         }
       }
@@ -807,8 +807,8 @@ exports[`[Accordion] render test should operate animation when shouldAnimate pro
     >
       <View
         style={
-          Array [
-            Object {
+          [
+            {
               "alignItems": "center",
               "backgroundColor": "#FFFFFF",
               "flexDirection": "row",
@@ -818,7 +818,7 @@ exports[`[Accordion] render test should operate animation when shouldAnimate pro
               "paddingTop": 20,
               "width": "100%",
             },
-            Object {
+            {
               "backgroundColor": "#FFFFFF",
             },
           ]
@@ -826,8 +826,8 @@ exports[`[Accordion] render test should operate animation when shouldAnimate pro
       >
         <Text
           style={
-            Array [
-              Object {
+            [
+              {
                 "color": "#000000",
                 "paddingBottom": 0,
                 "paddingLeft": 20,
@@ -843,8 +843,8 @@ exports[`[Accordion] render test should operate animation when shouldAnimate pro
       </View>
       <View
         style={
-          Array [
-            Object {
+          [
+            {
               "alignItems": "center",
               "backgroundColor": "#FFFFFF",
               "flexDirection": "row",
@@ -854,7 +854,7 @@ exports[`[Accordion] render test should operate animation when shouldAnimate pro
               "paddingTop": 20,
               "width": "100%",
             },
-            Object {
+            {
               "backgroundColor": "#FFFFFF",
             },
           ]
@@ -862,8 +862,8 @@ exports[`[Accordion] render test should operate animation when shouldAnimate pro
       >
         <Text
           style={
-            Array [
-              Object {
+            [
+              {
                 "color": "#000000",
                 "paddingBottom": 0,
                 "paddingLeft": 20,
@@ -879,8 +879,8 @@ exports[`[Accordion] render test should operate animation when shouldAnimate pro
       </View>
       <View
         style={
-          Array [
-            Object {
+          [
+            {
               "alignItems": "center",
               "backgroundColor": "#FFFFFF",
               "flexDirection": "row",
@@ -890,7 +890,7 @@ exports[`[Accordion] render test should operate animation when shouldAnimate pro
               "paddingTop": 20,
               "width": "100%",
             },
-            Object {
+            {
               "backgroundColor": "#FFFFFF",
             },
           ]
@@ -898,8 +898,8 @@ exports[`[Accordion] render test should operate animation when shouldAnimate pro
       >
         <Text
           style={
-            Array [
-              Object {
+            [
+              {
                 "color": "#000000",
                 "paddingBottom": 0,
                 "paddingLeft": 20,
@@ -918,7 +918,7 @@ exports[`[Accordion] render test should operate animation when shouldAnimate pro
   <View
     collapsable={false}
     style={
-      Object {
+      {
         "backgroundColor": "transparent",
         "overflow": "hidden",
         "width": 300,
@@ -937,7 +937,7 @@ exports[`[Accordion] render test should operate animation when shouldAnimate pro
       onResponderTerminationRequest={[Function]}
       onStartShouldSetResponder={[Function]}
       style={
-        Object {
+        {
           "backgroundColor": "#000000",
           "height": 50,
           "justifyContent": "center",
@@ -949,8 +949,8 @@ exports[`[Accordion] render test should operate animation when shouldAnimate pro
     >
       <Text
         style={
-          Array [
-            Object {
+          [
+            {
               "color": "#FFFFFF",
               "fontWeight": "bold",
               "paddingBottom": 0,
@@ -968,11 +968,11 @@ exports[`[Accordion] render test should operate animation when shouldAnimate pro
       <View
         collapsable={false}
         style={
-          Object {
+          {
             "position": "absolute",
             "right": 20,
-            "transform": Array [
-              Object {
+            "transform": [
+              {
                 "rotate": "0deg",
               },
             ],
@@ -983,45 +983,45 @@ exports[`[Accordion] render test should operate animation when shouldAnimate pro
           allowFontScaling={false}
           selectable={false}
           style={
-            Array [
-              Object {
+            [
+              {
                 "color": undefined,
                 "fontSize": 12,
               },
-              Array [
-                Object {
+              [
+                {
                   "color": "#000000",
                 },
-                Array [
-                  Object {
+                [
+                  {
                     "color": "#FFFFFF",
                   },
                   undefined,
                 ],
               ],
-              Object {
+              {
                 "fontFamily": "IcoMoon",
                 "fontStyle": "normal",
                 "fontWeight": "normal",
               },
-              Object {},
+              {},
             ]
           }
         >
-          
+          
         </Text>
       </View>
     </View>
     <View
       accessibilityState={
-        Object {
+        {
           "expanded": false,
         }
       }
       collapsable={false}
       onLayout={[Function]}
       style={
-        Object {
+        {
           "height": undefined,
         }
       }
@@ -1029,8 +1029,8 @@ exports[`[Accordion] render test should operate animation when shouldAnimate pro
     >
       <View
         style={
-          Array [
-            Object {
+          [
+            {
               "alignItems": "center",
               "backgroundColor": "#FFFFFF",
               "flexDirection": "row",
@@ -1040,7 +1040,7 @@ exports[`[Accordion] render test should operate animation when shouldAnimate pro
               "paddingTop": 20,
               "width": "100%",
             },
-            Object {
+            {
               "backgroundColor": "#FFFFFF",
             },
           ]
@@ -1048,8 +1048,8 @@ exports[`[Accordion] render test should operate animation when shouldAnimate pro
       >
         <Text
           style={
-            Array [
-              Object {
+            [
+              {
                 "color": "#000000",
                 "paddingBottom": 0,
                 "paddingLeft": 20,
@@ -1065,8 +1065,8 @@ exports[`[Accordion] render test should operate animation when shouldAnimate pro
       </View>
       <View
         style={
-          Array [
-            Object {
+          [
+            {
               "alignItems": "center",
               "backgroundColor": "#FFFFFF",
               "flexDirection": "row",
@@ -1076,7 +1076,7 @@ exports[`[Accordion] render test should operate animation when shouldAnimate pro
               "paddingTop": 20,
               "width": "100%",
             },
-            Object {
+            {
               "backgroundColor": "#FFFFFF",
             },
           ]
@@ -1084,8 +1084,8 @@ exports[`[Accordion] render test should operate animation when shouldAnimate pro
       >
         <Text
           style={
-            Array [
-              Object {
+            [
+              {
                 "color": "#000000",
                 "paddingBottom": 0,
                 "paddingLeft": 20,
@@ -1101,8 +1101,8 @@ exports[`[Accordion] render test should operate animation when shouldAnimate pro
       </View>
       <View
         style={
-          Array [
-            Object {
+          [
+            {
               "alignItems": "center",
               "backgroundColor": "#FFFFFF",
               "flexDirection": "row",
@@ -1112,7 +1112,7 @@ exports[`[Accordion] render test should operate animation when shouldAnimate pro
               "paddingTop": 20,
               "width": "100%",
             },
-            Object {
+            {
               "backgroundColor": "#FFFFFF",
             },
           ]
@@ -1120,8 +1120,8 @@ exports[`[Accordion] render test should operate animation when shouldAnimate pro
       >
         <Text
           style={
-            Array [
-              Object {
+            [
+              {
                 "color": "#000000",
                 "paddingBottom": 0,
                 "paddingLeft": 20,
@@ -1140,7 +1140,7 @@ exports[`[Accordion] render test should operate animation when shouldAnimate pro
   <View
     collapsable={false}
     style={
-      Object {
+      {
         "backgroundColor": "transparent",
         "overflow": "hidden",
         "width": 300,
@@ -1159,7 +1159,7 @@ exports[`[Accordion] render test should operate animation when shouldAnimate pro
       onResponderTerminationRequest={[Function]}
       onStartShouldSetResponder={[Function]}
       style={
-        Object {
+        {
           "backgroundColor": "#000000",
           "height": 50,
           "justifyContent": "center",
@@ -1171,8 +1171,8 @@ exports[`[Accordion] render test should operate animation when shouldAnimate pro
     >
       <Text
         style={
-          Array [
-            Object {
+          [
+            {
               "color": "#FFFFFF",
               "fontWeight": "bold",
               "paddingBottom": 0,
@@ -1190,11 +1190,11 @@ exports[`[Accordion] render test should operate animation when shouldAnimate pro
       <View
         collapsable={false}
         style={
-          Object {
+          {
             "position": "absolute",
             "right": 20,
-            "transform": Array [
-              Object {
+            "transform": [
+              {
                 "rotate": "0deg",
               },
             ],
@@ -1205,45 +1205,45 @@ exports[`[Accordion] render test should operate animation when shouldAnimate pro
           allowFontScaling={false}
           selectable={false}
           style={
-            Array [
-              Object {
+            [
+              {
                 "color": undefined,
                 "fontSize": 12,
               },
-              Array [
-                Object {
+              [
+                {
                   "color": "#000000",
                 },
-                Array [
-                  Object {
+                [
+                  {
                     "color": "#FFFFFF",
                   },
                   undefined,
                 ],
               ],
-              Object {
+              {
                 "fontFamily": "IcoMoon",
                 "fontStyle": "normal",
                 "fontWeight": "normal",
               },
-              Object {},
+              {},
             ]
           }
         >
-          
+          
         </Text>
       </View>
     </View>
     <View
       accessibilityState={
-        Object {
+        {
           "expanded": false,
         }
       }
       collapsable={false}
       onLayout={[Function]}
       style={
-        Object {
+        {
           "height": undefined,
         }
       }
@@ -1251,8 +1251,8 @@ exports[`[Accordion] render test should operate animation when shouldAnimate pro
     >
       <View
         style={
-          Array [
-            Object {
+          [
+            {
               "alignItems": "center",
               "backgroundColor": "#FFFFFF",
               "flexDirection": "row",
@@ -1262,7 +1262,7 @@ exports[`[Accordion] render test should operate animation when shouldAnimate pro
               "paddingTop": 20,
               "width": "100%",
             },
-            Object {
+            {
               "backgroundColor": "#FFFFFF",
             },
           ]
@@ -1270,8 +1270,8 @@ exports[`[Accordion] render test should operate animation when shouldAnimate pro
       >
         <Text
           style={
-            Array [
-              Object {
+            [
+              {
                 "color": "#000000",
                 "paddingBottom": 0,
                 "paddingLeft": 20,
@@ -1287,8 +1287,8 @@ exports[`[Accordion] render test should operate animation when shouldAnimate pro
       </View>
       <View
         style={
-          Array [
-            Object {
+          [
+            {
               "alignItems": "center",
               "backgroundColor": "#FFFFFF",
               "flexDirection": "row",
@@ -1298,7 +1298,7 @@ exports[`[Accordion] render test should operate animation when shouldAnimate pro
               "paddingTop": 20,
               "width": "100%",
             },
-            Object {
+            {
               "backgroundColor": "#FFFFFF",
             },
           ]
@@ -1306,8 +1306,8 @@ exports[`[Accordion] render test should operate animation when shouldAnimate pro
       >
         <Text
           style={
-            Array [
-              Object {
+            [
+              {
                 "color": "#000000",
                 "paddingBottom": 0,
                 "paddingLeft": 20,
@@ -1323,8 +1323,8 @@ exports[`[Accordion] render test should operate animation when shouldAnimate pro
       </View>
       <View
         style={
-          Array [
-            Object {
+          [
+            {
               "alignItems": "center",
               "backgroundColor": "#FFFFFF",
               "flexDirection": "row",
@@ -1334,7 +1334,7 @@ exports[`[Accordion] render test should operate animation when shouldAnimate pro
               "paddingTop": 20,
               "width": "100%",
             },
-            Object {
+            {
               "backgroundColor": "#FFFFFF",
             },
           ]
@@ -1342,8 +1342,8 @@ exports[`[Accordion] render test should operate animation when shouldAnimate pro
       >
         <Text
           style={
-            Array [
-              Object {
+            [
+              {
                 "color": "#000000",
                 "paddingBottom": 0,
                 "paddingLeft": 20,
@@ -1365,8 +1365,8 @@ exports[`[Accordion] render test should operate animation when shouldAnimate pro
 exports[`[Accordion] render test should render collapsed when collapseOnStart props is true 1`] = `
 <View
   style={
-    Array [
-      Object {
+    [
+      {
         "alignItems": "center",
         "flexDirection": "column",
       },
@@ -1377,7 +1377,7 @@ exports[`[Accordion] render test should render collapsed when collapseOnStart pr
   <View
     collapsable={false}
     style={
-      Object {
+      {
         "backgroundColor": "transparent",
         "overflow": "hidden",
         "width": 300,
@@ -1396,7 +1396,7 @@ exports[`[Accordion] render test should render collapsed when collapseOnStart pr
       onResponderTerminationRequest={[Function]}
       onStartShouldSetResponder={[Function]}
       style={
-        Object {
+        {
           "backgroundColor": "#000000",
           "height": 50,
           "justifyContent": "center",
@@ -1408,8 +1408,8 @@ exports[`[Accordion] render test should render collapsed when collapseOnStart pr
     >
       <Text
         style={
-          Array [
-            Object {
+          [
+            {
               "color": "#FFFFFF",
               "fontWeight": "bold",
               "paddingBottom": 0,
@@ -1427,11 +1427,11 @@ exports[`[Accordion] render test should render collapsed when collapseOnStart pr
       <View
         collapsable={false}
         style={
-          Object {
+          {
             "position": "absolute",
             "right": 20,
-            "transform": Array [
-              Object {
+            "transform": [
+              {
                 "rotate": "0deg",
               },
             ],
@@ -1442,45 +1442,45 @@ exports[`[Accordion] render test should render collapsed when collapseOnStart pr
           allowFontScaling={false}
           selectable={false}
           style={
-            Array [
-              Object {
+            [
+              {
                 "color": undefined,
                 "fontSize": 12,
               },
-              Array [
-                Object {
+              [
+                {
                   "color": "#000000",
                 },
-                Array [
-                  Object {
+                [
+                  {
                     "color": "#FFFFFF",
                   },
                   undefined,
                 ],
               ],
-              Object {
+              {
                 "fontFamily": "IcoMoon",
                 "fontStyle": "normal",
                 "fontWeight": "normal",
               },
-              Object {},
+              {},
             ]
           }
         >
-          
+          
         </Text>
       </View>
     </View>
     <View
       accessibilityState={
-        Object {
+        {
           "expanded": false,
         }
       }
       collapsable={false}
       onLayout={[Function]}
       style={
-        Object {
+        {
           "height": undefined,
         }
       }
@@ -1488,8 +1488,8 @@ exports[`[Accordion] render test should render collapsed when collapseOnStart pr
     >
       <View
         style={
-          Array [
-            Object {
+          [
+            {
               "alignItems": "center",
               "backgroundColor": "#FFFFFF",
               "flexDirection": "row",
@@ -1499,7 +1499,7 @@ exports[`[Accordion] render test should render collapsed when collapseOnStart pr
               "paddingTop": 20,
               "width": "100%",
             },
-            Object {
+            {
               "backgroundColor": "#FFFFFF",
             },
           ]
@@ -1507,8 +1507,8 @@ exports[`[Accordion] render test should render collapsed when collapseOnStart pr
       >
         <Text
           style={
-            Array [
-              Object {
+            [
+              {
                 "color": "#000000",
                 "paddingBottom": 0,
                 "paddingLeft": 20,
@@ -1524,8 +1524,8 @@ exports[`[Accordion] render test should render collapsed when collapseOnStart pr
       </View>
       <View
         style={
-          Array [
-            Object {
+          [
+            {
               "alignItems": "center",
               "backgroundColor": "#FFFFFF",
               "flexDirection": "row",
@@ -1535,7 +1535,7 @@ exports[`[Accordion] render test should render collapsed when collapseOnStart pr
               "paddingTop": 20,
               "width": "100%",
             },
-            Object {
+            {
               "backgroundColor": "#FFFFFF",
             },
           ]
@@ -1543,8 +1543,8 @@ exports[`[Accordion] render test should render collapsed when collapseOnStart pr
       >
         <Text
           style={
-            Array [
-              Object {
+            [
+              {
                 "color": "#000000",
                 "paddingBottom": 0,
                 "paddingLeft": 20,
@@ -1560,8 +1560,8 @@ exports[`[Accordion] render test should render collapsed when collapseOnStart pr
       </View>
       <View
         style={
-          Array [
-            Object {
+          [
+            {
               "alignItems": "center",
               "backgroundColor": "#FFFFFF",
               "flexDirection": "row",
@@ -1571,7 +1571,7 @@ exports[`[Accordion] render test should render collapsed when collapseOnStart pr
               "paddingTop": 20,
               "width": "100%",
             },
-            Object {
+            {
               "backgroundColor": "#FFFFFF",
             },
           ]
@@ -1579,8 +1579,8 @@ exports[`[Accordion] render test should render collapsed when collapseOnStart pr
       >
         <Text
           style={
-            Array [
-              Object {
+            [
+              {
                 "color": "#000000",
                 "paddingBottom": 0,
                 "paddingLeft": 20,
@@ -1599,7 +1599,7 @@ exports[`[Accordion] render test should render collapsed when collapseOnStart pr
   <View
     collapsable={false}
     style={
-      Object {
+      {
         "backgroundColor": "transparent",
         "overflow": "hidden",
         "width": 300,
@@ -1618,7 +1618,7 @@ exports[`[Accordion] render test should render collapsed when collapseOnStart pr
       onResponderTerminationRequest={[Function]}
       onStartShouldSetResponder={[Function]}
       style={
-        Object {
+        {
           "backgroundColor": "#000000",
           "height": 50,
           "justifyContent": "center",
@@ -1630,8 +1630,8 @@ exports[`[Accordion] render test should render collapsed when collapseOnStart pr
     >
       <Text
         style={
-          Array [
-            Object {
+          [
+            {
               "color": "#FFFFFF",
               "fontWeight": "bold",
               "paddingBottom": 0,
@@ -1649,11 +1649,11 @@ exports[`[Accordion] render test should render collapsed when collapseOnStart pr
       <View
         collapsable={false}
         style={
-          Object {
+          {
             "position": "absolute",
             "right": 20,
-            "transform": Array [
-              Object {
+            "transform": [
+              {
                 "rotate": "0deg",
               },
             ],
@@ -1664,45 +1664,45 @@ exports[`[Accordion] render test should render collapsed when collapseOnStart pr
           allowFontScaling={false}
           selectable={false}
           style={
-            Array [
-              Object {
+            [
+              {
                 "color": undefined,
                 "fontSize": 12,
               },
-              Array [
-                Object {
+              [
+                {
                   "color": "#000000",
                 },
-                Array [
-                  Object {
+                [
+                  {
                     "color": "#FFFFFF",
                   },
                   undefined,
                 ],
               ],
-              Object {
+              {
                 "fontFamily": "IcoMoon",
                 "fontStyle": "normal",
                 "fontWeight": "normal",
               },
-              Object {},
+              {},
             ]
           }
         >
-          
+          
         </Text>
       </View>
     </View>
     <View
       accessibilityState={
-        Object {
+        {
           "expanded": false,
         }
       }
       collapsable={false}
       onLayout={[Function]}
       style={
-        Object {
+        {
           "height": undefined,
         }
       }
@@ -1710,8 +1710,8 @@ exports[`[Accordion] render test should render collapsed when collapseOnStart pr
     >
       <View
         style={
-          Array [
-            Object {
+          [
+            {
               "alignItems": "center",
               "backgroundColor": "#FFFFFF",
               "flexDirection": "row",
@@ -1721,7 +1721,7 @@ exports[`[Accordion] render test should render collapsed when collapseOnStart pr
               "paddingTop": 20,
               "width": "100%",
             },
-            Object {
+            {
               "backgroundColor": "#FFFFFF",
             },
           ]
@@ -1729,8 +1729,8 @@ exports[`[Accordion] render test should render collapsed when collapseOnStart pr
       >
         <Text
           style={
-            Array [
-              Object {
+            [
+              {
                 "color": "#000000",
                 "paddingBottom": 0,
                 "paddingLeft": 20,
@@ -1746,8 +1746,8 @@ exports[`[Accordion] render test should render collapsed when collapseOnStart pr
       </View>
       <View
         style={
-          Array [
-            Object {
+          [
+            {
               "alignItems": "center",
               "backgroundColor": "#FFFFFF",
               "flexDirection": "row",
@@ -1757,7 +1757,7 @@ exports[`[Accordion] render test should render collapsed when collapseOnStart pr
               "paddingTop": 20,
               "width": "100%",
             },
-            Object {
+            {
               "backgroundColor": "#FFFFFF",
             },
           ]
@@ -1765,8 +1765,8 @@ exports[`[Accordion] render test should render collapsed when collapseOnStart pr
       >
         <Text
           style={
-            Array [
-              Object {
+            [
+              {
                 "color": "#000000",
                 "paddingBottom": 0,
                 "paddingLeft": 20,
@@ -1782,8 +1782,8 @@ exports[`[Accordion] render test should render collapsed when collapseOnStart pr
       </View>
       <View
         style={
-          Array [
-            Object {
+          [
+            {
               "alignItems": "center",
               "backgroundColor": "#FFFFFF",
               "flexDirection": "row",
@@ -1793,7 +1793,7 @@ exports[`[Accordion] render test should render collapsed when collapseOnStart pr
               "paddingTop": 20,
               "width": "100%",
             },
-            Object {
+            {
               "backgroundColor": "#FFFFFF",
             },
           ]
@@ -1801,8 +1801,8 @@ exports[`[Accordion] render test should render collapsed when collapseOnStart pr
       >
         <Text
           style={
-            Array [
-              Object {
+            [
+              {
                 "color": "#000000",
                 "paddingBottom": 0,
                 "paddingLeft": 20,
@@ -1821,7 +1821,7 @@ exports[`[Accordion] render test should render collapsed when collapseOnStart pr
   <View
     collapsable={false}
     style={
-      Object {
+      {
         "backgroundColor": "transparent",
         "overflow": "hidden",
         "width": 300,
@@ -1840,7 +1840,7 @@ exports[`[Accordion] render test should render collapsed when collapseOnStart pr
       onResponderTerminationRequest={[Function]}
       onStartShouldSetResponder={[Function]}
       style={
-        Object {
+        {
           "backgroundColor": "#000000",
           "height": 50,
           "justifyContent": "center",
@@ -1852,8 +1852,8 @@ exports[`[Accordion] render test should render collapsed when collapseOnStart pr
     >
       <Text
         style={
-          Array [
-            Object {
+          [
+            {
               "color": "#FFFFFF",
               "fontWeight": "bold",
               "paddingBottom": 0,
@@ -1871,11 +1871,11 @@ exports[`[Accordion] render test should render collapsed when collapseOnStart pr
       <View
         collapsable={false}
         style={
-          Object {
+          {
             "position": "absolute",
             "right": 20,
-            "transform": Array [
-              Object {
+            "transform": [
+              {
                 "rotate": "0deg",
               },
             ],
@@ -1886,45 +1886,45 @@ exports[`[Accordion] render test should render collapsed when collapseOnStart pr
           allowFontScaling={false}
           selectable={false}
           style={
-            Array [
-              Object {
+            [
+              {
                 "color": undefined,
                 "fontSize": 12,
               },
-              Array [
-                Object {
+              [
+                {
                   "color": "#000000",
                 },
-                Array [
-                  Object {
+                [
+                  {
                     "color": "#FFFFFF",
                   },
                   undefined,
                 ],
               ],
-              Object {
+              {
                 "fontFamily": "IcoMoon",
                 "fontStyle": "normal",
                 "fontWeight": "normal",
               },
-              Object {},
+              {},
             ]
           }
         >
-          
+          
         </Text>
       </View>
     </View>
     <View
       accessibilityState={
-        Object {
+        {
           "expanded": false,
         }
       }
       collapsable={false}
       onLayout={[Function]}
       style={
-        Object {
+        {
           "height": undefined,
         }
       }
@@ -1932,8 +1932,8 @@ exports[`[Accordion] render test should render collapsed when collapseOnStart pr
     >
       <View
         style={
-          Array [
-            Object {
+          [
+            {
               "alignItems": "center",
               "backgroundColor": "#FFFFFF",
               "flexDirection": "row",
@@ -1943,7 +1943,7 @@ exports[`[Accordion] render test should render collapsed when collapseOnStart pr
               "paddingTop": 20,
               "width": "100%",
             },
-            Object {
+            {
               "backgroundColor": "#FFFFFF",
             },
           ]
@@ -1951,8 +1951,8 @@ exports[`[Accordion] render test should render collapsed when collapseOnStart pr
       >
         <Text
           style={
-            Array [
-              Object {
+            [
+              {
                 "color": "#000000",
                 "paddingBottom": 0,
                 "paddingLeft": 20,
@@ -1968,8 +1968,8 @@ exports[`[Accordion] render test should render collapsed when collapseOnStart pr
       </View>
       <View
         style={
-          Array [
-            Object {
+          [
+            {
               "alignItems": "center",
               "backgroundColor": "#FFFFFF",
               "flexDirection": "row",
@@ -1979,7 +1979,7 @@ exports[`[Accordion] render test should render collapsed when collapseOnStart pr
               "paddingTop": 20,
               "width": "100%",
             },
-            Object {
+            {
               "backgroundColor": "#FFFFFF",
             },
           ]
@@ -1987,8 +1987,8 @@ exports[`[Accordion] render test should render collapsed when collapseOnStart pr
       >
         <Text
           style={
-            Array [
-              Object {
+            [
+              {
                 "color": "#000000",
                 "paddingBottom": 0,
                 "paddingLeft": 20,
@@ -2004,8 +2004,8 @@ exports[`[Accordion] render test should render collapsed when collapseOnStart pr
       </View>
       <View
         style={
-          Array [
-            Object {
+          [
+            {
               "alignItems": "center",
               "backgroundColor": "#FFFFFF",
               "flexDirection": "row",
@@ -2015,7 +2015,7 @@ exports[`[Accordion] render test should render collapsed when collapseOnStart pr
               "paddingTop": 20,
               "width": "100%",
             },
-            Object {
+            {
               "backgroundColor": "#FFFFFF",
             },
           ]
@@ -2023,8 +2023,8 @@ exports[`[Accordion] render test should render collapsed when collapseOnStart pr
       >
         <Text
           style={
-            Array [
-              Object {
+            [
+              {
                 "color": "#000000",
                 "paddingBottom": 0,
                 "paddingLeft": 20,
@@ -2046,8 +2046,8 @@ exports[`[Accordion] render test should render collapsed when collapseOnStart pr
 exports[`[Accordion] render test should render without crashing 1`] = `
 <View
   style={
-    Array [
-      Object {
+    [
+      {
         "alignItems": "center",
         "flexDirection": "column",
       },
@@ -2058,7 +2058,7 @@ exports[`[Accordion] render test should render without crashing 1`] = `
   <View
     collapsable={false}
     style={
-      Object {
+      {
         "backgroundColor": "transparent",
         "overflow": "hidden",
         "width": 300,
@@ -2077,7 +2077,7 @@ exports[`[Accordion] render test should render without crashing 1`] = `
       onResponderTerminationRequest={[Function]}
       onStartShouldSetResponder={[Function]}
       style={
-        Object {
+        {
           "backgroundColor": "#000000",
           "height": 50,
           "justifyContent": "center",
@@ -2089,8 +2089,8 @@ exports[`[Accordion] render test should render without crashing 1`] = `
     >
       <Text
         style={
-          Array [
-            Object {
+          [
+            {
               "color": "#FFFFFF",
               "fontWeight": "bold",
               "paddingBottom": 0,
@@ -2108,11 +2108,11 @@ exports[`[Accordion] render test should render without crashing 1`] = `
       <View
         collapsable={false}
         style={
-          Object {
+          {
             "position": "absolute",
             "right": 20,
-            "transform": Array [
-              Object {
+            "transform": [
+              {
                 "rotate": "0deg",
               },
             ],
@@ -2124,14 +2124,14 @@ exports[`[Accordion] render test should render without crashing 1`] = `
     </View>
     <View
       accessibilityState={
-        Object {
+        {
           "expanded": false,
         }
       }
       collapsable={false}
       onLayout={[Function]}
       style={
-        Object {
+        {
           "height": undefined,
         }
       }
@@ -2139,8 +2139,8 @@ exports[`[Accordion] render test should render without crashing 1`] = `
     >
       <View
         style={
-          Array [
-            Object {
+          [
+            {
               "alignItems": "center",
               "backgroundColor": "#FFFFFF",
               "flexDirection": "row",
@@ -2150,7 +2150,7 @@ exports[`[Accordion] render test should render without crashing 1`] = `
               "paddingTop": 20,
               "width": "100%",
             },
-            Object {
+            {
               "backgroundColor": "#FFFFFF",
             },
           ]
@@ -2158,8 +2158,8 @@ exports[`[Accordion] render test should render without crashing 1`] = `
       >
         <Text
           style={
-            Array [
-              Object {
+            [
+              {
                 "color": "#000000",
                 "paddingBottom": 0,
                 "paddingLeft": 20,
@@ -2175,8 +2175,8 @@ exports[`[Accordion] render test should render without crashing 1`] = `
       </View>
       <View
         style={
-          Array [
-            Object {
+          [
+            {
               "alignItems": "center",
               "backgroundColor": "#FFFFFF",
               "flexDirection": "row",
@@ -2186,7 +2186,7 @@ exports[`[Accordion] render test should render without crashing 1`] = `
               "paddingTop": 20,
               "width": "100%",
             },
-            Object {
+            {
               "backgroundColor": "#FFFFFF",
             },
           ]
@@ -2194,8 +2194,8 @@ exports[`[Accordion] render test should render without crashing 1`] = `
       >
         <Text
           style={
-            Array [
-              Object {
+            [
+              {
                 "color": "#000000",
                 "paddingBottom": 0,
                 "paddingLeft": 20,
@@ -2211,8 +2211,8 @@ exports[`[Accordion] render test should render without crashing 1`] = `
       </View>
       <View
         style={
-          Array [
-            Object {
+          [
+            {
               "alignItems": "center",
               "backgroundColor": "#FFFFFF",
               "flexDirection": "row",
@@ -2222,7 +2222,7 @@ exports[`[Accordion] render test should render without crashing 1`] = `
               "paddingTop": 20,
               "width": "100%",
             },
-            Object {
+            {
               "backgroundColor": "#FFFFFF",
             },
           ]
@@ -2230,8 +2230,8 @@ exports[`[Accordion] render test should render without crashing 1`] = `
       >
         <Text
           style={
-            Array [
-              Object {
+            [
+              {
                 "color": "#000000",
                 "paddingBottom": 0,
                 "paddingLeft": 20,
@@ -2250,7 +2250,7 @@ exports[`[Accordion] render test should render without crashing 1`] = `
   <View
     collapsable={false}
     style={
-      Object {
+      {
         "backgroundColor": "transparent",
         "overflow": "hidden",
         "width": 300,
@@ -2269,7 +2269,7 @@ exports[`[Accordion] render test should render without crashing 1`] = `
       onResponderTerminationRequest={[Function]}
       onStartShouldSetResponder={[Function]}
       style={
-        Object {
+        {
           "backgroundColor": "#000000",
           "height": 50,
           "justifyContent": "center",
@@ -2281,8 +2281,8 @@ exports[`[Accordion] render test should render without crashing 1`] = `
     >
       <Text
         style={
-          Array [
-            Object {
+          [
+            {
               "color": "#FFFFFF",
               "fontWeight": "bold",
               "paddingBottom": 0,
@@ -2300,11 +2300,11 @@ exports[`[Accordion] render test should render without crashing 1`] = `
       <View
         collapsable={false}
         style={
-          Object {
+          {
             "position": "absolute",
             "right": 20,
-            "transform": Array [
-              Object {
+            "transform": [
+              {
                 "rotate": "0deg",
               },
             ],
@@ -2316,14 +2316,14 @@ exports[`[Accordion] render test should render without crashing 1`] = `
     </View>
     <View
       accessibilityState={
-        Object {
+        {
           "expanded": false,
         }
       }
       collapsable={false}
       onLayout={[Function]}
       style={
-        Object {
+        {
           "height": undefined,
         }
       }
@@ -2331,8 +2331,8 @@ exports[`[Accordion] render test should render without crashing 1`] = `
     >
       <View
         style={
-          Array [
-            Object {
+          [
+            {
               "alignItems": "center",
               "backgroundColor": "#FFFFFF",
               "flexDirection": "row",
@@ -2342,7 +2342,7 @@ exports[`[Accordion] render test should render without crashing 1`] = `
               "paddingTop": 20,
               "width": "100%",
             },
-            Object {
+            {
               "backgroundColor": "#FFFFFF",
             },
           ]
@@ -2350,8 +2350,8 @@ exports[`[Accordion] render test should render without crashing 1`] = `
       >
         <Text
           style={
-            Array [
-              Object {
+            [
+              {
                 "color": "#000000",
                 "paddingBottom": 0,
                 "paddingLeft": 20,
@@ -2367,8 +2367,8 @@ exports[`[Accordion] render test should render without crashing 1`] = `
       </View>
       <View
         style={
-          Array [
-            Object {
+          [
+            {
               "alignItems": "center",
               "backgroundColor": "#FFFFFF",
               "flexDirection": "row",
@@ -2378,7 +2378,7 @@ exports[`[Accordion] render test should render without crashing 1`] = `
               "paddingTop": 20,
               "width": "100%",
             },
-            Object {
+            {
               "backgroundColor": "#FFFFFF",
             },
           ]
@@ -2386,8 +2386,8 @@ exports[`[Accordion] render test should render without crashing 1`] = `
       >
         <Text
           style={
-            Array [
-              Object {
+            [
+              {
                 "color": "#000000",
                 "paddingBottom": 0,
                 "paddingLeft": 20,
@@ -2403,8 +2403,8 @@ exports[`[Accordion] render test should render without crashing 1`] = `
       </View>
       <View
         style={
-          Array [
-            Object {
+          [
+            {
               "alignItems": "center",
               "backgroundColor": "#FFFFFF",
               "flexDirection": "row",
@@ -2414,7 +2414,7 @@ exports[`[Accordion] render test should render without crashing 1`] = `
               "paddingTop": 20,
               "width": "100%",
             },
-            Object {
+            {
               "backgroundColor": "#FFFFFF",
             },
           ]
@@ -2422,8 +2422,8 @@ exports[`[Accordion] render test should render without crashing 1`] = `
       >
         <Text
           style={
-            Array [
-              Object {
+            [
+              {
                 "color": "#000000",
                 "paddingBottom": 0,
                 "paddingLeft": 20,
@@ -2442,7 +2442,7 @@ exports[`[Accordion] render test should render without crashing 1`] = `
   <View
     collapsable={false}
     style={
-      Object {
+      {
         "backgroundColor": "transparent",
         "overflow": "hidden",
         "width": 300,
@@ -2461,7 +2461,7 @@ exports[`[Accordion] render test should render without crashing 1`] = `
       onResponderTerminationRequest={[Function]}
       onStartShouldSetResponder={[Function]}
       style={
-        Object {
+        {
           "backgroundColor": "#000000",
           "height": 50,
           "justifyContent": "center",
@@ -2473,8 +2473,8 @@ exports[`[Accordion] render test should render without crashing 1`] = `
     >
       <Text
         style={
-          Array [
-            Object {
+          [
+            {
               "color": "#FFFFFF",
               "fontWeight": "bold",
               "paddingBottom": 0,
@@ -2492,11 +2492,11 @@ exports[`[Accordion] render test should render without crashing 1`] = `
       <View
         collapsable={false}
         style={
-          Object {
+          {
             "position": "absolute",
             "right": 20,
-            "transform": Array [
-              Object {
+            "transform": [
+              {
                 "rotate": "0deg",
               },
             ],
@@ -2508,14 +2508,14 @@ exports[`[Accordion] render test should render without crashing 1`] = `
     </View>
     <View
       accessibilityState={
-        Object {
+        {
           "expanded": false,
         }
       }
       collapsable={false}
       onLayout={[Function]}
       style={
-        Object {
+        {
           "height": undefined,
         }
       }
@@ -2523,8 +2523,8 @@ exports[`[Accordion] render test should render without crashing 1`] = `
     >
       <View
         style={
-          Array [
-            Object {
+          [
+            {
               "alignItems": "center",
               "backgroundColor": "#FFFFFF",
               "flexDirection": "row",
@@ -2534,7 +2534,7 @@ exports[`[Accordion] render test should render without crashing 1`] = `
               "paddingTop": 20,
               "width": "100%",
             },
-            Object {
+            {
               "backgroundColor": "#FFFFFF",
             },
           ]
@@ -2542,8 +2542,8 @@ exports[`[Accordion] render test should render without crashing 1`] = `
       >
         <Text
           style={
-            Array [
-              Object {
+            [
+              {
                 "color": "#000000",
                 "paddingBottom": 0,
                 "paddingLeft": 20,
@@ -2559,8 +2559,8 @@ exports[`[Accordion] render test should render without crashing 1`] = `
       </View>
       <View
         style={
-          Array [
-            Object {
+          [
+            {
               "alignItems": "center",
               "backgroundColor": "#FFFFFF",
               "flexDirection": "row",
@@ -2570,7 +2570,7 @@ exports[`[Accordion] render test should render without crashing 1`] = `
               "paddingTop": 20,
               "width": "100%",
             },
-            Object {
+            {
               "backgroundColor": "#FFFFFF",
             },
           ]
@@ -2578,8 +2578,8 @@ exports[`[Accordion] render test should render without crashing 1`] = `
       >
         <Text
           style={
-            Array [
-              Object {
+            [
+              {
                 "color": "#000000",
                 "paddingBottom": 0,
                 "paddingLeft": 20,
@@ -2595,8 +2595,8 @@ exports[`[Accordion] render test should render without crashing 1`] = `
       </View>
       <View
         style={
-          Array [
-            Object {
+          [
+            {
               "alignItems": "center",
               "backgroundColor": "#FFFFFF",
               "flexDirection": "row",
@@ -2606,7 +2606,7 @@ exports[`[Accordion] render test should render without crashing 1`] = `
               "paddingTop": 20,
               "width": "100%",
             },
-            Object {
+            {
               "backgroundColor": "#FFFFFF",
             },
           ]
@@ -2614,8 +2614,8 @@ exports[`[Accordion] render test should render without crashing 1`] = `
       >
         <Text
           style={
-            Array [
-              Object {
+            [
+              {
                 "color": "#000000",
                 "paddingBottom": 0,
                 "paddingLeft": 20,
