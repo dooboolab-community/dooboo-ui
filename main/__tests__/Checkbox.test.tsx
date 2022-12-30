@@ -34,10 +34,10 @@ describe('[Checkbox]', () => {
     expect(json).toBeTruthy();
   });
 
-  it('should render `leftElement`', () => {
+  it('should render `startElement`', () => {
     testingLib = render(
       Component({
-        leftElement: <View />,
+        startElement: <View />,
       }),
     );
 
@@ -46,10 +46,10 @@ describe('[Checkbox]', () => {
     expect(json).toBeTruthy();
   });
 
-  it('should render `rightElement`', () => {
+  it('should render `endElement`', () => {
     testingLib = render(
       Component({
-        rightElement: <View />,
+        endElement: <View />,
       }),
     );
 

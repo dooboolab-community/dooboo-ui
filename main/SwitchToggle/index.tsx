@@ -66,7 +66,7 @@ export function SwitchToggle(props: Props): ReactElement {
   const {
     backgroundColorOn = theme.role.primary,
     backgroundColorOff = theme.bg.disabled,
-    circleColorOn = theme.text.contrast,
+    circleColorOn = theme.text.contrastBasic,
     circleColorOff = theme.text.default,
     container = defaultContainer,
     circle = defaultCircle,

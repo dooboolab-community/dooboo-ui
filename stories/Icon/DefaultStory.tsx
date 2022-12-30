@@ -1,5 +1,5 @@
 import type {FC} from 'react';
-import {Icon} from '..';
+import {Icon} from '../../main/Icon';
 import React from 'react';
 import {View} from 'react-native';
 import styled from '@emotion/native';
@@ -36,7 +36,7 @@ const StyledIcon = styled(Icon)`
 
 const IconStory: FC = () => {
   const [fontsLoaded] = useFonts({
-    IcoMoon: require('../../../main/Icon/doobooui.ttf'),
+    IcoMoon: require('../../main/Icon/doobooui.ttf'),
   });
 
   if (!fontsLoaded) {

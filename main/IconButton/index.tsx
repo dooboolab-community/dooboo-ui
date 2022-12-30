@@ -91,7 +91,7 @@ export const IconButton: FC<IconButtonProps> = (props) => {
       borderColor: theme.bg.disabled,
     },
     disabledText: {
-      color: !outlined ? theme.text.contrast : theme.text.disabled,
+      color: !outlined ? theme.text.contrastBasic : theme.text.disabled,
     },
     hovered: {
       shadowColor: 'black',

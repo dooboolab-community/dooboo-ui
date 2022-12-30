@@ -17,134 +17,185 @@ Documented in [dooboo-ui.dooboolab.com](https://dooboo-ui.dooboolab.com/?path=/d
 
 ```ts
 export const colors = {
-  apple: '#151E22',
-  google: '#E04238',
-  facebook: '#345997',
-  lightPrimary: '#000000',
-  darkPrimary: '#FFFFFF',
-  secondary: '#00D9D5',
-  danger: '#FF002E',
-  warning: '#FFEB14',
-  info: '#5398FF',
-  success: '#33FF2F',
-  light: '#EDEDED',
+    brand: '#9E45B3',
+    primary: '#34356C',
+    secondary: '#6BF3C5',
+    accept: '#00D8CB',
+    info: '#307EF1',
+    link: '#A351F4',
+    success: '#0FC70C',
+    warning: '#EBBD1A',
+    danger: '#F84444',
+
+    white: '#FFFFFF',
+    gray1: '#EDEDED',
+    gray2: '#CCCCCC',
+    gray3: '#BEBEBE',
+    gray4: '#909090',
+    gray5: '#787878',
+    gray6: '#4D4D4D',
+    gray7: '#474747',
+    gray8: '#1E1E1E',
+    black: '#000000',
+    red1: '#FF2C2C',
+    red2: '#DA0000',
 };
 
 export const light = {
-  bg: {
-    default: '#FFFFFF',
-    paper: '#EDEDED',
-    disabled: '#C4C4C4',
-    border: 'rgba(0,0,0,0.2)',
-  },
-  role: {
-    primary: colors.lightPrimary,
-    secondary: colors.secondary,
-    danger: colors.danger,
-    warning: colors.warning,
-    info: colors.info,
-    success: colors.success,
-    light: colors.light,
-  },
-  text: {
-    default: '#000000',
-    primary: '#000000',
-    placeholder: '#6D6D6D',
-    disabled: '#C4C4C4',
-    contrast: '#FFFFFF',
-    validation: '#FF002E',
-    secondary: '#404040',
-    link: '#393D7A',
-    accent: '#B446BF',
-  },
-  button: {
-    primary: {
-      text: '#FFFFFF',
-      bg: colors.lightPrimary,
+    bg: {
+        default: colors.white,
+        paper: colors.gray1,
+        disabled: colors.gray3,
+        border: colors.gray2,
+        borderContrast: colors.gray7,
     },
-    secondary: {
-      text: '#000000',
-      bg: colors.secondary,
+    role: {
+        brand: colors.brand,
+        primary: colors.primary,
+        secondary: colors.secondary,
+        accept: colors.accept,
+        info: colors.info,
+        link: colors.link,
+        success: colors.success,
+        warning: colors.warning,
+        danger: colors.danger,
     },
-    success: {
-      text: '#000000',
-      bg: colors.success,
+    text: {
+        default: colors.black,
+        label: colors.gray6,
+        placeholder: colors.gray5,
+        disabled: colors.gray3,
+        validation: colors.red2,
+        contrastBasic: colors.white,
+        contrastLabel: colors.gray3,
+        contrastPlaceholder: colors.gray4,
+        contrastDisabled: colors.gray6,
+        contrastValidation: colors.red1,
     },
-    danger: {
-      text: '#FFFFFF',
-      bg: colors.danger,
+    button: {
+        brand: {
+            text: colors.white,
+            bg: colors.brand,
+        },
+        primary: {
+            text: colors.white,
+            bg: colors.primary,
+        },
+        secondary: {
+            text: colors.white,
+            bg: colors.secondary,
+        },
+        accept: {
+            text: colors.white,
+            bg: colors.accept,
+        },
+        info: {
+            text: colors.white,
+            bg: colors.info,
+        },
+        link: {
+            text: colors.white,
+            bg: colors.link,
+        },
+        success: {
+            text: colors.white,
+            bg: colors.success,
+        },
+        warning: {
+            text: colors.white,
+            bg: colors.warning,
+        },
+        danger: {
+            text: colors.white,
+            bg: colors.danger,
+        },
+        light: {
+            text: colors.black,
+            bg: colors.gray1,
+        },
+        disabled: {
+            text: colors.gray3,
+            bg: colors.gray1,
+        },
     },
-    warning: {
-      text: '#000000',
-      bg: colors.warning,
-    },
-    info: {
-      text: '#000000',
-      bg: colors.info,
-    },
-    light: {
-      text: '#000000',
-      bg: colors.light,
-    },
-  },
 };
 
 export const dark: typeof light = {
-  bg: {
-    default: '#000000',
-    paper: '#414141',
-    disabled: '#C4C4C4',
-    border: 'rgba(255,255,255,0.2)',
-  },
-  role: {
-    primary: colors.darkPrimary,
-    secondary: colors.secondary,
-    danger: colors.danger,
-    warning: colors.warning,
-    info: colors.info,
-    success: colors.success,
-    light: colors.light,
-  },
-  text: {
-    default: '#FFFFFF',
-    primary: '#000000',
-    placeholder: '#6D6D6D',
-    disabled: '#C4C4C4',
-    contrast: '#000000',
-    validation: '#FF002E',
-    secondary: '#D3D8E8',
-    link: '#E0E0E0',
-    accent: '#8A96DC',
-  },
-  button: {
-    primary: {
-      text: '#FFFFFF',
-      bg: colors.darkPrimary,
+    bg: {
+        default: colors.black,
+        paper: colors.gray8,
+        disabled: colors.gray7,
+        border: colors.gray6,
+        borderContrast: colors.gray2,
     },
-    secondary: {
-      text: '#000000',
-      bg: colors.secondary,
+    role: {
+        brand: colors.brand,
+        primary: colors.primary,
+        secondary: colors.secondary,
+        accept: colors.accept,
+        info: colors.info,
+        link: colors.link,
+        success: colors.success,
+        warning: colors.warning,
+        danger: colors.danger,
     },
-    success: {
-      text: '#000000',
-      bg: colors.success,
+    text: {
+        default: colors.white,
+        label: colors.gray3,
+        placeholder: colors.gray4,
+        disabled: colors.gray6,
+        validation: colors.red1,
+        contrastBasic: colors.black,
+        contrastLabel: colors.gray6,
+        contrastPlaceholder: colors.gray5,
+        contrastDisabled: colors.gray3,
+        contrastValidation: colors.red2,
     },
-    danger: {
-      text: '#FFFFFF',
-      bg: colors.danger,
+    button: {
+        brand: {
+            text: colors.black,
+            bg: colors.brand,
+        },
+        primary: {
+            text: colors.black,
+            bg: colors.primary,
+        },
+        secondary: {
+            text: colors.black,
+            bg: colors.secondary,
+        },
+        accept: {
+            text: colors.black,
+            bg: colors.accept,
+        },
+        info: {
+            text: colors.black,
+            bg: colors.info,
+        },
+        link: {
+            text: colors.black,
+            bg: colors.link,
+        },
+        success: {
+            text: colors.black,
+            bg: colors.success,
+        },
+        warning: {
+            text: colors.black,
+            bg: colors.warning,
+        },
+        danger: {
+            text: colors.black,
+            bg: colors.danger,
+        },
+        light: {
+            text: colors.white,
+            bg: colors.gray8,
+        },
+        disabled: {
+            text: colors.gray7,
+            bg: colors.gray8,
+        },
     },
-    warning: {
-      text: '#000000',
-      bg: colors.warning,
-    },
-    info: {
-      text: '#000000',
-      bg: colors.info,
-    },
-    light: {
-      text: '#000000',
-      bg: colors.light,
-    },
-  },
 };
 ```

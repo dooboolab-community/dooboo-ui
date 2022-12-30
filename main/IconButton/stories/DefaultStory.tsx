@@ -19,14 +19,14 @@ const ScrollContainer = styled.ScrollView`
 `;
 
 const StyledIcon = styled(Icon)`
-  color: ${({theme}) => theme.text.contrast};
+  color: ${({theme}) => theme.text.contrastBasic};
 `;
 
 const IconButtonStory: FC = () => {
   const {theme} = useTheme();
 
   const [fontsLoaded] = useFonts({
-    IcoMoon: require('../../../main/Icon/doobooui.ttf'),
+    IcoMoon: require('../../Icon/doobooui.ttf'),
   });
 
   if (!fontsLoaded) {

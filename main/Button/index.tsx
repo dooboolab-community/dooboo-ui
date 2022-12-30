@@ -1,5 +1,3 @@
-import {ActivityIndicator, Platform, TouchableOpacity} from 'react-native';
-import {ButtonText, ButtonWrapper} from '../Styled/StyledComponents';
 import type {FC, ReactElement} from 'react';
 import type {
   LayoutRectangle,
@@ -10,11 +8,20 @@ import type {
   ViewStyle,
 } from 'react-native';
 import React, {useRef, useState} from 'react';
+import {ActivityIndicator, Platform, TouchableOpacity} from 'react-native';
+import {useTheme} from '@dooboo-ui/theme';
+import {useHover} from 'react-native-web-hooks';
 import styled, {css} from '@emotion/native';
 
-import type {ButtonType} from '../Styled/StyledComponents';
-import {useHover} from 'react-native-web-hooks';
-import {useTheme} from '@dooboo-ui/theme';
+import type {
+  ButtonType,
+  ButtonColorType,
+} from '../../stories/Styles/ButtonStyles';
+import {
+  ButtonTextColor,
+  ButtonText,
+  ButtonWrapper,
+} from '../../stories/Styles/ButtonStyles';
 
 type Styles = {
   container?: StyleProp<ViewStyle>;
@@ -49,21 +56,22 @@ const ButtonContainer = styled(ButtonWrapper)<{
 
 export interface Props {
   testID?: string;
-  indicatorColor?: string;
-  loading?: boolean;
+  type?: ButtonType;
+  color?: ButtonColorType;
+  size?: ButtonSize;
   disabled?: boolean;
-  outlined?: boolean;
+  href?: string;
+  loading?: boolean;
+  indicatorColor?: string;
+  text?: string;
+  startElement?: ReactElement;
+  endElement?: ReactElement;
   style?: StyleProp<ViewStyle>;
   styles?: Styles;
-  leftElement?: ReactElement;
-  rightElement?: ReactElement;
   activeOpacity?: TouchableOpacityProps['activeOpacity'];
-  text?: string;
   onPress?: TouchableOpacityProps['onPress'];
   touchableOpacityProps?: Partial<TouchableOpacityProps>;
   textProps?: Partial<TextProps>;
-  type?: ButtonType;
-  size?: ButtonSize;
 }
 
 export const Button: FC<Props> = (props) => {
@@ -73,16 +81,17 @@ export const Button: FC<Props> = (props) => {
     loading = false,
     style,
     styles,
-    leftElement,
-    rightElement,
+    startElement,
+    endElement,
     activeOpacity = 0.6,
     text,
     onPress,
     touchableOpacityProps,
     textProps,
-    type = 'primary',
-    size,
-    outlined = false,
+    type = 'contained',
+    color = 'primary',
+    size = 'medium',
+    href,
   } = props;
 
   const ref = useRef<TouchableOpacity>(null);
@@ -92,17 +101,22 @@ export const Button: FC<Props> = (props) => {
   const {theme} = useTheme();
 
   const disabledTextColor =
-    disabled && !outlined && !loading
-      ? theme.text.contrast
-      : outlined
+    disabled && type === 'contained' && !loading
+      ? theme.text.contrastBasic
+      : type !== 'contained'
       ? theme.bg.disabled
       : theme.bg.paper;
+
+  const TextColor = ButtonTextColor({theme, type, color, disabled, href});
 
   const indicatorColor = props.indicatorColor ?? disabledTextColor;
 
   const compositeStyles: Styles = {
+    text: {
+      color: TextColor,
+    },
     disabledButton: css`
-      background-color: ${!outlined && !loading
+      background-color: ${type === 'contained' && !loading
         ? theme.bg.disabled
         : undefined};
       border-color: ${theme.bg.disabled};
@@ -151,8 +165,8 @@ export const Button: FC<Props> = (props) => {
             compositeStyles.disabledButton,
           ]}
           type={type}
+          color={color}
           size={size}
-          outlined={outlined}
           loading={true}
         >
           <ActivityIndicator size="small" color={indicatorColor} />
@@ -167,16 +181,14 @@ export const Button: FC<Props> = (props) => {
           ]}
           onLayout={(e) => setLayout(e.nativeEvent.layout)}
           type={type}
+          color={color}
           size={size}
           disabled={disabled}
-          outlined={outlined}
+          href={href}
         >
           <>
-            {leftElement}
+            {startElement}
             <ButtonText
-              outlined={outlined}
-              type={type}
-              disabled={disabled}
               style={[
                 compositeStyles.text,
                 disabled && compositeStyles.disabledText,
@@ -185,7 +197,7 @@ export const Button: FC<Props> = (props) => {
             >
               {text}
             </ButtonText>
-            {rightElement}
+            {endElement}
           </>
         </ButtonContainer>
       )}

@@ -36,8 +36,8 @@ import {Button} from 'dooboo-ui';
 | disabled              |           | `boolean`                                |                                         | `false`   |
 | style                 |           | `StyleProp<ViewStyle>`                   | root `ViewStyle`                        |           |
 | styles                |           | `Styles`                                 | List of all style props within [Button] |           |
-| leftElement           |           | `ReactElement`                           | Extra element to place on the left      |           |
-| rightElement          |           | `ReactElement`                           | Extra element to place on the right     |           |
+| startElement           |           | `ReactElement`                           | Extra element to place on the left      |           |
+| endElement          |           | `ReactElement`                           | Extra element to place on the right     |           |
 | activeOpacity         |           | `TouchableOpacityProps['activeOpacity']` |                                         |           |
 | text                  |           | `string`                                 |                                         |           |
 | onPress               |           | `TouchableOpacityProps['onPress']`       |                                         |           |
@@ -189,7 +189,7 @@ return (
 
 ### AdditionalElement
 
-Add addtional element by using `leftElement`, `rightElement` props.
+Add addtional element by using `startElement`, `endElement` props.
 
 ```tsx
 const [facebookLoading, setFacebookLoading] = useState<boolean>(false);
@@ -199,7 +199,7 @@ return (
   <ThemeProvider initialThemeType={themeType}>
     <StoryContainer>
       <Button
-        leftElement={
+        startElement={
           <View style={{marginRight: 12}}>
             <Image style={{width: 20, height: 20}} source={IC_GOOGLE} />
           </View>
@@ -230,7 +230,7 @@ return (
       <Button
         testID="btnFacebook"
         outlined
-        leftElement={
+        startElement={
           <View
             style={{
               position: 'absolute',

@@ -48,7 +48,7 @@ describe('[Button]', () => {
       const loadingView = testingLib.getByTestId('loading-view');
 
       expect(loadingView.props.style[0].borderTopColor).toEqual(
-        light.text.contrast,
+        light.text.contrastBasic,
       );
     });
 
@@ -68,7 +68,7 @@ describe('[Button]', () => {
       const loadingView = testingLib.getByTestId('loading-view');
 
       expect(loadingView.props.style[0].borderTopColor).toEqual(
-        light.text.contrast,
+        light.text.contrastBasic,
       );
     });
 
@@ -176,7 +176,7 @@ describe('[Button]', () => {
 
   it('should render left and right elements', () => {
     testingLib = render(
-      Component({leftElement: <Text />, rightElement: <Text />}),
+      Component({startElement: <Text />, endElement: <Text />}),
     );
 
     const button = testingLib.getByTestId('button-container');
@@ -204,7 +204,7 @@ describe('[Button]', () => {
 
   describe('[Button] type', () => {
     it('should render [type=info] button', () => {
-      testingLib = render(Component({type: 'info'}));
+      testingLib = render(Component({color: 'info'}));
 
       const button = testingLib.getByTestId('button-container');
       const buttonStyle = button.props.style[0];
@@ -213,7 +213,7 @@ describe('[Button]', () => {
     });
 
     it('should render [type=secondary] button', () => {
-      testingLib = render(Component({type: 'secondary'}));
+      testingLib = render(Component({color: 'secondary'}));
 
       const button = testingLib.getByTestId('button-container');
       const buttonStyle = button.props.style[0];
@@ -222,7 +222,7 @@ describe('[Button]', () => {
     });
 
     it('should render [type=success] button', () => {
-      testingLib = render(Component({type: 'success'}));
+      testingLib = render(Component({color: 'success'}));
 
       const button = testingLib.getByTestId('button-container');
       const buttonStyle = button.props.style[0];
@@ -231,7 +231,7 @@ describe('[Button]', () => {
     });
 
     it('should render [type=danger] button', () => {
-      testingLib = render(Component({type: 'danger'}));
+      testingLib = render(Component({color: 'danger'}));
 
       const button = testingLib.getByTestId('button-container');
       const buttonStyle = button.props.style[0];
@@ -240,7 +240,7 @@ describe('[Button]', () => {
     });
 
     it('should render [type=warning] button', () => {
-      testingLib = render(Component({type: 'warning'}));
+      testingLib = render(Component({color: 'warning'}));
 
       const button = testingLib.getByTestId('button-container');
       const buttonStyle = button.props.style[0];
@@ -249,7 +249,7 @@ describe('[Button]', () => {
     });
 
     it('should render [type=light] button', () => {
-      testingLib = render(Component({type: 'light'}));
+      testingLib = render(Component({color: 'light'}));
 
       const button = testingLib.getByTestId('button-container');
       const buttonStyle = button.props.style[0];
@@ -279,7 +279,7 @@ describe('[Button]', () => {
     it('should render [type=danger] button', () => {
       testingLib = render(
         <ThemeProvider initialThemeType="dark">
-          <Button text="my-button" type="danger" />
+          <Button text="my-button" color="danger" />
         </ThemeProvider>,
       );
 
@@ -296,7 +296,7 @@ describe('[Button]', () => {
 
   describe('[Button] outlined', () => {
     it('should render outlined button', () => {
-      testingLib = render(Component({outlined: true}));
+      testingLib = render(Component({type: 'outlined'}));
 
       const button = testingLib.getByTestId('button-container');
       const buttonStyle = button.props.style[0];
@@ -306,7 +306,7 @@ describe('[Button]', () => {
     });
 
     it('should render outlined button with [type=secondary]', () => {
-      testingLib = render(Component({outlined: true, type: 'secondary'}));
+      testingLib = render(Component({type: 'outlined', color: 'secondary'}));
 
       const button = testingLib.getByTestId('button-container');
       const buttonStyle = button.props.style[0];
@@ -317,7 +317,7 @@ describe('[Button]', () => {
     });
 
     it('should render outlined button with [type=danger]', () => {
-      testingLib = render(Component({outlined: true, type: 'danger'}));
+      testingLib = render(Component({type: 'outlined', color: 'danger'}));
 
       const button = testingLib.getByTestId('button-container');
       const buttonStyle = button.props.style[0];
@@ -328,7 +328,7 @@ describe('[Button]', () => {
     });
 
     it('should render outlined button with [type=info]', () => {
-      testingLib = render(Component({outlined: true, type: 'info'}));
+      testingLib = render(Component({type: 'outlined', color: 'info'}));
 
       const button = testingLib.getByTestId('button-container');
       const buttonStyle = button.props.style[0];
@@ -339,7 +339,7 @@ describe('[Button]', () => {
     });
 
     it('should render outlined button with [type=warning]', () => {
-      testingLib = render(Component({outlined: true, type: 'warning'}));
+      testingLib = render(Component({type: 'outlined', color: 'warning'}));
 
       const button = testingLib.getByTestId('button-container');
       const buttonStyle = button.props.style[0];
@@ -350,7 +350,7 @@ describe('[Button]', () => {
     });
 
     it('should render `disabled` outlined button', () => {
-      testingLib = render(Component({outlined: true, type: undefined}));
+      testingLib = render(Component({type: 'outlined', type: undefined}));
 
       const button = testingLib.getByTestId('button-container');
       const buttonStyle = button.props.style[0];
@@ -363,7 +363,7 @@ describe('[Button]', () => {
       it('should render [type=primary] outlined button', () => {
         testingLib = render(
           <ThemeProvider initialThemeType="dark">
-            <Button outlined type="primary" />
+            <Button type="outlined" color="primary" />
           </ThemeProvider>,
         );
 
@@ -376,7 +376,7 @@ describe('[Button]', () => {
       it('should render [type=secondary] outlined button', () => {
         testingLib = render(
           <ThemeProvider initialThemeType="dark">
-            <Button outlined type="secondary" />
+            <Button type="outlined" color="secondary" />
           </ThemeProvider>,
         );
 
@@ -389,7 +389,7 @@ describe('[Button]', () => {
       it('should render [type=success] outlined button', () => {
         testingLib = render(
           <ThemeProvider initialThemeType="dark">
-            <Button outlined type="success" />
+            <Button type="outlined" color="success" />
           </ThemeProvider>,
         );
 
@@ -402,7 +402,7 @@ describe('[Button]', () => {
       it('should render [type=info] outlined button', () => {
         testingLib = render(
           <ThemeProvider initialThemeType="dark">
-            <Button outlined type="info" />
+            <Button type="outlined" color="info" />
           </ThemeProvider>,
         );
 
@@ -415,7 +415,7 @@ describe('[Button]', () => {
       it('should render [type=warning] outlined button', () => {
         testingLib = render(
           <ThemeProvider initialThemeType="dark">
-            <Button outlined type="warning" />
+            <Button type="outlined" color="warning" />
           </ThemeProvider>,
         );
 
@@ -428,7 +428,7 @@ describe('[Button]', () => {
       it('should render [type=danger] outlined button', () => {
         testingLib = render(
           <ThemeProvider initialThemeType="dark">
-            <Button outlined type="danger" />
+            <Button type="outlined" color="danger" />
           </ThemeProvider>,
         );
 
@@ -441,7 +441,7 @@ describe('[Button]', () => {
       it('should [type=light] outlined button', () => {
         testingLib = render(
           <ThemeProvider initialThemeType="dark">
-            <Button outlined type="light" />
+            <Button type="outlined" color="light" />
           </ThemeProvider>,
         );
 

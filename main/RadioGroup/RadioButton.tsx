@@ -38,8 +38,8 @@ export type RadioButtonProps = {
   type?: RadioButtonType;
   disabled?: boolean;
   selected?: boolean;
-  rightElement?: React.ReactElement;
-  leftElement?: React.ReactElement;
+  endElement?: React.ReactElement;
+  startElement?: React.ReactElement;
 };
 
 const Container = styled.TouchableOpacity`
@@ -79,8 +79,8 @@ export const RadioButton: FC<RadioButtonProps> = ({
   testID,
   style,
   styles,
-  rightElement,
-  leftElement,
+  endElement,
+  startElement,
   type = 'primary',
   disabled = false,
   selected,
@@ -124,16 +124,16 @@ export const RadioButton: FC<RadioButtonProps> = ({
         style={{
           paddingVertical: 6,
           paddingLeft:
-            leftElement || (label && labelPosition === 'left') ? 8 : 0,
+            startElement || (label && labelPosition === 'left') ? 8 : 0,
           paddingRight:
-            rightElement || (label && labelPosition === 'right') ? 8 : 0,
+            endElement || (label && labelPosition === 'right') ? 8 : 0,
 
           flexDirection: 'row',
           alignItems: 'center',
         }}
       >
         <>
-          {leftElement}
+          {startElement}
           {label && labelPosition === 'left' ? (
             <ColoredText
               type={type}
@@ -173,7 +173,7 @@ export const RadioButton: FC<RadioButtonProps> = ({
               {label}
             </ColoredText>
           ) : null}
-          {rightElement}
+          {endElement}
         </>
       </View>
     </Container>

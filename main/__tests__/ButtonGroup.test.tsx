@@ -55,7 +55,7 @@ describe('[ButtonGroup]', () => {
       const {getByText} = renderButtonGroup();
 
       expect(getByText('option 1')).toHaveStyle({
-        color: theme[themeType].text.contrast,
+        color: theme[themeType].text.contrastBasic,
       });
 
       expect(getByText('option 2')).toHaveStyle({
@@ -75,7 +75,7 @@ describe('[ButtonGroup]', () => {
       });
 
       expect(getByText('option 2')).toHaveStyle({
-        color: theme[themeType].text.contrast,
+        color: theme[themeType].text.contrastBasic,
       });
     });
   });

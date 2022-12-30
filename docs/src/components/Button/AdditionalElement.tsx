@@ -27,7 +27,7 @@ export const AdditionalElement: FC<{themeType: ThemeType}> = ({themeType}) => {
     <ThemeProvider initialThemeType={themeType}>
       <StoryContainer>
         <Button
-          leftElement={
+          startElement={
             <View style={{marginRight: 12}}>
               <Image style={{width: 20, height: 20}} source={IC_GOOGLE} />
             </View>
@@ -58,7 +58,7 @@ export const AdditionalElement: FC<{themeType: ThemeType}> = ({themeType}) => {
         <Button
           testID="btnFacebook"
           outlined
-          leftElement={
+          startElement={
             <View
               style={{
                 position: 'absolute',

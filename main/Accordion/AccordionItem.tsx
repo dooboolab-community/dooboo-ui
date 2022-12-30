@@ -16,7 +16,7 @@ const TitleContainer = styled.TouchableOpacity`
 `;
 
 const StyledIcon = styled(Icon)`
-  color: ${({theme}) => theme.text.contrast};
+  color: ${({theme}) => theme.text.contrastBasic};
 `;
 
 const ItemContainer = styled.View`
@@ -29,7 +29,7 @@ const ItemContainer = styled.View`
 
 const StyledTitle = styled.Text`
   font-weight: bold;
-  color: ${({theme}) => theme.text.contrast};
+  color: ${({theme}) => theme.text.contrastBasic};
   position: absolute;
   padding: 0px 20px;
 `;

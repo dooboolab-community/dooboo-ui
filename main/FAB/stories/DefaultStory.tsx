@@ -28,7 +28,7 @@ const FABContainer: FC = () => {
   const [active, setActive] = useState<boolean>(false);
 
   const [fontsLoaded] = useFonts({
-    IcoMoon: require('../../../main/Icon/doobooui.ttf'),
+    IcoMoon: require('../../Icon/doobooui.ttf'),
   });
 
   if (!fontsLoaded) {

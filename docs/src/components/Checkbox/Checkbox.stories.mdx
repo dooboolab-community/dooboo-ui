@@ -1,5 +1,5 @@
 import {Meta, Story, Canvas} from '@storybook/addon-docs/blocks';
-import {Basic, Solid, Disabled, LeftElement, RightElement} from './index';
+import {Basic, Solid, Disabled, startElement, endElement} from './index';
 
 <Meta title="Components/Checkbox" />
 
@@ -28,8 +28,8 @@ import {Checkbox} from 'dooboo-ui';
 | disabled?     |           | `boolean`              |                                           |         |
 | theme?        |           | `DoobooTheme`          |                                           |         |
 | chekced?      |           | `boolean`              |                                           |         |
-| leftElement?  |           | `ReactElement`         | Extra element to place on the left        |         |
-| rightElement? |           | `ReactElement`         | Extra element to place on the right       |         |
+| startElement?  |           | `ReactElement`         | Extra element to place on the left        |         |
+| endElement? |           | `ReactElement`         | Extra element to place on the right       |         |
 
 <br />
 
@@ -102,9 +102,9 @@ It can't apply `type` prop at the same time.
 <Disabled themeType="dark" />
 <br />
 
-### Checkbox with leftElement
+### Checkbox with startElement
 
-The `leftElement` prop can generate Checkbox following behind the element.
+The `startElement` prop can generate Checkbox following behind the element.
 
 It can be used with the `type` prop.
 
@@ -112,27 +112,27 @@ It can be used with the `type` prop.
 <Checkbox
   checked={checked}
   onPress={() => setChecked(!checked)}
-  leftElement={<StyledText>Hello this is a checkbox</StyledText>}
+  startElement={<StyledText>Hello this is a checkbox</StyledText>}
 />
 <Checkbox
   checked={checked}
   onPress={() => setChecked(!checked)}
-  leftElement={<StyledText>Hello this is a checkbox</StyledText>}
+  startElement={<StyledText>Hello this is a checkbox</StyledText>}
 />
 <Checkbox
   checked={checked}
   onPress={() => setChecked(!checked)}
-  leftElement={<StyledText>Hello this is a checkbox</StyledText>}
+  startElement={<StyledText>Hello this is a checkbox</StyledText>}
 />
 ```
 
-<LeftElement themeType="light" />
-<LeftElement themeType="dark" />
+<startElement themeType="light" />
+<startElement themeType="dark" />
 <br />
 
-### Checkbox with rightElement
+### Checkbox with endElement
 
-The `rightElement` prop can generate Checkbox in front of the element.
+The `endElement` prop can generate Checkbox in front of the element.
 
 It can be used with the `type` prop.
 
@@ -140,20 +140,20 @@ It can be used with the `type` prop.
 <Checkbox
   checked={checked}
   onPress={() => setChecked(!checked)}
-  rightElement={<StyledText>Hello this is a checkbox</StyledText>}
+  endElement={<StyledText>Hello this is a checkbox</StyledText>}
 />
 <Checkbox
   checked={checked}
   onPress={() => setChecked(!checked)}
-  rightElement={<StyledText>Hello this is a checkbox</StyledText>}
+  endElement={<StyledText>Hello this is a checkbox</StyledText>}
 />
 <Checkbox
   checked={checked}
   onPress={() => setChecked(!checked)}
-  rightElement={<StyledText>Hello this is a checkbox</StyledText>}
+  endElement={<StyledText>Hello this is a checkbox</StyledText>}
 />
 ```
 
-<RightElement themeType="light" />
-<RightElement themeType="dark" />
+<endElement themeType="light" />
+<endElement themeType="dark" />
 <br />

@@ -60,7 +60,7 @@ export const AccordionDefault = (): ReactElement => {
   const {theme} = useTheme();
 
   const [fontsLoaded] = useFonts({
-    IcoMoon: require('../../../main/Icon/doobooui.ttf'),
+    IcoMoon: require('../../Icon/doobooui.ttf'),
   });
 
   if (!fontsLoaded) {
@@ -98,13 +98,16 @@ export const AccordionDefault = (): ReactElement => {
                   flexDirection: 'row',
                 }}
               >
-                <Icon name="search-light" color={theme.text.contrast} />
+                <Icon name="search-light" color={theme.text.contrastBasic} />
                 <Title>{item}</Title>
               </View>
             )}
             renderBody={(item) => <CustomStyledItem>{item}</CustomStyledItem>}
             toggleElement={
-              <Icon name="chevron-down-light" color={theme.text.contrast} />
+              <Icon
+                name="chevron-down-light"
+                color={theme.text.contrastBasic}
+              />
             }
             styles={{
               titleContainer: {

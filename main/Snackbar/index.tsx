@@ -50,7 +50,7 @@ export enum SnackbarTimer {
 
 const TextAction = styled.Text<{type: SnackbarType}>`
   color: ${({theme, type}) =>
-    type === 'danger' ? theme.text.contrast : theme.text.default};
+    type === 'danger' ? theme.text.contrastBasic : theme.text.default};
 `;
 
 const Divider = styled.View<{type: SnackbarType}>`
@@ -60,7 +60,7 @@ const Divider = styled.View<{type: SnackbarType}>`
   opacity: 0.4;
 
   background-color: ${({theme, type}) =>
-    type === 'danger' ? theme.text.contrast : theme.text.default};
+    type === 'danger' ? theme.text.contrastBasic : theme.text.default};
 `;
 
 const SnackbarContainer = (

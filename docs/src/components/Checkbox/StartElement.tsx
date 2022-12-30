@@ -30,32 +30,31 @@ const Component: FC = () => {
         backgroundColor: theme.bg.default,
         flex: 1,
         alignSelf: 'stretch',
+        flexDirection: 'column',
         alignItems: 'center',
         padding: 10,
       }}
     >
-      <View style={{flexDirection: 'column'}}>
-        <Checkbox
-          checked={checked}
-          onPress={() => setChecked(!checked)}
-          rightElement={<StyledText>Hello this is a checkbox</StyledText>}
-        />
-        <Checkbox
-          checked={checked}
-          onPress={() => setChecked(!checked)}
-          rightElement={<StyledText>Hello this is a checkbox</StyledText>}
-        />
-        <Checkbox
-          checked={checked}
-          onPress={() => setChecked(!checked)}
-          rightElement={<StyledText>Hello this is a checkbox</StyledText>}
-        />
-      </View>
+      <Checkbox
+        checked={checked}
+        onPress={() => setChecked(!checked)}
+        startElement={<StyledText>Hello this is a checkbox</StyledText>}
+      />
+      <Checkbox
+        checked={checked}
+        onPress={() => setChecked(!checked)}
+        startElement={<StyledText>Hello this is a checkbox</StyledText>}
+      />
+      <Checkbox
+        checked={checked}
+        onPress={() => setChecked(!checked)}
+        startElement={<StyledText>Hello this is a checkbox</StyledText>}
+      />
     </View>
   );
 };
 
-export const RightElement: FC<{themeType: ThemeType}> = ({themeType}) => {
+export const startElement: FC<{themeType: ThemeType}> = ({themeType}) => {
   return (
     <ThemeProvider initialThemeType={themeType}>
       <Component />

@@ -10,10 +10,10 @@ const InvertedStyledTitle = styled.Text<{theme: DoobooTheme}>`
   font-weight: 400;
   color: ${({theme}) => {
     if (isEmptyObject(theme)) {
-      return light.text.contrast;
+      return light.text.contrastBasic;
     }
 
-    return theme.text.contrast;
+    return theme.text.contrastBasic;
   }};
 `;
 
@@ -29,10 +29,10 @@ const InvertedStyledHeading1 = styled.Text<{theme: DoobooTheme}>`
   font-weight: 400;
   color: ${({theme}) => {
     if (isEmptyObject(theme)) {
-      return light.text.contrast;
+      return light.text.contrastBasic;
     }
 
-    return theme.text.contrast;
+    return theme.text.contrastBasic;
   }};
 `;
 
@@ -48,10 +48,10 @@ const InvertedStyledHeading2 = styled.Text<{theme: DoobooTheme}>`
   font-weight: 400;
   color: ${({theme}) => {
     if (isEmptyObject(theme)) {
-      return light.text.contrast;
+      return light.text.contrastBasic;
     }
 
-    return theme.text.contrast;
+    return theme.text.contrastBasic;
   }};
 `;
 
@@ -67,10 +67,10 @@ const InvertedStyledHeading3 = styled.Text<{theme: DoobooTheme}>`
   font-weight: 400;
   color: ${({theme}) => {
     if (isEmptyObject(theme)) {
-      return light.text.contrast;
+      return light.text.contrastBasic;
     }
 
-    return theme.text.contrast;
+    return theme.text.contrastBasic;
   }};
 `;
 
@@ -85,10 +85,10 @@ const InvertedStyledBody1 = styled.Text<{theme: DoobooTheme}>`
   font-size: 16px;
   color: ${({theme}) => {
     if (isEmptyObject(theme)) {
-      return light.text.contrast;
+      return light.text.contrastBasic;
     }
 
-    return theme.text.contrast;
+    return theme.text.contrastBasic;
   }};
 `;
 
@@ -103,10 +103,10 @@ const InvertedStyledBody2 = styled.Text<{theme: DoobooTheme}>`
   font-size: 14px;
   color: ${({theme}) => {
     if (isEmptyObject(theme)) {
-      return light.text.contrast;
+      return light.text.contrastBasic;
     }
 
-    return theme.text.contrast;
+    return theme.text.contrastBasic;
   }};
 `;
 
