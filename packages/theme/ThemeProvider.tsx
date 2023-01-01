@@ -49,6 +49,10 @@ const genTheme = (type: ThemeType, themeParam: ThemeParam): any => {
     },
     button: {
       ...theme.button,
+      brand: {
+        ...theme.button.brand,
+        ...(themeParam?.[type]?.button?.brand || {}),
+      },
       primary: {
         ...theme.button.primary,
         ...(themeParam?.[type]?.button?.primary || {}),
@@ -57,25 +61,37 @@ const genTheme = (type: ThemeType, themeParam: ThemeParam): any => {
         ...theme.button.secondary,
         ...(themeParam?.[type]?.button?.secondary || {}),
       },
-      success: {
-        ...theme.button.success,
-        ...(themeParam?.[type]?.button?.success || {}),
-      },
-      danger: {
-        ...theme.button.danger,
-        ...(themeParam?.[type]?.button?.danger || {}),
-      },
-      warning: {
-        ...theme.button.warning,
-        ...(themeParam?.[type]?.button?.warning || {}),
+      accept: {
+        ...theme.button.accept,
+        ...(themeParam?.[type]?.button?.accept || {}),
       },
       info: {
         ...theme.button.info,
         ...(themeParam?.[type]?.button?.info || {}),
       },
+      link: {
+        ...theme.button.link,
+        ...(themeParam?.[type]?.button?.link || {}),
+      },
+      success: {
+        ...theme.button.success,
+        ...(themeParam?.[type]?.button?.success || {}),
+      },
+      warning: {
+        ...theme.button.warning,
+        ...(themeParam?.[type]?.button?.warning || {}),
+      },
+      danger: {
+        ...theme.button.danger,
+        ...(themeParam?.[type]?.button?.danger || {}),
+      },
       light: {
         ...theme.button.light,
         ...(themeParam?.[type]?.button?.light || {}),
+      },
+      disabled: {
+        ...theme.button.disabled,
+        ...(themeParam?.[type]?.button?.disabled || {}),
       },
     },
   };
