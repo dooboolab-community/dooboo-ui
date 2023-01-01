@@ -30,7 +30,7 @@ describe('[Progressbar]', () => {
 
     const progressbar = testingLib.getByTestId('progressbar-background');
     expect(progressbar.props.style[0].backgroundColor).toEqual(
-      light.role.light,
+      light.role.primary,
     );
   });
 
