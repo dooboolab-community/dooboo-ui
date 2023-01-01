@@ -48,7 +48,7 @@ const SwitchToggleDefault: FC = () => {
             onPress={() => off(!on)}
             styles={{
               circleColorOff: theme.text.disabled,
-              circleColorOn: theme.text.secondary,
+              circleColorOn: theme.text.default,
               backgroundColorOn: theme.bg.paper,
               backgroundColorOff: theme.bg.disabled,
             }}
