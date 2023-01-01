@@ -174,7 +174,7 @@ describe('[Button]', () => {
     });
   });
 
-  it('should render left and right elements', () => {
+  it('should render start and end elements', () => {
     testingLib = render(
       Component({startElement: <Text />, endElement: <Text />}),
     );
@@ -350,7 +350,7 @@ describe('[Button]', () => {
     });
 
     it('should render `disabled` outlined button', () => {
-      testingLib = render(Component({type: 'outlined', type: undefined}));
+      testingLib = render(Component({type: 'outlined'}));
 
       const button = testingLib.getByTestId('button-container');
       const buttonStyle = button.props.style[0];
