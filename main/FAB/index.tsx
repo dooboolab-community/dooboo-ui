@@ -5,7 +5,7 @@ import React, {useLayoutEffect, useMemo, useRef} from 'react';
 import type {ButtonSize} from '../IconButton';
 import {Icon} from '../Icon';
 import {IconButton} from '../IconButton';
-import type {IconName} from '../Icon';
+import type {IconName} from '../../stories/Styles/IconStyles';
 import type {ReactElement} from 'react';
 import {useTheme} from '@dooboo-ui/theme';
 
