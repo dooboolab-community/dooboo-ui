@@ -1,6 +1,4 @@
-import type {DoobooTheme} from '@dooboo-ui/theme';
-import {light} from '@dooboo-ui/theme';
-import {isEmptyObject} from '../utils';
+import {Icon} from '../../main/Icon';
 import styled from '@emotion/native';
 
 export type IconName =
@@ -103,3 +101,7 @@ export type IconName =
   | 'wifi-light'
   | 'playlist-light'
   | 'playlist-solid';
+
+export const StyledIcon = styled(Icon)`
+  color: ${({theme}) => theme.text.contrastBasic};
+`;

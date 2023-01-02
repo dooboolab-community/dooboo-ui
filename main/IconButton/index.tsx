@@ -1,17 +1,28 @@
-import {ActivityIndicator, Platform, TouchableOpacity} from 'react-native';
-import React, {useRef} from 'react';
+import type {FC} from 'react';
 import type {
   StyleProp,
   TextStyle,
   TouchableOpacityProps,
   ViewStyle,
 } from 'react-native';
+import {ActivityIndicator, Platform, TouchableOpacity} from 'react-native';
+import React, {useRef} from 'react';
 
-import {ButtonWrapper} from '../Styled/StyledComponents';
-import type {FC} from 'react';
 import styled from '@emotion/native';
 import {useHover} from 'react-native-web-hooks';
 import {useTheme} from '@dooboo-ui/theme';
+
+import type {
+  ButtonType,
+  ButtonColorType,
+  ButtonSizeType,
+} from '../../stories/Styles/ButtonStyles';
+import {
+  ButtonTextColor,
+  ButtonText,
+  ButtonWrapper,
+} from '../../stories/Styles/ButtonStyles';
+import {css} from '@emotion/native/dist/emotion-native.cjs';
 
 type Styles = {
   container?: StyleProp<ViewStyle>;
@@ -21,17 +32,13 @@ type Styles = {
   hovered?: StyleProp<ViewStyle>;
 };
 
-type ButtonType = 'primary' | 'secondary' | 'danger' | 'warning' | 'info';
-
-export type ButtonSize = 'small' | 'medium' | 'large';
-
 const ButtonContainer = styled(ButtonWrapper)<{
   type: ButtonType;
   width?: number;
   height?: number;
   outlined?: boolean;
   disabled?: boolean;
-  size?: ButtonSize;
+  size?: ButtonSizeType;
 }>`
   padding: 4px;
   height: ${({size}) =>
@@ -48,37 +55,46 @@ const ButtonContainer = styled(ButtonWrapper)<{
 
 export interface IconButtonProps {
   testID?: string;
-  indicatorColor?: string;
-  loading?: boolean;
+  type?: ButtonType;
+  color?: ButtonColorType;
+  size?: ButtonSizeType;
   disabled?: boolean;
-  outlined?: boolean;
+  loading?: boolean;
+  indicatorColor?: string;
+  icon: any;
   style?: StyleProp<ViewStyle>;
   styles?: Styles;
   activeOpacity?: TouchableOpacityProps['activeOpacity'];
-  icon: any;
   onPress?: TouchableOpacityProps['onPress'];
   touchableOpacityProps?: Partial<TouchableOpacityProps>;
-  type?: ButtonType;
-  size?: ButtonSize;
 }
 
 export const IconButton: FC<IconButtonProps> = (props) => {
   const {
     testID,
+    type = 'contained',
+    color = 'primary',
+    size = 'medium',
     disabled,
     loading,
+    icon,
     style,
     styles,
     activeOpacity = 0.6,
-    icon,
     onPress,
     touchableOpacityProps,
-    type = 'primary',
-    outlined = false,
-    size = 'medium',
   } = props;
 
   const {theme} = useTheme();
+
+  const disabledTextColor =
+    disabled && type === 'contained' && !loading
+      ? theme.text.contrastBasic
+      : type !== 'contained'
+      ? theme.bg.disabled
+      : theme.bg.paper;
+
+  const TextColor = ButtonTextColor({theme, type, color, disabled});
 
   const indicatorColor = props.indicatorColor ?? theme.bg.disabled;
 
@@ -86,12 +102,17 @@ export const IconButton: FC<IconButtonProps> = (props) => {
   const hovered = useHover(ref);
 
   const compositeStyles: Styles = {
-    disabledButton: {
-      backgroundColor: !outlined ? theme.bg.disabled : theme.bg.default,
-      borderColor: theme.bg.disabled,
+    text: {
+      color: TextColor,
     },
+    disabledButton: css`
+      background-color: ${type === 'contained' && !loading
+        ? theme.bg.disabled
+        : undefined};
+      border-color: ${theme.bg.disabled};
+    `,
     disabledText: {
-      color: !outlined ? theme.text.contrastBasic : theme.text.disabled,
+      color: disabledTextColor,
     },
     hovered: {
       shadowColor: 'black',
@@ -130,8 +151,9 @@ export const IconButton: FC<IconButtonProps> = (props) => {
             disabled && compositeStyles.disabledButton,
           ]}
           type={type}
+          color={color}
           size={size}
-          outlined={outlined}
+          loading={true}
         >
           <ActivityIndicator size="small" color={indicatorColor} />
         </ButtonContainer>
@@ -143,10 +165,10 @@ export const IconButton: FC<IconButtonProps> = (props) => {
             hovered && !disabled && compositeStyles.hovered,
             disabled && compositeStyles.disabledButton,
           ]}
-          size={size}
           type={type}
+          color={color}
+          size={size}
           disabled={disabled}
-          outlined={outlined}
         >
           {icon}
         </ButtonContainer>

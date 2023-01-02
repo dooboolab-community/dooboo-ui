@@ -16,6 +16,8 @@ export type ButtonColorType =
   | 'info'
   | 'light';
 
+export type ButtonSizeType = 'small' | 'medium' | 'large';
+
 export type ButtonTextType = {
   theme?: DoobooTheme;
   type?: ButtonType;

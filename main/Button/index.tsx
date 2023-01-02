@@ -16,6 +16,7 @@ import styled, {css} from '@emotion/native';
 import type {
   ButtonType,
   ButtonColorType,
+  ButtonSizeType,
 } from '../../stories/Styles/ButtonStyles';
 import {
   ButtonTextColor,
@@ -31,11 +32,9 @@ type Styles = {
   hovered?: StyleProp<ViewStyle>;
 };
 
-type ButtonSize = 'small' | 'medium' | 'large';
-
 const ButtonContainer = styled(ButtonWrapper)<{
   type: ButtonType;
-  size?: ButtonSize;
+  size?: ButtonSizeType;
   outlined?: boolean;
   disabled?: boolean;
   loading?: boolean;
@@ -58,7 +57,7 @@ export interface Props {
   testID?: string;
   type?: ButtonType;
   color?: ButtonColorType;
-  size?: ButtonSize;
+  size?: ButtonSizeType;
   disabled?: boolean;
   href?: string;
   loading?: boolean;
@@ -77,21 +76,21 @@ export interface Props {
 export const Button: FC<Props> = (props) => {
   const {
     testID,
-    disabled,
-    loading = false,
-    style,
-    styles,
-    startElement,
-    endElement,
-    activeOpacity = 0.6,
-    text,
-    onPress,
-    touchableOpacityProps,
-    textProps,
     type = 'contained',
     color = 'primary',
     size = 'medium',
+    disabled,
     href,
+    loading = false,
+    text,
+    startElement,
+    endElement,
+    style,
+    styles,
+    activeOpacity = 0.6,
+    onPress,
+    touchableOpacityProps,
+    textProps,
   } = props;
 
   const ref = useRef<TouchableOpacity>(null);

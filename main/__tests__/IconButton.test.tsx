@@ -29,8 +29,8 @@ describe('[AddIcon]', () => {
   it('should render `outlined` button', () => {
     testingLib = render(
       Component({
+        type: 'outlined',
         icon: <View />,
-        outlined: true,
       }),
     );
 
@@ -97,11 +97,11 @@ describe('[AddIcon]', () => {
   });
 
   describe('type', () => {
-    it('should render type==="info"', () => {
+    it('should render color==="info"', () => {
       testingLib = render(
         Component({
           icon: <View />,
-          type: 'info',
+          color: 'info',
         }),
       );
 
@@ -110,11 +110,11 @@ describe('[AddIcon]', () => {
       expect(json).toBeTruthy();
     });
 
-    it('should render type==="primary"', () => {
+    it('should render color==="primary"', () => {
       testingLib = render(
         Component({
           icon: <View />,
-          type: 'primary',
+          color: 'primary',
         }),
       );
 
@@ -123,11 +123,11 @@ describe('[AddIcon]', () => {
       expect(json).toBeTruthy();
     });
 
-    it('should render type==="secondary"', () => {
+    it('should render color==="secondary"', () => {
       testingLib = render(
         Component({
           icon: <View />,
-          type: 'secondary',
+          color: 'secondary',
         }),
       );
 
@@ -136,11 +136,11 @@ describe('[AddIcon]', () => {
       expect(json).toBeTruthy();
     });
 
-    it('should render type==="danger"', () => {
+    it('should render color==="danger"', () => {
       testingLib = render(
         Component({
           icon: <View />,
-          type: 'danger',
+          color: 'danger',
         }),
       );
 
@@ -149,11 +149,11 @@ describe('[AddIcon]', () => {
       expect(json).toBeTruthy();
     });
 
-    it('should render type==="warning"', () => {
+    it('should render color==="warning"', () => {
       testingLib = render(
         Component({
           icon: <View />,
-          type: 'warning',
+          color: 'warning',
         }),
       );
 

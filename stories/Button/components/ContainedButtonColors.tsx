@@ -5,7 +5,7 @@ import {ThemeProvider} from '@dooboo-ui/theme';
 import {Button} from '../../../main/Button';
 import {Section} from '../../Styles';
 
-const ContainedButtonColor: FC<{themeType: ThemeType}> = ({themeType}) => {
+const ContainedButtonColors: FC<{themeType: ThemeType}> = ({themeType}) => {
   return (
     <ThemeProvider initialThemeType={themeType}>
       <Section>
@@ -23,4 +23,4 @@ const ContainedButtonColor: FC<{themeType: ThemeType}> = ({themeType}) => {
   );
 };
 
-export default ContainedButtonColor;
+export default ContainedButtonColors;

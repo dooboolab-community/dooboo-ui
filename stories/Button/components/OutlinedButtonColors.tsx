@@ -5,7 +5,7 @@ import {ThemeProvider} from '@dooboo-ui/theme';
 import {Button} from '../../../main/Button';
 import {Section} from '../../Styles';
 
-const OutlinedButtonColor: FC<{themeType: ThemeType}> = ({themeType}) => {
+const OutlinedButtonColors: FC<{themeType: ThemeType}> = ({themeType}) => {
   return (
     <ThemeProvider initialThemeType={themeType}>
       <Section>
@@ -70,4 +70,4 @@ const OutlinedButtonColor: FC<{themeType: ThemeType}> = ({themeType}) => {
   );
 };
 
-export default OutlinedButtonColor;
+export default OutlinedButtonColors;

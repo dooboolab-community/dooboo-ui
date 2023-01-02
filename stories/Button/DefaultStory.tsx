@@ -6,13 +6,16 @@ import {
   TextButton,
   ContainedButton,
   OutlinedButton,
-  TextButtonColor,
-  ContainedButtonColor,
-  OutlinedButtonColor,
+  TextButtonColors,
+  ContainedButtonColors,
+  OutlinedButtonColors,
   Sizes,
   Loading,
   AddElements,
   OnPressEvent,
+  IconButtonBasic,
+  IconButtonColors,
+  IconButtonSizes,
 } from './components';
 import {StoryContainer, ScrollContainer, Title, Description} from '../Styles';
 
@@ -45,9 +48,9 @@ const ButtonDefault: FC<{themeType: ThemeType}> = ({themeType}) => {
           The Button comes with nine colors: brand, primary, secondary, accept,
           info, light, success, warning, danger.
         </Description>
-        <TextButtonColor themeType={themeType} />
-        <ContainedButtonColor themeType={themeType} />
-        <OutlinedButtonColor themeType={themeType} />
+        <TextButtonColors themeType={themeType} />
+        <ContainedButtonColors themeType={themeType} />
+        <OutlinedButtonColors themeType={themeType} />
 
         <Title>Sizes</Title>
         <Description>
@@ -68,13 +71,33 @@ const ButtonDefault: FC<{themeType: ThemeType}> = ({themeType}) => {
         </Description>
         <AddElements themeType={themeType} />
 
-        <Title>Event </Title>
+        <Title>Event</Title>
 
-        <Title>onPress </Title>
+        <Title>onPress</Title>
         <Description>
           When pressing button, some event can generate by using onPress prop.
         </Description>
         <OnPressEvent themeType={themeType} />
+
+        <Title>IconButton</Title>
+
+        <Title>Basic</Title>
+        <Description>
+          The IconButton that can add buttons using icons.
+        </Description>
+        <IconButtonBasic themeType={themeType} />
+
+        {/*<Title>Colors</Title>*/}
+        {/*<Description>*/}
+        {/*  `IconButton` that can add buttons using icons.*/}
+        {/*</Description>*/}
+        {/*<IconButtonColors themeType={themeType} />*/}
+
+        <Title>Sizes</Title>
+        <Description>
+          The IconButton comes with three sizes: small. medium(default), large.
+        </Description>
+        <IconButtonSizes themeType={themeType} />
       </ScrollContainer>
     </StoryContainer>
   );
