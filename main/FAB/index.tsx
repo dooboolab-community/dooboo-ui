@@ -2,7 +2,7 @@ import {Animated, Easing, View} from 'react-native';
 import type {LayoutChangeEvent, StyleProp, ViewStyle} from 'react-native';
 import React, {useLayoutEffect, useMemo, useRef} from 'react';
 
-import type {ButtonSize} from '../IconButton';
+import type {ButtonSizeType} from '../../stories/Styles/ButtonStyles';
 import {Icon} from '../Icon';
 import {IconButton} from '../IconButton';
 import type {IconName} from '../../stories/Styles/IconStyles';
@@ -12,7 +12,7 @@ import {useTheme} from '@dooboo-ui/theme';
 interface Styles {
   FAB?: StyleProp<ViewStyle>;
   FABItem?: StyleProp<ViewStyle>;
-  buttonSize: ButtonSize;
+  buttonSize: ButtonSizeType;
   iconSize?: number;
   gap?: number;
 }
