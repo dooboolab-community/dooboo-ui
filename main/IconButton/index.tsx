@@ -8,7 +8,7 @@ import type {
 import {ActivityIndicator, Platform, TouchableOpacity} from 'react-native';
 import React, {useRef} from 'react';
 
-import styled from '@emotion/native';
+import styled, {css} from '@emotion/native';
 import {useHover} from 'react-native-web-hooks';
 import {useTheme} from '@dooboo-ui/theme';
 
@@ -17,18 +17,16 @@ import type {
   ButtonColorType,
   ButtonSizeType,
 } from '../../stories/Styles/ButtonStyles';
+
 import {
   ButtonTextColor,
-  ButtonText,
   ButtonWrapper,
 } from '../../stories/Styles/ButtonStyles';
-import {css} from '@emotion/native/dist/emotion-native.cjs';
 
 type Styles = {
   container?: StyleProp<ViewStyle>;
   text?: StyleProp<TextStyle>;
   disabledButton?: StyleProp<ViewStyle>;
-  disabledText?: StyleProp<TextStyle>;
   hovered?: StyleProp<ViewStyle>;
 };
 
@@ -36,7 +34,6 @@ const ButtonContainer = styled(ButtonWrapper)<{
   type: ButtonType;
   width?: number;
   height?: number;
-  outlined?: boolean;
   disabled?: boolean;
   size?: ButtonSizeType;
 }>`
@@ -61,7 +58,7 @@ export interface IconButtonProps {
   disabled?: boolean;
   loading?: boolean;
   indicatorColor?: string;
-  icon: any;
+  icon?: any;
   style?: StyleProp<ViewStyle>;
   styles?: Styles;
   activeOpacity?: TouchableOpacityProps['activeOpacity'];
@@ -87,13 +84,6 @@ export const IconButton: FC<IconButtonProps> = (props) => {
 
   const {theme} = useTheme();
 
-  const disabledTextColor =
-    disabled && type === 'contained' && !loading
-      ? theme.text.contrastBasic
-      : type !== 'contained'
-      ? theme.bg.disabled
-      : theme.bg.paper;
-
   const TextColor = ButtonTextColor({theme, type, color, disabled});
 
   const indicatorColor = props.indicatorColor ?? theme.bg.disabled;
@@ -111,9 +101,6 @@ export const IconButton: FC<IconButtonProps> = (props) => {
         : undefined};
       border-color: ${theme.bg.disabled};
     `,
-    disabledText: {
-      color: disabledTextColor,
-    },
     hovered: {
       shadowColor: 'black',
       shadowOffset: {
