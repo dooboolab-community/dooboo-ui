@@ -23,7 +23,7 @@ export type EditTextStatus =
   | 'error'
   | 'focused'
   | 'hovered'
-  | 'default';
+  | 'basic';
 type RenderType = (stats: EditTextStatus) => ReactElement;
 
 export type EditTextProps = {
@@ -132,7 +132,7 @@ export const EditText: FC<EditTextProps> = (props) => {
     ? 'hovered'
     : focused
     ? 'focused'
-    : 'default';
+    : 'basic';
 
   return (
     <View
