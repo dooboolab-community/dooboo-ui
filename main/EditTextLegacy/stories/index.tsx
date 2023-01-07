@@ -1,6 +1,6 @@
-import EditTextBoxed from './EditTextBoxedStory';
-import EditTextColumn from './EditTextColumnStory';
-import EditTextRow from './EditTextRowStory';
+import EditTextLegacyBoxed from './EditTextBoxedStory';
+import EditTextLegacyColumn from './EditTextColumnStory';
+import EditTextLegacyRow from './EditTextRowStory';
 import React from 'react';
 import type {ReactElement} from 'react';
 import {ThemeProvider} from '@dooboo-ui/theme';
@@ -10,52 +10,52 @@ import {storiesOf} from '@storybook/react-native';
  * Below are stories for web
  */
 export default {
-  title: 'EditText',
+  title: 'EditTextLegacy',
 };
 
-export const columnStory = (): ReactElement => <EditTextColumn />;
-export const rowStory = (): ReactElement => <EditTextRow />;
-export const boxStory = (): ReactElement => <EditTextBoxed />;
+export const columnStory = (): ReactElement => <EditTextLegacyColumn />;
+export const rowStory = (): ReactElement => <EditTextLegacyRow />;
+export const boxStory = (): ReactElement => <EditTextLegacyBoxed />;
 
 columnStory.light = {
   name: 'column (default) - light',
-  notes: 'Default [EditText] with light mode.',
+  notes: 'Default [EditTextLegacy] with light mode.',
 };
 
 columnStory.dark = {
   name: 'column - dark',
-  notes: 'Default [EditText] with dark mode.',
+  notes: 'Default [EditTextLegacy] with dark mode.',
 };
 
 rowStory.light = {
   name: 'row - light',
-  notes: '[EditText] in row.',
+  notes: '[EditTextLegacy] in row.',
 };
 
 rowStory.dark = {
   name: 'row - dark',
-  notes: '[EditText] in row with dark mode.',
+  notes: '[EditTextLegacy] in row with dark mode.',
 };
 
 boxStory.light = {
   name: 'boxed - light',
-  notes: '[EditText] boxed',
+  notes: '[EditTextLegacy] boxed',
 };
 
 boxStory.dark = {
   name: 'boxed - dark',
-  notes: '[EditText] boxed',
+  notes: '[EditTextLegacy] boxed',
 };
 
 /**
  * Below are stories for app
  */
-storiesOf('EditText', module)
+storiesOf('EditTextLegacy', module)
   .add(
     columnStory.light.name,
     () => (
       <ThemeProvider initialThemeType="light">
-        <EditTextColumn />
+        <EditTextLegacyColumn />
       </ThemeProvider>
     ),
     {
@@ -66,7 +66,7 @@ storiesOf('EditText', module)
     columnStory.dark.name,
     () => (
       <ThemeProvider initialThemeType="dark">
-        <EditTextColumn />
+        <EditTextLegacyColumn />
       </ThemeProvider>
     ),
     {
@@ -77,7 +77,7 @@ storiesOf('EditText', module)
     rowStory.light.name,
     () => (
       <ThemeProvider initialThemeType="light">
-        <EditTextRow />
+        <EditTextLegacyRow />
       </ThemeProvider>
     ),
     {
@@ -88,7 +88,7 @@ storiesOf('EditText', module)
     rowStory.dark.name,
     () => (
       <ThemeProvider initialThemeType="dark">
-        <EditTextRow />
+        <EditTextLegacyRow />
       </ThemeProvider>
     ),
     {
@@ -99,7 +99,7 @@ storiesOf('EditText', module)
     boxStory.light.name,
     () => (
       <ThemeProvider initialThemeType="light">
-        <EditTextBoxed />
+        <EditTextLegacyBoxed />
       </ThemeProvider>
     ),
     {
@@ -110,7 +110,7 @@ storiesOf('EditText', module)
     boxStory.dark.name,
     () => (
       <ThemeProvider initialThemeType="dark">
-        <EditTextBoxed />
+        <EditTextLegacyBoxed />
       </ThemeProvider>
     ),
     {

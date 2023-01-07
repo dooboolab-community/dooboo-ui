@@ -21,7 +21,7 @@ type Styles = {
   counter?: StyleProp<TextStyle>;
 };
 
-export type EditTextProps = {
+export type EditTextLegacyProps = {
   testID?: TextInputProps['testID'];
   inputRef?: LegacyRef<TextInput>;
   textInputProps?: TextInputProps;
@@ -49,7 +49,7 @@ export type EditTextProps = {
   type?: 'row' | 'column' | 'boxed';
 };
 
-export const EditText: FC<EditTextProps> = (props) => {
+export const EditTextLegacy: FC<EditTextLegacyProps> = (props) => {
   const {
     testID,
     inputRef,

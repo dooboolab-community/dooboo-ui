@@ -1,10 +1,10 @@
 import React, {useState} from 'react';
 import {SafeAreaView, ScrollView, View} from 'react-native';
 
-import {EditText} from '../../';
+import {EditTextLegacy} from '../..';
 import {useTheme} from '@dooboo-ui/theme';
 
-const EditTextColumn = (): React.ReactElement => {
+const EditTextLegacyColumn = (): React.ReactElement => {
   const {theme} = useTheme();
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
@@ -25,25 +25,25 @@ const EditTextColumn = (): React.ReactElement => {
           backgroundColor: theme.bg.default,
         }}
       >
-        <EditText
+        <EditTextLegacy
           type="column"
-          placeholder="Default EditText"
+          placeholder="Default EditTextLegacy"
           value={email}
           onChangeText={(text) => onTextChanged('EMAIL', text)}
           style={{marginTop: 20, marginBottom: 24, paddingHorizontal: 36}}
         />
-        <EditText
+        <EditTextLegacy
           type="column"
           labelText="label"
-          placeholder="EditText with label"
+          placeholder="EditTextLegacy with label"
           value={password}
           onChangeText={(text) => onTextChanged('PASSWORD', text)}
           style={{marginTop: 20, marginBottom: 24, paddingHorizontal: 36}}
         />
-        <EditText
+        <EditTextLegacy
           type="column"
           labelText="label"
-          placeholder="EditText with label and maxLength"
+          placeholder="EditTextLegacy with label and maxLength"
           value={password}
           onChangeText={(text) => onTextChanged('PASSWORD', text)}
           style={{marginTop: 20, marginBottom: 24, paddingHorizontal: 36}}
@@ -52,17 +52,17 @@ const EditTextColumn = (): React.ReactElement => {
             maxLength: 10,
           }}
         />
-        <EditText
+        <EditTextLegacy
           type="column"
           labelText="disabled"
-          value="Disabled EditText"
+          value="Disabled EditTextLegacy"
           editable={false}
           style={{marginTop: 20, marginBottom: 24, paddingHorizontal: 36}}
         />
-        <EditText
+        <EditTextLegacy
           type="column"
           labelText="label"
-          value="EditText with error"
+          value="EditTextLegacy with error"
           style={{marginTop: 20, marginBottom: 24, paddingHorizontal: 36}}
           errorText="Error occurred!"
         />
@@ -72,4 +72,4 @@ const EditTextColumn = (): React.ReactElement => {
   );
 };
 
-export default EditTextColumn;
+export default EditTextLegacyColumn;

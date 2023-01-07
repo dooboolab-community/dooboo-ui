@@ -2,7 +2,9 @@
   "compilerOptions": {
     "allowSyntheticDefaultImports": true,
     "jsx": "react-native",
-    "lib": ["es2017"],
+    "lib": [
+      "es2017"
+    ],
     "moduleResolution": "node",
     "noEmit": true,
     "isolatedModules": false,
@@ -13,7 +15,9 @@
     "target": "es6",
     "sourceMap": true,
     "allowJs": false,
-    "rootDirs": ["src"],
+    "rootDirs": [
+      "src"
+    ],
     "baseUrl": "src",
     "incremental": true,
     "forceConsistentCasingInFileNames": true,
@@ -28,17 +32,34 @@
     "emitDecoratorMetadata": true,
     "esModuleInterop": true,
     "noUnusedLocals": false,
-    "types": ["node","jest"],
-    "typeRoots": ["./types", "./node_modules/@types"]
+    "types": [
+      "node",
+      "jest"
+    ],
+    "typeRoots": [
+      "./types",
+      "./node_modules/@types"
+    ]
   },
   "include": [
     "main/**/*.ts",
     "main/**/*.tsx",
     "packages/**/*.ts",
     "packages/**/*.tsx",
-    "setupTest.ts",
+    "setupTest.ts"
   ],
-  "exclude": ["node_modules", "**/*.test.tsx", "**/*.spec.ts"],
-  "files": ["environment.d.ts", "styled.d.ts"],
-  "types": ["typePatches", "jest"]
+  "exclude": [
+    "node_modules",
+    "**/*.test.tsx",
+    "**/*.spec.ts"
+  ],
+  "files": [
+    "environment.d.ts",
+    "styled.d.ts"
+  ],
+  "types": [
+    "typePatches",
+    "jest"
+  ],
+  "extends": "expo/tsconfig.base"
 }
