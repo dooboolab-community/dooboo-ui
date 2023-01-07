@@ -104,11 +104,11 @@ export const EditText: FC<EditTextProps> = (props) => {
   // `focused` or `hovered` has less priority than `error`
   const focusedOrHovered = (focused || hovered) && !error;
 
-  const containerStyle: ViewStyle = {
+  const defaultContainerStyle: ViewStyle = {
     flexDirection: direction,
   };
 
-  const inputColor = !editable
+  const defaultInputColor = !editable
     ? theme.text.disabled
     : error
     ? theme.text.validation
@@ -116,7 +116,7 @@ export const EditText: FC<EditTextProps> = (props) => {
     ? theme.text.default
     : theme.text.placeholder;
 
-  const labelColor = !editable
+  const defaultLabelColor = !editable
     ? theme.text.disabled
     : error
     ? theme.text.validation
@@ -146,11 +146,11 @@ export const EditText: FC<EditTextProps> = (props) => {
       <View
         testID="container"
         style={[
-          containerStyle,
+          defaultContainerStyle,
           {
             flexDirection: direction,
             alignItems: direction === 'row' ? 'center' : 'flex-start',
-            borderColor: inputColor,
+            borderColor: defaultInputColor,
             paddingVertical: 12,
             paddingHorizontal: 10,
           },
@@ -163,7 +163,7 @@ export const EditText: FC<EditTextProps> = (props) => {
         {typeof label === 'string' ? (
           <Text
             style={[
-              {color: labelColor},
+              {color: defaultLabelColor},
               focusedOrHovered && {
                 color: theme.text.default,
               },
@@ -186,7 +186,7 @@ export const EditText: FC<EditTextProps> = (props) => {
             // @ts-ignore
             Platform.OS === 'web' && {outlineWidth: 0},
             direction === 'column' ? {paddingTop: 12} : {paddingLeft: 12},
-            {color: inputColor},
+            {color: defaultInputColor},
             styles?.input,
           ]}
           editable={editable}
