@@ -1,4 +1,4 @@
-import type {FC, LegacyRef} from 'react';
+import type {FC, LegacyRef, ReactElement} from 'react';
 import {Platform, Text, TextInput, View} from 'react-native';
 import React, {useRef, useState} from 'react';
 import type {
@@ -13,23 +13,35 @@ import {useTheme} from '@dooboo-ui/theme';
 
 type Styles = {
   container?: StyleProp<ViewStyle>;
-  hovered?: StyleProp<ViewStyle>;
-  labelText?: StyleProp<TextStyle>;
-  labelTextHovered?: StyleProp<TextStyle>;
+  label?: StyleProp<TextStyle>;
   input?: StyleProp<TextStyle>;
-  errorText?: StyleProp<TextStyle>;
-  counter?: StyleProp<TextStyle>;
+  error?: StyleProp<TextStyle>;
 };
+
+export type EditTextStatus =
+  | 'disabled'
+  | 'error'
+  | 'focused'
+  | 'hovered'
+  | 'basic';
+type RenderType = (stats: EditTextStatus) => ReactElement;
 
 export type EditTextProps = {
   testID?: TextInputProps['testID'];
   inputRef?: LegacyRef<TextInput>;
-  textInputProps?: TextInputProps;
+
   style?: StyleProp<ViewStyle>;
   styles?: Styles;
-  labelText?: string;
-  errorText?: string;
+
+  // Components
+  label?: string | RenderType;
+  error?: string | RenderType;
+
+  direction?: 'row' | 'column';
+  decoration?: 'underline' | 'boxed';
+
   value?: TextInputProps['value'];
+  multiline?: TextInputProps['multiline'];
   onChange?: TextInputProps['onChange'];
   onChangeText?: TextInputProps['onChangeText'];
   placeholder?: TextInputProps['placeholder'];
@@ -40,13 +52,25 @@ export type EditTextProps = {
   autoCapitalize?: TextInputProps['autoCapitalize'];
   secureTextEntry?: TextInputProps['secureTextEntry'];
   onSubmitEditing?: TextInputProps['onSubmitEditing'];
+  maxLength?: TextInputProps['maxLength'];
 
-  focusColor?: string;
-  hoverColor?: string;
-  errorColor?: string;
-  disableColor?: string;
-  labelColor?: string;
-  type?: 'row' | 'column' | 'boxed';
+  textInputProps?: Omit<
+    TextInputProps,
+    | 'value'
+    | 'onChange'
+    | 'multiline'
+    | 'onChange'
+    | 'onChangeText'
+    | 'placeholder'
+    | 'placeholderTextColor'
+    | 'onFocus'
+    | 'onBlur'
+    | 'editable'
+    | 'autoCapitalize'
+    | 'secureTextEntry'
+    | 'onSubmitEditing'
+    | 'maxLength'
+  >;
 };
 
 export const EditText: FC<EditTextProps> = (props) => {
@@ -56,19 +80,23 @@ export const EditText: FC<EditTextProps> = (props) => {
     textInputProps,
     style,
     styles,
-    labelText = '',
-    errorText = '',
+    label,
+    error,
+    multiline = false,
     value = '',
     placeholder,
+    placeholderColor,
     onChange,
     onChangeText,
     onFocus,
     onBlur,
     onSubmitEditing,
+    maxLength,
     autoCapitalize = 'none',
     secureTextEntry = false,
     editable = true,
-    type = 'column',
+    direction = 'column',
+    decoration = 'underline',
   } = props;
 
   const {theme} = useTheme();
@@ -76,265 +104,79 @@ export const EditText: FC<EditTextProps> = (props) => {
   const [focused, setFocused] = useState(false);
   const ref = useRef<View>(null);
   const hovered = useHover(ref);
+  // `focused` or `hovered` has less priority than `error`
+  const focusedOrHovered = (focused || hovered) && !error;
 
-  const borderColor = theme.text.default;
-  const textColor = theme.text.default;
+  const defaultContainerStyle: ViewStyle = {
+    flexDirection: direction,
+  };
 
-  const {
-    placeholderColor = theme.text.placeholder,
-    focusColor = theme.role.primary,
-    hoverColor = theme.role.primary,
-    errorColor = theme.role.danger,
-    disableColor = theme.text.disabled,
-    labelColor = theme.text.placeholder,
-  } = props;
+  const defaultInputColor = !editable
+    ? theme.text.disabled
+    : error
+    ? theme.text.validation
+    : focusedOrHovered
+    ? theme.text.default
+    : theme.text.placeholder;
 
-  const compositeStyles: Styles =
-    type === 'column'
-      ? {
-          container: [
-            {
-              alignSelf: 'stretch',
-              justifyContent: 'space-between',
-              borderBottomWidth: (focused && editable) || errorText ? 2 : 1,
-              borderBottomColor: borderColor,
+  const defaultLabelColor = !editable
+    ? theme.text.disabled
+    : error
+    ? theme.text.validation
+    : focusedOrHovered
+    ? theme.text.default
+    : theme.text.placeholder;
 
-              flexDirection: 'column',
-            },
-            styles?.container,
-          ],
-          hovered: [
-            {
-              borderBottomWidth: 2,
-              borderBottomColor: hoverColor,
-            },
-            styles?.hovered,
-          ],
-          labelText: [
-            {
-              paddingHorizontal: 4,
-              fontSize: 14,
-              color: labelColor,
-            },
-            styles?.labelText,
-          ],
-          labelTextHovered: [
-            {
-              paddingHorizontal: 4,
-              color: hoverColor,
-            },
-            styles?.labelTextHovered,
-          ],
-          input: [
-            {
-              paddingHorizontal: 10,
-              paddingVertical: 10,
-              fontSize: 14,
-              color: !editable ? disableColor : textColor,
-            },
-            styles?.input,
-          ],
-          errorText: [
-            {
-              marginTop: 8,
-              paddingHorizontal: 10,
-              fontSize: 12,
-              color: errorColor,
-            },
-            styles?.errorText,
-          ],
-          counter: [
-            {
-              marginTop: 8,
-              paddingHorizontal: 10,
-              fontSize: 12,
-              color: !editable ? disableColor : textColor,
-            },
-            styles?.counter,
-          ],
-        }
-      : type === 'row'
-      ? {
-          container: [
-            {
-              alignSelf: 'stretch',
-              flexDirection: 'row',
-              alignItems: 'center',
-              justifyContent: 'space-between',
-              borderBottomWidth: focused || errorText ? 2 : 1,
-              borderBottomColor: borderColor,
-            },
-            styles?.container,
-          ],
-          hovered: [
-            {
-              borderBottomColor: hoverColor,
-              borderBottomWidth: 2,
-            },
-            styles?.hovered,
-          ],
-          labelText: [
-            {
-              fontSize: 14,
-              color: labelColor,
-              marginRight: 2,
-            },
-            styles?.labelText,
-          ],
-          labelTextHovered: [
-            {
-              color: hoverColor,
-            },
-            styles?.labelTextHovered,
-          ],
-          input: [
-            {
-              paddingVertical: 10,
-              paddingHorizontal: 8,
-              fontSize: 14,
-              flex: 1,
-              color: !editable ? disableColor : textColor,
-            },
-            styles?.input,
-          ],
-          errorText: [
-            {
-              marginTop: 4,
-              fontSize: 12,
-              color: errorColor,
-            },
-            styles?.errorText,
-          ],
-          counter: [
-            {
-              marginTop: 4,
-              fontSize: 12,
-              color: !editable ? disableColor : textColor,
-            },
-            styles?.counter,
-          ],
-        }
-      : {
-          container: [
-            {
-              alignSelf: 'stretch',
-              justifyContent: 'space-between',
-              borderWidth: focused || errorText ? 2 : 1,
-              borderColor,
-
-              flexDirection: 'column',
-            },
-            styles?.container,
-          ],
-          hovered: [
-            {
-              borderWidth: 1,
-              borderColor: hoverColor,
-            },
-            styles?.hovered,
-          ],
-          labelText: [
-            {
-              paddingHorizontal: 8,
-              marginTop: 6,
-              fontSize: 14,
-              color: labelColor,
-            },
-            styles?.labelText,
-          ],
-          labelTextHovered: [
-            {
-              paddingHorizontal: 4,
-              color: hoverColor,
-            },
-            styles?.labelTextHovered,
-          ],
-          input: [
-            {
-              textAlignVertical: 'top',
-              paddingHorizontal: 10,
-              paddingVertical: 10,
-              fontSize: 14,
-              color: !editable ? disableColor : textColor,
-              height: 120,
-            },
-            styles?.input,
-          ],
-          errorText: [
-            {
-              marginTop: 8,
-              paddingHorizontal: 10,
-              fontSize: 12,
-              color: errorColor,
-            },
-            styles?.errorText,
-          ],
-          counter: [
-            {
-              marginTop: 8,
-              paddingHorizontal: 10,
-              fontSize: 12,
-              color: !editable ? disableColor : textColor,
-            },
-            styles?.counter,
-          ],
-        };
+  const status: EditTextStatus = !editable
+    ? 'disabled'
+    : error
+    ? 'error'
+    : hovered
+    ? 'hovered'
+    : focused
+    ? 'focused'
+    : 'basic';
 
   return (
     <View
-      testID="container-id"
-      ref={Platform.select({
-        web: ref,
-        default: undefined,
-      })}
-      style={[{alignSelf: 'stretch', flexDirection: 'column'}, style]}
+      testID="edit-text"
+      ref={Platform.select({web: ref, default: undefined})}
+      style={[
+        {alignSelf: 'stretch', padding: 12, flexDirection: 'column'},
+        style,
+      ]}
     >
       <View
+        testID="container"
         style={[
-          compositeStyles.container,
-          editable && hovered && compositeStyles.hovered,
+          defaultContainerStyle,
           {
-            borderColor: !editable
-              ? disableColor
-              : errorText
-              ? errorColor
-              : hovered && !focused
-              ? hoverColor
-              : focused
-              ? focusColor
-              : borderColor,
+            flexDirection: direction,
+            alignItems: direction === 'row' ? 'center' : 'flex-start',
+            borderColor: defaultInputColor,
+            paddingVertical: 12,
+            paddingHorizontal: 10,
           },
-          type !== 'boxed' && {
-            borderBottomColor: !editable
-              ? disableColor
-              : errorText
-              ? errorColor
-              : hovered && !focused
-              ? hoverColor
-              : focused
-              ? focusColor
-              : borderColor,
-          },
+          decoration === 'boxed'
+            ? {borderWidth: 1, paddingHorizontal: 12}
+            : {borderBottomWidth: 1},
+          styles?.container,
         ]}
       >
-        {labelText ? (
+        {typeof label === 'string' ? (
           <Text
             style={[
-              compositeStyles.labelText,
-              hovered && editable && compositeStyles.labelTextHovered,
-              !editable
-                ? {color: disableColor}
-                : errorText
-                ? {color: errorColor}
-                : hovered && !focused
-                ? {color: hoverColor}
-                : focused
-                ? {color: focusColor}
-                : {},
+              {color: defaultLabelColor},
+              focusedOrHovered && {
+                color: theme.text.default,
+              },
+              styles?.label,
             ]}
           >
-            {labelText}
+            {label}
           </Text>
+        ) : label ? (
+          label(status)
         ) : null}
         <TextInput
           testID={testID}
@@ -342,9 +184,13 @@ export const EditText: FC<EditTextProps> = (props) => {
           autoCapitalize={autoCapitalize}
           secureTextEntry={secureTextEntry}
           style={[
-            compositeStyles.input,
+            // Stretch input in order to make remaining space clickable
+            {flex: 1, alignSelf: 'stretch'},
             // @ts-ignore
             Platform.OS === 'web' && {outlineWidth: 0},
+            direction === 'column' ? {paddingTop: 12} : {paddingLeft: 12},
+            {color: defaultInputColor},
+            styles?.input,
           ]}
           editable={editable}
           onFocus={(e) => {
@@ -355,39 +201,44 @@ export const EditText: FC<EditTextProps> = (props) => {
             setFocused(false);
             onBlur?.(e);
           }}
-          multiline={type === 'boxed'}
+          multiline={multiline}
+          maxLength={maxLength}
           value={value}
           placeholder={placeholder}
-          placeholderTextColor={placeholderColor}
+          placeholderTextColor={theme.text.placeholder || placeholderColor}
           onChange={onChange}
           onChangeText={onChangeText}
           onSubmitEditing={onSubmitEditing}
           {...textInputProps}
         />
-      </View>
-      {editable ? (
-        <View
-          style={{
-            flex: 1,
-            flexDirection: 'row',
-            justifyContent: 'space-between',
-          }}
-        >
+
+        {maxLength ? (
           <Text
-            style={[compositeStyles.errorText, {flex: 1, color: errorColor}]}
+            style={{
+              position: 'absolute',
+              color: theme.text.placeholder,
+              alignSelf: 'flex-end',
+              fontSize: 14,
+              bottom: -28,
+            }}
+          >{`${value.length}/${maxLength}`}</Text>
+        ) : null}
+      </View>
+
+      {error ? (
+        typeof error === 'string' ? (
+          <Text
+            style={[
+              {color: theme.text.validation},
+              {marginTop: 8, marginHorizontal: 10},
+              styles?.error,
+            ]}
           >
-            {errorText}
+            {error}
           </Text>
-          {textInputProps?.maxLength && (
-            <Text
-              style={
-                value.length < textInputProps.maxLength
-                  ? compositeStyles.counter
-                  : [compositeStyles.errorText, {color: errorColor}]
-              }
-            >{`${value.length}/${textInputProps.maxLength}`}</Text>
-          )}
-        </View>
+        ) : (
+          error?.(status)
+        )
       ) : null}
     </View>
   );

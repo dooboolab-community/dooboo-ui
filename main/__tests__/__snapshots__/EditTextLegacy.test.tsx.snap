@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`[EditText] interactions !editable renders \`errorText\` 1`] = `
+exports[`[EditTextLegacy] interactions !editable renders \`errorText\` 1`] = `
 <View
   style={
     [
@@ -84,7 +84,7 @@ exports[`[EditText] interactions !editable renders \`errorText\` 1`] = `
 </View>
 `;
 
-exports[`[EditText] interactions !editable renders \`labelText\` 1`] = `
+exports[`[EditTextLegacy] interactions !editable renders \`labelText\` 1`] = `
 <View
   style={
     [
@@ -168,7 +168,7 @@ exports[`[EditText] interactions !editable renders \`labelText\` 1`] = `
 </View>
 `;
 
-exports[`[EditText] interactions !editable renders without crashing 1`] = `
+exports[`[EditTextLegacy] interactions !editable renders without crashing 1`] = `
 <View
   style={
     [
@@ -232,7 +232,7 @@ exports[`[EditText] interactions !editable renders without crashing 1`] = `
 </View>
 `;
 
-exports[`[EditText] interactions Type: [boxed] should render \`!editable\` status 1`] = `
+exports[`[EditTextLegacy] interactions Type: [boxed] should render \`!editable\` status 1`] = `
 <View
   style={
     [
@@ -325,7 +325,7 @@ exports[`[EditText] interactions Type: [boxed] should render \`!editable\` statu
 </View>
 `;
 
-exports[`[EditText] interactions Type: [boxed] should render \`errorText\` 1`] = `
+exports[`[EditTextLegacy] interactions Type: [boxed] should render \`errorText\` 1`] = `
 <View
   style={
     [
@@ -418,7 +418,7 @@ exports[`[EditText] interactions Type: [boxed] should render \`errorText\` 1`] =
 </View>
 `;
 
-exports[`[EditText] interactions Type: [boxed] should render \`maxLength\` counter 1`] = `
+exports[`[EditTextLegacy] interactions Type: [boxed] should render \`maxLength\` counter 1`] = `
 <View
   style={
     [
@@ -511,7 +511,7 @@ exports[`[EditText] interactions Type: [boxed] should render \`maxLength\` count
 </View>
 `;
 
-exports[`[EditText] interactions Type: [boxed] should render without crashing 1`] = `
+exports[`[EditTextLegacy] interactions Type: [boxed] should render without crashing 1`] = `
 <View
   style={
     [
@@ -604,7 +604,7 @@ exports[`[EditText] interactions Type: [boxed] should render without crashing 1`
 </View>
 `;
 
-exports[`[EditText] interactions Type: [column] - default renders custom styles without crashing 1`] = `
+exports[`[EditTextLegacy] interactions Type: [column] - default renders custom styles without crashing 1`] = `
 <View
   style={
     [
@@ -697,7 +697,7 @@ exports[`[EditText] interactions Type: [column] - default renders custom styles 
 </View>
 `;
 
-exports[`[EditText] interactions Type: [column] - default renders without crashing 1`] = `
+exports[`[EditTextLegacy] interactions Type: [column] - default renders without crashing 1`] = `
 <View
   style={
     [
@@ -790,7 +790,7 @@ exports[`[EditText] interactions Type: [column] - default renders without crashi
 </View>
 `;
 
-exports[`[EditText] interactions Type: [column] - default should render \`maxLength\` counter 1`] = `
+exports[`[EditTextLegacy] interactions Type: [column] - default should render \`maxLength\` counter 1`] = `
 <View
   style={
     [
@@ -883,7 +883,7 @@ exports[`[EditText] interactions Type: [column] - default should render \`maxLen
 </View>
 `;
 
-exports[`[EditText] interactions Type: [column] - default should render \`maxLength\` counter with error style 1`] = `
+exports[`[EditTextLegacy] interactions Type: [column] - default should render \`maxLength\` counter with error style 1`] = `
 <View
   style={
     [
@@ -976,7 +976,7 @@ exports[`[EditText] interactions Type: [column] - default should render \`maxLen
 </View>
 `;
 
-exports[`[EditText] interactions Type: [row] should render \`!editable\` status 1`] = `
+exports[`[EditTextLegacy] interactions Type: [row] should render \`!editable\` status 1`] = `
 <View
   style={
     [
@@ -1069,7 +1069,7 @@ exports[`[EditText] interactions Type: [row] should render \`!editable\` status 
 </View>
 `;
 
-exports[`[EditText] interactions Type: [row] should render \`errorText\` 1`] = `
+exports[`[EditTextLegacy] interactions Type: [row] should render \`errorText\` 1`] = `
 <View
   style={
     [
@@ -1162,7 +1162,7 @@ exports[`[EditText] interactions Type: [row] should render \`errorText\` 1`] = `
 </View>
 `;
 
-exports[`[EditText] interactions Type: [row] should render \`maxLength\` counter 1`] = `
+exports[`[EditTextLegacy] interactions Type: [row] should render \`maxLength\` counter 1`] = `
 <View
   style={
     [
@@ -1255,7 +1255,7 @@ exports[`[EditText] interactions Type: [row] should render \`maxLength\` counter
 </View>
 `;
 
-exports[`[EditText] interactions Type: [row] should render without crashing 1`] = `
+exports[`[EditTextLegacy] interactions Type: [row] should render without crashing 1`] = `
 <View
   style={
     [
@@ -1348,7 +1348,7 @@ exports[`[EditText] interactions Type: [row] should render without crashing 1`] 
 </View>
 `;
 
-exports[`[EditText] interactions web renders without crashing 1`] = `
+exports[`[EditTextLegacy] interactions web renders without crashing 1`] = `
 <View
   style={
     [

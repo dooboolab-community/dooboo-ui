@@ -1,11 +1,11 @@
-import type {ReactElement} from 'react';
-import React from 'react';
-import type {RenderAPI} from '@testing-library/react-native';
 import {act, fireEvent, render} from '@testing-library/react-native';
 
-import {EditText} from '../../main';
-import type {EditTextProps} from '../../main/EditText';
+import {EditTextLegacy} from '..';
+import type {EditTextLegacyProps} from '../EditTextLegacy';
 import RNWebHooks from 'react-native-web-hooks';
+import React from 'react';
+import type {ReactElement} from 'react';
+import type {RenderAPI} from '@testing-library/react-native';
 import {View} from 'react-native';
 import {createComponent} from '../../test/testUtils';
 
@@ -15,10 +15,10 @@ jest.mock('react-native-web-hooks', () => ({
 
 let testingLib: RenderAPI;
 
-const component = (editProps?: EditTextProps): ReactElement =>
-  createComponent(<EditText {...editProps} />);
+const component = (editProps?: EditTextLegacyProps): ReactElement =>
+  createComponent(<EditTextLegacy {...editProps} />);
 
-describe('[EditText]', () => {
+describe('[EditTextLegacy]', () => {
   jest.spyOn(console, 'error').mockImplementation(() => {});
 
   describe('interactions', () => {

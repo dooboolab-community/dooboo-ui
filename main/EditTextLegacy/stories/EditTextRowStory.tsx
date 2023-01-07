@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import {SafeAreaView, ScrollView, View} from 'react-native';
 
-import {EditText} from '../../';
+import {EditTextLegacy} from '../..';
 import {useTheme} from '@dooboo-ui/theme';
 
 const EditTextRow = (): React.ReactElement => {
@@ -25,14 +25,14 @@ const EditTextRow = (): React.ReactElement => {
           backgroundColor: theme.bg.default,
         }}
       >
-        <EditText
+        <EditTextLegacy
           type="row"
           placeholder="Default EditText"
           value={email}
           onChangeText={(text) => onTextChanged('EMAIL', text)}
           style={{marginTop: 20, marginBottom: 24, paddingHorizontal: 36}}
         />
-        <EditText
+        <EditTextLegacy
           type="row"
           labelText="label"
           placeholder="EditText with label"
@@ -40,14 +40,14 @@ const EditTextRow = (): React.ReactElement => {
           onChangeText={(text) => onTextChanged('PASSWORD', text)}
           style={{marginTop: 20, marginBottom: 24, paddingHorizontal: 36}}
         />
-        <EditText
+        <EditTextLegacy
           type="row"
           labelText="disabled"
           value="Disabled EditText"
           editable={false}
           style={{marginTop: 20, marginBottom: 24, paddingHorizontal: 36}}
         />
-        <EditText
+        <EditTextLegacy
           type="row"
           labelText="label"
           value="EditText with error"
