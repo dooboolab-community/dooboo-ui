@@ -7,6 +7,7 @@ export * from './Button';
 export * from './ButtonGroup';
 export * from './IconButton';
 export * from './Checkbox';
+export * from './EditText';
 export * from './EditTextLegacy';
 export * from './NetworkImage';
 export * from './Progressbar';
