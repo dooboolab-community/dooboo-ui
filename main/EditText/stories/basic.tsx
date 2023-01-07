@@ -2,14 +2,30 @@ import React, {useState} from 'react';
 import {SafeAreaView, ScrollView} from 'react-native';
 
 import {EditText} from '..';
+import type {EditTextStatus} from '..';
+import type {ReactElement} from 'react';
 import {Typography} from '../../Typography';
 import {useTheme} from '@dooboo-ui/theme';
 
-const EditTextBasic = (): React.ReactElement => {
+const EditTextBasic = (): ReactElement => {
   const {theme} = useTheme();
   const [text, setText] = useState<string>('');
 
-  const onTextChanged = (str): void => setText(str);
+  const onTextChanged = (str: string): void => setText(str);
+
+  const renderCustomLabel = (status: EditTextStatus): ReactElement => {
+    return (
+      <Typography.Body1
+        style={{
+          color: status === 'focused' ? theme.text.link : theme.text.default,
+          fontSize: 12,
+          fontWeight: 'bold',
+        }}
+      >
+        Custom label [{status}]
+      </Typography.Body1>
+    );
+  };
 
   return (
     <SafeAreaView style={{flex: 1, alignSelf: 'stretch'}}>
@@ -84,8 +100,15 @@ const EditTextBasic = (): React.ReactElement => {
           editable={false}
           value={text}
           onChangeText={(str) => onTextChanged(str)}
+          style={{marginTop: 20, paddingHorizontal: 36}}
+        />
+
+        <EditText
+          placeholder="Disabled example"
+          label={renderCustomLabel}
+          value={text}
+          onChangeText={(str) => onTextChanged(str)}
           style={{marginTop: 20, paddingHorizontal: 36, marginBottom: 40}}
-          // error="This is error message"
         />
       </ScrollView>
     </SafeAreaView>

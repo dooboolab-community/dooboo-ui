@@ -18,6 +18,14 @@ type Styles = {
   error?: StyleProp<TextStyle>;
 };
 
+export type EditTextStatus =
+  | 'disabled'
+  | 'error'
+  | 'focused'
+  | 'hovered'
+  | 'default';
+type RenderType = (stats: EditTextStatus) => ReactElement;
+
 export type EditTextProps = {
   testID?: TextInputProps['testID'];
   inputRef?: LegacyRef<TextInput>;
@@ -26,9 +34,9 @@ export type EditTextProps = {
   styles?: Styles;
 
   // Components
-  label?: string | ReactElement;
-  input?: string | ReactElement;
-  error?: string | ReactElement;
+  label?: string | RenderType;
+  error?: string | RenderType;
+
   direction?: 'row' | 'column';
   decoration?: 'underline' | 'boxed';
 
@@ -116,6 +124,16 @@ export const EditText: FC<EditTextProps> = (props) => {
     ? theme.text.default
     : theme.text.placeholder;
 
+  const status: EditTextStatus = !editable
+    ? 'disabled'
+    : error
+    ? 'error'
+    : hovered
+    ? 'hovered'
+    : focused
+    ? 'focused'
+    : 'default';
+
   return (
     <View
       testID="edit-text"
@@ -155,7 +173,7 @@ export const EditText: FC<EditTextProps> = (props) => {
             {label}
           </Text>
         ) : label ? (
-          label
+          label(status)
         ) : null}
         <TextInput
           testID={testID}
@@ -190,18 +208,20 @@ export const EditText: FC<EditTextProps> = (props) => {
           {...textInputProps}
         />
       </View>
-      {error && typeof error === 'string' ? (
-        <Text
-          style={[
-            {color: theme.text.validation},
-            {marginTop: 8, marginHorizontal: 10},
-            styles?.error,
-          ]}
-        >
-          {error}
-        </Text>
-      ) : error ? (
-        error
+      {error ? (
+        typeof error === 'string' ? (
+          <Text
+            style={[
+              {color: theme.text.validation},
+              {marginTop: 8, marginHorizontal: 10},
+              styles?.error,
+            ]}
+          >
+            {error}
+          </Text>
+        ) : (
+          error?.(status)
+        )
       ) : null}
 
       {/* {textInputProps?.maxLength && (
