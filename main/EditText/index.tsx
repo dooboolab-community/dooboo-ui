@@ -52,9 +52,10 @@ export type EditTextProps = {
   autoCapitalize?: TextInputProps['autoCapitalize'];
   secureTextEntry?: TextInputProps['secureTextEntry'];
   onSubmitEditing?: TextInputProps['onSubmitEditing'];
+  maxLength?: TextInputProps['maxLength'];
 
   textInputProps?: Omit<
-    'TextInputProps',
+    TextInputProps,
     | 'value'
     | 'onChange'
     | 'multiline'
@@ -68,6 +69,7 @@ export type EditTextProps = {
     | 'autoCapitalize'
     | 'secureTextEntry'
     | 'onSubmitEditing'
+    | 'maxLength'
   >;
 };
 
@@ -89,6 +91,7 @@ export const EditText: FC<EditTextProps> = (props) => {
     onFocus,
     onBlur,
     onSubmitEditing,
+    maxLength,
     autoCapitalize = 'none',
     secureTextEntry = false,
     editable = true,
@@ -199,6 +202,7 @@ export const EditText: FC<EditTextProps> = (props) => {
             onBlur?.(e);
           }}
           multiline={multiline}
+          maxLength={maxLength}
           value={value}
           placeholder={placeholder}
           placeholderTextColor={theme.text.placeholder || placeholderColor}
@@ -207,7 +211,20 @@ export const EditText: FC<EditTextProps> = (props) => {
           onSubmitEditing={onSubmitEditing}
           {...textInputProps}
         />
+
+        {maxLength ? (
+          <Text
+            style={{
+              position: 'absolute',
+              color: theme.text.placeholder,
+              alignSelf: 'flex-end',
+              fontSize: 14,
+              bottom: -28,
+            }}
+          >{`${value.length}/${maxLength}`}</Text>
+        ) : null}
       </View>
+
       {error ? (
         typeof error === 'string' ? (
           <Text
@@ -223,16 +240,6 @@ export const EditText: FC<EditTextProps> = (props) => {
           error?.(status)
         )
       ) : null}
-
-      {/* {textInputProps?.maxLength && (
-            <Text
-            // style={
-            //   value.length < textInputProps.maxLength
-            //     ? compositeStyles.counter
-            //     : [compositeStyles.errorText, {color: errorColor}]
-            // }
-            >{`${value.length}/${textInputProps.maxLength}`}</Text>
-          )} */}
     </View>
   );
 };

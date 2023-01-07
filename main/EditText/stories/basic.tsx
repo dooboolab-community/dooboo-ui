@@ -84,6 +84,16 @@ const EditTextBasic = (): ReactElement => {
         />
 
         <EditText
+          direction="column"
+          placeholder="multiline example"
+          label="multiline"
+          multiline={true}
+          value={text}
+          onChangeText={(str) => onTextChanged(str)}
+          style={{marginTop: 20, paddingHorizontal: 36}}
+        />
+
+        <EditText
           direction="row"
           placeholder="Error example"
           label="Email"
@@ -104,11 +114,20 @@ const EditTextBasic = (): ReactElement => {
         />
 
         <EditText
-          placeholder="Disabled example"
+          placeholder="Custom label example"
           label={renderCustomLabel}
           value={text}
           onChangeText={(str) => onTextChanged(str)}
+          style={{marginTop: 20, paddingHorizontal: 36}}
+        />
+
+        <EditText
+          placeholder="Please write text"
+          value={text}
+          error="error text"
+          onChangeText={(str) => onTextChanged(str)}
           style={{marginTop: 20, paddingHorizontal: 36, marginBottom: 40}}
+          maxLength={10}
         />
       </ScrollView>
     </SafeAreaView>
