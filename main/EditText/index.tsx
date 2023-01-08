@@ -129,8 +129,6 @@ export const EditText: FC<EditTextProps> = (props) => {
     ? colors.focused || theme.text.default
     : hovered
     ? colors.hovered || theme.text.default
-    : value
-    ? colors.basic || theme.text.default
     : colors.placeholder || theme.text.placeholder;
 
   // Default label placeholder color has different value compared to default input placeholder color
