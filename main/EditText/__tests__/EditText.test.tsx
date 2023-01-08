@@ -1,7 +1,7 @@
-import type {EditTextProps, EditTextStatus} from '..';
 import {act, fireEvent, render} from '@testing-library/react-native';
 
 import {EditText} from '..';
+import type {EditTextProps} from '..';
 import RNWebHooks from 'react-native-web-hooks';
 import React from 'react';
 import type {ReactElement} from 'react';
@@ -61,7 +61,7 @@ describe('[EditText]', () => {
       });
 
       it('should render custom label style', async () => {
-        const renderCustomLabel = (status: EditTextStatus): ReactElement => {
+        const renderCustomLabel = (): ReactElement => {
           return (
             <Text
               style={{

@@ -1,4 +1,4 @@
-import type {FC, LegacyRef, ReactElement} from 'react';
+import type {FC, LegacyRef, ReactElement, ReactNode} from 'react';
 import {Platform, Text, TextInput, View} from 'react-native';
 import React, {useRef, useState} from 'react';
 import type {
@@ -134,7 +134,6 @@ export const EditText: FC<EditTextProps> = (props) => {
     : colors.placeholder || theme.text.placeholder;
 
   // Default label placeholder color has different value compared to default input placeholder color
-
   const labelPlaceholderColor = defaultColor ===
     (colors.placeholder || theme.text.placeholder) && {
     color: colors.placeholder || theme.text.disabled,
@@ -150,15 +149,20 @@ export const EditText: FC<EditTextProps> = (props) => {
     ? 'focused'
     : 'basic';
 
-  return (
-    <View
-      testID="edit-text"
-      ref={Platform.select({web: ref, default: undefined})}
-      style={[
-        {alignSelf: 'stretch', padding: 12, flexDirection: 'column'},
-        style,
-      ]}
-    >
+  const renderLabel = (): ReactElement | null => {
+    return typeof label === 'string' ? (
+      <Text
+        style={[{color: defaultColor}, labelPlaceholderColor, styles?.label]}
+      >
+        {label}
+      </Text>
+    ) : label ? (
+      label(status)
+    ) : null;
+  };
+
+  const renderContainer = (children: ReactNode): ReactElement => {
+    return (
       <View
         testID="container"
         style={[
@@ -179,84 +183,102 @@ export const EditText: FC<EditTextProps> = (props) => {
           styles?.container,
         ]}
       >
-        {typeof label === 'string' ? (
-          <Text
-            style={[
-              {color: defaultColor},
-              labelPlaceholderColor,
-              styles?.label,
-            ]}
-          >
-            {label}
-          </Text>
-        ) : label ? (
-          label(status)
-        ) : null}
-        <TextInput
-          testID={testID}
-          ref={inputRef}
-          autoCapitalize={autoCapitalize}
-          secureTextEntry={secureTextEntry}
-          style={[
-            // Stretch input in order to make remaining space clickable
-            {flex: 1, alignSelf: 'stretch'},
-            // @ts-ignore
-            Platform.OS === 'web' && {outlineWidth: 0},
-            direction === 'column' ? {paddingTop: 12} : {paddingLeft: 12},
-            {color: defaultColor},
-            styles?.input,
-          ]}
-          editable={editable}
-          onFocus={(e) => {
-            setFocused(true);
-            onFocus?.(e);
-          }}
-          onBlur={(e) => {
-            setFocused(false);
-            onBlur?.(e);
-          }}
-          multiline={multiline}
-          maxLength={maxLength}
-          value={value}
-          placeholder={placeholder}
-          placeholderTextColor={placeholderColor || theme.text.placeholder}
-          onChange={onChange}
-          onChangeText={onChangeText}
-          onSubmitEditing={onSubmitEditing}
-          {...textInputProps}
-        />
-
-        {maxLength ? (
-          <Text
-            style={[
-              {
-                position: 'absolute',
-                color: theme.text.placeholder,
-                alignSelf: 'flex-end',
-                fontSize: 12,
-                bottom: -24,
-              },
-              styles?.counter,
-            ]}
-          >{`${value.length}/${maxLength}`}</Text>
-        ) : null}
+        {children}
       </View>
+    );
+  };
 
-      {error ? (
-        typeof error === 'string' ? (
-          <Text
-            style={[
-              {color: theme.text.validation},
-              {marginTop: 8, marginHorizontal: 10},
-              styles?.error,
-            ]}
-          >
-            {error}
-          </Text>
-        ) : (
-          error?.(status)
-        )
-      ) : null}
+  const renderInput = (): ReactElement => {
+    return (
+      <TextInput
+        testID={testID}
+        ref={inputRef}
+        autoCapitalize={autoCapitalize}
+        secureTextEntry={secureTextEntry}
+        style={[
+          // Stretch input in order to make remaining space clickable
+          {flex: 1, alignSelf: 'stretch'},
+          // @ts-ignore
+          Platform.OS === 'web' && {outlineWidth: 0},
+          direction === 'column' ? {paddingTop: 12} : {paddingLeft: 12},
+          {color: defaultColor},
+          styles?.input,
+        ]}
+        editable={editable}
+        onFocus={(e) => {
+          setFocused(true);
+          onFocus?.(e);
+        }}
+        onBlur={(e) => {
+          setFocused(false);
+          onBlur?.(e);
+        }}
+        multiline={multiline}
+        maxLength={maxLength}
+        value={value}
+        placeholder={placeholder}
+        placeholderTextColor={placeholderColor || theme.text.placeholder}
+        onChange={onChange}
+        onChangeText={onChangeText}
+        onSubmitEditing={onSubmitEditing}
+        {...textInputProps}
+      />
+    );
+  };
+
+  const renderError = (): ReactElement | null => {
+    return error ? (
+      typeof error === 'string' ? (
+        <Text
+          style={[
+            {color: theme.text.validation},
+            {marginTop: 8, marginHorizontal: 10},
+            styles?.error,
+          ]}
+        >
+          {error}
+        </Text>
+      ) : (
+        error?.(status)
+      )
+    ) : null;
+  };
+
+  const renderCounter = (): ReactElement | null => {
+    return maxLength ? (
+      <Text
+        style={[
+          {
+            position: 'absolute',
+            color: theme.text.placeholder,
+            alignSelf: 'flex-end',
+            fontSize: 12,
+            bottom: -24,
+          },
+          styles?.counter,
+        ]}
+      >{`${value.length}/${maxLength}`}</Text>
+    ) : null;
+  };
+
+  return (
+    <View
+      testID="edit-text"
+      ref={Platform.select({web: ref, default: undefined})}
+      style={[
+        {alignSelf: 'stretch', padding: 12, flexDirection: 'column'},
+        style,
+      ]}
+    >
+      {renderContainer(
+        <>
+          {renderLabel()}
+          {renderInput()}
+          {renderCounter()}
+        </>,
+      )}
+
+      {renderError()}
     </View>
   );
 };
