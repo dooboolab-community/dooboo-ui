@@ -476,7 +476,7 @@ describe('[EditTextLegacy]', () => {
       });
     });
 
-    //? Below tests is emitting console error but this is expeted
+    //? Below tests is emitting console error but this is expected
     describe('web', () => {
       beforeAll(() => {
         jest.mock('react-native/Libraries/Utilities/Platform', () => ({

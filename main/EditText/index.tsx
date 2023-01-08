@@ -128,7 +128,7 @@ export const EditText: FC<EditTextProps> = (props) => {
     : focused
     ? colors.focused || theme.text.default
     : hovered
-    ? colors.hovered
+    ? colors.hovered || theme.text.default
     : value
     ? colors.basic || theme.text.default
     : colors.placeholder || theme.text.placeholder;
@@ -219,7 +219,7 @@ export const EditText: FC<EditTextProps> = (props) => {
           maxLength={maxLength}
           value={value}
           placeholder={placeholder}
-          placeholderTextColor={theme.text.placeholder || placeholderColor}
+          placeholderTextColor={placeholderColor || theme.text.placeholder}
           onChange={onChange}
           onChangeText={onChangeText}
           onSubmitEditing={onSubmitEditing}
