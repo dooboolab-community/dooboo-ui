@@ -21,11 +21,7 @@ describe('[EditText]', () => {
   jest.spyOn(console, 'error').mockImplementation(() => {});
 
   beforeAll(() => {
-    testingLib = render(
-      component({
-        autoCapitalize: 'words',
-      }),
-    );
+    testingLib = render(component());
   });
 
   describe('hovered', () => {
@@ -35,11 +31,7 @@ describe('[EditText]', () => {
 
     describe('labeText', () => {
       it('should render label text', async () => {
-        testingLib = render(
-          component({
-            label: 'label text',
-          }),
-        );
+        testingLib = render(component({label: 'label text'}));
 
         const label = testingLib.getByText('label text');
 
@@ -51,17 +43,14 @@ describe('[EditText]', () => {
           component({
             label: 'label text',
             styles: {
-              label: {
-                color: 'green',
-              },
+              label: {color: 'green'},
             },
           }),
         );
 
         const label = testingLib.getByText('label text');
-        const labelTextStyle = label.props.style;
 
-        expect(labelTextStyle).toBeTruthy();
+        expect(label).toHaveStyle({color: 'green'});
       });
 
       describe('unhovered', () => {
@@ -75,9 +64,7 @@ describe('[EditText]', () => {
               testID: 'INPUT_TEST',
               label: 'label text',
               styles: {
-                label: {
-                  color: 'green',
-                },
+                label: {color: 'green'},
               },
             }),
           );
@@ -90,9 +77,7 @@ describe('[EditText]', () => {
 
           const label = testingLib.getByText('label text');
 
-          const unhoveredTextStyle = label.props.style[2];
-
-          expect(unhoveredTextStyle).toEqual({color: 'green'});
+          expect(label).toHaveStyle({color: 'green'});
         });
 
         it('should render error element when provided', async () => {

@@ -24,6 +24,7 @@ export type EditTextStatus =
   | 'focused'
   | 'hovered'
   | 'basic';
+
 type RenderType = (stats: EditTextStatus) => ReactElement;
 
 export type EditTextProps = {
@@ -71,6 +72,15 @@ export type EditTextProps = {
     | 'onSubmitEditing'
     | 'maxLength'
   >;
+
+  colors?: {
+    basic?: string;
+    disabled?: string;
+    error?: string;
+    focused?: string;
+    hovered?: string;
+    placeholder?: string;
+  };
 };
 
 export const EditText: FC<EditTextProps> = (props) => {
@@ -97,6 +107,7 @@ export const EditText: FC<EditTextProps> = (props) => {
     editable = true,
     direction = 'column',
     decoration = 'underline',
+    colors = {},
   } = props;
 
   const {theme} = useTheme();
@@ -104,28 +115,26 @@ export const EditText: FC<EditTextProps> = (props) => {
   const [focused, setFocused] = useState(false);
   const ref = useRef<View>(null);
   const hovered = useHover(ref);
-  // `focused` or `hovered` has less priority than `error`
-  const focusedOrHovered = (focused || hovered) && !error;
 
   const defaultContainerStyle: ViewStyle = {
     flexDirection: direction,
   };
 
-  const defaultInputColor = !editable
-    ? theme.text.disabled
+  const defaultColor = !editable
+    ? colors.disabled || theme.text.disabled
     : error
-    ? theme.text.validation
-    : focusedOrHovered
-    ? theme.text.default
-    : theme.text.placeholder;
+    ? colors.error || theme.text.validation
+    : focused
+    ? colors.focused || theme.text.default
+    : hovered
+    ? colors.hovered
+    : value
+    ? colors.basic || theme.text.default
+    : colors.placeholder || theme.text.placeholder;
 
-  const defaultLabelColor = !editable
-    ? theme.text.disabled
-    : error
-    ? theme.text.validation
-    : focusedOrHovered
-    ? theme.text.default
-    : theme.text.placeholder;
+  // Default label placeholder color has different value compared to default input placeholder color
+  const isPlaceholderColor =
+    defaultColor === (colors.placeholder || theme.text.placeholder);
 
   const status: EditTextStatus = !editable
     ? 'disabled'
@@ -153,7 +162,7 @@ export const EditText: FC<EditTextProps> = (props) => {
           {
             flexDirection: direction,
             alignItems: direction === 'row' ? 'center' : 'flex-start',
-            borderColor: defaultInputColor,
+            borderColor: defaultColor,
             paddingVertical: 12,
             paddingHorizontal: 10,
           },
@@ -166,9 +175,9 @@ export const EditText: FC<EditTextProps> = (props) => {
         {typeof label === 'string' ? (
           <Text
             style={[
-              {color: defaultLabelColor},
-              focusedOrHovered && {
-                color: theme.text.default,
+              {color: defaultColor},
+              !!isPlaceholderColor && {
+                color: colors.placeholder || theme.text.disabled,
               },
               styles?.label,
             ]}
@@ -189,7 +198,7 @@ export const EditText: FC<EditTextProps> = (props) => {
             // @ts-ignore
             Platform.OS === 'web' && {outlineWidth: 0},
             direction === 'column' ? {paddingTop: 12} : {paddingLeft: 12},
-            {color: defaultInputColor},
+            {color: defaultColor},
             styles?.input,
           ]}
           editable={editable}
