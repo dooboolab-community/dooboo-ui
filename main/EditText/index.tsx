@@ -1,4 +1,4 @@
-import type {FC, LegacyRef, ReactElement} from 'react';
+import type {FC, LegacyRef, ReactElement, ReactNode} from 'react';
 import {Platform, Text, TextInput, View} from 'react-native';
 import React, {useRef, useState} from 'react';
 import type {
@@ -16,6 +16,7 @@ type Styles = {
   label?: StyleProp<TextStyle>;
   input?: StyleProp<TextStyle>;
   error?: StyleProp<TextStyle>;
+  counter?: StyleProp<TextStyle>;
 };
 
 export type EditTextStatus =
@@ -24,6 +25,7 @@ export type EditTextStatus =
   | 'focused'
   | 'hovered'
   | 'basic';
+
 type RenderType = (stats: EditTextStatus) => ReactElement;
 
 export type EditTextProps = {
@@ -71,6 +73,15 @@ export type EditTextProps = {
     | 'onSubmitEditing'
     | 'maxLength'
   >;
+
+  colors?: {
+    basic?: string;
+    disabled?: string;
+    error?: string;
+    focused?: string;
+    hovered?: string;
+    placeholder?: string;
+  };
 };
 
 export const EditText: FC<EditTextProps> = (props) => {
@@ -97,6 +108,7 @@ export const EditText: FC<EditTextProps> = (props) => {
     editable = true,
     direction = 'column',
     decoration = 'underline',
+    colors = {},
   } = props;
 
   const {theme} = useTheme();
@@ -104,28 +116,26 @@ export const EditText: FC<EditTextProps> = (props) => {
   const [focused, setFocused] = useState(false);
   const ref = useRef<View>(null);
   const hovered = useHover(ref);
-  // `focused` or `hovered` has less priority than `error`
-  const focusedOrHovered = (focused || hovered) && !error;
 
   const defaultContainerStyle: ViewStyle = {
     flexDirection: direction,
   };
 
-  const defaultInputColor = !editable
-    ? theme.text.disabled
+  const defaultColor = !editable
+    ? colors.disabled || theme.text.disabled
     : error
-    ? theme.text.validation
-    : focusedOrHovered
-    ? theme.text.default
-    : theme.text.placeholder;
+    ? colors.error || theme.text.validation
+    : focused
+    ? colors.focused || theme.text.default
+    : hovered
+    ? colors.hovered || theme.text.default
+    : colors.placeholder || theme.text.placeholder;
 
-  const defaultLabelColor = !editable
-    ? theme.text.disabled
-    : error
-    ? theme.text.validation
-    : focusedOrHovered
-    ? theme.text.default
-    : theme.text.placeholder;
+  // Default label placeholder color has different value compared to default input placeholder color
+  const labelPlaceholderColor = defaultColor ===
+    (colors.placeholder || theme.text.placeholder) && {
+    color: colors.placeholder || theme.text.disabled,
+  };
 
   const status: EditTextStatus = !editable
     ? 'disabled'
@@ -137,15 +147,20 @@ export const EditText: FC<EditTextProps> = (props) => {
     ? 'focused'
     : 'basic';
 
-  return (
-    <View
-      testID="edit-text"
-      ref={Platform.select({web: ref, default: undefined})}
-      style={[
-        {alignSelf: 'stretch', padding: 12, flexDirection: 'column'},
-        style,
-      ]}
-    >
+  const renderLabel = (): ReactElement | null => {
+    return typeof label === 'string' ? (
+      <Text
+        style={[{color: defaultColor}, labelPlaceholderColor, styles?.label]}
+      >
+        {label}
+      </Text>
+    ) : label ? (
+      label(status)
+    ) : null;
+  };
+
+  const renderContainer = (children: ReactNode): ReactElement => {
+    return (
       <View
         testID="container"
         style={[
@@ -153,7 +168,10 @@ export const EditText: FC<EditTextProps> = (props) => {
           {
             flexDirection: direction,
             alignItems: direction === 'row' ? 'center' : 'flex-start',
-            borderColor: defaultInputColor,
+            // Default border color follows placeholder color for the label.
+            borderColor: labelPlaceholderColor
+              ? labelPlaceholderColor.color
+              : defaultColor,
             paddingVertical: 12,
             paddingHorizontal: 10,
           },
@@ -163,83 +181,102 @@ export const EditText: FC<EditTextProps> = (props) => {
           styles?.container,
         ]}
       >
-        {typeof label === 'string' ? (
-          <Text
-            style={[
-              {color: defaultLabelColor},
-              focusedOrHovered && {
-                color: theme.text.default,
-              },
-              styles?.label,
-            ]}
-          >
-            {label}
-          </Text>
-        ) : label ? (
-          label(status)
-        ) : null}
-        <TextInput
-          testID={testID}
-          ref={inputRef}
-          autoCapitalize={autoCapitalize}
-          secureTextEntry={secureTextEntry}
-          style={[
-            // Stretch input in order to make remaining space clickable
-            {flex: 1, alignSelf: 'stretch'},
-            // @ts-ignore
-            Platform.OS === 'web' && {outlineWidth: 0},
-            direction === 'column' ? {paddingTop: 12} : {paddingLeft: 12},
-            {color: defaultInputColor},
-            styles?.input,
-          ]}
-          editable={editable}
-          onFocus={(e) => {
-            setFocused(true);
-            onFocus?.(e);
-          }}
-          onBlur={(e) => {
-            setFocused(false);
-            onBlur?.(e);
-          }}
-          multiline={multiline}
-          maxLength={maxLength}
-          value={value}
-          placeholder={placeholder}
-          placeholderTextColor={theme.text.placeholder || placeholderColor}
-          onChange={onChange}
-          onChangeText={onChangeText}
-          onSubmitEditing={onSubmitEditing}
-          {...textInputProps}
-        />
-
-        {maxLength ? (
-          <Text
-            style={{
-              position: 'absolute',
-              color: theme.text.placeholder,
-              alignSelf: 'flex-end',
-              fontSize: 14,
-              bottom: -28,
-            }}
-          >{`${value.length}/${maxLength}`}</Text>
-        ) : null}
+        {children}
       </View>
+    );
+  };
 
-      {error ? (
-        typeof error === 'string' ? (
-          <Text
-            style={[
-              {color: theme.text.validation},
-              {marginTop: 8, marginHorizontal: 10},
-              styles?.error,
-            ]}
-          >
-            {error}
-          </Text>
-        ) : (
-          error?.(status)
-        )
-      ) : null}
+  const renderInput = (): ReactElement => {
+    return (
+      <TextInput
+        testID={testID}
+        ref={inputRef}
+        autoCapitalize={autoCapitalize}
+        secureTextEntry={secureTextEntry}
+        style={[
+          // Stretch input in order to make remaining space clickable
+          {flex: 1, alignSelf: 'stretch'},
+          // @ts-ignore
+          Platform.OS === 'web' && {outlineWidth: 0},
+          direction === 'column' ? {paddingTop: 12} : {paddingLeft: 12},
+          {color: defaultColor},
+          styles?.input,
+        ]}
+        editable={editable}
+        onFocus={(e) => {
+          setFocused(true);
+          onFocus?.(e);
+        }}
+        onBlur={(e) => {
+          setFocused(false);
+          onBlur?.(e);
+        }}
+        multiline={multiline}
+        maxLength={maxLength}
+        value={value}
+        placeholder={placeholder}
+        placeholderTextColor={placeholderColor || theme.text.placeholder}
+        onChange={onChange}
+        onChangeText={onChangeText}
+        onSubmitEditing={onSubmitEditing}
+        {...textInputProps}
+      />
+    );
+  };
+
+  const renderError = (): ReactElement | null => {
+    return error ? (
+      typeof error === 'string' ? (
+        <Text
+          style={[
+            {color: theme.text.validation},
+            {marginTop: 8, marginHorizontal: 10},
+            styles?.error,
+          ]}
+        >
+          {error}
+        </Text>
+      ) : (
+        error?.(status)
+      )
+    ) : null;
+  };
+
+  const renderCounter = (): ReactElement | null => {
+    return maxLength ? (
+      <Text
+        style={[
+          {
+            position: 'absolute',
+            color: theme.text.placeholder,
+            alignSelf: 'flex-end',
+            fontSize: 12,
+            bottom: -24,
+          },
+          styles?.counter,
+        ]}
+      >{`${value.length}/${maxLength}`}</Text>
+    ) : null;
+  };
+
+  return (
+    <View
+      testID="edit-text"
+      ref={Platform.select({web: ref, default: undefined})}
+      style={[
+        {alignSelf: 'stretch', padding: 12, flexDirection: 'column'},
+        style,
+      ]}
+    >
+      {renderContainer(
+        <>
+          {renderLabel()}
+          {renderInput()}
+          {renderCounter()}
+        </>,
+      )}
+
+      {renderError()}
     </View>
   );
 };
