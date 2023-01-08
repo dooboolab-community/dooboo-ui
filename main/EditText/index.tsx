@@ -16,6 +16,7 @@ type Styles = {
   label?: StyleProp<TextStyle>;
   input?: StyleProp<TextStyle>;
   error?: StyleProp<TextStyle>;
+  counter?: StyleProp<TextStyle>;
 };
 
 export type EditTextStatus =
@@ -133,8 +134,11 @@ export const EditText: FC<EditTextProps> = (props) => {
     : colors.placeholder || theme.text.placeholder;
 
   // Default label placeholder color has different value compared to default input placeholder color
-  const isPlaceholderColor =
-    defaultColor === (colors.placeholder || theme.text.placeholder);
+
+  const labelPlaceholderColor = defaultColor ===
+    (colors.placeholder || theme.text.placeholder) && {
+    color: colors.placeholder || theme.text.disabled,
+  };
 
   const status: EditTextStatus = !editable
     ? 'disabled'
@@ -162,7 +166,10 @@ export const EditText: FC<EditTextProps> = (props) => {
           {
             flexDirection: direction,
             alignItems: direction === 'row' ? 'center' : 'flex-start',
-            borderColor: defaultColor,
+            // Default border color follows placeholder color for the label.
+            borderColor: labelPlaceholderColor
+              ? labelPlaceholderColor.color
+              : defaultColor,
             paddingVertical: 12,
             paddingHorizontal: 10,
           },
@@ -176,9 +183,7 @@ export const EditText: FC<EditTextProps> = (props) => {
           <Text
             style={[
               {color: defaultColor},
-              !!isPlaceholderColor && {
-                color: colors.placeholder || theme.text.disabled,
-              },
+              labelPlaceholderColor,
               styles?.label,
             ]}
           >
@@ -223,13 +228,16 @@ export const EditText: FC<EditTextProps> = (props) => {
 
         {maxLength ? (
           <Text
-            style={{
-              position: 'absolute',
-              color: theme.text.placeholder,
-              alignSelf: 'flex-end',
-              fontSize: 14,
-              bottom: -28,
-            }}
+            style={[
+              {
+                position: 'absolute',
+                color: theme.text.placeholder,
+                alignSelf: 'flex-end',
+                fontSize: 12,
+                bottom: -24,
+              },
+              styles?.counter,
+            ]}
           >{`${value.length}/${maxLength}`}</Text>
         ) : null}
       </View>
