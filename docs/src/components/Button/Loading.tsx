@@ -9,7 +9,7 @@ import styled from '@emotion/native';
 const StoryContainer = styled.View`
   flex: 1;
   align-self: stretch;
-  background-color: ${({theme}) => theme.bg.default};
+  background-color: ${({theme}) => theme.bg.basic};
 
   justify-content: center;
   align-items: center;

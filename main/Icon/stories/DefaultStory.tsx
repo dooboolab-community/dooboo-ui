@@ -1,5 +1,5 @@
 import type {FC} from 'react';
-import {Icon} from '../../main/Icon';
+import {Icon} from '../index';
 import React from 'react';
 import {View} from 'react-native';
 import styled from '@emotion/native';
@@ -8,7 +8,7 @@ import {useFonts} from 'expo-font';
 const StoryContainer = styled.View`
   flex: 1;
   align-self: stretch;
-  background-color: ${({theme}) => theme.bg.default};
+  background-color: ${({theme}) => theme.bg.basic};
 `;
 
 const ScrollContainer = styled.ScrollView`
@@ -19,7 +19,7 @@ const Container = styled.View`
   flex: 1;
   align-self: stretch;
   flex-wrap: wrap;
-  background-color: ${({theme}) => theme.bg.default};
+  background-color: ${({theme}) => theme.bg.basic};
   width: 100%;
   margin-top: 20px;
   margin-bottom: 20px;
@@ -36,7 +36,7 @@ const StyledIcon = styled(Icon)`
 
 const IconStory: FC = () => {
   const [fontsLoaded] = useFonts({
-    IcoMoon: require('../../main/Icon/doobooui.ttf'),
+    IcoMoon: require('../doobooui.ttf'),
   });
 
   if (!fontsLoaded) {

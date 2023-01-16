@@ -1,4 +1,4 @@
-import type {IconButtonProps} from '../../main';
+import type {Props} from '../../main';
 import {IconButton} from '../../main';
 
 import React from 'react';
@@ -14,7 +14,7 @@ jest.mock('react-native-web-hooks', () => ({
   useHover: () => true,
 }));
 
-const Component = (props?: IconButtonProps): ReactElement =>
+const Component = (props?: Props): ReactElement =>
   createComponent(<IconButton {...props} />);
 
 describe('[AddIcon]', () => {
@@ -30,7 +30,6 @@ describe('[AddIcon]', () => {
     testingLib = render(
       Component({
         type: 'outlined',
-        icon: <View />,
       }),
     );
 
@@ -43,7 +42,6 @@ describe('[AddIcon]', () => {
     it('should render `loading` button', () => {
       testingLib = render(
         Component({
-          icon: <View />,
           loading: true,
         }),
       );
@@ -56,7 +54,6 @@ describe('[AddIcon]', () => {
     it('should render `disabled` button', () => {
       testingLib = render(
         Component({
-          icon: <View />,
           loading: true,
           disabled: true,
         }),
@@ -72,7 +69,6 @@ describe('[AddIcon]', () => {
     it('should render size==="large"', () => {
       testingLib = render(
         Component({
-          icon: <View />,
           size: 'large',
         }),
       );
@@ -85,7 +81,6 @@ describe('[AddIcon]', () => {
     it('should render size==="small"', () => {
       testingLib = render(
         Component({
-          icon: <View />,
           size: 'small',
         }),
       );
@@ -100,7 +95,6 @@ describe('[AddIcon]', () => {
     it('should render color==="info"', () => {
       testingLib = render(
         Component({
-          icon: <View />,
           color: 'info',
         }),
       );
@@ -113,7 +107,6 @@ describe('[AddIcon]', () => {
     it('should render color==="primary"', () => {
       testingLib = render(
         Component({
-          icon: <View />,
           color: 'primary',
         }),
       );
@@ -126,7 +119,6 @@ describe('[AddIcon]', () => {
     it('should render color==="secondary"', () => {
       testingLib = render(
         Component({
-          icon: <View />,
           color: 'secondary',
         }),
       );
@@ -139,7 +131,6 @@ describe('[AddIcon]', () => {
     it('should render color==="danger"', () => {
       testingLib = render(
         Component({
-          icon: <View />,
           color: 'danger',
         }),
       );
@@ -152,7 +143,6 @@ describe('[AddIcon]', () => {
     it('should render color==="warning"', () => {
       testingLib = render(
         Component({
-          icon: <View />,
           color: 'warning',
         }),
       );
@@ -166,7 +156,6 @@ describe('[AddIcon]', () => {
   it('should render `disabled` button', () => {
     testingLib = render(
       Component({
-        icon: <View />,
         disabled: true,
       }),
     );

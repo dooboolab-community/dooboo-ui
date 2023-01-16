@@ -13,7 +13,7 @@ const ScrollContainer = styled.ScrollView`
 `;
 
 const StyledText = styled.Text`
-  color: ${({theme}) => theme.text.default};
+  color: ${({theme}) => theme.text.basic};
 `;
 
 const types: (CheckboxType | undefined)[] = [
@@ -136,7 +136,7 @@ const CheckboxStory: FC = () => {
   return (
     <View
       style={{
-        backgroundColor: theme.bg.default,
+        backgroundColor: theme.bg.basic,
         flex: 1,
         alignSelf: 'stretch',
       }}

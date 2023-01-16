@@ -68,7 +68,7 @@ const StyledCheckbox = styled(CheckboxWrapper)<{
 `;
 
 const StyledCheck = styled(Icon)<{theme: DoobooTheme; checked?: boolean}>`
-  color: ${({theme, checked}) => (checked ? theme.bg.default : 'transparent')};
+  color: ${({theme, checked}) => (checked ? theme.bg.basic : 'transparent')};
 `;
 
 export const Checkbox: FC<CheckboxProps> = ({

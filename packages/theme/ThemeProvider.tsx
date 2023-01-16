@@ -49,10 +49,6 @@ const genTheme = (type: ThemeType, themeParam: ThemeParam): any => {
     },
     button: {
       ...theme.button,
-      brand: {
-        ...theme.button.brand,
-        ...(themeParam?.[type]?.button?.brand || {}),
-      },
       primary: {
         ...theme.button.primary,
         ...(themeParam?.[type]?.button?.primary || {}),
@@ -60,18 +56,6 @@ const genTheme = (type: ThemeType, themeParam: ThemeParam): any => {
       secondary: {
         ...theme.button.secondary,
         ...(themeParam?.[type]?.button?.secondary || {}),
-      },
-      accept: {
-        ...theme.button.accept,
-        ...(themeParam?.[type]?.button?.accept || {}),
-      },
-      info: {
-        ...theme.button.info,
-        ...(themeParam?.[type]?.button?.info || {}),
-      },
-      link: {
-        ...theme.button.link,
-        ...(themeParam?.[type]?.button?.link || {}),
       },
       success: {
         ...theme.button.success,
@@ -84,6 +68,10 @@ const genTheme = (type: ThemeType, themeParam: ThemeParam): any => {
       danger: {
         ...theme.button.danger,
         ...(themeParam?.[type]?.button?.danger || {}),
+      },
+      info: {
+        ...theme.button.info,
+        ...(themeParam?.[type]?.button?.info || {}),
       },
       light: {
         ...theme.button.light,

@@ -17,15 +17,23 @@ Documented in [dooboo-ui.dooboolab.com](https://dooboo-ui.dooboolab.com/?path=/d
 
 ```ts
 export const colors = {
-    brand: '#9E45B3',
-    primary: '#34356C',
-    secondary: '#6BF3C5',
-    accept: '#00D8CB',
-    info: '#307EF1',
-    link: '#A351F4',
-    success: '#0FC70C',
-    warning: '#EBBD1A',
-    danger: '#F84444',
+    primaryLight: '#47498A',
+    secondaryLight: '#9E45B3',
+    acceptLight: '#6BF3C5',
+    infoLight: '#307EF1',
+    linkLight: '#A351F4',
+    successLight: '#0FC70C',
+    warningLight: '#EBBD1A',
+    dangerLight: '#F84444',
+
+    primaryDark: '#585DFA',
+    secondaryDark: '#C93AEB',
+    acceptDark: '#6BF3C5',
+    infoDark: '#2998FF',
+    linkDark: '#A351F4',
+    successDark: '#2FFA86',
+    warningDark: '#F4CC3E',
+    dangerDark: '#FF3C3C',
 
     white: '#FFFFFF',
     gray1: '#EDEDED',
@@ -35,7 +43,8 @@ export const colors = {
     gray5: '#787878',
     gray6: '#4D4D4D',
     gray7: '#474747',
-    gray8: '#1E1E1E',
+    gray8: '#282828',
+    gray9: '#1E1E1E',
     black: '#000000',
     red1: '#FF2C2C',
     red2: '#DA0000',
@@ -43,25 +52,24 @@ export const colors = {
 
 export const light = {
     bg: {
-        default: colors.white,
+        basic: colors.white,
         paper: colors.gray1,
         disabled: colors.gray3,
         border: colors.gray2,
         borderContrast: colors.gray7,
     },
     role: {
-        brand: colors.brand,
-        primary: colors.primary,
-        secondary: colors.secondary,
-        accept: colors.accept,
-        info: colors.info,
-        link: colors.link,
-        success: colors.success,
-        warning: colors.warning,
-        danger: colors.danger,
+        primary: colors.primaryLight,
+        secondary: colors.secondaryLight,
+        accept: colors.acceptLight,
+        info: colors.infoLight,
+        link: colors.linkLight,
+        success: colors.successLight,
+        warning: colors.warningLight,
+        danger: colors.dangerLight,
     },
     text: {
-        default: colors.black,
+        basic: colors.black,
         label: colors.gray6,
         placeholder: colors.gray5,
         disabled: colors.gray3,
@@ -73,41 +81,29 @@ export const light = {
         contrastValidation: colors.red1,
     },
     button: {
-        brand: {
-            text: colors.white,
-            bg: colors.brand,
-        },
         primary: {
             text: colors.white,
-            bg: colors.primary,
+            bg: colors.primaryLight,
         },
         secondary: {
             text: colors.white,
-            bg: colors.secondary,
-        },
-        accept: {
-            text: colors.white,
-            bg: colors.accept,
-        },
-        info: {
-            text: colors.white,
-            bg: colors.info,
-        },
-        link: {
-            text: colors.white,
-            bg: colors.link,
+            bg: colors.secondaryLight,
         },
         success: {
             text: colors.white,
-            bg: colors.success,
+            bg: colors.successLight,
         },
         warning: {
             text: colors.white,
-            bg: colors.warning,
+            bg: colors.warningLight,
         },
         danger: {
             text: colors.white,
-            bg: colors.danger,
+            bg: colors.dangerLight,
+        },
+        info: {
+            text: colors.white,
+            bg: colors.infoLight,
         },
         light: {
             text: colors.black,
@@ -122,25 +118,24 @@ export const light = {
 
 export const dark: typeof light = {
     bg: {
-        default: colors.black,
-        paper: colors.gray8,
+        basic: colors.black,
+        paper: colors.gray9,
         disabled: colors.gray7,
         border: colors.gray6,
         borderContrast: colors.gray2,
     },
     role: {
-        brand: colors.brand,
-        primary: colors.primary,
-        secondary: colors.secondary,
-        accept: colors.accept,
-        info: colors.info,
-        link: colors.link,
-        success: colors.success,
-        warning: colors.warning,
-        danger: colors.danger,
+        primary: colors.primaryDark,
+        secondary: colors.secondaryDark,
+        accept: colors.acceptDark,
+        info: colors.infoDark,
+        link: colors.linkDark,
+        success: colors.successDark,
+        warning: colors.warningDark,
+        danger: colors.dangerDark,
     },
     text: {
-        default: colors.white,
+        basic: colors.white,
         label: colors.gray3,
         placeholder: colors.gray4,
         disabled: colors.gray6,
@@ -152,50 +147,38 @@ export const dark: typeof light = {
         contrastValidation: colors.red2,
     },
     button: {
-        brand: {
-            text: colors.black,
-            bg: colors.brand,
-        },
         primary: {
             text: colors.black,
-            bg: colors.primary,
+            bg: colors.primaryDark,
         },
         secondary: {
             text: colors.black,
-            bg: colors.secondary,
-        },
-        accept: {
-            text: colors.black,
-            bg: colors.accept,
-        },
-        info: {
-            text: colors.black,
-            bg: colors.info,
-        },
-        link: {
-            text: colors.black,
-            bg: colors.link,
+            bg: colors.secondaryDark,
         },
         success: {
             text: colors.black,
-            bg: colors.success,
+            bg: colors.successDark,
         },
         warning: {
             text: colors.black,
-            bg: colors.warning,
+            bg: colors.warningDark,
         },
         danger: {
             text: colors.black,
-            bg: colors.danger,
+            bg: colors.dangerDark,
+        },
+        info: {
+            text: colors.black,
+            bg: colors.infoDark,
         },
         light: {
-            text: colors.white,
+            text: colors.gray1,
             bg: colors.gray8,
         },
         disabled: {
             text: colors.gray7,
-            bg: colors.gray8,
+            bg: colors.gray9,
         },
     },
-};
+}
 ```

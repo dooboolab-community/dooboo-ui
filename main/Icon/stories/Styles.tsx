@@ -1,4 +1,4 @@
-import {Icon} from '../../main/Icon';
+import {Icon} from '../index';
 import styled from '@emotion/native';
 
 export type IconName =

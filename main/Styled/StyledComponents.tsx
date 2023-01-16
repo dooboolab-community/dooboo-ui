@@ -44,14 +44,14 @@ export const ButtonWrapper = styled.View<{
     }
 
     if (outlined) {
-      return theme.bg.default;
+      return theme.bg.basic;
     }
 
     return theme.button[type ?? 'primary'].bg;
   }};
   border-color: ${({theme, type, disabled}) => {
     if (disabled) {
-      return theme.bg.default;
+      return theme.bg.basic;
     }
 
     return theme.button[type!].bg;
@@ -69,7 +69,7 @@ export const ButtonText = styled.Text<{
     theme = isEmptyObject(theme) ? light : theme;
 
     if (outlined) {
-      return theme.text.default;
+      return theme.text.basic;
     }
 
     if (disabled) {
@@ -139,7 +139,7 @@ export const RadioButtonWrapper = styled.View<{
     }
 
     if (!selected) {
-      return theme.text.default;
+      return theme.text.basic;
     }
 
     if (type === 'light') {
@@ -183,7 +183,7 @@ export const ColoredText = styled.Text<{
     }
 
     if (!selected) {
-      return theme.text.default;
+      return theme.text.basic;
     }
 
     if (type === 'light') {

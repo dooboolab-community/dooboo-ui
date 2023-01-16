@@ -2,8 +2,8 @@ import React from 'react';
 import type {FC} from 'react';
 import type {ThemeType} from '@dooboo-ui/theme';
 import {ThemeProvider} from '@dooboo-ui/theme';
-import {Button} from '../../../main/Button';
-import {Section} from '../../Styles';
+import {Button} from '../../index';
+import {Section} from '../../../GlobalStyles';
 
 const Sizes: FC<{themeType: ThemeType}> = ({themeType}) => {
   return (

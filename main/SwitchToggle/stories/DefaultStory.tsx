@@ -8,7 +8,7 @@ import {useTheme} from '@dooboo-ui/theme';
 const StoryContainer = styled.View`
   flex: 1;
   align-self: stretch;
-  background-color: ${({theme}) => theme.bg.default};
+  background-color: ${({theme}) => theme.bg.basic};
 `;
 
 const ScrollContainer = styled.ScrollView`
@@ -16,7 +16,7 @@ const ScrollContainer = styled.ScrollView`
 `;
 
 const Container = styled.View`
-  background-color: ${({theme}) => theme.bg.default};
+  background-color: ${({theme}) => theme.bg.basic};
   align-items: center;
   justify-content: center;
   width: 100%;
@@ -48,7 +48,7 @@ const SwitchToggleDefault: FC = () => {
             onPress={() => off(!on)}
             styles={{
               circleColorOff: theme.text.disabled,
-              circleColorOn: theme.text.default,
+              circleColorOn: theme.text.basic,
               backgroundColorOn: theme.bg.paper,
               backgroundColorOff: theme.bg.disabled,
             }}

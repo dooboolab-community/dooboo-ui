@@ -1,7 +1,8 @@
 import '../main/Accordion/stories';
-import '../stories/Icon';
-import '../stories/Button';
+import '../main/Button/stories';
 import '../main/ButtonGroup/stories';
+import '../main/Icon/stories';
+import '../main/IconButton/stories';
 import '../main/Checkbox/stories';
 import '../main/EditText/stories';
 import '../main/EditTextLegacy/stories';

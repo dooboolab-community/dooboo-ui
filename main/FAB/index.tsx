@@ -2,12 +2,13 @@ import {Animated, Easing, View} from 'react-native';
 import type {LayoutChangeEvent, StyleProp, ViewStyle} from 'react-native';
 import React, {useLayoutEffect, useMemo, useRef} from 'react';
 
-import type {ButtonSizeType} from '../../stories/Styles/ButtonStyles';
 import {Icon} from '../Icon';
 import {IconButton} from '../IconButton';
-import type {IconName} from '../../stories/Styles/IconStyles';
+import type {IconName} from '../Icon/stories/Styles';
 import type {ReactElement} from 'react';
 import {useTheme} from '@dooboo-ui/theme';
+
+export type ButtonSizeType = 'small' | 'medium' | 'large';
 
 interface Styles {
   FAB?: StyleProp<ViewStyle>;

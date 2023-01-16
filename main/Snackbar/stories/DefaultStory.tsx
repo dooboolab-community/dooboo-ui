@@ -15,7 +15,7 @@ const types: SnackbarType[] = [
 ];
 
 const Container = styled.SafeAreaView`
-  background-color: ${({theme}) => theme.bg.default};
+  background-color: ${({theme}) => theme.bg.basic};
 `;
 
 function SnackbarDefault(): React.ReactElement {

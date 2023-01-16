@@ -3,10 +3,10 @@ import type {FC} from 'react';
 import type {ThemeType} from '@dooboo-ui/theme';
 import {ThemeProvider} from '@dooboo-ui/theme';
 import {action} from '@storybook/addon-actions';
-import {Button} from '../../../main/Button';
-import {Description, Section} from '../../Styles';
+import {Button} from '../../../index';
+import {Description, Section} from '../../../../GlobalStyles';
 
-const OnPressEvent: FC<{themeType: ThemeType}> = ({themeType}) => {
+const Counter: FC<{themeType: ThemeType}> = ({themeType}) => {
   const [count, setCount] = useState(0);
 
   return (
@@ -34,4 +34,4 @@ const OnPressEvent: FC<{themeType: ThemeType}> = ({themeType}) => {
   );
 };
 
-export default OnPressEvent;
+export default Counter;

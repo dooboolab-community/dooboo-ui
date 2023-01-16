@@ -10,7 +10,7 @@ import {useTheme} from '@dooboo-ui/theme';
 
 const TitleContainer = styled.TouchableOpacity`
   justify-content: center;
-  background-color: ${({theme}) => theme.text.default};
+  background-color: ${({theme}) => theme.text.basic};
   height: 50px;
   z-index: 10;
 `;
@@ -20,7 +20,7 @@ const StyledIcon = styled(Icon)`
 `;
 
 const ItemContainer = styled.View`
-  background-color: ${({theme}) => theme.bg.default};
+  background-color: ${({theme}) => theme.bg.basic};
   flex-direction: row;
   align-items: center;
   width: 100%;
@@ -35,7 +35,7 @@ const StyledTitle = styled.Text`
 `;
 
 const StyledItem = styled.Text`
-  color: ${({theme}) => theme.text.default};
+  color: ${({theme}) => theme.text.basic};
   padding: 0px 20px;
 `;
 
@@ -71,7 +71,7 @@ const AccordionItem: FC<AccordionItemProps> = (props) => {
 
   const {
     titleContainer = {backgroundColor: theme.role.primary},
-    bodyContainer = {backgroundColor: theme.bg.default},
+    bodyContainer = {backgroundColor: theme.bg.basic},
   } = styles ?? {};
 
   const rotateAnimValueRef = useRef(new Animated.Value(0));

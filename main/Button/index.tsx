@@ -1,38 +1,108 @@
-import type {FC, ReactElement} from 'react';
-import type {
-  LayoutRectangle,
+import type {FC, ReactElement, ReactNode} from 'react';
+import {
   StyleProp,
-  TextProps,
+  Text,
   TextStyle,
   TouchableOpacityProps,
   ViewStyle,
+  Platform,
+  TouchableOpacity,
+  View,
 } from 'react-native';
-import React, {useRef, useState} from 'react';
-import {ActivityIndicator, Platform, TouchableOpacity} from 'react-native';
-import {useTheme} from '@dooboo-ui/theme';
+import React, {useRef} from 'react';
 import {useHover} from 'react-native-web-hooks';
 import styled, {css} from '@emotion/native';
 
-import type {
-  ButtonType,
-  ButtonColorType,
-  ButtonSizeType,
-} from '../../stories/Styles/ButtonStyles';
-import {
-  ButtonTextColor,
-  ButtonText,
-  ButtonWrapper,
-} from '../../stories/Styles/ButtonStyles';
+import type {DoobooTheme} from '@dooboo-ui/theme';
+import {useTheme} from '@dooboo-ui/theme';
+
+import {LoadingIndicator} from '../LoadingIndicator';
+import {getTheme} from '../utils';
 
 type Styles = {
   container?: StyleProp<ViewStyle>;
   text?: StyleProp<TextStyle>;
-  disabledButton?: StyleProp<ViewStyle>;
+  disabled?: StyleProp<ViewStyle>;
   disabledText?: StyleProp<TextStyle>;
   hovered?: StyleProp<ViewStyle>;
 };
 
-const ButtonContainer = styled(ButtonWrapper)<{
+type ButtonType = 'text' | 'solid' | 'outlined';
+
+type ButtonColorType =
+  | 'primary'
+  | 'secondary'
+  | 'success'
+  | 'danger'
+  | 'warning'
+  | 'info'
+  | 'light';
+
+type ButtonSizeType = 'small' | 'medium' | 'large';
+
+const ButtonStyles = ({
+  theme,
+  type = 'solid',
+  color = 'primary',
+  size = 'medium',
+  loading,
+  disabled,
+}: {
+  theme?: DoobooTheme;
+  type?: ButtonType;
+  color?: ButtonColorType;
+  size?: ButtonSizeType;
+  disabled?: boolean;
+  loading?: boolean;
+}): {
+  padding?: string;
+  backgroundColor?: string;
+  borderColor?: string;
+  borderWidth?: string;
+  textColor?: string;
+  disabledBackgroundColor: string;
+  disabledBorderColor: string;
+  disabledTextColor: string;
+} => {
+  theme = getTheme(theme);
+
+  let backgroundColor = theme.button[color].bg;
+  let borderColor = theme.button[color].bg;
+  let textColor = theme.button[color].bg;
+
+  if (disabled) {
+    backgroundColor = theme.button.disabled.bg;
+    borderColor = theme.button.disabled.text;
+    textColor = theme.button.disabled.text;
+  }
+
+  if (['text', 'outlined'].includes(type)) {
+    backgroundColor = theme.bg.basic;
+  }
+
+  if (type === 'solid' || color === 'light') {
+    textColor = theme.button[color].text;
+  }
+
+  return {
+    padding:
+      size === 'large'
+        ? '16px 32px'
+        : size === 'small'
+        ? '8px 16px'
+        : '12px 24px',
+    backgroundColor,
+    borderWidth: type === 'outlined' ? '1px' : undefined,
+    borderColor,
+    textColor,
+    disabledBackgroundColor:
+      type === 'solid' && !loading ? theme.button.disabled.bg : theme.bg.basic,
+    disabledBorderColor: theme.bg.disabled,
+    disabledTextColor: theme.button.disabled.text,
+  };
+};
+
+const ButtonContainer = styled.View<{
   type: ButtonType;
   size?: ButtonSizeType;
   outlined?: boolean;
@@ -40,85 +110,78 @@ const ButtonContainer = styled(ButtonWrapper)<{
   loading?: boolean;
 }>`
   align-self: stretch;
-  padding: ${({size}) =>
-    size === 'large'
-      ? '14px 24px'
-      : size === 'small'
-      ? '4px 12px'
-      : '10px 20px'};
-  border-radius: ${({size}) => (size === 'large' ? '24px' : '20px')};
-
+  border-radius: 4px;
   flex-direction: row;
   align-items: center;
   justify-content: center;
 `;
 
-export interface Props {
+export type Props = {
   testID?: string;
   type?: ButtonType;
   color?: ButtonColorType;
   size?: ButtonSizeType;
   disabled?: boolean;
-  href?: string;
   loading?: boolean;
-  indicatorColor?: string;
+  loadingElement?: ReactElement;
   text?: string;
   startElement?: ReactElement;
   endElement?: ReactElement;
   style?: StyleProp<ViewStyle>;
   styles?: Styles;
-  activeOpacity?: TouchableOpacityProps['activeOpacity'];
   onPress?: TouchableOpacityProps['onPress'];
+  activeOpacity?: TouchableOpacityProps['activeOpacity'];
   touchableOpacityProps?: Partial<TouchableOpacityProps>;
-  textProps?: Partial<TextProps>;
-}
+};
 
 export const Button: FC<Props> = (props) => {
   const {
     testID,
-    type = 'contained',
+    type = 'solid',
     color = 'primary',
     size = 'medium',
     disabled,
-    href,
     loading = false,
+    loadingElement,
     text,
     startElement,
     endElement,
     style,
     styles,
-    activeOpacity = 0.6,
     onPress,
+    activeOpacity = 0.6,
     touchableOpacityProps,
-    textProps,
   } = props;
 
   const ref = useRef<TouchableOpacity>(null);
   const hovered = useHover(ref);
-  const [layout, setLayout] = useState<LayoutRectangle>();
 
   const {theme} = useTheme();
 
-  const disabledTextColor =
-    disabled && type === 'contained' && !loading
-      ? theme.text.contrastBasic
-      : type !== 'contained'
-      ? theme.bg.disabled
-      : theme.bg.paper;
-
-  const TextColor = ButtonTextColor({theme, type, color, disabled, href});
-
-  const indicatorColor = props.indicatorColor ?? disabledTextColor;
+  const {
+    padding,
+    backgroundColor,
+    borderColor,
+    borderWidth,
+    textColor,
+    disabledBackgroundColor,
+    disabledBorderColor,
+    disabledTextColor,
+  } = ButtonStyles({theme, type, color, size, loading, disabled});
 
   const compositeStyles: Styles = {
+    container: css`
+      padding: ${padding};
+      background-color: ${backgroundColor};
+      border-color: ${borderColor};
+      border-width: ${borderWidth};
+    `,
     text: {
-      color: TextColor,
+      color: textColor,
     },
-    disabledButton: css`
-      background-color: ${type === 'contained' && !loading
-        ? theme.bg.disabled
-        : undefined};
-      border-color: ${theme.bg.disabled};
+    disabled: css`
+      background-color: ${disabledBackgroundColor};
+      border-color: ${disabledBorderColor};
     `,
     disabledText: {
       color: disabledTextColor,
@@ -136,6 +199,41 @@ export const Button: FC<Props> = (props) => {
     ...styles,
   };
 
+  const renderContainer = (children: ReactNode): ReactElement => {
+    return (
+      <ButtonContainer
+        testID={loading ? 'loading-view' : 'button-container'}
+        style={[
+          compositeStyles.container,
+          hovered && !disabled && compositeStyles.hovered,
+          disabled && compositeStyles.disabled,
+        ]}
+        type={type}
+        size={size}
+        disabled={disabled}
+      >
+        {children}
+      </ButtonContainer>
+    );
+  };
+
+  const renderLoading = (): ReactElement =>
+    loadingElement ?? (
+      <LoadingIndicator size="small" color={theme.text.basic} />
+    );
+
+  const renderChild = (): ReactElement => (
+    <>
+      {startElement}
+      <Text
+        style={[compositeStyles.text, disabled && compositeStyles.disabledText]}
+      >
+        {text}
+      </Text>
+      {endElement}
+    </>
+  );
+
   return (
     <TouchableOpacity
       testID={testID}
@@ -150,56 +248,7 @@ export const Button: FC<Props> = (props) => {
       style={style}
       {...touchableOpacityProps}
     >
-      {loading ? (
-        <ButtonContainer
-          testID="loading-view"
-          disabled
-          style={[
-            compositeStyles.container,
-            {
-              width: layout?.width,
-              height: layout?.height,
-            },
-            hovered && !disabled && compositeStyles.hovered,
-            compositeStyles.disabledButton,
-          ]}
-          type={type}
-          color={color}
-          size={size}
-          loading={true}
-        >
-          <ActivityIndicator size="small" color={indicatorColor} />
-        </ButtonContainer>
-      ) : (
-        <ButtonContainer
-          testID="button-container"
-          style={[
-            compositeStyles.container,
-            hovered && !disabled && compositeStyles.hovered,
-            disabled && compositeStyles.disabledButton,
-          ]}
-          onLayout={(e) => setLayout(e.nativeEvent.layout)}
-          type={type}
-          color={color}
-          size={size}
-          disabled={disabled}
-          href={href}
-        >
-          <>
-            {startElement}
-            <ButtonText
-              style={[
-                compositeStyles.text,
-                disabled && compositeStyles.disabledText,
-              ]}
-              {...textProps}
-            >
-              {text}
-            </ButtonText>
-            {endElement}
-          </>
-        </ButtonContainer>
-      )}
+      {renderContainer(loading ? renderLoading() : renderChild())}
     </TouchableOpacity>
   );
 };

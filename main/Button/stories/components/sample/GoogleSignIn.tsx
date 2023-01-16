@@ -5,42 +5,18 @@ import type {ThemeType} from '@dooboo-ui/theme';
 import {ThemeProvider} from '@dooboo-ui/theme';
 import {css} from '@emotion/native';
 import {action} from '@storybook/addon-actions';
-import {Section} from '../../Styles';
-import {Button} from '../../../main/Button';
-import {Icon} from '../../../main/Icon';
-import {IC_GOOGLE} from '../../../storybook/assets/icons';
+import {Section} from '../../../../GlobalStyles';
+import {Button} from '../../../index';
+import {Icon} from '../../../../Icon';
+import {IC_GOOGLE} from '../../../../../storybook/assets/icons';
+import {LoadingIndicator} from '../../../../LoadingIndicator';
 
-const AddElements: FC<{themeType: ThemeType}> = ({themeType}) => {
+const StartElementAndEndElement: FC<{themeType: ThemeType}> = ({themeType}) => {
   const [googleLoading, setGoogleLoading] = useState<boolean>(false);
 
   return (
     <ThemeProvider initialThemeType={themeType}>
       <Section>
-        <Button
-          startElement={<Icon name="bookmark-light" size={18} />}
-          style={{padding: 4}}
-        />
-        <Button
-          type="outlined"
-          startElement={
-            <Icon name="thumb-up-light" size={18} style={{marginRight: 8}} />
-          }
-          text="LIKE"
-          style={{padding: 4}}
-        />
-        <Button
-          type="outlined"
-          endElement={
-            <Icon
-              name="trash-light"
-              size={18}
-              color="green"
-              style={{marginLeft: 8}}
-            />
-          }
-          text="DELETE"
-          style={{padding: 4}}
-        />
         <Button
           startElement={
             <View style={{marginRight: 12}}>
@@ -48,14 +24,19 @@ const AddElements: FC<{themeType: ThemeType}> = ({themeType}) => {
             </View>
           }
           loading={googleLoading}
+          loadingElement={<LoadingIndicator size="small" color="deepskyblue" />}
           style={{padding: 4}}
           styles={{
             container: css`
               border-radius: 80px;
               border-width: 0.5px;
+              border-color: deepskyblue;
               width: 300px;
               height: 52px;
             `,
+            text: {
+              color: 'deepskyblue',
+            },
           }}
           onPress={(e): void => {
             setGoogleLoading(true);
@@ -74,4 +55,4 @@ const AddElements: FC<{themeType: ThemeType}> = ({themeType}) => {
   );
 };
 
-export default AddElements;
+export default StartElementAndEndElement;

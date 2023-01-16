@@ -6,7 +6,7 @@ const StoryContainer = styled.View`
   flex: 1;
   width: 100%;
   align-self: stretch;
-  background-color: ${({theme}) => theme.bg.default};
+  background-color: ${({theme}) => theme.bg.basic};
   justify-content: center;
   align-items: center;
 `;

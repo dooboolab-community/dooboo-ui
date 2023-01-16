@@ -10,14 +10,14 @@ import styled from '@emotion/native';
 const StoryContainer = styled.View`
   flex: 1;
   align-self: stretch;
-  background-color: ${({theme}) => theme.bg.default};
+  background-color: ${({theme}) => theme.bg.basic};
 
   justify-content: center;
   align-items: center;
 `;
 
 const StyledText = styled.Text`
-  color: ${({theme}) => theme.text.default};
+  color: ${({theme}) => theme.text.basic};
   font-size: 16px;
   margin: 20px;
 `;

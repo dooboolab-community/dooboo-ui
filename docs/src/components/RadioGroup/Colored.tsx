@@ -18,7 +18,7 @@ const RadioGroupStory: FC = () => {
         flex: 1,
         alignSelf: 'stretch',
         alignItems: 'center',
-        backgroundColor: theme.bg.default,
+        backgroundColor: theme.bg.basic,
         padding: 15,
       }}
     >

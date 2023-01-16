@@ -24,7 +24,7 @@ toStorybook.story = {
 /**
  * Below are stories for app
  */
-storiesOf('Button & Icon Button', module)
+storiesOf('Button', module)
   .addDecorator(withKnobs)
   .addDecorator(withActions)
   .add('LIGHT', () => (

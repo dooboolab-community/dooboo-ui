@@ -37,7 +37,7 @@ const NumberText = styled.Text`
   position: absolute;
   font-size: 14px;
   z-index: 2;
-  color: ${({theme}) => theme.text.default};
+  color: ${({theme}) => theme.text.basic};
 `;
 
 export type ProgressbarType = 'success' | 'danger' | 'warning' | 'info';

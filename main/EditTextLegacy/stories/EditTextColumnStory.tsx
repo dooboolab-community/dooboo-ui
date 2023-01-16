@@ -22,7 +22,7 @@ const EditTextLegacyColumn = (): React.ReactElement => {
           flexDirection: 'column',
           justifyContent: 'center',
           alignItems: 'center',
-          backgroundColor: theme.bg.default,
+          backgroundColor: theme.bg.basic,
         }}
       >
         <EditTextLegacy
