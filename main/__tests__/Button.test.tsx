@@ -134,7 +134,7 @@ describe('[Button]', () => {
   });
 
   describe('[Button] color', () => {
-    it('should render [color=primary] button', () => {
+    it('should renders primary color', () => {
       testingLib = render(Component({color: 'primary'}));
 
       const button = testingLib.getByTestId('button-container');
@@ -143,7 +143,7 @@ describe('[Button]', () => {
       expect(buttonStyle.backgroundColor).toEqual(light.button.primary.bg);
     });
 
-    it('should render [color=secondary] button', () => {
+    it('should renders secondary color', () => {
       testingLib = render(Component({color: 'secondary'}));
 
       const button = testingLib.getByTestId('button-container');
@@ -152,7 +152,7 @@ describe('[Button]', () => {
       expect(buttonStyle.backgroundColor).toEqual(light.button.secondary.bg);
     });
 
-    it('should render [color=success] button', () => {
+    it('should renders success color', () => {
       testingLib = render(Component({color: 'success'}));
 
       const button = testingLib.getByTestId('button-container');
@@ -161,7 +161,7 @@ describe('[Button]', () => {
       expect(buttonStyle.backgroundColor).toEqual(light.button.success.bg);
     });
 
-    it('should render [color=warning] button', () => {
+    it('should renders warning color', () => {
       testingLib = render(Component({color: 'warning'}));
 
       const button = testingLib.getByTestId('button-container');
@@ -170,7 +170,7 @@ describe('[Button]', () => {
       expect(buttonStyle.backgroundColor).toEqual(light.button.warning.bg);
     });
 
-    it('should render [color=danger] button', () => {
+    it('renders danger color', () => {
       testingLib = render(Component({color: 'danger'}));
 
       const button = testingLib.getByTestId('button-container');
@@ -179,7 +179,7 @@ describe('[Button]', () => {
       expect(buttonStyle.backgroundColor).toEqual(light.button.danger.bg);
     });
 
-    it('should render [color=info] button', () => {
+    it('should renders info color', () => {
       testingLib = render(Component({color: 'info'}));
 
       const button = testingLib.getByTestId('button-container');
@@ -188,7 +188,7 @@ describe('[Button]', () => {
       expect(buttonStyle.backgroundColor).toEqual(light.button.info.bg);
     });
 
-    it('should render [color=light] button', () => {
+    it('should renders light color', () => {
       testingLib = render(Component({color: 'light'}));
 
       const button = testingLib.getByTestId('button-container');
@@ -212,7 +212,7 @@ describe('[Button]', () => {
       expect(buttonStyle.backgroundColor).toEqual(dark.button.primary.bg);
     });
 
-    it('should render [color=danger] button', () => {
+    it('should renders danger color', () => {
       testingLib = render(
         <ThemeProvider initialThemeType="dark">
           <Button text="my-button" color="danger" />
@@ -423,13 +423,20 @@ describe('[Button]', () => {
       expect(buttonStyle.borderBottomColor).toEqual(dark.button.info.bg);
     });
 
-    it('should render button with [disabled]', () => {
-      testingLib = render(Component({disabled: true}));
+    it('should render [type=outlined] `disabled` button', () => {
+      testingLib = render(
+        <ThemeProvider initialThemeType="dark">
+          <Button type="outlined" disabled text="my-button" />
+        </ThemeProvider>,
+      );
 
       const button = testingLib.getByTestId('button-container');
-      const buttonStyle = button.props.style[1][0];
 
-      expect(buttonStyle.borderBottomColor).toEqual(dark.button.disabled.text);
+      const text = testingLib.getByText('my-button');
+      const textStyle = text.props.style[1];
+
+      expect(button.props.type).toEqual('outlined');
+      expect(textStyle.color).toEqual(dark.button.disabled.text);
     });
   });
 

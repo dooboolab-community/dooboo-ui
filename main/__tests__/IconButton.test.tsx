@@ -66,7 +66,7 @@ describe('[AddIcon]', () => {
   });
 
   describe('size', () => {
-    it('should render size==="large"', () => {
+    it('should renders large size', () => {
       testingLib = render(
         Component({
           size: 'large',
@@ -78,7 +78,7 @@ describe('[AddIcon]', () => {
       expect(json).toBeTruthy();
     });
 
-    it('should render size==="small"', () => {
+    it('should renders small size', () => {
       testingLib = render(
         Component({
           size: 'small',
@@ -104,7 +104,7 @@ describe('[AddIcon]', () => {
       expect(json).toBeTruthy();
     });
 
-    it('should render color==="primary"', () => {
+    it('should renders primary color', () => {
       testingLib = render(
         Component({
           color: 'primary',
@@ -116,7 +116,7 @@ describe('[AddIcon]', () => {
       expect(json).toBeTruthy();
     });
 
-    it('should render color==="secondary"', () => {
+    it('should renders secondary color', () => {
       testingLib = render(
         Component({
           color: 'secondary',
@@ -128,7 +128,7 @@ describe('[AddIcon]', () => {
       expect(json).toBeTruthy();
     });
 
-    it('should render color==="danger"', () => {
+    it('should renders danger color', () => {
       testingLib = render(
         Component({
           color: 'danger',
@@ -140,7 +140,7 @@ describe('[AddIcon]', () => {
       expect(json).toBeTruthy();
     });
 
-    it('should render color==="warning"', () => {
+    it('should renders warning color', () => {
       testingLib = render(
         Component({
           color: 'warning',
