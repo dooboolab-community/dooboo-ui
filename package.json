@@ -21,7 +21,7 @@
     "test:post": "jest",
     "prebuild": "cp ./main/react-native.config.cjs ./lib/react-native.config.cjs && rm -rf ./lib/tsconfig* && cp README.md ./lib/README.md ",
     "build": "yarn prebuild && tsc --project tsconfigBuild.json && yarn cp:icon",
-    "cp:icon": "mkdir -p `dirname ./lib/Icon/selection.json` && cp main/Icon/selection.json ./lib/Icon/selection.json && cp main/Icon/doobooui.ttf ./lib/Icon/doobooui.ttf",
+    "cp:icon": "mkdir -p `dirname ./lib/Icon/selection.json` && cp ./main/Icon/selection.json ./lib/Icon/selection.json && cp ./main/Icon/doobooui.ttf ./lib/Icon/doobooui.ttf",
     "postbuild": "cp -R main/__assets__ lib",
     "build:storybook": "expo export:web && sh web-build-postinstall.sh",
     "deploy:storybook": "gh-pages -d web-build",
