@@ -54,12 +54,12 @@ describe('[ButtonGroup]', () => {
     it('makes first option text notable', () => {
       const {getByText} = renderButtonGroup();
 
-      expect(getByText('option 1')).toHaveStyle({
-        color: theme[themeType].text.contrastBasic,
+      expect(getByText('option 1')).toEqual({
+        color: theme[themeType].text.contrast,
       });
 
-      expect(getByText('option 2')).toHaveStyle({
-        color: theme[themeType].text.default,
+      expect(getByText('option 2')).toEqual({
+        color: theme[themeType].text.basic,
       });
     });
   });
@@ -70,12 +70,12 @@ describe('[ButtonGroup]', () => {
     it('makes selected option text notable', () => {
       const {getByText} = renderButtonGroup();
 
-      expect(getByText('option 1')).toHaveStyle({
-        color: theme[themeType].text.default,
+      expect(getByText('option 1')).toEqual({
+        color: theme[themeType].text.basic,
       });
 
-      expect(getByText('option 2')).toHaveStyle({
-        color: theme[themeType].text.contrastBasic,
+      expect(getByText('option 2')).toEqual({
+        color: theme[themeType].text.contrast,
       });
     });
   });
@@ -102,7 +102,7 @@ describe('[ButtonGroup]', () => {
       it('has width and radius in every direction', () => {
         const {getByTestId} = renderButtonGroup();
 
-        expect(getByTestId('CHILD_0')).toHaveStyle(fullWidthAndRadius);
+        expect(getByTestId('CHILD_0')).toEqual(fullWidthAndRadius);
       });
     });
 
@@ -112,25 +112,25 @@ describe('[ButtonGroup]', () => {
       it('depends on position of element', () => {
         const {getByTestId} = renderButtonGroup();
 
-        expect(getByTestId('CHILD_0')).toHaveStyle({
+        expect(getByTestId('CHILD_0')).toEqual({
           ...fullWidthAndRadius,
           borderTopRightRadius: undefined,
           borderBottomRightRadius: undefined,
         });
 
-        expect(getByTestId('CHILD_0')).not.toHaveStyle({
+        expect(getByTestId('CHILD_0')).not.toEqual({
           borderTopRightRadius: 10,
           borderBottomRightRadius: 10,
         });
 
-        expect(getByTestId('CHILD_1')).toHaveStyle({
+        expect(getByTestId('CHILD_1')).toEqual({
           ...fullWidthAndRadius,
           borderLeftWidth: undefined,
           borderTopLeftRadius: undefined,
           borderBottomLeftRadius: undefined,
         });
 
-        expect(getByTestId('CHILD_1')).not.toHaveStyle({
+        expect(getByTestId('CHILD_1')).not.toEqual({
           borderLeftWidth: 1,
           borderTopLeftRadius: 10,
           borderBottomLeftRadius: 10,
@@ -145,38 +145,38 @@ describe('[ButtonGroup]', () => {
       it('depends on position of element', () => {
         const {getByTestId} = renderButtonGroup();
 
-        expect(getByTestId('CHILD_0')).toHaveStyle({
+        expect(getByTestId('CHILD_0')).toEqual({
           ...fullWidthAndRadius,
           borderTopRightRadius: undefined,
           borderBottomRightRadius: undefined,
         });
 
-        expect(getByTestId('CHILD_0')).not.toHaveStyle({
+        expect(getByTestId('CHILD_0')).not.toEqual({
           borderTopRightRadius: 10,
           borderBottomRightRadius: 10,
         });
 
-        expect(getByTestId('CHILD_1')).toHaveStyle({
+        expect(getByTestId('CHILD_1')).toEqual({
           borderRightWidth: 1,
           borderTopWidth: 1,
           borderBottomWidth: 1,
         });
 
-        expect(getByTestId('CHILD_1')).not.toHaveStyle({
+        expect(getByTestId('CHILD_1')).not.toEqual({
           ...fullWidthAndRadius,
           borderRightWidth: undefined,
           borderTopWidth: undefined,
           borderBottomWidth: undefined,
         });
 
-        expect(getByTestId('CHILD_2')).toHaveStyle({
+        expect(getByTestId('CHILD_2')).toEqual({
           ...fullWidthAndRadius,
           borderLeftWidth: undefined,
           borderTopLeftRadius: undefined,
           borderBottomLeftRadius: undefined,
         });
 
-        expect(getByTestId('CHILD_2')).not.toHaveStyle({
+        expect(getByTestId('CHILD_2')).not.toEqual({
           borderTopLeftRadius: 10,
           borderBottomLeftRadius: 10,
         });
@@ -184,3 +184,6 @@ describe('[ButtonGroup]', () => {
     });
   });
 });
+function context(arg0: string, arg1: () => void) {
+  throw new Error('Function not implemented.');
+}

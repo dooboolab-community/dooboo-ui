@@ -126,7 +126,7 @@ export function ButtonGroup(props: Props): React.ReactElement {
               <Text
                 style={
                   selectedIndex === i
-                    ? [styles?.selectedText, {color: theme.text.contrastBasic}]
+                    ? [styles?.selectedText, {color: theme.text.contrast}]
                     : [styles?.text, {color: theme.text.basic}]
                 }
               >

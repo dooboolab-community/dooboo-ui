@@ -98,16 +98,13 @@ export const AccordionDefault = (): ReactElement => {
                   flexDirection: 'row',
                 }}
               >
-                <Icon name="search-light" color={theme.text.contrastBasic} />
+                <Icon name="search-light" color={theme.text.contrast} />
                 <Title>{item}</Title>
               </View>
             )}
             renderBody={(item) => <CustomStyledItem>{item}</CustomStyledItem>}
             toggleElement={
-              <Icon
-                name="chevron-down-light"
-                color={theme.text.contrastBasic}
-              />
+              <Icon name="chevron-down-light" color={theme.text.contrast} />
             }
             styles={{
               titleContainer: {

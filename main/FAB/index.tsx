@@ -122,9 +122,9 @@ function FloatingActionButtons<Item extends FABItem = FABItem>({
               <IconButton
                 testID={id}
                 size={buttonSize}
-                icon={
+                iconElement={
                   <Icon
-                    color={theme.text.contrastBasic}
+                    color={theme.text.contrast}
                     size={iconSize}
                     name={icon}
                   />
@@ -157,9 +157,9 @@ function FloatingActionButtons<Item extends FABItem = FABItem>({
           <IconButton
             testID={'main_fab'}
             size={buttonSize}
-            icon={
+            iconElement={
               <Icon
-                color={theme.text.contrastBasic}
+                color={theme.text.contrast}
                 size={iconSize}
                 name="add-light"
               />

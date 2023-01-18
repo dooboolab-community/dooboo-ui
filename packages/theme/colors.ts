@@ -58,11 +58,7 @@ export const light = {
     placeholder: colors.gray5,
     disabled: colors.gray3,
     validation: colors.red2,
-    contrastBasic: colors.white,
-    contrastLabel: colors.gray3,
-    contrastPlaceholder: colors.gray4,
-    contrastDisabled: colors.gray6,
-    contrastValidation: colors.red1,
+    contrast: colors.white,
   },
   button: {
     primary: {
@@ -124,11 +120,7 @@ export const dark: typeof light = {
     placeholder: colors.gray4,
     disabled: colors.gray6,
     validation: colors.red1,
-    contrastBasic: colors.black,
-    contrastLabel: colors.gray6,
-    contrastPlaceholder: colors.gray5,
-    contrastDisabled: colors.gray3,
-    contrastValidation: colors.red2,
+    contrast: colors.black,
   },
   button: {
     primary: {
