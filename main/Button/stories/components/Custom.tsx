@@ -20,15 +20,9 @@ const Custom: FC<{themeType: ThemeType}> = ({themeType}) => {
                 background-color: #449944;
                 padding: 12px 12px;
               `,
-              text: {
-                color: '#fff',
-              },
-              disabled: {
-                backgroundColor: '#efefef',
-              },
-              disabledText: {
-                color: '#ccc',
-              },
+              text: {color: '#fff'},
+              disabled: {backgroundColor: '#efefef'},
+              disabledText: {color: '#ccc'},
             }}
           />
 
@@ -42,15 +36,9 @@ const Custom: FC<{themeType: ThemeType}> = ({themeType}) => {
                 background-color: #449944;
                 padding: 12px 12px;
               `,
-              text: {
-                color: '#fff',
-              },
-              disabled: {
-                backgroundColor: '#efefef',
-              },
-              disabledText: {
-                color: '#ccc',
-              },
+              text: {color: '#fff'},
+              disabled: {backgroundColor: '#efefef'},
+              disabledText: {color: '#ccc'},
             }}
           />
         </Section>

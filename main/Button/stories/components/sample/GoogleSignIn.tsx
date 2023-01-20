@@ -34,9 +34,7 @@ const StartElementAndEndElement: FC<{themeType: ThemeType}> = ({themeType}) => {
               width: 300px;
               height: 52px;
             `,
-            text: {
-              color: 'deepskyblue',
-            },
+            text: {color: 'deepskyblue'},
           }}
           onPress={(e): void => {
             setGoogleLoading(true);
