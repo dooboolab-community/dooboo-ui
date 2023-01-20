@@ -184,6 +184,7 @@ describe('[ButtonGroup]', () => {
     });
   });
 });
-function context(arg0: string, arg1: () => void) {
+
+function context(arg0: string, arg1: () => void): void {
   throw new Error('Function not implemented.');
 }
