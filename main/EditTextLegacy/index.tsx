@@ -77,8 +77,8 @@ export const EditTextLegacy: FC<EditTextLegacyProps> = (props) => {
   const ref = useRef<View>(null);
   const hovered = useHover(ref);
 
-  const borderColor = theme.text.default;
-  const textColor = theme.text.default;
+  const borderColor = theme.text.basic;
+  const textColor = theme.text.basic;
 
   const {
     placeholderColor = theme.text.placeholder,

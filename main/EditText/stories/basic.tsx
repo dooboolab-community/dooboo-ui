@@ -17,7 +17,7 @@ const EditTextBasic = (): ReactElement => {
     return (
       <Typography.Body1
         style={{
-          color: status === 'focused' ? theme.text.link : theme.text.default,
+          color: status === 'focused' ? theme.role.primary : theme.text.basic,
           fontSize: 12,
           fontWeight: 'bold',
         }}
@@ -36,7 +36,7 @@ const EditTextBasic = (): ReactElement => {
           flexDirection: 'column',
           justifyContent: 'center',
           alignItems: 'center',
-          backgroundColor: theme.bg.default,
+          backgroundColor: theme.bg.basic,
         }}
       >
         <Typography.Heading1>EditText</Typography.Heading1>
