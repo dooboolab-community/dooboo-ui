@@ -57,7 +57,7 @@ describe('[EditText]', () => {
 
         const label = testingLib.getByText('label text');
 
-        expect(label).toHaveStyle({color: 'orange'});
+        expect(label).toEqual({color: 'orange'});
       });
 
       it('should render custom label style', async () => {
@@ -108,7 +108,7 @@ describe('[EditText]', () => {
           );
 
           const input = testingLib.getByTestId('INPUT_TEST');
-          expect(input).toHaveStyle({color: 'green'});
+          expect(input).toEqual({color: 'green'});
 
           act(() => {
             input.props.onFocus();
@@ -116,7 +116,7 @@ describe('[EditText]', () => {
 
           const label = testingLib.getByText('label text');
 
-          expect(label).toHaveStyle({color: 'purple'});
+          expect(label).toEqual({color: 'purple'});
         });
 
         it('should render error element when provided', async () => {
@@ -160,7 +160,7 @@ describe('[EditText]', () => {
 
       expect(input).toBeTruthy();
 
-      expect(container).toHaveStyle({flexDirection: 'row'});
+      expect(container).toEqual({flexDirection: 'row'});
     });
 
     it('should render [decoration] boxed', () => {
@@ -176,7 +176,7 @@ describe('[EditText]', () => {
 
       expect(input).toBeTruthy();
 
-      expect(container).toHaveStyle({borderWidth: 1});
+      expect(container).toEqual({borderWidth: 1});
     });
   });
 
@@ -218,7 +218,7 @@ describe('[EditText]', () => {
 
       expect(input).toBeTruthy();
 
-      expect(input).toHaveProp('value', 'text123');
+      expect(input).toHaveProperty('value', 'text123');
     });
 
     it('should have render counter', () => {
@@ -265,7 +265,7 @@ describe('[EditText]', () => {
 
       expect(input).toBeTruthy();
 
-      expect(input).toHaveStyle({color: light.text.disabled});
+      expect(input).toEqual({color: light.text.disabled});
     });
 
     it('should render [custom] disabled style', () => {
@@ -281,7 +281,7 @@ describe('[EditText]', () => {
 
       expect(input).toBeTruthy();
 
-      expect(input).toHaveStyle({color: 'yellow'});
+      expect(input).toEqual({color: 'yellow'});
     });
   });
 
@@ -300,7 +300,7 @@ describe('[EditText]', () => {
 
       fireEvent(input, 'focus');
 
-      expect(input).toHaveStyle({color: light.text.default});
+      expect(input).toEqual({color: light.text.basic});
     });
 
     it('should trigger `onFocus` and render custom color', async () => {
@@ -318,7 +318,7 @@ describe('[EditText]', () => {
 
       fireEvent(input, 'focus');
 
-      expect(input).toHaveStyle({color: 'yellow'});
+      expect(input).toEqual({color: 'yellow'});
     });
 
     describe('onBlur (focused === false)', () => {
@@ -337,7 +337,7 @@ describe('[EditText]', () => {
 
         fireEvent(input, 'blur');
 
-        expect(input).toHaveStyle({color: 'green'});
+        expect(input).toEqual({color: 'green'});
       });
     });
   });
