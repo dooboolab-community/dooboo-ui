@@ -4,11 +4,10 @@ import React, {useLayoutEffect, useMemo, useRef} from 'react';
 
 import {Icon} from '../Icon';
 import {IconButton} from '../IconButton';
+import type {ButtonSizeType} from '../Button';
 import type {IconName} from '../Icon';
 import type {ReactElement} from 'react';
 import {useTheme} from '@dooboo-ui/theme';
-
-export type ButtonSizeType = 'small' | 'medium' | 'large';
 
 interface Styles {
   FAB?: StyleProp<ViewStyle>;
