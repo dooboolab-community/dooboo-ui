@@ -1,16 +1,16 @@
-import type {FC} from 'react';
+import type {FC, ReactElement, ReactNode} from 'react';
+import {Platform, TouchableOpacity, View} from 'react-native';
+import React, {useRef} from 'react';
 import type {StyleProp, TouchableOpacityProps, ViewStyle} from 'react-native';
-import {Platform, Text, TouchableOpacity, View} from 'react-native';
-import React, {ReactElement, ReactNode, useRef} from 'react';
 
-import {css} from '@emotion/native';
-import {useHover} from 'react-native-web-hooks';
-import {DoobooTheme, useTheme} from '@dooboo-ui/theme';
-
-import {getTheme} from '../utils';
-import {LoadingIndicator} from '../LoadingIndicator';
+import type {DoobooTheme} from '@dooboo-ui/theme';
 import {Icon} from '../Icon/';
 import type {IconName} from '../Icon/stories/Styles';
+import {LoadingIndicator} from '../LoadingIndicator';
+import {css} from '@emotion/native';
+import {getTheme} from '../utils';
+import {useHover} from 'react-native-web-hooks';
+import {useTheme} from '@dooboo-ui/theme';
 
 type Styles = {
   container?: StyleProp<ViewStyle>;

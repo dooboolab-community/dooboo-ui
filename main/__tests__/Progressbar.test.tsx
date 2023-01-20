@@ -40,7 +40,7 @@ describe('[Progressbar]', () => {
     );
 
     const progressbar = testingLib.getByTestId('progressbar-text');
-    expect(progressbar.props.style[0].color).toEqual(light.text.default);
+    expect(progressbar.props.style[0].color).toEqual(light.text.basic);
   });
 
   describe('type', () => {

@@ -1,6 +1,6 @@
 import React from 'react';
 import type {FC} from 'react';
-import {ThemeType} from '@dooboo-ui/theme';
+import type {ThemeType} from '@dooboo-ui/theme';
 import {
   Basic,
   TextButtonColors,

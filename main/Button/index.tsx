@@ -1,14 +1,12 @@
 import type {FC, ReactElement, ReactNode} from 'react';
-import {
+import type {
   StyleProp,
-  Text,
   TextStyle,
   TouchableOpacityProps,
   ViewStyle,
-  Platform,
-  TouchableOpacity,
-  View,
 } from 'react-native';
+
+import {Text, Platform, TouchableOpacity} from 'react-native';
 import React, {useRef} from 'react';
 import {useHover} from 'react-native-web-hooks';
 import styled, {css} from '@emotion/native';

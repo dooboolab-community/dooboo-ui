@@ -2,7 +2,8 @@ import {View} from 'react-native';
 import type {FC} from 'react';
 import React from 'react';
 import {useFonts} from 'expo-font';
-import {useTheme, ThemeType} from '@dooboo-ui/theme';
+import type {ThemeType} from '@dooboo-ui/theme';
+import {useTheme} from '@dooboo-ui/theme';
 
 import {Basic, Colors, Disabled, Sizes, IconElement} from './components';
 
