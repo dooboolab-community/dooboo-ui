@@ -4,9 +4,7 @@ import type {FC} from 'react';
 import type {ThemeType} from '@dooboo-ui/theme';
 import {ThemeProvider} from '@dooboo-ui/theme';
 import {IconButton} from '../../index';
-import {Icon} from '../../../Icon';
 import {Section} from '../../../GlobalStyles';
-import {StyledIcon} from '../../../Icon/stories/Styles';
 
 const IconButtonColors: FC<{themeType: ThemeType}> = ({themeType}) => {
   return (

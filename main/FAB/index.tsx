@@ -4,7 +4,7 @@ import React, {useLayoutEffect, useMemo, useRef} from 'react';
 
 import {Icon} from '../Icon';
 import {IconButton} from '../IconButton';
-import type {IconName} from '../Icon/stories/Styles';
+import type {IconName} from '../Icon';
 import type {ReactElement} from 'react';
 import {useTheme} from '@dooboo-ui/theme';
 
