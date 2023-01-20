@@ -41,7 +41,9 @@ jobs:
         run: rm -rf packages/theme/lib
 
       - name: Test
-        run: yarn test --coverage --forceExit --silent -u
+        run: |
+          export NODE_OPTIONS="--max_old_space_size=4096"
+          yarn test --coverage --forceExit --silent -u
 
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v1
