@@ -92,7 +92,7 @@ export const ButtonStyles = ({
   };
 };
 
-export type Props = {
+export type IconButtonProps = {
   testID?: string;
   type?: ButtonType;
   color?: ButtonColorType;
@@ -109,7 +109,7 @@ export type Props = {
   touchableOpacityProps?: Partial<TouchableOpacityProps>;
 };
 
-export const IconButton: FC<Props> = (props) => {
+export const IconButton: FC<IconButtonProps> = (props) => {
   const {
     testID,
     type = 'solid',
