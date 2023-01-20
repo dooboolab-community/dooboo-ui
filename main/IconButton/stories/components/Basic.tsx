@@ -4,14 +4,22 @@ import type {ThemeType} from '@dooboo-ui/theme';
 import {ThemeProvider} from '@dooboo-ui/theme';
 import {IconButton} from '../../index';
 import {Section} from '../../../GlobalStyles';
+import {ButtonType} from '../../../Button';
 
 const IconButtonBasic: FC<{themeType: ThemeType}> = ({themeType}) => {
+  const types: ButtonType[] = ['text', 'solid', 'outlined'];
+
   return (
     <ThemeProvider initialThemeType={themeType}>
       <Section>
-        <IconButton type="text" icon="tile-light" style={{padding: 4}} />
-        <IconButton type="solid" icon="tile-light" style={{padding: 4}} />
-        <IconButton type="outlined" icon="tile-light" style={{padding: 4}} />
+        {types.map((type) => (
+          <IconButton
+            key={type}
+            type={type}
+            icon="tile-light"
+            style={{padding: 4}}
+          />
+        ))}
       </Section>
     </ThemeProvider>
   );

@@ -5,7 +5,15 @@ import {useFonts} from 'expo-font';
 import type {ThemeType} from '@dooboo-ui/theme';
 import {useTheme} from '@dooboo-ui/theme';
 
-import {Basic, Colors, Disabled, Sizes, IconElement} from './components';
+import {
+  Basic,
+  Colors,
+  Disabled,
+  Sizes,
+  IconElement,
+  Loading,
+  LoadingElement,
+} from './components';
 
 import {
   StoryContainer,
@@ -13,7 +21,6 @@ import {
   Title,
   Description,
 } from '../../GlobalStyles';
-import {Loading, LoadingElement} from '../../Button/stories/components';
 
 const IconButtonStory: FC<{themeType: ThemeType}> = ({themeType}) => {
   const {theme} = useTheme();

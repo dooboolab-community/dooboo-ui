@@ -25,9 +25,9 @@ type Styles = {
   hovered?: StyleProp<ViewStyle>;
 };
 
-type ButtonType = 'text' | 'solid' | 'outlined';
+export type ButtonType = 'text' | 'solid' | 'outlined';
 
-type ButtonColorType =
+export type ButtonColorType =
   | 'primary'
   | 'secondary'
   | 'success'
@@ -36,7 +36,7 @@ type ButtonColorType =
   | 'info'
   | 'light';
 
-type ButtonSizeType = 'small' | 'medium' | 'large';
+export type ButtonSizeType = 'small' | 'medium' | 'large';
 
 const ButtonStyles = ({
   theme,

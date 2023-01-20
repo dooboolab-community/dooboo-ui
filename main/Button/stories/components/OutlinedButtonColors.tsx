@@ -4,48 +4,31 @@ import type {ThemeType} from '@dooboo-ui/theme';
 import {ThemeProvider} from '@dooboo-ui/theme';
 import {Button} from '../../index';
 import {Section} from '../../../GlobalStyles';
+import {ButtonColorType} from '../../../Button';
 
 const OutlinedButtonColors: FC<{themeType: ThemeType}> = ({themeType}) => {
+  const colors: ButtonColorType[] = [
+    'primary',
+    'secondary',
+    'success',
+    'warning',
+    'danger',
+    'info',
+    'light',
+  ];
+
   return (
     <ThemeProvider initialThemeType={themeType}>
       <Section>
-        <Button
-          type="outlined"
-          color="primary"
-          text="PRIMARY"
-          style={{padding: 4}}
-        />
-        <Button
-          type="outlined"
-          color="secondary"
-          text="SECONDARY"
-          style={{padding: 4}}
-        />
-        <Button
-          type="outlined"
-          color="success"
-          text="SUCCESS"
-          style={{padding: 4}}
-        />
-        <Button
-          type="outlined"
-          color="warning"
-          text="WARNING"
-          style={{padding: 4}}
-        />
-        <Button
-          type="outlined"
-          color="danger"
-          text="DANGER"
-          style={{padding: 4}}
-        />
-        <Button type="outlined" color="info" text="INFO" style={{padding: 4}} />
-        <Button
-          type="outlined"
-          color="light"
-          text="LIGHT"
-          style={{padding: 4}}
-        />
+        {colors.map((color) => (
+          <Button
+            key={color}
+            type="outlined"
+            color={color}
+            text={color.toUpperCase()}
+            style={{padding: 4}}
+          />
+        ))}
       </Section>
     </ThemeProvider>
   );
