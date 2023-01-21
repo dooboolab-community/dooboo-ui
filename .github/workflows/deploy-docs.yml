@@ -9,6 +9,7 @@ on:
 
 jobs:
   build_and_deploy:
+    if: github.repository == 'dooboolab/dooboo-ui'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master
