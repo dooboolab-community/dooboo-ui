@@ -7,7 +7,7 @@ import {View} from 'react-native';
 import styled from '@emotion/native';
 
 const StoryContainer = styled.View`
-  background-color: ${({theme}) => theme.bg.default};
+  background-color: ${({theme}) => theme.bg.basic};
   flex: 1;
   align-self: stretch;
 `;

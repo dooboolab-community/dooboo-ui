@@ -11,7 +11,9 @@ export default {
   title: 'Icon',
 };
 
-export const toStorybook = (): ReactElement => <IconButtonStory />;
+export const toStorybook = (): ReactElement => (
+  <IconButtonStory themeType="light" />
+);
 
 toStorybook.story = {
   name: 'font icons',
@@ -20,14 +22,14 @@ toStorybook.story = {
 /**
  * Below are stories for app
  */
-storiesOf('IconButton', module)
-  .add('IconButton - light', () => (
+storiesOf('Icon Button', module)
+  .add('LIGHT', () => (
     <ThemeProvider initialThemeType="light">
-      <IconButtonStory />
+      <IconButtonStory themeType="light" />
     </ThemeProvider>
   ))
-  .add('IconButton - dark', () => (
+  .add('DARK', () => (
     <ThemeProvider initialThemeType="dark">
-      <IconButtonStory />
+      <IconButtonStory themeType="dark" />
     </ThemeProvider>
   ));

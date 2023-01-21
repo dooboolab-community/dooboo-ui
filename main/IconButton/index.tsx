@@ -1,98 +1,171 @@
-import {ActivityIndicator, Platform, TouchableOpacity} from 'react-native';
+import type {FC, ReactElement, ReactNode} from 'react';
+import {Platform, TouchableOpacity, View} from 'react-native';
 import React, {useRef} from 'react';
-import type {
-  StyleProp,
-  TextStyle,
-  TouchableOpacityProps,
-  ViewStyle,
-} from 'react-native';
+import type {StyleProp, TouchableOpacityProps, ViewStyle} from 'react-native';
 
-import {ButtonWrapper} from '../Styled/StyledComponents';
-import type {FC} from 'react';
-import styled from '@emotion/native';
+import type {DoobooTheme} from '@dooboo-ui/theme';
+import {Icon} from '../Icon/';
+import type {IconName} from '../Icon';
+import {LoadingIndicator} from '../LoadingIndicator';
+import {css} from '@emotion/native';
+import {getTheme} from '../utils';
 import {useHover} from 'react-native-web-hooks';
 import {useTheme} from '@dooboo-ui/theme';
 
 type Styles = {
   container?: StyleProp<ViewStyle>;
-  text?: StyleProp<TextStyle>;
-  disabledButton?: StyleProp<ViewStyle>;
-  disabledText?: StyleProp<TextStyle>;
+  icon?: StyleProp<ViewStyle>;
+  disabled?: StyleProp<ViewStyle>;
   hovered?: StyleProp<ViewStyle>;
 };
 
-type ButtonType = 'primary' | 'secondary' | 'danger' | 'warning' | 'info';
+type ButtonType = 'text' | 'solid' | 'outlined';
 
-export type ButtonSize = 'small' | 'medium' | 'large';
+type ButtonColorType =
+  | 'primary'
+  | 'secondary'
+  | 'success'
+  | 'danger'
+  | 'warning'
+  | 'info'
+  | 'light';
 
-const ButtonContainer = styled(ButtonWrapper)<{
-  type: ButtonType;
-  width?: number;
-  height?: number;
-  outlined?: boolean;
+type ButtonSizeType = 'small' | 'medium' | 'large';
+
+export const ButtonStyles = ({
+  theme,
+  type = 'solid',
+  color = 'primary',
+  size = 'medium',
+  loading,
+  disabled,
+}: {
+  theme?: DoobooTheme;
+  type?: ButtonType;
+  color?: ButtonColorType;
+  size?: ButtonSizeType;
   disabled?: boolean;
-  size?: ButtonSize;
-}>`
-  padding: 4px;
-  height: ${({size}) =>
-    size === 'large' ? '80px' : size === 'medium' ? '50px' : '32px'};
-  width: ${({size}) =>
-    size === 'large' ? '80px' : size === 'medium' ? '50px' : '32px'};
-  border-radius: ${({size}) =>
-    size === 'large' ? '45px' : size === 'medium' ? '50px' : '32px'};
-
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-`;
-
-export interface IconButtonProps {
-  testID?: string;
-  indicatorColor?: string;
   loading?: boolean;
+}): {
+  padding?: string;
+  backgroundColor?: string;
+  borderColor?: string;
+  borderWidth?: string;
+  buttonSize?: string;
+  iconColor?: string;
+  iconSize?: number;
+  disabledBackgroundColor: string;
+  disabledBorderColor: string;
+  disabledTextColor: string;
+} => {
+  theme = getTheme(theme);
+
+  let backgroundColor = theme.button[color].bg;
+  let borderColor = theme.button[color].bg;
+  let iconColor = theme.button[color].bg;
+
+  if (disabled) {
+    backgroundColor = theme.button.disabled.bg;
+    borderColor = theme.button.disabled.text;
+    iconColor = theme.button.disabled.text;
+  }
+
+  if (['text', 'outlined'].includes(type)) {
+    backgroundColor = theme.bg.basic;
+  }
+
+  if (type === 'solid' || color === 'light') {
+    iconColor = theme.button[color].text;
+  }
+
+  return {
+    backgroundColor,
+    borderColor,
+    borderWidth: type === 'outlined' ? '1px' : undefined,
+    buttonSize: size === 'large' ? '80px' : size === 'medium' ? '50px' : '32px',
+    iconColor,
+    iconSize: size === 'large' ? 32 : size === 'medium' ? 24 : 16,
+    disabledBackgroundColor:
+      type === 'solid' && !loading ? theme.button.disabled.bg : theme.bg.basic,
+    disabledBorderColor: theme.bg.disabled,
+    disabledTextColor: theme.button.disabled.text,
+  };
+};
+
+export type IconButtonProps = {
+  testID?: string;
+  type?: ButtonType;
+  color?: ButtonColorType;
+  size?: ButtonSizeType;
   disabled?: boolean;
-  outlined?: boolean;
+  loading?: boolean;
+  loadingElement?: ReactElement;
+  icon?: IconName;
+  iconElement?: ReactElement;
   style?: StyleProp<ViewStyle>;
   styles?: Styles;
-  activeOpacity?: TouchableOpacityProps['activeOpacity'];
-  icon: any;
   onPress?: TouchableOpacityProps['onPress'];
+  activeOpacity?: TouchableOpacityProps['activeOpacity'];
   touchableOpacityProps?: Partial<TouchableOpacityProps>;
-  type?: ButtonType;
-  size?: ButtonSize;
-}
+};
 
 export const IconButton: FC<IconButtonProps> = (props) => {
   const {
     testID,
+    type = 'solid',
+    color = 'primary',
+    size = 'medium',
     disabled,
-    loading,
+    loading = false,
+    loadingElement,
+    icon,
+    iconElement,
     style,
     styles,
     activeOpacity = 0.6,
-    icon,
     onPress,
     touchableOpacityProps,
-    type = 'primary',
-    outlined = false,
-    size = 'medium',
   } = props;
-
-  const {theme} = useTheme();
-
-  const indicatorColor = props.indicatorColor ?? theme.bg.disabled;
 
   const ref = useRef<TouchableOpacity>(null);
   const hovered = useHover(ref);
 
+  const {theme} = useTheme();
+
+  const {
+    backgroundColor,
+    borderColor,
+    borderWidth,
+    buttonSize,
+    iconColor,
+    iconSize,
+    disabledBackgroundColor,
+    disabledBorderColor,
+  } = ButtonStyles({
+    theme,
+    type,
+    color,
+    size,
+    loading,
+    disabled,
+  });
+
   const compositeStyles: Styles = {
-    disabledButton: {
-      backgroundColor: !outlined ? theme.bg.disabled : theme.bg.default,
-      borderColor: theme.bg.disabled,
-    },
-    disabledText: {
-      color: !outlined ? theme.text.contrast : theme.text.disabled,
-    },
+    container: css`
+      background-color: ${backgroundColor};
+      border-color: ${borderColor};
+      border-radius: ${buttonSize};
+      border-width: ${borderWidth};
+      height: ${buttonSize};
+      width: ${buttonSize};
+    `,
+    icon: css`
+      color: ${iconColor};
+    `,
+    disabled: css`
+      background-color: ${disabledBackgroundColor};
+      border-color: ${disabledBorderColor};
+    `,
     hovered: {
       shadowColor: 'black',
       shadowOffset: {
@@ -105,6 +178,41 @@ export const IconButton: FC<IconButtonProps> = (props) => {
     },
     ...styles,
   };
+
+  const renderContainer = (children: ReactNode): ReactElement => {
+    return (
+      <View
+        testID={loading ? 'loading-view' : 'button-container'}
+        style={[
+          {
+            flexDirection: 'row',
+            alignItems: 'center',
+            justifyContent: 'center',
+            padding: 4,
+          },
+          compositeStyles.container,
+          hovered && !disabled && compositeStyles.hovered,
+          disabled && compositeStyles.disabled,
+        ]}
+      >
+        {children}
+      </View>
+    );
+  };
+
+  const renderLoading = (): ReactElement =>
+    loadingElement ?? (
+      <LoadingIndicator size="small" color={theme.text.basic} />
+    );
+
+  const renderChild = (): ReactElement =>
+    iconElement || (
+      <Icon
+        size={iconSize}
+        color={iconColor}
+        name={icon || 'dooboolab-solid'}
+      />
+    );
 
   return (
     <TouchableOpacity
@@ -120,37 +228,7 @@ export const IconButton: FC<IconButtonProps> = (props) => {
       style={style}
       {...touchableOpacityProps}
     >
-      {loading ? (
-        <ButtonContainer
-          testID="loading-view"
-          disabled
-          style={[
-            compositeStyles.container,
-            hovered && !disabled && compositeStyles.hovered,
-            disabled && compositeStyles.disabledButton,
-          ]}
-          type={type}
-          size={size}
-          outlined={outlined}
-        >
-          <ActivityIndicator size="small" color={indicatorColor} />
-        </ButtonContainer>
-      ) : (
-        <ButtonContainer
-          testID="button-container"
-          style={[
-            compositeStyles.container,
-            hovered && !disabled && compositeStyles.hovered,
-            disabled && compositeStyles.disabledButton,
-          ]}
-          size={size}
-          type={type}
-          disabled={disabled}
-          outlined={outlined}
-        >
-          {icon}
-        </ButtonContainer>
-      )}
+      {renderContainer(loading ? renderLoading() : renderChild())}
     </TouchableOpacity>
   );
 };

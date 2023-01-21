@@ -17,7 +17,7 @@ const Container = styled.View<DoobooThemeContext>`
   justify-content: center;
   align-items: center;
   padding: 10px;
-  background-color: ${({theme}) => theme.bg.default};
+  background-color: ${({theme}) => theme.bg.basic};
 `;
 
 const DefaultStory: React.FC = () => {

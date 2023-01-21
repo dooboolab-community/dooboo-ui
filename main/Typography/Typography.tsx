@@ -12,7 +12,7 @@ const StyledTitle = styled.Text<{theme: DoobooTheme}>`
       return theme.text.disabled;
     }
 
-    return theme.text.default;
+    return theme.text.basic;
   }};
 `;
 
@@ -31,7 +31,7 @@ const StyledHeading1 = styled.Text<{theme: DoobooTheme}>`
       return theme.text.disabled;
     }
 
-    return theme.text.default;
+    return theme.text.basic;
   }};
 `;
 
@@ -50,7 +50,7 @@ const StyledHeading2 = styled.Text<{theme: DoobooTheme}>`
       return theme.text.disabled;
     }
 
-    return theme.text.default;
+    return theme.text.basic;
   }};
 `;
 
@@ -69,7 +69,7 @@ const StyledHeading3 = styled.Text<{theme: DoobooTheme}>`
       return theme.text.disabled;
     }
 
-    return theme.text.default;
+    return theme.text.basic;
   }};
 `;
 
@@ -87,7 +87,7 @@ const StyledBody1 = styled.Text<{theme: DoobooTheme}>`
       return theme.text.disabled;
     }
 
-    return theme.text.default;
+    return theme.text.basic;
   }};
 `;
 
@@ -105,7 +105,7 @@ const StyledBody2 = styled.Text<{theme: DoobooTheme}>`
       return theme.text.disabled;
     }
 
-    return theme.text.default;
+    return theme.text.basic;
   }};
 `;
 

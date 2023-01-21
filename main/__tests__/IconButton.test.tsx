@@ -1,4 +1,4 @@
-import type {IconButtonProps} from '../../main';
+import type {Props} from '../../main';
 import {IconButton} from '../../main';
 
 import React from 'react';
@@ -14,10 +14,10 @@ jest.mock('react-native-web-hooks', () => ({
   useHover: () => true,
 }));
 
-const Component = (props?: IconButtonProps): ReactElement =>
+const Component = (props?: Props): ReactElement =>
   createComponent(<IconButton {...props} />);
 
-describe('[IconButton]', () => {
+describe('[AddIcon]', () => {
   it('should render without crashing', () => {
     testingLib = render(Component());
 
@@ -29,8 +29,7 @@ describe('[IconButton]', () => {
   it('should render `outlined` button', () => {
     testingLib = render(
       Component({
-        icon: <View />,
-        outlined: true,
+        type: 'outlined',
       }),
     );
 
@@ -43,7 +42,6 @@ describe('[IconButton]', () => {
     it('should render `loading` button', () => {
       testingLib = render(
         Component({
-          icon: <View />,
           loading: true,
         }),
       );
@@ -56,7 +54,6 @@ describe('[IconButton]', () => {
     it('should render `disabled` button', () => {
       testingLib = render(
         Component({
-          icon: <View />,
           loading: true,
           disabled: true,
         }),
@@ -69,10 +66,9 @@ describe('[IconButton]', () => {
   });
 
   describe('size', () => {
-    it('should render size==="large"', () => {
+    it('should renders large size', () => {
       testingLib = render(
         Component({
-          icon: <View />,
           size: 'large',
         }),
       );
@@ -82,10 +78,9 @@ describe('[IconButton]', () => {
       expect(json).toBeTruthy();
     });
 
-    it('should render size==="small"', () => {
+    it('should renders small size', () => {
       testingLib = render(
         Component({
-          icon: <View />,
           size: 'small',
         }),
       );
@@ -97,11 +92,10 @@ describe('[IconButton]', () => {
   });
 
   describe('type', () => {
-    it('should render type==="info"', () => {
+    it('should render color==="info"', () => {
       testingLib = render(
         Component({
-          icon: <View />,
-          type: 'info',
+          color: 'info',
         }),
       );
 
@@ -110,11 +104,10 @@ describe('[IconButton]', () => {
       expect(json).toBeTruthy();
     });
 
-    it('should render type==="primary"', () => {
+    it('should renders primary color', () => {
       testingLib = render(
         Component({
-          icon: <View />,
-          type: 'primary',
+          color: 'primary',
         }),
       );
 
@@ -123,11 +116,10 @@ describe('[IconButton]', () => {
       expect(json).toBeTruthy();
     });
 
-    it('should render type==="secondary"', () => {
+    it('should renders secondary color', () => {
       testingLib = render(
         Component({
-          icon: <View />,
-          type: 'secondary',
+          color: 'secondary',
         }),
       );
 
@@ -136,11 +128,10 @@ describe('[IconButton]', () => {
       expect(json).toBeTruthy();
     });
 
-    it('should render type==="danger"', () => {
+    it('should renders danger color', () => {
       testingLib = render(
         Component({
-          icon: <View />,
-          type: 'danger',
+          color: 'danger',
         }),
       );
 
@@ -149,11 +140,10 @@ describe('[IconButton]', () => {
       expect(json).toBeTruthy();
     });
 
-    it('should render type==="warning"', () => {
+    it('should renders warning color', () => {
       testingLib = render(
         Component({
-          icon: <View />,
-          type: 'warning',
+          color: 'warning',
         }),
       );
 
@@ -166,7 +156,6 @@ describe('[IconButton]', () => {
   it('should render `disabled` button', () => {
     testingLib = render(
       Component({
-        icon: <View />,
         disabled: true,
       }),
     );

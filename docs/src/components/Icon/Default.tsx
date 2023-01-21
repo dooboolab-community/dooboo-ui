@@ -9,7 +9,7 @@ import {useFonts} from 'expo-font';
 
 const StoryContainer = styled.View`
   flex-wrap: wrap;
-  background-color: ${({theme}) => theme.bg.default};
+  background-color: ${({theme}) => theme.bg.basic};
   padding: 20px;
 
   flex-direction: row;
@@ -23,7 +23,7 @@ const StyledIcon = styled(Icon)`
 
 const StyledText = styled.Text`
   text-align: center;
-  color: ${({theme}) => theme.text.default};
+  color: ${({theme}) => theme.text.basic};
 `;
 
 const IconWithLabel: FC<{name: IconName}> = ({name}) => {

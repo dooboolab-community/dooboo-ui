@@ -9,7 +9,7 @@ import styled from '@emotion/native';
 import {useFonts} from 'expo-font';
 
 const StyledText = styled.Text`
-  color: ${({theme}) => theme.text.default};
+  color: ${({theme}) => theme.text.basic};
 `;
 
 const Component: FC = () => {
@@ -27,7 +27,7 @@ const Component: FC = () => {
   return (
     <View
       style={{
-        backgroundColor: theme.bg.default,
+        backgroundColor: theme.bg.basic,
         flex: 1,
         alignSelf: 'stretch',
         flexDirection: 'column',
@@ -38,23 +38,23 @@ const Component: FC = () => {
       <Checkbox
         checked={checked}
         onPress={() => setChecked(!checked)}
-        leftElement={<StyledText>Hello this is a checkbox</StyledText>}
+        startElement={<StyledText>Hello this is a checkbox</StyledText>}
       />
       <Checkbox
         checked={checked}
         onPress={() => setChecked(!checked)}
-        leftElement={<StyledText>Hello this is a checkbox</StyledText>}
+        startElement={<StyledText>Hello this is a checkbox</StyledText>}
       />
       <Checkbox
         checked={checked}
         onPress={() => setChecked(!checked)}
-        leftElement={<StyledText>Hello this is a checkbox</StyledText>}
+        startElement={<StyledText>Hello this is a checkbox</StyledText>}
       />
     </View>
   );
 };
 
-export const LeftElement: FC<{themeType: ThemeType}> = ({themeType}) => {
+export const startElement: FC<{themeType: ThemeType}> = ({themeType}) => {
   return (
     <ThemeProvider initialThemeType={themeType}>
       <Component />

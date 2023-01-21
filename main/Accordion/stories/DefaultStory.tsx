@@ -60,7 +60,7 @@ export const AccordionDefault = (): ReactElement => {
   const {theme} = useTheme();
 
   const [fontsLoaded] = useFonts({
-    IcoMoon: require('../../../main/Icon/doobooui.ttf'),
+    IcoMoon: require('../../Icon/doobooui.ttf'),
   });
 
   if (!fontsLoaded) {
@@ -68,7 +68,7 @@ export const AccordionDefault = (): ReactElement => {
   }
 
   return (
-    <StoryContainer style={{backgroundColor: theme.bg.default}}>
+    <StoryContainer style={{backgroundColor: theme.bg.basic}}>
       <ScrollContainer>
         <Container>
           <Typography.Heading3 style={{fontSize: 18, marginBottom: 8}}>

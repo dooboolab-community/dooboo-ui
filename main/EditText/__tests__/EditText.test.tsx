@@ -300,7 +300,7 @@ describe('[EditText]', () => {
 
       fireEvent(input, 'focus');
 
-      expect(input).toHaveStyle({color: light.text.default});
+      expect(input).toHaveStyle({color: light.text.basic});
     });
 
     it('should trigger `onFocus` and render custom color', async () => {

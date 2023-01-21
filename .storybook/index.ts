@@ -1,12 +1,12 @@
 import '../main/Accordion/stories';
 import '../main/Button/stories';
 import '../main/ButtonGroup/stories';
+import '../main/Icon/stories';
+import '../main/IconButton/stories';
 import '../main/Checkbox/stories';
 import '../main/EditText/stories';
 import '../main/EditTextLegacy/stories';
 import '../main/FAB/stories';
-import '../main/Icon/stories';
-import '../main/IconButton/stories';
 import '../main/LoadingIndicator/stories';
 import '../main/NetworkImage/stories';
 import '../main/Progressbar/stories';

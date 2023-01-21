@@ -61,13 +61,13 @@ const genTheme = (type: ThemeType, themeParam: ThemeParam): any => {
         ...theme.button.success,
         ...(themeParam?.[type]?.button?.success || {}),
       },
-      danger: {
-        ...theme.button.danger,
-        ...(themeParam?.[type]?.button?.danger || {}),
-      },
       warning: {
         ...theme.button.warning,
         ...(themeParam?.[type]?.button?.warning || {}),
+      },
+      danger: {
+        ...theme.button.danger,
+        ...(themeParam?.[type]?.button?.danger || {}),
       },
       info: {
         ...theme.button.info,
@@ -76,6 +76,10 @@ const genTheme = (type: ThemeType, themeParam: ThemeParam): any => {
       light: {
         ...theme.button.light,
         ...(themeParam?.[type]?.button?.light || {}),
+      },
+      disabled: {
+        ...theme.button.disabled,
+        ...(themeParam?.[type]?.button?.disabled || {}),
       },
     },
   };

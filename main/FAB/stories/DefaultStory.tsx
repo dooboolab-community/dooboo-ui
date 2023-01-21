@@ -10,7 +10,7 @@ import {withTheme} from '@dooboo-ui/theme';
 const StoryContainer = styled.View`
   flex: 1;
   align-self: stretch;
-  background-color: ${({theme}) => theme.bg.default};
+  background-color: ${({theme}) => theme.bg.basic};
 `;
 
 const ContentContainer = styled.View`
@@ -28,7 +28,7 @@ const FABContainer: FC = () => {
   const [active, setActive] = useState<boolean>(false);
 
   const [fontsLoaded] = useFonts({
-    IcoMoon: require('../../../main/Icon/doobooui.ttf'),
+    IcoMoon: require('../../Icon/doobooui.ttf'),
   });
 
   if (!fontsLoaded) {

@@ -13,7 +13,7 @@ import {useTheme} from '@dooboo-ui/theme';
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    position: 'absolute',
+    // position: 'absolute',
     backgroundColor: 'transparent',
     flexDirection: 'row',
     alignItems: 'center',

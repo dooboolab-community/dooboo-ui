@@ -13,7 +13,7 @@ const ScrollContainer = styled.ScrollView`
 `;
 
 const StyledText = styled.Text`
-  color: ${({theme}) => theme.text.default};
+  color: ${({theme}) => theme.text.basic};
 `;
 
 const types: (CheckboxType | undefined)[] = [
@@ -83,7 +83,7 @@ const CheckboxForms: FC<CheckBoxProps> = ({setChecked, checked}) => (
   </>
 );
 
-const CheckboxWithRightElement: FC<CheckBoxProps> = ({setChecked, checked}) => (
+const CheckboxWithendElement: FC<CheckBoxProps> = ({setChecked, checked}) => (
   <>
     <StyledText style={{fontSize: 18, marginTop: 24, marginBottom: 12}}>
       Checkbox with right element
@@ -95,14 +95,14 @@ const CheckboxWithRightElement: FC<CheckBoxProps> = ({setChecked, checked}) => (
           key={i}
           checked={checked}
           onPress={() => setChecked(!checked)}
-          rightElement={<StyledText>Hello this is a checkbox</StyledText>}
+          endElement={<StyledText>Hello this is a checkbox</StyledText>}
         />
       ))}
     </View>
   </>
 );
 
-const CheckboxWithLeftElement: FC<CheckBoxProps> = ({setChecked, checked}) => (
+const CheckboxWithstartElement: FC<CheckBoxProps> = ({setChecked, checked}) => (
   <>
     <StyledText style={{fontSize: 18, marginTop: 24, marginBottom: 12}}>
       Checkbox with left element
@@ -114,7 +114,7 @@ const CheckboxWithLeftElement: FC<CheckBoxProps> = ({setChecked, checked}) => (
           key={i}
           checked={checked}
           onPress={() => setChecked(!checked)}
-          leftElement={<StyledText>Hello this is a checkbox</StyledText>}
+          startElement={<StyledText>Hello this is a checkbox</StyledText>}
         />
       ))}
     </View>
@@ -126,7 +126,7 @@ const CheckboxStory: FC = () => {
   const {theme} = useTheme();
 
   const [fontsLoaded] = useFonts({
-    IcoMoon: require('../../../main/Icon/doobooui.ttf'),
+    IcoMoon: require('../../Icon/doobooui.ttf'),
   });
 
   if (!fontsLoaded) {
@@ -136,7 +136,7 @@ const CheckboxStory: FC = () => {
   return (
     <View
       style={{
-        backgroundColor: theme.bg.default,
+        backgroundColor: theme.bg.basic,
         flex: 1,
         alignSelf: 'stretch',
       }}
@@ -152,10 +152,10 @@ const CheckboxStory: FC = () => {
         <CheckboxForms setChecked={setChecked} checked={checked} />
         <Hr style={{marginTop: 40}} />
 
-        <CheckboxWithRightElement setChecked={setChecked} checked={checked} />
+        <CheckboxWithendElement setChecked={setChecked} checked={checked} />
         <Hr style={{marginTop: 40}} />
 
-        <CheckboxWithLeftElement setChecked={setChecked} checked={checked} />
+        <CheckboxWithstartElement setChecked={setChecked} checked={checked} />
       </ScrollContainer>
     </View>
   );

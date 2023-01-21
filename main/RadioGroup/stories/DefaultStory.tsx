@@ -12,7 +12,7 @@ const ScrollContainer = styled.ScrollView`
 `;
 
 const StyledText = styled.Text`
-  color: ${({theme}) => theme.text.default};
+  color: ${({theme}) => theme.text.basic};
 `;
 
 const types = ['primary', 'secondary', 'success', 'info', 'warning', 'danger'];
@@ -25,7 +25,7 @@ const RadioButtonStory: FC = () => {
   return (
     <View
       style={{
-        backgroundColor: theme.bg.default,
+        backgroundColor: theme.bg.basic,
         flex: 1,
         alignSelf: 'stretch',
       }}

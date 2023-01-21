@@ -115,9 +115,9 @@ type Props = {
 const Ico: FC<Props> = createIconSetFromIcoMoon(
   collectingFontIconSelection,
   'IcoMoon',
-  'doobooui.ttf',
+  require('./doobooui.ttf'),
 );
 
 export const Icon = styled(Ico)`
-  color: ${({theme, color}) => color || theme.text.default};
+  color: ${({theme, color}) => color || theme.text.basic};
 `;

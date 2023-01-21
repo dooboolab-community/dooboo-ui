@@ -1,7 +1,7 @@
 import IconStory from './DefaultStory';
 import React from 'react';
 import type {ReactElement} from 'react';
-import {ThemeProvider} from '../../../packages/theme';
+import {ThemeProvider} from '@dooboo-ui/theme';
 import {storiesOf} from '@storybook/react-native';
 
 /**
@@ -21,12 +21,12 @@ toStorybook.story = {
  * Below are stories for app
  */
 storiesOf('Icon', module)
-  .add('font icons - light', () => (
+  .add('LIGHT', () => (
     <ThemeProvider initialThemeType="light">
       <IconStory />
     </ThemeProvider>
   ))
-  .add('font icons - dark', () => (
+  .add('DARK', () => (
     <ThemeProvider initialThemeType="dark">
       <IconStory />
     </ThemeProvider>

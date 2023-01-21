@@ -13,7 +13,9 @@ export default {
   title: 'Button',
 };
 
-export const toStorybook = (): ReactElement => <DefaultStory />;
+export const toStorybook = (): ReactElement => (
+  <DefaultStory themeType="light" />
+);
 
 toStorybook.story = {
   name: 'default',
@@ -25,13 +27,13 @@ toStorybook.story = {
 storiesOf('Button', module)
   .addDecorator(withKnobs)
   .addDecorator(withActions)
-  .add('button - light', () => (
+  .add('LIGHT', () => (
     <ThemeProvider initialThemeType="light">
-      <DefaultStory />
+      <DefaultStory themeType="light" />
     </ThemeProvider>
   ))
-  .add('button - dark', () => (
+  .add('DARK', () => (
     <ThemeProvider initialThemeType="dark">
-      <DefaultStory />
+      <DefaultStory themeType="dark" />
     </ThemeProvider>
   ));

@@ -11,7 +11,7 @@ const Container = styled.View`
   align-self: stretch;
   align-items: center;
   justify-content: center;
-  background-color: ${({theme}) => theme.bg.default};
+  background-color: ${({theme}) => theme.bg.basic};
 `;
 
 const ProgressView: React.FC = () => {

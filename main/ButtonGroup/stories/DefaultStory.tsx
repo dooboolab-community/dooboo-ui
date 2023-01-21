@@ -7,7 +7,7 @@ import styled from '@emotion/native';
 const Container = styled.SafeAreaView`
   flex: 1;
   align-self: stretch;
-  background-color: ${({theme}) => theme.bg.default};
+  background-color: ${({theme}) => theme.bg.basic};
   padding: 0 24px;
 
   flex-direction: column;
@@ -16,7 +16,7 @@ const Container = styled.SafeAreaView`
 `;
 
 const StyledText = styled.Text`
-  color: ${({theme}) => theme.text.default};
+  color: ${({theme}) => theme.text.basic};
   font-size: 32px;
 `;
 

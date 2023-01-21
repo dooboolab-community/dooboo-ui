@@ -31,8 +31,8 @@ export interface CheckboxProps {
   type?: CheckboxType;
   disabled?: boolean;
   checked?: boolean;
-  rightElement?: React.ReactElement;
-  leftElement?: React.ReactElement;
+  endElement?: React.ReactElement;
+  startElement?: React.ReactElement;
 }
 
 const Container = styled.TouchableOpacity`
@@ -68,14 +68,14 @@ const StyledCheckbox = styled(CheckboxWrapper)<{
 `;
 
 const StyledCheck = styled(Icon)<{theme: DoobooTheme; checked?: boolean}>`
-  color: ${({theme, checked}) => (checked ? theme.bg.default : 'transparent')};
+  color: ${({theme, checked}) => (checked ? theme.bg.basic : 'transparent')};
 `;
 
 export const Checkbox: FC<CheckboxProps> = ({
   style,
   styles,
-  rightElement,
-  leftElement,
+  endElement,
+  startElement,
   type = 'primary',
   disabled = false,
   checked = false,
@@ -117,12 +117,12 @@ export const Checkbox: FC<CheckboxProps> = ({
         style={{
           flexDirection: 'row',
           paddingVertical: 6,
-          paddingLeft: leftElement ? 6 : 0,
-          paddingRight: rightElement ? 6 : 0,
+          paddingLeft: startElement ? 6 : 0,
+          paddingRight: endElement ? 6 : 0,
         }}
       >
         <>
-          {leftElement}
+          {startElement}
           <StyledCheckboxOutlined
             testID="doobooui-checkbox"
             checked={checked}
@@ -142,7 +142,7 @@ export const Checkbox: FC<CheckboxProps> = ({
               <StyledCheck theme={theme} name="tick-light" checked={checked} />
             </StyledCheckbox>
           </StyledCheckboxOutlined>
-          {rightElement}
+          {endElement}
         </>
       </View>
     </Container>

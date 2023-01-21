@@ -15,7 +15,7 @@ const types: SnackbarType[] = [
 ];
 
 const Container = styled.SafeAreaView`
-  background-color: ${({theme}) => theme.bg.default};
+  background-color: ${({theme}) => theme.bg.basic};
 `;
 
 function SnackbarDefault(): React.ReactElement {
@@ -50,7 +50,7 @@ function SnackbarDefault(): React.ReactElement {
       {types.map((type, i) => (
         <Button
           key={`${type}_${i}`}
-          type={type === 'default' ? 'primary' : type}
+          color={type === 'default' ? 'primary' : type}
           onPress={() => onPress(type)}
           text={`Open Snackbar - ${type}`}
           style={{margin: 20}}

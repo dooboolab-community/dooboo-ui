@@ -31,7 +31,7 @@ export function ButtonGroup(props: Props): React.ReactElement {
     borderRadius = 0,
     selectedIndex = 0,
     borderWidth = 1,
-    color = theme.text.default,
+    color = theme.text.basic,
     testID,
     style,
     data,
@@ -127,7 +127,7 @@ export function ButtonGroup(props: Props): React.ReactElement {
                 style={
                   selectedIndex === i
                     ? [styles?.selectedText, {color: theme.text.contrast}]
-                    : [styles?.text, {color: theme.text.default}]
+                    : [styles?.text, {color: theme.text.basic}]
                 }
               >
                 {text}

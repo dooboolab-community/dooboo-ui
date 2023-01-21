@@ -18,7 +18,7 @@ type DoobooThemeProp = {theme?: DoobooTheme};
 const ModalButton = styled.TouchableOpacity<ButtonTypeProps & DoobooThemeProp>`
   width: 100%;
   height: 40px;
-  border: 1px solid ${({theme}) => theme.text.default};
+  border: 1px solid ${({theme}) => theme.text.basic};
   border-radius: 20px;
   justify-content: center;
   align-items: center;
@@ -31,7 +31,7 @@ const ButtonText = styled.Text<ButtonTypeProps & DoobooThemeProp>`
   font-size: 14px;
   font-weight: bold;
   color: ${({theme, isAdditional}) =>
-    isAdditional ? theme.text.default : theme.bg.default};
+    isAdditional ? theme.text.basic : theme.bg.basic};
 `;
 
 const ModalInput = styled.TextInput<DoobooThemeProp>`
@@ -39,8 +39,8 @@ const ModalInput = styled.TextInput<DoobooThemeProp>`
   margin-bottom: 16px;
   padding: 4px 12px;
   font-size: 14px;
-  border: 1px solid ${({theme}) => theme.text.default};
-  color: ${({theme}) => theme.text.default};
+  border: 1px solid ${({theme}) => theme.text.basic};
+  color: ${({theme}) => theme.text.basic};
 `;
 
 const Title = styled.Text<DoobooThemeProp>`
@@ -48,14 +48,14 @@ const Title = styled.Text<DoobooThemeProp>`
   line-height: 20px;
   text-align: center;
   margin-bottom: 16px;
-  color: ${({theme}) => theme.text.default};
+  color: ${({theme}) => theme.text.basic};
 `;
 
 const Content = styled.Text<DoobooThemeProp>`
   font-size: 16px;
   line-height: 20px;
   margin-bottom: 16px;
-  color: ${({theme}) => theme.text.default};
+  color: ${({theme}) => theme.text.basic};
 `;
 
 interface ButtonTypeProps {
@@ -122,9 +122,9 @@ const AlertDialog = React.forwardRef<Modal, Props>(
             width: '80%',
             height: 'auto',
             borderRadius: 40,
-            backgroundColor: theme.bg.default,
+            backgroundColor: theme.bg.basic,
             shadowOffset: {width: 0, height: 4},
-            shadowColor: theme.text.default,
+            shadowColor: theme.text.basic,
             padding: 20,
           },
           style,

@@ -12,7 +12,7 @@ const StoryContainer = styled.View`
   width: 100%;
   height: 300px;
   align-self: stretch;
-  background-color: ${({theme}) => theme.bg.default};
+  background-color: ${({theme}) => theme.bg.basic};
 `;
 
 const FABContainer: FC = () => {

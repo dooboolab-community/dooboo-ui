@@ -7,7 +7,7 @@ import {useTheme} from '@dooboo-ui/theme';
 
 const ScrollContainer = styled.ScrollView`
   width: 100%;
-  background-color: ${({theme}) => theme.bg.default};
+  background-color: ${({theme}) => theme.bg.basic};
 `;
 
 function NetworkImageStory(): React.ReactElement {
