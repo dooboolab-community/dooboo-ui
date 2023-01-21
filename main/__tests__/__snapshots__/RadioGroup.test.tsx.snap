@@ -42,13 +42,13 @@ exports[`[RadioButton] colors should render \`disabled color 1`] = `
       style={
         [
           {
-            "borderBottomColor": "#C4C4C4",
+            "borderBottomColor": "#BEBEBE",
             "borderBottomWidth": 1,
-            "borderLeftColor": "#C4C4C4",
+            "borderLeftColor": "#BEBEBE",
             "borderLeftWidth": 1,
-            "borderRightColor": "#C4C4C4",
+            "borderRightColor": "#BEBEBE",
             "borderRightWidth": 1,
-            "borderTopColor": "#C4C4C4",
+            "borderTopColor": "#BEBEBE",
             "borderTopWidth": 1,
           },
           [
@@ -84,7 +84,7 @@ exports[`[RadioButton] colors should render \`disabled color 1`] = `
         style={
           {
             "alignSelf": "stretch",
-            "backgroundColor": "#C4C4C4",
+            "backgroundColor": "#BEBEBE",
             "flexBasis": 0,
             "flexGrow": 1,
             "flexShrink": 1,
@@ -213,13 +213,13 @@ exports[`[RadioButton] colors should render all colors 1`] = `
               style={
                 [
                   {
-                    "borderBottomColor": "#000000",
+                    "borderBottomColor": "#47498A",
                     "borderBottomWidth": 1,
-                    "borderLeftColor": "#000000",
+                    "borderLeftColor": "#47498A",
                     "borderLeftWidth": 1,
-                    "borderRightColor": "#000000",
+                    "borderRightColor": "#47498A",
                     "borderRightWidth": 1,
-                    "borderTopColor": "#000000",
+                    "borderTopColor": "#47498A",
                     "borderTopWidth": 1,
                   },
                   [
@@ -255,7 +255,7 @@ exports[`[RadioButton] colors should render all colors 1`] = `
                 style={
                   {
                     "alignSelf": "stretch",
-                    "backgroundColor": "#000000",
+                    "backgroundColor": "#47498A",
                     "flexBasis": 0,
                     "flexGrow": 1,
                     "flexShrink": 1,
@@ -277,7 +277,7 @@ exports[`[RadioButton] colors should render all colors 1`] = `
               style={
                 [
                   {
-                    "color": "#000000",
+                    "color": "#47498A",
                   },
                   undefined,
                 ]
@@ -372,7 +372,7 @@ exports[`[RadioButton] colors should render all colors 1`] = `
                 style={
                   {
                     "alignSelf": "stretch",
-                    "backgroundColor": "#000000",
+                    "backgroundColor": "#47498A",
                     "flexBasis": 0,
                     "flexGrow": 1,
                     "flexShrink": 1,
@@ -489,7 +489,7 @@ exports[`[RadioButton] colors should render all colors 1`] = `
                 style={
                   {
                     "alignSelf": "stretch",
-                    "backgroundColor": "#000000",
+                    "backgroundColor": "#47498A",
                     "flexBasis": 0,
                     "flexGrow": 1,
                     "flexShrink": 1,
@@ -606,7 +606,7 @@ exports[`[RadioButton] colors should render all colors 1`] = `
                 style={
                   {
                     "alignSelf": "stretch",
-                    "backgroundColor": "#000000",
+                    "backgroundColor": "#47498A",
                     "flexBasis": 0,
                     "flexGrow": 1,
                     "flexShrink": 1,
@@ -736,13 +736,13 @@ exports[`[RadioButton] colors should render all colors 1`] = `
               style={
                 [
                   {
-                    "borderBottomColor": "#00D9D5",
+                    "borderBottomColor": "#9E45B3",
                     "borderBottomWidth": 1,
-                    "borderLeftColor": "#00D9D5",
+                    "borderLeftColor": "#9E45B3",
                     "borderLeftWidth": 1,
-                    "borderRightColor": "#00D9D5",
+                    "borderRightColor": "#9E45B3",
                     "borderRightWidth": 1,
-                    "borderTopColor": "#00D9D5",
+                    "borderTopColor": "#9E45B3",
                     "borderTopWidth": 1,
                   },
                   [
@@ -778,7 +778,7 @@ exports[`[RadioButton] colors should render all colors 1`] = `
                 style={
                   {
                     "alignSelf": "stretch",
-                    "backgroundColor": "#00D9D5",
+                    "backgroundColor": "#9E45B3",
                     "flexBasis": 0,
                     "flexGrow": 1,
                     "flexShrink": 1,
@@ -800,7 +800,7 @@ exports[`[RadioButton] colors should render all colors 1`] = `
               style={
                 [
                   {
-                    "color": "#00D9D5",
+                    "color": "#9E45B3",
                   },
                   undefined,
                 ]
@@ -895,7 +895,7 @@ exports[`[RadioButton] colors should render all colors 1`] = `
                 style={
                   {
                     "alignSelf": "stretch",
-                    "backgroundColor": "#000000",
+                    "backgroundColor": "#47498A",
                     "flexBasis": 0,
                     "flexGrow": 1,
                     "flexShrink": 1,
@@ -1012,7 +1012,7 @@ exports[`[RadioButton] colors should render all colors 1`] = `
                 style={
                   {
                     "alignSelf": "stretch",
-                    "backgroundColor": "#000000",
+                    "backgroundColor": "#47498A",
                     "flexBasis": 0,
                     "flexGrow": 1,
                     "flexShrink": 1,
@@ -1129,7 +1129,7 @@ exports[`[RadioButton] colors should render all colors 1`] = `
                 style={
                   {
                     "alignSelf": "stretch",
-                    "backgroundColor": "#000000",
+                    "backgroundColor": "#47498A",
                     "flexBasis": 0,
                     "flexGrow": 1,
                     "flexShrink": 1,
@@ -1259,13 +1259,13 @@ exports[`[RadioButton] colors should render all colors 1`] = `
               style={
                 [
                   {
-                    "borderBottomColor": "#33FF2F",
+                    "borderBottomColor": "#0FC70C",
                     "borderBottomWidth": 1,
-                    "borderLeftColor": "#33FF2F",
+                    "borderLeftColor": "#0FC70C",
                     "borderLeftWidth": 1,
-                    "borderRightColor": "#33FF2F",
+                    "borderRightColor": "#0FC70C",
                     "borderRightWidth": 1,
-                    "borderTopColor": "#33FF2F",
+                    "borderTopColor": "#0FC70C",
                     "borderTopWidth": 1,
                   },
                   [
@@ -1301,7 +1301,7 @@ exports[`[RadioButton] colors should render all colors 1`] = `
                 style={
                   {
                     "alignSelf": "stretch",
-                    "backgroundColor": "#33FF2F",
+                    "backgroundColor": "#0FC70C",
                     "flexBasis": 0,
                     "flexGrow": 1,
                     "flexShrink": 1,
@@ -1323,7 +1323,7 @@ exports[`[RadioButton] colors should render all colors 1`] = `
               style={
                 [
                   {
-                    "color": "#33FF2F",
+                    "color": "#0FC70C",
                   },
                   undefined,
                 ]
@@ -1418,7 +1418,7 @@ exports[`[RadioButton] colors should render all colors 1`] = `
                 style={
                   {
                     "alignSelf": "stretch",
-                    "backgroundColor": "#000000",
+                    "backgroundColor": "#47498A",
                     "flexBasis": 0,
                     "flexGrow": 1,
                     "flexShrink": 1,
@@ -1535,7 +1535,7 @@ exports[`[RadioButton] colors should render all colors 1`] = `
                 style={
                   {
                     "alignSelf": "stretch",
-                    "backgroundColor": "#000000",
+                    "backgroundColor": "#47498A",
                     "flexBasis": 0,
                     "flexGrow": 1,
                     "flexShrink": 1,
@@ -1652,7 +1652,7 @@ exports[`[RadioButton] colors should render all colors 1`] = `
                 style={
                   {
                     "alignSelf": "stretch",
-                    "backgroundColor": "#000000",
+                    "backgroundColor": "#47498A",
                     "flexBasis": 0,
                     "flexGrow": 1,
                     "flexShrink": 1,
@@ -1782,13 +1782,13 @@ exports[`[RadioButton] colors should render all colors 1`] = `
               style={
                 [
                   {
-                    "borderBottomColor": "#5398FF",
+                    "borderBottomColor": "#307EF1",
                     "borderBottomWidth": 1,
-                    "borderLeftColor": "#5398FF",
+                    "borderLeftColor": "#307EF1",
                     "borderLeftWidth": 1,
-                    "borderRightColor": "#5398FF",
+                    "borderRightColor": "#307EF1",
                     "borderRightWidth": 1,
-                    "borderTopColor": "#5398FF",
+                    "borderTopColor": "#307EF1",
                     "borderTopWidth": 1,
                   },
                   [
@@ -1824,7 +1824,7 @@ exports[`[RadioButton] colors should render all colors 1`] = `
                 style={
                   {
                     "alignSelf": "stretch",
-                    "backgroundColor": "#5398FF",
+                    "backgroundColor": "#307EF1",
                     "flexBasis": 0,
                     "flexGrow": 1,
                     "flexShrink": 1,
@@ -1846,7 +1846,7 @@ exports[`[RadioButton] colors should render all colors 1`] = `
               style={
                 [
                   {
-                    "color": "#5398FF",
+                    "color": "#307EF1",
                   },
                   undefined,
                 ]
@@ -1941,7 +1941,7 @@ exports[`[RadioButton] colors should render all colors 1`] = `
                 style={
                   {
                     "alignSelf": "stretch",
-                    "backgroundColor": "#000000",
+                    "backgroundColor": "#47498A",
                     "flexBasis": 0,
                     "flexGrow": 1,
                     "flexShrink": 1,
@@ -2058,7 +2058,7 @@ exports[`[RadioButton] colors should render all colors 1`] = `
                 style={
                   {
                     "alignSelf": "stretch",
-                    "backgroundColor": "#000000",
+                    "backgroundColor": "#47498A",
                     "flexBasis": 0,
                     "flexGrow": 1,
                     "flexShrink": 1,
@@ -2175,7 +2175,7 @@ exports[`[RadioButton] colors should render all colors 1`] = `
                 style={
                   {
                     "alignSelf": "stretch",
-                    "backgroundColor": "#000000",
+                    "backgroundColor": "#47498A",
                     "flexBasis": 0,
                     "flexGrow": 1,
                     "flexShrink": 1,
@@ -2305,13 +2305,13 @@ exports[`[RadioButton] colors should render all colors 1`] = `
               style={
                 [
                   {
-                    "borderBottomColor": "#FFEB14",
+                    "borderBottomColor": "#EBBD1A",
                     "borderBottomWidth": 1,
-                    "borderLeftColor": "#FFEB14",
+                    "borderLeftColor": "#EBBD1A",
                     "borderLeftWidth": 1,
-                    "borderRightColor": "#FFEB14",
+                    "borderRightColor": "#EBBD1A",
                     "borderRightWidth": 1,
-                    "borderTopColor": "#FFEB14",
+                    "borderTopColor": "#EBBD1A",
                     "borderTopWidth": 1,
                   },
                   [
@@ -2347,7 +2347,7 @@ exports[`[RadioButton] colors should render all colors 1`] = `
                 style={
                   {
                     "alignSelf": "stretch",
-                    "backgroundColor": "#FFEB14",
+                    "backgroundColor": "#EBBD1A",
                     "flexBasis": 0,
                     "flexGrow": 1,
                     "flexShrink": 1,
@@ -2369,7 +2369,7 @@ exports[`[RadioButton] colors should render all colors 1`] = `
               style={
                 [
                   {
-                    "color": "#FFEB14",
+                    "color": "#EBBD1A",
                   },
                   undefined,
                 ]
@@ -2464,7 +2464,7 @@ exports[`[RadioButton] colors should render all colors 1`] = `
                 style={
                   {
                     "alignSelf": "stretch",
-                    "backgroundColor": "#000000",
+                    "backgroundColor": "#47498A",
                     "flexBasis": 0,
                     "flexGrow": 1,
                     "flexShrink": 1,
@@ -2581,7 +2581,7 @@ exports[`[RadioButton] colors should render all colors 1`] = `
                 style={
                   {
                     "alignSelf": "stretch",
-                    "backgroundColor": "#000000",
+                    "backgroundColor": "#47498A",
                     "flexBasis": 0,
                     "flexGrow": 1,
                     "flexShrink": 1,
@@ -2698,7 +2698,7 @@ exports[`[RadioButton] colors should render all colors 1`] = `
                 style={
                   {
                     "alignSelf": "stretch",
-                    "backgroundColor": "#000000",
+                    "backgroundColor": "#47498A",
                     "flexBasis": 0,
                     "flexGrow": 1,
                     "flexShrink": 1,
@@ -2828,13 +2828,13 @@ exports[`[RadioButton] colors should render all colors 1`] = `
               style={
                 [
                   {
-                    "borderBottomColor": "#FF002E",
+                    "borderBottomColor": "#F84444",
                     "borderBottomWidth": 1,
-                    "borderLeftColor": "#FF002E",
+                    "borderLeftColor": "#F84444",
                     "borderLeftWidth": 1,
-                    "borderRightColor": "#FF002E",
+                    "borderRightColor": "#F84444",
                     "borderRightWidth": 1,
-                    "borderTopColor": "#FF002E",
+                    "borderTopColor": "#F84444",
                     "borderTopWidth": 1,
                   },
                   [
@@ -2870,7 +2870,7 @@ exports[`[RadioButton] colors should render all colors 1`] = `
                 style={
                   {
                     "alignSelf": "stretch",
-                    "backgroundColor": "#FF002E",
+                    "backgroundColor": "#F84444",
                     "flexBasis": 0,
                     "flexGrow": 1,
                     "flexShrink": 1,
@@ -2892,7 +2892,7 @@ exports[`[RadioButton] colors should render all colors 1`] = `
               style={
                 [
                   {
-                    "color": "#FF002E",
+                    "color": "#F84444",
                   },
                   undefined,
                 ]
@@ -2987,7 +2987,7 @@ exports[`[RadioButton] colors should render all colors 1`] = `
                 style={
                   {
                     "alignSelf": "stretch",
-                    "backgroundColor": "#000000",
+                    "backgroundColor": "#47498A",
                     "flexBasis": 0,
                     "flexGrow": 1,
                     "flexShrink": 1,
@@ -3104,7 +3104,7 @@ exports[`[RadioButton] colors should render all colors 1`] = `
                 style={
                   {
                     "alignSelf": "stretch",
-                    "backgroundColor": "#000000",
+                    "backgroundColor": "#47498A",
                     "flexBasis": 0,
                     "flexGrow": 1,
                     "flexShrink": 1,
@@ -3221,7 +3221,7 @@ exports[`[RadioButton] colors should render all colors 1`] = `
                 style={
                   {
                     "alignSelf": "stretch",
-                    "backgroundColor": "#000000",
+                    "backgroundColor": "#47498A",
                     "flexBasis": 0,
                     "flexGrow": 1,
                     "flexShrink": 1,
@@ -3356,13 +3356,13 @@ exports[`[RadioButton] render label should render \`labels\` 1`] = `
               style={
                 [
                   {
-                    "borderBottomColor": "#000000",
+                    "borderBottomColor": "#47498A",
                     "borderBottomWidth": 1,
-                    "borderLeftColor": "#000000",
+                    "borderLeftColor": "#47498A",
                     "borderLeftWidth": 1,
-                    "borderRightColor": "#000000",
+                    "borderRightColor": "#47498A",
                     "borderRightWidth": 1,
-                    "borderTopColor": "#000000",
+                    "borderTopColor": "#47498A",
                     "borderTopWidth": 1,
                   },
                   [
@@ -3398,7 +3398,7 @@ exports[`[RadioButton] render label should render \`labels\` 1`] = `
                 style={
                   {
                     "alignSelf": "stretch",
-                    "backgroundColor": "#000000",
+                    "backgroundColor": "#47498A",
                     "flexBasis": 0,
                     "flexGrow": 1,
                     "flexShrink": 1,
@@ -3420,7 +3420,7 @@ exports[`[RadioButton] render label should render \`labels\` 1`] = `
               style={
                 [
                   {
-                    "color": "#000000",
+                    "color": "#47498A",
                   },
                   undefined,
                 ]
@@ -3515,7 +3515,7 @@ exports[`[RadioButton] render label should render \`labels\` 1`] = `
                 style={
                   {
                     "alignSelf": "stretch",
-                    "backgroundColor": "#000000",
+                    "backgroundColor": "#47498A",
                     "flexBasis": 0,
                     "flexGrow": 1,
                     "flexShrink": 1,
@@ -3632,7 +3632,7 @@ exports[`[RadioButton] render label should render \`labels\` 1`] = `
                 style={
                   {
                     "alignSelf": "stretch",
-                    "backgroundColor": "#000000",
+                    "backgroundColor": "#47498A",
                     "flexBasis": 0,
                     "flexGrow": 1,
                     "flexShrink": 1,
@@ -3749,7 +3749,7 @@ exports[`[RadioButton] render label should render \`labels\` 1`] = `
                 style={
                   {
                     "alignSelf": "stretch",
-                    "backgroundColor": "#000000",
+                    "backgroundColor": "#47498A",
                     "flexBasis": 0,
                     "flexGrow": 1,
                     "flexShrink": 1,
@@ -3884,7 +3884,7 @@ exports[`[RadioButton] render label should render \`labels\` with left position 
               style={
                 [
                   {
-                    "color": "#000000",
+                    "color": "#47498A",
                   },
                   undefined,
                 ]
@@ -3899,13 +3899,13 @@ exports[`[RadioButton] render label should render \`labels\` with left position 
               style={
                 [
                   {
-                    "borderBottomColor": "#000000",
+                    "borderBottomColor": "#47498A",
                     "borderBottomWidth": 1,
-                    "borderLeftColor": "#000000",
+                    "borderLeftColor": "#47498A",
                     "borderLeftWidth": 1,
-                    "borderRightColor": "#000000",
+                    "borderRightColor": "#47498A",
                     "borderRightWidth": 1,
-                    "borderTopColor": "#000000",
+                    "borderTopColor": "#47498A",
                     "borderTopWidth": 1,
                   },
                   [
@@ -3941,7 +3941,7 @@ exports[`[RadioButton] render label should render \`labels\` with left position 
                 style={
                   {
                     "alignSelf": "stretch",
-                    "backgroundColor": "#000000",
+                    "backgroundColor": "#47498A",
                     "flexBasis": 0,
                     "flexGrow": 1,
                     "flexShrink": 1,
@@ -4058,7 +4058,7 @@ exports[`[RadioButton] render label should render \`labels\` with left position 
                 style={
                   {
                     "alignSelf": "stretch",
-                    "backgroundColor": "#000000",
+                    "backgroundColor": "#47498A",
                     "flexBasis": 0,
                     "flexGrow": 1,
                     "flexShrink": 1,
@@ -4175,7 +4175,7 @@ exports[`[RadioButton] render label should render \`labels\` with left position 
                 style={
                   {
                     "alignSelf": "stretch",
-                    "backgroundColor": "#000000",
+                    "backgroundColor": "#47498A",
                     "flexBasis": 0,
                     "flexGrow": 1,
                     "flexShrink": 1,
@@ -4292,7 +4292,7 @@ exports[`[RadioButton] render label should render \`labels\` with left position 
                 style={
                   {
                     "alignSelf": "stretch",
-                    "backgroundColor": "#000000",
+                    "backgroundColor": "#47498A",
                     "flexBasis": 0,
                     "flexGrow": 1,
                     "flexShrink": 1,
@@ -4411,13 +4411,13 @@ exports[`[RadioButton] render should render without crashing 1`] = `
             style={
               [
                 {
-                  "borderBottomColor": "#000000",
+                  "borderBottomColor": "#47498A",
                   "borderBottomWidth": 1,
-                  "borderLeftColor": "#000000",
+                  "borderLeftColor": "#47498A",
                   "borderLeftWidth": 1,
-                  "borderRightColor": "#000000",
+                  "borderRightColor": "#47498A",
                   "borderRightWidth": 1,
-                  "borderTopColor": "#000000",
+                  "borderTopColor": "#47498A",
                   "borderTopWidth": 1,
                 },
                 [
@@ -4453,14 +4453,14 @@ exports[`[RadioButton] render should render without crashing 1`] = `
               style={
                 {
                   "alignSelf": "stretch",
-                  "backgroundColor": "#000000",
+                  "backgroundColor": "#47498A",
                   "flexBasis": 0,
                   "flexGrow": 1,
                   "flexShrink": 1,
-                  "opacity": 0,
+                  "opacity": 0.00011425836668732536,
                   "transform": [
                     {
-                      "scale": 0,
+                      "scale": 0.00011425836668732536,
                     },
                   ],
                 }
@@ -4555,7 +4555,7 @@ exports[`[RadioButton] render should render without crashing 1`] = `
               style={
                 {
                   "alignSelf": "stretch",
-                  "backgroundColor": "#000000",
+                  "backgroundColor": "#47498A",
                   "flexBasis": 0,
                   "flexGrow": 1,
                   "flexShrink": 1,
@@ -4657,7 +4657,7 @@ exports[`[RadioButton] render should render without crashing 1`] = `
               style={
                 {
                   "alignSelf": "stretch",
-                  "backgroundColor": "#000000",
+                  "backgroundColor": "#47498A",
                   "flexBasis": 0,
                   "flexGrow": 1,
                   "flexShrink": 1,
@@ -4759,7 +4759,7 @@ exports[`[RadioButton] render should render without crashing 1`] = `
               style={
                 {
                   "alignSelf": "stretch",
-                  "backgroundColor": "#000000",
+                  "backgroundColor": "#47498A",
                   "flexBasis": 0,
                   "flexGrow": 1,
                   "flexShrink": 1,

@@ -42,7 +42,7 @@ jobs:
 
       - name: Test
         run: |
-          export NODE_OPTIONS="--max-old-space-size=8192 --optimize-for-size --max_old_space_size=8192 --optimize_for_size"
+          export NODE_OPTIONS="--max-old-space-size=8192"
           yarn test --coverage --forceExit --silent -u
 
       - name: Upload coverage to Codecov
