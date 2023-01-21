@@ -8,7 +8,7 @@ on:
 
 jobs:
   build_and_preview:
-    if: github.repository == 'dooboolab/dooboo-ui'
+    if: ${{ github.event.label.name == 'preview' }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master
