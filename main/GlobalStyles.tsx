@@ -1,4 +1,3 @@
-import React from 'react';
 import styled from '@emotion/native';
 
 export const StoryContainer = styled.View`

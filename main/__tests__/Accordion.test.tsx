@@ -1,10 +1,10 @@
-import type {ReactElement} from 'react';
-import React from 'react';
-import type {RenderAPI} from '@testing-library/react-native';
-import {act, fireEvent, render} from '@testing-library/react-native';
 import {createComponent, createTestProps} from '../../test/testUtils';
+import {fireEvent, render} from '@testing-library/react-native';
 
 import {Accordion} from '../../main';
+import React from 'react';
+import type {ReactElement} from 'react';
+import type {RenderAPI} from '@testing-library/react-native';
 
 let props: any;
 let component: ReactElement;
@@ -34,8 +34,7 @@ describe('[Accordion] render test', () => {
     testingLib = render(component);
 
     const json = testingLib.toJSON();
-
-    // expect(json).toMatchSnapshot();
+    expect(json).toBeTruthy();
   });
 
   it('should render collapsed when collapseOnStart props is true', () => {
@@ -49,7 +48,7 @@ describe('[Accordion] render test', () => {
 
     const json = testingLib.toJSON();
 
-    // expect(json).toMatchSnapshot();
+    expect(json).toBeTruthy();
   });
 
   it('should operate animation when shouldAnimate props is true', () => {
@@ -64,7 +63,7 @@ describe('[Accordion] render test', () => {
 
     const json = testingLib.toJSON();
 
-    // expect(json).toMatchSnapshot();
+    expect(json).toBeTruthy();
   });
 
   it('should adjust duration of animation depends on animDuration props value', () => {
@@ -78,7 +77,7 @@ describe('[Accordion] render test', () => {
 
     const json = testingLib.toJSON();
 
-    // expect(json).toMatchSnapshot();
+    expect(json).toBeTruthy();
   });
 
   // describe('[Accordion] - Change default value', () => {
@@ -131,9 +130,15 @@ describe('[Accordion] event test', () => {
         },
       },
     });
+
+    expect(itemTitle.props.style.height).toBeDefined();
   });
 
   it('should trigger press event when clicking title', () => {
     fireEvent.press(testingLib.getByTestId('title_0'));
+
+    expect(
+      testingLib.getByTestId('body_0').props.accessibilityState.expanded,
+    ).toBeTruthy();
   });
 });

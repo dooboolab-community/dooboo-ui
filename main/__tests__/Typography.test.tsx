@@ -1,4 +1,4 @@
-import {Typography, TypographyInverted} from '../Typography';
+import {Typography, TypographyInverted} from '../components/Typography';
 
 import React from 'react';
 import type {ReactElement} from 'react';

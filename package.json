@@ -16,7 +16,7 @@
     "ios": "expo start --ios",
     "web": "expo start --web",
     "eject": "expo eject",
-    "test": "jest",
+    "test": "rm -rf packages/theme/lib && jest",
     "test:all": "lerna run build && yarn lint && yarn tsc && jest",
     "test:post": "jest",
     "prebuild": "cp ./main/react-native.config.cjs ./lib/react-native.config.cjs && rm -rf ./lib/tsconfig* && cp README.md ./lib/README.md ",
@@ -31,7 +31,7 @@
     "prepare": "husky install"
   },
   "dependencies": {
-    "@dooboo-ui/theme": "^0.9.5",
+    "@dooboo-ui/theme": "^0.10.0",
     "@emotion/native": "^11.10.0",
     "@emotion/react": "^11.10.5",
     "@expo/match-media": "^0.4.0",

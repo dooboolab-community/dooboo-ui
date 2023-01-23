@@ -2,7 +2,7 @@ import {ThemeProvider, dark, light} from '@dooboo-ui/theme';
 import {createComponent, createTestProps} from '../../test/testUtils';
 import {fireEvent, render} from '@testing-library/react-native';
 
-import {ButtonGroup} from '../ButtonGroup';
+import {ButtonGroup} from '../components/ButtonGroup';
 import React from 'react';
 import type {RenderAPI} from '@testing-library/react-native';
 import getGiven from 'givens';

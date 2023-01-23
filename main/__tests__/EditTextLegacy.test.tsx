@@ -1,7 +1,7 @@
 import {act, fireEvent, render} from '@testing-library/react-native';
 
 import {EditTextLegacy} from '..';
-import type {EditTextLegacyProps} from '../EditTextLegacy';
+import type {EditTextLegacyProps} from '../components/EditTextLegacy';
 import RNWebHooks from 'react-native-web-hooks';
 import React from 'react';
 import type {ReactElement} from 'react';

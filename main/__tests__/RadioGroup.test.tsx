@@ -1,12 +1,12 @@
 import * as React from 'react';
 
-import type {RadioButtonType} from '../RadioGroup/RadioButton';
-import {RadioButton} from '../RadioGroup/RadioButton';
-import type {RenderAPI} from '@testing-library/react-native';
 import {act, fireEvent, render} from '@testing-library/react-native';
 import {createComponent, createTestProps} from '../../test/testUtils';
 
-import {RadioGroup} from '../RadioGroup';
+import {RadioButton} from '../components/RadioGroup/RadioButton';
+import type {RadioButtonType} from '../components/RadioGroup/RadioButton';
+import {RadioGroup} from '../components/RadioGroup';
+import type {RenderAPI} from '@testing-library/react-native';
 import {View} from 'react-native';
 
 let props: any;

@@ -1,8 +1,8 @@
-import type {ReactElement} from 'react';
-import React from 'react';
 import {fireEvent, render} from '@testing-library/react-native';
 
-import {SwitchToggle} from '../SwitchToggle';
+import React from 'react';
+import type {ReactElement} from 'react';
+import {SwitchToggle} from '../components/SwitchToggle';
 import {Text} from 'react-native';
 import {createComponent} from '../../test/testUtils';
 import renderer from 'react-test-renderer';
