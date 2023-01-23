@@ -27,15 +27,22 @@ import {EditText} from 'dooboo-ui';
 ## Props
 
 ```tsx
-export type EditTextProps = {
+type EditTextProps = {
   testID?: TextInputProps['testID'];
   inputRef?: LegacyRef<TextInput>;
-  textInputProps?: TextInputProps;
+
   style?: StyleProp<ViewStyle>;
   styles?: Styles;
-  labelText?: string;
-  errorText?: string;
+
+  // Components
+  label?: string | RenderType;
+  error?: string | RenderType;
+
+  direction?: 'row' | 'column';
+  decoration?: 'underline' | 'boxed';
+
   value?: TextInputProps['value'];
+  multiline?: TextInputProps['multiline'];
   onChange?: TextInputProps['onChange'];
   onChangeText?: TextInputProps['onChangeText'];
   placeholder?: TextInputProps['placeholder'];
@@ -46,13 +53,34 @@ export type EditTextProps = {
   autoCapitalize?: TextInputProps['autoCapitalize'];
   secureTextEntry?: TextInputProps['secureTextEntry'];
   onSubmitEditing?: TextInputProps['onSubmitEditing'];
+  maxLength?: TextInputProps['maxLength'];
 
-  focusColor?: string;
-  hoverColor?: string;
-  errorColor?: string;
-  disableColor?: string;
-  labelColor?: string;
-  type?: 'row' | 'column' | 'boxed';
+  textInputProps?: Omit<
+    TextInputProps,
+    | 'value'
+    | 'onChange'
+    | 'multiline'
+    | 'onChange'
+    | 'onChangeText'
+    | 'placeholder'
+    | 'placeholderTextColor'
+    | 'onFocus'
+    | 'onBlur'
+    | 'editable'
+    | 'autoCapitalize'
+    | 'secureTextEntry'
+    | 'onSubmitEditing'
+    | 'maxLength'
+  >;
+
+  colors?: {
+    basic?: string;
+    disabled?: string;
+    error?: string;
+    focused?: string;
+    hovered?: string;
+    placeholder?: string;
+  };
 };
 ```
 
@@ -60,19 +88,19 @@ export type EditTextProps = {
 
 <br />
 
-### Default
+### Direction column (default)
 
 <p>
-  <Default type="row" placeholder="Default EditText" labelText="Label" />
+  <Default direction="column" placeholder="Default EditText" labelText="Label" />
 </p>
 
-### Column
+### Direction row
 
 <p>
-  <Default type="column" placeholder="Default EditText" labelText="Label" />
+  <Default direction="row" placeholder="Default EditText" labelText="Label" />
 </p>
 
-### boxed
+### Type boxed
 
 <p>
   <Default type="boxed" placeholder="Write a message"/>

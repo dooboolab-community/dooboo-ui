@@ -1,7 +1,7 @@
 import {Icon, IconButton} from 'dooboo-ui';
-import type {ReactElement} from 'react';
-import React from 'react';
 
+import React from 'react';
+import type {ReactElement} from 'react';
 import {ThemeProvider} from '@dooboo-ui/theme';
 import {View} from 'react-native';
 import styled from '@emotion/native';
@@ -13,7 +13,7 @@ const StyledIcon = styled(Icon)`
 
 const IconButtonStory = (): React.ReactElement => {
   const [fontsLoaded] = useFonts({
-    IcoMoon: require('../../../../main/Icon/doobooui.ttf'),
+    IcoMoon: require('../../../../main/components/Icon/doobooui.ttf'),
   });
 
   if (!fontsLoaded) {
