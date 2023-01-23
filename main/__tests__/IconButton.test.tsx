@@ -15,7 +15,7 @@ jest.mock('react-native-web-hooks', () => ({
 const Component = (props?: Props): ReactElement =>
   createComponent(<IconButton {...props} />);
 
-describe('[AddIcon]', () => {
+describe('[IconButton]', () => {
   it('should render without crashing', () => {
     testingLib = render(Component());
 

@@ -13,7 +13,7 @@ const StyledIcon = styled(Icon)`
 
 const IconButtonStory = (): React.ReactElement => {
   const [fontsLoaded] = useFonts({
-    IcoMoon: require('../../../../main/components/Icon/doobooui.ttf'),
+    IcoMoon: require('../../assets/doobooui.ttf'),
   });
 
   if (!fontsLoaded) {
@@ -30,11 +30,11 @@ const IconButtonStory = (): React.ReactElement => {
         alignItems: 'center',
       }}
     >
-      <IconButton icon={<StyledIcon size={24} name="moment-solid" />} />
+      <IconButton iconElement={<StyledIcon size={24} name="moment-solid" />} />
       <View style={{width: 8}} />
-      <IconButton icon={<StyledIcon size={24} name="add-light" />} />
+      <IconButton iconElement={<StyledIcon size={24} name="add-light" />} />
       <View style={{width: 8}} />
-      <IconButton icon={<StyledIcon size={24} name="chevron-right" />} />
+      <IconButton iconElement={<StyledIcon size={24} name="chevron-right" />} />
     </View>
   );
 };

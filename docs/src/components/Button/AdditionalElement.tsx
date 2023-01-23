@@ -1,6 +1,5 @@
 import {IC_FACEBOOK, IC_GOOGLE} from '../../icon';
 import {Image, View} from 'react-native';
-import {useState} from 'react';
 import styled, {css} from '@emotion/native';
 
 import {Button} from 'dooboo-ui';
@@ -8,6 +7,7 @@ import type {FC} from 'react';
 import {ThemeProvider} from '@dooboo-ui/theme';
 import type {ThemeType} from '@dooboo-ui/theme';
 import {action} from '@storybook/addon-actions';
+import {useState} from 'react';
 
 const StoryContainer = styled.View`
   background-color: ${({theme}) => theme.bg.basic};
@@ -32,7 +32,7 @@ export const AdditionalElement: FC<{themeType: ThemeType}> = ({themeType}) => {
               <Image style={{width: 20, height: 20}} source={IC_GOOGLE} />
             </View>
           }
-          outlined
+          type="outlined"
           loading={googleLoading}
           style={{margin: 10}}
           styles={{
@@ -57,7 +57,7 @@ export const AdditionalElement: FC<{themeType: ThemeType}> = ({themeType}) => {
         />
         <Button
           testID="btnFacebook"
-          outlined
+          type="outlined"
           startElement={
             <View
               style={{
