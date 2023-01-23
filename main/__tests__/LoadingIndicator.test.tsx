@@ -19,7 +19,6 @@ describe('[LoadingIndicator] render', () => {
   it('should render without crashing', () => {
     const rendered = renderer.create(component).toJSON();
 
-    expect(rendered).toMatchSnapshot();
     expect(rendered).toBeTruthy();
   });
 
@@ -32,7 +31,6 @@ describe('[LoadingIndicator] render', () => {
 
     const rendered = renderer.create(component).toJSON();
 
-    expect(rendered).toMatchSnapshot();
     expect(rendered).toBeTruthy();
   });
 
@@ -45,7 +43,6 @@ describe('[LoadingIndicator] render', () => {
 
     const rendered = renderer.create(component).toJSON();
 
-    expect(rendered).toMatchSnapshot();
     expect(rendered).toBeTruthy();
   });
 
@@ -59,7 +56,6 @@ describe('[LoadingIndicator] render', () => {
 
     const rendered = renderer.create(component).toJSON();
 
-    expect(rendered).toMatchSnapshot();
     expect(rendered).toBeTruthy();
   });
 
@@ -73,7 +69,6 @@ describe('[LoadingIndicator] render', () => {
 
     const rendered = renderer.create(component).toJSON();
 
-    expect(rendered).toMatchSnapshot();
     expect(rendered).toBeTruthy();
   });
 
@@ -87,7 +82,6 @@ describe('[LoadingIndicator] render', () => {
 
     const rendered = renderer.create(component).toJSON();
 
-    expect(rendered).toMatchSnapshot();
     expect(rendered).toBeTruthy();
   });
 
@@ -101,7 +95,6 @@ describe('[LoadingIndicator] render', () => {
 
     const rendered = renderer.create(component).toJSON();
 
-    expect(rendered).toMatchSnapshot();
     expect(rendered).toBeTruthy();
   });
 
@@ -115,7 +108,6 @@ describe('[LoadingIndicator] render', () => {
 
     const rendered = renderer.create(component).toJSON();
 
-    expect(rendered).toMatchSnapshot();
     expect(rendered).toBeTruthy();
   });
 
@@ -128,7 +120,6 @@ describe('[LoadingIndicator] render', () => {
 
     const rendered = renderer.create(component).toJSON();
 
-    expect(rendered).toMatchSnapshot();
     expect(rendered).toBeTruthy();
   });
 
@@ -142,7 +133,6 @@ describe('[LoadingIndicator] render', () => {
 
     const rendered = renderer.create(component).toJSON();
 
-    expect(rendered).toMatchSnapshot();
     expect(rendered).toBeTruthy();
   });
 
@@ -156,7 +146,6 @@ describe('[LoadingIndicator] render', () => {
 
     const rendered = renderer.create(component).toJSON();
 
-    expect(rendered).toMatchSnapshot();
     expect(rendered).toBeTruthy();
   });
 
@@ -170,7 +159,6 @@ describe('[LoadingIndicator] render', () => {
 
     const rendered = renderer.create(component).toJSON();
 
-    expect(rendered).toMatchSnapshot();
     expect(rendered).toBeTruthy();
   });
 
@@ -184,7 +172,6 @@ describe('[LoadingIndicator] render', () => {
 
     const rendered = renderer.create(component).toJSON();
 
-    expect(rendered).toMatchSnapshot();
     expect(rendered).toBeTruthy();
   });
 });

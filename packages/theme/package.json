@@ -31,15 +31,15 @@
     "react-responsive": "^9.0.0"
   },
   "devDependencies": {
-    "typescript": "^4.8.4",
     "@emotion/native": "^11.10.0",
     "@emotion/react": "^11.10.4",
-    "@expo/match-media": "*"
+    "@expo/match-media": "*",
+    "typescript": "^4.8.4"
   },
   "peerDependencies": {
-    "react": ">=16.9",
-    "react-native": ">=0.58",
+    "@emotion/native": ">=11",
     "@emotion/react": ">=11",
-    "@emotion/native": ">=11"
+    "react": ">=16.9",
+    "react-native": ">=0.58"
   }
 }

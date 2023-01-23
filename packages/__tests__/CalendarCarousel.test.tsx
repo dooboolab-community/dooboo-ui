@@ -15,7 +15,6 @@ describe('[Calendar]', () => {
   it('should render without crashing', () => {
     const rendered = renderer.create(component());
 
-    // expect(rendered).toMatchSnapshot();
     expect(rendered).toBeTruthy();
   });
 });

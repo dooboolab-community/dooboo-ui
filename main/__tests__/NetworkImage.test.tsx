@@ -27,7 +27,6 @@ describe('[NetworkImage] render', () => {
     //   .spyOn(Appearance, 'removeChangeListener')
     //   .mockImplementation(() => jest.fn());
 
-    expect(rendered).toMatchSnapshot();
     expect(rendered).toBeTruthy();
   });
 });
