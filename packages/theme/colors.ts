@@ -160,12 +160,18 @@ export const dark: typeof light = {
 
 export type Colors = typeof colors;
 
-export type DoobooTheme = typeof light & {
+type StaticTheme = typeof light & {
   isPortrait?: boolean;
   isDesktop?: boolean;
   isTablet?: boolean;
   isMobile?: boolean;
 };
+
+type RecursivePartial<T> = {
+  [P in keyof T]?: RecursivePartial<T[P]>;
+};
+
+export type DoobooTheme = RecursivePartial<StaticTheme>;
 
 export type ThemeObjParams = {
   bg: Partial<typeof light.bg>;
