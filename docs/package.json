@@ -4,8 +4,8 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "cp:lib": "rm -rf node_modules/dooboo-ui && cp -R ../lib node_modules/dooboo-ui",
-    "preinstall": "cd .. && yarn && yarn pre && yarn build && cd docs &&  yarn cp:lib",
+    "preinstall": "cd .. && yarn && yarn pre && yarn build && cd docs",
+    "postinstall": "rm -rf node_modules/dooboo-ui && cp -R ../lib node_modules/dooboo-ui",
     "build": "build-storybook --docs -o ./doc-build -c ./.storybook && cp -r ./src/assets ./doc-build",
     "start": "start-storybook --docs -p 9001 -c ./.storybook watch-css -s ./src"
   },
