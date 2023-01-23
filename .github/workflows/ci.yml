@@ -43,7 +43,7 @@ jobs:
       - name: Test
         run: |
           export NODE_OPTIONS="--max-old-space-size=8192"
-          yarn test --coverage --forceExit --silent -u
+          npx jest --coverage --forceExit --silent -u
 
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v1
