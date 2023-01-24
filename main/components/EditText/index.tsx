@@ -178,8 +178,6 @@ export const EditText: FC<EditTextProps> = (props) => {
             borderColor: labelPlaceholderColor
               ? labelPlaceholderColor.color
               : defaultColor,
-            paddingVertical: 12,
-            paddingHorizontal: 10,
           },
           decoration === 'boxed'
             ? {borderWidth: 1, paddingHorizontal: 12}
@@ -205,7 +203,7 @@ export const EditText: FC<EditTextProps> = (props) => {
           // @ts-ignore
           Platform.OS === 'web' && {outlineWidth: 0},
           direction === 'column' ? {paddingTop: 12} : {paddingLeft: 12},
-          {color: defaultColor},
+          {color: defaultColor, paddingVertical: 12},
           styles?.input,
         ]}
         editable={editable}
