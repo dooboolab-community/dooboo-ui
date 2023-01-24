@@ -4,7 +4,7 @@ export * from './components/Snackbar';
 export * from './components/Icon';
 export * from './components/Hr';
 export * from './components/Button';
-export * from './components/ButtonGroup';
+export * from './components/ButtonGroupLegacy';
 export * from './components/IconButton';
 export * from './components/Checkbox';
 export * from './components/EditText';

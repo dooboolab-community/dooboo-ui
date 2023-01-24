@@ -8,7 +8,7 @@ import {storiesOf} from '@storybook/react-native';
  * Below are stories for web
  */
 export default {
-  title: 'ButtonGroup',
+  title: 'ButtonGroupLegacy',
 };
 
 export const toStorybook = (): ReactElement => (
@@ -18,19 +18,19 @@ export const toStorybook = (): ReactElement => (
 );
 
 toStorybook.story = {
-  name: 'ButtonGroup - 4 buttons',
+  name: 'ButtonGroupLegacy - 4 buttons',
 };
 
 /**
  * Below are stories for app
  */
-storiesOf('ButtonGroup', module)
-  .add('ButtonGroup - light', () => (
+storiesOf('ButtonGroupLegacy', module)
+  .add('ButtonGroupLegacy - light', () => (
     <ThemeProvider initialThemeType="light">
       <DefaultStory />
     </ThemeProvider>
   ))
-  .add('ButtonGroup - dark', () => (
+  .add('ButtonGroupLegacy - dark', () => (
     <ThemeProvider initialThemeType="dark">
       <DefaultStory />
     </ThemeProvider>

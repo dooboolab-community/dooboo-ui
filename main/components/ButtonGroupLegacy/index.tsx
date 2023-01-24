@@ -24,7 +24,7 @@ interface Props {
   selectedIndex?: number;
 }
 
-export function ButtonGroup(props: Props): React.ReactElement {
+export function ButtonGroupLegacy(props: Props): React.ReactElement {
   const {theme} = useTheme();
 
   const {
@@ -140,7 +140,7 @@ export function ButtonGroup(props: Props): React.ReactElement {
   );
 }
 
-ButtonGroup.defaultProps = {
+ButtonGroupLegacy.defaultProps = {
   styles: {
     container: {
       backgroundColor: 'transparent',

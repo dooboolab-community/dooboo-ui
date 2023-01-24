@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 
-import {ButtonGroup} from '../';
+import {ButtonGroupLegacy} from '..';
 import {View} from 'react-native';
 import styled from '@emotion/native';
 
@@ -16,7 +16,7 @@ const Container = styled.SafeAreaView`
 `;
 
 const StyledText = styled.Text`
-  color: ${({theme}) => theme.text.basic};
+  color: ${({theme}) => theme.text.contrast};
   font-size: 32px;
 `;
 
@@ -27,7 +27,7 @@ const ButtonGroupStory = (): React.ReactElement => {
 
   return (
     <Container>
-      <ButtonGroup
+      <ButtonGroupLegacy
         style={{marginTop: 40, marginHorizontal: 20}}
         onPress={(index: number): void => setSelectedIndex(index)}
         data={data}

@@ -1,6 +1,6 @@
 import '../main/components/Accordion/stories';
 import '../main/components/Button/stories';
-import '../main/components/ButtonGroup/stories';
+import '../main/components/ButtonGroupLegacy/stories';
 import '../main/components/Icon/stories';
 import '../main/components/IconButton/stories';
 import '../main/components/Checkbox/stories';
