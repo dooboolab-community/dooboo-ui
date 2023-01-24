@@ -8,6 +8,7 @@ import type {
   ViewStyle,
 } from 'react-native';
 
+import {TouchableWithoutFeedback} from 'react-native-gesture-handler';
 import {useHover} from 'react-native-web-hooks';
 import {useTheme} from '@dooboo-ui/theme';
 
@@ -87,7 +88,7 @@ export type EditTextProps = {
 export const EditText: FC<EditTextProps> = (props) => {
   const {
     testID,
-    inputRef,
+    inputRef: givenInputRef,
     textInputProps,
     style,
     styles,
@@ -115,6 +116,8 @@ export const EditText: FC<EditTextProps> = (props) => {
 
   const [focused, setFocused] = useState(false);
   const ref = useRef<View>(null);
+  const defaultInputRef = useRef(null);
+  const inputRef = givenInputRef || defaultInputRef;
   const hovered = useHover(ref);
 
   const defaultContainerStyle: ViewStyle = {
@@ -161,8 +164,11 @@ export const EditText: FC<EditTextProps> = (props) => {
 
   const renderContainer = (children: ReactNode): ReactElement => {
     return (
-      <View
+      <TouchableWithoutFeedback
         testID="container"
+        onPress={() =>
+          (inputRef as React.MutableRefObject<TextInput>).current?.focus()
+        }
         style={[
           defaultContainerStyle,
           {
@@ -182,7 +188,7 @@ export const EditText: FC<EditTextProps> = (props) => {
         ]}
       >
         {children}
-      </View>
+      </TouchableWithoutFeedback>
     );
   };
 
@@ -190,7 +196,7 @@ export const EditText: FC<EditTextProps> = (props) => {
     return (
       <TextInput
         testID={testID}
-        ref={inputRef}
+        ref={inputRef || defaultInputRef}
         autoCapitalize={autoCapitalize}
         secureTextEntry={secureTextEntry}
         style={[
@@ -263,10 +269,7 @@ export const EditText: FC<EditTextProps> = (props) => {
     <View
       testID="edit-text"
       ref={Platform.select({web: ref, default: undefined})}
-      style={[
-        {alignSelf: 'stretch', padding: 12, flexDirection: 'column'},
-        style,
-      ]}
+      style={[{alignSelf: 'stretch', flexDirection: 'column'}, style]}
     >
       {renderContainer(
         <>
