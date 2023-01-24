@@ -1,2 +1,2 @@
 export {ThemeProvider, useTheme, withTheme} from './ThemeProvider';
-export {DoobooTheme, ThemeType, dark, light} from './colors';
+export {DoobooTheme, DoobooThemeParams, ThemeType, dark, light} from './colors';

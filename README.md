@@ -26,6 +26,8 @@ Check out [dooboo-ui.dooboolab.com](https://dooboo-ui.dooboolab.com)
 
 Hosted in [github pages](https://dooboolab.github.io/dooboo-ui)
 
+> `Documentation` is not identical to `Demo`. `Demo` is just a playground whereas `documentation` is for the customers.
+
 ## Sponsors
 
 Support this project by becoming a sponsor. Your logo will show up here with

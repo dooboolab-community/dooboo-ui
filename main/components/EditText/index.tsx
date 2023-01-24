@@ -1,4 +1,10 @@
-import type {FC, LegacyRef, ReactElement, ReactNode} from 'react';
+import type {
+  FC,
+  MutableRefObject,
+  ReactElement,
+  ReactNode,
+  RefObject,
+} from 'react';
 import {Platform, Text, TextInput, View} from 'react-native';
 import React, {useRef, useState} from 'react';
 import type {
@@ -8,6 +14,7 @@ import type {
   ViewStyle,
 } from 'react-native';
 
+import {TouchableWithoutFeedback} from 'react-native-gesture-handler';
 import {useHover} from 'react-native-web-hooks';
 import {useTheme} from '@dooboo-ui/theme';
 
@@ -30,7 +37,7 @@ type RenderType = (stats: EditTextStatus) => ReactElement;
 
 export type EditTextProps = {
   testID?: TextInputProps['testID'];
-  inputRef?: LegacyRef<TextInput>;
+  inputRef?: MutableRefObject<TextInput | undefined> | RefObject<TextInput>;
 
   style?: StyleProp<ViewStyle>;
   styles?: Styles;
@@ -87,7 +94,7 @@ export type EditTextProps = {
 export const EditText: FC<EditTextProps> = (props) => {
   const {
     testID,
-    inputRef,
+    inputRef: givenInputRef,
     textInputProps,
     style,
     styles,
@@ -115,6 +122,9 @@ export const EditText: FC<EditTextProps> = (props) => {
 
   const [focused, setFocused] = useState(false);
   const ref = useRef<View>(null);
+  const defaultInputRef = useRef(null);
+  const inputRef =
+    (givenInputRef as MutableRefObject<TextInput>) || defaultInputRef;
   const hovered = useHover(ref);
 
   const defaultContainerStyle: ViewStyle = {
@@ -161,28 +171,31 @@ export const EditText: FC<EditTextProps> = (props) => {
 
   const renderContainer = (children: ReactNode): ReactElement => {
     return (
-      <View
-        testID="container"
-        style={[
-          defaultContainerStyle,
-          {
-            flexDirection: direction,
-            alignItems: direction === 'row' ? 'center' : 'flex-start',
-            // Default border color follows placeholder color for the label.
-            borderColor: labelPlaceholderColor
-              ? labelPlaceholderColor.color
-              : defaultColor,
-            paddingVertical: 12,
-            paddingHorizontal: 10,
-          },
-          decoration === 'boxed'
-            ? {borderWidth: 1, paddingHorizontal: 12}
-            : {borderBottomWidth: 1},
-          styles?.container,
-        ]}
+      <TouchableWithoutFeedback
+        testID="container-touch"
+        onPress={() => inputRef.current?.focus()}
       >
-        {children}
-      </View>
+        <View
+          testID="container"
+          style={[
+            defaultContainerStyle,
+            {
+              flexDirection: direction,
+              alignItems: direction === 'row' ? 'center' : 'flex-start',
+              // Default border color follows placeholder color for the label.
+              borderColor: labelPlaceholderColor
+                ? labelPlaceholderColor.color
+                : defaultColor,
+            },
+            decoration === 'boxed'
+              ? {borderWidth: 1, paddingHorizontal: 12}
+              : {borderBottomWidth: 1},
+            styles?.container,
+          ]}
+        >
+          {children}
+        </View>
+      </TouchableWithoutFeedback>
     );
   };
 
@@ -199,7 +212,7 @@ export const EditText: FC<EditTextProps> = (props) => {
           // @ts-ignore
           Platform.OS === 'web' && {outlineWidth: 0},
           direction === 'column' ? {paddingTop: 12} : {paddingLeft: 12},
-          {color: defaultColor},
+          {color: defaultColor, paddingVertical: 12},
           styles?.input,
         ]}
         editable={editable}
@@ -263,10 +276,7 @@ export const EditText: FC<EditTextProps> = (props) => {
     <View
       testID="edit-text"
       ref={Platform.select({web: ref, default: undefined})}
-      style={[
-        {alignSelf: 'stretch', padding: 12, flexDirection: 'column'},
-        style,
-      ]}
+      style={[{alignSelf: 'stretch', flexDirection: 'column'}, style]}
     >
       {renderContainer(
         <>
