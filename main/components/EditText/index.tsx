@@ -165,27 +165,30 @@ export const EditText: FC<EditTextProps> = (props) => {
   const renderContainer = (children: ReactNode): ReactElement => {
     return (
       <TouchableWithoutFeedback
-        testID="container"
         onPress={() =>
           (inputRef as React.MutableRefObject<TextInput>).current?.focus()
         }
-        style={[
-          defaultContainerStyle,
-          {
-            flexDirection: direction,
-            alignItems: direction === 'row' ? 'center' : 'flex-start',
-            // Default border color follows placeholder color for the label.
-            borderColor: labelPlaceholderColor
-              ? labelPlaceholderColor.color
-              : defaultColor,
-          },
-          decoration === 'boxed'
-            ? {borderWidth: 1, paddingHorizontal: 12}
-            : {borderBottomWidth: 1},
-          styles?.container,
-        ]}
       >
-        {children}
+        <View
+          testID="container"
+          style={[
+            defaultContainerStyle,
+            {
+              flexDirection: direction,
+              alignItems: direction === 'row' ? 'center' : 'flex-start',
+              // Default border color follows placeholder color for the label.
+              borderColor: labelPlaceholderColor
+                ? labelPlaceholderColor.color
+                : defaultColor,
+            },
+            decoration === 'boxed'
+              ? {borderWidth: 1, paddingHorizontal: 12}
+              : {borderBottomWidth: 1},
+            styles?.container,
+          ]}
+        >
+          {children}
+        </View>
       </TouchableWithoutFeedback>
     );
   };

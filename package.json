@@ -19,7 +19,7 @@
     "test:pre": "mv packages/theme/package.json packages/theme/packages.json",
     "test:post": "mv packages/theme/packages.json packages/theme/package.json",
     "test": "yarn test:pre; jest; yarn test:post;",
-    "test:all": "lerna run build && yarn lint && yarn tsc && yarn test",
+    "test:all": "yarn pre && yarn lint && yarn tsc && yarn test",
     "build": "tsc --project tsconfigBuild.json && yarn cp:icon",
     "cp:icon": "mkdir -p `dirname ./lib/components/Icon/selection.json` && cp ./main/components/Icon/selection.json ./lib/components/Icon/selection.json && cp ./main/components/Icon/doobooui.ttf ./lib/components/Icon/doobooui.ttf",
     "postbuild": "cp ./main/react-native.config.cjs ./lib/react-native.config.cjs && rm -rf ./lib/tsconfig* && cp README.md ./lib/README.md && cp -R main/__assets__ lib",
