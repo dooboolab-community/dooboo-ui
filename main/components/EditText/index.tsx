@@ -209,7 +209,7 @@ export const EditText: FC<EditTextProps> = (props) => {
         secureTextEntry={secureTextEntry}
         style={[
           // Stretch input in order to make remaining space clickable
-          {flex: 1, alignSelf: 'stretch'},
+          direction === 'row' ? {flex: 1} : {alignSelf: 'stretch'},
           // @ts-ignore
           Platform.OS === 'web' && {outlineWidth: 0},
           direction === 'column' ? {paddingTop: 12} : {paddingLeft: 12},
