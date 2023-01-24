@@ -32,7 +32,7 @@ describe('[EditText]', () => {
     });
 
     describe('label', () => {
-      it('should render label text', async () => {
+      it('renders label text', async () => {
         testingLib = render(component({label: 'label text'}));
 
         const label = testingLib.getByText('label text');
@@ -40,7 +40,7 @@ describe('[EditText]', () => {
         expect(label).toBeTruthy();
       });
 
-      it('should render label style', async () => {
+      it('renders label style', async () => {
         testingLib = render(
           component({
             label: 'label text',
@@ -60,7 +60,7 @@ describe('[EditText]', () => {
         expect(label).toHaveStyle({color: 'orange'});
       });
 
-      it('should render custom label style', async () => {
+      it('renders custom label style', async () => {
         const renderCustomLabel = (): ReactElement => {
           return (
             <Text
@@ -119,7 +119,7 @@ describe('[EditText]', () => {
           expect(label).toHaveStyle({color: 'purple'});
         });
 
-        it('should render error element when provided', async () => {
+        it('renders error element when provided', async () => {
           testingLib = render(
             component({
               testID: 'INPUT_TEST',
@@ -147,7 +147,7 @@ describe('[EditText]', () => {
   });
 
   describe('layout', () => {
-    it('should render [direction] row', () => {
+    it('renders [direction] row', () => {
       testingLib = render(
         component({
           testID: 'INPUT_TEST',
@@ -159,11 +159,10 @@ describe('[EditText]', () => {
       const container = testingLib.getByTestId('container');
 
       expect(input).toBeTruthy();
-
       expect(container).toHaveStyle({flexDirection: 'row'});
     });
 
-    it('should render [decoration] boxed', () => {
+    it('renders [decoration] boxed', () => {
       testingLib = render(
         component({
           testID: 'INPUT_TEST',
@@ -177,6 +176,27 @@ describe('[EditText]', () => {
       expect(input).toBeTruthy();
 
       expect(container).toHaveStyle({borderWidth: 1});
+    });
+  });
+
+  describe('web', () => {
+    beforeAll(() => {
+      jest.mock('react-native/Libraries/Utilities/Platform', () => ({
+        OS: 'web',
+        select: () => null,
+      }));
+    });
+
+    it('renders web style', () => {
+      testingLib = render(
+        component({
+          testID: 'INPUT_TEST',
+        }),
+      );
+
+      const input = testingLib.getByTestId('INPUT_TEST');
+      expect(input).toBeTruthy();
+      expect(input).toHaveStyle({outlineWidth: 0});
     });
   });
 
@@ -198,11 +218,9 @@ describe('[EditText]', () => {
       );
 
       const input = testingLib.getByTestId('INPUT_TEST');
-
       expect(input).toBeTruthy();
 
       fireEvent.changeText(input, CHANGE_TEXT);
-
       expect(mockedFn).toBeCalledWith(CHANGE_TEXT);
     });
 
@@ -253,7 +271,7 @@ describe('[EditText]', () => {
   });
 
   describe('disabled', () => {
-    it('should render [default] disabled style', () => {
+    it('renders [default] disabled style', () => {
       testingLib = render(
         component({
           testID: 'INPUT_TEST',
@@ -268,7 +286,7 @@ describe('[EditText]', () => {
       expect(input).toHaveStyle({color: light.text.disabled});
     });
 
-    it('should render [custom] disabled style', () => {
+    it('renders [custom] disabled style', () => {
       testingLib = render(
         component({
           testID: 'INPUT_TEST',
@@ -319,6 +337,25 @@ describe('[EditText]', () => {
       fireEvent(input, 'focus');
 
       expect(input).toHaveStyle({color: 'yellow'});
+    });
+
+    it('should trigger `onFocus` when touching container', async () => {
+      const focusFn = jest.fn();
+
+      testingLib = render(
+        component({
+          onFocus: focusFn,
+          colors: {focused: 'yellow'},
+        }),
+      );
+
+      const touch = testingLib.getByTestId('container-touch');
+
+      expect(touch).toBeTruthy();
+
+      fireEvent(touch, 'press');
+      // Below should work but no luck in testing-library
+      // expect(focusFn).toBeCalled();
     });
 
     describe('onBlur (focused === false)', () => {

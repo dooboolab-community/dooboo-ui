@@ -1,4 +1,10 @@
-import type {FC, LegacyRef, ReactElement, ReactNode} from 'react';
+import type {
+  FC,
+  MutableRefObject,
+  ReactElement,
+  ReactNode,
+  RefObject,
+} from 'react';
 import {Platform, Text, TextInput, View} from 'react-native';
 import React, {useRef, useState} from 'react';
 import type {
@@ -31,7 +37,7 @@ type RenderType = (stats: EditTextStatus) => ReactElement;
 
 export type EditTextProps = {
   testID?: TextInputProps['testID'];
-  inputRef?: LegacyRef<TextInput>;
+  inputRef?: MutableRefObject<TextInput | undefined> | RefObject<TextInput>;
 
   style?: StyleProp<ViewStyle>;
   styles?: Styles;
@@ -117,7 +123,8 @@ export const EditText: FC<EditTextProps> = (props) => {
   const [focused, setFocused] = useState(false);
   const ref = useRef<View>(null);
   const defaultInputRef = useRef(null);
-  const inputRef = givenInputRef || defaultInputRef;
+  const inputRef =
+    (givenInputRef as MutableRefObject<TextInput>) || defaultInputRef;
   const hovered = useHover(ref);
 
   const defaultContainerStyle: ViewStyle = {
@@ -165,9 +172,8 @@ export const EditText: FC<EditTextProps> = (props) => {
   const renderContainer = (children: ReactNode): ReactElement => {
     return (
       <TouchableWithoutFeedback
-        onPress={() =>
-          (inputRef as React.MutableRefObject<TextInput>).current?.focus()
-        }
+        testID="container-touch"
+        onPress={() => inputRef.current?.focus()}
       >
         <View
           testID="container"
@@ -197,7 +203,7 @@ export const EditText: FC<EditTextProps> = (props) => {
     return (
       <TextInput
         testID={testID}
-        ref={inputRef || defaultInputRef}
+        ref={inputRef}
         autoCapitalize={autoCapitalize}
         secureTextEntry={secureTextEntry}
         style={[
