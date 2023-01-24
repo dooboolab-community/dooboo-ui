@@ -190,6 +190,7 @@ export const EditText: FC<EditTextProps> = (props) => {
             decoration === 'boxed'
               ? {borderWidth: 1, paddingHorizontal: 12}
               : {borderBottomWidth: 1},
+            maxLength ? {marginBottom: 24} : {},
             styles?.container,
           ]}
         >
