@@ -44,14 +44,14 @@ export function ButtonGroup<T>({
   vertical,
   borderStyle: {
     width: borderWidth = 1,
-    color: borderColorKey = 'gray1',
+    color: borderColorKey,
     radius: borderRadius = 10,
   } = {},
   ...props
 }: ButtonGroupProps<T>): React.ReactElement {
-  const {theme} = useTheme();
+  const {colors} = useTheme();
 
-  const borderColor = theme.button[borderColorKey].bg;
+  const borderColor = colors[borderColorKey || 'gray9'];
 
   return (
     <View
@@ -59,7 +59,7 @@ export function ButtonGroup<T>({
       style={StyleSheet.flatten([
         {borderRadius, borderColor, borderWidth, overflow: 'hidden'},
         styles?.container,
-        vertical ? {flexDirection: 'row'} : {},
+        vertical ? {flexDirection: 'column'} : {flexDirection: 'row'},
       ])}
     >
       {data.map((item, index) => {
@@ -92,12 +92,7 @@ export function ButtonGroup<T>({
 }
 
 ButtonGroup.defaultProps = {
-  styles: {
-    container: {
-      width: '100%',
-      flexDirection: 'row',
-    },
-  },
+  //
 };
 
 function isSelected(props: SingleSelect | MultiSelect, index: number): boolean {
