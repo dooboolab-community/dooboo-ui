@@ -1,8 +1,6 @@
 import React from 'react';
 import type {StyleProp, ViewStyle, TouchableOpacityProps} from 'react-native';
 import {StyleSheet, View, TouchableOpacity} from 'react-native';
-import type {Colors} from '@dooboo-ui/theme/colors';
-import {useTheme} from '@dooboo-ui/theme';
 
 interface Styles {
   container?: StyleProp<ViewStyle>;
@@ -17,7 +15,11 @@ type ButtonGroupProps<T> = (SingleSelect | MultiSelect) & {
   onPress?: (index: number, item: T) => void;
   renderItem: ButtonGroupRenderItem<T>;
   touchableOpacityProps?: TouchableOpacityProps;
-  borderStyle?: {color?: keyof Colors; width?: number; radius?: number};
+  borderStyle?: {
+    color?: string;
+    width?: number;
+    radius?: number;
+  };
 };
 
 interface MultiSelect {
@@ -43,16 +45,12 @@ export function ButtonGroup<T>({
   touchableOpacityProps,
   vertical,
   borderStyle: {
-    width: borderWidth = 1,
-    color: borderColorKey,
+    width: borderWidth = 0,
+    color: borderColor,
     radius: borderRadius = 10,
   } = {},
   ...props
 }: ButtonGroupProps<T>): React.ReactElement {
-  const {colors} = useTheme();
-
-  const borderColor = colors[borderColorKey || 'gray9'];
-
   return (
     <View
       testID={testID}
@@ -69,6 +67,7 @@ export function ButtonGroup<T>({
           <TouchableOpacity
             disabled={!onPress}
             {...touchableOpacityProps}
+            onPress={() => onPress && onPress(index, item)}
             key={index}
           >
             <View
@@ -92,7 +91,11 @@ export function ButtonGroup<T>({
 }
 
 ButtonGroup.defaultProps = {
-  //
+  styles: {
+    container: {
+      alignSelf: 'center',
+    },
+  },
 };
 
 function isSelected(props: SingleSelect | MultiSelect, index: number): boolean {
