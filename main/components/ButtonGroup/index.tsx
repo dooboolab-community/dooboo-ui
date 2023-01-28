@@ -7,13 +7,13 @@ interface Styles {
   button?: StyleProp<ViewStyle>;
 }
 
-type ButtonGroupProps<T> = (SingleSelect | MultiSelect) & {
-  vertical?: boolean;
+export type ButtonGroupProps<T> = (SingleSelect | MultiSelect) & {
   data: T[];
+  renderItem: ButtonGroupRenderItem<T>;
+  vertical?: boolean;
   testID?: string;
   styles?: Styles;
   onPress?: (index: number, item: T) => void;
-  renderItem: ButtonGroupRenderItem<T>;
   touchableOpacityProps?: TouchableOpacityProps;
   borderStyle?: {
     color?: string;
@@ -35,6 +35,21 @@ export type ButtonGroupRenderItem<ItemT> = (info: {
   selected: boolean;
   index: number;
 }) => React.ReactElement;
+
+const checkSelected = (
+  props: SingleSelect | MultiSelect,
+  index: number,
+): boolean => {
+  if ('selectedIndices' in props) {
+    return props.selectedIndices?.includes(index) || false;
+  }
+
+  if ('selectedIndex' in props) {
+    return props.selectedIndex === index;
+  }
+
+  return false;
+};
 
 export function ButtonGroup<T>({
   testID,
@@ -61,7 +76,7 @@ export function ButtonGroup<T>({
       ])}
     >
       {data.map((item, index) => {
-        const selected = isSelected(props, index);
+        const selected = checkSelected(props, index);
 
         return (
           <TouchableOpacity
@@ -71,6 +86,7 @@ export function ButtonGroup<T>({
             key={index}
           >
             <View
+              testID={`button-group-item-${index}`}
               style={StyleSheet.flatten([
                 styles?.button,
                 index === data.length - 1
@@ -97,15 +113,3 @@ ButtonGroup.defaultProps = {
     },
   },
 };
-
-function isSelected(props: SingleSelect | MultiSelect, index: number): boolean {
-  if ('selectedIndices' in props) {
-    return props.selectedIndices?.includes(index) || false;
-  }
-
-  if ('selectedIndex' in props) {
-    return props.selectedIndex === index;
-  }
-
-  return false;
-}
