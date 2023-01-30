@@ -17,13 +17,13 @@ const Vertical: FC = () => {
       </Typography.Heading1>
 
       <ButtonGroup
-        vertical
+        direction="column"
         data={data}
         selectedIndex={selectedIndex}
         renderItem={({item, selected, index: itemIndex}) => (
           <Button
             text={item}
-            rounded={0}
+            borderRadius={0}
             color={selected ? 'success' : 'light'}
             onPress={() => setSelectedIndex(itemIndex)}
           />

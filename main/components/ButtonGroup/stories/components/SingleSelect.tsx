@@ -22,7 +22,7 @@ const SingleSelect: FC = () => {
         renderItem={({item, selected, index: itemIndex}) => (
           <Button
             text={item}
-            rounded={0}
+            borderRadius={0}
             color={selected ? 'primary' : 'light'}
             onPress={() => setSelectedIndex(itemIndex)}
           />

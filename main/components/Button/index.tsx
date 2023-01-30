@@ -120,7 +120,7 @@ export type Props = {
   loading?: boolean;
   loadingElement?: ReactElement;
   text?: string;
-  rounded?: number;
+  borderRadius?: number;
   startElement?: ReactElement;
   endElement?: ReactElement;
   style?: StyleProp<ViewStyle>;
@@ -147,7 +147,7 @@ export const Button: FC<Props> = (props) => {
     onPress,
     activeOpacity = 0.6,
     touchableOpacityProps,
-    rounded,
+    borderRadius,
   } = props;
 
   const ref = useRef<TouchableOpacity>(null);
@@ -204,7 +204,7 @@ export const Button: FC<Props> = (props) => {
           compositeStyles.container,
           hovered && !disabled && compositeStyles.hovered,
           disabled && compositeStyles.disabled,
-          {borderRadius: rounded ?? 4},
+          {borderRadius: borderRadius ?? 4},
         ]}
         type={type}
         size={size}

@@ -25,7 +25,7 @@ const MultiSelect: FC = () => {
         renderItem={({item, selected, index: itemIndex}) => (
           <Button
             text={item}
-            rounded={0}
+            borderRadius={0}
             type={selected ? 'solid' : 'text'}
             color={'secondary'}
             onPress={() =>

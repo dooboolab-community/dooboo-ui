@@ -42,24 +42,18 @@ const CustomButton: FC = () => {
         <ButtonGroup
           data={data}
           selectedIndex={selectedIndex}
-          styles={{
-            container: {
-              height: 50,
-            },
-          }}
+          styles={{container: {height: 50}}}
           borderStyle={{
             color: 'pink',
             width: 1,
           }}
-          onPress={(index: number) => {
-            setSelectedIndex(index);
-          }}
+          onPress={(index: number) => setSelectedIndex(index)}
           renderItem={({item: {title, style}, selected}) => (
             <View
               style={[
                 commonStyle,
                 style,
-                selected ? {backgroundColor: 'pink'} : {},
+                selected && {backgroundColor: 'pink'},
               ]}
             >
               <Typography.Body1 style={{color: selected ? 'black' : 'white'}}>

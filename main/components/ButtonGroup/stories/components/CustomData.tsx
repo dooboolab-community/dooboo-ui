@@ -37,7 +37,7 @@ const CustomData: FC = () => {
                   : [...prev, itemIndex],
               )
             }
-            rounded={0}
+            borderRadius={0}
             startElement={
               <Icon
                 name={item.icon}

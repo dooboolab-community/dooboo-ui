@@ -1,3 +1,4 @@
+import type {ReactElement} from 'react';
 import React from 'react';
 import type {StyleProp, ViewStyle, TouchableOpacityProps} from 'react-native';
 import {StyleSheet, View, TouchableOpacity} from 'react-native';
@@ -10,7 +11,7 @@ interface Styles {
 export type ButtonGroupProps<T> = (SingleSelect | MultiSelect) & {
   data: T[];
   renderItem: ButtonGroupRenderItem<T>;
-  vertical?: boolean;
+  direction?: 'row' | 'column';
   testID?: string;
   styles?: Styles;
   onPress?: (index: number, item: T) => void;
@@ -34,7 +35,7 @@ export type ButtonGroupRenderItem<ItemT> = (info: {
   item: ItemT;
   selected: boolean;
   index: number;
-}) => React.ReactElement;
+}) => ReactElement;
 
 const checkSelected = (
   props: SingleSelect | MultiSelect,
@@ -58,7 +59,7 @@ export function ButtonGroup<T>({
   renderItem,
   onPress,
   touchableOpacityProps,
-  vertical,
+  direction = 'row',
   borderStyle: {
     width: borderWidth = 0,
     color: borderColor,
@@ -72,7 +73,7 @@ export function ButtonGroup<T>({
       style={StyleSheet.flatten([
         {borderRadius, borderColor, borderWidth, overflow: 'hidden'},
         styles?.container,
-        vertical ? {flexDirection: 'column'} : {flexDirection: 'row'},
+        {flexDirection: direction},
       ])}
     >
       {data.map((item, index) => {
@@ -89,12 +90,10 @@ export function ButtonGroup<T>({
               testID={`button-group-item-${index}`}
               style={StyleSheet.flatten([
                 styles?.button,
-                index === data.length - 1
-                  ? {}
-                  : {
-                      borderRightWidth: borderWidth,
-                      borderColor,
-                    },
+                index === data.length - 1 && {
+                  borderRightWidth: borderWidth,
+                  borderColor,
+                },
               ])}
             >
               {renderItem({item, index, selected})}
