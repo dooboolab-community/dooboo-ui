@@ -214,8 +214,8 @@ describe('[ButtonGroup]', () => {
     });
   });
 
-  describe('[ButtonGroup] vertical', () => {
-    it('should render vertically with [vertical=true]', () => {
+  describe('[ButtonGroup] direction', () => {
+    it(`should render vertically with [direction='column']`, () => {
       const testID = 'TEST_ID';
 
       const renderItem: ButtonGroupRenderItem<string> = () => {
@@ -227,7 +227,7 @@ describe('[ButtonGroup]', () => {
           testID,
           data: ['Item 1', 'Item 2'],
           renderItem,
-          vertical: true,
+          direction: 'column',
         }),
       );
 
