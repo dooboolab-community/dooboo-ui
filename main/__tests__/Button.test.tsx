@@ -461,4 +461,17 @@ describe('[Button]', () => {
       expect(button.props.size).toEqual('small');
     });
   });
+
+  describe('[Button] borderRadius', () => {
+    it('should render with given borderRadius', () => {
+      const borderRadius = 10;
+
+      testingLib = render(Component({borderRadius}));
+
+      const button = testingLib.getByTestId('button-container');
+      const buttonStyle = button.props.style[1][3];
+
+      expect(buttonStyle.borderRadius).toEqual(borderRadius);
+    });
+  });
 });
