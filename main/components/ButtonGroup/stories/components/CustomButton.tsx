@@ -38,7 +38,7 @@ const CustomButton: FC = () => {
 
   return (
     <View>
-      <Typography.Heading1 style={{paddingVertical: 20}}>
+      <Typography.Heading1 style={{padding: 20}}>
         Custom Button UI
       </Typography.Heading1>
       <ScrollView horizontal contentContainerStyle={{paddingHorizontal: 20}}>

@@ -15,7 +15,7 @@ const SingleSelect: FC = () => {
 
   return (
     <View>
-      <Typography.Heading1 style={{paddingBottom: 20}}>
+      <Typography.Heading1 style={{paddingBottom: 20, paddingHorizontal: 20}}>
         Single Select
       </Typography.Heading1>
 
