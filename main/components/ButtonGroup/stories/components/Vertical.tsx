@@ -1,3 +1,4 @@
+import {useTheme} from '@dooboo-ui/theme';
 import type {FC} from 'react';
 import {useState} from 'react';
 import {View} from 'react-native';
@@ -10,6 +11,8 @@ const Vertical: FC = () => {
 
   const [selectedIndex, setSelectedIndex] = useState(0);
 
+  const {theme} = useTheme();
+
   return (
     <View>
       <Typography.Heading1 style={{paddingVertical: 20}}>
@@ -20,6 +23,7 @@ const Vertical: FC = () => {
         direction="column"
         data={data}
         selectedIndex={selectedIndex}
+        borderStyle={{color: theme.button.success.bg}}
         renderItem={({item, selected, index: itemIndex}) => (
           <Button
             text={item}

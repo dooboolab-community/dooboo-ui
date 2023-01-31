@@ -171,47 +171,6 @@ describe('[ButtonGroup]', () => {
 
       expect(selectedItemCount).toBe(1);
     });
-
-    it('should be selected multiple items when selectedIndices given', () => {
-      const testID = 'TEST_SINGLE_SELECT';
-
-      const data: Item[] = [
-        {text: 'Item 1'},
-        {text: 'Item 2'},
-        {text: 'Item 3'},
-        {text: 'Item 4'},
-      ];
-
-      const Component = (_: {selected: boolean}): ReactElement => <View />;
-
-      const renderItem: ButtonGroupRenderItem<Item> = (props) => {
-        return (
-          <View testID={testID}>
-            <Component {...props} />
-          </View>
-        );
-      };
-
-      const selectedIndices = [0, 3];
-
-      testingLib = render(
-        component({
-          selectedIndices,
-          data,
-          renderItem,
-        }),
-      );
-
-      const result = filterReactTestInstance(
-        testingLib.getAllByTestId(testID).map(({children}) => children[0]),
-      ).reduce<number[]>(
-        (acc, currNode, index) =>
-          currNode.props.selected ? [...acc, index] : acc,
-        [],
-      );
-
-      expect(selectedIndices).toEqual(result);
-    });
   });
 
   describe('[ButtonGroup] direction', () => {

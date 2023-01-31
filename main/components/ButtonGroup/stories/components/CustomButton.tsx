@@ -1,3 +1,4 @@
+import {useTheme} from '@dooboo-ui/theme';
 import type {FC} from 'react';
 import {useState} from 'react';
 import type {StyleProp, ViewStyle} from 'react-native';
@@ -31,6 +32,8 @@ const CustomButton: FC = () => {
     alignItems: 'center',
   };
 
+  const {theme} = useTheme();
+
   const [selectedIndex, setSelectedIndex] = useState(0);
 
   return (
@@ -56,7 +59,11 @@ const CustomButton: FC = () => {
                 selected && {backgroundColor: 'pink'},
               ]}
             >
-              <Typography.Body1 style={{color: selected ? 'black' : 'white'}}>
+              <Typography.Body1
+                style={{
+                  color: selected ? theme.text.basic : theme.text.disabled,
+                }}
+              >
                 {title}
               </Typography.Body1>
             </View>

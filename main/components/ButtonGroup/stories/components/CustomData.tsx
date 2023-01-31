@@ -17,7 +17,7 @@ const CustomData: FC = () => {
     {text: 'Item 3', icon: 'tiktok-solid'},
   ];
 
-  const [selectedIndices, setSelectedIndices] = useState([0]);
+  const [selectedIndex, setSelectedIndex] = useState(0);
 
   return (
     <View>
@@ -26,17 +26,11 @@ const CustomData: FC = () => {
       </Typography.Heading1>
       <ButtonGroup
         data={data}
-        selectedIndices={selectedIndices}
+        selectedIndex={selectedIndex}
         borderStyle={{width: 0, radius: 0}}
         renderItem={({item, selected, index: itemIndex}) => (
           <Button
-            onPress={() =>
-              setSelectedIndices((prev) =>
-                prev.includes(itemIndex)
-                  ? prev.filter((v) => v !== itemIndex)
-                  : [...prev, itemIndex],
-              )
-            }
+            onPress={() => setSelectedIndex(itemIndex)}
             borderRadius={0}
             startElement={
               <Icon

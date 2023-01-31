@@ -8,7 +8,7 @@ interface Styles {
   button?: StyleProp<ViewStyle>;
 }
 
-export type ButtonGroupProps<T> = (SingleSelect | MultiSelect) & {
+export type ButtonGroupProps<T> = {
   data: T[];
   renderItem: ButtonGroupRenderItem<T>;
   direction?: 'row' | 'column';
@@ -21,36 +21,14 @@ export type ButtonGroupProps<T> = (SingleSelect | MultiSelect) & {
     width?: number;
     radius?: number;
   };
-};
-
-interface MultiSelect {
-  selectedIndices?: number[];
-}
-
-interface SingleSelect {
   selectedIndex?: number;
-}
+};
 
 export type ButtonGroupRenderItem<ItemT> = (info: {
   item: ItemT;
   selected: boolean;
   index: number;
 }) => ReactElement;
-
-const checkSelected = (
-  props: SingleSelect | MultiSelect,
-  index: number,
-): boolean => {
-  if ('selectedIndices' in props) {
-    return props.selectedIndices?.includes(index) || false;
-  }
-
-  if ('selectedIndex' in props) {
-    return props.selectedIndex === index;
-  }
-
-  return false;
-};
 
 export function ButtonGroup<T>({
   testID,
@@ -60,12 +38,12 @@ export function ButtonGroup<T>({
   onPress,
   touchableOpacityProps,
   direction = 'row',
+  selectedIndex,
   borderStyle: {
-    width: borderWidth = 0,
+    width: borderWidth = 1,
     color: borderColor,
     radius: borderRadius = 10,
   } = {},
-  ...props
 }: ButtonGroupProps<T>): React.ReactElement {
   return (
     <View
@@ -77,7 +55,7 @@ export function ButtonGroup<T>({
       ])}
     >
       {data.map((item, index) => {
-        const selected = checkSelected(props, index);
+        const selected = index === selectedIndex;
 
         return (
           <TouchableOpacity
@@ -90,10 +68,15 @@ export function ButtonGroup<T>({
               testID={`button-group-item-${index}`}
               style={StyleSheet.flatten([
                 styles?.button,
-                index === data.length - 1 && {
-                  borderRightWidth: borderWidth,
-                  borderColor,
-                },
+                {borderColor},
+                index !== data.length - 1 &&
+                  (direction === 'row'
+                    ? {
+                        borderRightWidth: borderWidth,
+                      }
+                    : {
+                        borderBottomWidth: borderWidth,
+                      }),
               ])}
             >
               {renderItem({item, index, selected})}

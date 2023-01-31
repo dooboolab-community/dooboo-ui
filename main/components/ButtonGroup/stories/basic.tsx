@@ -2,7 +2,6 @@ import React from 'react';
 import {useTheme} from '@dooboo-ui/theme';
 import {SafeAreaView, ScrollView} from 'react-native';
 import SingleSelect from './components/SingleSelect';
-import MultiSelect from './components/MultiSelect';
 import CustomData from './components/CustomData';
 import Vertical from './components/Vertical';
 import CustomButton from './components/CustomButton';
@@ -20,7 +19,6 @@ const ButtonGroupBasic = (): React.ReactElement => {
       >
         <SingleSelect />
         <Vertical />
-        <MultiSelect />
         <CustomData />
         <CustomButton />
       </ScrollView>
