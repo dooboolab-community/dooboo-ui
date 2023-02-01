@@ -1,12 +1,12 @@
 import {useTheme} from '@dooboo-ui/theme';
-import type {FC} from 'react';
+import type {ReactElement} from 'react';
 import {useState} from 'react';
 import {View} from 'react-native';
 import {ButtonGroup} from '../..';
 import {Button} from '../../../Button';
 import {Typography} from '../../../Typography';
 
-const Vertical: FC = () => {
+const Vertical = (): ReactElement => {
   const data = ['Item 1', 'Item 2', 'Item 3', 'Item 4'];
 
   const [selectedIndex, setSelectedIndex] = useState(0);

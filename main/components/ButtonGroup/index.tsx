@@ -44,7 +44,7 @@ export function ButtonGroup<T>({
     color: borderColor,
     radius: borderRadius = 10,
   } = {},
-}: ButtonGroupProps<T>): React.ReactElement {
+}: ButtonGroupProps<T>): ReactElement {
   return (
     <View
       testID={testID}
@@ -71,12 +71,8 @@ export function ButtonGroup<T>({
                 {borderColor},
                 index !== data.length - 1 &&
                   (direction === 'row'
-                    ? {
-                        borderRightWidth: borderWidth,
-                      }
-                    : {
-                        borderBottomWidth: borderWidth,
-                      }),
+                    ? {borderRightWidth: borderWidth}
+                    : {borderBottomWidth: borderWidth}),
               ])}
             >
               {renderItem({item, index, selected})}
