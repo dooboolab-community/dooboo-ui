@@ -1,12 +1,10 @@
-import {ThemeProvider, useTheme, withTheme} from './index';
+import {ThemeProvider, useTheme} from './index';
 import {act, renderHook} from '@testing-library/react-hooks';
 import {colors, dark} from './colors';
 
 import type {ReactElement} from 'react';
 import {Context as ResponsiveContext} from 'react-responsive';
-import {Text} from 'react-native';
 import getGiven from 'givens';
-import {render} from '@testing-library/react-native';
 import {useTheme as useThemeEmotion} from '@emotion/react';
 
 const given = getGiven();
@@ -135,23 +133,5 @@ describe('emotionContext', () => {
         expect(result.current).toEqual({});
       });
     });
-  });
-
-  describe('withTheme', () => {
-    it('provides empty object to theme prop', () => {
-      const TestComponent = withTheme(({theme}: {theme: object}) => (
-        <Text>{JSON.stringify(theme)}</Text>
-      ));
-
-      const {getByText} = render(<TestComponent />);
-
-      getByText('{}');
-    });
-
-    // This behavior is same inside styled component.
-  });
-
-  context('when theme provider exists', () => {
-    // It has same theme and media value in DoobooContext, but not others.
   });
 });

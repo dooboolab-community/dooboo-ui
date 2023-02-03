@@ -1,7 +1,6 @@
 import CustomLoadingIndicator from './CustomStory';
 import {LoadingIndicator} from '../../..';
 import React from 'react';
-import type {ReactElement} from 'react';
 import {ThemeProvider} from '@dooboo-ui/theme';
 import {storiesOf} from '@storybook/react-native';
 import styled from '@emotion/native';
@@ -41,22 +40,6 @@ function ImgVersion(): React.ReactElement {
   );
 }
 
-/**
- * Below are stories for web
- */
-export default {
-  title: 'LoadingIndicator',
-};
-
-export const toStorybook = (): ReactElement => <Spinner />;
-
-toStorybook.story = {
-  name: 'spinner',
-};
-
-/**
- * Below are stories for app
- */
 storiesOf('LoadingIndicator', module)
   .add('Basic - light', () => (
     <ThemeProvider initialThemeType="light">

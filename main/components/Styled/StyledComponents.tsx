@@ -201,7 +201,7 @@ export const SnackbarWrapper = styled(Animated.View as any)<{
   background-color: ${({theme, type}) => {
     theme = isEmptyObject(theme) ? light : theme;
 
-    if (type === 'default') {
+    if (type === 'basic') {
       return theme.bg.disabled;
     }
 

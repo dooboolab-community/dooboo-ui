@@ -1,15 +1,8 @@
+import Basic from './basic';
 import React from 'react';
 import type {ReactElement} from 'react';
 import {ThemeProvider} from '@dooboo-ui/theme';
 import {storiesOf} from '@storybook/react-native';
-import Basic from './basic';
-
-/**
- * Below are stories for web
- */
-export default {
-  title: 'ButtonGroup',
-};
 
 export const basicStory = (): ReactElement => <Basic />;
 
@@ -23,10 +16,6 @@ basicStory.dark = {
   notes: 'Basic [ButtonGroup] with dark mode.',
 };
 
-/**
- * Below are stories for app
- */
-
 storiesOf('ButtonGroup', module)
   .add(
     basicStory.light.name,
@@ -35,9 +24,7 @@ storiesOf('ButtonGroup', module)
         <Basic />
       </ThemeProvider>
     ),
-    {
-      notes: basicStory.light.notes,
-    },
+    {notes: basicStory.light.notes},
   )
   .add(
     basicStory.dark.name,
@@ -46,7 +33,5 @@ storiesOf('ButtonGroup', module)
         <Basic />
       </ThemeProvider>
     ),
-    {
-      notes: basicStory.dark.notes,
-    },
+    {notes: basicStory.dark.notes},
   );

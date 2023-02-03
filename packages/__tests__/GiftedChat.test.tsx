@@ -67,40 +67,4 @@ describe('[GiftedChatInput] render', () => {
 
     expect(json).toBeTruthy();
   });
-
-  // describe('interactions', () => {
-  //   beforeEach(() => {
-  //     testingLib = render(component);
-  //   });
-
-  //   it('should call [setShowMenu] when focused', () => {
-  //     const textInput = testingLib.getByTestId('input-chat');
-
-  //     textInput.props.onFocus();
-  //   });
-
-  //   it('should [showMenu] when touch pressed', () => {
-  //     let touchMenu = testingLib.getByTestId('touch-menu');
-
-  //     fireEvent.press(touchMenu);
-
-  //     touchMenu = testingLib.getByTestId('touch-menu');
-  //     fireEvent.press(touchMenu);
-  //   });
-
-  //   it('should call [setShowMenu] when focused again', () => {
-  //     const touchMenu = testingLib.getByTestId('touch-menu');
-
-  //     fireEvent.press(touchMenu);
-  //   });
-
-  //   it('should invoke changeText event handler when message changed', () => {
-  //     const textInput = testingLib.getByTestId('input-chat');
-
-  //     jest.runAllTimers();
-  //     fireEvent.changeText(textInput, 'chat test');
-  //     // TODO: expect should pass
-  //     // expect(textInput.props.value).toEqual('chat test');
-  //   });
-  // });
 });

@@ -14,7 +14,7 @@ function createCtx<A>(): CreateCtx<A> {
     const c = React.useContext(ctx);
 
     if (!c) {
-      throw new Error('useCtx must be inside a Provider with a value');
+      throw new Error('useTheme must be inside a ThemeProvider');
     }
 
     return c;

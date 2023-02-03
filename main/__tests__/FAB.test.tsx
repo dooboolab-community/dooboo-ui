@@ -20,7 +20,7 @@ describe('[FAB]', () => {
       Component({
         FABItems: [item],
         isActive: true,
-        onPressFABItem: (fab) => {
+        onPressFABItem: () => {
           count += 1;
           // resItem = fab;
         },

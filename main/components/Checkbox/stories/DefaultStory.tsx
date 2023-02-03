@@ -16,8 +16,8 @@ const StyledText = styled.Text`
   color: ${({theme}) => theme.text.basic};
 `;
 
-const types: (CheckboxType | undefined)[] = [
-  undefined,
+const types: CheckboxType[] = [
+  'primary',
   'secondary',
   'success',
   'warning',
@@ -25,7 +25,7 @@ const types: (CheckboxType | undefined)[] = [
   'danger',
 ];
 
-const LabelWapper: FC<{
+const LabelWrapper: FC<{
   label: string;
   children: ReactNode;
 }> = ({label, children}) => (
@@ -61,29 +61,29 @@ const CheckboxForms: FC<CheckBoxProps> = ({setChecked, checked}) => (
       }}
     >
       {types.map((type, i) => (
-        <LabelWapper key={`${type}_${i}`} label={type ?? 'default'}>
+        <LabelWrapper key={`${type}_${i}`} label={type}>
           <Checkbox
             style={{margin: 25}}
             checked={checked}
             onPress={() => setChecked(!checked)}
             type={type}
           />
-        </LabelWapper>
+        </LabelWrapper>
       ))}
 
-      <LabelWapper label="disabled">
+      <LabelWrapper label="disabled">
         <Checkbox
           style={{margin: 25}}
           checked={checked}
           onPress={() => setChecked(!checked)}
           disabled
         />
-      </LabelWapper>
+      </LabelWrapper>
     </View>
   </>
 );
 
-const CheckboxWithendElement: FC<CheckBoxProps> = ({setChecked, checked}) => (
+const CheckboxWithEndElement: FC<CheckBoxProps> = ({setChecked, checked}) => (
   <>
     <StyledText style={{fontSize: 18, marginTop: 24, marginBottom: 12}}>
       Checkbox with right element
@@ -102,7 +102,7 @@ const CheckboxWithendElement: FC<CheckBoxProps> = ({setChecked, checked}) => (
   </>
 );
 
-const CheckboxWithstartElement: FC<CheckBoxProps> = ({setChecked, checked}) => (
+const CheckboxWithStartElement: FC<CheckBoxProps> = ({setChecked, checked}) => (
   <>
     <StyledText style={{fontSize: 18, marginTop: 24, marginBottom: 12}}>
       Checkbox with left element
@@ -152,10 +152,10 @@ const CheckboxStory: FC = () => {
         <CheckboxForms setChecked={setChecked} checked={checked} />
         <Hr style={{marginTop: 40}} />
 
-        <CheckboxWithendElement setChecked={setChecked} checked={checked} />
+        <CheckboxWithEndElement setChecked={setChecked} checked={checked} />
         <Hr style={{marginTop: 40}} />
 
-        <CheckboxWithstartElement setChecked={setChecked} checked={checked} />
+        <CheckboxWithStartElement setChecked={setChecked} checked={checked} />
       </ScrollContainer>
     </View>
   );

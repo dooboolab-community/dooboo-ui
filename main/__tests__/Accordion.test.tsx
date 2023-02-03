@@ -79,34 +79,6 @@ describe('[Accordion] render test', () => {
 
     expect(json).toBeTruthy();
   });
-
-  // describe('[Accordion] - Change default value', () => {
-  //   it('should expand the accordion by default when collapseOnStart props is false', () => {
-  //     props = createTestProps({
-  //       collapseOnStart: false,
-  //       data: data,
-  //     });
-  //
-  //     const comp = createComponent(<Accordion {...props} />);
-  //
-  //     testingLib = render(comp);
-  //
-  //     const body0 = testingLib.queryByTestId('body_0');
-  //
-  //     act(() => {
-  //       fireEvent(body0, 'layout', {
-  //         nativeEvent: {
-  //           layout: {
-  //             height: 170,
-  //           },
-  //         },
-  //       });
-  //     });
-  //
-  //     expect(body0.props.style.height).toBeDefined();
-  //     expect(body0.props.accessibilityState.expanded).toBeTruthy();
-  //   });
-  // });
 });
 
 describe('[Accordion] event test', () => {

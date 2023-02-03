@@ -4,7 +4,6 @@ import React, {useState} from 'react';
 import {Button} from '../../../index';
 import type {FC} from 'react';
 import {IC_GOOGLE} from '../../../../../../storybook/assets/icons';
-import {Icon} from '../../../../Icon';
 import {LoadingIndicator} from '../../../../LoadingIndicator';
 import {Section} from '../../../../../GlobalStyles';
 import {ThemeProvider} from '@dooboo-ui/theme';
