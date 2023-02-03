@@ -1,14 +1,15 @@
-import type {ProgressbarStyles, ProgressbarType} from 'dooboo-ui';
-import {Progressbar} from 'dooboo-ui';
-import type {FC} from 'react';
+import type {ProgressLineStyles, ProgressLineType} from 'dooboo-ui';
 import React, {useEffect, useState} from 'react';
 
+import type {FC} from 'react';
+import {ProgressLine} from 'dooboo-ui';
+
 type Props = {
-  type: ProgressbarType;
-  styles?: ProgressbarStyles;
+  type: ProgressLineType;
+  styles?: ProgressLineStyles;
 };
 
-const ProgressbarDefault: FC<Props> = ({type, styles}) => {
+const ProgressLineDefault: FC<Props> = ({type, styles}) => {
   const [value, setValue] = useState(0);
 
   useEffect(() => {
@@ -33,7 +34,7 @@ const ProgressbarDefault: FC<Props> = ({type, styles}) => {
     return () => clearTimeout(timeout);
   }, []);
 
-  return <Progressbar value={value} type={type} styles={styles} />;
+  return <ProgressLine value={value} type={type} styles={styles} />;
 };
 
-export default ProgressbarDefault;
+export default ProgressLineDefault;

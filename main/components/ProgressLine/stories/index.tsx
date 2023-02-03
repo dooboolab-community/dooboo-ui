@@ -1,4 +1,4 @@
-import ProgressbarDefaultStory from './DefaultStory';
+import ProgressLineDefaultStory from './DefaultStory';
 import React from 'react';
 import type {ReactElement} from 'react';
 import {ThemeProvider} from '@dooboo-ui/theme';
@@ -10,28 +10,28 @@ import {withKnobs} from '@storybook/addon-knobs';
  * Below are stories for web
  */
 export default {
-  title: 'Progressbar',
+  title: 'ProgressLine',
 };
 
-export const toStorybook = (): ReactElement => <ProgressbarDefaultStory />;
+export const toStorybook = (): ReactElement => <ProgressLineDefaultStory />;
 
 toStorybook.story = {
-  name: 'progressbar',
+  name: 'ProgressLine',
 };
 
 /**
  * Below are stories for app
  */
-storiesOf('Progressbar', module)
+storiesOf('ProgressLine', module)
   .addDecorator(withKnobs)
   .addDecorator(withActions)
   .add('Basic - light', () => (
     <ThemeProvider initialThemeType="light">
-      <ProgressbarDefaultStory />
+      <ProgressLineDefaultStory />
     </ThemeProvider>
   ))
   .add('Basic - dark', () => (
     <ThemeProvider initialThemeType="dark">
-      <ProgressbarDefaultStory />
+      <ProgressLineDefaultStory />
     </ThemeProvider>
   ));

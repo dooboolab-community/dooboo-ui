@@ -1,5 +1,5 @@
 import React, {useMemo, useRef, useState} from 'react';
-import Svg, {Circle as RNSvgSircle} from 'react-native-svg';
+import Svg, {Circle as SvgCircle} from 'react-native-svg';
 import type {TextStyle, ViewStyle} from 'react-native';
 import {useTheme, withTheme} from '@dooboo-ui/theme';
 
@@ -29,7 +29,7 @@ const Container = styled.View`
   justify-content: center;
 `;
 
-const AnimCircle = Animated.createAnimatedComponent(RNSvgSircle);
+const AnimCircle = Animated.createAnimatedComponent(SvgCircle);
 
 const Text = styled.Text``;
 
@@ -107,7 +107,7 @@ const ProgressCircleComponent: React.FC<Props> = ({
           })}
           {...circleProps}
         />
-        <RNSvgSircle
+        <SvgCircle
           fill="transparent"
           r={radius + strokeWidth / 2}
           strokeWidth={1}
@@ -124,6 +124,4 @@ const ProgressCircleComponent: React.FC<Props> = ({
 
 export const ProgressCircle = withTheme(ProgressCircleComponent);
 
-export default {
-  Circle: ProgressCircle,
-};
+export default ProgressCircle;

@@ -1,4 +1,4 @@
-import {Progressbar} from '../';
+import {ProgressLine} from '..';
 import React from 'react';
 import styled from '@emotion/native';
 
@@ -32,28 +32,28 @@ const SubTitle = styled.Text`
   color: ${({theme}) => theme.role.primary};
 `;
 
-const ProgressbarDefault: React.FC = () => {
+const ProgressLineDefault: React.FC = () => {
   return (
     <StoryContainer>
-      <Title>Progressbar</Title>
+      <Title>ProgressLine</Title>
       <Section>
         <SubTitle>Info</SubTitle>
-        <Progressbar value={25} />
+        <ProgressLine value={25} />
       </Section>
       <Section>
         <SubTitle>Warning</SubTitle>
-        <Progressbar value={50} type="warning" />
+        <ProgressLine value={50} type="warning" />
       </Section>
       <Section>
         <SubTitle>Danger</SubTitle>
-        <Progressbar value={75} type="danger" />
+        <ProgressLine value={75} type="danger" />
       </Section>
       <Section>
         <SubTitle>Success</SubTitle>
-        <Progressbar value={100} type="success" />
+        <ProgressLine value={100} type="success" />
       </Section>
     </StoryContainer>
   );
 };
 
-export default ProgressbarDefault;
+export default ProgressLineDefault;

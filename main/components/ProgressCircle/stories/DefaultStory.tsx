@@ -6,7 +6,7 @@ import {
 } from '@storybook/addon-knobs';
 
 import type {DoobooTheme} from '@dooboo-ui/theme';
-import Progress from '../lib';
+import ProgressCircle from '../';
 import styled from '@emotion/native';
 import {useTheme} from '@dooboo-ui/theme';
 
@@ -73,7 +73,7 @@ const DefaultStory: React.FC = () => {
 
   return (
     <Container>
-      <Progress.Circle type={type} progress={progress} />
+      <ProgressCircle type={type} progress={progress} />
     </Container>
   );
 };

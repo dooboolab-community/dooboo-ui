@@ -1,5 +1,5 @@
-import {Progressbar} from '../../main';
-import type {ProgressbarProps} from '../../main';
+import {ProgressLine} from '..';
+import type {ProgressLineProps} from '..';
 import React from 'react';
 import type {ReactElement} from 'react';
 import type {RenderAPI} from '@testing-library/react-native';
@@ -9,10 +9,10 @@ import {render} from '@testing-library/react-native';
 
 let testingLib: RenderAPI;
 
-const Component = (props?: ProgressbarProps): ReactElement =>
-  createComponent(<Progressbar value={0} {...props} />);
+const Component = (props?: ProgressLineProps): ReactElement =>
+  createComponent(<ProgressLine value={0} {...props} />);
 
-describe('[Progressbar]', () => {
+describe('[ProgressLine]', () => {
   it('should render without crashing', () => {
     testingLib = render(Component());
 
@@ -28,8 +28,8 @@ describe('[Progressbar]', () => {
       }),
     );
 
-    const progressbar = testingLib.getByTestId('progressbar-background');
-    expect(progressbar.props.style[0].backgroundColor).toEqual(light.bg.paper);
+    const progressLine = testingLib.getByTestId('progress-line-background');
+    expect(progressLine.props.style[0].backgroundColor).toEqual(light.bg.paper);
   });
 
   it('should render text', () => {
@@ -39,8 +39,8 @@ describe('[Progressbar]', () => {
       }),
     );
 
-    const progressbar = testingLib.getByTestId('progressbar-text');
-    expect(progressbar.props.style[0].color).toEqual(light.text.basic);
+    const progressLine = testingLib.getByTestId('progress-line-text');
+    expect(progressLine.props.style[0].color).toEqual(light.text.basic);
   });
 
   describe('type', () => {
@@ -52,8 +52,8 @@ describe('[Progressbar]', () => {
         }),
       );
 
-      const progressbar = testingLib.getByTestId('progressbar-main');
-      expect(progressbar.props.style[0].backgroundColor).toEqual(
+      const progressLine = testingLib.getByTestId('progress-line-main');
+      expect(progressLine.props.style[0].backgroundColor).toEqual(
         light.role.info,
       );
     });
@@ -66,8 +66,8 @@ describe('[Progressbar]', () => {
         }),
       );
 
-      const progressbar = testingLib.getByTestId('progressbar-main');
-      expect(progressbar.props.style[0].backgroundColor).toEqual(
+      const progressLine = testingLib.getByTestId('progress-line-main');
+      expect(progressLine.props.style[0].backgroundColor).toEqual(
         light.role.success,
       );
     });
@@ -80,8 +80,8 @@ describe('[Progressbar]', () => {
         }),
       );
 
-      const progressbar = testingLib.getByTestId('progressbar-main');
-      expect(progressbar.props.style[0].backgroundColor).toEqual(
+      const progressLine = testingLib.getByTestId('progress-line-main');
+      expect(progressLine.props.style[0].backgroundColor).toEqual(
         light.role.danger,
       );
     });
@@ -94,8 +94,8 @@ describe('[Progressbar]', () => {
         }),
       );
 
-      const progressbar = testingLib.getByTestId('progressbar-main');
-      expect(progressbar.props.style[0].backgroundColor).toEqual(
+      const progressLine = testingLib.getByTestId('progress-line-main');
+      expect(progressLine.props.style[0].backgroundColor).toEqual(
         light.role.warning,
       );
     });
