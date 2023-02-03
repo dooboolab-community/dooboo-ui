@@ -106,7 +106,6 @@ const ButtonContainer = styled.View<{
   loading?: boolean;
 }>`
   align-self: stretch;
-  border-radius: 4px;
   flex-direction: row;
   align-items: center;
   justify-content: center;
@@ -121,6 +120,7 @@ export type Props = {
   loading?: boolean;
   loadingElement?: ReactElement;
   text?: string;
+  borderRadius?: number;
   startElement?: ReactElement;
   endElement?: ReactElement;
   style?: StyleProp<ViewStyle>;
@@ -147,6 +147,7 @@ export const Button: FC<Props> = (props) => {
     onPress,
     activeOpacity = 0.6,
     touchableOpacityProps,
+    borderRadius,
   } = props;
 
   const ref = useRef<TouchableOpacity>(null);
@@ -203,6 +204,7 @@ export const Button: FC<Props> = (props) => {
           compositeStyles.container,
           hovered && !disabled && compositeStyles.hovered,
           disabled && compositeStyles.disabled,
+          {borderRadius: borderRadius ?? 4},
         ]}
         type={type}
         size={size}

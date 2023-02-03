@@ -1,137 +1,81 @@
-import type {StyleProp, TextStyle, ViewStyle} from 'react-native';
-import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
-
+import type {ReactElement} from 'react';
 import React from 'react';
-import {useTheme} from '@dooboo-ui/theme';
+import type {StyleProp, ViewStyle, TouchableOpacityProps} from 'react-native';
+import {StyleSheet, View, TouchableOpacity} from 'react-native';
 
 interface Styles {
-  container: StyleProp<ViewStyle>;
-  button: ViewStyle;
-  selectedButton: ViewStyle;
-  text: StyleProp<TextStyle>;
-  selectedText: StyleProp<TextStyle>;
+  container?: StyleProp<ViewStyle>;
+  button?: StyleProp<ViewStyle>;
 }
 
-interface Props {
+export type ButtonGroupProps<T> = {
+  data: T[];
+  renderItem: ButtonGroupRenderItem<T>;
+  direction?: 'row' | 'column';
   testID?: string;
-  borderRadius?: number;
-  borderWidth?: number;
-  style?: StyleProp<ViewStyle>;
   styles?: Styles;
-  data: string[];
-  color?: string;
-  onPress?: (i: number) => void;
-  selectedIndex?: number;
-}
-
-export function ButtonGroup(props: Props): React.ReactElement {
-  const {theme} = useTheme();
-
-  const {
-    borderRadius = 0,
-    selectedIndex = 0,
-    borderWidth = 1,
-    color = theme.text.basic,
-    testID,
-    style,
-    data,
-    onPress,
-    styles,
-  } = props;
-
-  const borderWidthAndRadius = (index: number): object => {
-    const fullWidthAndRadius = {
-      borderLeftWidth: borderWidth,
-      borderRightWidth: borderWidth,
-      borderTopWidth: borderWidth,
-      borderBottomWidth: borderWidth,
-
-      borderTopLeftRadius: borderRadius,
-      borderBottomLeftRadius: borderRadius,
-      borderTopRightRadius: borderRadius,
-      borderBottomRightRadius: borderRadius,
-    };
-
-    const isFirst = index === 0;
-    const isLast = index === data.length - 1;
-
-    const borderForFirstElement = {
-      ...fullWidthAndRadius,
-      borderTopRightRadius: undefined,
-      borderBottomRightRadius: undefined,
-    };
-
-    const borderForLastElement = {
-      ...fullWidthAndRadius,
-      borderLeftWidth: undefined,
-      borderTopLeftRadius: undefined,
-      borderBottomLeftRadius: undefined,
-    };
-
-    const borderForMiddleElement = {
-      borderRightWidth: borderWidth,
-      borderTopWidth: borderWidth,
-      borderBottomWidth: borderWidth,
-    };
-
-    if (data.length === 1) {
-      return fullWidthAndRadius;
-    }
-
-    if (isFirst) {
-      return borderForFirstElement;
-    }
-
-    if (isLast) {
-      if (data.length === 2) {
-        return {
-          ...borderForLastElement,
-          borderLeftWidth: undefined,
-        };
-      }
-
-      return borderForLastElement;
-    }
-
-    return borderForMiddleElement;
+  onPress?: (index: number, item: T) => void;
+  touchableOpacityProps?: TouchableOpacityProps;
+  borderStyle?: {
+    color?: string;
+    width?: number;
+    radius?: number;
   };
+  selectedIndex?: number;
+};
 
+export type ButtonGroupRenderItem<ItemT> = (info: {
+  item: ItemT;
+  selected: boolean;
+  index: number;
+}) => ReactElement;
+
+export function ButtonGroup<T>({
+  testID,
+  styles,
+  data,
+  renderItem,
+  onPress,
+  touchableOpacityProps,
+  direction = 'row',
+  selectedIndex,
+  borderStyle: {
+    width: borderWidth = 1,
+    color: borderColor,
+    radius: borderRadius = 10,
+  } = {},
+}: ButtonGroupProps<T>): ReactElement {
   return (
     <View
       testID={testID}
-      style={[{borderColor: color}, styles?.container, style]}
+      style={StyleSheet.flatten([
+        {borderRadius, borderColor, borderWidth, overflow: 'hidden'},
+        styles?.container,
+        {flexDirection: direction},
+      ])}
     >
-      {data.map((text, i) => {
+      {data.map((item, index) => {
+        const selected = index === selectedIndex;
+
         return (
           <TouchableOpacity
-            key={i}
-            activeOpacity={0.85}
-            style={{flex: 1}}
-            onPress={(): void => {
-              if (onPress) {
-                onPress(i);
-              }
-            }}
+            disabled={!onPress}
+            {...touchableOpacityProps}
+            onPress={() => onPress && onPress(index, item)}
+            key={index}
           >
             <View
-              testID={`CHILD_${i}`}
+              testID={`button-group-item-${index}`}
               style={StyleSheet.flatten([
-                selectedIndex === i
-                  ? {...styles?.selectedButton, backgroundColor: color}
-                  : {...styles?.button, borderColor: color},
-                borderWidthAndRadius(i),
-                {borderColor: color},
+                styles?.button,
+                {borderColor},
+                index !== data.length - 1 &&
+                  (direction === 'row'
+                    ? {borderRightWidth: borderWidth}
+                    : {borderBottomWidth: borderWidth}),
               ])}
             >
-              <Text
-                style={
-                  selectedIndex === i
-                    ? [styles?.selectedText, {color: theme.text.contrast}]
-                    : [styles?.text, {color: theme.text.basic}]
-                }
-              >
-                {text}
-              </Text>
+              {renderItem({item, index, selected})}
             </View>
           </TouchableOpacity>
         );
@@ -143,38 +87,7 @@ export function ButtonGroup(props: Props): React.ReactElement {
 ButtonGroup.defaultProps = {
   styles: {
     container: {
-      backgroundColor: 'transparent',
-      flexDirection: 'row',
-      alignItems: 'center',
-      justifyContent: 'center',
-      alignSelf: 'stretch',
-      minHeight: 40,
-      marginTop: 24,
-    },
-    button: {
-      alignSelf: 'stretch',
-      minHeight: 40,
-
-      justifyContent: 'center',
-      alignItems: 'center',
-    },
-    selectedButton: {
-      alignSelf: 'stretch',
-      minHeight: 40,
-
-      justifyContent: 'center',
-      alignItems: 'center',
-    },
-    text: {
-      fontSize: 14,
-      textAlign: 'center',
-      alignSelf: 'center',
-    },
-    selectedText: {
-      fontSize: 14,
-      textAlign: 'center',
       alignSelf: 'center',
     },
   },
-  data: ['option 1', 'option 2'],
 };

@@ -1,8 +1,8 @@
-import DefaultStory from './DefaultStory';
 import React from 'react';
 import type {ReactElement} from 'react';
 import {ThemeProvider} from '@dooboo-ui/theme';
 import {storiesOf} from '@storybook/react-native';
+import Basic from './basic';
 
 /**
  * Below are stories for web
@@ -11,27 +11,42 @@ export default {
   title: 'ButtonGroup',
 };
 
-export const toStorybook = (): ReactElement => (
-  <ThemeProvider initialThemeType="light">
-    <DefaultStory />
-  </ThemeProvider>
-);
+export const basicStory = (): ReactElement => <Basic />;
 
-toStorybook.story = {
-  name: 'ButtonGroup - 4 buttons',
+basicStory.light = {
+  name: 'Basic - light',
+  notes: 'Basic [ButtonGroup] with light mode.',
+};
+
+basicStory.dark = {
+  name: 'Basic - dark',
+  notes: 'Basic [ButtonGroup] with dark mode.',
 };
 
 /**
  * Below are stories for app
  */
+
 storiesOf('ButtonGroup', module)
-  .add('ButtonGroup - light', () => (
-    <ThemeProvider initialThemeType="light">
-      <DefaultStory />
-    </ThemeProvider>
-  ))
-  .add('ButtonGroup - dark', () => (
-    <ThemeProvider initialThemeType="dark">
-      <DefaultStory />
-    </ThemeProvider>
-  ));
+  .add(
+    basicStory.light.name,
+    () => (
+      <ThemeProvider initialThemeType="light">
+        <Basic />
+      </ThemeProvider>
+    ),
+    {
+      notes: basicStory.light.notes,
+    },
+  )
+  .add(
+    basicStory.dark.name,
+    () => (
+      <ThemeProvider initialThemeType="dark">
+        <Basic />
+      </ThemeProvider>
+    ),
+    {
+      notes: basicStory.dark.notes,
+    },
+  );
