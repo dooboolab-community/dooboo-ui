@@ -1,7 +1,7 @@
 {
   "files": {
-    "app.js": "/dooboo-ui/static/js/app.6d7bcb23.chunk.js",
-    "app.js.map": "/dooboo-ui/static/js/app.6d7bcb23.chunk.js.map",
+    "app.js": "/dooboo-ui/static/js/app.2ca36c50.chunk.js",
+    "app.js.map": "/dooboo-ui/static/js/app.2ca36c50.chunk.js.map",
     "runtime~app.js": "/dooboo-ui/static/js/runtime~app.ec57c3fc.js",
     "runtime~app.js.map": "/dooboo-ui/static/js/runtime~app.ec57c3fc.js.map",
     "static/js/2.976966f2.chunk.js": "/dooboo-ui/static/js/2.976966f2.chunk.js",
@@ -35,6 +35,6 @@
   "entrypoints": [
     "static/js/runtime~app.ec57c3fc.js",
     "static/js/2.976966f2.chunk.js",
-    "static/js/app.6d7bcb23.chunk.js"
+    "static/js/app.2ca36c50.chunk.js"
   ]
 }
