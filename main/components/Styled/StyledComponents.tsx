@@ -14,7 +14,7 @@ export type ButtonType =
   | 'light';
 
 export type SnackbarType =
-  | 'default'
+  | 'primary'
   | 'secondary'
   | 'success'
   | 'warning'

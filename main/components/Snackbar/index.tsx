@@ -1,203 +1,40 @@
-import {Animated, Dimensions, Platform, TouchableOpacity} from 'react-native';
-import {ButtonText, SnackbarWrapper} from '../Styled/StyledComponents';
-import React, {
-  useCallback,
-  useEffect,
-  useImperativeHandle,
-  useState,
-} from 'react';
-import type {StyleProp, TextStyle, ViewStyle} from 'react-native';
+import React, {useRef} from 'react';
+import type {SnackbarContent, SnackbarRef} from './Snackbar';
 
-import type {ReactElement} from 'react';
-import type {SnackbarType} from '../Styled/StyledComponents';
-import styled from '@emotion/native';
-import {useTheme} from '@dooboo-ui/theme';
+import type {MutableRefObject} from 'react';
+import {Snackbar} from './Snackbar';
+import {View} from 'react-native';
+import createCtx from '../../utils/createCtx';
 
-type Styles = {
-  container?: StyleProp<ViewStyle>;
-  text?: StyleProp<TextStyle>;
-  type?: SnackbarType;
-};
-
-export interface SnackbarProps {
-  testID?: string;
-  ref: React.MutableRefObject<SnackbarRef>;
-}
-
-export type SnackbarContent = {
-  timer?: SnackbarTimer;
-  styles?: Styles;
-  actionText?: string;
-  onActionPress?: () => void;
-  type?: SnackbarType;
-  content: {element?: ReactElement; text?: string};
-};
-
-interface ShowingState {
-  isVisible?: boolean;
-  isShowing?: boolean;
-  timeout?: any;
-}
-
-export interface SnackbarRef {
+interface SnackbarContext {
   show(content: SnackbarContent): void;
 }
 
-export enum SnackbarTimer {
-  SHORT = 1500,
-  LONG = 3000,
+export interface SnackbarProviderProps {
+  children?: React.ReactElement;
+  defaultContent?: Partial<SnackbarContent>;
 }
 
-const TextAction = styled.Text<{type: SnackbarType}>`
-  color: ${({theme, type}) =>
-    type === 'danger' ? theme.text.contrast : theme.text.basic};
-`;
+const [useCtx, Provider] = createCtx<SnackbarContext>(
+  'Snackbar should be used within SnackbarProvider if not accessing with ref.',
+);
 
-const Divider = styled.View<{type: SnackbarType}>`
-  width: 1px;
-  height: 100%;
-  margin: 0 16px;
-  opacity: 0.4;
+function SnackbarProvider(props: SnackbarProviderProps): React.ReactElement {
+  const {children, defaultContent = {}} = props;
+  const snackbar = useRef<SnackbarRef>() as MutableRefObject<SnackbarRef>;
 
-  background-color: ${({theme, type}) =>
-    type === 'danger' ? theme.text.contrast : theme.text.basic};
-`;
-
-const SnackbarContainer = (
-  props: SnackbarProps,
-  ref: React.Ref<SnackbarRef>,
-): React.ReactElement => {
-  const {testID} = props;
-
-  const [showingState, setShowingState] = useState<ShowingState>({
-    isVisible: false,
-    isShowing: false,
-  });
-
-  const [snackbar, setSnackbar] = useState<SnackbarContent>({
-    content: {text: ''},
-    timer: SnackbarTimer.SHORT,
-  });
-
-  const {
-    content,
-    type = 'default',
-    actionText,
-    onActionPress,
-    styles,
-    timer = SnackbarTimer.SHORT,
-  } = snackbar;
-
-  const {theme} = useTheme();
-
-  const {isShowing, isVisible, timeout} = showingState;
-  const [fadeAnim] = useState(new Animated.Value(0));
-
-  const show = (c: SnackbarContent): void => {
-    setSnackbar(c);
-    timeout && clearTimeout(timeout);
-
-    setShowingState((prevState) =>
-      Object.assign(Object.assign({}, prevState), {isShowing: true}),
-    );
+  const show = (content: SnackbarContent): void => {
+    snackbar.current && snackbar.current.show({...defaultContent, ...content});
   };
 
-  const hide = useCallback(
-    (duration = 200): void => {
-      Animated.timing(fadeAnim, {
-        toValue: 0,
-        duration,
-        useNativeDriver: Platform.select({
-          web: false,
-          default: true,
-        }),
-      }).start(() =>
-        setShowingState((prevState) =>
-          Object.assign(Object.assign({}, prevState), {isVisible: false}),
-        ),
-      );
-    },
-    [fadeAnim],
-  );
-
-  useEffect(() => {
-    if (isShowing) {
-      if (isVisible) {
-        hide(50);
-      } else {
-        const hideTimeout = setTimeout(() => {
-          hide();
-        }, timer + 200);
-
-        setShowingState({
-          isShowing: false,
-          isVisible: true,
-          timeout: hideTimeout,
-        });
-
-        Animated.timing(fadeAnim, {
-          toValue: 1,
-          duration: 200,
-          useNativeDriver: Platform.select({
-            web: false,
-            default: true,
-          }),
-        }).start();
-      }
-    }
-  }, [showingState, fadeAnim, hide, isShowing, isVisible, timer]);
-
-  useImperativeHandle(ref, () => ({show}));
-
   return (
-    <>
-      {showingState.isVisible && (
-        <SnackbarWrapper
-          testID={testID}
-          type={type}
-          style={[
-            styles?.container,
-            {
-              shadowColor: 'black',
-              shadowOffset: {
-                width: 0,
-                height: 4,
-              },
-              shadowOpacity: 0.15,
-              shadowRadius: 12,
-            },
-            {maxWidth: Dimensions.get('screen').width - 40},
-            {opacity: fadeAnim},
-          ]}
-        >
-          {content.element ? (
-            content.element
-          ) : (
-            <ButtonText style={styles?.text} type={type}>
-              {content.text}
-            </ButtonText>
-          )}
-          {actionText && (
-            <Divider
-              theme={theme}
-              type={type}
-              style={{
-                height: Platform.select({web: 24, default: 12}),
-              }}
-            />
-          )}
-          {actionText && (
-            <TouchableOpacity onPress={onActionPress}>
-              <TextAction theme={theme} type={type} style={styles?.text}>
-                {actionText}
-              </TextAction>
-            </TouchableOpacity>
-          )}
-        </SnackbarWrapper>
-      )}
-    </>
+    <View style={{flex: 1, width: '100%'}}>
+      <Provider value={{show}}>{children}</Provider>
+      <Snackbar ref={snackbar} />
+    </View>
   );
-};
+}
 
-export const Snackbar =
-  React.forwardRef<SnackbarRef, SnackbarProps>(SnackbarContainer);
+export {useCtx as useSnackbar, SnackbarProvider};
+export * from './Snackbar';
+export default Snackbar;

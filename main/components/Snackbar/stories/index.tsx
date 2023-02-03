@@ -1,5 +1,6 @@
 import React from 'react';
 import type {ReactElement} from 'react';
+import SnackbarContent from './ProviderStory';
 import SnackbarDefaultStory from './DefaultStory';
 import SnackbarWithActionStory from './ActionStory';
 import {ThemeProvider} from '@dooboo-ui/theme';
@@ -30,6 +31,11 @@ storiesOf('Snackbar', module)
   .add('Basic - dark', () => (
     <ThemeProvider initialThemeType="dark">
       <SnackbarDefaultStory />
+    </ThemeProvider>
+  ))
+  .add('Provider', () => (
+    <ThemeProvider initialThemeType="light">
+      <SnackbarContent />
     </ThemeProvider>
   ))
   .add('Action', () => (

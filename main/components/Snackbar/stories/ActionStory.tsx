@@ -7,7 +7,7 @@ import {Typography} from '../../Typography';
 import styled from '@emotion/native';
 
 const types: SnackbarType[] = [
-  'default',
+  'primary',
   'secondary',
   'success',
   'info',
@@ -69,7 +69,7 @@ function SnackbarDefault(): React.ReactElement {
       {types.map((type, i) => (
         <Button
           key={i}
-          color={type === 'default' ? 'primary' : type}
+          color={type}
           onPress={() => onPress(type)}
           text={`Open Snackbar - ${type}`}
           style={{margin: 20}}
