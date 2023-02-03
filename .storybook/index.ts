@@ -5,7 +5,6 @@ import '../main/components/Icon/stories';
 import '../main/components/IconButton/stories';
 import '../main/components/Checkbox/stories';
 import '../main/components/EditText/stories';
-import '../main/components/EditTextLegacy/stories';
 import '../main/components/FAB/stories';
 import '../main/components/LoadingIndicator/stories';
 import '../main/components/NetworkImage/stories';

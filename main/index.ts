@@ -8,7 +8,6 @@ export * from './components/ButtonGroup';
 export * from './components/IconButton';
 export * from './components/Checkbox';
 export * from './components/EditText';
-export * from './components/EditTextLegacy';
 export * from './components/NetworkImage';
 export * from './components/Progressbar';
 export * from './components/LoadingIndicator';
