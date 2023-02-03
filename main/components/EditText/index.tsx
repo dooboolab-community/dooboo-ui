@@ -188,9 +188,8 @@ export const EditText: FC<EditTextProps> = (props) => {
                 : defaultColor,
             },
             decoration === 'boxed'
-              ? {borderWidth: 1, paddingHorizontal: 12}
+              ? {borderWidth: 1, paddingHorizontal: 12, paddingTop: 8}
               : {borderBottomWidth: 1},
-            maxLength ? {marginBottom: 24} : {},
             styles?.container,
           ]}
         >
@@ -244,7 +243,7 @@ export const EditText: FC<EditTextProps> = (props) => {
         <Text
           style={[
             {color: theme.text.validation},
-            {marginTop: 8, marginHorizontal: 10},
+            {marginTop: 8},
             styles?.error,
           ]}
         >
@@ -286,7 +285,6 @@ export const EditText: FC<EditTextProps> = (props) => {
           {renderCounter()}
         </>,
       )}
-
       {renderError()}
     </View>
   );
