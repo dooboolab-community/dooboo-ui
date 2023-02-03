@@ -79,7 +79,7 @@ export function ButtonGroup<T>({
                       : {borderBottomWidth: borderWidth}),
                 ])}
               >
-                {renderItem({item, index, selected})}
+                {renderItem?.({item, index, selected})}
               </View>
             </TouchableOpacity>
           );
