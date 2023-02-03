@@ -27,13 +27,13 @@ export const Solid: FC<{themeType: ThemeType}> = ({themeType}) => {
             justifyContent: 'center',
           }}
         >
-          <Button type="primary" text="Primary" style={{padding: 8}} />
-          <Button type="secondary" text="Secondary" style={{padding: 8}} />
-          <Button type="success" text="Success" style={{padding: 8}} />
-          <Button type="danger" text="Danger" style={{padding: 8}} />
-          <Button type="warning" text="Warning" style={{padding: 8}} />
-          <Button type="info" text="Info" style={{padding: 8}} />
-          <Button type="light" text="Light" style={{padding: 8}} />
+          <Button color="primary" text="Primary" style={{padding: 8}} />
+          <Button color="secondary" text="Secondary" style={{padding: 8}} />
+          <Button color="success" text="Success" style={{padding: 8}} />
+          <Button color="danger" text="Danger" style={{padding: 8}} />
+          <Button color="warning" text="Warning" style={{padding: 8}} />
+          <Button color="info" text="Info" style={{padding: 8}} />
+          <Button color="light" text="Light" style={{padding: 8}} />
         </View>
       </StoryContainer>
     </ThemeProvider>

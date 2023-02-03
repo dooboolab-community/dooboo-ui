@@ -1,9 +1,8 @@
-import type {ThemeType} from '@dooboo-ui/theme';
-import {ThemeProvider} from '@dooboo-ui/theme';
-
 import {Button} from 'dooboo-ui';
 import type {FC} from 'react';
 import React from 'react';
+import {ThemeProvider} from '@dooboo-ui/theme';
+import type {ThemeType} from '@dooboo-ui/theme';
 import {View} from 'react-native';
 
 export const Sizes: FC<{themeType: ThemeType}> = ({themeType}) => {
@@ -20,19 +19,19 @@ export const Sizes: FC<{themeType: ThemeType}> = ({themeType}) => {
         }}
       >
         <Button
-          type="primary"
+          color="primary"
           size="large"
           text="Primary"
           style={{padding: 8}}
         />
         <Button
-          type="primary"
+          color="primary"
           size="medium"
           text="Primary"
           style={{padding: 8}}
         />
         <Button
-          type="primary"
+          color="primary"
           size="small"
           text="Primary"
           style={{padding: 8}}

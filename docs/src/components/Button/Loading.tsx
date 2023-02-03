@@ -27,7 +27,7 @@ export const Loading: FC<{themeType: ThemeType}> = ({themeType}) => {
           }}
         >
           <Button loading={true} style={{padding: 8}} />
-          <Button loading={true} indicatorColor="orange" style={{padding: 8}} />
+          <Button loading={true} style={{padding: 8}} />
         </View>
       </StoryContainer>
     </ThemeProvider>

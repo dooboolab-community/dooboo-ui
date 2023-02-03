@@ -25,18 +25,48 @@ export const Outlined: FC<{themeType: ThemeType}> = ({themeType}) => {
             justifyContent: 'center',
           }}
         >
-          <Button type="primary" text="Primary" outlined style={{padding: 8}} />
           <Button
-            type="secondary"
-            text="Secondary"
-            outlined
+            type="outlined"
+            color="primary"
+            text="Primary"
             style={{padding: 8}}
           />
-          <Button type="success" text="Success" outlined style={{padding: 8}} />
-          <Button type="danger" text="Danger" outlined style={{padding: 8}} />
-          <Button type="warning" text="Warning" outlined style={{padding: 8}} />
-          <Button type="info" text="Info" outlined style={{padding: 8}} />
-          <Button type="light" text="Light" outlined style={{padding: 8}} />
+          <Button
+            type="outlined"
+            color="secondary"
+            text="Secondary"
+            style={{padding: 8}}
+          />
+          <Button
+            color="success"
+            text="Success"
+            type="outlined"
+            style={{padding: 8}}
+          />
+          <Button
+            color="danger"
+            text="Danger"
+            type="outlined"
+            style={{padding: 8}}
+          />
+          <Button
+            color="warning"
+            text="Warning"
+            type="outlined"
+            style={{padding: 8}}
+          />
+          <Button
+            color="info"
+            text="Info"
+            type="outlined"
+            style={{padding: 8}}
+          />
+          <Button
+            color="light"
+            text="Light"
+            type="outlined"
+            style={{padding: 8}}
+          />
         </View>
       </StoryContainer>
     </ThemeProvider>

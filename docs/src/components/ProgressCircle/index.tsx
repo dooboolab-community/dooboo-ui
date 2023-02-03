@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 
-import Progress from '@dooboo-ui/progress';
+import {ProgressCircle} from 'dooboo-ui';
 import {ThemeProvider} from '@dooboo-ui/theme';
 import styled from '@emotion/native';
 
@@ -47,7 +47,7 @@ const ProgressView: React.FC = () => {
 
   return (
     <Container>
-      <Progress.Circle progress={progress} />
+      <ProgressCircle progress={progress} />
     </Container>
   );
 };

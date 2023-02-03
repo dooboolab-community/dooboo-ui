@@ -10,7 +10,6 @@
     "start": "start-storybook --docs -p 9001 -c ./.storybook watch-css -s ./src"
   },
   "dependencies": {
-    "@dooboo-ui/progress": "../packages/Progress/lib",
     "@emotion/native": "^11.10.0",
     "@emotion/react": "^11.10.5",
     "@expo/config": "^7.0.3",

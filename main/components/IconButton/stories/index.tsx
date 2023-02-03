@@ -3,7 +3,7 @@ import React from 'react';
 import {ThemeProvider} from '@dooboo-ui/theme';
 import {storiesOf} from '@storybook/react-native';
 
-storiesOf('Icon Button', module)
+storiesOf('IconButton', module)
   .add('Basic - light', () => (
     <ThemeProvider initialThemeType="light">
       <IconButtonStory themeType="light" />

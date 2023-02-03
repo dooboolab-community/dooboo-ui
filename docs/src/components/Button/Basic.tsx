@@ -27,7 +27,7 @@ export const Basic: FC<{themeType: ThemeType}> = ({themeType}) => {
           }}
         >
           <Button text="Button" style={{padding: 8}} />
-          <Button text="Button" outlined style={{padding: 8}} />
+          <Button text="Button" type="outlined" style={{padding: 8}} />
         </View>
       </StoryContainer>
     </ThemeProvider>

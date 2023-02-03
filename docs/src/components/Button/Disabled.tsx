@@ -29,7 +29,7 @@ export const Disabled: FC<{themeType: ThemeType}> = ({themeType}) => {
           <Button disabled={true} text="Disabled" style={{padding: 8}} />
           <Button
             disabled={true}
-            outlined
+            type="outlined"
             text="Disabled"
             style={{padding: 8}}
           />

@@ -30,12 +30,12 @@ const ButtonGroupStory = (): React.ReactElement => {
 
   return (
     <Container>
-      <ButtonGroup
+      {/* <ButtonGroup
         style={{marginTop: 40, marginHorizontal: 20}}
         onPress={(index: number): void => setSelectedIndex(index)}
         data={data}
         selectedIndex={selectedIndex}
-      />
+      /> */}
       <View
         style={{
           height: 120,

@@ -22,7 +22,7 @@ export const Link: FC<LinkProps> = ({link}) => {
     <ThemeProvider>
       <View style={styles.container}>
         <Button
-          type="info"
+          color="info"
           text="Try this example on Snack"
           size="medium"
           style={{paddingTop: 15}}

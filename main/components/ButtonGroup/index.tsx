@@ -1,7 +1,8 @@
-import type {ReactElement} from 'react';
+import type {StyleProp, TouchableOpacityProps, ViewStyle} from 'react-native';
+import {StyleSheet, TouchableOpacity, View} from 'react-native';
+
 import React from 'react';
-import type {StyleProp, ViewStyle, TouchableOpacityProps} from 'react-native';
-import {StyleSheet, View, TouchableOpacity} from 'react-native';
+import type {ReactElement} from 'react';
 
 interface Styles {
   container?: StyleProp<ViewStyle>;
@@ -10,9 +11,10 @@ interface Styles {
 
 export type ButtonGroupProps<T> = {
   data: T[];
-  renderItem: ButtonGroupRenderItem<T>;
+  renderItem?: ButtonGroupRenderItem<T>;
   direction?: 'row' | 'column';
   testID?: string;
+  style?: StyleProp<ViewStyle>;
   styles?: Styles;
   onPress?: (index: number, item: T) => void;
   touchableOpacityProps?: TouchableOpacityProps;
@@ -32,6 +34,7 @@ export type ButtonGroupRenderItem<ItemT> = (info: {
 
 export function ButtonGroup<T>({
   testID,
+  style,
   styles,
   data,
   renderItem,
@@ -46,40 +49,42 @@ export function ButtonGroup<T>({
   } = {},
 }: ButtonGroupProps<T>): ReactElement {
   return (
-    <View
-      testID={testID}
-      style={StyleSheet.flatten([
-        {borderRadius, borderColor, borderWidth, overflow: 'hidden'},
-        styles?.container,
-        {flexDirection: direction},
-      ])}
-    >
-      {data.map((item, index) => {
-        const selected = index === selectedIndex;
+    <View style={style}>
+      <View
+        testID={testID}
+        style={StyleSheet.flatten([
+          {borderRadius, borderColor, borderWidth, overflow: 'hidden'},
+          styles?.container,
+          {flexDirection: direction},
+        ])}
+      >
+        {data.map((item, index) => {
+          const selected = index === selectedIndex;
 
-        return (
-          <TouchableOpacity
-            disabled={!onPress}
-            {...touchableOpacityProps}
-            onPress={() => onPress && onPress(index, item)}
-            key={index}
-          >
-            <View
-              testID={`button-group-item-${index}`}
-              style={StyleSheet.flatten([
-                styles?.button,
-                {borderColor},
-                index !== data.length - 1 &&
-                  (direction === 'row'
-                    ? {borderRightWidth: borderWidth}
-                    : {borderBottomWidth: borderWidth}),
-              ])}
+          return (
+            <TouchableOpacity
+              disabled={!onPress}
+              {...touchableOpacityProps}
+              onPress={() => onPress && onPress(index, item)}
+              key={index}
             >
-              {renderItem({item, index, selected})}
-            </View>
-          </TouchableOpacity>
-        );
-      })}
+              <View
+                testID={`button-group-item-${index}`}
+                style={StyleSheet.flatten([
+                  styles?.button,
+                  {borderColor},
+                  index !== data.length - 1 &&
+                    (direction === 'row'
+                      ? {borderRightWidth: borderWidth}
+                      : {borderBottomWidth: borderWidth}),
+                ])}
+              >
+                {renderItem({item, index, selected})}
+              </View>
+            </TouchableOpacity>
+          );
+        })}
+      </View>
     </View>
   );
 }
