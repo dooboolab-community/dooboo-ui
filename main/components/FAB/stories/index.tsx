@@ -21,12 +21,12 @@ toStorybook.story = {
  * Below are stories for app
  */
 storiesOf('FAB', module)
-  .add('FAB - light', () => (
+  .add('Basic - light', () => (
     <ThemeProvider initialThemeType="light">
       <FABStory />
     </ThemeProvider>
   ))
-  .add('FAB - dark', () => (
+  .add('Basic - dark', () => (
     <ThemeProvider initialThemeType="dark">
       <FABStory />
     </ThemeProvider>

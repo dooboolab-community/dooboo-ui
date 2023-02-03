@@ -22,17 +22,17 @@ toStorybook.story = {
  * Below are stories for app
  */
 storiesOf('Snackbar', module)
-  .add('Snackbar - light', () => (
+  .add('Basic - light', () => (
     <ThemeProvider initialThemeType="light">
       <SnackbarDefaultStory />
     </ThemeProvider>
   ))
-  .add('Snackbar - dark', () => (
+  .add('Basic - dark', () => (
     <ThemeProvider initialThemeType="dark">
       <SnackbarDefaultStory />
     </ThemeProvider>
   ))
-  .add('Snackbar with action - light', () => (
+  .add('Action', () => (
     <ThemeProvider initialThemeType="light">
       <SnackbarWithActionStory />
     </ThemeProvider>

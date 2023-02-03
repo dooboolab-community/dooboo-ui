@@ -21,12 +21,12 @@ toStorybook.story = {
  * Below are stories for app
  */
 storiesOf('Checkbox', module)
-  .add('Checkbox - light', () => (
+  .add('Basic - light', () => (
     <ThemeProvider initialThemeType="light">
       <CheckboxStory />
     </ThemeProvider>
   ))
-  .add('Checkbox - dark', () => (
+  .add('Basic - dark', () => (
     <ThemeProvider initialThemeType="dark">
       <CheckboxStory />
     </ThemeProvider>

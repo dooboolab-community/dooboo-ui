@@ -21,12 +21,12 @@ toStorybook.story = {
  * Below are stories for app
  */
 storiesOf('NetworkImage', module)
-  .add('NetworkImage - light', () => (
+  .add('Basic - light', () => (
     <ThemeProvider initialThemeType="light">
       <NetworkImageStory />
     </ThemeProvider>
   ))
-  .add('NetworkImage - dark', () => (
+  .add('Basic - dark', () => (
     <ThemeProvider initialThemeType="dark">
       <NetworkImageStory />
     </ThemeProvider>

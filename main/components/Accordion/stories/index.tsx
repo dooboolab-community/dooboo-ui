@@ -23,12 +23,12 @@ toStorybook.story = {
  */
 storiesOf('Accordion', module)
   .addDecorator(withKnobs)
-  .add('Accordion - light', () => (
+  .add('Basic - light', () => (
     <ThemeProvider initialThemeType="light">
       <AccordionDefault />
     </ThemeProvider>
   ))
-  .add('Accordion - dark', () => (
+  .add('Basic - dark', () => (
     <ThemeProvider initialThemeType="dark">
       <AccordionDefault />
     </ThemeProvider>

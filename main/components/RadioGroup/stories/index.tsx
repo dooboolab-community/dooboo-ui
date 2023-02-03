@@ -21,12 +21,12 @@ toStorybook.story = {
  * Below are stories for app
  */
 storiesOf('RadioGroup', module)
-  .add('radio group - light', () => (
+  .add('Basic - light', () => (
     <ThemeProvider initialThemeType="light">
       <RadioGroupDefaultStory />
     </ThemeProvider>
   ))
-  .add('radio group - dark', () => (
+  .add('Basic - dark', () => (
     <ThemeProvider initialThemeType="dark">
       <RadioGroupDefaultStory />
     </ThemeProvider>

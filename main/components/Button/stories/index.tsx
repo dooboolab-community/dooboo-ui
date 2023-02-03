@@ -27,12 +27,12 @@ toStorybook.story = {
 storiesOf('Button', module)
   .addDecorator(withKnobs)
   .addDecorator(withActions)
-  .add('LIGHT', () => (
+  .add('Basic - light', () => (
     <ThemeProvider initialThemeType="light">
       <DefaultStory themeType="light" />
     </ThemeProvider>
   ))
-  .add('DARK', () => (
+  .add('Basic - dark', () => (
     <ThemeProvider initialThemeType="dark">
       <DefaultStory themeType="dark" />
     </ThemeProvider>

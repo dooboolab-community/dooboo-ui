@@ -1,13 +1,13 @@
-import ProgressStory from './DefaultStory';
+import ProgressBarStory from './DefaultStory';
 import React from 'react';
+import {ThemeProvider} from '@dooboo-ui/theme';
 import {storiesOf} from '@storybook/react-native';
 import {withKnobs} from '@storybook/addon-knobs';
-import {ThemeProvider} from '@dooboo-ui/theme';
 
-storiesOf('ProgressStory', module)
+storiesOf('ProgressBar', module)
   .addDecorator(withKnobs)
-  .add('progress', () => (
+  .add('Basic - light', () => (
     <ThemeProvider initialThemeType="light">
-      <ProgressStory />
+      <ProgressBarStory />
     </ThemeProvider>
   ));

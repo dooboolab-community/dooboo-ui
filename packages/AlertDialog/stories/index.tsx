@@ -1,9 +1,8 @@
-import type {ReactElement} from 'react';
-import React from 'react';
-import {storiesOf} from '@storybook/react-native';
-import {ThemeProvider} from '@dooboo-ui/theme';
-
 import Dialog from './DefaultStory';
+import React from 'react';
+import type {ReactElement} from 'react';
+import {ThemeProvider} from '@dooboo-ui/theme';
+import {storiesOf} from '@storybook/react-native';
 
 /**
  * Below are stories for web
@@ -23,12 +22,12 @@ toStorybook.story = {
  */
 
 storiesOf('AlertDialog', module)
-  .add('light', () => (
+  .add('Basic - light', () => (
     <ThemeProvider initialThemeType="light">
       <Dialog />
     </ThemeProvider>
   ))
-  .add('dark', () => (
+  .add('Basic - dark', () => (
     <ThemeProvider initialThemeType="dark">
       <Dialog />
     </ThemeProvider>

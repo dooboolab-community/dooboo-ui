@@ -23,12 +23,12 @@ toStorybook.story = {
  * Below are stories for app
  */
 storiesOf('Typography', module)
-  .add('text - light', () => (
+  .add('Basic - light', () => (
     <ThemeProvider initialThemeType="light">
       <TypographyDefault />
     </ThemeProvider>
   ))
-  .add('text - dark', () => (
+  .add('Basic - dark', () => (
     <View
       style={{
         backgroundColor: 'black',

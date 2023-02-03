@@ -21,12 +21,12 @@ toStorybook.story = {
  * Below are stories for app
  */
 storiesOf('SwitchToggle', module)
-  .add('switch toggle - light', () => (
+  .add('Basic - light', () => (
     <ThemeProvider initialThemeType="light">
       <SwitchToggleDefaultStory />
     </ThemeProvider>
   ))
-  .add('switch toggle - dark', () => (
+  .add('Basic - dark', () => (
     <ThemeProvider initialThemeType="dark">
       <SwitchToggleDefaultStory />
     </ThemeProvider>

@@ -23,12 +23,12 @@ toStorybook.story = {
  * Below are stories for app
  */
 storiesOf('Icon Button', module)
-  .add('LIGHT', () => (
+  .add('Basic - light', () => (
     <ThemeProvider initialThemeType="light">
       <IconButtonStory themeType="light" />
     </ThemeProvider>
   ))
-  .add('DARK', () => (
+  .add('Basic - dark', () => (
     <ThemeProvider initialThemeType="dark">
       <IconButtonStory themeType="dark" />
     </ThemeProvider>

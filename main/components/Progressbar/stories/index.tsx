@@ -25,12 +25,12 @@ toStorybook.story = {
 storiesOf('Progressbar', module)
   .addDecorator(withKnobs)
   .addDecorator(withActions)
-  .add('Progressbar - light', () => (
+  .add('Basic - light', () => (
     <ThemeProvider initialThemeType="light">
       <ProgressbarDefaultStory />
     </ThemeProvider>
   ))
-  .add('Progressbar - dark', () => (
+  .add('Basic - dark', () => (
     <ThemeProvider initialThemeType="dark">
       <ProgressbarDefaultStory />
     </ThemeProvider>

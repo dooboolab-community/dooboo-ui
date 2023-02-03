@@ -58,22 +58,22 @@ toStorybook.story = {
  * Below are stories for app
  */
 storiesOf('LoadingIndicator', module)
-  .add('spinner - light', () => (
+  .add('Basic - light', () => (
     <ThemeProvider initialThemeType="light">
       <Spinner />
     </ThemeProvider>
   ))
-  .add('spinner - dark', () => (
+  .add('Basic - dark', () => (
     <ThemeProvider initialThemeType="dark">
       <Spinner />
     </ThemeProvider>
   ))
-  .add('imgVersion', () => (
+  .add('Image', () => (
     <ThemeProvider initialThemeType="light">
       <ImgVersion />
     </ThemeProvider>
   ))
-  .add('customIndicator', () => (
+  .add('Custom', () => (
     <ThemeProvider initialThemeType="light">
       <CustomLoadingIndicator />
     </ThemeProvider>

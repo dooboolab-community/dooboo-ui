@@ -1,10 +1,9 @@
 import 'intl';
 import 'intl/locale-data/jsonp/en';
 
-import type {ReactElement} from 'react';
-import React from 'react';
-
 import Default from './DefaultStory';
+import React from 'react';
+import type {ReactElement} from 'react';
 import {storiesOf} from '@storybook/react-native';
 
 /**
@@ -24,4 +23,4 @@ toStorybook.story = {
  * Below are stories for app
  */
 
-storiesOf('Calendar', module).add('default', () => <Default />);
+storiesOf('Calendar', module).add('Basic - light', () => <Default />);
