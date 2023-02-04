@@ -1,6 +1,6 @@
 import type {FC, ReactElement, ReactNode} from 'react';
 import {Platform, Text, TouchableOpacity} from 'react-native';
-import React, {useRef} from 'react';
+import React, {useCallback, useRef} from 'react';
 import type {
   StyleProp,
   TextStyle,
@@ -196,31 +196,43 @@ export const Button: FC<Props> = (props) => {
     ...styles,
   };
 
-  const renderContainer = (children: ReactNode): ReactElement => {
-    return (
-      <ButtonContainer
-        testID={loading ? 'loading-view' : 'button-container'}
-        style={[
-          compositeStyles.container,
-          hovered && !disabled && compositeStyles.hovered,
-          disabled && compositeStyles.disabled,
-          {borderRadius: borderRadius ?? 4},
-        ]}
-        type={type}
-        size={size}
-        disabled={disabled}
-      >
-        {children}
-      </ButtonContainer>
-    );
-  };
+  const renderContainer = useCallback(
+    (children: ReactNode): ReactElement => {
+      return (
+        <ButtonContainer
+          testID={loading ? 'loading-view' : 'button-container'}
+          style={[
+            compositeStyles.container,
+            hovered && !disabled && compositeStyles.hovered,
+            disabled && compositeStyles.disabled,
+            {borderRadius: borderRadius ?? 4},
+          ]}
+          type={type}
+          size={size}
+          disabled={disabled}
+        >
+          {children}
+        </ButtonContainer>
+      );
+    },
+    [
+      borderRadius,
+      compositeStyles.container,
+      compositeStyles.disabled,
+      compositeStyles.hovered,
+      disabled,
+      hovered,
+      loading,
+      size,
+      type,
+    ],
+  );
 
-  const renderLoading = (): ReactElement =>
-    loadingElement ?? (
-      <LoadingIndicator size="small" color={theme.text.basic} />
-    );
+  const LoadingView = loadingElement ?? (
+    <LoadingIndicator size="small" color={theme.text.basic} />
+  );
 
-  const renderChild = (): ReactElement => (
+  const ChildView = (
     <>
       {startElement}
       <Text
@@ -246,7 +258,7 @@ export const Button: FC<Props> = (props) => {
       style={style}
       {...touchableOpacityProps}
     >
-      {renderContainer(loading ? renderLoading() : renderChild())}
+      {renderContainer(loading ? LoadingView : ChildView)}
     </TouchableOpacity>
   );
 };
