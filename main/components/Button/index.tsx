@@ -38,16 +38,16 @@ export type ButtonSizeType = 'small' | 'medium' | 'large';
 
 const ButtonStyles = ({
   theme,
-  type = 'solid',
-  color = 'primary',
-  size = 'medium',
+  type,
+  color,
+  size,
   loading,
   disabled,
 }: {
   theme?: DoobooTheme;
-  type?: ButtonType;
-  color?: ButtonColorType;
-  size?: ButtonSizeType;
+  type: ButtonType;
+  color: ButtonColorType;
+  size: ButtonSizeType;
   disabled?: boolean;
   loading?: boolean;
 }): {

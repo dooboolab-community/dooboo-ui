@@ -51,7 +51,7 @@ describe('[Button]', () => {
     });
   });
 
-  describe('Button', () => {
+  describe('Disabled', () => {
     it('should render disabled status', () => {
       testingLib = render(Component({props: {disabled: true}}));
 
@@ -92,6 +92,22 @@ describe('[Button]', () => {
 
       const button = testingLib.getByTestId('button-container');
       expect(button).toHaveStyle({backgroundColor: 'blue'});
+    });
+  });
+
+  describe('TextButton', () => {
+    it('renders text button', () => {
+      testingLib = render(
+        Component({
+          props: {
+            testID: 'text-button',
+            type: 'text',
+          },
+        }),
+      );
+
+      const json = testingLib.toJSON();
+      expect(json).toBeTruthy();
     });
   });
 
