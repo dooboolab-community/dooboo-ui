@@ -1,4 +1,4 @@
-import {SnackbarProvider, useSnackbar} from '..';
+import {DoobooProvider, useDooboo} from '../../../providers';
 
 import {Button} from '../../..';
 import type {ReactElement} from 'react';
@@ -20,18 +20,18 @@ const Container = styled.SafeAreaView`
 `;
 
 function SnackbarContent(): ReactElement {
-  const {show} = useSnackbar();
+  const {snackbar} = useDooboo();
 
   const onPress = useCallback(
     (type?: SnackbarType): void => {
-      show({
+      snackbar.show({
         content: {
           text: 'Lorem ipsum dolor sit amet',
         },
         type,
       });
     },
-    [show],
+    [snackbar],
   );
 
   return (
@@ -60,9 +60,9 @@ function SnackbarContent(): ReactElement {
 
 function SnackbarContainer(): ReactElement {
   return (
-    <SnackbarProvider>
+    <DoobooProvider>
       <SnackbarContent />
-    </SnackbarProvider>
+    </DoobooProvider>
   );
 }
 
