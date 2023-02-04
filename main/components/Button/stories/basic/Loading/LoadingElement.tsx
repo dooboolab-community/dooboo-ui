@@ -13,7 +13,9 @@ const Loading: FC<{themeType: ThemeType}> = ({themeType}) => {
         <Button
           loading
           loadingElement={<LoadingIndicator size="small" color="yellow" />}
-          style={{padding: 4}}
+          style={{margin: 4}}
+          // eslint-disable-next-line no-console
+          onPress={() => console.log(`press loading button`)}
         />
       </Section>
     </ThemeProvider>

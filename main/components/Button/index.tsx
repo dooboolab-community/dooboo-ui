@@ -1,10 +1,10 @@
 import type {FC, ReactElement, ReactNode} from 'react';
-import {Platform, Text, TouchableOpacity} from 'react-native';
-import React, {useRef} from 'react';
+import {Platform, Text, TouchableHighlight, View} from 'react-native';
+import React, {useCallback, useRef} from 'react';
 import type {
   StyleProp,
   TextStyle,
-  TouchableOpacityProps,
+  TouchableHighlightProps,
   ViewStyle,
 } from 'react-native';
 import styled, {css} from '@emotion/native';
@@ -38,16 +38,16 @@ export type ButtonSizeType = 'small' | 'medium' | 'large';
 
 const ButtonStyles = ({
   theme,
-  type = 'solid',
-  color = 'primary',
-  size = 'medium',
+  type,
+  color,
+  size,
   loading,
   disabled,
 }: {
   theme?: DoobooTheme;
-  type?: ButtonType;
-  color?: ButtonColorType;
-  size?: ButtonSizeType;
+  type: ButtonType;
+  color: ButtonColorType;
+  size: ButtonSizeType;
   disabled?: boolean;
   loading?: boolean;
 }): {
@@ -123,11 +123,11 @@ export type Props = {
   borderRadius?: number;
   startElement?: ReactElement;
   endElement?: ReactElement;
-  style?: StyleProp<ViewStyle>;
+  style?: StyleProp<Omit<ViewStyle, 'borderRadius' | 'padding'>>;
   styles?: Styles;
-  onPress?: TouchableOpacityProps['onPress'];
-  activeOpacity?: TouchableOpacityProps['activeOpacity'];
-  touchableOpacityProps?: Partial<TouchableOpacityProps>;
+  onPress?: TouchableHighlightProps['onPress'];
+  activeOpacity?: TouchableHighlightProps['activeOpacity'];
+  touchableHighlightProps?: Partial<TouchableHighlightProps>;
 };
 
 export const Button: FC<Props> = (props) => {
@@ -145,15 +145,15 @@ export const Button: FC<Props> = (props) => {
     style,
     styles,
     onPress,
-    activeOpacity = 0.6,
-    touchableOpacityProps,
-    borderRadius,
+    activeOpacity = 0.8,
+    touchableHighlightProps,
+    borderRadius = 4,
   } = props;
 
-  const ref = useRef<TouchableOpacity>(null);
+  const ref = useRef<TouchableHighlight>(null);
   const hovered = useHover(ref);
-
-  const {theme} = useTheme();
+  const {theme, themeType} = useTheme();
+  const innerDisabled = disabled || !onPress;
 
   const {
     padding,
@@ -164,7 +164,14 @@ export const Button: FC<Props> = (props) => {
     disabledBackgroundColor,
     disabledBorderColor,
     disabledTextColor,
-  } = ButtonStyles({theme, type, color, size, loading, disabled});
+  } = ButtonStyles({
+    theme,
+    type,
+    color,
+    size,
+    loading,
+    disabled: innerDisabled,
+  });
 
   const compositeStyles: Styles = {
     container: css`
@@ -196,35 +203,53 @@ export const Button: FC<Props> = (props) => {
     ...styles,
   };
 
-  const renderContainer = (children: ReactNode): ReactElement => {
-    return (
-      <ButtonContainer
-        testID={loading ? 'loading-view' : 'button-container'}
-        style={[
-          compositeStyles.container,
-          hovered && !disabled && compositeStyles.hovered,
-          disabled && compositeStyles.disabled,
-          {borderRadius: borderRadius ?? 4},
-        ]}
-        type={type}
-        size={size}
-        disabled={disabled}
-      >
-        {children}
-      </ButtonContainer>
-    );
-  };
+  const renderContainer = useCallback(
+    (children: ReactNode): ReactElement => {
+      return (
+        <View>
+          <ButtonContainer
+            testID={loading ? 'loading-view' : 'button-container'}
+            style={[
+              compositeStyles.container,
+              hovered && !innerDisabled && compositeStyles.hovered,
+              innerDisabled && compositeStyles.disabled,
+              {borderRadius: borderRadius},
+            ]}
+            type={type}
+            size={size}
+            disabled={innerDisabled}
+          >
+            {children}
+          </ButtonContainer>
+        </View>
+      );
+    },
+    [
+      borderRadius,
+      compositeStyles.container,
+      compositeStyles.disabled,
+      compositeStyles.hovered,
+      innerDisabled,
+      hovered,
+      loading,
+      size,
+      type,
+    ],
+  );
 
-  const renderLoading = (): ReactElement =>
-    loadingElement ?? (
-      <LoadingIndicator size="small" color={theme.text.basic} />
-    );
+  const LoadingView = loadingElement ?? (
+    <LoadingIndicator size="small" color={theme.text.basic} />
+  );
 
-  const renderChild = (): ReactElement => (
+  const ChildView = (
     <>
       {startElement}
       <Text
-        style={[compositeStyles.text, disabled && compositeStyles.disabledText]}
+        style={[
+          compositeStyles.text,
+          innerDisabled && compositeStyles.disabledText,
+          {textAlignVertical: 'center', textAlign: 'center'},
+        ]}
       >
         {text}
       </Text>
@@ -233,20 +258,27 @@ export const Button: FC<Props> = (props) => {
   );
 
   return (
-    <TouchableOpacity
+    <TouchableHighlight
       testID={testID}
       ref={Platform.select({
         web: ref,
         default: undefined,
       })}
+      underlayColor={
+        type === 'text'
+          ? 'transparent'
+          : themeType === 'light'
+          ? '#000000'
+          : '#ffffff'
+      }
       activeOpacity={activeOpacity}
       onPress={onPress}
-      delayPressIn={50}
-      disabled={disabled || loading}
-      style={style}
-      {...touchableOpacityProps}
+      delayPressIn={30}
+      disabled={innerDisabled || loading}
+      style={[style, {borderRadius: borderRadius}]}
+      {...touchableHighlightProps}
     >
-      {renderContainer(loading ? renderLoading() : renderChild())}
-    </TouchableOpacity>
+      {renderContainer(loading ? LoadingView : ChildView)}
+    </TouchableHighlight>
   );
 };

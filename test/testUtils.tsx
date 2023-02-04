@@ -1,8 +1,9 @@
 import 'react-native';
 
-import React, {ReactElement} from 'react';
-
+import React from 'react';
+import type {ReactElement} from 'react';
 import {ThemeProvider} from '@dooboo-ui/theme';
+import type {ThemeType} from '@dooboo-ui/theme';
 
 export const createTestProps = (
   obj?: Record<string, unknown>,
@@ -14,6 +15,9 @@ export const createTestProps = (
   ...obj,
 });
 
-export const createComponent = (children?: ReactElement): ReactElement => {
-  return <ThemeProvider>{children}</ThemeProvider>;
+export const createComponent = (
+  children: ReactElement,
+  themeType?: ThemeType,
+): ReactElement => {
+  return <ThemeProvider initialThemeType={themeType}>{children}</ThemeProvider>;
 };

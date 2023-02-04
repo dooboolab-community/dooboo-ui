@@ -1,17 +1,14 @@
 import {
   Basic,
-  Counter,
+  Color,
   Custom,
   Disabled,
-  GoogleSignIn,
+  Event,
   Loading,
   LoadingElement,
-  OutlinedButtonColors,
   Sizes,
-  SolidButtonColors,
-  StartElementAndEndElement,
-  TextButtonColors,
-} from './components';
+  StartAndEnd,
+} from './basic';
 import {
   Description,
   ScrollContainer,
@@ -36,9 +33,7 @@ const ButtonDefault: FC<{themeType: ThemeType}> = ({themeType}) => {
         <Basic themeType={themeType} />
 
         <Title>Color</Title>
-        <TextButtonColors themeType={themeType} />
-        <SolidButtonColors themeType={themeType} />
-        <OutlinedButtonColors themeType={themeType} />
+        <Color themeType={themeType} />
 
         <Title>Disabled</Title>
         <Disabled themeType={themeType} />
@@ -61,15 +56,11 @@ const ButtonDefault: FC<{themeType: ThemeType}> = ({themeType}) => {
         </Description>
         <Custom themeType={themeType} />
 
-        <Title>Add Start Element And End Element</Title>
-        <StartElementAndEndElement themeType={themeType} />
+        <Title>Start and End element</Title>
+        <StartAndEnd themeType={themeType} />
 
-        <Title>Sample</Title>
-        <Description>Counter</Description>
-        <Counter themeType={themeType} />
-
-        <Description>Google Sign In</Description>
-        <GoogleSignIn themeType={themeType} />
+        <Title>Event</Title>
+        <Event themeType={themeType} />
       </ScrollContainer>
     </StoryContainer>
   );

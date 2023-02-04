@@ -1,6 +1,5 @@
 import React, {useState} from 'react';
 
-import {ButtonGroup} from 'dooboo-ui';
 import type {ReactElement} from 'react';
 import {ThemeProvider} from '@dooboo-ui/theme';
 import {View} from 'react-native';
@@ -26,7 +25,7 @@ const StyledText = styled.Text`
 const ButtonGroupStory = (): React.ReactElement => {
   const data = ['Option 1', 'Option 2', 'Option 3', 'Option 4'];
 
-  const [selectedIndex, setSelectedIndex] = useState(0);
+  const [selectedIndex] = useState(0);
 
   return (
     <Container>

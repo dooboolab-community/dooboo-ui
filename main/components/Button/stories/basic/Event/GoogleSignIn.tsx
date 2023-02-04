@@ -1,7 +1,7 @@
 import {Image, View} from 'react-native';
 import React, {useState} from 'react';
 
-import {Button} from '../../../index';
+import {Button} from '../../..';
 import type {FC} from 'react';
 import {IC_GOOGLE} from '../../../../../../storybook/assets/icons';
 import {LoadingIndicator} from '../../../../LoadingIndicator';
@@ -25,7 +25,7 @@ const StartElementAndEndElement: FC<{themeType: ThemeType}> = ({themeType}) => {
           }
           loading={googleLoading}
           loadingElement={<LoadingIndicator size="small" color="deepskyblue" />}
-          style={{padding: 4}}
+          style={{margin: 4}}
           styles={{
             container: css`
               border-radius: 80px;

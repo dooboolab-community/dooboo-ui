@@ -25,6 +25,7 @@
   "prettier.configPath": ".prettierrc.js",
   "typescript.tsdk": "node_modules/typescript/lib",
   "cSpell.words": [
+    "Pressable",
     "unhovered"
   ],
 }

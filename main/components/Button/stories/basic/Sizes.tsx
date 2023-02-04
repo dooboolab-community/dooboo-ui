@@ -17,7 +17,9 @@ const Sizes: FC<{themeType: ThemeType}> = ({themeType}) => {
             key={size}
             size={size}
             text={size.toUpperCase()}
-            style={{padding: 4}}
+            style={{margin: 4}}
+            // eslint-disable-next-line no-console
+            onPress={() => console.log(`press ${size} button`)}
           />
         ))}
 
@@ -27,7 +29,9 @@ const Sizes: FC<{themeType: ThemeType}> = ({themeType}) => {
             type="outlined"
             size={size}
             text={size.toUpperCase()}
-            style={{padding: 4}}
+            style={{margin: 4}}
+            // eslint-disable-next-line no-console
+            onPress={() => console.log(`press ${size} button`)}
           />
         ))}
       </Section>
