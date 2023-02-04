@@ -1,8 +1,8 @@
 import * as React from 'react';
 
-import {createComponent, createTestProps} from '../../test/testUtils';
+import {createComponent, createTestProps} from '../../../../test/testUtils';
 
-import {LoadingIndicator} from '../../main';
+import {LoadingIndicator} from '../../..';
 import {View} from 'react-native';
 import renderer from 'react-test-renderer';
 

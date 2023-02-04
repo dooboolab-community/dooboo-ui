@@ -1,9 +1,9 @@
-import {ProgressLine} from '..';
-import type {ProgressLineProps} from '..';
+import {ProgressLine} from '../../..';
+import type {ProgressLineProps} from '../../..';
 import React from 'react';
 import type {ReactElement} from 'react';
 import type {RenderAPI} from '@testing-library/react-native';
-import {createComponent} from '../../test/testUtils';
+import {createComponent} from '../../../../test/testUtils';
 import {light} from '@dooboo-ui/theme';
 import {render} from '@testing-library/react-native';
 

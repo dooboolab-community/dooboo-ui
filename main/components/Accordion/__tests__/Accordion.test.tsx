@@ -1,7 +1,7 @@
-import {createComponent, createTestProps} from '../../test/testUtils';
+import {createComponent, createTestProps} from '../../../../test/testUtils';
 import {fireEvent, render} from '@testing-library/react-native';
 
-import {Accordion} from '../../main';
+import {Accordion} from '../../..';
 import React from 'react';
 import type {ReactElement} from 'react';
 import type {RenderAPI} from '@testing-library/react-native';

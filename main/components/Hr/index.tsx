@@ -1,4 +1,4 @@
-import {isEmptyObject} from '../utils';
+import {isEmptyObject} from '../../utils';
 import styled from '@emotion/native';
 
 export const Hr = styled.View`

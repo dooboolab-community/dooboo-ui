@@ -13,7 +13,7 @@ export * from './components/ProgressLine';
 export * from './components/ProgressCircle';
 export * from './components/LoadingIndicator';
 export * from './components/Accordion';
-export * from './components/StatusBarBrightness';
+export * from './components/StatusbarBrightness';
 export * from './components/SwitchToggle';
 export * from './components/FAB';
 export * from '@dooboo-ui/theme';

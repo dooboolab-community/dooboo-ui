@@ -1,10 +1,10 @@
-import {Checkbox} from '../../main';
-import type {CheckboxProps} from '../../main';
+import {Checkbox} from '../../..';
+import type {CheckboxProps} from '../../..';
 import React from 'react';
 import type {ReactElement} from 'react';
 import type {RenderAPI} from '@testing-library/react-native';
 import {View} from 'react-native';
-import {createComponent} from '../../test/testUtils';
+import {createComponent} from '../../../../test/testUtils';
 import {light} from '@dooboo-ui/theme';
 import {render} from '@testing-library/react-native';
 

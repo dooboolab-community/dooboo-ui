@@ -1,8 +1,8 @@
 import * as React from 'react';
 
-import {createComponent, createTestProps} from '../../test/testUtils';
+import {createComponent, createTestProps} from '../../../../test/testUtils';
 
-import {NetworkImage} from '../components/NetworkImage';
+import {NetworkImage} from '..';
 import renderer from 'react-test-renderer';
 
 // import useColorScheme from '@dooboo-ui/theme/useColorScheme';

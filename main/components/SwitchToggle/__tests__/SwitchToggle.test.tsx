@@ -2,9 +2,9 @@ import {fireEvent, render} from '@testing-library/react-native';
 
 import React from 'react';
 import type {ReactElement} from 'react';
-import {SwitchToggle} from '../components/SwitchToggle';
+import {SwitchToggle} from '..';
 import {Text} from 'react-native';
-import {createComponent} from '../../test/testUtils';
+import {createComponent} from '../../../../test/testUtils';
 import renderer from 'react-test-renderer';
 
 describe('[SwitchToggle]', () => {
