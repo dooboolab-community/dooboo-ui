@@ -1,12 +1,12 @@
-import {Button} from '../../index';
-import type {ButtonColorType} from '../../../Button';
+import {Button} from '../../..';
+import type {ButtonColorType} from '../../..';
 import type {FC} from 'react';
 import React from 'react';
-import {Section} from '../../../../GlobalStyles';
+import {Section} from '../../../../../GlobalStyles';
 import {ThemeProvider} from '@dooboo-ui/theme';
 import type {ThemeType} from '@dooboo-ui/theme';
 
-const TextButtonColors: FC<{themeType: ThemeType}> = ({themeType}) => {
+const OutlinedButtonColors: FC<{themeType: ThemeType}> = ({themeType}) => {
   const colors: ButtonColorType[] = [
     'primary',
     'secondary',
@@ -23,10 +23,12 @@ const TextButtonColors: FC<{themeType: ThemeType}> = ({themeType}) => {
         {colors.map((color) => (
           <Button
             key={color}
-            type="text"
+            type="outlined"
             color={color}
             text={color.toUpperCase()}
             style={{margin: 4}}
+            // eslint-disable-next-line no-console
+            onPress={() => console.log(`press ${color} outlined button`)}
           />
         ))}
       </Section>
@@ -34,4 +36,4 @@ const TextButtonColors: FC<{themeType: ThemeType}> = ({themeType}) => {
   );
 };
 
-export default TextButtonColors;
+export default OutlinedButtonColors;

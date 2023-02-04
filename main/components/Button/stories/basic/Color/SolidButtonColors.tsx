@@ -1,12 +1,12 @@
-import {Button} from '../../index';
-import type {ButtonColorType} from '../../../Button';
+import {Button} from '../../../index';
+import type {ButtonColorType} from '../../..';
 import type {FC} from 'react';
 import React from 'react';
-import {Section} from '../../../../GlobalStyles';
+import {Section} from '../../../../../GlobalStyles';
 import {ThemeProvider} from '@dooboo-ui/theme';
 import type {ThemeType} from '@dooboo-ui/theme';
 
-const OutlinedButtonColors: FC<{themeType: ThemeType}> = ({themeType}) => {
+const SolidButtonColors: FC<{themeType: ThemeType}> = ({themeType}) => {
   const colors: ButtonColorType[] = [
     'primary',
     'secondary',
@@ -23,12 +23,11 @@ const OutlinedButtonColors: FC<{themeType: ThemeType}> = ({themeType}) => {
         {colors.map((color) => (
           <Button
             key={color}
-            type="outlined"
             color={color}
             text={color.toUpperCase()}
             style={{margin: 4}}
             // eslint-disable-next-line no-console
-            onPress={() => console.log(`press ${color} outlined button`)}
+            onPress={() => console.log(`press ${color} solid button`)}
           />
         ))}
       </Section>
@@ -36,4 +35,4 @@ const OutlinedButtonColors: FC<{themeType: ThemeType}> = ({themeType}) => {
   );
 };
 
-export default OutlinedButtonColors;
+export default SolidButtonColors;

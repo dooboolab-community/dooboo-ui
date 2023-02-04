@@ -1,7 +1,7 @@
 import {Image, View} from 'react-native';
 import React, {useState} from 'react';
 
-import {Button} from '../../../index';
+import {Button} from '../../..';
 import type {FC} from 'react';
 import {IC_GOOGLE} from '../../../../../../storybook/assets/icons';
 import {LoadingIndicator} from '../../../../LoadingIndicator';

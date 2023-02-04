@@ -237,7 +237,11 @@ export const Button: FC<Props> = (props) => {
     <>
       {startElement}
       <Text
-        style={[compositeStyles.text, disabled && compositeStyles.disabledText]}
+        style={[
+          compositeStyles.text,
+          disabled && compositeStyles.disabledText,
+          {textAlignVertical: 'center', textAlign: 'center'},
+        ]}
       >
         {text}
       </Text>
@@ -252,7 +256,13 @@ export const Button: FC<Props> = (props) => {
         web: ref,
         default: undefined,
       })}
-      underlayColor={themeType === 'light' ? '#000000' : '#ffffff'}
+      underlayColor={
+        type === 'text'
+          ? 'transparent'
+          : themeType === 'light'
+          ? '#000000'
+          : '#ffffff'
+      }
       activeOpacity={activeOpacity}
       onPress={onPress}
       delayPressIn={30}

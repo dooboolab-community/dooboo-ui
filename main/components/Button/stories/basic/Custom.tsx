@@ -15,6 +15,8 @@ const Custom: FC<{themeType: ThemeType}> = ({themeType}) => {
             type="solid"
             text="ENABLED"
             style={{margin: 4}}
+            // eslint-disable-next-line no-console
+            onPress={() => console.log(`press enabled button`)}
             styles={{
               container: css`
                 background-color: #449944;
