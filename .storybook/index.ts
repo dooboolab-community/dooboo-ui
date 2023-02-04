@@ -15,7 +15,6 @@ import '../main/components/SwitchToggle/stories';
 import '../main/components/Typography/stories';
 import '../main/modals/Snackbar/stories';
 import '../main/modals/AlertDialog/stories';
-import '../packages/AlertDialog/stories';
 import '../packages/CalendarCarousel/stories';
 // import '../packages/GiftedChat/stories';
 import '../packages/PinchZoom/stories';
