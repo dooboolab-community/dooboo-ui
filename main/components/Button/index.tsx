@@ -153,6 +153,7 @@ export const Button: FC<Props> = (props) => {
   const ref = useRef<TouchableHighlight>(null);
   const hovered = useHover(ref);
   const {theme, themeType} = useTheme();
+  const innerDisabled = disabled || !onPress;
 
   const {
     padding,
@@ -163,7 +164,14 @@ export const Button: FC<Props> = (props) => {
     disabledBackgroundColor,
     disabledBorderColor,
     disabledTextColor,
-  } = ButtonStyles({theme, type, color, size, loading, disabled});
+  } = ButtonStyles({
+    theme,
+    type,
+    color,
+    size,
+    loading,
+    disabled: innerDisabled,
+  });
 
   const compositeStyles: Styles = {
     container: css`
@@ -203,13 +211,13 @@ export const Button: FC<Props> = (props) => {
             testID={loading ? 'loading-view' : 'button-container'}
             style={[
               compositeStyles.container,
-              hovered && !disabled && compositeStyles.hovered,
-              disabled && compositeStyles.disabled,
+              hovered && !innerDisabled && compositeStyles.hovered,
+              innerDisabled && compositeStyles.disabled,
               {borderRadius: borderRadius},
             ]}
             type={type}
             size={size}
-            disabled={disabled}
+            disabled={innerDisabled}
           >
             {children}
           </ButtonContainer>
@@ -221,7 +229,7 @@ export const Button: FC<Props> = (props) => {
       compositeStyles.container,
       compositeStyles.disabled,
       compositeStyles.hovered,
-      disabled,
+      innerDisabled,
       hovered,
       loading,
       size,
@@ -239,7 +247,7 @@ export const Button: FC<Props> = (props) => {
       <Text
         style={[
           compositeStyles.text,
-          disabled && compositeStyles.disabledText,
+          innerDisabled && compositeStyles.disabledText,
           {textAlignVertical: 'center', textAlign: 'center'},
         ]}
       >
@@ -266,7 +274,7 @@ export const Button: FC<Props> = (props) => {
       activeOpacity={activeOpacity}
       onPress={onPress}
       delayPressIn={30}
-      disabled={disabled || loading || !onPress}
+      disabled={innerDisabled || loading}
       style={[style, {borderRadius: borderRadius}]}
       {...touchableHighlightProps}
     >
