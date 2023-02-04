@@ -1,16 +1,16 @@
-import Dialog from './DefaultStory';
+import AlertDialogContent from './BasicStory';
 import React from 'react';
 import {ThemeProvider} from '@dooboo-ui/theme';
 import {storiesOf} from '@storybook/react-native';
 
-storiesOf('AlertDialogLegacy', module)
+storiesOf('AlertDialog', module)
   .add('Basic - light', () => (
     <ThemeProvider initialThemeType="light">
-      <Dialog />
+      <AlertDialogContent />
     </ThemeProvider>
   ))
   .add('Basic - dark', () => (
     <ThemeProvider initialThemeType="dark">
-      <Dialog />
+      <AlertDialogContent />
     </ThemeProvider>
   ));

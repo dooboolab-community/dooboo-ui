@@ -1,10 +1,10 @@
-import {Button, Snackbar} from '../../..';
-import {useCallback, useRef} from 'react';
+import {DoobooProvider, useDooboo} from '../../../providers';
 
+import {Button} from '../../..';
 import type {ReactElement} from 'react';
-import type {SnackbarRef} from '../../..';
-import type {SnackbarType} from '../../Styled/StyledComponents';
+import type {SnackbarType} from '../../../components/Styled/StyledComponents';
 import styled from '@emotion/native';
+import {useCallback} from 'react';
 
 const types: SnackbarType[] = [
   'primary',
@@ -19,19 +19,17 @@ const Container = styled.SafeAreaView`
   background-color: ${({theme}) => theme.bg.basic};
 `;
 
-function SnackbarDefault(): ReactElement {
-  const snackbar = useRef<SnackbarRef>(null);
+function SnackbarContent(): ReactElement {
+  const {snackbar} = useDooboo();
 
   const onPress = useCallback(
     (type?: SnackbarType): void => {
-      if (snackbar) {
-        snackbar.current?.show({
-          content: {
-            text: 'Lorem ipsum dolor sit amet',
-          },
-          type,
-        });
-      }
+      snackbar.show({
+        content: {
+          text: 'Lorem ipsum dolor sit amet',
+        },
+        type,
+      });
     },
     [snackbar],
   );
@@ -47,7 +45,6 @@ function SnackbarDefault(): ReactElement {
         alignItems: 'center',
       }}
     >
-      <Snackbar ref={snackbar} />
       {types.map((type, i) => (
         <Button
           key={`${type}_${i}`}
@@ -61,4 +58,12 @@ function SnackbarDefault(): ReactElement {
   );
 }
 
-export default SnackbarDefault;
+function SnackbarContainer(): ReactElement {
+  return (
+    <DoobooProvider>
+      <SnackbarContent />
+    </DoobooProvider>
+  );
+}
+
+export default SnackbarContainer;

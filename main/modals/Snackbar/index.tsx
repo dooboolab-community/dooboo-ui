@@ -1,5 +1,8 @@
 import {Animated, Dimensions, Platform, TouchableOpacity} from 'react-native';
-import {ButtonText, SnackbarWrapper} from '../Styled/StyledComponents';
+import {
+  ButtonText,
+  SnackbarWrapper,
+} from '../../components/Styled/StyledComponents';
 import type {StyleProp, TextStyle, ViewStyle} from 'react-native';
 import {
   forwardRef,
@@ -10,7 +13,7 @@ import {
 } from 'react';
 
 import type {ReactElement} from 'react';
-import type {SnackbarType} from '../Styled/StyledComponents';
+import type {SnackbarType} from '../../components/Styled/StyledComponents';
 import styled from '@emotion/native';
 import {useTheme} from '@dooboo-ui/theme';
 
@@ -22,10 +25,10 @@ type Styles = {
 
 export interface SnackbarProps {
   testID?: string;
-  ref: React.MutableRefObject<SnackbarRef>;
+  ref: React.MutableRefObject<SnackbarContext>;
 }
 
-export type SnackbarContent = {
+export type SnackbarOptions = {
   timer?: SnackbarTimer;
   styles?: Styles;
   actionText?: string;
@@ -40,8 +43,8 @@ interface OpenState {
   timeout?: any;
 }
 
-export interface SnackbarRef {
-  show(content: SnackbarContent): void;
+export interface SnackbarContext {
+  show(content: SnackbarOptions): void;
 }
 
 export enum SnackbarTimer {
@@ -64,10 +67,10 @@ const Divider = styled.View<{type: SnackbarType}>`
     type === 'danger' ? theme.text.contrast : theme.text.basic};
 `;
 
-const SnackbarContainer = (
+function Snackbar(
   props: SnackbarProps,
-  ref: React.Ref<SnackbarRef>,
-): ReactElement | null => {
+  ref: React.Ref<SnackbarContext>,
+): ReactElement | null {
   const {testID} = props;
 
   const [openState, setOpened] = useState<OpenState>({
@@ -75,7 +78,7 @@ const SnackbarContainer = (
     isOpen: false,
   });
 
-  const [snackbar, setSnackbar] = useState<SnackbarContent>({
+  const [snackbar, setSnackbar] = useState<SnackbarOptions>({
     content: {text: ''},
     timer: SnackbarTimer.SHORT,
   });
@@ -94,7 +97,7 @@ const SnackbarContainer = (
   const {isOpen, isVisible, timeout} = openState;
   const [fadeAnim] = useState(new Animated.Value(0));
 
-  const show = (c: SnackbarContent): void => {
+  const show = (c: SnackbarOptions): void => {
     setSnackbar(c);
     timeout && clearTimeout(timeout);
 
@@ -192,7 +195,6 @@ const SnackbarContainer = (
       ) : null}
     </SnackbarWrapper>
   ) : null;
-};
+}
 
-export const Snackbar =
-  forwardRef<SnackbarRef, SnackbarProps>(SnackbarContainer);
+export default forwardRef<SnackbarContext, SnackbarProps>(Snackbar);

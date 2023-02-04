@@ -10,7 +10,7 @@ import createDoobooContext from './createDoobooContext';
 import useColorScheme from './useColorScheme';
 import {useMediaQuery} from 'react-responsive';
 
-interface Context {
+export type ThemeContext = {
   themeType: ColorSchemeName;
   media: {
     isPortrait: boolean;
@@ -21,9 +21,9 @@ interface Context {
   theme: DefaultTheme & DoobooTheme;
   changeThemeType: (themeType?: ColorSchemeName) => void;
   colors: Colors;
-}
+};
 
-const [useCtx, DoobooProvider] = createDoobooContext<Context>();
+const [useCtx, DoobooProvider] = createDoobooContext<ThemeContext>();
 
 export type ThemeProps = {
   children?: ReactElement;
