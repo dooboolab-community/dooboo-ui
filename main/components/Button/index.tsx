@@ -1,10 +1,10 @@
 import type {FC, ReactElement, ReactNode} from 'react';
-import {Platform, Text, TouchableOpacity} from 'react-native';
+import {Platform, Text, TouchableHighlight, View} from 'react-native';
 import React, {useCallback, useRef} from 'react';
 import type {
   StyleProp,
   TextStyle,
-  TouchableOpacityProps,
+  TouchableHighlightProps,
   ViewStyle,
 } from 'react-native';
 import styled, {css} from '@emotion/native';
@@ -123,11 +123,11 @@ export type Props = {
   borderRadius?: number;
   startElement?: ReactElement;
   endElement?: ReactElement;
-  style?: StyleProp<ViewStyle>;
+  style?: StyleProp<Omit<ViewStyle, 'borderRadius' | 'padding'>>;
   styles?: Styles;
-  onPress?: TouchableOpacityProps['onPress'];
-  activeOpacity?: TouchableOpacityProps['activeOpacity'];
-  touchableOpacityProps?: Partial<TouchableOpacityProps>;
+  onPress?: TouchableHighlightProps['onPress'];
+  activeOpacity?: TouchableHighlightProps['activeOpacity'];
+  touchableHighlightProps?: Partial<TouchableHighlightProps>;
 };
 
 export const Button: FC<Props> = (props) => {
@@ -145,15 +145,14 @@ export const Button: FC<Props> = (props) => {
     style,
     styles,
     onPress,
-    activeOpacity = 0.6,
-    touchableOpacityProps,
-    borderRadius,
+    activeOpacity = 0.8,
+    touchableHighlightProps,
+    borderRadius = 4,
   } = props;
 
-  const ref = useRef<TouchableOpacity>(null);
+  const ref = useRef<TouchableHighlight>(null);
   const hovered = useHover(ref);
-
-  const {theme} = useTheme();
+  const {theme, themeType} = useTheme();
 
   const {
     padding,
@@ -199,20 +198,22 @@ export const Button: FC<Props> = (props) => {
   const renderContainer = useCallback(
     (children: ReactNode): ReactElement => {
       return (
-        <ButtonContainer
-          testID={loading ? 'loading-view' : 'button-container'}
-          style={[
-            compositeStyles.container,
-            hovered && !disabled && compositeStyles.hovered,
-            disabled && compositeStyles.disabled,
-            {borderRadius: borderRadius ?? 4},
-          ]}
-          type={type}
-          size={size}
-          disabled={disabled}
-        >
-          {children}
-        </ButtonContainer>
+        <View>
+          <ButtonContainer
+            testID={loading ? 'loading-view' : 'button-container'}
+            style={[
+              compositeStyles.container,
+              hovered && !disabled && compositeStyles.hovered,
+              disabled && compositeStyles.disabled,
+              {borderRadius: borderRadius},
+            ]}
+            type={type}
+            size={size}
+            disabled={disabled}
+          >
+            {children}
+          </ButtonContainer>
+        </View>
       );
     },
     [
@@ -245,20 +246,21 @@ export const Button: FC<Props> = (props) => {
   );
 
   return (
-    <TouchableOpacity
+    <TouchableHighlight
       testID={testID}
       ref={Platform.select({
         web: ref,
         default: undefined,
       })}
+      underlayColor={themeType === 'light' ? '#000000' : '#ffffff'}
       activeOpacity={activeOpacity}
       onPress={onPress}
-      delayPressIn={50}
-      disabled={disabled || loading}
-      style={style}
-      {...touchableOpacityProps}
+      delayPressIn={30}
+      disabled={disabled || loading || !onPress}
+      style={[style, {borderRadius: borderRadius}]}
+      {...touchableHighlightProps}
     >
       {renderContainer(loading ? LoadingView : ChildView)}
-    </TouchableOpacity>
+    </TouchableHighlight>
   );
 };

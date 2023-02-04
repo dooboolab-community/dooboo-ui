@@ -18,7 +18,7 @@ const solidColor: FC<{themeType: ThemeType}> = ({themeType}) => {
             type={type}
             disabled={true}
             text="TEXT"
-            style={{padding: 2}}
+            style={{margin: 2}}
           />
         ))}
       </Section>

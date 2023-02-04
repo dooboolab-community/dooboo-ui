@@ -14,7 +14,7 @@ const Counter: FC<{themeType: ThemeType}> = ({themeType}) => {
     <ThemeProvider initialThemeType={themeType}>
       <Section>
         <Button
-          style={{padding: 4}}
+          style={{margin: 4}}
           onPress={(e): void => {
             setCount(count + 1);
             action('PLUS COUNT 1')(e);
@@ -22,7 +22,7 @@ const Counter: FC<{themeType: ThemeType}> = ({themeType}) => {
           text="+"
         />
         <Button
-          style={{padding: 4}}
+          style={{margin: 4}}
           onPress={(e): void => {
             setCount(count - 1);
             action('MINUS COUNT 1')(e);

@@ -25,7 +25,7 @@ const StartElementAndEndElement: FC<{themeType: ThemeType}> = ({themeType}) => {
           }
           loading={googleLoading}
           loadingElement={<LoadingIndicator size="small" color="deepskyblue" />}
-          style={{padding: 4}}
+          style={{margin: 4}}
           styles={{
             container: css`
               border-radius: 80px;

@@ -13,7 +13,13 @@ const Basic: FC<{themeType: ThemeType}> = ({themeType}) => {
     <ThemeProvider initialThemeType={themeType}>
       <Section>
         {types.map((type) => (
-          <Button key={type} type={type} text="TEXT" style={{padding: 4}} />
+          <Button
+            key={type}
+            type={type}
+            text="TEXT"
+            style={{margin: 4}} // eslint-disable-next-line no-console
+            onPress={() => console.log(`press ${type} basic button`)}
+          />
         ))}
       </Section>
     </ThemeProvider>

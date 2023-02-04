@@ -26,7 +26,7 @@ const TextButtonColors: FC<{themeType: ThemeType}> = ({themeType}) => {
             type="text"
             color={color}
             text={color.toUpperCase()}
-            style={{padding: 4}}
+            style={{margin: 4}}
           />
         ))}
       </Section>

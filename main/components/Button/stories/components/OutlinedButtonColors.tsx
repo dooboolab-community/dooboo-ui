@@ -26,7 +26,9 @@ const OutlinedButtonColors: FC<{themeType: ThemeType}> = ({themeType}) => {
             type="outlined"
             color={color}
             text={color.toUpperCase()}
-            style={{padding: 4}}
+            style={{margin: 4}}
+            // eslint-disable-next-line no-console
+            onPress={() => console.log(`press ${color} outlined button`)}
           />
         ))}
       </Section>

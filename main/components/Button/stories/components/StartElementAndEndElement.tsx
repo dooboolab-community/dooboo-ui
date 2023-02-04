@@ -20,7 +20,7 @@ const StartElementAndEndElement: FC<{themeType: ThemeType}> = ({themeType}) => {
             />
           }
           text="HOME"
-          style={{padding: 4}}
+          style={{margin: 4}}
           styles={{text: {color: 'white'}}}
         />
         <Button
@@ -33,7 +33,7 @@ const StartElementAndEndElement: FC<{themeType: ThemeType}> = ({themeType}) => {
             />
           }
           text="HOME"
-          style={{padding: 4}}
+          style={{margin: 4}}
           styles={{text: {color: 'white'}}}
         />
       </Section>
