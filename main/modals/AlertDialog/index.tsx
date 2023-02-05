@@ -1,10 +1,10 @@
 import type {StyleProp, ViewStyle} from 'react-native';
 import {forwardRef, useImperativeHandle, useState} from 'react';
 
+import {Button} from '../../components/Button';
 import {Icon} from '../../components/Icon';
 import {Modal} from 'react-native';
 import type {ReactElement} from 'react';
-import {TouchableHighlight} from 'react-native-gesture-handler';
 import {Typography} from '../../components/Typography';
 import styled from '@emotion/native';
 import {useTheme} from '@dooboo-ui/theme';
@@ -18,15 +18,28 @@ const Container = styled.View`
   flex-direction: row;
 `;
 
-const TitleRow = styled.View`
-  flex-direction: row;
-`;
-
 const Content = styled.View`
   flex: 0.8;
   background-color: ${({theme}) => theme.bg.basic};
-  padding: 28px;
+  padding: 28px 24px 28px 28px;
   border-radius: 8px;
+`;
+
+const TitleRow = styled.View`
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+`;
+
+const BodyRow = styled.View`
+  flex-direction: row;
+  margin-top: 12px;
+  margin-bottom: 40px;
+`;
+
+const ActionRow = styled.View`
+  padding-right: 4px;
+  flex-direction: row;
 `;
 
 export type AlertDialogProps = {
@@ -37,6 +50,7 @@ export type AlertDialogProps = {
 
 export type AlertDialogOptions = {
   title?: string;
+  body?: string;
   backdropOpacity?: number;
 };
 
@@ -66,7 +80,7 @@ function AlertDialog(
     },
   }));
 
-  const {backdropOpacity, title} = options ?? {};
+  const {backdropOpacity, title, body} = options ?? {};
 
   return (
     <Modal
@@ -82,17 +96,26 @@ function AlertDialog(
             shadowColor: theme.text.basic,
           }}
         >
-          <TouchableHighlight onPress={() => setVisible(false)}>
-            <TitleRow>
-              <Icon
-                name="chevron-left-light"
-                size={24}
-                color={theme.text.basic}
-                style={{marginRight: 12}}
-              />
-              <Typography.Heading1>{title}</Typography.Heading1>
-            </TitleRow>
-          </TouchableHighlight>
+          <TitleRow>
+            <Typography.Heading1>{title}</Typography.Heading1>
+            <Button
+              type="text"
+              onPress={() => setVisible(false)}
+              text={
+                <Icon name="cross-light" size={18} color={theme.text.basic} />
+              }
+            />
+          </TitleRow>
+          <BodyRow>
+            <Typography.Body1>{body}</Typography.Body1>
+          </BodyRow>
+          <ActionRow>
+            <Button
+              style={{flex: 1}}
+              text="OK"
+              onPress={() => setVisible(false)}
+            />
+          </ActionRow>
         </Content>
       </Container>
     </Modal>
