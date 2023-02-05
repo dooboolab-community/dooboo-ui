@@ -1,13 +1,11 @@
 import {Button, DoobooProvider} from 'dooboo-ui';
-import React, {useState} from 'react';
 
 import type {ReactElement} from 'react';
 import {View} from 'react-native';
 import styled from '@emotion/native';
+import {useState} from 'react';
 
 const StoryContainer = styled.View`
-  flex: 1;
-  align-self: stretch;
   background-color: ${({theme}) => theme.bg.basic};
 
   justify-content: center;

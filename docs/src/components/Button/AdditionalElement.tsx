@@ -9,8 +9,6 @@ import {useState} from 'react';
 
 const StoryContainer = styled.View`
   background-color: ${({theme}) => theme.bg.basic};
-  flex: 1;
-  align-self: stretch;
 
   flex-direction: row;
   justify-content: center;

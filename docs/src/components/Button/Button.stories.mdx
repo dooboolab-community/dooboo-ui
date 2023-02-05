@@ -51,8 +51,8 @@ import {Button, DoobooProvider} from 'dooboo-ui';
 ### Basic Style
 
 ```tsx
-<Button text="Button" style={{padding: 8}} />
-<Button text="Button" outlined style={{padding: 8}} />
+<Button text="Button" style={{margin: 8}} onPress={() => {}}/>
+<Button text="Button" outlined style={{margin: 8}} onPress={() => {}} />
 ```
 
 <Basic themeType="light" />
@@ -68,13 +68,13 @@ The `type` prop can generate many different buttons.
 The default value of type is `primary`.
 
 ```tsx
-<Button type="primary" text="Primary" style={{padding: 8}} />
-<Button type="secondary" text="Secondary" style={{padding: 8}} />
-<Button type="success" text="Success" style={{padding: 8}} />
-<Button type="danger" text="Danger" style={{padding: 8}} />
-<Button type="warning" text="Warning" style={{padding: 8}} />
-<Button type="info" text="Info" style={{padding: 8}} />
-<Button type="light" text="Light" style={{padding: 8}} />
+<Button type="primary" text="Primary" style={{margin: 8}} onPress={() => {}} />
+<Button type="secondary" text="Secondary" style={{margin: 8}} onPress={() => {}} />
+<Button type="success" text="Success" style={{margin: 8}} onPress={() => {}} />
+<Button type="danger" text="Danger" style={{margin: 8}} onPress={() => {}} />
+<Button type="warning" text="Warning" style={{margin: 8}} onPress={() => {}} />
+<Button type="info" text="Info" style={{margin: 8}} onPress={() => {}} />
+<Button type="light" text="Light" style={{margin: 8}} onPress={() => {}} />
 ```
 
 <Solid themeType="light" />
@@ -87,19 +87,19 @@ The default value of type is `primary`.
 Generate bordering button by adding `outlined` prop.
 
 ```tsx
-<Button type="primary" text="Primary" outlined style={{padding: 8}} />
-<Button type="secondary" text="Secondary" outlined style={{padding: 8}} />
-<Button type="success" text="Success" outlined style={{padding: 8}} />
-<Button type="danger" text="Danger" outlined style={{padding: 8}} />
-<Button type="warning" text="Warning" outlined style={{padding: 8}} />
-<Button type="info" text="Info" outlined style={{padding: 8}} />
-<Button type="light" text="Light" outlined style={{padding: 8}} />
+<Button type="primary" text="Primary" outlined style={{margin: 8}} onPress={() => {}} />
+<Button type="secondary" text="Secondary" outlined style={{margin: 8}} onPress={() => {}} />
+<Button type="success" text="Success" outlined style={{margin: 8}} onPress={() => {}} />
+<Button type="danger" text="Danger" outlined style={{margin: 8}} onPress={() => {}} />
+<Button type="warning" text="Warning" outlined style={{margin: 8}} onPress={() => {}} />
+<Button type="info" text="Info" outlined style={{margin: 8}} onPress={() => {}} />
+<Button type="light" text="Light" outlined style={{margin: 8}} onPress={() => {}} />
 ```
 
 <Outlined themeType="light" />
 <Outlined themeType="dark" />
 
-<Link link="https://snack.expo.dev/@swda/outlined-color-type" />
+<Link link="https://snack.expo.dev/@swda/outlined-color-type"/>
 
 ### Disabled button
 
@@ -107,8 +107,8 @@ The `disabled` prop can generate disabled button which is not pressed.
 And it can't apply `type`.
 
 ```tsx
-<Button disabled={true} text="Disabled" style={{padding: 8}} />
-<Button disabled={true} outlined text="Disabled" style={{padding: 8}} />
+<Button disabled={true} text="Disabled" style={{margin: 8}} onPress={() => {}} />
+<Button disabled={true} outlined text="Disabled" style={{margin: 8}} onPress={() => {}} />
 ```
 
 <Disabled themeType="light" />
@@ -124,8 +124,7 @@ Set `loading` prop to generate always loading button.
 And change loading spinner color by using `indicatorColor` prop.
 
 ```tsx
-<Button loading={true} style={{padding: 8}} />
-<Button loading={true} indicatorColor="orange" style={{padding: 8}} />
+<Button loading={true} style={{margin: 8}} onPress={() => {}} />
 ```
 
 <Loading themeType="light" />
@@ -140,9 +139,9 @@ And change loading spinner color by using `indicatorColor` prop.
 The `size` prop can generate many size buttons.
 
 ```tsx
-<Button size="large" text="large" style={{padding: 8}}/>
-<Button size="medium" text="large" style={{padding: 8}}/>
-<Button size="small" text="large" style={{padding: 8}}/>
+<Button size="large" text="large" style={{margin: 8}} onPress={() => {}}/>
+<Button size="medium" text="large" style={{margin: 8}} onPress={() => {}}/>
+<Button size="small" text="large" style={{margin: 8}} onPress={() => {}}/>
 ```
 
 <Sizes themeType="light" />
@@ -173,8 +172,8 @@ return (
           justifyContent: 'center',
         }}
       >
-        <Button text="Increase" style={{padding: 8}} onPress={onIncrease} />
-        <Button text="Decrease" style={{padding: 8}} onPress={onDecrease} />
+        <Button text="Increase" style={{margin: 8}} onPress={onIncrease} />
+        <Button text="Decrease" style={{margin: 8}} onPress={onDecrease} />
         <span>value : {value}</span>
       </View>
     </StoryContainer>

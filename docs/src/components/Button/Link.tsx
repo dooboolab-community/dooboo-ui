@@ -1,12 +1,11 @@
 import {Button, DoobooProvider} from 'dooboo-ui';
 import {Linking, StyleSheet, View} from 'react-native';
 
-import React from 'react';
 import type {ReactElement} from 'react';
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    marginTop: 12,
     alignItems: 'flex-start',
     justifyContent: 'center',
   },
@@ -24,7 +23,6 @@ export function Link({link}: LinkProps): ReactElement {
           color="info"
           text="Try this example on Snack"
           size="medium"
-          style={{paddingTop: 15}}
           onPress={() => Linking.openURL(link)}
         />
       </View>
