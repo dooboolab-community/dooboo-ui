@@ -1,35 +1,15 @@
-import {Button} from '../../..';
-import type {ReactElement} from 'react';
-import type {SnackbarType} from '../../../components/Styled/StyledComponents';
-import styled from '@emotion/native';
-import {useCallback} from 'react';
-import {useDooboo} from '../../../providers';
+import {Button, Typography} from '../../..';
 
-const types: SnackbarType[] = [
-  'primary',
-  'secondary',
-  'success',
-  'info',
-  'warning',
-  'danger',
-];
+import type {ReactElement} from 'react';
+import styled from '@emotion/native';
+import {useDooboo} from '../../../providers';
 
 const Container = styled.SafeAreaView`
   background-color: ${({theme}) => theme.bg.basic};
 `;
 
-function SnackbarContent(): ReactElement {
+function SnackbarStory(): ReactElement {
   const {snackbar} = useDooboo();
-
-  const onPress = useCallback(
-    (type?: SnackbarType): void => {
-      snackbar.show({
-        content: {text: 'Lorem ipsum dolor sit amet'},
-        type,
-      });
-    },
-    [snackbar],
-  );
 
   return (
     <Container
@@ -42,21 +22,63 @@ function SnackbarContent(): ReactElement {
         alignItems: 'center',
       }}
     >
-      {types.map((type, i) => (
-        <Button
-          key={`${type}_${i}`}
-          color={type}
-          onPress={() => onPress(type)}
-          text={`Open Snackbar - ${type}`}
-          style={{margin: 20}}
-        />
-      ))}
+      <Typography.Title>Snackbar</Typography.Title>
+      <Button
+        color="primary"
+        text="Snackbar"
+        style={{marginTop: 60, width: 200}}
+        onPress={() =>
+          snackbar.open({
+            text: 'Hello there!',
+          })
+        }
+      />
+      <Button
+        color="primary"
+        text="With action"
+        style={{marginTop: 20, width: 200}}
+        onPress={() =>
+          snackbar.open({
+            text: 'Hello there!',
+            actionText: 'Cancel',
+          })
+        }
+      />
+      <Button
+        color="info"
+        text="Color = info"
+        style={{marginTop: 20, width: 200}}
+        onPress={() =>
+          snackbar.open({
+            text: 'Hello there!',
+            color: 'info',
+          })
+        }
+      />
+      <Button
+        color="danger"
+        text="Color = danger"
+        style={{marginTop: 20, width: 200}}
+        onPress={() =>
+          snackbar.open({
+            text: 'Hello there!',
+            color: 'danger',
+          })
+        }
+      />
+      <Button
+        color="light"
+        text="Color = light"
+        style={{marginTop: 20, width: 200}}
+        onPress={() =>
+          snackbar.open({
+            text: 'Hello there!',
+            color: 'light',
+          })
+        }
+      />
     </Container>
   );
 }
 
-function SnackbarContainer(): ReactElement {
-  return <SnackbarContent />;
-}
-
-export default SnackbarContainer;
+export default SnackbarStory;

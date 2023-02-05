@@ -1,200 +1,167 @@
-import {Animated, Dimensions, Platform, TouchableOpacity} from 'react-native';
-import {
-  ButtonText,
-  SnackbarWrapper,
-} from '../../components/Styled/StyledComponents';
+import {Modal, StyleSheet} from 'react-native';
 import type {StyleProp, TextStyle, ViewStyle} from 'react-native';
-import {
-  forwardRef,
-  useCallback,
-  useEffect,
-  useImperativeHandle,
-  useState,
-} from 'react';
+import {forwardRef, useImperativeHandle, useState} from 'react';
 
+import {Button} from '../../components/Button';
+import type {ButtonColorType} from '../../components/Button';
+import {Icon} from '../../components/Icon';
 import type {ReactElement} from 'react';
-import type {SnackbarType} from '../../components/Styled/StyledComponents';
+import {SnackbarTimer} from './const';
 import styled from '@emotion/native';
 import {useTheme} from '@dooboo-ui/theme';
 
-type Styles = {
+const Container = styled.View`
+  flex: 1;
+  align-self: stretch;
+
+  flex-direction: row;
+  justify-content: center;
+`;
+
+const SnackbarContainer = styled.SafeAreaView<{color: ButtonColorType}>`
+  background-color: ${({theme, color}) => theme.button[color].bg};
+  border-radius: 8px;
+  margin-bottom: 52px;
+  margin-left: 12px;
+  margin-right: 12px;
+  align-self: flex-end;
+
+  flex-direction: row;
+  align-items: center;
+`;
+
+const ActionContainer = styled.View`
+  margin-right: 4px;
+`;
+
+const SnackbarText = styled.Text<{color: ButtonColorType}>`
+  color: ${({theme, color}) => theme.button[color].text};
+  flex: 1;
+  padding: 12px;
+`;
+
+export type SnackbarProps = {
+  testID?: string;
+  style?: StyleProp<ViewStyle>;
+  ref: React.MutableRefObject<SnackbarContext>;
+};
+
+export type SnackbarStyles = {
   container?: StyleProp<ViewStyle>;
   text?: StyleProp<TextStyle>;
-  type?: SnackbarType;
+  actionContainer?: StyleProp<ViewStyle>;
+  actionText?: StyleProp<TextStyle>;
 };
-
-export interface SnackbarProps {
-  testID?: string;
-  ref: React.MutableRefObject<SnackbarContext>;
-}
 
 export type SnackbarOptions = {
-  timer?: SnackbarTimer;
-  styles?: Styles;
+  color?: ButtonColorType;
+  styles?: SnackbarStyles;
+  text?: string;
   actionText?: string;
-  onActionPress?: () => void;
-  type?: SnackbarType;
-  content: {element?: ReactElement; text?: string};
+  timer?: SnackbarTimer | number;
 };
 
-interface OpenState {
-  isVisible?: boolean;
-  isOpen?: boolean;
-  timeout?: any;
+export type SnackbarContext = {
+  open(snackbarOptions?: SnackbarOptions): void;
+  close(): void;
+};
+
+let timer: NodeJS.Timeout | null = null;
+
+function clearTimer(): void {
+  if (timer) {
+    clearTimeout(timer);
+    timer = null;
+  }
 }
-
-export interface SnackbarContext {
-  show(content: SnackbarOptions): void;
-}
-
-export enum SnackbarTimer {
-  SHORT = 1500,
-  LONG = 3000,
-}
-
-const TextAction = styled.Text<{type: SnackbarType}>`
-  color: ${({theme, type}) =>
-    type === 'danger' ? theme.text.contrast : theme.text.basic};
-`;
-
-const Divider = styled.View<{type: SnackbarType}>`
-  width: 1px;
-  height: 100%;
-  margin: 0 16px;
-  opacity: 0.4;
-
-  background-color: ${({theme, type}) =>
-    type === 'danger' ? theme.text.contrast : theme.text.basic};
-`;
 
 function Snackbar(
-  props: SnackbarProps,
+  {style}: SnackbarProps,
   ref: React.Ref<SnackbarContext>,
-): ReactElement | null {
-  const {testID} = props;
-
-  const [openState, setOpened] = useState<OpenState>({
-    isVisible: false,
-    isOpen: false,
-  });
-
-  const [snackbar, setSnackbar] = useState<SnackbarOptions>({
-    content: {text: ''},
-    timer: SnackbarTimer.SHORT,
-  });
-
-  const {
-    content,
-    type = 'primary',
-    actionText,
-    onActionPress,
-    styles,
-    timer = SnackbarTimer.SHORT,
-  } = snackbar;
-
+): ReactElement {
+  const [options, setOptions] = useState<SnackbarOptions | null>(null);
+  const [visible, setVisible] = useState(false);
   const {theme} = useTheme();
 
-  const {isOpen, isVisible, timeout} = openState;
-  const [fadeAnim] = useState(new Animated.Value(0));
+  useImperativeHandle(ref, () => ({
+    open: (snackbarOptions) => {
+      clearTimer();
+      setVisible(true);
+      if (snackbarOptions) {
+        setOptions(snackbarOptions);
+      }
 
-  const show = (c: SnackbarOptions): void => {
-    setSnackbar(c);
-    timeout && clearTimeout(timeout);
-
-    setOpened((prevState) =>
-      Object.assign(Object.assign({}, prevState), {isOpen: true}),
-    );
-  };
-
-  const hide = useCallback(
-    (duration = 200): void => {
-      Animated.timing(fadeAnim, {
-        toValue: 0,
-        duration,
-        useNativeDriver: Platform.select({
-          web: false,
-          default: true,
-        }),
-      }).start(() =>
-        setOpened((prevState) =>
-          Object.assign(Object.assign({}, prevState), {isVisible: false}),
-        ),
-      );
+      timer = setTimeout(() => {
+        setVisible(false);
+        clearTimer();
+      }, snackbarOptions?.timer ?? SnackbarTimer.SHORT);
     },
-    [fadeAnim],
+    close: () => {
+      setVisible(false);
+      setOptions(null);
+    },
+  }));
+
+  const {text, styles, actionText, color = 'primary'} = options ?? {};
+
+  const SnackbarContent = (
+    <Container>
+      <SnackbarContainer
+        color={color}
+        style={StyleSheet.flatten([
+          {
+            shadowOffset: {width: 0, height: 4},
+            shadowColor: theme.text.basic,
+          },
+          styles?.container,
+        ])}
+      >
+        <SnackbarText
+          color={color}
+          style={StyleSheet.flatten([
+            {color: theme.button[color].text},
+            styles?.text,
+          ])}
+        >
+          {text}
+        </SnackbarText>
+        <ActionContainer style={styles?.actionContainer}>
+          {actionText ? (
+            <Button
+              type="text"
+              onPress={() => setVisible(false)}
+              styles={{
+                text: StyleSheet.flatten([
+                  {color: theme.button[color].text},
+                  styles?.actionText,
+                ]),
+              }}
+              text={actionText}
+            />
+          ) : (
+            <Button
+              type="text"
+              onPress={() => setVisible(false)}
+              text={
+                <Icon name="cross-light" color={theme.button[color].text} />
+              }
+            />
+          )}
+        </ActionContainer>
+      </SnackbarContainer>
+    </Container>
   );
 
-  useEffect(() => {
-    if (isOpen) {
-      if (isVisible) {
-        hide(50);
-      } else {
-        const hideTimeout = setTimeout(() => {
-          hide();
-        }, timer + 200);
-
-        setOpened({
-          isOpen: false,
-          isVisible: true,
-          timeout: hideTimeout,
-        });
-
-        Animated.timing(fadeAnim, {
-          toValue: 1,
-          duration: 200,
-          useNativeDriver: Platform.select({
-            web: false,
-            default: true,
-          }),
-        }).start();
-      }
-    }
-  }, [openState, fadeAnim, hide, isOpen, isVisible, timer]);
-
-  useImperativeHandle(ref, () => ({show}));
-
-  return openState.isVisible ? (
-    <SnackbarWrapper
-      testID={testID}
-      type={type}
-      style={[
-        styles?.container,
-        {
-          shadowColor: theme.text.basic,
-          shadowOffset: {
-            width: 0,
-            height: 4,
-          },
-          shadowOpacity: 0.15,
-          shadowRadius: 12,
-        },
-        {maxWidth: Dimensions.get('screen').width - 40},
-        {opacity: fadeAnim},
-      ]}
+  return (
+    <Modal
+      animationType="fade"
+      transparent={true}
+      visible={visible}
+      style={style}
     >
-      {content.element ? (
-        content.element
-      ) : (
-        <ButtonText style={styles?.text} type={type}>
-          {content.text}
-        </ButtonText>
-      )}
-      {actionText ? (
-        <Divider
-          theme={theme}
-          type={type}
-          style={{height: Platform.select({web: 24, default: 12})}}
-        />
-      ) : null}
-      {actionText ? (
-        <TouchableOpacity onPress={onActionPress}>
-          <TextAction theme={theme} type={type} style={styles?.text}>
-            {actionText}
-          </TextAction>
-        </TouchableOpacity>
-      ) : null}
-    </SnackbarWrapper>
-  ) : null;
+      {SnackbarContent}
+    </Modal>
+  );
 }
 
 export default forwardRef<SnackbarContext, SnackbarProps>(Snackbar);
