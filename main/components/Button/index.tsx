@@ -82,7 +82,9 @@ const ButtonStyles = ({
 
   return {
     padding:
-      size === 'large'
+      type === 'text'
+        ? '8px'
+        : size === 'large'
         ? '16px 32px'
         : size === 'small'
         ? '8px 16px'
@@ -119,7 +121,7 @@ export type Props = {
   disabled?: boolean;
   loading?: boolean;
   loadingElement?: ReactElement;
-  text?: string;
+  text?: string | ReactElement;
   borderRadius?: number;
   startElement?: ReactElement;
   endElement?: ReactElement;
@@ -180,16 +182,12 @@ export const Button: FC<Props> = (props) => {
       border-color: ${borderColor};
       border-width: ${borderWidth};
     `,
-    text: {
-      color: textColor,
-    },
+    text: {color: textColor},
     disabled: css`
       background-color: ${disabledBackgroundColor};
       border-color: ${disabledBorderColor};
     `,
-    disabledText: {
-      color: disabledTextColor,
-    },
+    disabledText: {color: disabledTextColor},
     hovered: {
       shadowColor: 'black',
       shadowOffset: {
@@ -264,13 +262,7 @@ export const Button: FC<Props> = (props) => {
         web: ref,
         default: undefined,
       })}
-      underlayColor={
-        type === 'text'
-          ? 'transparent'
-          : themeType === 'light'
-          ? '#000000'
-          : '#ffffff'
-      }
+      underlayColor={themeType === 'light' ? '#00000010' : '#FFFFFF10'}
       activeOpacity={activeOpacity}
       onPress={onPress}
       delayPressIn={30}
