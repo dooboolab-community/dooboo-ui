@@ -1,10 +1,9 @@
 import type {AccordionListType, AccordionProps} from 'dooboo-ui';
-import {Accordion} from 'dooboo-ui';
-import type {ReactElement} from 'react';
-import React from 'react';
-import type {ThemeType} from '@dooboo-ui/theme';
-import {ThemeProvider} from '@dooboo-ui/theme';
+import type {ReactElement, ReactNode} from 'react';
 
+import {Accordion} from 'dooboo-ui';
+import {ThemeProvider} from '@dooboo-ui/theme';
+import type {ThemeType} from '@dooboo-ui/theme';
 import styled from '@emotion/native';
 import {useFonts} from 'expo-font';
 
@@ -34,7 +33,7 @@ export const sampleData: AccordionListType = [
 
 export interface AccordionStoryProps extends AccordionProps {
   theme?: ThemeType;
-  children?: React.ReactNode;
+  children?: ReactNode;
 }
 
 const AccordionStory = ({

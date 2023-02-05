@@ -1,10 +1,9 @@
-import {SnackbarProvider, useSnackbar} from '..';
-
 import {Button} from '../../..';
 import type {ReactElement} from 'react';
-import type {SnackbarType} from '../../Styled/StyledComponents';
+import type {SnackbarType} from '../../../components/Styled/StyledComponents';
 import styled from '@emotion/native';
 import {useCallback} from 'react';
+import {useDooboo} from '../../../providers';
 
 const types: SnackbarType[] = [
   'primary',
@@ -20,18 +19,16 @@ const Container = styled.SafeAreaView`
 `;
 
 function SnackbarContent(): ReactElement {
-  const {show} = useSnackbar();
+  const {snackbar} = useDooboo();
 
   const onPress = useCallback(
     (type?: SnackbarType): void => {
-      show({
-        content: {
-          text: 'Lorem ipsum dolor sit amet',
-        },
+      snackbar.show({
+        content: {text: 'Lorem ipsum dolor sit amet'},
         type,
       });
     },
-    [show],
+    [snackbar],
   );
 
   return (
@@ -59,11 +56,7 @@ function SnackbarContent(): ReactElement {
 }
 
 function SnackbarContainer(): ReactElement {
-  return (
-    <SnackbarProvider>
-      <SnackbarContent />
-    </SnackbarProvider>
-  );
+  return <SnackbarContent />;
 }
 
 export default SnackbarContainer;

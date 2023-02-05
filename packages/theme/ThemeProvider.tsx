@@ -1,15 +1,16 @@
 import type {Colors, DoobooTheme, ThemeParam, ThemeType} from './colors';
 import {ThemeProvider as EmotionThemeProvider, withTheme} from '@emotion/react';
-import React, {useEffect, useState} from 'react';
 import {colors, dark, light} from './colors';
+import {useEffect, useState} from 'react';
 
 import type {ColorSchemeName} from 'react-native';
 import type {Theme as DefaultTheme} from '@emotion/react';
+import type {ReactElement} from 'react';
 import createDoobooContext from './createDoobooContext';
 import useColorScheme from './useColorScheme';
 import {useMediaQuery} from 'react-responsive';
 
-interface Context {
+export type ThemeContext = {
   themeType: ColorSchemeName;
   media: {
     isPortrait: boolean;
@@ -20,15 +21,15 @@ interface Context {
   theme: DefaultTheme & DoobooTheme;
   changeThemeType: (themeType?: ColorSchemeName) => void;
   colors: Colors;
-}
+};
 
-const [useCtx, DoobooProvider] = createDoobooContext<Context>();
+const [useCtx, DoobooProvider] = createDoobooContext<ThemeContext>();
 
-interface Props {
-  children?: React.ReactElement;
+export type ThemeProps = {
+  children?: ReactElement;
   initialThemeType?: ThemeType;
   customTheme?: ThemeParam;
-}
+};
 
 const genTheme = (type: ThemeType, themeParam: ThemeParam): any => {
   const theme = type === 'light' ? light : dark;
@@ -89,7 +90,7 @@ function ThemeProvider({
   children,
   initialThemeType,
   customTheme = {},
-}: Props): React.ReactElement {
+}: ThemeProps): ReactElement {
   const isPortrait = useMediaQuery({orientation: 'portrait'});
   const isMobile = useMediaQuery({maxWidth: 767});
   const isTablet = useMediaQuery({minWidth: 767, maxWidth: 992});

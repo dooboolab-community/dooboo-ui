@@ -1,15 +1,19 @@
 import {Animated, Dimensions, Platform, TouchableOpacity} from 'react-native';
-import {ButtonText, SnackbarWrapper} from '../Styled/StyledComponents';
-import React, {
+import {
+  ButtonText,
+  SnackbarWrapper,
+} from '../../components/Styled/StyledComponents';
+import type {StyleProp, TextStyle, ViewStyle} from 'react-native';
+import {
+  forwardRef,
   useCallback,
   useEffect,
   useImperativeHandle,
   useState,
 } from 'react';
-import type {StyleProp, TextStyle, ViewStyle} from 'react-native';
 
 import type {ReactElement} from 'react';
-import type {SnackbarType} from '../Styled/StyledComponents';
+import type {SnackbarType} from '../../components/Styled/StyledComponents';
 import styled from '@emotion/native';
 import {useTheme} from '@dooboo-ui/theme';
 
@@ -21,10 +25,10 @@ type Styles = {
 
 export interface SnackbarProps {
   testID?: string;
-  ref: React.MutableRefObject<SnackbarRef>;
+  ref: React.MutableRefObject<SnackbarContext>;
 }
 
-export type SnackbarContent = {
+export type SnackbarOptions = {
   timer?: SnackbarTimer;
   styles?: Styles;
   actionText?: string;
@@ -33,14 +37,14 @@ export type SnackbarContent = {
   content: {element?: ReactElement; text?: string};
 };
 
-interface ShowingState {
+interface OpenState {
   isVisible?: boolean;
-  isShowing?: boolean;
+  isOpen?: boolean;
   timeout?: any;
 }
 
-export interface SnackbarRef {
-  show(content: SnackbarContent): void;
+export interface SnackbarContext {
+  show(content: SnackbarOptions): void;
 }
 
 export enum SnackbarTimer {
@@ -63,18 +67,18 @@ const Divider = styled.View<{type: SnackbarType}>`
     type === 'danger' ? theme.text.contrast : theme.text.basic};
 `;
 
-const SnackbarContainer = (
+function Snackbar(
   props: SnackbarProps,
-  ref: React.Ref<SnackbarRef>,
-): React.ReactElement => {
+  ref: React.Ref<SnackbarContext>,
+): ReactElement | null {
   const {testID} = props;
 
-  const [showingState, setShowingState] = useState<ShowingState>({
+  const [openState, setOpened] = useState<OpenState>({
     isVisible: false,
-    isShowing: false,
+    isOpen: false,
   });
 
-  const [snackbar, setSnackbar] = useState<SnackbarContent>({
+  const [snackbar, setSnackbar] = useState<SnackbarOptions>({
     content: {text: ''},
     timer: SnackbarTimer.SHORT,
   });
@@ -90,15 +94,15 @@ const SnackbarContainer = (
 
   const {theme} = useTheme();
 
-  const {isShowing, isVisible, timeout} = showingState;
+  const {isOpen, isVisible, timeout} = openState;
   const [fadeAnim] = useState(new Animated.Value(0));
 
-  const show = (c: SnackbarContent): void => {
+  const show = (c: SnackbarOptions): void => {
     setSnackbar(c);
     timeout && clearTimeout(timeout);
 
-    setShowingState((prevState) =>
-      Object.assign(Object.assign({}, prevState), {isShowing: true}),
+    setOpened((prevState) =>
+      Object.assign(Object.assign({}, prevState), {isOpen: true}),
     );
   };
 
@@ -112,7 +116,7 @@ const SnackbarContainer = (
           default: true,
         }),
       }).start(() =>
-        setShowingState((prevState) =>
+        setOpened((prevState) =>
           Object.assign(Object.assign({}, prevState), {isVisible: false}),
         ),
       );
@@ -121,7 +125,7 @@ const SnackbarContainer = (
   );
 
   useEffect(() => {
-    if (isShowing) {
+    if (isOpen) {
       if (isVisible) {
         hide(50);
       } else {
@@ -129,8 +133,8 @@ const SnackbarContainer = (
           hide();
         }, timer + 200);
 
-        setShowingState({
-          isShowing: false,
+        setOpened({
+          isOpen: false,
           isVisible: true,
           timeout: hideTimeout,
         });
@@ -145,59 +149,52 @@ const SnackbarContainer = (
         }).start();
       }
     }
-  }, [showingState, fadeAnim, hide, isShowing, isVisible, timer]);
+  }, [openState, fadeAnim, hide, isOpen, isVisible, timer]);
 
   useImperativeHandle(ref, () => ({show}));
 
-  return (
-    <>
-      {showingState.isVisible && (
-        <SnackbarWrapper
-          testID={testID}
-          type={type}
-          style={[
-            styles?.container,
-            {
-              shadowColor: 'black',
-              shadowOffset: {
-                width: 0,
-                height: 4,
-              },
-              shadowOpacity: 0.15,
-              shadowRadius: 12,
-            },
-            {maxWidth: Dimensions.get('screen').width - 40},
-            {opacity: fadeAnim},
-          ]}
-        >
-          {content.element ? (
-            content.element
-          ) : (
-            <ButtonText style={styles?.text} type={type}>
-              {content.text}
-            </ButtonText>
-          )}
-          {actionText && (
-            <Divider
-              theme={theme}
-              type={type}
-              style={{
-                height: Platform.select({web: 24, default: 12}),
-              }}
-            />
-          )}
-          {actionText && (
-            <TouchableOpacity onPress={onActionPress}>
-              <TextAction theme={theme} type={type} style={styles?.text}>
-                {actionText}
-              </TextAction>
-            </TouchableOpacity>
-          )}
-        </SnackbarWrapper>
+  return openState.isVisible ? (
+    <SnackbarWrapper
+      testID={testID}
+      type={type}
+      style={[
+        styles?.container,
+        {
+          shadowColor: theme.text.basic,
+          shadowOffset: {
+            width: 0,
+            height: 4,
+          },
+          shadowOpacity: 0.15,
+          shadowRadius: 12,
+        },
+        {maxWidth: Dimensions.get('screen').width - 40},
+        {opacity: fadeAnim},
+      ]}
+    >
+      {content.element ? (
+        content.element
+      ) : (
+        <ButtonText style={styles?.text} type={type}>
+          {content.text}
+        </ButtonText>
       )}
-    </>
-  );
-};
+      {actionText ? (
+        <Divider
+          theme={theme}
+          type={type}
+          style={{height: Platform.select({web: 24, default: 12})}}
+        />
+      ) : null}
+      {actionText ? (
+        <TouchableOpacity onPress={onActionPress}>
+          <TextAction theme={theme} type={type} style={styles?.text}>
+            {actionText}
+          </TextAction>
+        </TouchableOpacity>
+      ) : null}
+    </SnackbarWrapper>
+  ) : null;
+}
 
-export const Snackbar =
-  React.forwardRef<SnackbarRef, SnackbarProps>(SnackbarContainer);
+export default forwardRef<SnackbarContext, SnackbarProps>(Snackbar);

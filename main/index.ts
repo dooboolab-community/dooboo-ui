@@ -1,6 +1,6 @@
 export * from './components/Typography';
 export * from './components/RadioGroup';
-export * from './components/Snackbar';
+export * from './modals/Snackbar';
 export * from './components/Icon';
 export * from './components/Hr';
 export * from './components/Button';
