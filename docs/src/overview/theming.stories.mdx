@@ -11,7 +11,7 @@ import {Meta} from '@storybook/addon-docs/blocks';
 #### 1. Import
 
 ```ts
-import {ThemeProvider} from 'dooboo-ui';
+import {DoobooProvider} from 'dooboo-ui';
 ```
 
 - if you only want to use `theme` pacakage, you can install it seperately.
@@ -58,6 +58,22 @@ const StyledContainer = styled.SafeAreaView`
   flex-direction: column;
   align-items: center;
 `;
+```
+
+### DoobooProvider
+
+> From version `0.2.0`, you can use `DoobooProvider` to wrap your component if you use `dooboo-ui` package.
+
+```tsx
+<DoobooProvider>
+  <App />
+</DoobooProvider>
+```
+
+Then use `useDooboo` hook inside your component.
+
+```tsx
+const {theme} = useDooboo();
 ```
 
 #### With Expo

@@ -71,19 +71,21 @@ Please read the `doobo-cli` documents.
 
 We aim to support `react-native` ui components in all platforms and we are currently targeting `iOS`, `android` and `web`. If you read [issue on plan for unifying dooboo-ui-legacy](https://github.com/dooboolab/dooboo-ui-legacy/issues/194), you can see in more detail how we want to drive this project.
 
-From version `0.1.0`, we recommend you to wrap your App with `ThemeProvider` in order to apply colors correctly.
+From version `0.2.0`, we recommend you to wrap your App with `DoobooProvider` in order to apply theme and uis provided by `dooboo-ui`.
+The original `ThemeProvider` is embedded in `DoobooProvder`.
 
 ```tsx
-import {ThemeProvider} from 'dooboo-ui';
+import {DoobooProvider} from 'dooboo-ui';
 
-<ThemeProvider>
+<DoobooProvider>
   <App />
-</ThemeProvider>;
+</DoobooProvider>;
 ```
 
 ## Theming
 
 See [how to theme your app](?path=/docs/overview-theming--page).
+The major changes in `0.2.0` is that we recommend using `DoobooProvider` instead of `ThemeProvider` in your application.
 
 ## Install Font (Recommended)
 
