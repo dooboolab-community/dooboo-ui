@@ -58,7 +58,6 @@ const IconStory: FC = () => {
     <StoryContainer>
       <IconWithLabel name="puzz-light" />
       <IconWithLabel name="dooboolab-solid" />
-      <IconWithLabel name="artifacts-solid" />
       <IconWithLabel name="android-solid" />
       <IconWithLabel name="apple-solid" />
       <IconWithLabel name="tick-circle-light" />

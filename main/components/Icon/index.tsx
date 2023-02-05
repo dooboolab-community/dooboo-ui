@@ -7,7 +7,6 @@ import styled from '@emotion/native';
 export type IconName =
   | 'puzz-light'
   | 'dooboolab-solid'
-  | 'artifacts-solid'
   | 'android-solid'
   | 'apple-solid'
   | 'tick-circle-light'

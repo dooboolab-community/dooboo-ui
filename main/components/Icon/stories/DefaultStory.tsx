@@ -54,7 +54,6 @@ const IconStory: FC = () => {
         <Container style={{paddingVertical: 60}}>
           <StyledIcon size={16} name="puzz-light" />
           <StyledIcon size={16} name="dooboolab-solid" />
-          <StyledIcon size={16} name="artifacts-solid" />
           <StyledIcon size={16} name="android-solid" />
           <StyledIcon size={16} name="apple-solid" />
           <StyledIcon size={16} name="tick-circle-light" />
