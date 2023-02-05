@@ -1,17 +1,16 @@
-import type {FC} from 'react';
+import {DoobooProvider, RadioGroup, useDooboo} from 'dooboo-ui';
 import React, {useState} from 'react';
-import type {ThemeType} from '@dooboo-ui/theme';
-import {ThemeProvider, useTheme} from '@dooboo-ui/theme';
 
-import {RadioGroup} from 'dooboo-ui';
+import type {ReactElement} from 'react';
+import type {ThemeType} from '@dooboo-ui/theme';
 import {View} from 'react-native';
 
 const data = ['one', 'two', 'three', 'four'];
 const labels = ['One', 'Two', 'Three', 'Four'];
 
-const RadioGroupStory: FC = () => {
+function RadioGroupStory(): ReactElement {
   const [selectedValue, setSelectedValue] = useState<string>(data[0]);
-  const {theme} = useTheme();
+  const {theme} = useDooboo();
 
   return (
     <View
@@ -80,10 +79,12 @@ const RadioGroupStory: FC = () => {
       />
     </View>
   );
-};
+}
 
-export const SelectValue: FC<{theme: ThemeType}> = ({theme}) => (
-  <ThemeProvider initialThemeType={theme}>
-    <RadioGroupStory />
-  </ThemeProvider>
-);
+export function SelectValue({theme}: {theme: ThemeType}): ReactElement {
+  return (
+    <DoobooProvider themeConfig={{initialThemeType: theme}}>
+      <RadioGroupStory />
+    </DoobooProvider>
+  );
+}

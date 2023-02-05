@@ -1,9 +1,8 @@
+import {Button, DoobooProvider} from 'dooboo-ui';
 import {Linking, StyleSheet, View} from 'react-native';
 
-import {Button} from 'dooboo-ui';
-import type {FC} from 'react';
 import React from 'react';
-import {ThemeProvider} from '@dooboo-ui/theme';
+import type {ReactElement} from 'react';
 
 const styles = StyleSheet.create({
   container: {
@@ -17,9 +16,9 @@ type LinkProps = {
   link: string;
 };
 
-export const Link: FC<LinkProps> = ({link}) => {
+export function Link({link}: LinkProps): ReactElement {
   return (
-    <ThemeProvider>
+    <DoobooProvider>
       <View style={styles.container}>
         <Button
           color="info"
@@ -29,6 +28,6 @@ export const Link: FC<LinkProps> = ({link}) => {
           onPress={() => Linking.openURL(link)}
         />
       </View>
-    </ThemeProvider>
+    </DoobooProvider>
   );
-};
+}

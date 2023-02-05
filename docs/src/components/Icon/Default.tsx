@@ -1,8 +1,6 @@
-import type {FC} from 'react';
-import {Icon} from 'dooboo-ui';
-import type {IconName} from 'dooboo-ui';
-import {ThemeProvider} from '@dooboo-ui/theme';
-import type {ThemeType} from '@dooboo-ui/theme';
+import {DoobooProvider, Icon} from 'dooboo-ui';
+
+import type {ReactElement} from 'react';
 import {View} from 'react-native';
 import styled from '@emotion/native';
 import {useFonts} from 'expo-font';
@@ -26,7 +24,7 @@ const StyledText = styled.Text`
   color: ${({theme}) => theme.text.basic};
 `;
 
-const IconWithLabel: FC<{name: IconName}> = ({name}) => {
+function IconWithLabel({name}): ReactElement {
   return (
     <View
       style={{
@@ -43,9 +41,9 @@ const IconWithLabel: FC<{name: IconName}> = ({name}) => {
       <StyledText>{name}</StyledText>
     </View>
   );
-};
+}
 
-const IconStory: FC = () => {
+function IconStory(): ReactElement {
   const [fontsLoaded] = useFonts({
     IcoMoon: require('../../assets/doobooui.ttf'),
   });
@@ -156,12 +154,12 @@ const IconStory: FC = () => {
       <IconWithLabel name="playlist-solid" />
     </StoryContainer>
   );
-};
+}
 
-export const Default: FC<{themeType: ThemeType}> = ({themeType}) => {
+export function Default({themeType}): ReactElement {
   return (
-    <ThemeProvider initialThemeType={themeType}>
+    <DoobooProvider themeConfig={{initialThemeType: themeType}}>
       <IconStory />
-    </ThemeProvider>
+    </DoobooProvider>
   );
-};
+}

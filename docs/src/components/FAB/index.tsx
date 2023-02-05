@@ -1,8 +1,7 @@
-import type {FC, ReactElement} from 'react';
+import {DoobooProvider, FAB} from 'dooboo-ui';
 import {SafeAreaView, View} from 'react-native';
-import {ThemeProvider, withTheme} from '@dooboo-ui/theme';
 
-import {FAB} from 'dooboo-ui';
+import type {ReactElement} from 'react';
 import styled from '@emotion/native';
 import {useFonts} from 'expo-font';
 import {useState} from 'react';
@@ -15,7 +14,7 @@ const StoryContainer = styled.View`
   background-color: ${({theme}) => theme.bg.basic};
 `;
 
-const FABContainer: FC = () => {
+function FABStory(): ReactElement {
   const [active, setActive] = useState<boolean>(false);
 
   const [fontsLoaded] = useFonts({
@@ -42,18 +41,16 @@ const FABContainer: FC = () => {
       </SafeAreaView>
     </StoryContainer>
   );
-};
-
-const FABStory = withTheme(FABContainer);
+}
 
 export const Light = (): ReactElement => (
-  <ThemeProvider initialThemeType="light">
+  <DoobooProvider themeConfig={{initialThemeType: 'light'}}>
     <FABStory />
-  </ThemeProvider>
+  </DoobooProvider>
 );
 
 export const Dark = (): ReactElement => (
-  <ThemeProvider initialThemeType="dark">
+  <DoobooProvider themeConfig={{initialThemeType: 'dark'}}>
     <FABStory />
-  </ThemeProvider>
+  </DoobooProvider>
 );

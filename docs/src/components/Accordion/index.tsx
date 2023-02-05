@@ -1,8 +1,7 @@
+import {Accordion, DoobooProvider} from 'dooboo-ui';
 import type {AccordionListType, AccordionProps} from 'dooboo-ui';
 import type {ReactElement, ReactNode} from 'react';
 
-import {Accordion} from 'dooboo-ui';
-import {ThemeProvider} from '@dooboo-ui/theme';
 import type {ThemeType} from '@dooboo-ui/theme';
 import styled from '@emotion/native';
 import {useFonts} from 'expo-font';
@@ -47,19 +46,19 @@ const AccordionStory = ({
 
   if (!fontsLoaded) {
     return (
-      <ThemeProvider initialThemeType={theme}>
+      <DoobooProvider themeConfig={{initialThemeType: theme}}>
         <Container />
-      </ThemeProvider>
+      </DoobooProvider>
     );
   }
 
   return (
-    <ThemeProvider initialThemeType={theme}>
+    <DoobooProvider themeConfig={{initialThemeType: theme}}>
       <Container>
         {children}
         <Accordion {...props} />
       </Container>
-    </ThemeProvider>
+    </DoobooProvider>
   );
 };
 

@@ -1,7 +1,7 @@
+import {DoobooProvider, ProgressCircle} from 'dooboo-ui';
 import React, {useEffect, useState} from 'react';
 
-import {ProgressCircle} from 'dooboo-ui';
-import {ThemeProvider} from '@dooboo-ui/theme';
+import type {ReactElement} from 'react';
 import styled from '@emotion/native';
 
 const Container = styled.View`
@@ -14,7 +14,7 @@ const Container = styled.View`
   background-color: ${({theme}) => theme.bg.basic};
 `;
 
-const ProgressView: React.FC = () => {
+function ProgressView(): ReactElement {
   const [progress, setProgress] = useState(0);
 
   useEffect(() => {
@@ -50,14 +50,14 @@ const ProgressView: React.FC = () => {
       <ProgressCircle progress={progress} />
     </Container>
   );
-};
+}
 
-const Basic: React.FC = () => {
+function Basic(): ReactElement {
   return (
-    <ThemeProvider>
+    <DoobooProvider>
       <ProgressView />
-    </ThemeProvider>
+    </DoobooProvider>
   );
-};
+}
 
 export default Basic;

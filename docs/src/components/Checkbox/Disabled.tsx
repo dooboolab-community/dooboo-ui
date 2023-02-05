@@ -1,14 +1,11 @@
-import {Checkbox, LoadingIndicator} from 'dooboo-ui';
-import {ThemeProvider, useTheme} from '@dooboo-ui/theme';
+import {Checkbox, DoobooProvider, LoadingIndicator, useDooboo} from 'dooboo-ui';
 
-import type {FC} from 'react';
-import React from 'react';
-import type {ThemeType} from '@dooboo-ui/theme';
+import type {ReactElement} from 'react';
 import {View} from 'react-native';
 import {useFonts} from 'expo-font';
 
-const Component: FC = () => {
-  const {theme} = useTheme();
+function Component(): ReactElement {
+  const {theme} = useDooboo();
 
   const [fontsLoaded] = useFonts({
     IcoMoon: require('../../assets/doobooui.ttf'),
@@ -32,12 +29,12 @@ const Component: FC = () => {
       <Checkbox disabled />
     </View>
   );
-};
+}
 
-export const Disabled: FC<{themeType: ThemeType}> = ({themeType}) => {
+export function Disabled({themeType}): ReactElement {
   return (
-    <ThemeProvider initialThemeType={themeType}>
+    <DoobooProvider themeConfig={{initialThemeType: themeType}}>
       <Component />
-    </ThemeProvider>
+    </DoobooProvider>
   );
-};
+}

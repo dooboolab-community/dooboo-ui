@@ -1,8 +1,6 @@
-import {Button} from 'dooboo-ui';
-import type {FC} from 'react';
-import React from 'react';
-import {ThemeProvider} from '@dooboo-ui/theme';
-import type {ThemeType} from '@dooboo-ui/theme';
+import {Button, DoobooProvider} from 'dooboo-ui';
+
+import type {ReactElement} from 'react';
 import {View} from 'react-native';
 import styled from '@emotion/native';
 
@@ -15,9 +13,9 @@ const StoryContainer = styled.View`
   align-items: center;
 `;
 
-export const Disabled: FC<{themeType: ThemeType}> = ({themeType}) => {
+export function Disabled({themeType}): ReactElement {
   return (
-    <ThemeProvider initialThemeType={themeType}>
+    <DoobooProvider themeConfig={{initialThemeType: themeType}}>
       <StoryContainer>
         <View
           style={{
@@ -26,15 +24,15 @@ export const Disabled: FC<{themeType: ThemeType}> = ({themeType}) => {
             justifyContent: 'center',
           }}
         >
-          <Button disabled={true} text="Disabled" style={{padding: 8}} />
+          <Button disabled={true} text="Disabled" style={{margin: 8}} />
           <Button
             disabled={true}
             type="outlined"
             text="Disabled"
-            style={{padding: 8}}
+            style={{margin: 8}}
           />
         </View>
       </StoryContainer>
-    </ThemeProvider>
+    </DoobooProvider>
   );
-};
+}

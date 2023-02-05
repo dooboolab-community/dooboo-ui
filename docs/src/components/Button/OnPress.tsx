@@ -1,9 +1,7 @@
+import {Button, DoobooProvider} from 'dooboo-ui';
 import React, {useState} from 'react';
 
-import {Button} from 'dooboo-ui';
-import type {FC} from 'react';
-import {ThemeProvider} from '@dooboo-ui/theme';
-import type {ThemeType} from '@dooboo-ui/theme';
+import type {ReactElement} from 'react';
 import {View} from 'react-native';
 import styled from '@emotion/native';
 
@@ -22,7 +20,7 @@ const StyledText = styled.Text`
   margin: 20px;
 `;
 
-export const OnPress: FC<{themeType: ThemeType}> = ({themeType}) => {
+export function OnPress({themeType}): ReactElement {
   const [value, setValue] = useState(1);
 
   const onIncrease = (): void => {
@@ -34,7 +32,7 @@ export const OnPress: FC<{themeType: ThemeType}> = ({themeType}) => {
   };
 
   return (
-    <ThemeProvider initialThemeType={themeType}>
+    <DoobooProvider themeConfig={{initialThemeType: themeType}}>
       <StoryContainer>
         <View
           style={{
@@ -43,11 +41,11 @@ export const OnPress: FC<{themeType: ThemeType}> = ({themeType}) => {
             justifyContent: 'center',
           }}
         >
-          <Button text="Increase" style={{padding: 8}} onPress={onIncrease} />
-          <Button text="Decrease" style={{padding: 8}} onPress={onDecrease} />
+          <Button text="Increase" style={{margin: 8}} onPress={onIncrease} />
+          <Button text="Decrease" style={{margin: 8}} onPress={onDecrease} />
           <StyledText> value={value} </StyledText>
         </View>
       </StoryContainer>
-    </ThemeProvider>
+    </DoobooProvider>
   );
-};
+}

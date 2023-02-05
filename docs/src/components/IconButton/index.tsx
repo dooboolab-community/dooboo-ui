@@ -1,8 +1,7 @@
-import {Icon, IconButton} from 'dooboo-ui';
+import {DoobooProvider, Icon, IconButton} from 'dooboo-ui';
 
 import React from 'react';
 import type {ReactElement} from 'react';
-import {ThemeProvider} from '@dooboo-ui/theme';
 import {View} from 'react-native';
 import styled from '@emotion/native';
 import {useFonts} from 'expo-font';
@@ -40,13 +39,13 @@ const IconButtonStory = (): React.ReactElement => {
 };
 
 export const Light = (): ReactElement => (
-  <ThemeProvider initialThemeType="light">
+  <DoobooProvider themeConfig={{initialThemeType: 'light'}}>
     <IconButtonStory />
-  </ThemeProvider>
+  </DoobooProvider>
 );
 
 export const Dark = (): ReactElement => (
-  <ThemeProvider initialThemeType="dark">
+  <DoobooProvider themeConfig={{initialThemeType: 'dark'}}>
     <IconButtonStory />
-  </ThemeProvider>
+  </DoobooProvider>
 );

@@ -1,8 +1,6 @@
-import {Button} from 'dooboo-ui';
-import type {FC} from 'react';
-import React from 'react';
-import {ThemeProvider} from '@dooboo-ui/theme';
-import type {ThemeType} from '@dooboo-ui/theme';
+import {Button, DoobooProvider} from 'dooboo-ui';
+
+import type {ReactElement} from 'react';
 import {View} from 'react-native';
 import styled from '@emotion/native';
 
@@ -15,9 +13,9 @@ const StoryContainer = styled.View`
   align-items: center;
 `;
 
-export const Solid: FC<{themeType: ThemeType}> = ({themeType}) => {
+export function Solid({themeType}): ReactElement {
   return (
-    <ThemeProvider initialThemeType={themeType}>
+    <DoobooProvider themeConfig={{initialThemeType: themeType}}>
       <StoryContainer>
         <View
           style={{
@@ -27,15 +25,15 @@ export const Solid: FC<{themeType: ThemeType}> = ({themeType}) => {
             justifyContent: 'center',
           }}
         >
-          <Button color="primary" text="Primary" style={{padding: 8}} />
-          <Button color="secondary" text="Secondary" style={{padding: 8}} />
-          <Button color="success" text="Success" style={{padding: 8}} />
-          <Button color="danger" text="Danger" style={{padding: 8}} />
-          <Button color="warning" text="Warning" style={{padding: 8}} />
-          <Button color="info" text="Info" style={{padding: 8}} />
-          <Button color="light" text="Light" style={{padding: 8}} />
+          <Button color="primary" text="Primary" style={{margin: 8}} />
+          <Button color="secondary" text="Secondary" style={{margin: 8}} />
+          <Button color="success" text="Success" style={{margin: 8}} />
+          <Button color="danger" text="Danger" style={{margin: 8}} />
+          <Button color="warning" text="Warning" style={{margin: 8}} />
+          <Button color="info" text="Info" style={{margin: 8}} />
+          <Button color="light" text="Light" style={{margin: 8}} />
         </View>
       </StoryContainer>
-    </ThemeProvider>
+    </DoobooProvider>
   );
-};
+}

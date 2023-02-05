@@ -10,7 +10,11 @@ import Snackbar from '../modals/Snackbar';
 import {View} from 'react-native';
 import createCtx from '../utils/createCtx';
 
-type DoobooContext = {
+export type {ThemeContext} from '@dooboo-ui/theme/ThemeProvider';
+export type ThemeType = ThemeContext['themeType'];
+export type DoobooTheme = ThemeContext['theme'];
+
+export type DoobooContext = {
   snackbar: SnackbarContext;
   alertDialog: AlertDialogContext;
 } & ThemeContext;
@@ -75,9 +79,7 @@ function DoobooProvider(props: DoobooProviderProps): React.ReactElement {
   );
 }
 
-function DoobooWithThemeProvider(
-  props: DoobooProviderProps,
-): React.ReactElement {
+function DoobooWithThemeProvider(props: DoobooProviderProps): ReactElement {
   return (
     <ThemeProvider {...props.themeConfig}>
       <DoobooProvider {...props} />

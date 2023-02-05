@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 
+import {DoobooProvider} from 'dooboo-ui';
 import type {ReactElement} from 'react';
-import {ThemeProvider} from '@dooboo-ui/theme';
 import {View} from 'react-native';
 import styled from '@emotion/native';
 
@@ -49,13 +49,13 @@ const ButtonGroupStory = (): React.ReactElement => {
 };
 
 export const Light = (): ReactElement => (
-  <ThemeProvider initialThemeType="light">
+  <DoobooProvider themeConfig={{initialThemeType: 'light'}}>
     <ButtonGroupStory />
-  </ThemeProvider>
+  </DoobooProvider>
 );
 
 export const Dark = (): ReactElement => (
-  <ThemeProvider initialThemeType="dark">
+  <DoobooProvider themeConfig={{initialThemeType: 'dark'}}>
     <ButtonGroupStory />
-  </ThemeProvider>
+  </DoobooProvider>
 );

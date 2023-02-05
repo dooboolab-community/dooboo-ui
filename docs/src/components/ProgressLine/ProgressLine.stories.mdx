@@ -1,6 +1,6 @@
 import {Meta, Story, Canvas} from '@storybook/addon-docs/blocks';
 import Default from './index';
-import {ThemeProvider, ThemeType} from '@dooboo-ui/theme';
+import {DoobooProvider, ThemeType} from 'dooboo-ui';
 
 <Meta title="Components/ProgressLine" />
 
@@ -31,32 +31,30 @@ import {ProgressLine} from 'dooboo-ui';
 
 ### Default
 
-<ThemeProvider>
+<DoobooProvider>
   <Default />
-</ThemeProvider>
+</DoobooProvider>
 
 ### Danger
 
-<ThemeProvider>
+<DoobooProvider>
   <Default type="success"/>
-</ThemeProvider>
+</DoobooProvider>
 
 ### Danger
 
-<ThemeProvider>
+<DoobooProvider>
   <Default type="danger"/>
-</ThemeProvider>
+</DoobooProvider>
 
 ### Warning
 
-<ThemeProvider>
+<DoobooProvider>
   <Default type="warning"/>
-</ThemeProvider>
+</DoobooProvider>
 
 ### Info
 
-<ThemeProvider>
+<DoobooProvider>
   <Default type="info"/>
-</ThemeProvider>
-
-### 
+</DoobooProvider>

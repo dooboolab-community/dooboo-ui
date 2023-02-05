@@ -1,13 +1,13 @@
-import type {FC} from 'react';
-import React from 'react';
-import {View} from 'react-native';
 import {Basic} from './Basic';
-import {WithTitle} from './WithTitle';
-import {WithLabels} from './WithLabels';
 import {Colored} from './Colored';
+import React from 'react';
+import type {ReactElement} from 'react';
 import {SelectValue} from './SelectValue';
+import {View} from 'react-native';
+import {WithLabels} from './WithLabels';
+import {WithTitle} from './WithTitle';
 
-export const BasicDemo: FC = () => {
+export function BasicDemo(): ReactElement {
   return (
     <View
       style={{
@@ -32,9 +32,9 @@ export const BasicDemo: FC = () => {
       </View>
     </View>
   );
-};
+}
 
-export const WithTitleDemo: FC = () => {
+export function WithTitleDemo(): ReactElement {
   return (
     <View
       style={{
@@ -59,11 +59,13 @@ export const WithTitleDemo: FC = () => {
       </View>
     </View>
   );
-};
+}
 
-export const WithLabelsDemo: FC<{labelPosition: 'left' | 'right'}> = ({
+export function WithLabelsDemo({
   labelPosition,
-}) => {
+}: {
+  labelPosition: 'left' | 'right';
+}): ReactElement {
   return (
     <View
       style={{
@@ -88,9 +90,9 @@ export const WithLabelsDemo: FC<{labelPosition: 'left' | 'right'}> = ({
       </View>
     </View>
   );
-};
+}
 
-export const ColoredDemo: FC = () => {
+export function ColoredDemo(): ReactElement {
   return (
     <View
       style={{
@@ -115,9 +117,9 @@ export const ColoredDemo: FC = () => {
       </View>
     </View>
   );
-};
+}
 
-export const SelectValueDemo: FC = () => {
+export function SelectValueDemo(): ReactElement {
   return (
     <View
       style={{
@@ -133,13 +135,9 @@ export const SelectValueDemo: FC = () => {
       >
         <SelectValue theme="light" />
       </View>
-      <View
-        style={{
-          flex: 1,
-        }}
-      >
+      <View style={{flex: 1}}>
         <SelectValue theme="dark" />
       </View>
     </View>
   );
-};
+}

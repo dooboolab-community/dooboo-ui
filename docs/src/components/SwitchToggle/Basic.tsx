@@ -1,17 +1,20 @@
-import type {FC} from 'react';
-import {useState} from 'react';
-import {SwitchToggle, Typography} from 'dooboo-ui';
-import type {ThemeType} from '@dooboo-ui/theme';
-import {ThemeProvider} from '@dooboo-ui/theme';
+import {DoobooProvider, SwitchToggle, Typography} from 'dooboo-ui';
 
+import type {ReactElement} from 'react';
+import type {ThemeType} from '@dooboo-ui/theme';
 import {View} from 'react-native';
 import {css} from '@emotion/native';
+import {useState} from 'react';
 
-export const Basic: FC<{themeType: ThemeType}> = ({themeType}) => {
+type BasicProps = {
+  themeType: ThemeType;
+};
+
+export function Basic({themeType}: BasicProps): ReactElement {
   const [isOn, setIsOn] = useState(false);
 
   return (
-    <ThemeProvider initialThemeType={themeType}>
+    <DoobooProvider themeConfig={{initialThemeType: themeType}}>
       <View
         style={{
           justifyContent: 'center',
@@ -67,6 +70,6 @@ export const Basic: FC<{themeType: ThemeType}> = ({themeType}) => {
           />
         </View>
       </View>
-    </ThemeProvider>
+    </DoobooProvider>
   );
-};
+}

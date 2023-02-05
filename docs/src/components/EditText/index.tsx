@@ -1,18 +1,19 @@
-import type {EditTextProps} from 'dooboo-ui';
-import {EditText, ThemeProvider} from 'dooboo-ui';
-import type {FC} from 'react';
+import {DoobooProvider, EditText} from 'dooboo-ui';
 import React, {useState} from 'react';
+
+import type {EditTextProps} from 'dooboo-ui';
+import type {ReactElement} from 'react';
 
 type Props = {} & EditTextProps;
 
-const Default: FC<Props> = (props) => {
+function Default(props: Props): ReactElement {
   const [value, setValue] = useState('');
 
   return (
-    <ThemeProvider>
+    <DoobooProvider>
       <EditText {...props} onChangeText={setValue} value={value} />
-    </ThemeProvider>
+    </DoobooProvider>
   );
-};
+}
 
 export default Default;

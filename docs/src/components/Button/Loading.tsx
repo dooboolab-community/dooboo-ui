@@ -1,8 +1,7 @@
-import {Button} from 'dooboo-ui';
-import type {FC} from 'react';
+import {Button, DoobooProvider} from 'dooboo-ui';
+
 import React from 'react';
-import {ThemeProvider} from '@dooboo-ui/theme';
-import type {ThemeType} from '@dooboo-ui/theme';
+import type {ReactElement} from 'react';
 import {View} from 'react-native';
 import styled from '@emotion/native';
 
@@ -15,9 +14,9 @@ const StoryContainer = styled.View`
   align-items: center;
 `;
 
-export const Loading: FC<{themeType: ThemeType}> = ({themeType}) => {
+export function Loading({themeType}): ReactElement {
   return (
-    <ThemeProvider initialThemeType={themeType}>
+    <DoobooProvider themeConfig={{initialThemeType: themeType}}>
       <StoryContainer>
         <View
           style={{
@@ -26,10 +25,10 @@ export const Loading: FC<{themeType: ThemeType}> = ({themeType}) => {
             justifyContent: 'center',
           }}
         >
-          <Button loading={true} style={{padding: 8}} />
-          <Button loading={true} style={{padding: 8}} />
+          <Button loading={true} style={{margin: 8}} />
+          <Button loading={true} style={{margin: 8}} />
         </View>
       </StoryContainer>
-    </ThemeProvider>
+    </DoobooProvider>
   );
-};
+}

@@ -1,8 +1,6 @@
-import type {ThemeType} from '@dooboo-ui/theme';
-import {ThemeProvider} from '@dooboo-ui/theme';
+import {DoobooProvider, LoadingIndicator} from 'dooboo-ui';
 
-import type {FC} from 'react';
-import {LoadingIndicator} from 'dooboo-ui';
+import type {ReactElement} from 'react';
 import styled from '@emotion/native';
 
 const StyledView = styled.View`
@@ -12,7 +10,7 @@ const StyledView = styled.View`
   justify-content: 'center';
 `;
 
-export const Component: FC = () => {
+export function Component(): ReactElement {
   return (
     <>
       <StyledView>
@@ -23,10 +21,12 @@ export const Component: FC = () => {
       </StyledView>
     </>
   );
-};
+}
 
-export const Basic: FC<{themeType: ThemeType}> = ({themeType}) => (
-  <ThemeProvider initialThemeType={themeType}>
-    <Component />
-  </ThemeProvider>
-);
+export function Basic({themeType}): ReactElement {
+  return (
+    <DoobooProvider themeConfig={{initialThemeType: themeType}}>
+      <Component />
+    </DoobooProvider>
+  );
+}

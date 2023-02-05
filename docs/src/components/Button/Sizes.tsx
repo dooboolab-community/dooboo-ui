@@ -1,13 +1,12 @@
-import {Button} from 'dooboo-ui';
-import type {FC} from 'react';
+import {Button, DoobooProvider} from 'dooboo-ui';
+
 import React from 'react';
-import {ThemeProvider} from '@dooboo-ui/theme';
-import type {ThemeType} from '@dooboo-ui/theme';
+import type {ReactElement} from 'react';
 import {View} from 'react-native';
 
-export const Sizes: FC<{themeType: ThemeType}> = ({themeType}) => {
+export function Sizes({themeType}): ReactElement {
   return (
-    <ThemeProvider initialThemeType={themeType}>
+    <DoobooProvider themeConfig={{initialThemeType: themeType}}>
       <View
         style={{
           marginVertical: 8,
@@ -22,21 +21,21 @@ export const Sizes: FC<{themeType: ThemeType}> = ({themeType}) => {
           color="primary"
           size="large"
           text="Primary"
-          style={{padding: 8}}
+          style={{margin: 8}}
         />
         <Button
           color="primary"
           size="medium"
           text="Primary"
-          style={{padding: 8}}
+          style={{margin: 8}}
         />
         <Button
           color="primary"
           size="small"
           text="Primary"
-          style={{padding: 8}}
+          style={{margin: 8}}
         />
       </View>
-    </ThemeProvider>
+    </DoobooProvider>
   );
-};
+}

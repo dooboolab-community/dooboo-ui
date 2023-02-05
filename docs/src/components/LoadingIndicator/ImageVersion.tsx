@@ -1,13 +1,12 @@
-import type {ThemeType} from '@dooboo-ui/theme';
-import {ThemeProvider, useTheme} from '@dooboo-ui/theme';
+import {DoobooProvider, LoadingIndicator, useDooboo} from 'dooboo-ui';
 
-import type {FC} from 'react';
 import {IC_GIF} from '../../icon';
-import {LoadingIndicator} from 'dooboo-ui';
+import type {ReactElement} from 'react';
+import type {ThemeType} from '@dooboo-ui/theme';
 import {View} from 'react-native';
 
-const ImageComponent: FC = () => {
-  const {theme} = useTheme();
+function ImageComponent(): ReactElement {
+  const {theme} = useDooboo();
 
   return (
     <View
@@ -22,12 +21,16 @@ const ImageComponent: FC = () => {
       <LoadingIndicator imgSource={IC_GIF} />
     </View>
   );
-};
+}
 
-export const ImageVersion: FC<{themeType: ThemeType}> = ({themeType}) => {
+export function ImageVersion({
+  themeType,
+}: {
+  themeType: ThemeType;
+}): ReactElement {
   return (
-    <ThemeProvider initialThemeType={themeType}>
+    <DoobooProvider themeConfig={{initialThemeType: themeType}}>
       <ImageComponent />
-    </ThemeProvider>
+    </DoobooProvider>
   );
-};
+}

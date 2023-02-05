@@ -1,15 +1,15 @@
 import type {ProgressLineStyles, ProgressLineType} from 'dooboo-ui';
 import React, {useEffect, useState} from 'react';
 
-import type {FC} from 'react';
 import {ProgressLine} from 'dooboo-ui';
+import type {ReactElement} from 'react';
 
 type Props = {
   type: ProgressLineType;
   styles?: ProgressLineStyles;
 };
 
-const ProgressLineDefault: FC<Props> = ({type, styles}) => {
+function ProgressLineDefault({type, styles}: Props): ReactElement {
   const [value, setValue] = useState(0);
 
   useEffect(() => {
@@ -35,6 +35,6 @@ const ProgressLineDefault: FC<Props> = ({type, styles}) => {
   }, []);
 
   return <ProgressLine value={value} type={type} styles={styles} />;
-};
+}
 
 export default ProgressLineDefault;

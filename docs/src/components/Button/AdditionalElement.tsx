@@ -1,11 +1,9 @@
+import {Button, DoobooProvider} from 'dooboo-ui';
 import {IC_FACEBOOK, IC_GOOGLE} from '../../icon';
 import {Image, View} from 'react-native';
 import styled, {css} from '@emotion/native';
 
-import {Button} from 'dooboo-ui';
-import type {FC} from 'react';
-import {ThemeProvider} from '@dooboo-ui/theme';
-import type {ThemeType} from '@dooboo-ui/theme';
+import type {ReactElement} from 'react';
 import {action} from '@storybook/addon-actions';
 import {useState} from 'react';
 
@@ -19,12 +17,12 @@ const StoryContainer = styled.View`
   align-items: center;
 `;
 
-export const AdditionalElement: FC<{themeType: ThemeType}> = ({themeType}) => {
+export function AdditionalElement({themeType}): ReactElement {
   const [facebookLoading, setFacebookLoading] = useState<boolean>(false);
   const [googleLoading, setGoogleLoading] = useState<boolean>(false);
 
   return (
-    <ThemeProvider initialThemeType={themeType}>
+    <DoobooProvider themeConfig={{initialThemeType: themeType}}>
       <StoryContainer>
         <Button
           startElement={
@@ -90,6 +88,6 @@ export const AdditionalElement: FC<{themeType: ThemeType}> = ({themeType}) => {
           text="FACEBOOK SIGN IN"
         />
       </StoryContainer>
-    </ThemeProvider>
+    </DoobooProvider>
   );
-};
+}

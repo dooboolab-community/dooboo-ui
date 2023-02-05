@@ -1,18 +1,17 @@
-import type {FC} from 'react';
-import {useState} from 'react';
-import type {ThemeType} from '@dooboo-ui/theme';
-import {ThemeProvider, useTheme} from '@dooboo-ui/theme';
+import {DoobooProvider, RadioGroup, useDooboo} from 'dooboo-ui';
 
-import {RadioGroup} from 'dooboo-ui';
+import type {ReactElement} from 'react';
+import type {ThemeType} from '@dooboo-ui/theme';
 import {View} from 'react-native';
+import {useState} from 'react';
 
 const data = ['one', 'two', 'three', 'four'];
 const labels = ['One', 'Two', 'Three', 'Four'];
 
-const RadioGroupStory: FC<{labelPosition: 'left' | 'right'}> = ({
-  labelPosition,
-}) => {
-  const {theme} = useTheme();
+type RadioGroupStoryProps = {labelPosition: 'left' | 'right'};
+
+function RadioGroupStory({labelPosition}: RadioGroupStoryProps): ReactElement {
+  const {theme} = useDooboo();
   const [curValue, setCurValue] = useState<string>(data[0]);
 
   return (
@@ -34,13 +33,17 @@ const RadioGroupStory: FC<{labelPosition: 'left' | 'right'}> = ({
       />
     </View>
   );
-};
+}
 
-export const WithLabels: FC<{
-  theme: ThemeType;
-  labelPosition: 'left' | 'right';
-}> = ({theme, labelPosition}) => (
-  <ThemeProvider initialThemeType={theme}>
-    <RadioGroupStory labelPosition={labelPosition} />
-  </ThemeProvider>
-);
+type WithLabelsProps = {theme: ThemeType; labelPosition: 'left' | 'right'};
+
+export function WithLabels({
+  theme,
+  labelPosition,
+}: WithLabelsProps): ReactElement {
+  return (
+    <DoobooProvider themeConfig={{initialThemeType: theme}}>
+      <RadioGroupStory labelPosition={labelPosition} />
+    </DoobooProvider>
+  );
+}

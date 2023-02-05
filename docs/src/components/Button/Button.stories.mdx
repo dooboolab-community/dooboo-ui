@@ -21,7 +21,7 @@ import {
 ## Usage
 
 ```tsx
-import {Button} from 'dooboo-ui';
+import {Button, DoobooProvider} from 'dooboo-ui';
 
 <Button {...props} />;
 ```
@@ -164,7 +164,7 @@ const onDecrease = () => {
 };
 
 return (
-  <ThemeProvider initialThemeType={themeType}>
+  <DoobooProvider themeConfig={{initialThemeType: themeType}}>
     <StoryContainer>
       <View
         style={{
@@ -178,7 +178,7 @@ return (
         <span>value : {value}</span>
       </View>
     </StoryContainer>
-  </ThemeProvider>
+  </DoobooProvider>
 );
 ```
 
@@ -196,7 +196,7 @@ const [facebookLoading, setFacebookLoading] = useState<boolean>(false);
 const [googleLoading, setGoogleLoading] = useState<boolean>(false);
 
 return (
-  <ThemeProvider initialThemeType={themeType}>
+  <DoobooProvider themeConfig={{initialThemeType: themeType}}>
     <StoryContainer>
       <Button
         startElement={
@@ -262,7 +262,7 @@ return (
         text="FACEBOOK SIGN IN"
       />
     </StoryContainer>
-  </ThemeProvider>
+  </DoobooProvider>
 );
 ```
 
