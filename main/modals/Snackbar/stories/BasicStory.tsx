@@ -1,10 +1,9 @@
-import {DoobooProvider, useDooboo} from '../../../providers';
-
 import {Button} from '../../..';
 import type {ReactElement} from 'react';
 import type {SnackbarType} from '../../../components/Styled/StyledComponents';
 import styled from '@emotion/native';
 import {useCallback} from 'react';
+import {useDooboo} from '../../../providers';
 
 const types: SnackbarType[] = [
   'primary',
@@ -25,9 +24,7 @@ function SnackbarContent(): ReactElement {
   const onPress = useCallback(
     (type?: SnackbarType): void => {
       snackbar.show({
-        content: {
-          text: 'Lorem ipsum dolor sit amet',
-        },
+        content: {text: 'Lorem ipsum dolor sit amet'},
         type,
       });
     },
@@ -59,11 +56,7 @@ function SnackbarContent(): ReactElement {
 }
 
 function SnackbarContainer(): ReactElement {
-  return (
-    <DoobooProvider>
-      <SnackbarContent />
-    </DoobooProvider>
-  );
+  return <SnackbarContent />;
 }
 
 export default SnackbarContainer;

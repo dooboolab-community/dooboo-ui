@@ -1,16 +1,16 @@
+import {DoobooProvider} from '../../../providers';
 import React from 'react';
 import SnackbarContent from './BasicStory';
-import {ThemeProvider} from '@dooboo-ui/theme';
 import {storiesOf} from '@storybook/react-native';
 
 storiesOf('Snackbar', module)
   .add('Basic - light', () => (
-    <ThemeProvider initialThemeType="light">
+    <DoobooProvider themeConfig={{initialThemeType: 'light'}}>
       <SnackbarContent />
-    </ThemeProvider>
+    </DoobooProvider>
   ))
   .add('Basic - dark', () => (
-    <ThemeProvider initialThemeType="dark">
+    <DoobooProvider themeConfig={{initialThemeType: 'dark'}}>
       <SnackbarContent />
-    </ThemeProvider>
+    </DoobooProvider>
   ));
