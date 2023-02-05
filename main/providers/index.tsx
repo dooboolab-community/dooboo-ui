@@ -27,7 +27,7 @@ const [useCtx, Provider] = createCtx<DoobooContext>(
 
 function DoobooProvider(props: DoobooProviderProps): React.ReactElement {
   const themeContext = useTheme();
-  const {children, snackbarConfig = {}} = props;
+  const {children} = props;
   const snackbar =
     useRef<SnackbarContext>() as MutableRefObject<SnackbarContext>;
 
@@ -38,9 +38,11 @@ function DoobooProvider(props: DoobooProviderProps): React.ReactElement {
    ** Snackbar
    */
   const snackbarContext: SnackbarContext = {
-    show: (content: SnackbarOptions): void => {
-      snackbar.current &&
-        snackbar.current.show({...snackbarConfig, ...content});
+    open: (snackbarOption): void => {
+      snackbar.current && snackbar.current.open(snackbarOption);
+    },
+    close: (): void => {
+      snackbar.current && snackbar.current.close();
     },
   };
 

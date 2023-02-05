@@ -78,7 +78,7 @@ function AlertDialog(
 ): ReactElement {
   const [options, setOptions] = useState<AlertDialogOptions | null>(null);
   const [visible, setVisible] = useState(false);
-  const {theme} = useTheme();
+  const {theme, themeType} = useTheme();
 
   useImperativeHandle(ref, () => ({
     open: (alertDialogOptions) => {
@@ -93,7 +93,6 @@ function AlertDialog(
     },
   }));
 
-  const {themeType} = useTheme();
   const {
     backdropOpacity = 0.2,
     title,
