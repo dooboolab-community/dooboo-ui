@@ -3,7 +3,7 @@ import React from 'react';
 import SnackbarContent from './BasicStory';
 import {storiesOf} from '@storybook/react-native';
 
-storiesOf('Snackbar', module)
+storiesOf('[Modal] Snackbar', module)
   .add('Basic - light', () => (
     <DoobooProvider themeConfig={{initialThemeType: 'light'}}>
       <SnackbarContent />

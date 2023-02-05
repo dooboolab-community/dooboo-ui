@@ -5,4 +5,4 @@ import Default from './DefaultStory';
 import React from 'react';
 import {storiesOf} from '@storybook/react-native';
 
-storiesOf('Calendar', module).add('Basic - light', () => <Default />);
+storiesOf('[Package] Calendar', module).add('Basic - light', () => <Default />);

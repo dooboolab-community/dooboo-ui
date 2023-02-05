@@ -3,7 +3,7 @@ import {DoobooProvider} from '../../../providers';
 import React from 'react';
 import {storiesOf} from '@storybook/react-native';
 
-storiesOf('AlertDialog', module)
+storiesOf('[Modal] AlertDialog', module)
   .add('Basic - light', () => (
     <DoobooProvider themeConfig={{initialThemeType: 'light'}}>
       <AlertDialogContent />

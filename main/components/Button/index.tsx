@@ -1,5 +1,5 @@
 import type {FC, ReactElement, ReactNode} from 'react';
-import {Platform, Text, TouchableHighlight, View} from 'react-native';
+import {Platform, Text, TouchableHighlight} from 'react-native';
 import React, {useCallback, useRef} from 'react';
 import type {
   StyleProp,
@@ -204,22 +204,21 @@ export const Button: FC<Props> = (props) => {
   const renderContainer = useCallback(
     (children: ReactNode): ReactElement => {
       return (
-        <View>
-          <ButtonContainer
-            testID={loading ? 'loading-view' : 'button-container'}
-            style={[
-              compositeStyles.container,
-              hovered && !innerDisabled && compositeStyles.hovered,
-              innerDisabled && compositeStyles.disabled,
-              {borderRadius: borderRadius},
-            ]}
-            type={type}
-            size={size}
-            disabled={innerDisabled}
-          >
-            {children}
-          </ButtonContainer>
-        </View>
+        <ButtonContainer
+          testID={loading ? 'loading-view' : 'button-container'}
+          style={[
+            compositeStyles.container,
+            hovered && !innerDisabled && compositeStyles.hovered,
+            innerDisabled && compositeStyles.disabled,
+            {borderRadius: borderRadius},
+            type === 'text' && {backgroundColor: 'transparent'},
+          ]}
+          type={type}
+          size={size}
+          disabled={innerDisabled}
+        >
+          {children}
+        </ButtonContainer>
       );
     },
     [
