@@ -1,4 +1,5 @@
-import {Button} from '../../..';
+import {Button, Typography} from '../../..';
+
 import type {ReactElement} from 'react';
 import styled from '@emotion/native';
 import {useDooboo} from '../../../providers';
@@ -21,10 +22,11 @@ function AlertDialogStory(): ReactElement {
         alignItems: 'center',
       }}
     >
+      <Typography.Title>AlertDialog</Typography.Title>
       <Button
         color="primary"
-        text="Open"
-        style={{margin: 20}}
+        text="Dialog"
+        style={{marginTop: 60, width: 200}}
         onPress={() =>
           alertDialog.open({
             title: 'Hello there!',
@@ -33,10 +35,23 @@ function AlertDialogStory(): ReactElement {
         }
       />
       <Button
-        color="danger"
-        text="Close"
-        style={{margin: 20}}
-        onPress={() => alertDialog.close()}
+        color="primary"
+        text="With actions"
+        style={{marginTop: 20, width: 200}}
+        onPress={() =>
+          alertDialog.open({
+            title: 'Hello there!',
+            body: 'This is an alert dialog.',
+            actions: [
+              <Button
+                text="Cancel"
+                color="light"
+                onPress={() => alertDialog.close()}
+              />,
+              <Button text="OK" onPress={() => alertDialog.close()} />,
+            ],
+          })
+        }
       />
     </Container>
   );
