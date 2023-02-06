@@ -1,4 +1,3 @@
-import React from 'react';
 import type {ReactElement} from 'react';
 import {StatusBar} from 'react-native';
 import type {StatusBarStyle} from 'react-native';

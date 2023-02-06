@@ -19,8 +19,8 @@
     "lib",
     "**/**/*/__tests__",
     "dist",
-    "**/*.example.*",
-    "main/**/*/stories/**/*"
+    "stories",
+    "**/*.example.*"
   ],
   "include": [
     "main"
