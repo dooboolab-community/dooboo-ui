@@ -1,10 +1,10 @@
+import {Animated, PanResponder} from 'react-native';
 import type {
   NativeMethods,
   NativeTouchEvent,
   PanResponderInstance,
   ViewStyle,
 } from 'react-native';
-import {Animated, PanResponder} from 'react-native';
 import type {PropsWithChildren, ReactElement, Ref} from 'react';
 import React, {
   forwardRef,
@@ -88,13 +88,12 @@ function PinchZoom(props: Props, ref: Ref<PinchZoomRef>): ReactElement {
   const initialDistance = useRef<number>();
   const initialTouchesCenter = useRef<TouchePosition>();
 
-  const layout =
-    useRef<{
-      width: number;
-      height: number;
-      pageX: number;
-      pageY: number;
-    }>();
+  const layout = useRef<{
+    width: number;
+    height: number;
+    pageX: number;
+    pageY: number;
+  }>();
 
   const decayingTranslateAnimation = useRef<Animated.CompositeAnimation>();
   const isResponderActive = useRef(false);
