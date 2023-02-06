@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "jsx": "react-native",
+    "jsx": "react-jsx",
     "noResolve": false,
     "noImplicitAny": false,
     "removeComments": false,
