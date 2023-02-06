@@ -1,4 +1,4 @@
-import {Modal, StyleSheet} from 'react-native';
+import {Modal, Platform, StyleSheet} from 'react-native';
 import React, {forwardRef, useImperativeHandle, useState} from 'react';
 import type {StyleProp, TextStyle, ViewStyle} from 'react-native';
 
@@ -109,7 +109,7 @@ function Snackbar(
       <SnackbarContainer
         color={color}
         style={StyleSheet.flatten([
-          {
+          Platform.OS !== 'web' && {
             shadowOffset: {width: 0, height: 4},
             shadowColor: theme.text.basic,
           },

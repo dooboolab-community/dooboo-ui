@@ -1,4 +1,4 @@
-import {Modal, StyleSheet} from 'react-native';
+import {Modal, Platform, StyleSheet} from 'react-native';
 import React, {
   cloneElement,
   forwardRef,
@@ -118,7 +118,7 @@ function AlertDialog(
     >
       <AlertDialogContainer
         style={StyleSheet.flatten([
-          {
+          Platform.OS !== 'web' && {
             shadowOffset: {width: 0, height: 4},
             shadowColor: theme.text.basic,
           },

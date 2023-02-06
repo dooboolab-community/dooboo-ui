@@ -190,10 +190,6 @@ export const Button: FC<Props> = (props) => {
     disabledText: {color: disabledTextColor},
     hovered: {
       shadowColor: 'black',
-      shadowOffset: {
-        width: 0,
-        height: 4,
-      },
       shadowOpacity: 0.24,
       shadowRadius: 16,
       elevation: 10,

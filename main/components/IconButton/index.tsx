@@ -167,11 +167,7 @@ export const IconButton: FC<IconButtonProps> = (props) => {
       border-color: ${disabledBorderColor};
     `,
     hovered: {
-      shadowColor: 'black',
-      shadowOffset: {
-        width: 0,
-        height: 4,
-      },
+      shadowColor: theme.text.basic,
       shadowOpacity: 0.24,
       shadowRadius: 16,
       elevation: 10,
