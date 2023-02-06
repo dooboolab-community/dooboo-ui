@@ -1,26 +1,22 @@
 import type {ButtonType} from '../../../../main';
 import {IconButton} from '../../../../main';
-
 import type {ReactElement} from 'react';
 import {Section} from '../../../GlobalStyles';
-import {ThemeProvider} from '@dooboo-ui/theme';
 
-function Basic({themeType}): ReactElement {
+function Basic(): ReactElement {
   const types: ButtonType[] = ['text', 'solid', 'outlined'];
 
   return (
-    <ThemeProvider initialThemeType={themeType}>
-      <Section>
-        {types.map((type) => (
-          <IconButton
-            key={type}
-            type={type}
-            icon="tile-light"
-            style={{padding: 4}}
-          />
-        ))}
-      </Section>
-    </ThemeProvider>
+    <Section>
+      {types.map((type) => (
+        <IconButton
+          key={type}
+          type={type}
+          icon="tile-light"
+          style={{padding: 4}}
+        />
+      ))}
+    </Section>
   );
 }
 

@@ -1,6 +1,12 @@
+import {
+  DoobooProvider,
+  LoadingIndicator,
+  SwitchToggle,
+  Typography,
+  useDooboo,
+} from '../main';
 import type {ReactElement, ReactNode} from 'react';
 import {StatusBar, View} from 'react-native';
-import {SwitchToggle, Typography, useDooboo} from '../main';
 
 import {StoryContainer} from './GlobalStyles';
 import {useFonts} from 'expo-font';
@@ -12,13 +18,13 @@ type ContainerProps = {
 
 export function StoryWrapper({children}: ContainerProps): ReactElement {
   const {themeType, changeThemeType} = useDooboo();
-  const [on, off] = useState(false);
+  const [on, off] = useState(themeType === 'dark');
   const [fontsLoaded] = useFonts({
     IcoMoon: require('../main/components/Icon/doobooui.ttf'),
   });
 
   if (!fontsLoaded) {
-    return <View />;
+    return <LoadingIndicator />;
   }
 
   return (
@@ -26,8 +32,6 @@ export function StoryWrapper({children}: ContainerProps): ReactElement {
       <StatusBar barStyle="dark-content" />
       <View
         style={{
-          marginBottom: 8,
-
           flexDirection: 'row',
           alignItems: 'center',
           justifyContent: 'flex-end',
@@ -46,5 +50,13 @@ export function StoryWrapper({children}: ContainerProps): ReactElement {
       </View>
       {children}
     </StoryContainer>
+  );
+}
+
+export function renderStory(el: ReactElement): ReactElement {
+  return (
+    <DoobooProvider>
+      <StoryWrapper>{el}</StoryWrapper>
+    </DoobooProvider>
   );
 }

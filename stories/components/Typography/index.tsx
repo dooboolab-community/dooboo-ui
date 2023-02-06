@@ -1,26 +1,13 @@
 import React from 'react';
-import {ThemeProvider} from '@dooboo-ui/theme';
-import TypographyDefault from './DefaultStory';
-import TypographyWithTheme from './DefaultStoryWithTheme';
-import {View} from 'react-native';
+import TypographyBasic from './Basic';
+import TypographyWithTheme from './WithTheme';
+import {renderStory} from '../../Common';
 import {storiesOf} from '@storybook/react-native';
+import {withActions} from '@storybook/addon-actions';
+import {withKnobs} from '@storybook/addon-knobs';
 
 storiesOf('Typography', module)
-  .add('Basic - light', () => (
-    <ThemeProvider initialThemeType="light">
-      <TypographyDefault />
-    </ThemeProvider>
-  ))
-  .add('Basic - dark', () => (
-    <View
-      style={{
-        backgroundColor: 'black',
-        flex: 1,
-        alignSelf: 'stretch',
-      }}
-    >
-      <ThemeProvider initialThemeType="dark">
-        <TypographyWithTheme />
-      </ThemeProvider>
-    </View>
-  ));
+  .addDecorator(withKnobs)
+  .addDecorator(withActions)
+  .add('Basic', () => renderStory(<TypographyBasic />))
+  .add('WithTheme', () => renderStory(<TypographyWithTheme />));

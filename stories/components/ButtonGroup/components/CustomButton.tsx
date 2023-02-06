@@ -1,12 +1,10 @@
-import {ButtonGroup, Typography} from '../../../../main';
+import {ButtonGroup, Typography, useDooboo} from '../../../../main';
+import type {ReactElement} from 'react';
+import {useState} from 'react';
 import {ScrollView, View} from 'react-native';
 import type {StyleProp, ViewStyle} from 'react-native';
 
-import type {FC} from 'react';
-import {useState} from 'react';
-import {useTheme} from '@dooboo-ui/theme';
-
-const CustomButton: FC = () => {
+function CustomButton(): ReactElement {
   const data: {title: string; style?: StyleProp<ViewStyle>}[] = [
     {
       title: 'Item 1',
@@ -32,7 +30,7 @@ const CustomButton: FC = () => {
     alignItems: 'center',
   };
 
-  const {theme} = useTheme();
+  const {theme} = useDooboo();
 
   const [selectedIndex, setSelectedIndex] = useState(0);
 
@@ -72,6 +70,6 @@ const CustomButton: FC = () => {
       </ScrollView>
     </View>
   );
-};
+}
 
 export default CustomButton;

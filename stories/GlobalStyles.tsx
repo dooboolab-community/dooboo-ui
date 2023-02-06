@@ -12,14 +12,14 @@ export const ScrollContainer = styled.ScrollView`
 `;
 
 export const Title = styled.Text`
-  margin: 16px 0px 8px 0px;
+  margin: 8px 12px;
   font-size: 18px;
   font-weight: bold;
   color: ${({theme}) => theme.text.basic};
 `;
 
 export const Description = styled.Text`
-  margin: 8px;
+  margin: 8px 12px;
   font-size: 16px;
   color: ${({theme}) => theme.text.basic};
 `;

@@ -1,11 +1,9 @@
 import type {ButtonColorType} from '../../../../main';
 import {IconButton} from '../../../../main';
-
 import type {ReactElement} from 'react';
 import {Section} from '../../../GlobalStyles';
-import {ThemeProvider} from '@dooboo-ui/theme';
 
-function Colors({themeType}): ReactElement {
+function Colors(): ReactElement {
   const colors: ButtonColorType[] = [
     'primary',
     'secondary',
@@ -17,19 +15,17 @@ function Colors({themeType}): ReactElement {
   ];
 
   return (
-    <ThemeProvider initialThemeType={themeType}>
-      <Section>
-        {colors.map((color) => (
-          <IconButton
-            key={color}
-            color={color}
-            size="small"
-            icon="cross-light"
-            style={{padding: 4}}
-          />
-        ))}
-      </Section>
-    </ThemeProvider>
+    <Section>
+      {colors.map((color) => (
+        <IconButton
+          key={color}
+          color={color}
+          size="small"
+          icon="cross-light"
+          style={{padding: 4}}
+        />
+      ))}
+    </Section>
   );
 }
 

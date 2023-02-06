@@ -1,5 +1,5 @@
+import {Button} from '../../../../main';
 import type {ButtonType} from '../../../../main';
-import {IconButton} from '../../../../main';
 import type {ReactElement} from 'react';
 import {Section} from '../../../GlobalStyles';
 
@@ -9,12 +9,12 @@ function Disabled(): ReactElement {
   return (
     <Section>
       {types.map((type) => (
-        <IconButton
+        <Button
           key={type}
           type={type}
-          disabled
-          icon="tile-light"
-          style={{padding: 4}}
+          disabled={true}
+          text="TEXT"
+          style={{margin: 2}}
         />
       ))}
     </Section>

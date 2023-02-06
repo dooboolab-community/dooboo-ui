@@ -1,41 +1,10 @@
-import Basic from './basic';
-import React from 'react';
-import type {ReactElement} from 'react';
-import {ThemeProvider} from '@dooboo-ui/theme';
+import EditTextBasic from './EditTextBasic';
+import {renderStory} from '../../Common';
 import {storiesOf} from '@storybook/react-native';
-
-export const basicStory = (): ReactElement => <Basic />;
-
-basicStory.light = {
-  name: 'Basic - light',
-  notes: 'Basic [EditText] with light mode.',
-};
-
-basicStory.dark = {
-  name: 'Basic - dark',
-  notes: 'Basic [EditText] with dark mode.',
-};
+import {withActions} from '@storybook/addon-actions';
+import {withKnobs} from '@storybook/addon-knobs';
 
 storiesOf('EditText', module)
-  .add(
-    basicStory.light.name,
-    () => (
-      <ThemeProvider initialThemeType="light">
-        <Basic />
-      </ThemeProvider>
-    ),
-    {
-      notes: basicStory.light.notes,
-    },
-  )
-  .add(
-    basicStory.dark.name,
-    () => (
-      <ThemeProvider initialThemeType="dark">
-        <Basic />
-      </ThemeProvider>
-    ),
-    {
-      notes: basicStory.light.notes,
-    },
-  );
+  .addDecorator(withKnobs)
+  .addDecorator(withActions)
+  .add('Basic', () => renderStory(<EditTextBasic />));

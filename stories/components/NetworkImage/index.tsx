@@ -1,16 +1,10 @@
-import NetworkImageStory from './DefaultStory';
-import React from 'react';
-import {ThemeProvider} from '@dooboo-ui/theme';
+import NetworkImageBasic from './Basic';
+import {renderStory} from '../../Common';
 import {storiesOf} from '@storybook/react-native';
+import {withActions} from '@storybook/addon-actions';
+import {withKnobs} from '@storybook/addon-knobs';
 
 storiesOf('NetworkImage', module)
-  .add('Basic - light', () => (
-    <ThemeProvider initialThemeType="light">
-      <NetworkImageStory />
-    </ThemeProvider>
-  ))
-  .add('Basic - dark', () => (
-    <ThemeProvider initialThemeType="dark">
-      <NetworkImageStory />
-    </ThemeProvider>
-  ));
+  .addDecorator(withKnobs)
+  .addDecorator(withActions)
+  .add('Basic', () => renderStory(<NetworkImageBasic />));

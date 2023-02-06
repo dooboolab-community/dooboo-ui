@@ -1,19 +1,10 @@
-import StatusBarBrightness from '../../../main/components/StatusbarBrightness';
-import SwitchToggleDefaultStory from './DefaultStory';
-import {ThemeProvider} from '@dooboo-ui/theme';
+import SwitchToggleBasic from './Basic';
+import {renderStory} from '../../Common';
 import {storiesOf} from '@storybook/react-native';
+import {withActions} from '@storybook/addon-actions';
+import {withKnobs} from '@storybook/addon-knobs';
 
 storiesOf('SwitchToggle', module)
-  .add('Basic - light', () => (
-    <ThemeProvider initialThemeType="light">
-      <>
-        <StatusBarBrightness />
-        <SwitchToggleDefaultStory />
-      </>
-    </ThemeProvider>
-  ))
-  .add('Basic - dark', () => (
-    <ThemeProvider initialThemeType="dark">
-      <SwitchToggleDefaultStory />
-    </ThemeProvider>
-  ));
+  .addDecorator(withKnobs)
+  .addDecorator(withActions)
+  .add('Basic', () => renderStory(<SwitchToggleBasic />));

@@ -1,16 +1,10 @@
-import RadioGroupDefaultStory from './DefaultStory';
-import React from 'react';
-import {ThemeProvider} from '@dooboo-ui/theme';
+import RadioGroupBasic from './Basic';
+import {renderStory} from '../../Common';
 import {storiesOf} from '@storybook/react-native';
+import {withActions} from '@storybook/addon-actions';
+import {withKnobs} from '@storybook/addon-knobs';
 
-storiesOf('RadioGroup', module)
-  .add('Basic - light', () => (
-    <ThemeProvider initialThemeType="light">
-      <RadioGroupDefaultStory />
-    </ThemeProvider>
-  ))
-  .add('Basic - dark', () => (
-    <ThemeProvider initialThemeType="dark">
-      <RadioGroupDefaultStory />
-    </ThemeProvider>
-  ));
+storiesOf('ProgressLine', module)
+  .addDecorator(withKnobs)
+  .addDecorator(withActions)
+  .add('Basic', () => renderStory(<RadioGroupBasic />));

@@ -1,24 +1,24 @@
+import {Button} from '../../../../main';
 import type {ButtonType} from '../../../../main';
-import {IconButton} from '../../../../main';
 import type {ReactElement} from 'react';
 import {Section} from '../../../GlobalStyles';
 
-function Disabled(): ReactElement {
+function Basic(): ReactElement {
   const types: ButtonType[] = ['text', 'solid', 'outlined'];
 
   return (
     <Section>
       {types.map((type) => (
-        <IconButton
+        <Button
           key={type}
           type={type}
-          disabled
-          icon="tile-light"
-          style={{padding: 4}}
+          text="TEXT"
+          style={{margin: 4}} // eslint-disable-next-line no-console
+          onPress={() => console.log(`press ${type} basic button`)}
         />
       ))}
     </Section>
   );
 }
 
-export default Disabled;
+export default Basic;

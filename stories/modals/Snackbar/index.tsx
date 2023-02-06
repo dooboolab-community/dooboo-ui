@@ -1,16 +1,10 @@
-import {DoobooProvider} from '../../../main';
-import React from 'react';
-import SnackbarContent from './BasicStory';
+import SnackbarBasic from './BasicStory';
+import {renderStory} from '../../Common';
 import {storiesOf} from '@storybook/react-native';
+import {withActions} from '@storybook/addon-actions';
+import {withKnobs} from '@storybook/addon-knobs';
 
 storiesOf('[Modal] Snackbar', module)
-  .add('Basic - light', () => (
-    <DoobooProvider themeConfig={{initialThemeType: 'light'}}>
-      <SnackbarContent />
-    </DoobooProvider>
-  ))
-  .add('Basic - dark', () => (
-    <DoobooProvider themeConfig={{initialThemeType: 'dark'}}>
-      <SnackbarContent />
-    </DoobooProvider>
-  ));
+  .addDecorator(withKnobs)
+  .addDecorator(withActions)
+  .add('Basic', () => renderStory(<SnackbarBasic />));

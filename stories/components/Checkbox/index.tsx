@@ -1,15 +1,10 @@
-import CheckboxStory from './DefaultStory';
-import {ThemeProvider} from '@dooboo-ui/theme';
+import CheckboxBasic from './CheckboxBasic';
+import {renderStory} from '../../Common';
 import {storiesOf} from '@storybook/react-native';
+import {withActions} from '@storybook/addon-actions';
+import {withKnobs} from '@storybook/addon-knobs';
 
 storiesOf('Checkbox', module)
-  .add('Basic - light', () => (
-    <ThemeProvider initialThemeType="light">
-      <CheckboxStory />
-    </ThemeProvider>
-  ))
-  .add('Basic - dark', () => (
-    <ThemeProvider initialThemeType="dark">
-      <CheckboxStory />
-    </ThemeProvider>
-  ));
+  .addDecorator(withKnobs)
+  .addDecorator(withActions)
+  .add('Basic', () => renderStory(<CheckboxBasic />));

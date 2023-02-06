@@ -1,5 +1,5 @@
-import DefaultStory from './DefaultStory';
-import {ThemeProvider} from '@dooboo-ui/theme';
+import ButtonBasic from './ButtonBasic';
+import {renderStory} from '../../Common';
 import {storiesOf} from '@storybook/react-native';
 import {withActions} from '@storybook/addon-actions';
 import {withKnobs} from '@storybook/addon-knobs';
@@ -7,13 +7,4 @@ import {withKnobs} from '@storybook/addon-knobs';
 storiesOf('Button', module)
   .addDecorator(withKnobs)
   .addDecorator(withActions)
-  .add('Basic - light', () => (
-    <ThemeProvider initialThemeType="light">
-      <DefaultStory themeType="light" />
-    </ThemeProvider>
-  ))
-  .add('Basic - dark', () => (
-    <ThemeProvider initialThemeType="dark">
-      <DefaultStory themeType="dark" />
-    </ThemeProvider>
-  ));
+  .add('Basic', () => renderStory(<ButtonBasic />));

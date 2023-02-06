@@ -1,16 +1,10 @@
-import AlertDialogContent from './BasicStory';
-import {DoobooProvider} from '../../../main';
-import React from 'react';
+import AlertDialogBasic from './Basic';
+import {renderStory} from '../../Common';
 import {storiesOf} from '@storybook/react-native';
+import {withActions} from '@storybook/addon-actions';
+import {withKnobs} from '@storybook/addon-knobs';
 
 storiesOf('[Modal] AlertDialog', module)
-  .add('Basic - light', () => (
-    <DoobooProvider themeConfig={{initialThemeType: 'light'}}>
-      <AlertDialogContent />
-    </DoobooProvider>
-  ))
-  .add('Basic - dark', () => (
-    <DoobooProvider themeConfig={{initialThemeType: 'dark'}}>
-      <AlertDialogContent />
-    </DoobooProvider>
-  ));
+  .addDecorator(withKnobs)
+  .addDecorator(withActions)
+  .add('Basic', () => renderStory(<AlertDialogBasic />));

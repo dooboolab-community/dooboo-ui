@@ -1,15 +1,10 @@
-import IconStory from './DefaultStory';
-import {ThemeProvider} from '@dooboo-ui/theme';
+import IconBasic from './IconBasic';
+import {renderStory} from '../../Common';
 import {storiesOf} from '@storybook/react-native';
+import {withActions} from '@storybook/addon-actions';
+import {withKnobs} from '@storybook/addon-knobs';
 
 storiesOf('Icon', module)
-  .add('Basic - light', () => (
-    <ThemeProvider initialThemeType="light">
-      <IconStory />
-    </ThemeProvider>
-  ))
-  .add('Basic - dark', () => (
-    <ThemeProvider initialThemeType="dark">
-      <IconStory />
-    </ThemeProvider>
-  ));
+  .addDecorator(withKnobs)
+  .addDecorator(withActions)
+  .add('Basic', () => renderStory(<IconBasic />));
