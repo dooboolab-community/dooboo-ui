@@ -1,5 +1,6 @@
 import {Animated, Easing} from 'react-native';
 import type {ImageStyle, StyleProp} from 'react-native';
+// Caveat: Expo web needs React to be imported
 import React, {useEffect, useState} from 'react';
 
 import type {FC} from 'react';

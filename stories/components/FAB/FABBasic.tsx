@@ -1,3 +1,4 @@
+// Caveat: Expo web needs React to be imported
 import React, {useState} from 'react';
 
 import {FAB} from '../../../main';

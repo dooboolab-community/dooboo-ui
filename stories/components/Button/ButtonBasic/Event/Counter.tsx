@@ -1,4 +1,5 @@
 import {Description, Section} from '../../../../GlobalStyles';
+// Caveat: Expo web needs React to be imported
 import React, {useState} from 'react';
 
 import {Button} from '../../../../../main';

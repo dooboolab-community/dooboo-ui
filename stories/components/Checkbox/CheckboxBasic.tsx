@@ -1,5 +1,6 @@
 import {Checkbox, Hr} from '../../../main';
 import type {FC, ReactElement, ReactNode} from 'react';
+// Caveat: Expo web needs React to be imported
 import React, {useState} from 'react';
 
 import type {CheckboxType} from '../../../main';

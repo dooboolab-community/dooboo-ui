@@ -1,8 +1,9 @@
 import {Button, ButtonGroup, Typography} from '../../../../main';
+// Caveat: Expo web needs React to be imported
+import React, {useState} from 'react';
 
 import type {ReactElement} from 'react';
 import {View} from 'react-native';
-import {useState} from 'react';
 import {useTheme} from '@dooboo-ui/theme';
 
 const Vertical = (): ReactElement => {

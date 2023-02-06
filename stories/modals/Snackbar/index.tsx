@@ -1,3 +1,5 @@
+// Caveat: Expo web needs React to be imported
+import React from 'react';
 import SnackbarBasic from './BasicStory';
 import {renderStory} from '../../Common';
 import {storiesOf} from '@storybook/react-native';

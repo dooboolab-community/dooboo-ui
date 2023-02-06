@@ -2,6 +2,7 @@ import {SafeAreaView, ScrollView} from 'react-native';
 
 import CustomButton from './components/CustomButton';
 import CustomData from './components/CustomData';
+// Caveat: Expo web needs React to be imported
 import React from 'react';
 import SingleSelect from './components/SingleSelect';
 import Vertical from './components/Vertical';

@@ -1,3 +1,4 @@
+// Caveat: Expo web needs React to be imported
 import React from 'react';
 import {Typography} from '../../../main';
 import {View} from 'react-native';

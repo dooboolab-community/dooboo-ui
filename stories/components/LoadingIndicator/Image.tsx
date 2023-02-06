@@ -1,4 +1,6 @@
 import {LoadingIndicator} from '../../../main';
+// Caveat: Expo web needs React to be imported
+import React from 'react';
 import {StoryContainer} from '../../GlobalStyles';
 
 function LoadingIndicatorImage(): React.ReactElement {

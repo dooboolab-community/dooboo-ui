@@ -1,5 +1,7 @@
 import {Button, LoadingIndicator} from '../../../../../main';
 
+// Caveat: Expo web needs React to be imported
+import React from 'react';
 import type {ReactElement} from 'react';
 import {Section} from '../../../../GlobalStyles';
 

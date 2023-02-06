@@ -1,5 +1,6 @@
 import {Button, LoadingIndicator} from '../../../../../main';
 import {Image, View} from 'react-native';
+// Caveat: Expo web needs React to be imported
 import React, {useState} from 'react';
 
 import {IC_GOOGLE} from '../../../../../storybook/assets/icons';

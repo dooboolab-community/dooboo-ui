@@ -1,10 +1,11 @@
+// Caveat: Expo web needs React to be imported
+import React, {useState} from 'react';
 import {SafeAreaView, ScrollView} from 'react-native';
 
 import {EditText} from '../../../main/components/EditText';
 import type {EditTextStatus} from '../../../main/components/EditText';
 import type {ReactElement} from 'react';
 import {Typography} from '../../../main/components/Typography';
-import {useState} from 'react';
 import {useTheme} from '@dooboo-ui/theme';
 
 const EditTextBasic = (): ReactElement => {

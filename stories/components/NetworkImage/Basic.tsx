@@ -1,5 +1,6 @@
 import {NetworkImage, Typography} from '../../../main';
 
+// Caveat: Expo web needs React to be imported
 import React from 'react';
 import {View} from 'react-native';
 import styled from '@emotion/native';

@@ -11,6 +11,8 @@ import Custom from './Custom';
 import Disabled from './Disabled';
 import Event from './Event';
 import Loading from './Loading';
+// Caveat: Expo web needs React to be imported
+import React from 'react';
 import type {ReactElement} from 'react';
 import Sizes from './Sizes';
 import StartAndEnd from './StartAndEnd';

@@ -1,7 +1,8 @@
-import type {ReactElement} from 'react';
+// Caveat: Expo web needs React to be imported
 import React, {useState} from 'react';
 import {SwitchToggle, Typography} from '../../../main';
 
+import type {ReactElement} from 'react';
 import styled from '@emotion/native';
 import {useTheme} from '@dooboo-ui/theme';
 

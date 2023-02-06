@@ -2,6 +2,7 @@ import 'intl';
 import 'intl/locale-data/jsonp/en';
 
 import CalendarCarouselBasic from './Basic';
+// Caveat: Expo web needs React to be imported
 import React from 'react';
 import {renderStory} from '../../Common';
 import {storiesOf} from '@storybook/react-native';

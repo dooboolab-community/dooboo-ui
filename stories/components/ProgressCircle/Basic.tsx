@@ -1,9 +1,10 @@
+// Caveat: Expo web needs React to be imported
+import React, {useEffect, useState} from 'react';
 import {
   boolean as booleanInput,
   number as numberInput,
   select as selectInput,
 } from '@storybook/addon-knobs';
-import {useEffect, useState} from 'react';
 
 import type {DoobooTheme} from '@dooboo-ui/theme';
 import {ProgressCircle} from '../../../main';

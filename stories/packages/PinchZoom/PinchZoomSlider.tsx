@@ -1,3 +1,4 @@
+// Caveat: Expo web needs React to be imported
 import {Animated, Dimensions, FlatList, Image} from 'react-native';
 import type {ImageProps, ImageSourcePropType} from 'react-native';
 

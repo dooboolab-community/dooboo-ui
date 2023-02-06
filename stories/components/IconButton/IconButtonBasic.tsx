@@ -14,6 +14,8 @@ import {
   Title,
 } from '../../GlobalStyles';
 
+// Caveat: Expo web needs React to be imported
+import React from 'react';
 import type {ReactElement} from 'react';
 
 function IconButtonBasic(): ReactElement {
