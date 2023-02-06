@@ -1,10 +1,10 @@
-import type {ImageProps, ImageSourcePropType} from 'react-native';
 import {Animated, Dimensions, FlatList, Image} from 'react-native';
-import type {PinchZoomRef} from '../';
-import {PinchZoom} from '../';
-import type {ReactElement} from 'react';
-import React from 'react';
+import type {ImageProps, ImageSourcePropType} from 'react-native';
 
+import {PinchZoom} from '../../../packages/PinchZoom/lib';
+import type {PinchZoomRef} from '../../../packages/PinchZoom/lib';
+import React from 'react';
+import type {ReactElement} from 'react';
 import styled from '@emotion/native';
 
 const Container = styled.View`

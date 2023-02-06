@@ -3,7 +3,7 @@ import 'intl/locale-data/jsonp/en';
 
 import React, {useState} from 'react';
 
-import CalendarCarousel from '../lib';
+import CalendarCarousel from '../../../packages/CalendarCarousel/lib';
 import styled from '@emotion/native';
 
 const Container = styled.SafeAreaView`
@@ -15,7 +15,7 @@ const Container = styled.SafeAreaView`
 
 const date = new Date();
 
-function Default(): React.ReactElement {
+function CalendarCarouselBasic(): React.ReactElement {
   const [currentDate, setCurrentDate] = useState<Date>(date);
   const [selectedDate, setSelectedDate] = useState<Date>();
   const monthFormatter = new Intl.DateTimeFormat('default', {month: 'long'});
@@ -49,4 +49,4 @@ function Default(): React.ReactElement {
   );
 }
 
-export default Default;
+export default CalendarCarouselBasic;
