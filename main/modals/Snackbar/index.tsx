@@ -1,6 +1,6 @@
 import {Modal, StyleSheet} from 'react-native';
+import React, {forwardRef, useImperativeHandle, useState} from 'react';
 import type {StyleProp, TextStyle, ViewStyle} from 'react-native';
-import {forwardRef, useImperativeHandle, useState} from 'react';
 
 import {Button} from '../../components/Button';
 import type {ButtonColorType} from '../../components/Button';

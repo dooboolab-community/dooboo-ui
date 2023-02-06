@@ -1,3 +1,4 @@
+// Caveat: Expo web needs React to be imported
 import React from 'react';
 import TypographyBasic from './Basic';
 import TypographyWithTheme from './WithTheme';

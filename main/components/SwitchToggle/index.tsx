@@ -1,6 +1,6 @@
 import {Animated, TouchableOpacity} from 'react-native';
+import React, {useEffect, useState} from 'react';
 import type {StyleProp, ViewStyle} from 'react-native';
-import {useEffect, useState} from 'react';
 
 import type {ReactElement} from 'react';
 import styled from '@emotion/native';

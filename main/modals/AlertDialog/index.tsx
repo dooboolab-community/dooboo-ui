@@ -1,6 +1,11 @@
 import {Modal, StyleSheet} from 'react-native';
+import React, {
+  cloneElement,
+  forwardRef,
+  useImperativeHandle,
+  useState,
+} from 'react';
 import type {StyleProp, TextStyle, ViewStyle} from 'react-native';
-import {cloneElement, forwardRef, useImperativeHandle, useState} from 'react';
 
 import {Button} from '../../components/Button';
 import {Icon} from '../../components/Icon';

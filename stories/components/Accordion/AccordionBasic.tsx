@@ -6,6 +6,8 @@ import {boolean, number} from '@storybook/addon-knobs';
 
 import {Accordion} from '../../../main/components/Accordion';
 import {Icon} from '../../../main/components/Icon';
+// Caveat: Expo web needs React to be imported
+import React from 'react';
 import type {ReactElement} from 'react';
 import {Typography} from '../../../main/components/Typography';
 import {View} from 'react-native';
