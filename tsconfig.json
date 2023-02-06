@@ -46,6 +46,8 @@
     "main/**/*.tsx",
     "packages/**/*.ts",
     "packages/**/*.tsx",
+    "stories/**/*.ts",
+    "stories/**/*.tsx",
     "setupTest.ts"
   ],
   "exclude": [

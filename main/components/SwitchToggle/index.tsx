@@ -1,12 +1,12 @@
 import {Animated, TouchableOpacity} from 'react-native';
-import React, {useEffect, useState} from 'react';
 import type {StyleProp, ViewStyle} from 'react-native';
+import {useEffect, useState} from 'react';
 
 import type {ReactElement} from 'react';
 import styled from '@emotion/native';
 import {useTheme} from '@dooboo-ui/theme';
 
-interface Styles {
+type Styles = {
   container?: ViewStyle;
   onElementContainer?: StyleProp<ViewStyle>;
   offElementContainer?: StyleProp<ViewStyle>;
@@ -16,10 +16,11 @@ interface Styles {
   circleColorOn?: string;
   backgroundColorOn?: string;
   backgroundColorOff?: string;
-}
+};
 
-interface Props {
+type Props = {
   testID?: string;
+  size?: 'small' | 'medium' | 'large';
   isOn: boolean;
   style?: StyleProp<ViewStyle>;
   styles?: Styles;
@@ -27,7 +28,7 @@ interface Props {
   onElement?: any;
   offElement?: any;
   onPress?: () => void;
-}
+};
 
 // Typing limitation: https://github.com/DefinitelyTyped/DefinitelyTyped/issues/12202
 
@@ -36,14 +37,40 @@ const AnimatedContainer = styled(Animated.View)`
   align-items: center;
 `;
 
-const defaultContainer: ViewStyle = {
+const smallContainer: ViewStyle = {
+  width: 40,
+  height: 24,
+  borderRadius: 25,
+  padding: 5,
+};
+
+const smallCircle: ViewStyle = {
+  width: 16,
+  height: 16,
+  borderRadius: 8,
+};
+
+const mediumContainer: ViewStyle = {
+  width: 56,
+  height: 30,
+  borderRadius: 25,
+  padding: 5,
+};
+
+const mediumCircle: ViewStyle = {
+  width: 20,
+  height: 20,
+  borderRadius: 10,
+};
+
+const largeContainer: ViewStyle = {
   width: 80,
   height: 40,
   borderRadius: 25,
   padding: 5,
 };
 
-const defaultCircle: ViewStyle = {
+const largeCircle: ViewStyle = {
   width: 32,
   height: 32,
   borderRadius: 16,
@@ -57,6 +84,7 @@ export function SwitchToggle(props: Props): ReactElement {
     styles,
     duration = 300,
     onElement,
+    size = 'medium',
     offElement,
     onPress,
   } = props;
@@ -68,8 +96,16 @@ export function SwitchToggle(props: Props): ReactElement {
     backgroundColorOff = theme.bg.disabled,
     circleColorOn = theme.text.contrast,
     circleColorOff = theme.text.basic,
-    container = defaultContainer,
-    circle = defaultCircle,
+    container = size === 'large'
+      ? largeContainer
+      : size === 'small'
+      ? smallContainer
+      : mediumContainer,
+    circle = size === 'large'
+      ? largeCircle
+      : size === 'small'
+      ? smallCircle
+      : mediumCircle,
     button,
     onElementContainer,
     offElementContainer,
@@ -84,8 +120,8 @@ export function SwitchToggle(props: Props): ReactElement {
   const circlePosXStart = 0;
 
   const circlePosXEnd =
-    ((container.width ?? defaultContainer.width) as number) -
-    ((circle.width ?? defaultCircle.width) as number) -
+    ((container.width ?? mediumContainer.width) as number) -
+    ((circle.width ?? mediumCircle.width) as number) -
     (paddingRight + paddingLeft);
 
   const [animXValue] = useState(new Animated.Value(isOn ? 1 : 0));

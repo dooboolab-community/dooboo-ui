@@ -1,11 +1,10 @@
 import type {RadioButtonProps, RadioButtonType} from './RadioButton';
-import {RadioButton as RadioButtonComp} from './RadioButton';
-import type {ReactElement} from 'react';
-import React from 'react';
 import type {StyleProp, TextStyle, ViewStyle} from 'react-native';
-import {View} from 'react-native';
 
 import {Heading3} from '../Typography/Typography';
+import {RadioButton as RadioButtonComp} from './RadioButton';
+import type {ReactElement} from 'react';
+import {View} from 'react-native';
 import styled from '@emotion/native';
 
 type Styles = {

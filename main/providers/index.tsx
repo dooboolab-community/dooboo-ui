@@ -1,5 +1,4 @@
 import type {MutableRefObject, ReactElement} from 'react';
-import React, {useRef} from 'react';
 import type {SnackbarContext, SnackbarOptions} from '../modals/Snackbar';
 import type {ThemeContext, ThemeProps} from '@dooboo-ui/theme/ThemeProvider';
 import {ThemeProvider, useTheme} from '@dooboo-ui/theme';
@@ -9,6 +8,7 @@ import type {AlertDialogContext} from '../modals/AlertDialog';
 import Snackbar from '../modals/Snackbar';
 import {View} from 'react-native';
 import createCtx from '../utils/createCtx';
+import {useRef} from 'react';
 
 export type {ThemeContext} from '@dooboo-ui/theme/ThemeProvider';
 export type ThemeType = ThemeContext['themeType'];
