@@ -1,11 +1,13 @@
 {
   "files": {
-    "app.js": "/dooboo-ui/static/js/app.e19dc304.chunk.js",
-    "app.js.map": "/dooboo-ui/static/js/app.e19dc304.chunk.js.map",
-    "runtime~app.js": "/dooboo-ui/static/js/runtime~app.ec57c3fc.js",
-    "runtime~app.js.map": "/dooboo-ui/static/js/runtime~app.ec57c3fc.js.map",
-    "static/js/2.251108ff.chunk.js": "/dooboo-ui/static/js/2.251108ff.chunk.js",
-    "static/js/2.251108ff.chunk.js.map": "/dooboo-ui/static/js/2.251108ff.chunk.js.map",
+    "static/js/0.cbdfd57b.chunk.js": "/dooboo-ui/static/js/0.cbdfd57b.chunk.js",
+    "static/js/0.cbdfd57b.chunk.js.map": "/dooboo-ui/static/js/0.cbdfd57b.chunk.js.map",
+    "app.js": "/dooboo-ui/static/js/app.edf8ba8f.chunk.js",
+    "app.js.map": "/dooboo-ui/static/js/app.edf8ba8f.chunk.js.map",
+    "runtime~app.js": "/dooboo-ui/static/js/runtime~app.407ea7ca.js",
+    "runtime~app.js.map": "/dooboo-ui/static/js/runtime~app.407ea7ca.js.map",
+    "static/js/3.bdf9a014.chunk.js": "/dooboo-ui/static/js/3.bdf9a014.chunk.js",
+    "static/js/3.bdf9a014.chunk.js.map": "/dooboo-ui/static/js/3.bdf9a014.chunk.js.map",
     "fonts/AntDesign.ttf": "/dooboo-ui/./fonts/AntDesign.ttf",
     "fonts/Entypo.ttf": "/dooboo-ui/./fonts/Entypo.ttf",
     "fonts/Feather.ttf": "/dooboo-ui/./fonts/Feather.ttf",
@@ -24,7 +26,7 @@
     "index.html": "/dooboo-ui/index.html",
     "manifest.json": "/dooboo-ui/manifest.json",
     "serve.json": "/dooboo-ui/serve.json",
-    "static/js/2.251108ff.chunk.js.LICENSE.txt": "/dooboo-ui/static/js/2.251108ff.chunk.js.LICENSE.txt",
+    "static/js/3.bdf9a014.chunk.js.LICENSE.txt": "/dooboo-ui/static/js/3.bdf9a014.chunk.js.LICENSE.txt",
     "static/media/artifacts_logo_d.png": "/dooboo-ui/static/media/artifacts_logo_d.ebf4ac96.png",
     "static/media/artifacts_logo_l.png": "/dooboo-ui/static/media/artifacts_logo_l.ad84f316.png",
     "static/media/color-circle.png": "/dooboo-ui/static/media/color-circle.aeee73f0.png",
@@ -33,8 +35,8 @@
     "static/media/mask.png": "/dooboo-ui/static/media/mask.7a74ac5a.png"
   },
   "entrypoints": [
-    "static/js/runtime~app.ec57c3fc.js",
-    "static/js/2.251108ff.chunk.js",
-    "static/js/app.e19dc304.chunk.js"
+    "static/js/runtime~app.407ea7ca.js",
+    "static/js/3.bdf9a014.chunk.js",
+    "static/js/app.edf8ba8f.chunk.js"
   ]
 }
