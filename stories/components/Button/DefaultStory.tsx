@@ -8,7 +8,7 @@ import {
   LoadingElement,
   Sizes,
   StartAndEnd,
-} from './basics';
+} from './Basic';
 import {
   Description,
   ScrollContainer,
