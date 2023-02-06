@@ -1,4 +1,4 @@
-import {AccordionDefault} from './DefaultStory';
+import {AccordionBasic} from './Basic';
 import {DoobooProvider} from '../../../main';
 import React from 'react';
 import {StoryWrapper} from '../../Common';
@@ -10,7 +10,7 @@ storiesOf('Accordion', module)
   .add('Basic', () => (
     <DoobooProvider>
       <StoryWrapper>
-        <AccordionDefault />
+        <AccordionBasic />
       </StoryWrapper>
     </DoobooProvider>
   ));

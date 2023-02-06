@@ -6,9 +6,7 @@ import {boolean, number} from '@storybook/addon-knobs';
 
 import {Accordion} from '../../../main/components/Accordion';
 import {Icon} from '../../../main/components/Icon';
-import React from 'react';
 import type {ReactElement} from 'react';
-import {StoryWrapper} from '../../Common';
 import {Typography} from '../../../main/components/Typography';
 import {View} from 'react-native';
 import styled from '@emotion/native';
@@ -54,7 +52,7 @@ const data: AccordionListType = [
   },
 ];
 
-export const AccordionDefault = (): ReactElement => {
+export const AccordionBasic = (): ReactElement => {
   const {theme} = useDooboo();
 
   return (
