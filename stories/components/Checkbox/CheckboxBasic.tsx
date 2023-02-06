@@ -134,7 +134,6 @@ function CheckboxBasic(): ReactElement {
     >
       <ScrollContainer
         contentContainerStyle={{
-          paddingVertical: 60,
           paddingHorizontal: 40,
           justifyContent: 'center',
           alignItems: 'center',

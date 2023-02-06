@@ -32,7 +32,7 @@ const EditTextBasic = (): ReactElement => {
       <ScrollView
         contentContainerStyle={{
           alignSelf: 'stretch',
-          paddingVertical: 40,
+          paddingVertical: 20,
           flexDirection: 'column',
           justifyContent: 'center',
           alignItems: 'center',

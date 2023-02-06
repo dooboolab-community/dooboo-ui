@@ -14,7 +14,6 @@ const ButtonGroupBasic = (): React.ReactElement => {
     <SafeAreaView style={{flex: 1, backgroundColor: theme.bg.basic}}>
       <ScrollView
         contentContainerStyle={{
-          paddingVertical: 40,
           flexDirection: 'column',
         }}
       >
