@@ -1,10 +1,10 @@
 import {Animated, Easing} from 'react-native';
-import type {FC, ReactElement} from 'react';
 import React, {useCallback, useEffect, useRef, useState} from 'react';
 
 import type {AccordionBaseProps} from './Accordion';
 import {Icon} from '../Icon';
 import type {LayoutChangeEvent} from 'react-native';
+import type {ReactElement} from 'react';
 import styled from '@emotion/native';
 import {useTheme} from '@dooboo-ui/theme';
 
@@ -23,7 +23,6 @@ const ItemContainer = styled.View`
   background-color: ${({theme}) => theme.bg.basic};
   flex-direction: row;
   align-items: center;
-  width: 100%;
   padding: 20px 0px;
 `;
 
@@ -51,7 +50,7 @@ interface Props<T> extends AccordionBaseProps<T> {
 
 type AccordionItemProps = Props<AccordionData>;
 
-const AccordionItem: FC<AccordionItemProps> = (props) => {
+function AccordionItem(props: AccordionItemProps): ReactElement {
   const {theme} = useTheme();
 
   const {
@@ -123,7 +122,7 @@ const AccordionItem: FC<AccordionItemProps> = (props) => {
     startAnimation();
   }, [startAnimation]);
 
-  const renderIndicator = (element): ReactElement => (
+  const indicatorEl = (
     <Animated.View
       style={{
         position: 'absolute',
@@ -138,7 +137,7 @@ const AccordionItem: FC<AccordionItemProps> = (props) => {
         ],
       }}
     >
-      {element}
+      {toggleElement}
     </Animated.View>
   );
 
@@ -148,7 +147,6 @@ const AccordionItem: FC<AccordionItemProps> = (props) => {
         {
           backgroundColor: 'transparent',
           overflow: 'hidden',
-          width: 300,
         },
         style,
       ]}
@@ -162,7 +160,7 @@ const AccordionItem: FC<AccordionItemProps> = (props) => {
       >
         <>
           {renderTitle(item.title)}
-          {renderIndicator(toggleElement)}
+          {indicatorEl}
         </>
       </TitleContainer>
 
@@ -189,6 +187,6 @@ const AccordionItem: FC<AccordionItemProps> = (props) => {
       </Animated.View>
     </Animated.View>
   );
-};
+}
 
 export default AccordionItem;

@@ -9,7 +9,6 @@ import styled from '@emotion/native';
 
 const Container = styled.View`
   flex-direction: column;
-  align-items: center;
 `;
 
 interface Styles {
