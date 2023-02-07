@@ -3,7 +3,7 @@ import type {
   AccordionListType,
 } from '../../../main/components/Accordion';
 import {ScrollContainer, StoryContainer, StoryTitle} from '../../GlobalStyles';
-import {boolean, number} from '@storybook/addon-knobs';
+import {boolean, number, object} from '@storybook/addon-knobs';
 
 import {Accordion} from '../../../main/components/Accordion';
 import {Icon} from '../../../main/components/Icon';
@@ -15,21 +15,6 @@ import {View} from 'react-native';
 import styled from '@emotion/native';
 import {useDooboo} from '../../../main';
 
-const data: AccordionListType = [
-  {
-    title: 'Lists',
-    bodies: ['user', 'mail', 'plan'],
-  },
-  {
-    title: 'mail',
-    bodies: ['mail list', 'category', 'bin'],
-  },
-  {
-    title: 'Reports',
-    bodies: ['report list', 'statistics'],
-  },
-];
-
 const CustomStyledItem = styled.Text`
   padding-left: 10px;
   font-weight: bold;
@@ -37,7 +22,7 @@ const CustomStyledItem = styled.Text`
   left: 40px;
 `;
 
-const AccordionCustom = (): ReactElement => {
+const AccordionCustom = ({data}: {data: AccordionListType}): ReactElement => {
   const {theme} = useDooboo();
 
   return (
@@ -49,10 +34,23 @@ const AccordionCustom = (): ReactElement => {
         <Accordion
           shouldAnimate={boolean('shouldAnimate', true)}
           animDuration={number('animDuration', 200)}
-          data={data.map<AccordionData>((datum) => ({
-            ...datum,
-            title: datum.title.toUpperCase(),
-          }))}
+          activeOpacity={number('activeOpacity', 1)}
+          collapseOnStart={boolean('collapseOnStart', true)}
+          styles={object('styles', {
+            titleContainer: {
+              backgroundColor: 'gray',
+            },
+            bodyContainer: {
+              backgroundColor: 'lightgray',
+            },
+          })}
+          data={object(
+            'data',
+            data.map<AccordionData>((datum) => ({
+              ...datum,
+              title: datum.title.toUpperCase(),
+            })),
+          )}
           renderTitle={(item) => (
             <View
               style={{
@@ -70,14 +68,6 @@ const AccordionCustom = (): ReactElement => {
           toggleElement={
             <Icon name="chevron-down-light" color={theme.text.contrast} />
           }
-          styles={{
-            titleContainer: {
-              backgroundColor: 'gray',
-            },
-            bodyContainer: {
-              backgroundColor: 'lightgray',
-            },
-          }}
         />
       </StoryContainer>
     </ScrollContainer>
