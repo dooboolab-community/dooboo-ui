@@ -1,12 +1,12 @@
 // Caveat: Expo web needs React to be imported
 import React, {useState} from 'react';
+import {StoryContainer, StoryTitle} from '../../GlobalStyles';
 
 import type {RadioButtonType} from '../../../main/components/RadioGroup/RadioButton';
 import {RadioGroup} from '../../../main';
 import type {ReactElement} from 'react';
 import {View} from 'react-native';
 import styled from '@emotion/native';
-import {useTheme} from '@dooboo-ui/theme';
 
 const ScrollContainer = styled.ScrollView`
   width: 100%;
@@ -20,27 +20,18 @@ const types = ['primary', 'secondary', 'success', 'info', 'warning', 'danger'];
 const data = ['Person', 'Animal', 'Bird', 'Other'];
 
 function RadioButtonBasic(): ReactElement {
-  const {theme} = useTheme();
   const [selectedValue, setSelectedValue] = useState<string>(data[0]);
 
   return (
-    <View
-      style={{
-        backgroundColor: theme.bg.basic,
-        flex: 1,
+    <ScrollContainer
+      contentContainerStyle={{
         alignSelf: 'stretch',
+        justifyContent: 'center',
+        alignItems: 'center',
       }}
     >
-      <ScrollContainer
-        contentContainerStyle={{
-          alignSelf: 'stretch',
-          justifyContent: 'center',
-          alignItems: 'center',
-        }}
-      >
-        <StyledText style={{fontSize: 18, marginTop: 24, marginBottom: 12}}>
-          Radio Group
-        </StyledText>
+      <StoryContainer>
+        <StoryTitle>Radio Group</StoryTitle>
         {types.map((el, i) => {
           return (
             <View
@@ -77,8 +68,8 @@ function RadioButtonBasic(): ReactElement {
             </View>
           );
         })}
-      </ScrollContainer>
-    </View>
+      </StoryContainer>
+    </ScrollContainer>
   );
 }
 

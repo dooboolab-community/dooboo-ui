@@ -2,6 +2,7 @@ import {ProgressBar} from '../../../main';
 // Caveat: Expo web needs React to be imported
 import React from 'react';
 import type {ReactElement} from 'react';
+import {StoryTitle} from '../../GlobalStyles';
 import styled from '@emotion/native';
 
 const StoryContainer = styled.View`
@@ -18,14 +19,6 @@ const Section = styled.View`
   margin-bottom: 40px;
 `;
 
-const Title = styled.Text`
-  font-size: 20px;
-  text-align: center;
-  margin-top: 20px;
-  margin-bottom: 20px;
-  color: ${({theme}) => theme.role.primary};
-`;
-
 const SubTitle = styled.Text`
   font-size: 14px;
   text-align: center;
@@ -37,7 +30,7 @@ const SubTitle = styled.Text`
 function ProgressBarBasic(): ReactElement {
   return (
     <StoryContainer>
-      <Title>ProgressBar</Title>
+      <StoryTitle>Basic</StoryTitle>
       <Section>
         <SubTitle>Info</SubTitle>
         <ProgressBar value={25} />

@@ -1,26 +1,15 @@
 // Caveat: Expo web needs React to be imported
 import React, {useEffect, useState} from 'react';
+import {StoryContainer, StoryTitle} from '../../GlobalStyles';
 import {
   boolean as booleanInput,
   number as numberInput,
   select as selectInput,
 } from '@storybook/addon-knobs';
 
-import type {DoobooTheme} from '@dooboo-ui/theme';
 import {ProgressCircle} from '../../../main';
 import type {ReactElement} from 'react';
-import styled from '@emotion/native';
 import {useTheme} from '@dooboo-ui/theme';
-
-type DoobooThemeContext = {theme?: DoobooTheme};
-
-const Container = styled.View<DoobooThemeContext>`
-  flex: 1;
-  justify-content: center;
-  align-items: center;
-  padding: 10px;
-  background-color: ${({theme}) => theme.bg.basic};
-`;
 
 function ProgressCircleBasic(): ReactElement {
   const {changeThemeType} = useTheme();
@@ -74,9 +63,10 @@ function ProgressCircleBasic(): ReactElement {
   }, [changeThemeType, themeType]);
 
   return (
-    <Container>
+    <StoryContainer>
+      <StoryTitle>Basic</StoryTitle>
       <ProgressCircle type={type} progress={progress} />
-    </Container>
+    </StoryContainer>
   );
 }
 

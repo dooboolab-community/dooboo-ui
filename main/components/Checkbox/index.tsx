@@ -16,7 +16,7 @@ type Styles = {
   checkbox?: StyleProp<ViewStyle>;
 };
 
-export type CheckboxType =
+export type CheckboxColor =
   | 'primary'
   | 'secondary'
   | 'success'
@@ -28,7 +28,7 @@ export interface CheckboxProps {
   onPress?: () => void;
   style?: StyleProp<ViewStyle>;
   styles?: Styles;
-  type?: CheckboxType;
+  color?: CheckboxColor;
   disabled?: boolean;
   checked?: boolean;
   endElement?: React.ReactElement;
@@ -43,7 +43,7 @@ const Container = styled.TouchableOpacity`
 const StyledCheckboxOutlined = styled(CheckboxWrapperOutlined)<{
   checked?: boolean;
   disabled?: boolean;
-  type?: CheckboxType;
+  type?: CheckboxColor;
 }>`
   width: 20px;
   height: 20px;
@@ -57,7 +57,7 @@ const StyledCheckboxOutlined = styled(CheckboxWrapperOutlined)<{
 const StyledCheckbox = styled(CheckboxWrapper)<{
   checked?: boolean;
   disabled?: boolean;
-  type?: CheckboxType;
+  type?: CheckboxColor;
 }>`
   width: 20px;
   height: 20px;
@@ -76,7 +76,7 @@ export const Checkbox: FC<CheckboxProps> = ({
   styles,
   endElement,
   startElement,
-  type = 'primary',
+  color = 'primary',
   disabled = false,
   checked = false,
   onPress,
@@ -126,7 +126,7 @@ export const Checkbox: FC<CheckboxProps> = ({
           <StyledCheckboxOutlined
             testID="doobooui-checkbox"
             checked={checked}
-            type={type}
+            type={color}
             disabled={disabled}
             style={styles?.checkbox}
           >
@@ -136,7 +136,7 @@ export const Checkbox: FC<CheckboxProps> = ({
                 {opacity: fadeAnim, transform: [{scale: scaleAnim}]},
               ]}
               checked={checked}
-              type={type}
+              type={color}
               disabled={disabled}
             >
               <StyledCheck theme={theme} name="tick-light" checked={checked} />

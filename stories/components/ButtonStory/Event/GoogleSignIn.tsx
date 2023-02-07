@@ -1,11 +1,11 @@
-import {Button, LoadingIndicator} from '../../../../../main';
+import {Button, LoadingIndicator} from '../../../../main';
 import {Image, View} from 'react-native';
 // Caveat: Expo web needs React to be imported
 import React, {useState} from 'react';
 
-import {IC_GOOGLE} from '../../../../../storybook/assets/icons';
+import {IC_GOOGLE} from '../../../../storybook/assets/icons';
 import type {ReactElement} from 'react';
-import {StorySection} from '../../../../GlobalStyles';
+import {StorySection} from '../../../GlobalStyles';
 import {action} from '@storybook/addon-actions';
 import {css} from '@emotion/native';
 
@@ -20,12 +20,12 @@ function StartElementAndEndElement(): ReactElement {
             <Image style={{width: 20, height: 20}} source={IC_GOOGLE} />
           </View>
         }
+        borderRadius={80}
         loading={googleLoading}
         loadingElement={<LoadingIndicator size="small" color="deepskyblue" />}
         style={{margin: 4}}
         styles={{
           container: css`
-            border-radius: 80px;
             border-width: 0.5px;
             border-color: deepskyblue;
             width: 300px;
@@ -35,7 +35,6 @@ function StartElementAndEndElement(): ReactElement {
         }}
         onPress={(e): void => {
           setGoogleLoading(true);
-
           action('GOOGLE SIGN IN')(e);
 
           const timeout = setTimeout(() => {

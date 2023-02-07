@@ -3,6 +3,7 @@ import React, {useState} from 'react';
 import {SwitchToggle, Typography} from '../../../main';
 
 import type {ReactElement} from 'react';
+import {ScrollContainer} from '../../GlobalStyles';
 import styled from '@emotion/native';
 import {useTheme} from '@dooboo-ui/theme';
 
@@ -10,10 +11,6 @@ const StoryContainer = styled.View`
   flex: 1;
   align-self: stretch;
   background-color: ${({theme}) => theme.bg.basic};
-`;
-
-const ScrollContainer = styled.ScrollView`
-  width: 100%;
 `;
 
 const Container = styled.View`
@@ -31,8 +28,8 @@ function SwitchToggleBasic(): ReactElement {
   const {theme} = useTheme();
 
   return (
-    <StoryContainer>
-      <ScrollContainer>
+    <ScrollContainer>
+      <StoryContainer>
         <Container style={{paddingVertical: 60}}>
           <Typography.Heading3 style={{fontSize: 18, marginBottom: 8}}>
             Basic Style
@@ -78,8 +75,8 @@ function SwitchToggleBasic(): ReactElement {
             }}
           />
         </Container>
-      </ScrollContainer>
-    </StoryContainer>
+      </StoryContainer>
+    </ScrollContainer>
   );
 }
 

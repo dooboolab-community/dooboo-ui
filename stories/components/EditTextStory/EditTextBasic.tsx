@@ -1,11 +1,12 @@
 // Caveat: Expo web needs React to be imported
 import React, {useState} from 'react';
-import {SafeAreaView, ScrollView} from 'react-native';
+import {ScrollContainer, StoryContainer} from '../../GlobalStyles';
 
 import {EditText} from '../../../main/components/EditText';
 import type {EditTextStatus} from '../../../main/components/EditText';
 import type {ReactElement} from 'react';
 import {Typography} from '../../../main/components/Typography';
+import {boolean} from '@storybook/addon-knobs';
 import {useTheme} from '@dooboo-ui/theme';
 
 const EditTextBasic = (): ReactElement => {
@@ -29,109 +30,123 @@ const EditTextBasic = (): ReactElement => {
   };
 
   return (
-    <SafeAreaView style={{flex: 1, alignSelf: 'stretch'}}>
-      <ScrollView
-        contentContainerStyle={{
-          alignSelf: 'stretch',
-          paddingVertical: 20,
-          flexDirection: 'column',
-          justifyContent: 'center',
-          alignItems: 'center',
-          backgroundColor: theme.bg.basic,
-        }}
-      >
+    <ScrollContainer
+      contentContainerStyle={{
+        justifyContent: 'center',
+        alignItems: 'center',
+      }}
+    >
+      <StoryContainer>
         <Typography.Heading1>EditText</Typography.Heading1>
         <EditText
+          secureTextEntry={boolean('secureTextEntry', false)}
+          editable={boolean('editable', true)}
           placeholder="Basic text input"
           value={text}
           onChangeText={(str) => onTextChanged(str)}
-          style={{marginTop: 20, paddingHorizontal: 36}}
+          style={{marginTop: 20}}
         />
 
         <EditText
+          secureTextEntry={true}
+          editable={boolean('editable', true)}
           placeholder="Secure text input"
           value={text}
-          secureTextEntry={true}
           onChangeText={(str) => onTextChanged(str)}
-          style={{marginTop: 20, paddingHorizontal: 36}}
+          style={{marginTop: 20}}
         />
 
         <EditText
+          secureTextEntry={boolean('secureTextEntry', false)}
+          editable={boolean('editable', true)}
           direction="column"
           label="Column"
           placeholder="direction: column"
           value={text}
           onChangeText={(str) => onTextChanged(str)}
-          style={{marginTop: 20, paddingHorizontal: 36}}
+          style={{marginTop: 20}}
         />
 
         <EditText
+          secureTextEntry={boolean('secureTextEntry', false)}
+          editable={boolean('editable', true)}
           direction="row"
           placeholder="direction: row"
           label="Row"
           value={text}
           onChangeText={(str) => onTextChanged(str)}
-          style={{marginTop: 20, paddingHorizontal: 36}}
+          style={{marginTop: 20}}
         />
 
         <EditText
+          secureTextEntry={boolean('secureTextEntry', false)}
+          editable={boolean('editable', true)}
           direction="column"
           decoration="boxed"
           placeholder="decoration: boxed"
           label="Boxed"
           value={text}
           onChangeText={(str) => onTextChanged(str)}
-          style={{marginTop: 20, paddingHorizontal: 36}}
+          style={{marginTop: 20}}
         />
 
         <EditText
+          secureTextEntry={boolean('secureTextEntry', false)}
+          editable={boolean('editable', true)}
           direction="column"
           placeholder="multiline example"
           label="multiline"
           multiline={true}
           value={text}
           onChangeText={(str) => onTextChanged(str)}
-          style={{marginTop: 20, paddingHorizontal: 36}}
+          style={{marginTop: 20}}
         />
 
         <EditText
+          secureTextEntry={boolean('secureTextEntry', false)}
+          editable={boolean('editable', true)}
           direction="row"
           placeholder="Error example"
           label="Email"
           value={text}
           onChangeText={(str) => onTextChanged(str)}
-          style={{marginTop: 20, paddingHorizontal: 36}}
+          style={{marginTop: 20}}
           error="This is error message"
         />
 
         <EditText
+          secureTextEntry={boolean('secureTextEntry', false)}
+          editable={false}
           direction="row"
           placeholder="Disabled example"
           label="Email"
-          editable={false}
           value={text}
           onChangeText={(str) => onTextChanged(str)}
-          style={{marginTop: 20, paddingHorizontal: 36}}
+          style={{marginTop: 20}}
         />
 
         <EditText
+          secureTextEntry={boolean('secureTextEntry', false)}
+          editable={boolean('editable', true)}
           placeholder="Custom label example"
           label={renderCustomLabel}
           value={text}
           onChangeText={(str) => onTextChanged(str)}
-          style={{marginTop: 20, paddingHorizontal: 36}}
+          style={{marginTop: 20}}
         />
 
         <EditText
+          secureTextEntry={boolean('secureTextEntry', false)}
+          editable={boolean('editable', true)}
           placeholder="Please write text"
           value={text}
           error="error text"
           onChangeText={(str) => onTextChanged(str)}
-          style={{marginTop: 20, paddingHorizontal: 36, marginBottom: 40}}
+          style={{marginTop: 20, marginBottom: 80}}
           maxLength={10}
         />
-      </ScrollView>
-    </SafeAreaView>
+      </StoryContainer>
+    </ScrollContainer>
   );
 };
 

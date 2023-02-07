@@ -3,7 +3,7 @@ import GoogleSignIn from './GoogleSignIn';
 // Caveat: Expo web needs React to be imported
 import React from 'react';
 import type {ReactElement} from 'react';
-import {StoryDescription} from '../../../../GlobalStyles';
+import {StoryDescription} from '../../../GlobalStyles';
 
 function Event(): ReactElement {
   return (

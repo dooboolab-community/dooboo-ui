@@ -1,11 +1,12 @@
 import React, {useMemo, useRef, useState} from 'react';
 import Svg, {Circle as SvgCircle} from 'react-native-svg';
 import type {TextStyle, ViewStyle} from 'react-native';
-import {useTheme, withTheme} from '@dooboo-ui/theme';
 
 import {Animated} from 'react-native';
 import type {DoobooTheme} from '@dooboo-ui/theme';
+import type {ReactElement} from 'react';
 import styled from '@emotion/native';
+import {useTheme} from '@dooboo-ui/theme';
 
 type DoobooThemeContext = {theme: DoobooTheme};
 type ProgressType = 'success' | 'danger' | 'warning' | 'info';
@@ -33,12 +34,12 @@ const AnimCircle = Animated.createAnimatedComponent(SvgCircle);
 
 const Text = styled.Text``;
 
-const ProgressCircleComponent: React.FC<Props> = ({
+export function ProgressCircle({
   style,
   styles,
   progress,
   type = 'info',
-}) => {
+}: Props): ReactElement {
   const {color, radius = 30, strokeWidth = 5} = styles?.circle || {};
   const {theme} = useTheme() as unknown as DoobooThemeContext;
   const strokeColor = color ?? theme.role[type];
@@ -120,8 +121,4 @@ const ProgressCircleComponent: React.FC<Props> = ({
       </Text>
     </Container>
   );
-};
-
-export const ProgressCircle = withTheme(ProgressCircleComponent);
-
-export default ProgressCircle;
+}

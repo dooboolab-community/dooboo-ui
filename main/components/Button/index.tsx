@@ -262,7 +262,7 @@ export const Button: FC<Props> = (props) => {
       onPress={onPress}
       delayPressIn={30}
       disabled={innerDisabled || loading}
-      style={[style, {borderRadius: borderRadius}]}
+      style={[style, {borderRadius}]}
       {...touchableHighlightProps}
     >
       {renderContainer(loading ? LoadingView : ChildView)}

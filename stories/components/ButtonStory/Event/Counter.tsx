@@ -1,8 +1,8 @@
 // Caveat: Expo web needs React to be imported
 import React, {useState} from 'react';
-import {StoryDescription, StorySection} from '../../../../GlobalStyles';
+import {StoryDescription, StorySection} from '../../../GlobalStyles';
 
-import {Button} from '../../../../../main';
+import {Button} from '../../../../main';
 import type {ReactElement} from 'react';
 import {action} from '@storybook/addon-actions';
 
