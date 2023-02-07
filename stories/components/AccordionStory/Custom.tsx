@@ -9,6 +9,7 @@ import React from 'react';
 import type {ReactElement} from 'react';
 import {Typography} from '../../../main/components/Typography';
 import {View} from 'react-native';
+import {action} from '@storybook/addon-actions';
 import styled from '@emotion/native';
 import {useDooboo} from '../../../main';
 
@@ -19,11 +20,25 @@ const CustomStyledItem = styled.Text`
   left: 40px;
 `;
 
-const AccordionCustom = ({
-  data,
-}: {
-  data: AccordionItemDataType<string, string>[];
-}): ReactElement => {
+type AccordionTitle = {text: string};
+type AccordionItem = {text: string};
+
+const data: AccordionItemDataType<AccordionTitle, AccordionItem>[] = [
+  {
+    title: {text: 'Lists'},
+    items: [{text: 'User'}, {text: 'Mail'}, {text: 'Text'}],
+  },
+  {
+    title: {text: 'Lists'},
+    items: [{text: 'User'}, {text: 'Mail'}, {text: 'Text'}],
+  },
+  {
+    title: {text: 'Lists'},
+    items: [{text: 'User'}, {text: 'Mail'}, {text: 'Text'}],
+  },
+];
+
+const AccordionCustom = (): ReactElement => {
   const {theme} = useDooboo();
 
   return (
@@ -32,7 +47,7 @@ const AccordionCustom = ({
         <StoryTitle style={{fontSize: 18, marginBottom: 8}}>
           Custom Style
         </StoryTitle>
-        <Accordion<string, string>
+        <Accordion<AccordionTitle, AccordionItem>
           shouldAnimate={boolean('shouldAnimate', true)}
           animDuration={number('animDuration', 200)}
           activeOpacity={number('activeOpacity', 1)}
@@ -49,9 +64,13 @@ const AccordionCustom = ({
             'data',
             data.map((datum) => ({
               ...datum,
-              title: datum.title.toUpperCase(),
+              title: {
+                ...datum.title,
+                text: datum.title.text.toUpperCase(),
+              },
             })),
           )}
+          onPressItem={action('onPressItem')}
           renderTitle={(item) => (
             <View
               style={{
@@ -62,10 +81,12 @@ const AccordionCustom = ({
             >
               <Icon name="search-light" color={theme.text.contrast} />
               <View style={{width: 8}} />
-              <Typography.Heading3>{item}</Typography.Heading3>
+              <Typography.Heading3>{item.text}</Typography.Heading3>
             </View>
           )}
-          renderItem={(item) => <CustomStyledItem>{item}</CustomStyledItem>}
+          renderItem={(item) => (
+            <CustomStyledItem>{item.text}</CustomStyledItem>
+          )}
           toggleElement={
             <Icon name="chevron-down-light" color={theme.text.contrast} />
           }

@@ -1,5 +1,5 @@
 import {StoryContainer, StoryTitle} from '../../GlobalStyles';
-import {boolean, number, object} from '@storybook/addon-knobs';
+import {boolean, number} from '@storybook/addon-knobs';
 
 import {Accordion} from '../../../main/components/Accordion';
 import type {AccordionItemDataType} from '../../../main/components/Accordion';
@@ -26,11 +26,22 @@ const StyledItem = styled.Text`
   padding: 0px 20px;
 `;
 
-const AccordionBasic = ({
-  data,
-}: {
-  data: AccordionItemDataType<string, string>[];
-}): ReactElement => {
+const data: AccordionItemDataType<string, string>[] = [
+  {
+    title: 'Lists',
+    items: ['User', 'Mail', 'Text'],
+  },
+  {
+    title: 'Lists',
+    items: ['User', 'Mail', 'Text'],
+  },
+  {
+    title: 'Lists',
+    items: ['User', 'Mail', 'Text'],
+  },
+];
+
+const AccordionBasic = (): ReactElement => {
   const {theme} = useDooboo();
 
   return (
@@ -43,7 +54,7 @@ const AccordionBasic = ({
           animDuration={number('animDuration', 200)}
           activeOpacity={number('activeOpacity', 0.8)}
           collapseOnStart={boolean('collapseOnStart', true)}
-          data={object('data', data)}
+          data={data}
           onPressItem={action('onPressItem')}
           renderTitle={(title) => <StyledTitle>{title}</StyledTitle>}
           renderItem={(item) => <StyledItem>{item}</StyledItem>}
