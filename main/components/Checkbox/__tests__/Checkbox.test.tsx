@@ -62,7 +62,7 @@ describe('[Checkbox]', () => {
     it('should render type==="info"', () => {
       testingLib = render(
         Component({
-          type: 'info',
+          color: 'info',
           checked: true,
         }),
       );
@@ -75,7 +75,7 @@ describe('[Checkbox]', () => {
     it('should render type==="primary"', () => {
       testingLib = render(
         Component({
-          type: 'primary',
+          color: 'primary',
           checked: true,
         }),
       );
@@ -88,7 +88,7 @@ describe('[Checkbox]', () => {
     it('should render type==="secondary"', () => {
       testingLib = render(
         Component({
-          type: 'secondary',
+          color: 'secondary',
           checked: true,
         }),
       );
@@ -101,7 +101,7 @@ describe('[Checkbox]', () => {
     it('should render type==="success"', () => {
       testingLib = render(
         Component({
-          type: 'success',
+          color: 'success',
           checked: true,
         }),
       );
@@ -114,7 +114,7 @@ describe('[Checkbox]', () => {
     it('should render type==="danger"', () => {
       testingLib = render(
         Component({
-          type: 'danger',
+          color: 'danger',
           checked: true,
         }),
       );
@@ -127,7 +127,7 @@ describe('[Checkbox]', () => {
     it('should render type==="warning"', () => {
       testingLib = render(
         Component({
-          type: 'warning',
+          color: 'warning',
           checked: true,
         }),
       );

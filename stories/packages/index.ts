@@ -1,2 +1,2 @@
-export * from './CalendarCarouselStory';
-export * from './PinchZoomStory';
+export * from './CalendarCarouselStories';
+export * from './PinchZoomStories';
