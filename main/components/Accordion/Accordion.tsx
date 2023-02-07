@@ -1,10 +1,10 @@
-import type {AccordionData} from './AccordionItem';
-import AccordionItem from './AccordionItem';
-import type {StyleProp, ViewStyle} from 'react-native';
-import {Animated} from 'react-native';
 import type {FC, ReactElement} from 'react';
 import React, {useRef} from 'react';
+import type {StyleProp, ViewStyle} from 'react-native';
 
+import type {AccordionData} from './AccordionItem';
+import AccordionItem from './AccordionItem';
+import {Animated} from 'react-native';
 import styled from '@emotion/native';
 
 const Container = styled.View`
@@ -17,7 +17,7 @@ interface Styles {
   bodyContainer?: StyleProp<ViewStyle>;
 }
 
-export interface AccordionBaseProps<T> {
+export type AccordionBaseProps<T> = {
   data: T;
   style?: StyleProp<ViewStyle>;
   styles?: Styles;
@@ -28,7 +28,7 @@ export interface AccordionBaseProps<T> {
   toggleElement?: ReactElement | null;
   renderTitle?: (item: string) => ReactElement;
   renderBody?: (item: string) => ReactElement;
-}
+};
 
 export type AccordionListType = AccordionData[];
 

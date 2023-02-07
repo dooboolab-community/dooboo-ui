@@ -50,7 +50,7 @@ function NetworkImageBasic(): React.ReactElement {
         url="https://reactnative.dev/img/tiny_logo.png"
       />
 
-      <View>
+      <View style={{marginBottom: 80}}>
         <NetworkImage
           style={{
             backgroundColor: theme.bg.paper,

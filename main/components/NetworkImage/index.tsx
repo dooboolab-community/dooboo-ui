@@ -1,23 +1,23 @@
-import {Image, View} from 'react-native';
 import type {
   ImageProps,
   ImageRequireSource,
   StyleProp,
   ViewStyle,
 } from 'react-native';
-import React, {
-  isValidElement,
-  useCallback,
-  useEffect,
-  useMemo,
-  useState,
-} from 'react';
+import React, {isValidElement, useCallback, useEffect, useState} from 'react';
 
-import ArtifactsLogoDark from '../../__assets__/artifacts_logo_d.png';
-import ArtifactsLogoLight from '../../__assets__/artifacts_logo_l.png';
+import {Image} from 'react-native';
+import PlaceholderDark from '../../__assets__/placeholder_dark.png';
+import PlaceholderLight from '../../__assets__/placeholder_light.png';
 import type {ReactElement} from 'react';
-import {css} from '@emotion/native';
-import {useTheme} from '@dooboo-ui/theme';
+import styled from '@emotion/native';
+import {useDooboo} from '../../providers';
+
+const Container = styled.View`
+  background-color: ${({theme}) => theme.bg.paper};
+  justify-content: center;
+  align-items: center;
+`;
 
 interface Props {
   style?: StyleProp<ViewStyle>;
@@ -28,23 +28,11 @@ interface Props {
 }
 
 function NetworkImage(props: Props): ReactElement {
-  const {themeType} = useTheme();
-  const logo = themeType === 'light' ? ArtifactsLogoLight : ArtifactsLogoDark;
-  const {style, url, imageProps, shouldFixImageRatio = false} = props;
+  const {themeType} = useDooboo();
+  const logo = themeType === 'light' ? PlaceholderLight : PlaceholderDark;
+  const {style, url, imageProps = false} = props;
   const [isValidSource, setIsValidSource] = useState(true);
 
-  const defaultImageStyle = useMemo(
-    () =>
-      css({
-        aspectRatio: 110 / 74,
-        width: '50%',
-        height: 'auto',
-        maxHeight: '50%',
-      }),
-    [],
-  );
-
-  const [imageRatio, setImageRatio] = useState(0);
   const [loading, setLoading] = useState(true);
 
   const renderFallback = useCallback(() => {
@@ -52,13 +40,12 @@ function NetworkImage(props: Props): ReactElement {
       props?.loadingSource
     ) : (
       <Image
-        style={[defaultImageStyle]}
         source={props.loadingSource ?? logo}
         resizeMethod="resize"
         resizeMode="cover"
       />
     );
-  }, [defaultImageStyle, logo, props.loadingSource]);
+  }, [logo, props.loadingSource]);
 
   const renderImage = useCallback(
     () => (
@@ -85,11 +72,7 @@ function NetworkImage(props: Props): ReactElement {
       if (mounted) {
         await Image.getSize(
           url,
-          (width, height) => {
-            if (shouldFixImageRatio) {
-              setImageRatio(width / height);
-            }
-
+          () => {
             setLoading(false);
           },
           () => {
@@ -107,26 +90,14 @@ function NetworkImage(props: Props): ReactElement {
     return () => {
       mounted = false;
     };
-  }, [url, shouldFixImageRatio, loading, isValidSource]);
+  }, [url, loading, isValidSource]);
 
   if (loading || !isValidSource) {
-    return (
-      <View style={[{justifyContent: 'center', alignItems: 'center'}, style]}>
-        {renderFallback()}
-      </View>
-    );
+    return <Container style={style}>{renderFallback()}</Container>;
   }
 
   return (
-    <View
-      style={[
-        {justifyContent: 'center', alignItems: 'center', overflow: 'hidden'},
-        shouldFixImageRatio && {aspectRatio: imageRatio || 110 / 74},
-        style,
-      ]}
-    >
-      {renderImage()}
-    </View>
+    <Container style={[{overflow: 'hidden'}, style]}>{renderImage()}</Container>
   );
 }
 
