@@ -141,6 +141,72 @@ function IconBasic(): ReactElement {
           <StyledIcon size={16} name="wifi-light" />
           <StyledIcon size={16} name="playlist-light" />
           <StyledIcon size={16} name="playlist-solid" />
+          <StyledIcon size={16} name="minus-circle-solid" />
+          <StyledIcon size={16} name="mode-light-solid" />
+          <StyledIcon size={16} name="mode-light-light" />
+          <StyledIcon size={16} name="clock-solid" />
+          <StyledIcon size={16} name="clock-light" />
+          <StyledIcon size={16} name="eye-light" />
+          <StyledIcon size={16} name="eye-solid" />
+          <StyledIcon size={16} name="notfound-light" />
+          <StyledIcon size={16} name="notfound-solid" />
+          <StyledIcon size={16} name="open-in-new-solid" />
+          <StyledIcon size={16} name="open-in-new-light" />
+          <StyledIcon size={16} name="history-solid" />
+          <StyledIcon size={16} name="history-light" />
+          <StyledIcon size={16} name="alert-circle-solid" />
+          <StyledIcon size={16} name="alert-circle-light" />
+          <StyledIcon size={16} name="textareaedge-solid" />
+          <StyledIcon size={16} name="textareaedge-light" />
+          <StyledIcon size={16} name="collect-solid" />
+          <StyledIcon size={16} name="comment-solid" />
+          <StyledIcon size={16} name="paper-plane-solid" />
+          <StyledIcon size={16} name="paper-alert-light-1" />
+          <StyledIcon size={16} name="paper-alert-light" />
+          <StyledIcon size={16} name="chevron-left-solid" />
+          <StyledIcon size={16} name="chevron-down-solid" />
+          <StyledIcon size={16} name="chevron-up-solid" />
+          <StyledIcon size={16} name="chevron-updown-solid" />
+          <StyledIcon size={16} name="calendar-range-light-1" />
+          <StyledIcon size={16} name="calendar-blank-light-1" />
+          <StyledIcon size={16} name="calendar-range-light" />
+          <StyledIcon size={16} name="calendar-blank-light" />
+          <StyledIcon size={16} name="chevron-updown-light" />
+          <StyledIcon size={16} name="arrow-right-circle-light" />
+          <StyledIcon size={16} name="arrow-right-circle-solid" />
+          <StyledIcon size={16} name="checkbox-solid" />
+          <StyledIcon size={16} name="checkbox-light" />
+          <StyledIcon size={16} name="radiobox-solid" />
+          <StyledIcon size={16} name="radiobox-light" />
+          <StyledIcon size={16} name="company-solid" />
+          <StyledIcon size={16} name="company-light" />
+          <StyledIcon size={16} name="chevron-right-solid" />
+          <StyledIcon size={16} name="upload-solid" />
+          <StyledIcon size={16} name="thumb-down-solid" />
+          <StyledIcon size={16} name="thumb-up-solid" />
+          <StyledIcon size={16} name="cross-solid" />
+          <StyledIcon size={16} name="tick-solid" />
+          <StyledIcon size={16} name="cog-solid" />
+          <StyledIcon size={16} name="dots-vertical-solid" />
+          <StyledIcon size={16} name="dots-vertical-light" />
+          <StyledIcon size={16} name="dots-solid" />
+          <StyledIcon size={16} name="account-multible-solid" />
+          <StyledIcon size={16} name="account-multible-light" />
+          <StyledIcon size={16} name="cross-circle-solid" />
+          <StyledIcon size={16} name="circle-light" />
+          <StyledIcon size={16} name="square-solid-1" />
+          <StyledIcon size={16} name="square-solid" />
+          <StyledIcon size={16} name="triangle-solid" />
+          <StyledIcon size={16} name="triangle-light" />
+          <StyledIcon size={16} name="circle-solid" />
+          <StyledIcon size={16} name="cross-circle-light" />
+          <StyledIcon size={16} name="ban-solid" />
+          <StyledIcon size={16} name="github-solid" />
+          <StyledIcon size={16} name="mode-dark-solid" />
+          <StyledIcon size={16} name="mode-dark-light" />
+          <StyledIcon size={16} name="plus-circle-solid" />
+          <StyledIcon size={16} name="minus-circle-light" />
+          <StyledIcon size={16} name="plus-circle-light" />
         </Container>
       </ScrollContainer>
     </StoryContainer>
