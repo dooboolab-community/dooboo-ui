@@ -30,13 +30,13 @@ interface Props {
   color?: string;
   size?: number | 'small' | 'large';
   imgSource?: string | ImageSourcePropType;
-  renderCustomElement?: () => ReactElement;
+  customElement?: ReactElement | (() => ReactElement);
 }
 
 export function LoadingIndicator(props: Props): ReactElement {
   const {
     containerStyle,
-    renderCustomElement,
+    customElement,
     style,
     size = 'large',
     color,
@@ -84,8 +84,12 @@ export function LoadingIndicator(props: Props): ReactElement {
 
   return (
     <View style={StyleSheet.flatten([styles.container, containerStyle])}>
-      {renderCustomElement ? (
-        renderCustomElement()
+      {customElement ? (
+        typeof customElement === 'function' ? (
+          customElement()
+        ) : (
+          customElement
+        )
       ) : !imgSource ? (
         <ActivityIndicator
           style={style}

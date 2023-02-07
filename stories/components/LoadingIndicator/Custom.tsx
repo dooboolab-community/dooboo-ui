@@ -3,15 +3,16 @@ import type {ImageStyle, StyleProp} from 'react-native';
 // Caveat: Expo web needs React to be imported
 import React, {useEffect, useState} from 'react';
 
-import type {FC} from 'react';
 import {IC_MASK} from '../../../storybook/assets/icons';
+import {LoadingIndicator} from '../../../main';
+import type {ReactElement} from 'react';
 import {StoryContainer} from '../../GlobalStyles';
 
 type Props = {
   style?: StyleProp<ImageStyle>;
 };
 
-const LoadingIndicatorCustom: FC<Props> = ({style}) => {
+function LoadingIndicatorCustom({style}: Props): ReactElement {
   const [spinAnim] = useState(new Animated.Value(0));
 
   const spin = spinAnim.interpolate({
@@ -32,21 +33,25 @@ const LoadingIndicatorCustom: FC<Props> = ({style}) => {
 
   return (
     <StoryContainer>
-      <Animated.Image
-        style={[
-          {
-            opacity: 0.95,
-            height: 56,
-            width: 56,
-            borderRadius: 28,
-            transform: [{rotate: spin}],
-          },
-          style,
-        ]}
-        source={IC_MASK}
+      <LoadingIndicator
+        customElement={
+          <Animated.Image
+            style={[
+              {
+                opacity: 0.95,
+                height: 56,
+                width: 56,
+                borderRadius: 28,
+                transform: [{rotate: spin}],
+              },
+              style,
+            ]}
+            source={IC_MASK}
+          />
+        }
       />
     </StoryContainer>
   );
-};
+}
 
 export default LoadingIndicatorCustom;
