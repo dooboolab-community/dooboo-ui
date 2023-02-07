@@ -9,7 +9,7 @@ export * from './components/IconButton';
 export * from './components/Checkbox';
 export * from './components/EditText';
 export * from './components/NetworkImage';
-export * from './components/ProgressLine';
+export * from './components/ProgressBar';
 export * from './components/ProgressCircle';
 export * from './components/LoadingIndicator';
 export * from './components/Accordion';

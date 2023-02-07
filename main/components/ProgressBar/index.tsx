@@ -40,9 +40,9 @@ const NumberText = styled.Text`
   color: ${({theme}) => theme.text.basic};
 `;
 
-export type ProgressLineType = 'success' | 'danger' | 'warning' | 'info';
+export type ProgressBarType = 'success' | 'danger' | 'warning' | 'info';
 
-export type ProgressLineStyles = {
+export type ProgressBarStyles = {
   background?: StyleProp<ViewStyle>;
   progress?: StyleProp<ViewStyle>;
   text?: StyleProp<TextStyle>;
@@ -53,15 +53,15 @@ interface ProgressProps {
   value?: number;
 }
 
-interface ProgressLineProps {
+interface ProgressBarProps {
   value: number;
-  type?: ProgressLineType;
-  styles?: ProgressLineStyles;
+  type?: ProgressBarType;
+  styles?: ProgressBarStyles;
 }
 
-export {ProgressLineProps};
+export {ProgressBarProps};
 
-export const ProgressLine: React.FC<ProgressLineProps> = (props) => {
+export const ProgressBar: React.FC<ProgressBarProps> = (props) => {
   const {value, type = 'info', styles = {}} = props;
 
   return (

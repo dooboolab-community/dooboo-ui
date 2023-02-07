@@ -1,4 +1,4 @@
-import {ProgressLine} from '../../../main';
+import {ProgressBar} from '../../../main';
 // Caveat: Expo web needs React to be imported
 import React from 'react';
 import type {ReactElement} from 'react';
@@ -34,28 +34,28 @@ const SubTitle = styled.Text`
   color: ${({theme}) => theme.role.primary};
 `;
 
-function ProgressLineBasic(): ReactElement {
+function ProgressBarBasic(): ReactElement {
   return (
     <StoryContainer>
-      <Title>ProgressLine</Title>
+      <Title>ProgressBar</Title>
       <Section>
         <SubTitle>Info</SubTitle>
-        <ProgressLine value={25} />
+        <ProgressBar value={25} />
       </Section>
       <Section>
         <SubTitle>Warning</SubTitle>
-        <ProgressLine value={50} type="warning" />
+        <ProgressBar value={50} type="warning" />
       </Section>
       <Section>
         <SubTitle>Danger</SubTitle>
-        <ProgressLine value={75} type="danger" />
+        <ProgressBar value={75} type="danger" />
       </Section>
       <Section>
         <SubTitle>Success</SubTitle>
-        <ProgressLine value={100} type="success" />
+        <ProgressBar value={100} type="success" />
       </Section>
     </StoryContainer>
   );
 }
 
-export default ProgressLineBasic;
+export default ProgressBarBasic;

@@ -9,7 +9,7 @@ export * from './IconButton';
 export * from './LoadingIndicator';
 export * from './NetworkImage';
 export * from './ProgressCircle';
-export * from './ProgressLine';
+export * from './ProgressBar';
 export * from './RadioGroup';
 export * from './SwitchToggle';
 export * from './Typography';
