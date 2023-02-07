@@ -7,11 +7,11 @@ import React, {
 } from 'react';
 import type {StyleProp, TextStyle, ViewStyle} from 'react-native';
 
-import {Button} from '../../components/Button';
-import {Icon} from '../../components/Icon';
+import {Button} from '../../uis/Button';
+import {Icon} from '../../uis/Icon';
 import type {ReactElement} from 'react';
 import {TouchableWithoutFeedback} from 'react-native-gesture-handler';
-import {Typography} from '../../components/Typography';
+import {Typography} from '../../uis/Typography';
 import styled from '@emotion/native';
 import {useTheme} from '@dooboo-ui/theme';
 

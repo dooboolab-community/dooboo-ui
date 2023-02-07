@@ -2,10 +2,10 @@
 import React, {useState} from 'react';
 import {ScrollContainer, StoryContainer} from '../../GlobalStyles';
 
-import {EditText} from '../../../main/components/EditText';
-import type {EditTextStatus} from '../../../main/components/EditText';
+import {EditText} from '../../../main/uis/EditText';
+import type {EditTextStatus} from '../../../main/uis/EditText';
 import type {ReactElement} from 'react';
-import {Typography} from '../../../main/components/Typography';
+import {Typography} from '../../../main/uis/Typography';
 import {boolean} from '@storybook/addon-knobs';
 import {useTheme} from '@dooboo-ui/theme';
 

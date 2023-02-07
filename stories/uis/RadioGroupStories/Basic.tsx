@@ -2,7 +2,7 @@
 import React, {useState} from 'react';
 import {StoryContainer, StoryTitle} from '../../GlobalStyles';
 
-import type {RadioButtonType} from '../../../main/components/RadioGroup/RadioButton';
+import type {RadioButtonType} from '../../../main/uis/RadioGroup/RadioButton';
 import {RadioGroup} from '../../../main';
 import type {ReactElement} from 'react';
 import {View} from 'react-native';

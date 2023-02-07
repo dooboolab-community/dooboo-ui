@@ -1,13 +1,13 @@
 import {ScrollContainer, StoryContainer, StoryTitle} from '../../GlobalStyles';
 import {boolean, number, object} from '@storybook/addon-knobs';
 
-import {Accordion} from '../../../main/components/Accordion';
-import type {AccordionItemDataType} from '../../../main/components/Accordion';
-import {Icon} from '../../../main/components/Icon';
+import {Accordion} from '../../../main/uis/Accordion';
+import type {AccordionItemDataType} from '../../../main/uis/Accordion';
+import {Icon} from '../../../main/uis/Icon';
 // Caveat: Expo web needs React to be imported
 import React from 'react';
 import type {ReactElement} from 'react';
-import {Typography} from '../../../main/components/Typography';
+import {Typography} from '../../../main/uis/Typography';
 import {View} from 'react-native';
 import {action} from '@storybook/addon-actions';
 import styled from '@emotion/native';

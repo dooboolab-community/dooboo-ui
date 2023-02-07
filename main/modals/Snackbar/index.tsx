@@ -2,9 +2,9 @@ import {Modal, Platform, StyleSheet} from 'react-native';
 import React, {forwardRef, useImperativeHandle, useState} from 'react';
 import type {StyleProp, TextStyle, ViewStyle} from 'react-native';
 
-import {Button} from '../../components/Button';
-import type {ButtonColorType} from '../../components/Button';
-import {Icon} from '../../components/Icon';
+import {Button} from '../../uis/Button';
+import type {ButtonColorType} from '../../uis/Button';
+import {Icon} from '../../uis/Icon';
 import type {ReactElement} from 'react';
 import {SnackbarTimer} from './const';
 import styled from '@emotion/native';

@@ -1,8 +1,8 @@
 import {StoryContainer, StoryTitle} from '../../GlobalStyles';
 import {boolean, number} from '@storybook/addon-knobs';
 
-import {Accordion} from '../../../main/components/Accordion';
-import type {AccordionItemDataType} from '../../../main/components/Accordion';
+import {Accordion} from '../../../main/uis/Accordion';
+import type {AccordionItemDataType} from '../../../main/uis/Accordion';
 // Caveat: Expo web needs React to be imported
 import React from 'react';
 import type {ReactElement} from 'react';

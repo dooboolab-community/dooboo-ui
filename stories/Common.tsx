@@ -21,7 +21,7 @@ export function StoryWrapper({children}: ContainerProps): ReactElement {
   const {themeType, changeThemeType} = useDooboo();
   const [on, off] = useState(themeType === 'dark');
   const [fontsLoaded] = useFonts({
-    IcoMoon: require('../main/components/Icon/doobooui.ttf'),
+    IcoMoon: require('../main/uis/Icon/doobooui.ttf'),
   });
 
   if (!fontsLoaded) {
