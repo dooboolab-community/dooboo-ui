@@ -1,8 +1,8 @@
 import {
-  Description,
   ScrollContainer,
   StoryContainer,
-  Title,
+  StoryDescription,
+  StoryTitle,
 } from '../../../GlobalStyles';
 
 import Basic from './Basic';
@@ -25,37 +25,37 @@ function ButtonBasic(): ReactElement {
           paddingHorizontal: 10,
         }}
       >
-        <Title>Basic</Title>
+        <StoryTitle>Basic</StoryTitle>
         <Basic />
 
-        <Title>Color</Title>
+        <StoryTitle>Color</StoryTitle>
         <Color />
 
-        <Title>Disabled</Title>
+        <StoryTitle>Disabled</StoryTitle>
         <Disabled />
 
-        <Title>Sizes</Title>
+        <StoryTitle>Sizes</StoryTitle>
         <Sizes />
 
-        <Title>Loading</Title>
+        <StoryTitle>Loading</StoryTitle>
         <Loading />
-        <Description>
+        <StoryDescription>
           If you want to change the loading indicator you can use the
           loadingElement property
-        </Description>
+        </StoryDescription>
         <Loading />
 
-        <Title>Custom Styles</Title>
-        <Description>
+        <StoryTitle>Custom Styles</StoryTitle>
+        <StoryDescription>
           Within the styles attribute there are 5 options : container, text,
           disabled, disabledText,hovered.
-        </Description>
+        </StoryDescription>
         <Custom />
 
-        <Title>Start and End element</Title>
+        <StoryTitle>Start and End element</StoryTitle>
         <StartAndEnd />
 
-        <Title>Event</Title>
+        <StoryTitle>Event</StoryTitle>
         <Event />
       </ScrollContainer>
     </StoryContainer>

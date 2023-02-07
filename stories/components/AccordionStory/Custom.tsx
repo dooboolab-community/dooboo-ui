@@ -2,6 +2,7 @@ import type {
   AccordionData,
   AccordionListType,
 } from '../../../main/components/Accordion';
+import {ScrollContainer, StoryContainer, StoryTitle} from '../../GlobalStyles';
 import {boolean, number} from '@storybook/addon-knobs';
 
 import {Accordion} from '../../../main/components/Accordion';
@@ -13,31 +14,6 @@ import {Typography} from '../../../main/components/Typography';
 import {View} from 'react-native';
 import styled from '@emotion/native';
 import {useDooboo} from '../../../main';
-
-const ScrollContainer = styled.ScrollView`
-  width: 100%;
-`;
-
-const Container = styled.View`
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  margin-top: 20px;
-  margin-bottom: 20px;
-`;
-
-const Title = styled.Text`
-  margin-left: 20px;
-  color: white;
-  font-size: 18px;
-`;
-
-const CustomStyledItem = styled.Text`
-  padding-left: 10px;
-  font-weight: bold;
-  position: absolute;
-  left: 40px;
-`;
 
 const data: AccordionListType = [
   {
@@ -54,27 +30,25 @@ const data: AccordionListType = [
   },
 ];
 
-const AccordionBasic = (): ReactElement => {
+const CustomStyledItem = styled.Text`
+  padding-left: 10px;
+  font-weight: bold;
+  position: absolute;
+  left: 40px;
+`;
+
+const AccordionCustom = (): ReactElement => {
   const {theme} = useDooboo();
 
   return (
     <ScrollContainer>
-      <Container>
-        <Typography.Heading3 style={{fontSize: 18, marginBottom: 8}}>
-          Demo
-        </Typography.Heading3>
+      <StoryContainer>
+        <StoryTitle style={{fontSize: 18, marginBottom: 8}}>
+          Custom Style
+        </StoryTitle>
         <Accordion
-          data={data}
           shouldAnimate={boolean('shouldAnimate', true)}
           animDuration={number('animDuration', 200)}
-        />
-      </Container>
-
-      <Container>
-        <Typography.Heading3 style={{fontSize: 18, marginBottom: 8}}>
-          Custom Style
-        </Typography.Heading3>
-        <Accordion
           data={data.map<AccordionData>((datum) => ({
             ...datum,
             title: datum.title.toUpperCase(),
@@ -88,7 +62,8 @@ const AccordionBasic = (): ReactElement => {
               }}
             >
               <Icon name="search-light" color={theme.text.contrast} />
-              <Title>{item}</Title>
+              <View style={{width: 8}} />
+              <Typography.Heading3>{item}</Typography.Heading3>
             </View>
           )}
           renderBody={(item) => <CustomStyledItem>{item}</CustomStyledItem>}
@@ -104,9 +79,9 @@ const AccordionBasic = (): ReactElement => {
             },
           }}
         />
-      </Container>
+      </StoryContainer>
     </ScrollContainer>
   );
 };
 
-export default AccordionBasic;
+export default AccordionCustom;

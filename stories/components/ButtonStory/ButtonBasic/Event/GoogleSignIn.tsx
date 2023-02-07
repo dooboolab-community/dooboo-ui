@@ -5,7 +5,7 @@ import React, {useState} from 'react';
 
 import {IC_GOOGLE} from '../../../../../storybook/assets/icons';
 import type {ReactElement} from 'react';
-import {Section} from '../../../../GlobalStyles';
+import {StorySection} from '../../../../GlobalStyles';
 import {action} from '@storybook/addon-actions';
 import {css} from '@emotion/native';
 
@@ -13,7 +13,7 @@ function StartElementAndEndElement(): ReactElement {
   const [googleLoading, setGoogleLoading] = useState<boolean>(false);
 
   return (
-    <Section>
+    <StorySection>
       <Button
         startElement={
           <View style={{marginRight: 12}}>
@@ -45,7 +45,7 @@ function StartElementAndEndElement(): ReactElement {
         }}
         text="GOOGLE SIGN IN"
       />
-    </Section>
+    </StorySection>
   );
 }
 

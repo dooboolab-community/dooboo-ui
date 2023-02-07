@@ -1,4 +1,4 @@
-import ButtonGroupBasic from './ButtonGroupBasic';
+import ButtonGroupBasic from './Basic';
 // Caveat: Expo web needs React to be imported
 import React from 'react';
 import {renderStory} from '../../Common';

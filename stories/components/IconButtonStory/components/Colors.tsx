@@ -3,7 +3,7 @@ import {IconButton} from '../../../../main';
 // Caveat: Expo web needs React to be imported
 import React from 'react';
 import type {ReactElement} from 'react';
-import {Section} from '../../../GlobalStyles';
+import {StorySection} from '../../../GlobalStyles';
 
 function Colors(): ReactElement {
   const colors: ButtonColorType[] = [
@@ -17,7 +17,7 @@ function Colors(): ReactElement {
   ];
 
   return (
-    <Section>
+    <StorySection>
       {colors.map((color) => (
         <IconButton
           key={color}
@@ -27,7 +27,7 @@ function Colors(): ReactElement {
           style={{padding: 4}}
         />
       ))}
-    </Section>
+    </StorySection>
   );
 }
 

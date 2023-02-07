@@ -3,13 +3,13 @@ import type {ButtonSizeType} from '../../../../main';
 // Caveat: Expo web needs React to be imported
 import React from 'react';
 import type {ReactElement} from 'react';
-import {Section} from '../../../GlobalStyles';
+import {StorySection} from '../../../GlobalStyles';
 
 function Sizes(): ReactElement {
   const sizes: ButtonSizeType[] = ['small', 'medium', 'large'];
 
   return (
-    <Section>
+    <StorySection>
       {sizes.map((size) => (
         <Button
           key={size}
@@ -32,7 +32,7 @@ function Sizes(): ReactElement {
           onPress={() => console.log(`press ${size} button`)}
         />
       ))}
-    </Section>
+    </StorySection>
   );
 }
 

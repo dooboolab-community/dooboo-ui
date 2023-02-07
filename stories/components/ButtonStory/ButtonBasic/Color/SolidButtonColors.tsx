@@ -3,7 +3,7 @@ import type {ButtonColorType} from '../../../../../main';
 // Caveat: Expo web needs React to be imported
 import React from 'react';
 import type {ReactElement} from 'react';
-import {Section} from '../../../../GlobalStyles';
+import {StorySection} from '../../../../GlobalStyles';
 
 function SolidButtonColors(): ReactElement {
   const colors: ButtonColorType[] = [
@@ -17,7 +17,7 @@ function SolidButtonColors(): ReactElement {
   ];
 
   return (
-    <Section>
+    <StorySection>
       {colors.map((color) => (
         <Button
           key={color}
@@ -28,7 +28,7 @@ function SolidButtonColors(): ReactElement {
           onPress={() => console.log(`press ${color} solid button`)}
         />
       ))}
-    </Section>
+    </StorySection>
   );
 }
 

@@ -3,13 +3,13 @@ import {Button, Icon, useDooboo} from '../../../../main';
 // Caveat: Expo web needs React to be imported
 import React from 'react';
 import type {ReactElement} from 'react';
-import {Section} from '../../../GlobalStyles';
+import {StorySection} from '../../../GlobalStyles';
 
 function StartAndEnd(): ReactElement {
   const {theme} = useDooboo();
 
   return (
-    <Section>
+    <StorySection>
       <Button
         startElement={
           <Icon
@@ -36,7 +36,7 @@ function StartAndEnd(): ReactElement {
         text="HOME"
         style={{margin: 4}}
       />
-    </Section>
+    </StorySection>
   );
 }
 

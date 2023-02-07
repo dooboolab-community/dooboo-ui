@@ -1,6 +1,6 @@
-import {Description, Section} from '../../../../GlobalStyles';
 // Caveat: Expo web needs React to be imported
 import React, {useState} from 'react';
+import {StoryDescription, StorySection} from '../../../../GlobalStyles';
 
 import {Button} from '../../../../../main';
 import type {ReactElement} from 'react';
@@ -10,7 +10,7 @@ function Counter(): ReactElement {
   const [count, setCount] = useState(0);
 
   return (
-    <Section>
+    <StorySection>
       <Button
         style={{margin: 4}}
         onPress={(e): void => {
@@ -27,8 +27,8 @@ function Counter(): ReactElement {
         }}
         text="-"
       />
-      <Description>Count : {count}</Description>
-    </Section>
+      <StoryDescription>Count : {count}</StoryDescription>
+    </StorySection>
   );
 }
 

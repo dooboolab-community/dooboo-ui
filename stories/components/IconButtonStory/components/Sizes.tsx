@@ -3,13 +3,13 @@ import {IconButton} from '../../../../main';
 // Caveat: Expo web needs React to be imported
 import React from 'react';
 import type {ReactElement} from 'react';
-import {Section} from '../../../GlobalStyles';
+import {StorySection} from '../../../GlobalStyles';
 
 function Sizes(): ReactElement {
   const sizes: ButtonSizeType[] = ['small', 'medium', 'large'];
 
   return (
-    <Section>
+    <StorySection>
       {sizes.map((size) => (
         <IconButton
           key={size}
@@ -18,7 +18,7 @@ function Sizes(): ReactElement {
           style={{padding: 4}}
         />
       ))}
-    </Section>
+    </StorySection>
   );
 }
 

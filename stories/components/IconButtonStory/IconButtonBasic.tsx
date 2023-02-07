@@ -8,10 +8,10 @@ import {
   Sizes,
 } from './components';
 import {
-  Description,
   ScrollContainer,
   StoryContainer,
-  Title,
+  StoryDescription,
+  StoryTitle,
 } from '../../GlobalStyles';
 
 // Caveat: Expo web needs React to be imported
@@ -27,27 +27,27 @@ function IconButtonBasic(): ReactElement {
           paddingHorizontal: 10,
         }}
       >
-        <Title>Basic</Title>
+        <StoryTitle>Basic</StoryTitle>
         <Basic />
 
-        <Title>Colors</Title>
+        <StoryTitle>Colors</StoryTitle>
         <Colors />
 
-        <Title>Disabled</Title>
+        <StoryTitle>Disabled</StoryTitle>
         <Disabled />
 
-        <Title>Sizes</Title>
+        <StoryTitle>Sizes</StoryTitle>
         <Sizes />
 
-        <Title>Loading</Title>
+        <StoryTitle>Loading</StoryTitle>
         <Loading />
-        <Description>
+        <StoryDescription>
           If you want to change the loading indicator you can use the
           loadingElement property
-        </Description>
+        </StoryDescription>
         <LoadingElement />
 
-        <Title>IconElement</Title>
+        <StoryTitle>IconElement</StoryTitle>
         <IconElement />
       </ScrollContainer>
     </StoryContainer>
