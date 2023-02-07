@@ -93,7 +93,7 @@ describe('[Accordion] event test', () => {
 
   it('should trigger onLayout event when itemBody rendered', () => {
     const {getByTestId} = testingLib;
-    const itemTitle = getByTestId('body_0');
+    const itemTitle = getByTestId('body-0');
 
     fireEvent(itemTitle, 'layout', {
       nativeEvent: {
@@ -107,10 +107,10 @@ describe('[Accordion] event test', () => {
   });
 
   it('should trigger press event when clicking title', () => {
-    fireEvent.press(testingLib.getByTestId('title_0'));
+    fireEvent.press(testingLib.getByTestId('title-0'));
 
     expect(
-      testingLib.getByTestId('body_0').props.accessibilityState.expanded,
+      testingLib.getByTestId('body-0').props.accessibilityState.expanded,
     ).toBeTruthy();
   });
 });

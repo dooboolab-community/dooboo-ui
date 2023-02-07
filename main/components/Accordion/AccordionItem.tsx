@@ -1,5 +1,5 @@
 import {Animated, Easing} from 'react-native';
-import React, {useCallback, useEffect, useRef, useState} from 'react';
+import {useCallback, useEffect, useRef, useState} from 'react';
 
 import type {AccordionBaseProps} from './Accordion';
 import {Icon} from '../Icon';
@@ -19,7 +19,7 @@ const StyledIcon = styled(Icon)`
   color: ${({theme}) => theme.text.contrast};
 `;
 
-const ItemContainer = styled.View`
+const ItemContainer = styled.TouchableOpacity`
   background-color: ${({theme}) => theme.bg.basic};
   flex-direction: row;
   align-items: center;
@@ -38,19 +38,23 @@ const StyledItem = styled.Text`
   padding: 0px 20px;
 `;
 
-export interface AccordionData {
-  title: string;
-  bodies: string[];
-}
+export type AccordionListItemType = {
+  startElement?: ReactElement;
+  text: string;
+  endElement?: ReactElement;
+};
 
-interface Props<T> extends AccordionBaseProps<T> {
+export type AccordionData = {
+  title: AccordionListItemType;
+  bodies: AccordionListItemType[];
+};
+
+type Props = AccordionBaseProps<AccordionData> & {
   testID: string;
   dropDownAnimValue: Animated.Value;
-}
+};
 
-type AccordionItemProps = Props<AccordionData>;
-
-function AccordionItem(props: AccordionItemProps): ReactElement {
+function AccordionItem(props: Props): ReactElement {
   const {theme} = useTheme();
 
   const {
@@ -61,8 +65,21 @@ function AccordionItem(props: AccordionItemProps): ReactElement {
     animDuration = 200,
     activeOpacity = 1,
     toggleElement = <StyledIcon name="chevron-down-light" theme={theme} />,
-    renderTitle = (title) => <StyledTitle theme={theme}>{title}</StyledTitle>,
-    renderBody = (body) => <StyledItem theme={theme}>{body}</StyledItem>,
+    onPressItem,
+    renderTitle = (title) => (
+      <>
+        {title.startElement}
+        <StyledTitle theme={theme}>{title.text}</StyledTitle>
+        {title.endElement}
+      </>
+    ),
+    renderBody = (body) => (
+      <>
+        {body.startElement}
+        <StyledItem theme={theme}>{body.text}</StyledItem>
+        {body.endElement}
+      </>
+    ),
     dropDownAnimValue,
     styles,
     style,
@@ -153,7 +170,7 @@ function AccordionItem(props: AccordionItemProps): ReactElement {
     >
       <TitleContainer
         theme={theme}
-        testID={`title_${testID}`}
+        testID={`title-${testID}`}
         onPress={handlePress}
         activeOpacity={activeOpacity}
         style={titleContainer}
@@ -165,7 +182,7 @@ function AccordionItem(props: AccordionItemProps): ReactElement {
       </TitleContainer>
 
       <Animated.View
-        testID={`body_${testID}`}
+        testID={`body-${testID}`}
         style={{
           height: bodyMounted
             ? dropDownAnimValueRef.current.interpolate({
@@ -175,12 +192,15 @@ function AccordionItem(props: AccordionItemProps): ReactElement {
             : undefined,
         }}
         onLayout={handleBodyLayout}
-        accessibilityState={{
-          expanded: !collapsed,
-        }}
+        accessibilityState={{expanded: !collapsed}}
       >
-        {item.bodies.map((body, key) => (
-          <ItemContainer key={key} style={bodyContainer}>
+        {item.bodies.map((body, index) => (
+          <ItemContainer
+            key={`body-${index}`}
+            style={bodyContainer}
+            activeOpacity={activeOpacity}
+            onPress={() => onPressItem?.(item.title, body)}
+          >
             {renderBody(body)}
           </ItemContainer>
         ))}

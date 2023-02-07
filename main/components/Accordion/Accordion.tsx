@@ -1,10 +1,10 @@
-import type {FC, ReactElement} from 'react';
+import type {AccordionData, AccordionListItemType} from './AccordionItem';
 import React, {useRef} from 'react';
 import type {StyleProp, ViewStyle} from 'react-native';
 
-import type {AccordionData} from './AccordionItem';
 import AccordionItem from './AccordionItem';
 import {Animated} from 'react-native';
+import type {ReactElement} from 'react';
 import styled from '@emotion/native';
 
 const Container = styled.View`
@@ -25,15 +25,19 @@ export type AccordionBaseProps<T> = {
   animDuration?: number;
   activeOpacity?: number;
   toggleElement?: ReactElement | null;
-  renderTitle?: (item: string) => ReactElement;
-  renderBody?: (item: string) => ReactElement;
+  renderTitle?: (item: AccordionListItemType) => ReactElement;
+  renderBody?: (item: AccordionListItemType) => ReactElement;
+  onPressItem?: (
+    title: AccordionListItemType,
+    body: AccordionListItemType,
+  ) => void;
 };
 
 export type AccordionListType = AccordionData[];
 
 export type AccordionProps = AccordionBaseProps<AccordionListType>;
 
-const Accordion: FC<AccordionProps> = (props) => {
+function Accordion(props: AccordionProps): ReactElement {
   const {
     style,
     styles,
@@ -45,6 +49,7 @@ const Accordion: FC<AccordionProps> = (props) => {
     toggleElement,
     renderTitle,
     renderBody,
+    onPressItem,
   } = props;
 
   const dropDownAnimValueList = useRef(
@@ -68,11 +73,12 @@ const Accordion: FC<AccordionProps> = (props) => {
             toggleElement={toggleElement}
             renderTitle={renderTitle}
             renderBody={renderBody}
+            onPressItem={onPressItem}
           />
         );
       })}
     </Container>
   );
-};
+}
 
 export default Accordion;
