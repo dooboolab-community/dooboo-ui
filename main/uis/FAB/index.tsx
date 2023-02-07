@@ -2,10 +2,10 @@ import {Animated, Easing, View} from 'react-native';
 import type {LayoutChangeEvent, StyleProp, ViewStyle} from 'react-native';
 import React, {useLayoutEffect, useMemo, useRef} from 'react';
 
+import type {ButtonSizeType} from '../Button';
 import {Icon} from '../Icon';
 import {IconButton} from '../IconButton';
-import type {ButtonSizeType} from '../Button';
-import type {IconName} from '../Icon';
+import type {IconNames} from '../Icon';
 import type {ReactElement} from 'react';
 import {useTheme} from '@dooboo-ui/theme';
 
@@ -18,7 +18,7 @@ interface Styles {
 }
 
 export interface FABItem {
-  icon: IconName;
+  icon: IconNames[number];
   id: string;
 }
 
