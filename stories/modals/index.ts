@@ -1,2 +1,2 @@
-export * from './AlertDialog';
-export * from './Snackbar';
+export * from './AlertDialogStory';
+export * from './SnackbarStory';
