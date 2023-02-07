@@ -1,5 +1,5 @@
-import type {BackHandlerStatic, ListRenderItem, TextInput} from 'react-native';
 import {BackHandler, FlatList, Keyboard, Platform, View} from 'react-native';
+import type {BackHandlerStatic, ListRenderItem, TextInput} from 'react-native';
 import React, {useEffect, useRef, useState} from 'react';
 
 import styled from '@emotion/native';
@@ -30,7 +30,6 @@ const StyledInputChat = styled.TextInput`
   font-size: 14px;
   padding-left: 48px;
   padding-bottom: 4px;
-  color: black;
 `;
 
 const StyledTouchMenu = styled.TouchableOpacity`

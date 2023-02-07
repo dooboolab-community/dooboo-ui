@@ -28,7 +28,7 @@ function CalendarCarouselBasic(): React.ReactElement {
     },
     {
       selectedEventDate: new Date(2020, 7, 17),
-      events: 'Birthday Party for Camerine',
+      events: 'Birthday Party for Jessie',
     },
     {
       selectedEventDate: new Date(2020, 7, 27),
