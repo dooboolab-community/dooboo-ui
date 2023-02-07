@@ -5,7 +5,7 @@ import type {StyleProp, TouchableOpacityProps, ViewStyle} from 'react-native';
 
 import type {DoobooTheme} from '@dooboo-ui/theme';
 import {Icon} from '../Icon/';
-import type {IconNames} from '../Icon';
+import type {IconName} from '../Icon/';
 import {LoadingIndicator} from '../LoadingIndicator';
 import {css} from '@emotion/native';
 import {getTheme} from '../../utils';
@@ -100,7 +100,7 @@ export type IconButtonProps = {
   disabled?: boolean;
   loading?: boolean;
   loadingElement?: ReactElement;
-  icon?: IconNames[number];
+  icon?: IconName;
   iconElement?: ReactElement;
   style?: StyleProp<ViewStyle>;
   styles?: Styles;

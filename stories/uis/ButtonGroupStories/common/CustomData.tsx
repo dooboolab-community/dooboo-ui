@@ -3,14 +3,14 @@ import {Button, ButtonGroup, Icon, Typography} from '../../../../main';
 import React, {useState} from 'react';
 
 import type {FC} from 'react';
-import type {IconNames} from '../../../../main';
+import type {IconName} from '../../../../main';
 import {View} from 'react-native';
 import {useTheme} from '@dooboo-ui/theme';
 
 const CustomData: FC = () => {
   const {theme} = useTheme();
 
-  const data: {text: string; icon: IconNames}[] = [
+  const data: {text: string; icon: IconName}[] = [
     {text: 'Item 1', icon: 'home-solid'},
     {text: 'Item 2', icon: 'account-solid'},
     {text: 'Item 3', icon: 'tiktok-solid'},

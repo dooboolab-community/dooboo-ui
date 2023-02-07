@@ -172,9 +172,10 @@ export const doobooIconList = [
 ] as const;
 
 export type IconNames = typeof doobooIconList;
+export type IconName = IconNames[number];
 
 type Props = {
-  name: IconNames[number];
+  name: IconName;
   size?: number;
   color?: string;
   style?: ViewStyle;
