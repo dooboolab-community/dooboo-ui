@@ -1,33 +1,39 @@
+import type {AccordionItemDataType} from '../../..';
+import {Accordion} from '../../..';
 import {createComponent, createTestProps} from '../../../../test/testUtils';
 import {fireEvent, render} from '@testing-library/react-native';
 
-import {Accordion} from '../../..';
 import React from 'react';
 import type {ReactElement} from 'react';
 import type {RenderAPI} from '@testing-library/react-native';
+import {Text} from 'react-native';
 
 let props: any;
 let component: ReactElement;
 let testingLib: RenderAPI;
 
-const data = [
+const data: AccordionItemDataType<string, string>[] = [
   {
     title: 'title1',
-    bodies: ['body1', 'body2', 'body3'],
+    items: ['body1', 'body2', 'body3'],
   },
   {
     title: 'title2',
-    bodies: ['body1', 'body2', 'body3'],
+    items: ['body1', 'body2', 'body3'],
   },
   {
     title: 'title3',
-    bodies: ['body1', 'body2', 'body3'],
+    items: ['body1', 'body2', 'body3'],
   },
 ];
 
 describe('[Accordion] render test', () => {
   it('should render without crashing', () => {
-    props = createTestProps({data: data});
+    props = createTestProps({
+      data: data,
+      renderTitle: (title) => <Text>{title}</Text>,
+      renderItem: (item) => <Text>{item}</Text>,
+    });
 
     component = createComponent(<Accordion {...props} />);
 
@@ -41,6 +47,8 @@ describe('[Accordion] render test', () => {
     props = createTestProps({
       collapseOnStart: true,
       data: data,
+      renderTitle: (title) => <Text>{title}</Text>,
+      renderItem: (item) => <Text>{item}</Text>,
     });
 
     component = createComponent(<Accordion {...props} />);
@@ -55,6 +63,8 @@ describe('[Accordion] render test', () => {
     props = createTestProps({
       shouldAnimate: true,
       data: data,
+      renderTitle: (title) => <Text>{title}</Text>,
+      renderItem: (item) => <Text>{item}</Text>,
     });
 
     component = createComponent(<Accordion {...props} />);
@@ -70,6 +80,8 @@ describe('[Accordion] render test', () => {
     props = createTestProps({
       animDuration: 500,
       data: data,
+      renderTitle: (title) => <Text>{title}</Text>,
+      renderItem: (item) => <Text>{item}</Text>,
     });
 
     component = createComponent(<Accordion {...props} />);
@@ -85,6 +97,8 @@ describe('[Accordion] event test', () => {
   beforeEach(() => {
     props = createTestProps({
       data: data,
+      renderTitle: (title) => <Text>{title}</Text>,
+      renderItem: (item) => <Text>{item}</Text>,
     });
 
     component = createComponent(<Accordion {...props} />);

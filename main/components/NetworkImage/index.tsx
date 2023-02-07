@@ -11,7 +11,7 @@ import PlaceholderDark from '../../__assets__/placeholder_dark.png';
 import PlaceholderLight from '../../__assets__/placeholder_light.png';
 import type {ReactElement} from 'react';
 import styled from '@emotion/native';
-import {useDooboo} from '../../providers';
+import {useTheme} from '@dooboo-ui/theme';
 
 const Container = styled.View`
   background-color: ${({theme}) => theme.bg.paper};
@@ -28,7 +28,7 @@ interface Props {
 }
 
 function NetworkImage(props: Props): ReactElement {
-  const {themeType} = useDooboo();
+  const {themeType} = useTheme();
   const logo = themeType === 'light' ? PlaceholderLight : PlaceholderDark;
   const {style, url, imageProps = false} = props;
   const [isValidSource, setIsValidSource] = useState(true);

@@ -1,11 +1,8 @@
-import type {
-  AccordionData,
-  AccordionListType,
-} from '../../../main/components/Accordion';
 import {ScrollContainer, StoryContainer, StoryTitle} from '../../GlobalStyles';
 import {boolean, number, object} from '@storybook/addon-knobs';
 
 import {Accordion} from '../../../main/components/Accordion';
+import type {AccordionItemDataType} from '../../../main/components/Accordion';
 import {Icon} from '../../../main/components/Icon';
 // Caveat: Expo web needs React to be imported
 import React from 'react';
@@ -22,7 +19,11 @@ const CustomStyledItem = styled.Text`
   left: 40px;
 `;
 
-const AccordionCustom = ({data}: {data: AccordionListType}): ReactElement => {
+const AccordionCustom = ({
+  data,
+}: {
+  data: AccordionItemDataType<string, string>[];
+}): ReactElement => {
   const {theme} = useDooboo();
 
   return (
@@ -31,7 +32,7 @@ const AccordionCustom = ({data}: {data: AccordionListType}): ReactElement => {
         <StoryTitle style={{fontSize: 18, marginBottom: 8}}>
           Custom Style
         </StoryTitle>
-        <Accordion
+        <Accordion<string, string>
           shouldAnimate={boolean('shouldAnimate', true)}
           animDuration={number('animDuration', 200)}
           activeOpacity={number('activeOpacity', 1)}
@@ -46,7 +47,7 @@ const AccordionCustom = ({data}: {data: AccordionListType}): ReactElement => {
           })}
           data={object(
             'data',
-            data.map<AccordionData>((datum) => ({
+            data.map((datum) => ({
               ...datum,
               title: datum.title.toUpperCase(),
             })),
@@ -64,7 +65,7 @@ const AccordionCustom = ({data}: {data: AccordionListType}): ReactElement => {
               <Typography.Heading3>{item}</Typography.Heading3>
             </View>
           )}
-          renderBody={(item) => <CustomStyledItem>{item}</CustomStyledItem>}
+          renderItem={(item) => <CustomStyledItem>{item}</CustomStyledItem>}
           toggleElement={
             <Icon name="chevron-down-light" color={theme.text.contrast} />
           }

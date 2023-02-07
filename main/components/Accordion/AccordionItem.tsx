@@ -26,35 +26,18 @@ const ItemContainer = styled.TouchableOpacity`
   padding: 20px 0px;
 `;
 
-const StyledTitle = styled.Text`
-  font-weight: bold;
-  color: ${({theme}) => theme.text.contrast};
-  position: absolute;
-  padding: 0px 20px;
-`;
-
-const StyledItem = styled.Text`
-  color: ${({theme}) => theme.text.basic};
-  padding: 0px 20px;
-`;
-
-export type AccordionListItemType = {
-  startElement?: ReactElement;
-  text: string;
-  endElement?: ReactElement;
+export type AccordionItemDataType<T, K> = {
+  title: T;
+  items: K[];
 };
 
-export type AccordionData = {
-  title: AccordionListItemType;
-  bodies: AccordionListItemType[];
-};
-
-type Props = AccordionBaseProps<AccordionData> & {
+type Props<T, K> = Omit<AccordionBaseProps<T, K>, 'data'> & {
   testID: string;
+  data: AccordionItemDataType<T, K>;
   dropDownAnimValue: Animated.Value;
 };
 
-function AccordionItem(props: Props): ReactElement {
+function AccordionItem<T, K>(props: Props<T, K>): ReactElement {
   const {theme} = useTheme();
 
   const {
@@ -66,20 +49,8 @@ function AccordionItem(props: Props): ReactElement {
     activeOpacity = 1,
     toggleElement = <StyledIcon name="chevron-down-light" theme={theme} />,
     onPressItem,
-    renderTitle = (title) => (
-      <>
-        {title.startElement}
-        <StyledTitle theme={theme}>{title.text}</StyledTitle>
-        {title.endElement}
-      </>
-    ),
-    renderBody = (body) => (
-      <>
-        {body.startElement}
-        <StyledItem theme={theme}>{body.text}</StyledItem>
-        {body.endElement}
-      </>
-    ),
+    renderTitle,
+    renderItem,
     dropDownAnimValue,
     styles,
     style,
@@ -194,14 +165,14 @@ function AccordionItem(props: Props): ReactElement {
         onLayout={handleBodyLayout}
         accessibilityState={{expanded: !collapsed}}
       >
-        {item.bodies.map((body, index) => (
+        {item.items.map((body, index) => (
           <ItemContainer
             key={`body-${index}`}
             style={bodyContainer}
             activeOpacity={activeOpacity}
             onPress={() => onPressItem?.(item.title, body)}
           >
-            {renderBody(body)}
+            {renderItem(body)}
           </ItemContainer>
         ))}
       </Animated.View>

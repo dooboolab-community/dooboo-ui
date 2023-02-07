@@ -1,8 +1,8 @@
-import type {AccordionData, AccordionListItemType} from './AccordionItem';
 import React, {useRef} from 'react';
 import type {StyleProp, ViewStyle} from 'react-native';
 
 import AccordionItem from './AccordionItem';
+import type {AccordionItemDataType} from './AccordionItem';
 import {Animated} from 'react-native';
 import type {ReactElement} from 'react';
 import styled from '@emotion/native';
@@ -16,8 +16,8 @@ interface Styles {
   bodyContainer?: StyleProp<ViewStyle>;
 }
 
-export type AccordionBaseProps<T> = {
-  data: T;
+export type AccordionBaseProps<T, K> = {
+  data: AccordionItemDataType<T, K>[];
   style?: StyleProp<ViewStyle>;
   styles?: Styles;
   shouldAnimate?: boolean;
@@ -25,19 +25,14 @@ export type AccordionBaseProps<T> = {
   animDuration?: number;
   activeOpacity?: number;
   toggleElement?: ReactElement | null;
-  renderTitle?: (item: AccordionListItemType) => ReactElement;
-  renderBody?: (item: AccordionListItemType) => ReactElement;
-  onPressItem?: (
-    title: AccordionListItemType,
-    body: AccordionListItemType,
-  ) => void;
+  renderTitle: (title: T) => ReactElement;
+  renderItem: (body: K) => ReactElement;
+  onPressItem?: (title: T, body: K) => void;
 };
 
-export type AccordionListType = AccordionData[];
+export type AccordionProps<T, K> = AccordionBaseProps<T, K>;
 
-export type AccordionProps = AccordionBaseProps<AccordionListType>;
-
-function Accordion(props: AccordionProps): ReactElement {
+function Accordion<T, K>(props: AccordionProps<T, K>): ReactElement {
   const {
     style,
     styles,
@@ -48,7 +43,7 @@ function Accordion(props: AccordionProps): ReactElement {
     activeOpacity,
     toggleElement,
     renderTitle,
-    renderBody,
+    renderItem,
     onPressItem,
   } = props;
 
@@ -72,7 +67,7 @@ function Accordion(props: AccordionProps): ReactElement {
             dropDownAnimValue={dropDownAnimValueList[titleKey]}
             toggleElement={toggleElement}
             renderTitle={renderTitle}
-            renderBody={renderBody}
+            renderItem={renderItem}
             onPressItem={onPressItem}
           />
         );

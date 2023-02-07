@@ -1,24 +1,24 @@
 import AccordionBasic from './Basic';
 import AccordionCustom from './Custom';
-import type {AccordionListType} from '../../../main';
+import type {AccordionItemDataType} from '../../../main/components/Accordion/AccordionItem';
 // Caveat: Expo web needs React to be imported
 import React from 'react';
 import {renderStory} from '../../Common';
 import {storiesOf} from '@storybook/react-native';
 import {withKnobs} from '@storybook/addon-knobs';
 
-const data: AccordionListType = [
+const data: AccordionItemDataType<string, string>[] = [
   {
     title: 'Lists',
-    bodies: ['user', 'mail', 'plan'],
+    items: ['User', 'Mail', 'Text'],
   },
   {
-    title: 'Mail',
-    bodies: ['mail list', 'category', 'bin'],
+    title: 'Lists',
+    items: ['User', 'Mail', 'Text'],
   },
   {
-    title: 'Reports',
-    bodies: ['report list', 'statistics'],
+    title: 'Lists',
+    items: ['User', 'Mail', 'Text'],
   },
 ];
 
