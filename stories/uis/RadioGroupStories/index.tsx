@@ -1,5 +1,5 @@
-import RadioGroupBasic from './Basic';
-import RadioGroupElement from './Element';
+import RadioGroupBasic from './RadioGroupBasicStory';
+import RadioGroupElement from './RadioGroupElementStory';
 // Caveat: Expo web needs React to be imported
 import React from 'react';
 import {renderStory} from '../../Common';

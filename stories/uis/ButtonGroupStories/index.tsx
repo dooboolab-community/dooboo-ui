@@ -1,4 +1,4 @@
-import ButtonGroupBasic from './Basic';
+import ButtonGroupBasicStory from './ButtonGroupBasicStory';
 // Caveat: Expo web needs React to be imported
 import React from 'react';
 import {renderStory} from '../../Common';
@@ -9,4 +9,4 @@ import {withKnobs} from '@storybook/addon-knobs';
 storiesOf('ButtonGroup', module)
   .addDecorator(withKnobs)
   .addDecorator(withActions)
-  .add('Basic', () => renderStory(<ButtonGroupBasic />));
+  .add('Basic', () => renderStory(<ButtonGroupBasicStory />));

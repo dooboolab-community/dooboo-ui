@@ -1,7 +1,7 @@
 import 'intl';
 import 'intl/locale-data/jsonp/en';
 
-import CalendarCarouselBasic from './Basic';
+import CalendarCarouselBasicStory from './CalendarCarouselBasicStory';
 // Caveat: Expo web needs React to be imported
 import React from 'react';
 import {renderStory} from '../../Common';
@@ -12,4 +12,4 @@ import {withKnobs} from '@storybook/addon-knobs';
 storiesOf('[Package] CalendarCarousel', module)
   .addDecorator(withKnobs)
   .addDecorator(withActions)
-  .add('Basic', () => renderStory(<CalendarCarouselBasic />));
+  .add('Basic', () => renderStory(<CalendarCarouselBasicStory />));

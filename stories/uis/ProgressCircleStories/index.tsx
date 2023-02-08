@@ -1,4 +1,4 @@
-import ProgressCircleBasic from './Basic';
+import ProgressCircleBasicStory from './ProgressCircleBasicStory';
 // Caveat: Expo web needs React to be imported
 import React from 'react';
 import {renderStory} from '../../Common';
@@ -9,4 +9,4 @@ import {withKnobs} from '@storybook/addon-knobs';
 storiesOf('ProgressCircle', module)
   .addDecorator(withKnobs)
   .addDecorator(withActions)
-  .add('Basic', () => renderStory(<ProgressCircleBasic />));
+  .add('Basic', () => renderStory(<ProgressCircleBasicStory />));

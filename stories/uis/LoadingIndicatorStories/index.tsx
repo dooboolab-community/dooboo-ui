@@ -1,6 +1,6 @@
-import LoadingIndicatorBasic from './Basic';
-import LoadingIndicatorCustom from './Custom';
-import LoadingIndicatorImage from './Image';
+import LoadingIndicatorBasicStory from './LoadingIndicatorBasicStory';
+import LoadingIndicatorCustomStory from './LoadingIndicatorCustomStory';
+import LoadingIndicatorImageStory from './LoadingIndicatorImageStory';
 // Caveat: Expo web needs React to be imported
 import React from 'react';
 import {renderStory} from '../../Common';
@@ -11,6 +11,6 @@ import {withKnobs} from '@storybook/addon-knobs';
 storiesOf('LoadingIndicator', module)
   .addDecorator(withKnobs)
   .addDecorator(withActions)
-  .add('Basic', () => renderStory(<LoadingIndicatorBasic />))
-  .add('Image', () => renderStory(<LoadingIndicatorImage />))
-  .add('Custom', () => renderStory(<LoadingIndicatorCustom />));
+  .add('Basic', () => renderStory(<LoadingIndicatorBasicStory />))
+  .add('Image', () => renderStory(<LoadingIndicatorImageStory />))
+  .add('Custom', () => renderStory(<LoadingIndicatorCustomStory />));
