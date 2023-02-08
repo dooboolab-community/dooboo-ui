@@ -18,9 +18,9 @@ describe('[FAB]', () => {
 
     const {getByTestId} = render(
       Component({
-        FABItems: [item],
+        items: [item],
         isActive: true,
-        onPressFABItem: () => {
+        onPressItem: () => {
           count += 1;
           // resItem = fab;
         },
@@ -34,12 +34,12 @@ describe('[FAB]', () => {
     // expect(resItem.id).toBe(item.id);
   });
 
-  it('should render customFAB', async () => {
+  it('should render custom FAB', async () => {
     const testingLib = render(
       Component({
-        FABItems: [{icon: 'bell-solid', id: 'item1'}],
+        items: [{icon: 'bell-solid', id: 'item1'}],
         isActive: true,
-        onPressFABItem: () => {},
+        onPressItem: () => {},
         onPressFAB: () => {},
         renderFAB: () => <View />,
         renderFABItem: () => <View />,

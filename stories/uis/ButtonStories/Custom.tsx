@@ -5,15 +5,20 @@ import {Button} from '../../../main';
 import React from 'react';
 import type {ReactElement} from 'react';
 import {css} from '@emotion/native';
+import {useButtonKnobs} from './useButtonKnobs';
 
 function Custom(): ReactElement {
+  const {size, color, type} = useButtonKnobs();
+
   return (
     <StoryContainer>
       <StoryTitle>Custom</StoryTitle>
       <StorySection>
         <Button
-          type="solid"
+          type={type}
           text="ENABLED"
+          size={size}
+          color={color}
           style={{margin: 4}}
           // eslint-disable-next-line no-console
           onPress={() => console.log(`press enabled button`)}

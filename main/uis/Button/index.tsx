@@ -1,6 +1,6 @@
-import type {FC, ReactElement, ReactNode} from 'react';
 import {Platform, Text, TouchableHighlight} from 'react-native';
-import React, {useCallback, useRef} from 'react';
+import React, {cloneElement, useCallback, useRef} from 'react';
+import type {ReactElement, ReactNode} from 'react';
 import type {
   StyleProp,
   TextStyle,
@@ -129,10 +129,13 @@ export type Props = {
   styles?: Styles;
   onPress?: TouchableHighlightProps['onPress'];
   activeOpacity?: TouchableHighlightProps['activeOpacity'];
-  touchableHighlightProps?: Partial<TouchableHighlightProps>;
+  touchableHighlightProps?: Omit<
+    TouchableHighlightProps,
+    'onPress' | 'activeOpacity' | 'style'
+  >;
 };
 
-export const Button: FC<Props> = (props) => {
+export function Button(props: Props): ReactElement {
   const {
     testID,
     type = 'solid',
@@ -236,7 +239,14 @@ export const Button: FC<Props> = (props) => {
 
   const ChildView = (
     <>
-      {startElement}
+      {startElement
+        ? cloneElement(startElement, {
+            style: {
+              ...startElement.props.style,
+              color: textColor || theme.text.basic,
+            },
+          })
+        : null}
       <Text
         style={[
           compositeStyles.text,
@@ -246,7 +256,14 @@ export const Button: FC<Props> = (props) => {
       >
         {text}
       </Text>
-      {endElement}
+      {endElement
+        ? cloneElement(endElement, {
+            style: {
+              ...endElement.props.style,
+              color: textColor || theme.text.basic,
+            },
+          })
+        : null}
     </>
   );
 
@@ -257,7 +274,13 @@ export const Button: FC<Props> = (props) => {
         web: ref,
         default: undefined,
       })}
-      underlayColor={themeType === 'light' ? '#000000' : '#FFFFFF'}
+      underlayColor={
+        type === 'text'
+          ? 'transparent'
+          : themeType === 'light'
+          ? '#000000'
+          : '#FFFFFF'
+      }
       activeOpacity={activeOpacity}
       onPress={onPress}
       delayPressIn={30}
@@ -268,4 +291,4 @@ export const Button: FC<Props> = (props) => {
       {renderContainer(loading ? LoadingView : ChildView)}
     </TouchableHighlight>
   );
-};
+}

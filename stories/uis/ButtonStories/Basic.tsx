@@ -5,16 +5,23 @@ import type {ButtonType} from '../../../main';
 // Caveat: Expo web needs React to be imported
 import React from 'react';
 import type {ReactElement} from 'react';
+import {useButtonKnobs} from './useButtonKnobs';
 
 function Basic(): ReactElement {
+  const {color, size, activeOpacity, disabled} = useButtonKnobs();
+
   const types: ButtonType[] = ['text', 'solid', 'outlined'];
 
   return (
     <StoryContainer>
       <StoryTitle>Basic</StoryTitle>
-      <StorySection>
+      <StorySection style={{flexDirection: 'column'}}>
         {types.map((type) => (
           <Button
+            size={size}
+            color={color}
+            activeOpacity={activeOpacity}
+            disabled={disabled}
             key={type}
             type={type}
             text={`type: ${type}`}

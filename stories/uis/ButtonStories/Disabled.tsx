@@ -5,9 +5,11 @@ import type {ButtonType} from '../../../main';
 // Caveat: Expo web needs React to be imported
 import React from 'react';
 import type {ReactElement} from 'react';
+import {useButtonKnobs} from './useButtonKnobs';
 
 function Disabled(): ReactElement {
   const types: ButtonType[] = ['text', 'solid', 'outlined'];
+  const {color, size} = useButtonKnobs();
 
   return (
     <StoryContainer>
@@ -16,6 +18,8 @@ function Disabled(): ReactElement {
         {types.map((type) => (
           <Button
             key={type}
+            size={size}
+            color={color}
             type={type}
             disabled={true}
             text="TEXT"

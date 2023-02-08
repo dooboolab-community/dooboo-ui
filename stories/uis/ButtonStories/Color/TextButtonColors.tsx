@@ -1,11 +1,10 @@
-import {boolean, number} from '@storybook/addon-knobs';
-
 import {Button} from '../../../../main';
 import type {ButtonColorType} from '../../../../main';
 // Caveat: Expo web needs React to be imported
 import React from 'react';
 import type {ReactElement} from 'react';
 import {StorySection} from '../../../GlobalStyles';
+import {useButtonKnobs} from '../useButtonKnobs';
 
 function TextButtonColors(): ReactElement {
   const colors: ButtonColorType[] = [
@@ -18,15 +17,18 @@ function TextButtonColors(): ReactElement {
     'light',
   ];
 
+  const {size, disabled, activeOpacity} = useButtonKnobs();
+
   return (
     <StorySection>
       {colors.map((color) => (
         <Button
           key={color}
           type="text"
-          disabled={boolean('disabled', false)}
-          activeOpacity={number('activeOpacity', 0.8)}
+          disabled={disabled}
+          activeOpacity={activeOpacity}
           color={color}
+          size={size}
           text={color.toUpperCase()}
           style={{margin: 4}}
           // eslint-disable-next-line no-console

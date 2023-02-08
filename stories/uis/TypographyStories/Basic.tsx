@@ -4,17 +4,6 @@ import {ScrollContainer, StoryContainer} from '../../GlobalStyles';
 import React from 'react';
 import {Typography} from '../../../main';
 import {View} from 'react-native';
-import styled from '@emotion/native';
-
-const Container = styled.View`
-  flex: 1;
-  width: 100%;
-  background-color: ${({theme}) => theme.bg.basic};
-
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-`;
 
 function TypographyBasic(): React.ReactElement {
   return (

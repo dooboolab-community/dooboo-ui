@@ -108,7 +108,7 @@ export type IconButtonProps = {
   activeOpacity?: TouchableHighlightProps['activeOpacity'];
   touchableHighlightProps?: Omit<
     TouchableHighlightProps,
-    'onPress' | 'activeOpacity'
+    'onPress' | 'activeOpacity' | 'style'
   >;
 };
 

@@ -8,13 +8,20 @@ import type {ReactElement} from 'react';
 import {StorySection} from '../../../GlobalStyles';
 import {action} from '@storybook/addon-actions';
 import {css} from '@emotion/native';
+import {useButtonKnobs} from '../useButtonKnobs';
 
 function StartElementAndEndElement(): ReactElement {
   const [googleLoading, setGoogleLoading] = useState<boolean>(false);
+  const {color, size, activeOpacity, disabled, type} = useButtonKnobs();
 
   return (
     <StorySection>
       <Button
+        activeOpacity={activeOpacity}
+        disabled={disabled}
+        type={type}
+        size={size}
+        color={color}
         startElement={
           <View style={{marginRight: 12}}>
             <Image style={{width: 20, height: 20}} source={IC_GOOGLE} />
