@@ -1,27 +1,12 @@
 // Caveat: Expo web needs React to be imported
 import React, {useState} from 'react';
-import {SwitchToggle, Typography} from '../../../main';
+import {ScrollContainer, StoryContainer, StoryTitle} from '../../GlobalStyles';
 
 import type {ReactElement} from 'react';
-import {ScrollContainer} from '../../GlobalStyles';
-import styled from '@emotion/native';
+import {SwitchToggle} from '../../../main';
+import {View} from 'react-native';
+import {number} from '@storybook/addon-knobs';
 import {useTheme} from '@dooboo-ui/theme';
-
-const StoryContainer = styled.View`
-  flex: 1;
-  align-self: stretch;
-  background-color: ${({theme}) => theme.bg.basic};
-`;
-
-const Container = styled.View`
-  background-color: ${({theme}) => theme.bg.basic};
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  margin-top: 20px;
-  margin-bottom: 20px;
-  flex-direction: column;
-`;
 
 function SwitchToggleBasic(): ReactElement {
   const [on, off] = useState<boolean>(false);
@@ -30,51 +15,42 @@ function SwitchToggleBasic(): ReactElement {
   return (
     <ScrollContainer>
       <StoryContainer>
-        <Container style={{paddingVertical: 60}}>
-          <Typography.Heading3 style={{fontSize: 18, marginBottom: 8}}>
-            Basic Style
-          </Typography.Heading3>
-          <SwitchToggle isOn={on} onPress={() => off(!on)} />
-        </Container>
+        <StoryTitle>Basic</StoryTitle>
+        <SwitchToggle isOn={on} onPress={() => off(!on)} />
 
-        <Container style={{paddingVertical: 30}}>
-          <Typography.Heading3 style={{fontSize: 18, marginBottom: 8}}>
-            Custom Color
-          </Typography.Heading3>
-          <SwitchToggle
-            isOn={on}
-            onPress={() => off(!on)}
-            styles={{
-              circleColorOff: theme.text.disabled,
-              circleColorOn: theme.text.basic,
-              backgroundColorOn: theme.bg.paper,
-              backgroundColorOff: theme.bg.disabled,
-            }}
-          />
-        </Container>
-        <Container style={{paddingVertical: 30}}>
-          <Typography.Heading3 style={{fontSize: 18, marginBottom: 8}}>
-            Custom Size
-          </Typography.Heading3>
-          <SwitchToggle
-            isOn={on}
-            onPress={() => off(!on)}
-            styles={{
-              container: {
-                marginTop: 16,
-                width: 106,
-                height: 48,
-                borderRadius: 25,
-                padding: 5,
-              },
-              circle: {
-                width: 40,
-                height: 40,
-                borderRadius: 20,
-              },
-            }}
-          />
-        </Container>
+        <View style={{height: 40}} />
+        <StoryTitle>Custom</StoryTitle>
+        <SwitchToggle
+          isOn={on}
+          onPress={() => off(!on)}
+          duration={number('duration', 500)}
+          styles={{
+            circleColorOff: theme.text.disabled,
+            circleColorOn: theme.text.basic,
+            backgroundColorOn: theme.bg.paper,
+            backgroundColorOff: theme.bg.disabled,
+          }}
+        />
+
+        <View style={{height: 40}} />
+        <StoryTitle>Size</StoryTitle>
+        <SwitchToggle
+          isOn={on}
+          onPress={() => off(!on)}
+          styles={{
+            container: {
+              width: 106,
+              height: 48,
+              borderRadius: 25,
+              padding: 5,
+            },
+            circle: {
+              width: 40,
+              height: 40,
+              borderRadius: 20,
+            },
+          }}
+        />
       </StoryContainer>
     </ScrollContainer>
   );

@@ -3,25 +3,27 @@ import React, {useEffect, useState} from 'react';
 import {StoryContainer, StoryTitle} from '../../GlobalStyles';
 import {
   boolean as booleanInput,
+  number,
   number as numberInput,
   select as selectInput,
 } from '@storybook/addon-knobs';
 
+import type {ButtonColorType} from '../../../main';
 import {ProgressCircle} from '../../../main';
 import type {ReactElement} from 'react';
-import {useTheme} from '@dooboo-ui/theme';
 
 function ProgressCircleBasic(): ReactElement {
-  const {changeThemeType} = useTheme();
   const progressInput = numberInput('progress', 0);
   const autoPlay = booleanInput('auto play', true);
 
-  const type = selectInput(
+  const color = selectInput<ButtonColorType>(
     'type',
-    ['success', 'info', 'warning', 'danger'],
+    ['success', 'info', 'warning', 'danger', 'light', 'secondary'],
     'info',
   );
-  const themeType = selectInput('themeType', ['light', 'dark'], 'light');
+
+  const baseStrokeWidth = number('baseStrokeWidth', 0.3);
+
   const [progress, setProgress] = useState(0);
 
   useEffect(() => {
@@ -58,14 +60,14 @@ function ProgressCircleBasic(): ReactElement {
     return () => clearTimeout(timeout);
   }, [progressInput, autoPlay]);
 
-  useEffect(() => {
-    changeThemeType(themeType);
-  }, [changeThemeType, themeType]);
-
   return (
     <StoryContainer>
       <StoryTitle>Basic</StoryTitle>
-      <ProgressCircle type={type} progress={progress} />
+      <ProgressCircle
+        color={color}
+        progress={progress}
+        baseStrokeWidth={baseStrokeWidth}
+      />
     </StoryContainer>
   );
 }

@@ -1,16 +1,17 @@
-import React, {useMemo, useRef, useState} from 'react';
 import Svg, {Circle as SvgCircle} from 'react-native-svg';
 import type {TextStyle, ViewStyle} from 'react-native';
+import {useMemo, useRef, useState} from 'react';
 
 import {Animated} from 'react-native';
+import type {ButtonColorType} from '../Button';
 import type {DoobooTheme} from '@dooboo-ui/theme';
 import type {ReactElement} from 'react';
 import styled from '@emotion/native';
 import {useTheme} from '@dooboo-ui/theme';
 
 type DoobooThemeContext = {theme: DoobooTheme};
-type ProgressType = 'success' | 'danger' | 'warning' | 'info';
-interface Props {
+type Props = {
+  baseStrokeWidth?: number;
   styles?: {
     container?: ViewStyle;
     text?: TextStyle;
@@ -21,9 +22,9 @@ interface Props {
     };
   };
   style?: ViewStyle;
-  type?: ProgressType;
+  color?: ButtonColorType;
   progress: number;
-}
+};
 
 const Container = styled.View`
   align-items: center;
@@ -35,14 +36,19 @@ const AnimCircle = Animated.createAnimatedComponent(SvgCircle);
 const Text = styled.Text``;
 
 export function ProgressCircle({
+  baseStrokeWidth = 0.3,
   style,
   styles,
   progress,
-  type = 'info',
+  color = 'info',
 }: Props): ReactElement {
-  const {color, radius = 30, strokeWidth = 5} = styles?.circle || {};
+  const {
+    radius = 30,
+    strokeWidth = 5,
+    color: circleColor,
+  } = styles?.circle || {};
   const {theme} = useTheme() as unknown as DoobooThemeContext;
-  const strokeColor = color ?? theme.role[type];
+  const strokeColor = circleColor || theme.role[color];
   const animValue = useRef(new Animated.Value(progress));
 
   const [containerLayout, setContainerLayout] = useState({
@@ -111,7 +117,7 @@ export function ProgressCircle({
         <SvgCircle
           fill="transparent"
           r={radius + strokeWidth / 2}
-          strokeWidth={1}
+          strokeWidth={baseStrokeWidth}
           stroke={strokeColor}
           {...circleProps}
         />

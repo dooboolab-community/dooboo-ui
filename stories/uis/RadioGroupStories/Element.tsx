@@ -16,7 +16,7 @@ function RadioButtonBasic(): ReactElement {
   return (
     <ScrollContainer>
       <StoryContainer>
-        <StoryTitle>Basic</StoryTitle>
+        <StoryTitle>Element</StoryTitle>
         {types.map((el, i) => {
           return (
             <View
@@ -29,6 +29,7 @@ function RadioButtonBasic(): ReactElement {
                 type={el as RadioButtonType}
                 selectedValue={selectedValue}
                 selectValue={(value) => setSelectedValue(value)}
+                labels={data}
               />
             </View>
           );
