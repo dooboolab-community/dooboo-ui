@@ -1,5 +1,5 @@
 import {Animated, Easing} from 'react-native';
-import {useCallback, useEffect, useRef, useState} from 'react';
+import {useEffect, useRef, useState} from 'react';
 
 import type {AccordionBaseProps} from './Accordion';
 import {Icon} from '../Icon';
@@ -63,28 +63,39 @@ function AccordionItem<T, K>(props: Props<T, K>): ReactElement {
 
   const rotateAnimValueRef = useRef(new Animated.Value(0));
   const dropDownAnimValueRef = useRef(dropDownAnimValue);
+  const fadeAnim = useRef(new Animated.Value(0)).current;
 
   const [bodyHeight, setBodyHeight] = useState(0);
-  const [bodyMounted, setBodyMounted] = useState(false);
-  const [collapsed, setCollapsed] = useState(collapseOnStart);
+  const [isBodyMounted, setIsBodyMounted] = useState(false);
+  const [hasCollapsed, setHasCollapsed] = useState(collapseOnStart);
 
   const handleBodyLayout = (e: LayoutChangeEvent): void => {
-    if (bodyMounted) {
+    if (isBodyMounted) {
       return;
     }
 
     const {height} = e.nativeEvent.layout;
 
     setBodyHeight(height);
-    setBodyMounted(true);
+    setIsBodyMounted(true);
   };
 
   const handlePress = (): void => {
-    setCollapsed(!collapsed);
+    setHasCollapsed(!hasCollapsed);
   };
 
-  const startAnimation = useCallback(() => {
-    const targetValue = collapsed ? 0 : 1;
+  useEffect(() => {
+    if (isBodyMounted) {
+      Animated.timing(fadeAnim, {
+        toValue: 1,
+        duration: 30,
+        useNativeDriver: true,
+      }).start();
+    }
+  }, [isBodyMounted, fadeAnim]);
+
+  useEffect(() => {
+    const targetValue = hasCollapsed ? 0 : 1;
 
     if (!shouldAnimate) {
       rotateAnimValueRef.current.setValue(targetValue);
@@ -104,11 +115,7 @@ function AccordionItem<T, K>(props: Props<T, K>): ReactElement {
       Animated.timing(rotateAnimValueRef.current, config),
       Animated.timing(dropDownAnimValueRef.current, config),
     ]).start();
-  }, [collapsed, shouldAnimate, animDuration]);
-
-  useEffect(() => {
-    startAnimation();
-  }, [startAnimation]);
+  }, [hasCollapsed, shouldAnimate, animDuration]);
 
   const indicatorEl = (
     <Animated.View
@@ -135,6 +142,7 @@ function AccordionItem<T, K>(props: Props<T, K>): ReactElement {
         {
           backgroundColor: 'transparent',
           overflow: 'hidden',
+          opacity: fadeAnim,
         },
         style,
       ]}
@@ -146,16 +154,13 @@ function AccordionItem<T, K>(props: Props<T, K>): ReactElement {
         activeOpacity={activeOpacity}
         style={titleContainer}
       >
-        <>
-          {renderTitle(item.title)}
-          {indicatorEl}
-        </>
+        {renderTitle(item.title)}
+        {indicatorEl}
       </TitleContainer>
-
       <Animated.View
         testID={`body-${testID}`}
         style={{
-          height: bodyMounted
+          height: isBodyMounted
             ? dropDownAnimValueRef.current.interpolate({
                 inputRange: [0, 1],
                 outputRange: [0, bodyHeight],
@@ -163,7 +168,7 @@ function AccordionItem<T, K>(props: Props<T, K>): ReactElement {
             : undefined,
         }}
         onLayout={handleBodyLayout}
-        accessibilityState={{expanded: !collapsed}}
+        accessibilityState={{expanded: !hasCollapsed}}
       >
         {item.items.map((body, index) => (
           <ItemContainer
