@@ -1,13 +1,13 @@
 {
   "files": {
-    "static/js/0.cbdfd57b.chunk.js": "/dooboo-ui/static/js/0.cbdfd57b.chunk.js",
-    "static/js/0.cbdfd57b.chunk.js.map": "/dooboo-ui/static/js/0.cbdfd57b.chunk.js.map",
-    "app.js": "/dooboo-ui/static/js/app.fe37632d.chunk.js",
-    "app.js.map": "/dooboo-ui/static/js/app.fe37632d.chunk.js.map",
-    "runtime~app.js": "/dooboo-ui/static/js/runtime~app.407ea7ca.js",
-    "runtime~app.js.map": "/dooboo-ui/static/js/runtime~app.407ea7ca.js.map",
-    "static/js/3.7e4b6bc9.chunk.js": "/dooboo-ui/static/js/3.7e4b6bc9.chunk.js",
-    "static/js/3.7e4b6bc9.chunk.js.map": "/dooboo-ui/static/js/3.7e4b6bc9.chunk.js.map",
+    "static/js/0.8b77d142.chunk.js": "/dooboo-ui/static/js/0.8b77d142.chunk.js",
+    "static/js/0.8b77d142.chunk.js.map": "/dooboo-ui/static/js/0.8b77d142.chunk.js.map",
+    "app.js": "/dooboo-ui/static/js/app.daeb6e44.chunk.js",
+    "app.js.map": "/dooboo-ui/static/js/app.daeb6e44.chunk.js.map",
+    "runtime~app.js": "/dooboo-ui/static/js/runtime~app.ec3bd4c8.js",
+    "runtime~app.js.map": "/dooboo-ui/static/js/runtime~app.ec3bd4c8.js.map",
+    "static/js/3.b94175b5.chunk.js": "/dooboo-ui/static/js/3.b94175b5.chunk.js",
+    "static/js/3.b94175b5.chunk.js.map": "/dooboo-ui/static/js/3.b94175b5.chunk.js.map",
     "fonts/AntDesign.ttf": "/dooboo-ui/./fonts/AntDesign.ttf",
     "fonts/Entypo.ttf": "/dooboo-ui/./fonts/Entypo.ttf",
     "fonts/Feather.ttf": "/dooboo-ui/./fonts/Feather.ttf",
@@ -26,17 +26,17 @@
     "index.html": "/dooboo-ui/index.html",
     "manifest.json": "/dooboo-ui/manifest.json",
     "serve.json": "/dooboo-ui/serve.json",
-    "static/js/3.7e4b6bc9.chunk.js.LICENSE.txt": "/dooboo-ui/static/js/3.7e4b6bc9.chunk.js.LICENSE.txt",
-    "static/media/artifacts_logo_d.png": "/dooboo-ui/static/media/artifacts_logo_d.ebf4ac96.png",
-    "static/media/artifacts_logo_l.png": "/dooboo-ui/static/media/artifacts_logo_l.ad84f316.png",
+    "static/js/3.b94175b5.chunk.js.LICENSE.txt": "/dooboo-ui/static/js/3.b94175b5.chunk.js.LICENSE.txt",
     "static/media/color-circle.png": "/dooboo-ui/static/media/color-circle.aeee73f0.png",
     "static/media/hsv_triangle_mask.png": "/dooboo-ui/static/media/hsv_triangle_mask.cd409b9d.png",
     "static/media/magnifier.png": "/dooboo-ui/static/media/magnifier.9f82873e.png",
-    "static/media/mask.png": "/dooboo-ui/static/media/mask.7a74ac5a.png"
+    "static/media/mask.png": "/dooboo-ui/static/media/mask.7a74ac5a.png",
+    "static/media/placeholder_dark.png": "/dooboo-ui/static/media/placeholder_dark.168ee049.png",
+    "static/media/placeholder_light.png": "/dooboo-ui/static/media/placeholder_light.47e6070a.png"
   },
   "entrypoints": [
-    "static/js/runtime~app.407ea7ca.js",
-    "static/js/3.7e4b6bc9.chunk.js",
-    "static/js/app.fe37632d.chunk.js"
+    "static/js/runtime~app.ec3bd4c8.js",
+    "static/js/3.b94175b5.chunk.js",
+    "static/js/app.daeb6e44.chunk.js"
   ]
 }
