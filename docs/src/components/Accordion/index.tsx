@@ -1,6 +1,7 @@
 import {Accordion, DoobooProvider} from 'dooboo-ui';
-import type {AccordionListType, AccordionProps} from 'dooboo-ui';
+import type {AccordionItemDataType, AccordionProps} from 'dooboo-ui';
 import type {ReactElement, ReactNode} from 'react';
+import {Text, View} from 'react-native';
 
 import type {ThemeType} from '@dooboo-ui/theme';
 import styled from '@emotion/native';
@@ -15,22 +16,22 @@ const Container = styled.View`
   align-items: center;
 `;
 
-export const sampleData: AccordionListType = [
+export const sampleData: AccordionItemDataType<string, string>[] = [
   {
     title: 'Lists',
-    bodies: ['user', 'mail', 'plan'],
+    items: ['user', 'mail', 'plan'],
   },
   {
     title: 'mail',
-    bodies: ['mail list', 'category', 'bin'],
+    items: ['mail list', 'category', 'bin'],
   },
   {
     title: 'Reports',
-    bodies: ['report list', 'statistics'],
+    items: ['report list', 'statistics'],
   },
 ];
 
-export interface AccordionStoryProps extends AccordionProps {
+export interface AccordionStoryProps extends AccordionProps<string, string> {
   theme?: ThemeType;
   children?: ReactNode;
 }
@@ -45,18 +46,26 @@ const AccordionStory = ({
   });
 
   if (!fontsLoaded) {
-    return (
-      <DoobooProvider themeConfig={{initialThemeType: theme}}>
-        <Container />
-      </DoobooProvider>
-    );
+    return <View />;
   }
 
   return (
     <DoobooProvider themeConfig={{initialThemeType: theme}}>
       <Container>
         {children}
-        <Accordion {...props} />
+        <Accordion<string, string>
+          // @ts-ignore
+          renderTitle={(item) => (
+            <Text style={{paddingHorizontal: 12}}>{item}</Text>
+          )}
+          // @ts-ignore
+          renderItem={(item) => (
+            <Text style={{paddingHorizontal: 12}} numberOfLines={1}>
+              {item}
+            </Text>
+          )}
+          {...props}
+        />
       </Container>
     </DoobooProvider>
   );

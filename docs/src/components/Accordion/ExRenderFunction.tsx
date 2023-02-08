@@ -1,6 +1,5 @@
-import type {AccordionStoryProps} from '.';
 import AccordionStory from '.';
-
+import type {AccordionStoryProps} from '.';
 import {Icon} from 'dooboo-ui';
 import styled from '@emotion/native';
 
@@ -32,7 +31,7 @@ function ExRenderFunction(baseProps: AccordionStoryProps): React.ReactElement {
           <Title>{item}</Title>
         </Container>
       )}
-      renderBody={(item) => (
+      renderItem={(item) => (
         <Container>
           <Body numberOfLines={1}>{item.toUpperCase()}</Body>
         </Container>

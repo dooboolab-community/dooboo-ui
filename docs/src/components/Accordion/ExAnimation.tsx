@@ -1,8 +1,8 @@
-import type {AccordionStoryProps} from '.';
-import AccordionStory from '.';
 import {EditText, SwitchToggle, Typography} from 'dooboo-ui';
 import React, {useState} from 'react';
 
+import AccordionStory from '.';
+import type {AccordionStoryProps} from '.';
 import {View} from 'react-native';
 import {css} from '@emotion/native';
 
