@@ -8,9 +8,7 @@ import {useTheme} from '@dooboo-ui/theme';
 
 function SingleSelect(): ReactElement {
   const data = ['Item 1', 'Item 2', 'Item 3', 'Item 4'];
-
   const [selectedIndex, setSelectedIndex] = useState(0);
-
   const {theme} = useTheme();
 
   return (

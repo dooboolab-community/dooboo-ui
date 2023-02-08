@@ -13,11 +13,7 @@ const ButtonGroupBasic = (): React.ReactElement => {
 
   return (
     <SafeAreaView style={{flex: 1, backgroundColor: theme.bg.basic}}>
-      <ScrollView
-        contentContainerStyle={{
-          flexDirection: 'column',
-        }}
-      >
+      <ScrollView contentContainerStyle={{flexDirection: 'column'}}>
         <SingleSelect />
         <Vertical />
         <CustomData />

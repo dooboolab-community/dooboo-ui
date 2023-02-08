@@ -1,26 +1,9 @@
+import {FAB, Typography} from '../../../main';
 // Caveat: Expo web needs React to be imported
 import React, {useState} from 'react';
+import {StoryContainer, StoryTitle} from '../../GlobalStyles';
 
-import {FAB} from '../../../main';
 import type {ReactElement} from 'react';
-import {SafeAreaView} from 'react-native';
-import styled from '@emotion/native';
-
-const StoryContainer = styled.View`
-  flex: 1;
-  align-self: stretch;
-  background-color: ${({theme}) => theme.bg.basic};
-`;
-
-const ContentContainer = styled.View`
-  flex: 1;
-  align-items: center;
-  justify-content: center;
-`;
-
-const ItemText = styled.Text`
-  font-size: 24px;
-`;
 
 function FABBasic(): ReactElement {
   const [selectedItem, setSelectedItem] = useState('none');
@@ -28,27 +11,25 @@ function FABBasic(): ReactElement {
 
   return (
     <StoryContainer>
-      <SafeAreaView style={{display: 'flex', width: '100%', height: '100%'}}>
-        <ContentContainer>
-          <ItemText>{`clicked item: ${selectedItem}`}</ItemText>
-        </ContentContainer>
-        <FAB
-          isActive={active}
-          styles={{buttonSize: 'medium', iconSize: 25}}
-          FABItems={[
-            {id: 'search', icon: 'home-light'},
-            {id: 'like', icon: 'like-light'},
-          ]}
-          onPressFAB={() => setActive((prev) => !prev)}
-          onPressFABItem={(item) => {
-            if (!item) {
-              return;
-            }
+      <StoryTitle>Basic</StoryTitle>
+      <Typography.Heading2>{`clicked item: ${selectedItem}`}</Typography.Heading2>
+      <FAB
+        style={{bottom: 80}}
+        isActive={active}
+        styles={{buttonSize: 'medium', iconSize: 25}}
+        items={[
+          {id: 'search', icon: 'home-light'},
+          {id: 'like', icon: 'like-light'},
+        ]}
+        onPressFAB={() => setActive((prev) => !prev)}
+        onPressItem={(item) => {
+          if (!item) {
+            return;
+          }
 
-            setSelectedItem(item.id);
-          }}
-        />
-      </SafeAreaView>
+          setSelectedItem(item.id);
+        }}
+      />
     </StoryContainer>
   );
 }

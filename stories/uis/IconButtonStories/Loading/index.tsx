@@ -11,10 +11,10 @@ function IconButtonLoading(): ReactElement {
 
   return (
     <StoryContainer>
-      <StoryTitle>Sizes</StoryTitle>
+      <StoryTitle>Loading</StoryTitle>
       <StorySection>
         {types.map((type) => (
-          <IconButton key={type} type={type} loading style={{padding: 4}} />
+          <IconButton key={type} type={type} loading style={{margin: 4}} />
         ))}
       </StorySection>
     </StoryContainer>

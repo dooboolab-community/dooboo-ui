@@ -21,7 +21,7 @@ function IconButtonColor(): ReactElement {
 
   return (
     <StoryContainer>
-      <StoryTitle>Sizes</StoryTitle>
+      <StoryTitle>Color</StoryTitle>
       <StorySection>
         {colors.map((color) => (
           <IconButton
@@ -33,7 +33,7 @@ function IconButtonColor(): ReactElement {
             color={color}
             size="small"
             icon="cross-light"
-            style={{padding: 4}}
+            style={{margin: 4}}
           />
         ))}
       </StorySection>

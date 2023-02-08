@@ -9,14 +9,13 @@ import {useTheme} from '@dooboo-ui/theme';
 
 const CustomData: FC = () => {
   const {theme} = useTheme();
+  const [selectedIndex, setSelectedIndex] = useState(0);
 
   const data: {text: string; icon: IconName}[] = [
     {text: 'Item 1', icon: 'home-solid'},
     {text: 'Item 2', icon: 'account-solid'},
     {text: 'Item 3', icon: 'tiktok-solid'},
   ];
-
-  const [selectedIndex, setSelectedIndex] = useState(0);
 
   return (
     <View>

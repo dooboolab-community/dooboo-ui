@@ -24,7 +24,7 @@ function Sizes(): ReactElement {
             key={size}
             size={size}
             icon="search-solid"
-            style={{padding: 4}}
+            style={{margin: 4}}
           />
         ))}
       </StorySection>

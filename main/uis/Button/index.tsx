@@ -257,7 +257,7 @@ export const Button: FC<Props> = (props) => {
         web: ref,
         default: undefined,
       })}
-      underlayColor={themeType === 'light' ? '#00000010' : '#FFFFFF10'}
+      underlayColor={themeType === 'light' ? '#000000' : '#FFFFFF'}
       activeOpacity={activeOpacity}
       onPress={onPress}
       delayPressIn={30}

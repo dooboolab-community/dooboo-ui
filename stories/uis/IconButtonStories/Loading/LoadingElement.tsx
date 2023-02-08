@@ -11,7 +11,7 @@ function LoadingElement(): ReactElement {
       <IconButton
         loading
         loadingElement={<LoadingIndicator size="small" color="yellow" />}
-        style={{padding: 4}}
+        style={{margin: 4}}
       />
     </StorySection>
   );

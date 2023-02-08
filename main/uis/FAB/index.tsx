@@ -24,9 +24,9 @@ export interface FABItem {
 
 export interface FABProps<Item extends FABItem> {
   isActive: boolean;
-  FABItems: Item[];
+  items: Item[];
   onPressFAB: () => void;
-  onPressFABItem: (item?: Item) => void;
+  onPressItem: (item?: Item) => void;
   renderFAB?: () => ReactElement;
   renderFABItem?: (item: Item, idx: number) => ReactElement;
 
@@ -38,9 +38,9 @@ function FloatingActionButtons<Item extends FABItem = FABItem>({
   isActive,
   style,
   styles,
-  FABItems,
+  items,
   onPressFAB,
-  onPressFABItem,
+  onPressItem,
   renderFAB,
   renderFABItem,
 }: FABProps<Item>): ReactElement {
@@ -53,10 +53,9 @@ function FloatingActionButtons<Item extends FABItem = FABItem>({
   } = styles ?? {};
 
   const {theme} = useTheme();
-
   const spinValue = useRef(new Animated.Value(0));
   const positionValue = useRef(new Animated.Value(0));
-  const FABHeight = useRef(0);
+  const fabHeight = useRef(0);
 
   useLayoutEffect(() => {
     const config = {
@@ -74,18 +73,18 @@ function FloatingActionButtons<Item extends FABItem = FABItem>({
 
   const offsets = useMemo(
     () =>
-      FABItems?.map((_, idx) =>
+      items?.map((_, idx) =>
         positionValue.current.interpolate({
           inputRange: [0, 1],
-          outputRange: [0, -1 * (idx + 1) * (FABHeight.current + gap)],
+          outputRange: [0, -1 * (idx + 1) * (fabHeight.current + gap)],
         }),
       ),
 
-    [FABItems, FABHeight, gap],
+    [items, fabHeight, gap],
   );
 
   const onLayout = (e: LayoutChangeEvent): void => {
-    FABHeight.current = e.nativeEvent.layout.height;
+    fabHeight.current = e.nativeEvent.layout.height;
   };
 
   return (
@@ -97,11 +96,12 @@ function FloatingActionButtons<Item extends FABItem = FABItem>({
           bottom: 10,
           zIndex: 999,
           flex: 1,
+          alignSelf: 'stretch',
         },
         style,
       ]}
     >
-      {FABItems.map((item, idx) => {
+      {items.map((item, idx) => {
         const {id, icon} = item;
 
         return (
@@ -128,7 +128,7 @@ function FloatingActionButtons<Item extends FABItem = FABItem>({
                     name={icon}
                   />
                 }
-                onPress={() => onPressFABItem(item)}
+                onPress={() => onPressItem(item)}
               />
             )}
           </Animated.View>
@@ -154,7 +154,6 @@ function FloatingActionButtons<Item extends FABItem = FABItem>({
           renderFAB()
         ) : (
           <IconButton
-            testID={'main_fab'}
             size={buttonSize}
             iconElement={
               <Icon

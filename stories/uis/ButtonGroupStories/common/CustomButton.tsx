@@ -33,7 +33,6 @@ function CustomButton(): ReactElement {
   };
 
   const {theme} = useDooboo();
-
   const [selectedIndex, setSelectedIndex] = useState(0);
 
   return (

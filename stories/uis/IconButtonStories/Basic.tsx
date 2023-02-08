@@ -24,7 +24,7 @@ function Basic(): ReactElement {
             key={type}
             type={type}
             icon="tile-light"
-            style={{padding: 4}}
+            style={{margin: 4}}
           />
         ))}
       </StorySection>

@@ -1,7 +1,7 @@
 import type {FC, ReactElement, ReactNode} from 'react';
-import {Platform, TouchableOpacity, View} from 'react-native';
+import {Platform, TouchableHighlight, View} from 'react-native';
 import React, {useRef} from 'react';
-import type {StyleProp, TouchableOpacityProps, ViewStyle} from 'react-native';
+import type {StyleProp, TouchableHighlightProps, ViewStyle} from 'react-native';
 
 import type {DoobooTheme} from '@dooboo-ui/theme';
 import {Icon} from '../Icon/';
@@ -47,11 +47,11 @@ export const ButtonStyles = ({
   disabled?: boolean;
   loading?: boolean;
 }): {
-  padding?: string;
+  padding?: number;
   backgroundColor?: string;
   borderColor?: string;
-  borderWidth?: string;
-  buttonSize?: string;
+  borderWidth?: number;
+  buttonSize: number;
   iconColor?: string;
   iconSize?: number;
   disabledBackgroundColor: string;
@@ -81,8 +81,8 @@ export const ButtonStyles = ({
   return {
     backgroundColor,
     borderColor,
-    borderWidth: type === 'outlined' ? '1px' : undefined,
-    buttonSize: size === 'large' ? '80px' : size === 'medium' ? '50px' : '32px',
+    borderWidth: type === 'outlined' ? 1 : 0,
+    buttonSize: size === 'large' ? 80 : size === 'medium' ? 50 : 32,
     iconColor,
     iconSize: size === 'large' ? 32 : size === 'medium' ? 24 : 16,
     disabledBackgroundColor:
@@ -102,11 +102,14 @@ export type IconButtonProps = {
   loadingElement?: ReactElement;
   icon?: IconName;
   iconElement?: ReactElement;
-  style?: StyleProp<ViewStyle>;
+  style?: StyleProp<Omit<ViewStyle, 'borderRadius' | 'padding'>>;
   styles?: Styles;
-  onPress?: TouchableOpacityProps['onPress'];
-  activeOpacity?: TouchableOpacityProps['activeOpacity'];
-  touchableOpacityProps?: Partial<TouchableOpacityProps>;
+  onPress?: TouchableHighlightProps['onPress'];
+  activeOpacity?: TouchableHighlightProps['activeOpacity'];
+  touchableHighlightProps?: Omit<
+    TouchableHighlightProps,
+    'onPress' | 'activeOpacity'
+  >;
 };
 
 export const IconButton: FC<IconButtonProps> = (props) => {
@@ -122,15 +125,15 @@ export const IconButton: FC<IconButtonProps> = (props) => {
     iconElement,
     style,
     styles,
-    activeOpacity = 0.6,
     onPress,
-    touchableOpacityProps,
+    activeOpacity = 0.8,
+    touchableHighlightProps,
   } = props;
 
-  const ref = useRef<TouchableOpacity>(null);
+  const ref = useRef<TouchableHighlight>(null);
   const hovered = useHover(ref);
 
-  const {theme} = useTheme();
+  const {theme, themeType} = useTheme();
 
   const {
     backgroundColor,
@@ -150,14 +153,17 @@ export const IconButton: FC<IconButtonProps> = (props) => {
     disabled,
   });
 
+  const buttonSizeStr = `${buttonSize}px`;
+  const borderWidthStr = `${borderWidth}px`;
+
   const compositeStyles: Styles = {
     container: css`
       background-color: ${backgroundColor};
       border-color: ${borderColor};
-      border-radius: ${buttonSize};
-      border-width: ${borderWidth};
-      height: ${buttonSize};
-      width: ${buttonSize};
+      border-radius: ${buttonSizeStr};
+      border-width: ${borderWidthStr};
+      height: ${buttonSizeStr};
+      width: ${buttonSizeStr};
     `,
     icon: css`
       color: ${iconColor};
@@ -211,20 +217,21 @@ export const IconButton: FC<IconButtonProps> = (props) => {
     );
 
   return (
-    <TouchableOpacity
+    <TouchableHighlight
       testID={testID}
       ref={Platform.select({
         web: ref,
         default: undefined,
       })}
+      underlayColor={themeType === 'light' ? '#000000' : '#FFFFFF'}
       activeOpacity={activeOpacity}
       onPress={onPress}
       delayPressIn={50}
       disabled={disabled || loading}
-      style={style}
-      {...touchableOpacityProps}
+      style={[style, {borderRadius: buttonSize}]}
+      {...touchableHighlightProps}
     >
       {renderContainer(loading ? renderLoading() : renderChild())}
-    </TouchableOpacity>
+    </TouchableHighlight>
   );
 };

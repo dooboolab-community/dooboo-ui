@@ -13,7 +13,7 @@ function IconButtonDisabled(): ReactElement {
 
   return (
     <StoryContainer>
-      <StoryTitle>Sizes</StoryTitle>
+      <StoryTitle>Disabled</StoryTitle>
       <StorySection>
         {types.map((type) => (
           <IconButton
@@ -24,7 +24,7 @@ function IconButtonDisabled(): ReactElement {
             type={type}
             disabled
             icon="tile-light"
-            style={{padding: 4}}
+            style={{margin: 4}}
           />
         ))}
       </StorySection>
