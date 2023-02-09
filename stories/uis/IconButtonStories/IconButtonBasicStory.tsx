@@ -23,7 +23,7 @@ function IconButtonBasicStory(): ReactElement {
             onPress={action('onPress')}
             key={type}
             type={type}
-            icon="tile-light"
+            icon="Menu"
             style={{margin: 4}}
           />
         ))}

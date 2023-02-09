@@ -60,7 +60,7 @@ function IconBasicStory(): ReactElement {
               <View
                 key={icon}
                 style={{
-                  width: 100,
+                  width: 120,
                   justifyContent: 'center',
                   alignItems: 'center',
                   padding: 8,

@@ -23,7 +23,7 @@ function IconButtonDisabledStory(): ReactElement {
             key={type}
             type={type}
             disabled
-            icon="tile-light"
+            icon="Menu"
             style={{margin: 4}}
           />
         ))}
