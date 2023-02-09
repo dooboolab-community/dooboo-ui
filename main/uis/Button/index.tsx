@@ -179,25 +179,33 @@ export function Button(props: Props): ReactElement {
   });
 
   const compositeStyles: Styles = {
-    container: css`
-      padding: ${padding};
-      background-color: ${backgroundColor};
-      border-color: ${borderColor};
-      border-width: ${borderWidth};
-    `,
-    text: {color: textColor},
-    disabled: css`
-      background-color: ${disabledBackgroundColor};
-      border-color: ${disabledBorderColor};
-    `,
-    disabledText: {color: disabledTextColor},
-    hovered: {
-      shadowColor: 'black',
-      shadowOpacity: 0.24,
-      shadowRadius: 16,
-      elevation: 10,
-    },
-    ...styles,
+    container: [
+      css`
+        padding: ${padding};
+        background-color: ${backgroundColor};
+        border-color: ${borderColor};
+        border-width: ${borderWidth};
+      `,
+      styles?.container,
+    ],
+    text: [{color: textColor}, styles?.text],
+    disabled: [
+      css`
+        background-color: ${disabledBackgroundColor};
+        border-color: ${disabledBorderColor};
+      `,
+      styles?.disabled,
+    ],
+    disabledText: [{color: disabledTextColor}, styles?.disabledText],
+    hovered: [
+      {
+        shadowColor: 'black',
+        shadowOpacity: 0.24,
+        shadowRadius: 16,
+        elevation: 10,
+      },
+      styles?.hovered,
+    ],
   };
 
   const renderContainer = useCallback(
@@ -221,15 +229,15 @@ export function Button(props: Props): ReactElement {
       );
     },
     [
-      borderRadius,
-      compositeStyles.container,
-      compositeStyles.disabled,
-      compositeStyles.hovered,
-      innerDisabled,
-      hovered,
       loading,
-      size,
+      compositeStyles.container,
+      compositeStyles.hovered,
+      compositeStyles.disabled,
+      hovered,
+      innerDisabled,
+      borderRadius,
       type,
+      size,
     ],
   );
 
