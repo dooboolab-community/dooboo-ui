@@ -142,9 +142,7 @@ function Snackbar(
             <Button
               type="text"
               onPress={() => setVisible(false)}
-              text={
-                <Icon name="cross-light" color={theme.button[color].text} />
-              }
+              text={<Icon name="CloseAlt" color={theme.button[color].text} />}
             />
           )}
         </ActionContainer>

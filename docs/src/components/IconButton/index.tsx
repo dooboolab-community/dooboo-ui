@@ -29,11 +29,11 @@ const IconButtonStory = (): React.ReactElement => {
         alignItems: 'center',
       }}
     >
-      <IconButton iconElement={<StyledIcon size={24} name="moment-solid" />} />
+      <IconButton iconElement={<StyledIcon size={24} name="DoobooAlt" />} />
       <View style={{width: 8}} />
-      <IconButton iconElement={<StyledIcon size={24} name="add-light" />} />
+      <IconButton iconElement={<StyledIcon size={24} name="AddAlt" />} />
       <View style={{width: 8}} />
-      <IconButton iconElement={<StyledIcon size={24} name="chevron-right" />} />
+      <IconButton iconElement={<StyledIcon size={24} name="ChevronRight" />} />
     </View>
   );
 };

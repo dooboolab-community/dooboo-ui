@@ -8,7 +8,7 @@ import {render} from '@testing-library/react-native';
 let testingLib: RenderAPI;
 
 const Component = (): ReactElement =>
-  createComponent(<Icon name="account-light" />);
+  createComponent(<Icon name="PersonAlt" />);
 
 describe('[Icon]', () => {
   it('should render without crashing', () => {

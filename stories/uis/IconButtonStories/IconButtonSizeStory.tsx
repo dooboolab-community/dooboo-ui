@@ -23,7 +23,7 @@ function IconButtonSizeStory(): ReactElement {
             onPress={action('onPress')}
             key={size}
             size={size}
-            icon="search-solid"
+            icon="Search"
             style={{margin: 4}}
           />
         ))}

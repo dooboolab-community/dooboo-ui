@@ -27,7 +27,7 @@ function ExRenderFunction(baseProps: AccordionStoryProps): React.ReactElement {
       {...baseProps}
       renderTitle={(item) => (
         <Container>
-          <Icon name="search-light" color="white" />
+          <Icon name="SearchAlt" color="white" />
           <Title>{item}</Title>
         </Container>
       )}
