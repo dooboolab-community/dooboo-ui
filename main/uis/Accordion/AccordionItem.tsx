@@ -47,7 +47,7 @@ function AccordionItem<T, K>(props: Props<T, K>): ReactElement {
     collapseOnStart = true,
     animDuration = 200,
     activeOpacity = 1,
-    toggleElement = <StyledIcon name="chevron-down-light" theme={theme} />,
+    toggleElement = <StyledIcon name="ChevronDownAlt" theme={theme} />,
     onPressItem,
     renderTitle,
     renderItem,

@@ -139,7 +139,7 @@ export const Checkbox: FC<CheckboxProps> = ({
               type={color}
               disabled={disabled}
             >
-              <StyledCheck theme={theme} name="tick-light" checked={checked} />
+              <StyledCheck theme={theme} name="CheckAlt" checked={checked} />
             </StyledCheckbox>
           </StyledCheckboxOutlined>
           {endElement}

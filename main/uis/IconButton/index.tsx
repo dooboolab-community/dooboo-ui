@@ -209,11 +209,7 @@ export const IconButton: FC<IconButtonProps> = (props) => {
 
   const renderChild = (): ReactElement =>
     iconElement || (
-      <Icon
-        size={iconSize}
-        color={iconColor}
-        name={icon || 'dooboolab-solid'}
-      />
+      <Icon size={iconSize} color={iconColor} name={icon || 'Dooboolab'} />
     );
 
   return (
