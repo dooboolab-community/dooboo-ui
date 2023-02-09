@@ -24,7 +24,7 @@ function ButtonStartAndEndStory(): ReactElement {
           size={size}
           startElement={
             boolean('showElement', true) ? (
-              <Icon name="home-light" style={{marginRight: 8}} />
+              <Icon name="HomeAlt" style={{marginRight: 8}} />
             ) : undefined
           }
           // eslint-disable-next-line no-console
@@ -41,7 +41,7 @@ function ButtonStartAndEndStory(): ReactElement {
           size={size}
           endElement={
             boolean('showElement', true) ? (
-              <Icon name="home-light" style={{marginLeft: 8}} />
+              <Icon name="HomeAlt" style={{marginLeft: 8}} />
             ) : undefined
           }
           // eslint-disable-next-line no-console

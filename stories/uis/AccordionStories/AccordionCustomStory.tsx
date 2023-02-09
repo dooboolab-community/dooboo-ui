@@ -79,7 +79,7 @@ const AccordionCustom = (): ReactElement => {
                 flexDirection: 'row',
               }}
             >
-              <Icon name="search-light" color={theme.text.contrast} />
+              <Icon name="SearchAlt" color={theme.text.contrast} />
               <View style={{width: 8}} />
               <Typography.Heading3>{item.text}</Typography.Heading3>
             </View>
@@ -88,7 +88,7 @@ const AccordionCustom = (): ReactElement => {
             <CustomStyledItem>{item.text}</CustomStyledItem>
           )}
           toggleElement={
-            <Icon name="chevron-down-light" color={theme.text.contrast} />
+            <Icon name="ChevronDownAlt" color={theme.text.contrast} />
           }
         />
       </StoryContainer>
