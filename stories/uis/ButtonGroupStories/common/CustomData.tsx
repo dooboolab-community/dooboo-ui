@@ -19,7 +19,7 @@ const CustomData: FC = () => {
 
   return (
     <View>
-      <Typography.Heading1 style={{padding: 20}}>
+      <Typography.Heading1 style={{paddingVertical: 20}}>
         Custom Data
       </Typography.Heading1>
       <ButtonGroup
