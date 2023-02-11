@@ -15,7 +15,7 @@ interface Styles {
   unselectedText?: StyleProp<TextStyle>;
 }
 
-export type ButtonGroupProps<T> = {
+export type ButtonGroupProps<T = string> = {
   data: T[];
   direction?: 'row' | 'column';
   testID?: string;

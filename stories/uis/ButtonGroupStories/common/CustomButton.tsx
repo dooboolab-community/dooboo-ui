@@ -45,7 +45,6 @@ function CustomButton(): ReactElement {
         <ButtonGroup
           data={data}
           selectedIndex={selectedIndex}
-          styles={{container: {height: 50}}}
           borderStyle={{
             color: 'pink',
             width: 1,
