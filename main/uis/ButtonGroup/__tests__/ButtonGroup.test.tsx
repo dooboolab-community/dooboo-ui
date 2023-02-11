@@ -12,8 +12,8 @@ import type {ReactTestInstance} from 'react-test-renderer';
 
 type Item = {text: string};
 
-function component<T>(props: ButtonGroupProps<T>): ReactElement {
-  return createComponent(<ButtonGroup<T> {...props} />);
+function component(props: ButtonGroupProps<any>): ReactElement {
+  return createComponent(<ButtonGroup {...props} />);
 }
 
 function getTestIdByIndex(index: number): string {
@@ -34,6 +34,14 @@ describe('[ButtonGroup]', () => {
   jest.spyOn(console, 'error').mockImplementation(() => {});
 
   it('should render without crashing', () => {
+    testingLib = render(component({data: ['Item 1', 'Item 2']}));
+
+    const json = testingLib.toJSON();
+
+    expect(json).toBeTruthy();
+  });
+
+  it('should render without crashing with renderItem given', () => {
     testingLib = render(
       component({data: ['Item 1', 'Item 2'], renderItem: () => <View />}),
     );
@@ -110,7 +118,7 @@ describe('[ButtonGroup]', () => {
   });
 
   describe('[ButtonGroup] data', () => {
-    it('should render with given data', () => {
+    it('should render with given custom data and renderItem', () => {
       const data: Item[] = [{text: 'Item 1'}, {text: 'Item 2'}];
 
       testingLib = render(
@@ -128,6 +136,18 @@ describe('[ButtonGroup]', () => {
         expect(
           testingLib.getByTestId(getTestIdByIndex(index)).children[0],
         ).toEqual(item.text);
+      });
+    });
+
+    it('should render text with given string data', () => {
+      const data: string[] = ['Item 1', 'Item 2'];
+
+      testingLib = render(component({data}));
+
+      data.forEach((item, index) => {
+        expect(
+          testingLib.getByTestId(`button-group-text-${index}`).children[0],
+        ).toEqual(item);
       });
     });
   });
@@ -170,6 +190,51 @@ describe('[ButtonGroup]', () => {
       );
 
       expect(selectedItemCount).toBe(1);
+    });
+
+    it('should item has given styles', () => {
+      const selectedIndex = 0;
+
+      const data: string[] = ['Item1', 'Item2', 'Item3'];
+
+      const styles = {
+        selectedButton: {
+          backgroundColor: 'red',
+        },
+        selectedText: {
+          color: 'white',
+        },
+        unselectedButton: {
+          backgroundColor: 'pink',
+        },
+        unselectedText: {
+          color: 'black',
+        },
+      };
+
+      testingLib = render(
+        component({
+          selectedIndex,
+          data,
+          styles,
+        }),
+      );
+
+      data.forEach((item, index) => {
+        const selected = index === selectedIndex;
+
+        const button = testingLib.getByTestId(`button-group-item-${index}`);
+
+        const text = testingLib.getByTestId(`button-group-text-${index}`);
+
+        expect(button).toHaveStyle(
+          selected ? styles.selectedButton : styles.unselectedButton,
+        );
+
+        expect(text).toHaveStyle(
+          selected ? styles.selectedText : styles.unselectedText,
+        );
+      });
     });
   });
 
@@ -252,7 +317,7 @@ describe('[ButtonGroup]', () => {
     });
 
     describe('[ButtonGroup] styles', () => {
-      it('should render with given container styles', () => {
+      it('should render with given style', () => {
         const testID = 'BUTTON_GROUP_CONTAINER';
 
         const data: Item[] = [{text: 'Item 1'}, {text: 'Item 2'}];
@@ -267,39 +332,12 @@ describe('[ButtonGroup]', () => {
             data,
             renderItem: () => <View />,
             testID,
-            styles: {
-              container: customContainerStyle,
-            },
+            style: customContainerStyle,
           }),
         );
 
         expect(testingLib.getByTestId(testID).props.style).toMatchObject(
           customContainerStyle,
-        );
-      });
-
-      it('should render with given button styles', () => {
-        const data: Item[] = [{text: 'Item 1'}, {text: 'Item 2'}];
-
-        const buttonStyle: StyleProp<ViewStyle> = {
-          minWidth: 100,
-          height: 50,
-        };
-
-        testingLib = render(
-          component({
-            data,
-            renderItem: () => <View />,
-            styles: {
-              button: buttonStyle,
-            },
-          }),
-        );
-
-        data.forEach((_, index) =>
-          expect(
-            testingLib.getByTestId(`button-group-item-${index}`).props.style,
-          ).toMatchObject(buttonStyle),
         );
       });
     });

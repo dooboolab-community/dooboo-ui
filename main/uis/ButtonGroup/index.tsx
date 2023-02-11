@@ -9,12 +9,9 @@ import type {ReactElement} from 'react';
 import {useTheme} from '@dooboo-ui/theme';
 
 interface Styles {
-  container?: StyleProp<ViewStyle>;
-
   selectedButton?: StyleProp<ViewStyle>;
-  selectedText?: StyleProp<ViewStyle>;
-
-  unselectedButton?: StyleProp<TextStyle>;
+  selectedText?: StyleProp<TextStyle>;
+  unselectedButton?: StyleProp<ViewStyle>;
   unselectedText?: StyleProp<TextStyle>;
 }
 
@@ -97,6 +94,7 @@ export function ButtonGroup<T>({
       >
         {typeof item === 'string' && (
           <Text
+            testID={`button-group-text-${index}`}
             style={StyleSheet.flatten([
               selected
                 ? {color: theme.button.primary.text}
@@ -141,9 +139,6 @@ ButtonGroup.defaultProps = {
     alignSelf: 'flex-start',
   },
   styles: {
-    container: {
-      alignSelf: 'center',
-    },
     selectedButton: {
       paddingHorizontal: 20,
       paddingVertical: 12,

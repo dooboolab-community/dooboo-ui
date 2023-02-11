@@ -24,8 +24,14 @@
   "typescript.preferences.importModuleSpecifier": "relative",
   "prettier.configPath": ".prettierrc.js",
   "typescript.tsdk": "node_modules/typescript/lib",
-  "cSpell.words": [
-    "Pressable",
-    "unhovered"
-  ],
+  "cSpell.words": ["Pressable", "unhovered"],
+  "files.exclude": {
+    "**/.git": true,
+    "**/.svn": true,
+    "**/.hg": true,
+    "**/CVS": true,
+    "**/.DS_Store": true,
+    "**/Thumbs.db": true,
+    "**/node_modules": true
+  }
 }
