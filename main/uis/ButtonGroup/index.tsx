@@ -1,3 +1,5 @@
+// Caveat: Expo web needs React to be imported
+import React from 'react';
 import type {
   StyleProp,
   TextStyle,

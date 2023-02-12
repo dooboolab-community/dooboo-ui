@@ -1,5 +1,6 @@
+// Caveat: Expo web needs React to be imported
+import React, {useEffect, useRef, useState} from 'react';
 import {Animated, Easing} from 'react-native';
-import {useEffect, useRef, useState} from 'react';
 
 import type {AccordionBaseProps} from './Accordion';
 import {Icon} from '../Icon';
