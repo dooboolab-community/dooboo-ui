@@ -17,27 +17,29 @@ import {DoobooProvider} from 'dooboo-ui';
 - if you only want to use `theme` pacakage, you can install it seperately.
 
   `import {ThemeProvider} from '@dooboo-ui/theme';`
+   
+   > Then use `useTheme` from `@dooboo-ui/theme`.
 
-#### 2. Wrap your component with `ThemeProvider` with given customTheme.
+#### 2. Wrap your component with `DoobooProvider` with given customTheme.
 
 ```tsx
-<ThemeProvider>
+<DoobooProvider>
   <App />
-</ThemeProvider>
+</DoobooProvider>
 ```
 
 ## Usage
 
-#### 1. Import `useTheme`
+#### 1. Import `useDooboo`
 
 ```ts
-import {useTheme} from 'dooboo-ui';
+import {useDooboo} from 'dooboo-ui';
 ```
 
 #### 2. Retrive theme and use it
 
 ```ts
-const {theme} = useTheme();
+const {theme} = useDooboo();
 ```
 
 Then use theme props inside your component.
@@ -54,26 +56,10 @@ Then use theme props inside your component.
 ```tsx
 const StyledContainer = styled.SafeAreaView`
   flex: 1;
-  background-color: ${({theme}) => theme.background};
+  background-color: ${({theme}) => theme.bg.basic};
   flex-direction: column;
   align-items: center;
 `;
-```
-
-### DoobooProvider
-
-> From version `0.2.0`, you can use `DoobooProvider` to wrap your component if you use `dooboo-ui` package.
-
-```tsx
-<DoobooProvider>
-  <App />
-</DoobooProvider>
-```
-
-Then use `useDooboo` hook inside your component.
-
-```tsx
-const {theme} = useDooboo();
 ```
 
 #### With Expo
