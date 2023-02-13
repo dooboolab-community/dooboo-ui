@@ -16,9 +16,7 @@ const StyledTitle = styled.Text<{theme: DoobooTheme}>`
   }};
 `;
 
-StyledTitle.defaultProps = {
-  style: {includeFontPadding: false},
-};
+StyledTitle.defaultProps = {style: {includeFontPadding: false}};
 
 export const Title = withTheme(StyledTitle);
 
@@ -35,9 +33,7 @@ const StyledHeading1 = styled.Text<{theme: DoobooTheme}>`
   }};
 `;
 
-StyledHeading1.defaultProps = {
-  style: {includeFontPadding: false},
-};
+StyledHeading1.defaultProps = {style: {includeFontPadding: false}};
 
 export const Heading1 = withTheme(StyledHeading1);
 
@@ -54,9 +50,7 @@ const StyledHeading2 = styled.Text<{theme: DoobooTheme}>`
   }};
 `;
 
-StyledHeading2.defaultProps = {
-  style: {includeFontPadding: false},
-};
+StyledHeading2.defaultProps = {style: {includeFontPadding: false}};
 
 export const Heading2 = withTheme(StyledHeading2);
 
@@ -73,9 +67,7 @@ const StyledHeading3 = styled.Text<{theme: DoobooTheme}>`
   }};
 `;
 
-StyledHeading3.defaultProps = {
-  style: {includeFontPadding: false},
-};
+StyledHeading3.defaultProps = {style: {includeFontPadding: false}};
 
 export const Heading3 = withTheme(StyledHeading3);
 
@@ -91,9 +83,7 @@ const StyledBody1 = styled.Text<{theme: DoobooTheme}>`
   }};
 `;
 
-StyledBody1.defaultProps = {
-  style: {includeFontPadding: false},
-};
+StyledBody1.defaultProps = {style: {includeFontPadding: false}};
 
 export const Body1 = withTheme(StyledBody1);
 
@@ -109,8 +99,6 @@ const StyledBody2 = styled.Text<{theme: DoobooTheme}>`
   }};
 `;
 
-StyledBody2.defaultProps = {
-  style: {includeFontPadding: false},
-};
+StyledBody2.defaultProps = {style: {includeFontPadding: false}};
 
 export const Body2 = withTheme(StyledBody2);

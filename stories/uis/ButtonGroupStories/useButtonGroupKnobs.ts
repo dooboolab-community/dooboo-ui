@@ -1,6 +1,7 @@
 import type {ButtonColorType, ButtonGroupProps} from '../../../main';
-import {useDooboo} from '../../../main';
 import {number, select} from '@storybook/addon-knobs';
+
+import {useDooboo} from '../../../main';
 
 export function useButtonGroupKnobs(): Pick<
   ButtonGroupProps,
@@ -25,19 +26,13 @@ export function useButtonGroupKnobs(): Pick<
         paddingVertical,
         backgroundColor: theme.button[color].bg,
       },
-      selectedText: {
-        color: theme.button[color].text,
-      },
+      selectedText: {color: theme.button[color].text},
       unselectedButton: {
         paddingHorizontal,
         paddingVertical,
       },
-      unselectedText: {
-        color: theme.button[color].bg,
-      },
+      unselectedText: {color: theme.button[color].bg},
     },
-    borderStyle: {
-      color: theme.button[color].bg,
-    },
+    borderStyle: {color: theme.button[color].bg},
   };
 }

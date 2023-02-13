@@ -1,12 +1,13 @@
-// Caveat: Expo web needs React to be imported
-import React from 'react';
 import type {
   StyleProp,
   TextStyle,
   TouchableOpacityProps,
   ViewStyle,
 } from 'react-native';
-import {Text, StyleSheet, TouchableOpacity, View} from 'react-native';
+import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+
+// Caveat: Expo web needs React to be imported
+import React from 'react';
 import type {ReactElement} from 'react';
 import {useTheme} from '@dooboo-ui/theme';
 
@@ -137,9 +138,7 @@ export function ButtonGroup<T>({
 }
 
 ButtonGroup.defaultProps = {
-  style: {
-    alignSelf: 'flex-start',
-  },
+  style: {alignSelf: 'flex-start'},
   styles: {
     selectedButton: {
       paddingHorizontal: 20,

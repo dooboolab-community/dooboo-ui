@@ -144,6 +144,7 @@ function AlertDialog(
           <ActionRow style={styles?.actionContainer}>
             {actions.map((action, index) =>
               cloneElement(action, {
+                key: `action-${index}`,
                 style: {
                   flex: 1,
                   marginLeft: index !== 0 ? 6 : 0,

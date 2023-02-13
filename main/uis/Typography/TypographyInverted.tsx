@@ -17,9 +17,7 @@ const InvertedStyledTitle = styled.Text<{theme: DoobooTheme}>`
   }};
 `;
 
-InvertedStyledTitle.defaultProps = {
-  style: {includeFontPadding: false},
-};
+InvertedStyledTitle.defaultProps = {style: {includeFontPadding: false}};
 
 export const InvertedTitle = withTheme(InvertedStyledTitle);
 
@@ -36,9 +34,7 @@ const InvertedStyledHeading1 = styled.Text<{theme: DoobooTheme}>`
   }};
 `;
 
-InvertedStyledHeading1.defaultProps = {
-  style: {includeFontPadding: false},
-};
+InvertedStyledHeading1.defaultProps = {style: {includeFontPadding: false}};
 
 export const InvertedHeading1 = withTheme(InvertedStyledHeading1);
 
@@ -74,9 +70,7 @@ const InvertedStyledHeading3 = styled.Text<{theme: DoobooTheme}>`
   }};
 `;
 
-InvertedStyledHeading3.defaultProps = {
-  style: {includeFontPadding: false},
-};
+InvertedStyledHeading3.defaultProps = {style: {includeFontPadding: false}};
 
 export const InvertedHeading3 = withTheme(InvertedStyledHeading3);
 
@@ -92,9 +86,7 @@ const InvertedStyledBody1 = styled.Text<{theme: DoobooTheme}>`
   }};
 `;
 
-InvertedStyledBody1.defaultProps = {
-  style: {includeFontPadding: false},
-};
+InvertedStyledBody1.defaultProps = {style: {includeFontPadding: false}};
 
 export const InvertedBody1 = withTheme(InvertedStyledBody1);
 
@@ -110,8 +102,6 @@ const InvertedStyledBody2 = styled.Text<{theme: DoobooTheme}>`
   }};
 `;
 
-InvertedStyledBody2.defaultProps = {
-  style: {includeFontPadding: false},
-};
+InvertedStyledBody2.defaultProps = {style: {includeFontPadding: false}};
 
 export const InvertedBody2 = withTheme(InvertedStyledBody2);
