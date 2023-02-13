@@ -13,7 +13,7 @@ function SingleSelect(): ReactElement {
 
   return (
     <View>
-      <Typography.Heading1 style={{paddingBottom: 20, paddingHorizontal: 20}}>
+      <Typography.Heading1 style={{paddingBottom: 20}}>
         Single Select
       </Typography.Heading1>
 
@@ -21,14 +21,7 @@ function SingleSelect(): ReactElement {
         data={data}
         selectedIndex={selectedIndex}
         borderStyle={{color: theme.button.primary.bg}}
-        renderItem={({item, selected, index: itemIndex}) => (
-          <Button
-            text={item}
-            borderRadius={0}
-            color={selected ? 'primary' : 'light'}
-            onPress={() => setSelectedIndex(itemIndex)}
-          />
-        )}
+        onPress={(index: number) => setSelectedIndex(index)}
       />
     </View>
   );

@@ -27,24 +27,24 @@ function CustomButton(): ReactElement {
   ];
 
   const commonStyle: StyleProp<ViewStyle> = {
-    height: '100%',
+    height: 54,
     justifyContent: 'center',
     alignItems: 'center',
   };
 
   const {theme} = useDooboo();
+
   const [selectedIndex, setSelectedIndex] = useState(0);
 
   return (
     <View>
-      <Typography.Heading1 style={{padding: 20}}>
+      <Typography.Heading1 style={{paddingVertical: 20}}>
         Custom Button UI
       </Typography.Heading1>
-      <ScrollView horizontal contentContainerStyle={{paddingHorizontal: 20}}>
+      <ScrollView horizontal>
         <ButtonGroup
           data={data}
           selectedIndex={selectedIndex}
-          styles={{container: {height: 50}}}
           borderStyle={{
             color: 'pink',
             width: 1,

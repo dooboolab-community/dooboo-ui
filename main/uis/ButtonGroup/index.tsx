@@ -1,17 +1,25 @@
-import type {StyleProp, TouchableOpacityProps, ViewStyle} from 'react-native';
-import {StyleSheet, TouchableOpacity, View} from 'react-native';
+import type {
+  StyleProp,
+  TextStyle,
+  TouchableOpacityProps,
+  ViewStyle,
+} from 'react-native';
+import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 
+// Caveat: Expo web needs React to be imported
 import React from 'react';
 import type {ReactElement} from 'react';
+import {useTheme} from '@dooboo-ui/theme';
 
 interface Styles {
-  container?: StyleProp<ViewStyle>;
-  button?: StyleProp<ViewStyle>;
+  selectedButton?: StyleProp<ViewStyle>;
+  selectedText?: StyleProp<TextStyle>;
+  unselectedButton?: StyleProp<ViewStyle>;
+  unselectedText?: StyleProp<TextStyle>;
 }
 
-export type ButtonGroupProps<T> = {
+export type ButtonGroupProps<T = string> = {
   data: T[];
-  renderItem?: ButtonGroupRenderItem<T>;
   direction?: 'row' | 'column';
   testID?: string;
   style?: StyleProp<ViewStyle>;
@@ -24,7 +32,9 @@ export type ButtonGroupProps<T> = {
     radius?: number;
   };
   selectedIndex?: number;
-};
+} & (T extends string
+  ? {renderItem?: ButtonGroupRenderItem<T>}
+  : {renderItem: ButtonGroupRenderItem<T>});
 
 export type ButtonGroupRenderItem<ItemT> = (info: {
   item: ItemT;
@@ -37,8 +47,8 @@ export function ButtonGroup<T>({
   style,
   styles,
   data,
-  renderItem,
   onPress,
+  renderItem,
   touchableOpacityProps,
   direction = 'row',
   selectedIndex,
@@ -48,51 +58,95 @@ export function ButtonGroup<T>({
     radius: borderRadius = 10,
   } = {},
 }: ButtonGroupProps<T>): ReactElement {
-  return (
-    <View style={style}>
+  const {theme} = useTheme();
+
+  const getBorderStyle = (index: number): ViewStyle => {
+    if (index === data.length - 1) {
+      return {borderColor};
+    }
+
+    return direction === 'row'
+      ? {borderRightWidth: borderWidth, borderColor}
+      : {borderBottomWidth: borderWidth, borderColor};
+  };
+
+  const renderButton = (item: T, index: number): ReactElement => {
+    const selected = index === selectedIndex;
+
+    if (typeof renderItem === 'function') {
+      return (
+        <View
+          testID={`button-group-item-${index}`}
+          style={getBorderStyle(index)}
+        >
+          {renderItem({item, index, selected})}
+        </View>
+      );
+    }
+
+    return (
       <View
-        testID={testID}
+        testID={`button-group-item-${index}`}
         style={StyleSheet.flatten([
-          {borderRadius, borderColor, borderWidth, overflow: 'hidden'},
-          styles?.container,
-          {flexDirection: direction},
+          selected
+            ? {backgroundColor: theme.button.primary.bg}
+            : {backgroundColor: theme.bg.basic},
+          selected ? styles?.selectedButton : styles?.unselectedButton,
+          getBorderStyle(index),
         ])}
       >
-        {data.map((item, index) => {
-          const selected = index === selectedIndex;
-
-          return (
-            <TouchableOpacity
-              disabled={!onPress}
-              {...touchableOpacityProps}
-              onPress={() => onPress && onPress(index, item)}
-              key={index}
-            >
-              <View
-                testID={`button-group-item-${index}`}
-                style={StyleSheet.flatten([
-                  styles?.button,
-                  {borderColor},
-                  index !== data.length - 1 &&
-                    (direction === 'row'
-                      ? {borderRightWidth: borderWidth}
-                      : {borderBottomWidth: borderWidth}),
-                ])}
-              >
-                {renderItem?.({item, index, selected})}
-              </View>
-            </TouchableOpacity>
-          );
-        })}
+        {typeof item === 'string' && (
+          <Text
+            testID={`button-group-text-${index}`}
+            style={StyleSheet.flatten([
+              selected
+                ? {color: theme.button.primary.text}
+                : {color: theme.button.primary.bg},
+              selected ? styles?.selectedText : styles?.unselectedText,
+            ])}
+          >
+            {item}
+          </Text>
+        )}
       </View>
+    );
+  };
+
+  return (
+    <View
+      testID={testID}
+      style={StyleSheet.flatten([
+        {borderRadius, borderColor, borderWidth, overflow: 'hidden'},
+        style,
+        {flexDirection: direction},
+      ])}
+    >
+      {data.map((item, index) => {
+        return (
+          <TouchableOpacity
+            disabled={!onPress}
+            {...touchableOpacityProps}
+            onPress={() => onPress && onPress(index, item)}
+            key={index}
+          >
+            {renderButton(item, index)}
+          </TouchableOpacity>
+        );
+      })}
     </View>
   );
 }
 
 ButtonGroup.defaultProps = {
+  style: {alignSelf: 'flex-start'},
   styles: {
-    container: {
-      alignSelf: 'center',
+    selectedButton: {
+      paddingHorizontal: 20,
+      paddingVertical: 12,
+    },
+    unselectedButton: {
+      paddingHorizontal: 20,
+      paddingVertical: 12,
     },
   },
 };

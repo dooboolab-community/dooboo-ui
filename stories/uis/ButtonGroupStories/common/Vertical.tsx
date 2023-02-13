@@ -13,7 +13,9 @@ const Vertical = (): ReactElement => {
 
   return (
     <View>
-      <Typography.Heading1 style={{padding: 20}}>Vertical</Typography.Heading1>
+      <Typography.Heading1 style={{paddingVertical: 20}}>
+        Vertical
+      </Typography.Heading1>
 
       <ButtonGroup
         direction="column"
