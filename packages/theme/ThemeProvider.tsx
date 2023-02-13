@@ -86,7 +86,7 @@ const genTheme = (type: ThemeType, themeParam: ThemeParam): any => {
   };
 };
 
-function ThemeProvider({
+export function ThemeProvider({
   children,
   initialThemeType,
   customTheme = {},
@@ -148,4 +148,4 @@ function ThemeProvider({
   );
 }
 
-export {useCtx as useTheme, ThemeProvider, withTheme};
+export {useCtx as useTheme, withTheme};
