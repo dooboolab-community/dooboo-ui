@@ -1,4 +1,5 @@
 import type {Colors, DoobooTheme, ThemeParam, ThemeType} from './colors';
+import type {Theme} from '@emotion/react';
 import {ThemeProvider as EmotionThemeProvider, withTheme} from '@emotion/react';
 import {colors, dark, light} from './colors';
 import {useEffect, useState} from 'react';
@@ -17,7 +18,7 @@ export type ThemeContext = {
     isTablet: boolean;
     isDesktop: boolean;
   };
-  theme: DoobooTheme;
+  theme: Theme & DoobooTheme;
   changeThemeType: (themeType?: ColorSchemeName) => void;
   colors: Colors;
 };
@@ -94,9 +95,7 @@ export function ThemeProvider({
   const isMobile = useMediaQuery({maxWidth: 767});
   const isTablet = useMediaQuery({minWidth: 767, maxWidth: 992});
   const isDesktop = useMediaQuery({minWidth: 992});
-
   const colorScheme = useColorScheme();
-
   const [themeType, setThemeType] = useState(initialThemeType ?? colorScheme);
 
   useEffect(() => {
