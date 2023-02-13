@@ -4,7 +4,6 @@ import {colors, dark, light} from './colors';
 import {useEffect, useState} from 'react';
 
 import type {ColorSchemeName} from 'react-native';
-import type {Theme as DefaultTheme} from '@emotion/react';
 import type {ReactElement} from 'react';
 import createDoobooContext from './createDoobooContext';
 import useColorScheme from './useColorScheme';
@@ -18,7 +17,7 @@ export type ThemeContext = {
     isTablet: boolean;
     isDesktop: boolean;
   };
-  theme: DefaultTheme & DoobooTheme;
+  theme: DoobooTheme;
   changeThemeType: (themeType?: ColorSchemeName) => void;
   colors: Colors;
 };
