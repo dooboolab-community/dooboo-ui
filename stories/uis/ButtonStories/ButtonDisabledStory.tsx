@@ -1,15 +1,17 @@
+import type {ButtonColorType, ButtonSizeType, ButtonType} from '../../../main';
 import {StoryContainer, StorySection, StoryTitle} from '../../GlobalStyles';
+import {buttonColors, buttonSizes} from '../const';
 
 import {Button} from '../../../main';
-import type {ButtonType} from '../../../main';
 // Caveat: Expo web needs React to be imported
 import React from 'react';
 import type {ReactElement} from 'react';
-import {useButtonKnobs} from './useButtonKnobs';
+import {select} from '@storybook/addon-knobs';
 
 function ButtonDisabledStory(): ReactElement {
   const types: ButtonType[] = ['text', 'solid', 'outlined'];
-  const {color, size} = useButtonKnobs();
+  const color = select<ButtonColorType>('color', buttonColors, 'primary');
+  const size = select<ButtonSizeType>('size', buttonSizes, 'medium');
 
   return (
     <StoryContainer>

@@ -10,7 +10,6 @@ function ButtonEventStory(): ReactElement {
     <>
       <StoryDescription>Counter</StoryDescription>
       <Counter />
-
       <StoryDescription>Google Sign In</StoryDescription>
       <GoogleSignIn />
     </>

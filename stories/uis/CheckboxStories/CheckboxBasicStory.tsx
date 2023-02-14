@@ -4,18 +4,9 @@ import type {FC, ReactElement, ReactNode} from 'react';
 import React, {useState} from 'react';
 import {ScrollContainer, StoryContainer, StoryTitle} from '../../GlobalStyles';
 
-import type {CheckboxColor} from '../../../main';
 import {View} from 'react-native';
 import {boolean} from '@storybook/addon-knobs';
-
-const types: CheckboxColor[] = [
-  'primary',
-  'secondary',
-  'success',
-  'warning',
-  'info',
-  'danger',
-];
+import {checkboxColors} from '../const';
 
 const LabelWrapper: FC<{
   label: string;
@@ -47,14 +38,14 @@ const Checkboxes: FC<CheckBoxProps> = ({setChecked, checked}) => (
       justifyContent: 'center',
     }}
   >
-    {types.map((type, i) => (
-      <LabelWrapper key={`${type}_${i}`} label={type}>
+    {checkboxColors.map((color, i) => (
+      <LabelWrapper key={`${color}_${i}`} label={color}>
         <Checkbox
           style={{margin: 25}}
           checked={checked}
           disabled={boolean('disabled', false)}
           onPress={() => setChecked(!checked)}
-          color={type}
+          color={color}
         />
       </LabelWrapper>
     ))}
