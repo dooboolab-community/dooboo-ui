@@ -95,7 +95,7 @@ export function ButtonGroup<T>({
           getBorderStyle(index),
         ])}
       >
-        {typeof item === 'string' && (
+        {typeof item === 'string' ? (
           <Text
             testID={`button-group-text-${index}`}
             style={StyleSheet.flatten([
@@ -107,7 +107,7 @@ export function ButtonGroup<T>({
           >
             {item}
           </Text>
-        )}
+        ) : null}
       </View>
     );
   };

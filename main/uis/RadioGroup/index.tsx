@@ -53,7 +53,7 @@ function RadioGroupContainer<T>(
   return (
     <Container style={style}>
       <Heading3 style={styles?.title}>{title}</Heading3>
-      {title && <View style={{height: 8}} />}
+      {title ? <View style={{height: 8}} /> : null}
       <Content style={styles?.container}>
         {data.map((datum, i) => {
           return (
