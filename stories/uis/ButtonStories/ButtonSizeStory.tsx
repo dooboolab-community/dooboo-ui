@@ -1,16 +1,16 @@
+import type {ButtonColorType, ButtonSizeType} from '../../../main';
 import {StoryContainer, StorySection, StoryTitle} from '../../GlobalStyles';
-import {boolean, number} from '@storybook/addon-knobs';
+import {boolean, number, select} from '@storybook/addon-knobs';
 
 import {Button} from '../../../main';
-import type {ButtonSizeType} from '../../../main';
 // Caveat: Expo web needs React to be imported
 import React from 'react';
 import type {ReactElement} from 'react';
-import {useButtonKnobs} from './useButtonKnobs';
+import {buttonColors} from '../const';
 
 function ButtonSizeStory(): ReactElement {
   const sizes: ButtonSizeType[] = ['small', 'medium', 'large'];
-  const {color} = useButtonKnobs();
+  const color = select<ButtonColorType>('color', buttonColors, 'primary');
 
   return (
     <StoryContainer>

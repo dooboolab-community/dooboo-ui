@@ -1,16 +1,27 @@
+import type {
+  ButtonColorType,
+  ButtonSizeType,
+  ButtonType,
+} from '../../../../main';
 // Caveat: Expo web needs React to be imported
 import React, {useState} from 'react';
 import {StoryDescription, StorySection} from '../../../GlobalStyles';
+import {boolean, number, select} from '@storybook/addon-knobs';
+import {buttonColors, buttonSizes, buttonTypes} from '../../const';
 
 import {Button} from '../../../../main';
 import type {ReactElement} from 'react';
 import {action} from '@storybook/addon-actions';
-import {useButtonKnobs} from '../useButtonKnobs';
 
 function Counter(): ReactElement {
   const [count, setCount] = useState(0);
-  const {color, size, activeOpacity, disabled, loading, type} =
-    useButtonKnobs();
+
+  const type = select<ButtonType>('type', buttonTypes, 'solid');
+  const color = select<ButtonColorType>('color', buttonColors, 'primary');
+  const size = select<ButtonSizeType>('size', buttonSizes, 'medium');
+  const disabled = boolean('disabled', false);
+  const loading = boolean('loading', false);
+  const activeOpacity = number('activeOpacity', 0.8);
 
   return (
     <StorySection>

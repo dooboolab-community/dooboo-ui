@@ -1,15 +1,20 @@
 import {Button, Icon} from '../../../main';
+import type {ButtonColorType, ButtonSizeType, ButtonType} from '../../../main';
 import {StoryContainer, StorySection, StoryTitle} from '../../GlobalStyles';
+import {boolean, number, select} from '@storybook/addon-knobs';
+import {buttonColors, buttonSizes, buttonTypes} from '../const';
 
 // Caveat: Expo web needs React to be imported
 import React from 'react';
 import type {ReactElement} from 'react';
-import {boolean} from '@storybook/addon-knobs';
-import {useButtonKnobs} from './useButtonKnobs';
 
 function ButtonStartAndEndStory(): ReactElement {
-  const {color, type, disabled, activeOpacity, loading, size} =
-    useButtonKnobs();
+  const type = select<ButtonType>('type', buttonTypes, 'solid');
+  const color = select<ButtonColorType>('color', buttonColors, 'primary');
+  const size = select<ButtonSizeType>('size', buttonSizes, 'medium');
+  const disabled = boolean('disabled', false);
+  const loading = boolean('loading', false);
+  const activeOpacity = number('activeOpacity', 0.8);
 
   return (
     <StoryContainer>

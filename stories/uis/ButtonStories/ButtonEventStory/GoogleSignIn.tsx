@@ -1,18 +1,29 @@
 import {Button, LoadingIndicator} from '../../../../main';
+import type {
+  ButtonColorType,
+  ButtonSizeType,
+  ButtonType,
+} from '../../../../main';
 import {Image, View} from 'react-native';
 // Caveat: Expo web needs React to be imported
 import React, {useState} from 'react';
+import {boolean, number, select} from '@storybook/addon-knobs';
+import {buttonColors, buttonSizes, buttonTypes} from '../../const';
 
 import {IC_GOOGLE} from '../../../../storybook/assets/icons';
 import type {ReactElement} from 'react';
 import {StorySection} from '../../../GlobalStyles';
 import {action} from '@storybook/addon-actions';
 import {css} from '@emotion/native';
-import {useButtonKnobs} from '../useButtonKnobs';
 
 function StartElementAndEndElement(): ReactElement {
   const [googleLoading, setGoogleLoading] = useState<boolean>(false);
-  const {color, size, activeOpacity, disabled, type} = useButtonKnobs();
+
+  const type = select<ButtonType>('type', buttonTypes, 'solid');
+  const color = select<ButtonColorType>('color', buttonColors, 'primary');
+  const size = select<ButtonSizeType>('size', buttonSizes, 'medium');
+  const disabled = boolean('disabled', false);
+  const activeOpacity = number('activeOpacity', 0.8);
 
   return (
     <StorySection>
