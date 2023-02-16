@@ -1,3 +1,5 @@
+import '@expo/match-media';
+
 import type {Colors, DoobooTheme, ThemeParam, ThemeType} from './colors';
 import type {Theme} from '@emotion/react';
 import {ThemeProvider as EmotionThemeProvider, withTheme} from '@emotion/react';
