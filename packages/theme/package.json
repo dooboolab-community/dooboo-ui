@@ -1,6 +1,6 @@
 {
   "name": "@dooboo-ui/theme",
-  "version": "0.10.6",
+  "version": "0.10.7",
   "description": "dooboo-ui theme provider",
   "homepage": "https://github.com/dooboolab/dooboo-ui#readme",
   "license": "ISC",
@@ -28,12 +28,12 @@
     "dooboolab"
   ],
   "dependencies": {
+    "@expo/match-media": "^0.4.0",
     "react-responsive": "^9.0.0"
   },
   "devDependencies": {
     "@emotion/native": "^11.10.0",
     "@emotion/react": "^11.10.4",
-    "@expo/match-media": "*",
     "typescript": "^4.8.4"
   },
   "peerDependencies": {
