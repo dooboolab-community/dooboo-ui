@@ -244,6 +244,11 @@ export const dark: typeof light = {
 
 - [Example theme.ts](https://github.com/dooboolab/hackatalk/blob/master/client/src/theme.ts)
 
+Note that you can type your custom theme type as below
+```ts
+export type Theme = typeof light & DoobooThemeParams;
+```
+
 ### Typescript support with [emotion](https://emotion.sh/docs/typescript#define-a-theme)
 
 > Inside `src` dir, add `styled.d.ts`.
