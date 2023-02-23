@@ -1,36 +1,26 @@
-import {Button, DoobooProvider} from 'dooboo-ui';
-
+import {Button} from 'dooboo-ui';
 import type {ReactElement} from 'react';
 import {View} from 'react-native';
-import styled from '@emotion/native';
+import {StoryProvider} from './index';
 
-const StoryContainer = styled.View`
-  background-color: ${({theme}) => theme.bg.basic};
-
-  justify-content: center;
-  align-items: center;
-`;
-
-export function Disabled({themeType}): ReactElement {
+export default function Disabled(): ReactElement {
   return (
-    <DoobooProvider themeConfig={{initialThemeType: themeType}}>
-      <StoryContainer>
-        <View
-          style={{
-            flexDirection: 'row',
-            flexWrap: 'wrap',
-            justifyContent: 'center',
-          }}
-        >
-          <Button disabled={true} text="Disabled" style={{margin: 8}} />
-          <Button
-            disabled={true}
-            type="outlined"
-            text="Disabled"
-            style={{margin: 8}}
-          />
-        </View>
-      </StoryContainer>
-    </DoobooProvider>
+    <StoryProvider>
+      <View
+        style={{
+          flexDirection: 'row',
+          flexWrap: 'wrap',
+          justifyContent: 'center',
+        }}
+      >
+        <Button disabled={true} text="Disabled" style={{margin: 8}} />
+        <Button
+          disabled={true}
+          type="outlined"
+          text="Disabled"
+          style={{margin: 8}}
+        />
+      </View>
+    </StoryProvider>
   );
 }

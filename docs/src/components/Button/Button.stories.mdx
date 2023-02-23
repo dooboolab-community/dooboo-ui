@@ -1,4 +1,4 @@
-import {Meta, Story, Canvas} from '@storybook/addon-docs/blocks';
+import {Meta} from '@storybook/addon-docs';
 
 import {
   Basic,
@@ -21,7 +21,7 @@ import {
 ## Usage
 
 ```tsx
-import {Button, DoobooProvider} from 'dooboo-ui';
+import {Button} from 'dooboo-ui';
 
 <Button {...props} />;
 ```
@@ -55,17 +55,20 @@ import {Button, DoobooProvider} from 'dooboo-ui';
 <Button text="Button" outlined style={{margin: 8}} onPress={() => {}} />
 ```
 
-<Basic themeType="light" />
-<Basic themeType="dark" />
+<Basic />
 
 <Link link="https://snack.expo.dev/@swda/basic-style" />
 
 ### Solid Color type
 
+
 `primary` `secondary` `success` `danger` `warning` `info` `light`
 
+
 The `type` prop can generate many different buttons.
+
 The default value of type is `primary`.
+
 
 ```tsx
 <Button type="primary" text="Primary" style={{margin: 8}} onPress={() => {}} />
@@ -77,14 +80,15 @@ The default value of type is `primary`.
 <Button type="light" text="Light" style={{margin: 8}} onPress={() => {}} />
 ```
 
-<Solid themeType="light" />
-<Solid themeType="dark" />
+<Solid />
 
 <Link link="https://snack.expo.dev/@swda/solid-color-type" />
 
 ### Outlined Color type
 
+
 Generate bordering button by adding `outlined` prop.
+
 
 ```tsx
 <Button type="primary" text="Primary" outlined style={{margin: 8}} onPress={() => {}} />
@@ -96,45 +100,51 @@ Generate bordering button by adding `outlined` prop.
 <Button type="light" text="Light" outlined style={{margin: 8}} onPress={() => {}} />
 ```
 
-<Outlined themeType="light" />
-<Outlined themeType="dark" />
+<Outlined />
 
 <Link link="https://snack.expo.dev/@swda/outlined-color-type"/>
 
 ### Disabled button
 
+
 The `disabled` prop can generate disabled button which is not pressed.
+
 And it can't apply `type`.
+
 
 ```tsx
 <Button disabled={true} text="Disabled" style={{margin: 8}} onPress={() => {}} />
 <Button disabled={true} outlined text="Disabled" style={{margin: 8}} onPress={() => {}} />
 ```
 
-<Disabled themeType="light" />
-<Disabled themeType="dark" />
+<Disabled />
 
 <Link link="https://snack.expo.dev/@swda/disabled-button" />
 
 ### Index
 
+
 `loading` `indicatorColor`
 
+
 Set `loading` prop to generate always loading button.
+
 And change loading spinner color by using `indicatorColor` prop.
+
 
 ```tsx
 <Button loading={true} style={{margin: 8}} onPress={() => {}} />
 ```
 
-<Loading themeType="light" />
-<Loading themeType="dark" />
+<Loading />
 
 <Link link="https://snack.expo.dev/@swda/loading" />
 
 ### Aspect of sizes
 
+
 `large` `medium` `small`
+
 
 The `size` prop can generate many size buttons.
 
@@ -144,8 +154,7 @@ The `size` prop can generate many size buttons.
 <Button size="small" text="large" style={{margin: 8}} onPress={() => {}}/>
 ```
 
-<Sizes themeType="light" />
-<Sizes themeType="dark" />
+<Sizes />
 
 <Link link="https://snack.expo.dev/@swda/aspect-of-sizes" />
 
@@ -155,9 +164,11 @@ When pressing button, some event can generate by using `onPress` prop.
 
 ```tsx
 const [value, setValue] = useState(1);
+
 const onIncrease = () => {
   setValue(value + 1);
 };
+
 const onDecrease = () => {
   setValue(value - 1);
 };
@@ -179,10 +190,10 @@ return (
     </StoryContainer>
   </DoobooProvider>
 );
+
 ```
 
-<OnPress themeType="light" />
-<OnPress themeType="dark" />
+<OnPress />
 
 <Link link="https://snack.expo.dev/@swda/onpress-event" />
 
@@ -215,6 +226,7 @@ return (
             height: 52px;
           `,
         }}
+
         onPress={(): void => {
           setGoogleLoading(true);
           action('google btn clicked');
@@ -249,10 +261,10 @@ return (
             height: 52px;
           `,
         }}
+
         onPress={(): void => {
           setFacebookLoading(true);
           action('facebook btn clicked');
-
           const timeout = setTimeout(() => {
             setFacebookLoading(false);
             clearTimeout(timeout);
@@ -263,9 +275,9 @@ return (
     </StoryContainer>
   </DoobooProvider>
 );
+
 ```
 
-<AdditionalElement themeType="light" />
-<AdditionalElement themeType="dark" />
+<AdditionalElement  />
 
 <Link link="https://snack.expo.dev/@swda/additionalelement" />

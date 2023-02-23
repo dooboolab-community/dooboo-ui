@@ -1,16 +1,9 @@
-import {Button, DoobooProvider} from 'dooboo-ui';
-
+import {Button} from 'dooboo-ui';
 import type {ReactElement} from 'react';
 import {View} from 'react-native';
 import styled from '@emotion/native';
 import {useState} from 'react';
-
-const StoryContainer = styled.View`
-  background-color: ${({theme}) => theme.bg.basic};
-
-  justify-content: center;
-  align-items: center;
-`;
+import {StoryProvider} from './index';
 
 const StyledText = styled.Text`
   color: ${({theme}) => theme.text.basic};
@@ -18,7 +11,7 @@ const StyledText = styled.Text`
   margin: 20px;
 `;
 
-export function OnPress({themeType}): ReactElement {
+export default function OnPress(): ReactElement {
   const [value, setValue] = useState(1);
 
   const onIncrease = (): void => {
@@ -30,20 +23,18 @@ export function OnPress({themeType}): ReactElement {
   };
 
   return (
-    <DoobooProvider themeConfig={{initialThemeType: themeType}}>
-      <StoryContainer>
-        <View
-          style={{
-            flexDirection: 'row',
-            flexWrap: 'wrap',
-            justifyContent: 'center',
-          }}
-        >
-          <Button text="Increase" style={{margin: 8}} onPress={onIncrease} />
-          <Button text="Decrease" style={{margin: 8}} onPress={onDecrease} />
-          <StyledText> value={value} </StyledText>
-        </View>
-      </StoryContainer>
-    </DoobooProvider>
+    <StoryProvider>
+      <View
+        style={{
+          flexDirection: 'row',
+          flexWrap: 'wrap',
+          justifyContent: 'center',
+        }}
+      >
+        <Button text="Increase" style={{margin: 8}} onPress={onIncrease} />
+        <Button text="Decrease" style={{margin: 8}} onPress={onDecrease} />
+        <StyledText> value={value} </StyledText>
+      </View>
+    </StoryProvider>
   );
 }
