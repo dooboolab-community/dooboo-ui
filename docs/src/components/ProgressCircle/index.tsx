@@ -1,8 +1,9 @@
-import {DoobooProvider, ProgressCircle} from 'dooboo-ui';
+import {DoobooProvider, ProgressCircle, useDooboo} from 'dooboo-ui';
 import React, {useEffect, useState} from 'react';
 
 import type {ReactElement} from 'react';
 import styled from '@emotion/native';
+import {useDarkMode} from 'storybook-dark-mode';
 
 const Container = styled.View`
   flex: 1;
@@ -14,7 +15,11 @@ const Container = styled.View`
   background-color: ${({theme}) => theme.bg.basic};
 `;
 
-function ProgressView(): ReactElement {
+export function StoryWrapper(): ReactElement {
+  const {themeType, changeThemeType} = useDooboo();
+  const isDark = useDarkMode();
+  const storybookTheme = isDark ? 'dark' : 'light';
+
   const [progress, setProgress] = useState(0);
 
   useEffect(() => {
@@ -45,6 +50,12 @@ function ProgressView(): ReactElement {
     return () => clearTimeout(timeout);
   }, []);
 
+  useEffect(() => {
+    if (storybookTheme !== themeType) {
+      changeThemeType();
+    }
+  }, [storybookTheme]);
+
   return (
     <Container>
       <ProgressCircle progress={progress} />
@@ -52,12 +63,12 @@ function ProgressView(): ReactElement {
   );
 }
 
-function Basic(): ReactElement {
+export default function StoryProvider(): ReactElement {
+  const isDark = useDarkMode();
+
   return (
-    <DoobooProvider>
-      <ProgressView />
+    <DoobooProvider themeConfig={{initialThemeType: isDark ? 'dark' : 'light'}}>
+      <StoryWrapper />
     </DoobooProvider>
   );
 }
-
-export default Basic;
