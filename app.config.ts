@@ -5,8 +5,16 @@ export default {
     privacy: 'public',
     platforms: ['ios', 'android', 'web'],
     orientation: 'default',
-    icon: './assets/icon192.png',
+    icon: './assets/icon.png',
     userInterfaceStyle: 'automatic',
     assetBundlePatterns: ['**/*'],
+    splash: {
+      image: './assets/splash.png',
+      resizeMode: 'contain',
+      backgroundColor: '#ffffff',
+    },
+    web: {
+      favicon: './assets/favicon.png',
+    },
   },
 };
