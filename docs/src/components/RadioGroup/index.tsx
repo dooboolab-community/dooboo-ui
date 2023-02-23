@@ -1,143 +1,45 @@
-import {Basic} from './Basic';
-import {Colored} from './Colored';
-import React from 'react';
+import React, {ReactNode, useEffect} from 'react';
 import type {ReactElement} from 'react';
-import {SelectValue} from './SelectValue';
-import {View} from 'react-native';
-import {WithLabels} from './WithLabels';
-import {WithTitle} from './WithTitle';
+import styled from '@emotion/native';
+import {DoobooProvider, useDooboo} from 'dooboo-ui';
+import {useDarkMode} from 'storybook-dark-mode';
 
-export function BasicDemo(): ReactElement {
-  return (
-    <View
-      style={{
-        display: 'flex',
-        flexDirection: 'row',
-      }}
-    >
-      <View
-        style={{
-          flex: 1,
-          marginRight: 10,
-        }}
-      >
-        <Basic theme="light" />
-      </View>
-      <View
-        style={{
-          flex: 1,
-        }}
-      >
-        <Basic theme="dark" />
-      </View>
-    </View>
-  );
+export {default as Basic} from './Basic';
+export {default as Colored} from './Colored';
+export {default as SelectValue} from './SelectValue';
+export {default as WithLabels} from './WithLabels';
+export {default as WithTitle} from './WithTitle';
+
+type ContainerProps = {
+  children: ReactNode;
+};
+
+const StoryContainer = styled.View`
+  background-color: ${({theme}) => theme.bg.basic};
+  justify-content: center;
+  align-items: center;
+`;
+
+export function StoryWrapper({children}: ContainerProps): ReactElement {
+  const {themeType, changeThemeType} = useDooboo();
+  const isDark = useDarkMode();
+  const storybookTheme = isDark ? 'dark' : 'light';
+
+  useEffect(() => {
+    if (storybookTheme !== themeType) {
+      changeThemeType();
+    }
+  }, [storybookTheme]);
+
+  return <StoryContainer>{children}</StoryContainer>;
 }
 
-export function WithTitleDemo(): ReactElement {
-  return (
-    <View
-      style={{
-        display: 'flex',
-        flexDirection: 'row',
-      }}
-    >
-      <View
-        style={{
-          flex: 1,
-          marginRight: 10,
-        }}
-      >
-        <WithTitle theme="light" />
-      </View>
-      <View
-        style={{
-          flex: 1,
-        }}
-      >
-        <WithTitle theme="dark" />
-      </View>
-    </View>
-  );
-}
+export function StoryProvider({children}: ContainerProps): ReactElement {
+  const isDark = useDarkMode();
 
-export function WithLabelsDemo({
-  labelPosition,
-}: {
-  labelPosition: 'left' | 'right';
-}): ReactElement {
   return (
-    <View
-      style={{
-        display: 'flex',
-        flexDirection: 'row',
-      }}
-    >
-      <View
-        style={{
-          flex: 1,
-          marginRight: 10,
-        }}
-      >
-        <WithLabels theme="light" labelPosition={labelPosition} />
-      </View>
-      <View
-        style={{
-          flex: 1,
-        }}
-      >
-        <WithLabels theme="dark" labelPosition={labelPosition} />
-      </View>
-    </View>
-  );
-}
-
-export function ColoredDemo(): ReactElement {
-  return (
-    <View
-      style={{
-        display: 'flex',
-        flexDirection: 'row',
-      }}
-    >
-      <View
-        style={{
-          flex: 1,
-          marginRight: 10,
-        }}
-      >
-        <Colored theme="light" />
-      </View>
-      <View
-        style={{
-          flex: 1,
-        }}
-      >
-        <Colored theme="dark" />
-      </View>
-    </View>
-  );
-}
-
-export function SelectValueDemo(): ReactElement {
-  return (
-    <View
-      style={{
-        display: 'flex',
-        flexDirection: 'row',
-      }}
-    >
-      <View
-        style={{
-          flex: 1,
-          marginRight: 10,
-        }}
-      >
-        <SelectValue theme="light" />
-      </View>
-      <View style={{flex: 1}}>
-        <SelectValue theme="dark" />
-      </View>
-    </View>
+    <DoobooProvider themeConfig={{initialThemeType: isDark ? 'dark' : 'light'}}>
+      <StoryWrapper>{children}</StoryWrapper>
+    </DoobooProvider>
   );
 }

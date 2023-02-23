@@ -1,12 +1,12 @@
-import {Meta, Story, Canvas} from '@storybook/addon-docs/blocks';
+import {Meta} from '@storybook/addon-docs';
 
 import {
-  BasicDemo,
-  ColoredDemo,
-  WithLabelsDemo,
-  WithTitleDemo,
-  SelectValueDemo,
-} from './index.tsx';
+  Basic,
+  Colored,
+  WithLabels,
+  WithTitle,
+  SelectValue,
+} from './index';
 
 <Meta title="Components/RadioGroup" />
 
@@ -37,7 +37,7 @@ import {RadioGroup} from 'dooboo-ui';
 | labelPosition |           | `'left'` &#124 `'right'` |                                             | `right`   |
 | radioType     |           |                          |                                             |           |
 
-## Demo
+##
 
 ### Basic Style
 
@@ -45,18 +45,18 @@ import {RadioGroup} from 'dooboo-ui';
 <RadioGroup data={data} selectedValue={selectedValue} />
 ```
 
-<BasicDemo />
+<Basic />
 
 ### With Title
 
-With `title` prop, you can add a title to [RadioGroup].  
+With `title` prop, you can add a title to [RadioGroup].
 If no specific styles added, the title is shown top-left of the radio buttons.
 
 ```tsx
 <RadioGroup title={title} data={data} selectedValue={selectedValue} />
 ```
 
-<WithTitleDemo />
+<WithTitle />
 
 ### With Labels
 
@@ -68,7 +68,7 @@ const labels = ['One', 'Two', 'Three', 'Four'];
 <RadioGroup data={data} labels={labels} selectedValue={selectedValue} />;
 ```
 
-<WithLabelsDemo labelPosition="right" />
+<WithLabels labelPosition="right" />
 <br />
 
 If you want to put labels on the left side of the buttons, you can do so with `labelPosition`
@@ -83,7 +83,7 @@ prop. The default value is set to `right`.
 />
 ```
 
-<WithLabelsDemo labelPosition="left" />
+<WithLabels labelPosition="left" />
 
 ### Colored Style
 
@@ -101,11 +101,11 @@ is set to `primary`.
 />
 ```
 
-<ColoredDemo />
+<Colored />
 
 ### `selectValue` event
 
-You should set `selectValue` prop appropriately to make [RadioGroup] component work as intended.  
+You should set `selectValue` prop appropriately to make [RadioGroup] component work as intended.
 This is a simple example of setting `selectValue` prop using react hooks.
 
 ```tsx
@@ -126,4 +126,4 @@ const [selectedValue, setSelectedValue] = useState(data[0]);
 />;
 ```
 
-<SelectValueDemo />
+<SelectValue />

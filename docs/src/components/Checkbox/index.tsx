@@ -1,5 +1,5 @@
 import React, {ReactElement, ReactNode, useEffect} from 'react';
-import styled from '@emotion/native/dist/emotion-native.cjs';
+import styled from '@emotion/native';
 import {DoobooProvider, useDooboo} from 'dooboo-ui';
 import {useDarkMode} from 'storybook-dark-mode';
 

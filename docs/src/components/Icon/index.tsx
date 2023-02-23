@@ -1,5 +1,5 @@
 import React, {ReactElement, useEffect, useState} from 'react';
-import styled from '@emotion/native/dist/emotion-native.cjs';
+import styled from '@emotion/native';
 import {
   doobooIconList,
   DoobooProvider,
