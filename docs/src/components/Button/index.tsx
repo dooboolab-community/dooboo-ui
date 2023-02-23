@@ -1,4 +1,4 @@
-import React, {ReactElement, ReactNode, useEffect, useState} from 'react';
+import React, {ReactElement, ReactNode, useEffect} from 'react';
 import {useDarkMode} from 'storybook-dark-mode';
 import {DoobooProvider, useDooboo} from 'dooboo-ui';
 
