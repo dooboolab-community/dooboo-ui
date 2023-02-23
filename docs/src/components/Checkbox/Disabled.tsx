@@ -1,40 +1,47 @@
-import {Checkbox, DoobooProvider, LoadingIndicator, useDooboo} from 'dooboo-ui';
+import {Checkbox, LoadingIndicator} from 'dooboo-ui';
 
 import type {ReactElement} from 'react';
 import {View} from 'react-native';
 import {useFonts} from 'expo-font';
+import {StoryProvider} from './index';
+import React from 'react';
 
-function Component(): ReactElement {
-  const {theme} = useDooboo();
-
+export default function Disabled(): ReactElement {
   const [fontsLoaded] = useFonts({
     IcoMoon: require('../../assets/doobooui.ttf'),
   });
 
   if (!fontsLoaded) {
-    return <LoadingIndicator />;
+    return (
+      <StoryProvider>
+        <View
+          style={{
+            flex: 1,
+            alignSelf: 'stretch',
+            flexDirection: 'column',
+            alignItems: 'center',
+            padding: 10,
+          }}
+        >
+          <LoadingIndicator />
+        </View>
+      </StoryProvider>
+    );
   }
 
   return (
-    <View
-      style={{
-        backgroundColor: theme.bg.basic,
-        flex: 1,
-        alignSelf: 'stretch',
-        flexDirection: 'row',
-        justifyContent: 'center',
-        padding: 5,
-      }}
-    >
-      <Checkbox disabled />
-    </View>
-  );
-}
-
-export function Disabled({themeType}): ReactElement {
-  return (
-    <DoobooProvider themeConfig={{initialThemeType: themeType}}>
-      <Component />
-    </DoobooProvider>
+    <StoryProvider>
+      <View
+        style={{
+          flex: 1,
+          alignSelf: 'stretch',
+          flexDirection: 'row',
+          justifyContent: 'center',
+          padding: 5,
+        }}
+      >
+        <Checkbox disabled />
+      </View>
+    </StoryProvider>
   );
 }
