@@ -1,9 +1,9 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 
-import {DoobooProvider} from 'dooboo-ui';
+import {ButtonGroup, DoobooProvider, useDooboo} from 'dooboo-ui';
 import type {ReactElement} from 'react';
-import {View} from 'react-native';
 import styled from '@emotion/native';
+import {useDarkMode} from 'storybook-dark-mode';
 
 const Container = styled.SafeAreaView`
   flex: 1;
@@ -17,45 +17,47 @@ const Container = styled.SafeAreaView`
   justify-content: center;
 `;
 
-const StyledText = styled.Text`
-  color: ${({theme}) => theme.text.basic};
-  font-size: 32px;
+const StoryContainer = styled.View`
+  background-color: ${({theme}) => theme.bg.basic};
+  justify-content: center;
+  align-items: center;
 `;
 
-const ButtonGroupStory = (): React.ReactElement => {
+export function StoryWrapper(): ReactElement {
+  const {themeType, changeThemeType} = useDooboo();
+  const isDark = useDarkMode();
+  const storybookTheme = isDark ? 'dark' : 'light';
+
   const data = ['Option 1', 'Option 2', 'Option 3', 'Option 4'];
 
-  const [selectedIndex] = useState(0);
+  const [selectedIndex, setSelectedIndex] = useState(0);
+
+  useEffect(() => {
+    if (storybookTheme !== themeType) {
+      changeThemeType();
+    }
+  }, [storybookTheme]);
 
   return (
-    <Container>
-      {/* <ButtonGroup
-        style={{marginTop: 40, marginHorizontal: 20}}
-        onPress={(index: number): void => setSelectedIndex(index)}
-        data={data}
-        selectedIndex={selectedIndex}
-      /> */}
-      <View
-        style={{
-          height: 120,
-          justifyContent: 'center',
-          alignItems: 'center',
-        }}
-      >
-        <StyledText>{data[selectedIndex]}</StyledText>
-      </View>
-    </Container>
+    <StoryContainer>
+      <Container>
+        <ButtonGroup
+          style={{marginTop: 40, marginHorizontal: 20, marginBottom: 40}}
+          onPress={(index: number): void => setSelectedIndex(index)}
+          data={data}
+          selectedIndex={selectedIndex}
+        />
+      </Container>
+    </StoryContainer>
   );
-};
+}
 
-export const Light = (): ReactElement => (
-  <DoobooProvider themeConfig={{initialThemeType: 'light'}}>
-    <ButtonGroupStory />
-  </DoobooProvider>
-);
+export default function StoryProvider(): ReactElement {
+  const isDark = useDarkMode();
 
-export const Dark = (): ReactElement => (
-  <DoobooProvider themeConfig={{initialThemeType: 'dark'}}>
-    <ButtonGroupStory />
-  </DoobooProvider>
-);
+  return (
+    <DoobooProvider themeConfig={{initialThemeType: isDark ? 'dark' : 'light'}}>
+      <StoryWrapper />
+    </DoobooProvider>
+  );
+}
