@@ -1,13 +1,35 @@
-import {addDecorator, addParameters} from '@storybook/react';
+import React from 'react';
+import {themes} from '@storybook/theming';
+import {useDarkMode} from 'storybook-dark-mode';
+import {DocsContainer} from '@storybook/addon-docs';
+import darkTheme from './darkTheme';
+import lightTheme from './lightTheme';
 
-import {createElement} from 'react';
-import theme from './theme';
-
-addDecorator(createElement);
-
-// Option defaults:
-addParameters({
-  docs: {theme},
+export const parameters = {
+  docs: {
+    container: ({children, context}) => (
+      <DocsContainer
+        context={{
+          ...context,
+          storyById: (id) => {
+            const storyContext = context.storyById(id);
+            return {
+              ...storyContext,
+              parameters: {
+                ...storyContext?.parameters,
+                docs: {
+                  ...storyContext?.parameters?.docs,
+                  theme: useDarkMode() ? darkTheme : lightTheme,
+                },
+              },
+            };
+          },
+        }}
+      >
+        {children}
+      </DocsContainer>
+    ),
+  },
   options: {
     storySort: (a, b) => {
       const sectionA = a[1].id.split('-')[0];
@@ -42,4 +64,10 @@ addParameters({
     hierarchyRootSeparator: /\|/,
     panelPosition: 'bottom',
   },
-});
+  darkMode: {
+    dark: {...themes.dark},
+    light: {...themes.light},
+  },
+};
+
+export const decorators = [(Story) => <Story />];
