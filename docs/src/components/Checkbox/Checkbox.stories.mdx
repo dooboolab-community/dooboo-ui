@@ -1,5 +1,5 @@
-import {Meta, Story, Canvas} from '@storybook/addon-docs/blocks';
-import {Basic, Solid, Disabled, startElement, endElement} from './index';
+import {Meta} from '@storybook/addon-docs';
+import {Basic, Solid, Disabled, StartElement, EndElement} from './index';
 
 <Meta title="Components/Checkbox" />
 
@@ -41,8 +41,7 @@ import {Checkbox} from 'dooboo-ui';
 <Checkbox text="check" checked={checked} onPress={() => setChecked(!checked)} />
 ```
 
-<Basic themeType="light" />
-<Basic themeType="dark" />
+<Basic  />
 <br />
 
 ### Solid Color Types
@@ -55,37 +54,36 @@ The `type` prop can generate different color of Checkbox. The default value of t
 <Checkbox
   checked={checked}
   onPress={() => setChecked(!checked)}
-  type="primary"
+  color="primary"
 />
 <Checkbox
   checked={checked}
   onPress={() => setChecked(!checked)}
-  type="secondary"
+  color="secondary"
 />
 <Checkbox
   checked={checked}
   onPress={() => setChecked(!checked)}
-  type="success"
+  color="success"
 />
 <Checkbox
   checked={checked}
   onPress={() => setChecked(!checked)}
-  type="warning"
+  color="warning"
 />
 <Checkbox
   checked={checked}
   onPress={() => setChecked(!checked)}
-  type="info"
+  color="info"
 />
 <Checkbox
   checked={checked}
   onPress={() => setChecked(!checked)}
-  type="danger"
+  color="danger"
 />
 ```
 
-<Solid themeType="light" />
-<Solid themeType="dark" />
+<Solid />
 <br />
 
 ### Disabled Checkbox
@@ -98,8 +96,7 @@ It can't apply `type` prop at the same time.
 <Checkbox disabled />
 ```
 
-<Disabled themeType="light" />
-<Disabled themeType="dark" />
+<Disabled />
 <br />
 
 ### Checkbox with startElement
@@ -126,8 +123,7 @@ It can be used with the `type` prop.
 />
 ```
 
-<StartElement themeType="light" />
-<StartElement themeType="dark" />
+<StartElement />
 <br />
 
 ### Checkbox with endElement
@@ -154,6 +150,5 @@ It can be used with the `type` prop.
 />
 ```
 
-<EndElement themeType="light" />
-<EndElement themeType="dark" />
+<EndElement />
 <br />

@@ -1,62 +1,68 @@
-import {Checkbox, DoobooProvider, LoadingIndicator, useDooboo} from 'dooboo-ui';
+import {Checkbox, LoadingIndicator} from 'dooboo-ui';
 import React, {useState} from 'react';
 
 import type {ReactElement} from 'react';
 import {View} from 'react-native';
 import styled from '@emotion/native';
 import {useFonts} from 'expo-font';
+import {StoryProvider} from './index';
 
 const StyledText = styled.Text`
   color: ${({theme}) => theme.text.basic};
 `;
 
-function Component(): ReactElement {
+export default function EndElement(): ReactElement {
   const [checked, setChecked] = useState<boolean>(false);
-  const {theme} = useDooboo();
 
   const [fontsLoaded] = useFonts({
     IcoMoon: require('../../assets/doobooui.ttf'),
   });
 
   if (!fontsLoaded) {
-    return <LoadingIndicator />;
+    return (
+      <StoryProvider>
+        <View
+          style={{
+            flex: 1,
+            alignSelf: 'stretch',
+            flexDirection: 'column',
+            alignItems: 'center',
+            padding: 10,
+          }}
+        >
+          <LoadingIndicator />
+        </View>
+      </StoryProvider>
+    );
   }
-
   return (
-    <View
-      style={{
-        backgroundColor: theme.bg.basic,
-        flex: 1,
-        alignSelf: 'stretch',
-        alignItems: 'center',
-        padding: 10,
-      }}
-    >
-      <View style={{flexDirection: 'column'}}>
-        <Checkbox
-          checked={checked}
-          onPress={() => setChecked(!checked)}
-          endElement={<StyledText>Hello this is a checkbox</StyledText>}
-        />
-        <Checkbox
-          checked={checked}
-          onPress={() => setChecked(!checked)}
-          endElement={<StyledText>Hello this is a checkbox</StyledText>}
-        />
-        <Checkbox
-          checked={checked}
-          onPress={() => setChecked(!checked)}
-          endElement={<StyledText>Hello this is a checkbox</StyledText>}
-        />
+    <StoryProvider>
+      <View
+        style={{
+          flex: 1,
+          alignSelf: 'stretch',
+          alignItems: 'center',
+          padding: 10,
+        }}
+      >
+        <View style={{flexDirection: 'column'}}>
+          <Checkbox
+            checked={checked}
+            onPress={() => setChecked(!checked)}
+            endElement={<StyledText>Hello this is a checkbox</StyledText>}
+          />
+          <Checkbox
+            checked={checked}
+            onPress={() => setChecked(!checked)}
+            endElement={<StyledText>Hello this is a checkbox</StyledText>}
+          />
+          <Checkbox
+            checked={checked}
+            onPress={() => setChecked(!checked)}
+            endElement={<StyledText>Hello this is a checkbox</StyledText>}
+          />
+        </View>
       </View>
-    </View>
-  );
-}
-
-export function EndElement({themeType}): ReactElement {
-  return (
-    <DoobooProvider themeConfig={{initialThemeType: themeType}}>
-      <Component />
-    </DoobooProvider>
+    </StoryProvider>
   );
 }

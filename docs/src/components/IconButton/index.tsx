@@ -1,51 +1,74 @@
-import {DoobooProvider, Icon, IconButton} from 'dooboo-ui';
+import {DoobooProvider, Icon, IconButton, useDooboo} from 'dooboo-ui';
 
-import React from 'react';
+import React, {useEffect} from 'react';
 import type {ReactElement} from 'react';
 import {View} from 'react-native';
 import styled from '@emotion/native';
 import {useFonts} from 'expo-font';
+import {useDarkMode} from 'storybook-dark-mode';
 
 const StyledIcon = styled(Icon)`
   color: ${({theme}) => theme.text.contrast};
 `;
 
-const IconButtonStory = (): React.ReactElement => {
+const StoryContainer = styled.View`
+  background-color: ${({theme}) => theme.bg.basic};
+  justify-content: center;
+  align-items: center;
+`;
+
+export function StoryWrapper(): ReactElement {
+  const {themeType, changeThemeType} = useDooboo();
+  const isDark = useDarkMode();
+  const storybookTheme = isDark ? 'dark' : 'light';
+
   const [fontsLoaded] = useFonts({
     IcoMoon: require('../../assets/doobooui.ttf'),
   });
 
+  useEffect(() => {
+    if (storybookTheme !== themeType) {
+      changeThemeType();
+    }
+  }, [storybookTheme]);
+
   if (!fontsLoaded) {
-    return <View />;
+    return (
+      <StoryContainer>
+        <View />
+      </StoryContainer>
+    );
   }
 
   return (
-    <View
-      style={{
-        width: '100%',
-        marginTop: 20,
-        flexDirection: 'row',
-        justifyContent: 'center',
-        alignItems: 'center',
-      }}
-    >
-      <IconButton iconElement={<StyledIcon size={24} name="DoobooAlt" />} />
-      <View style={{width: 8}} />
-      <IconButton iconElement={<StyledIcon size={24} name="AddAlt" />} />
-      <View style={{width: 8}} />
-      <IconButton iconElement={<StyledIcon size={24} name="ChevronRight" />} />
-    </View>
+    <StoryContainer>
+      <View
+        style={{
+          width: '100%',
+          marginTop: 20,
+          flexDirection: 'row',
+          justifyContent: 'center',
+          alignItems: 'center',
+        }}
+      >
+        <IconButton iconElement={<StyledIcon size={24} name="DoobooAlt" />} />
+        <View style={{width: 8}} />
+        <IconButton iconElement={<StyledIcon size={24} name="AddAlt" />} />
+        <View style={{width: 8}} />
+        <IconButton
+          iconElement={<StyledIcon size={24} name="ChevronRight" />}
+        />
+      </View>
+    </StoryContainer>
   );
-};
+}
 
-export const Light = (): ReactElement => (
-  <DoobooProvider themeConfig={{initialThemeType: 'light'}}>
-    <IconButtonStory />
-  </DoobooProvider>
-);
+export default function StoryProvider(): ReactElement {
+  const isDark = useDarkMode();
 
-export const Dark = (): ReactElement => (
-  <DoobooProvider themeConfig={{initialThemeType: 'dark'}}>
-    <IconButtonStory />
-  </DoobooProvider>
-);
+  return (
+    <DoobooProvider themeConfig={{initialThemeType: isDark ? 'dark' : 'light'}}>
+      <StoryWrapper />
+    </DoobooProvider>
+  );
+}

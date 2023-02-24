@@ -1,4 +1,4 @@
-import {Meta, Story, Canvas} from '@storybook/addon-docs/blocks';
+import {Meta} from '@storybook/addon-docs';
 import {Basic, ImageVersion, Link} from './index';
 
 <Meta title="Components/LoadingIndicator" />
@@ -42,8 +42,7 @@ import {LoadingIndicator} from 'dooboo-ui';
 <LoadingIndicator size="small" color="#008299" />
 ```
 
-<Basic themeType="dark" />
-<Basic themeType="light" />
+<Basic />
 
 <Link link="https://snack.expo.dev/@swda/loadingindicator_basic" />
 
@@ -59,7 +58,7 @@ Using `imageSource` prop , you can generate your own loading indicator.
 <LoadingIndicator imageSource="..." />
 ```
 
-<ImageVersion themeType="light" />
+<ImageVersion />
 
 <Link link="https://snack.expo.dev/@swda/loadingindicator_img" />
 

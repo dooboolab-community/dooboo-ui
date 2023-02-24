@@ -1,32 +1,25 @@
-import {DoobooProvider, LoadingIndicator} from 'dooboo-ui';
+import {LoadingIndicator} from 'dooboo-ui';
 
 import type {ReactElement} from 'react';
 import styled from '@emotion/native';
+import {StoryProvider} from './index';
 
 const StyledView = styled.View`
-  height: 60;
+  height: 60px;
   background-color: ${({theme}) => theme.bg.basic};
-  align-self: 'stretch';
-  justify-content: 'center';
+  align-self: stretch;
+  justify-content: center;
 `;
 
-export function Component(): ReactElement {
+export default function Basic(): ReactElement {
   return (
-    <>
+    <StoryProvider>
       <StyledView>
         <LoadingIndicator />
       </StyledView>
       <StyledView>
         <LoadingIndicator size="small" color="#008299" />
       </StyledView>
-    </>
-  );
-}
-
-export function Basic({themeType}): ReactElement {
-  return (
-    <DoobooProvider themeConfig={{initialThemeType: themeType}}>
-      <Component />
-    </DoobooProvider>
+    </StoryProvider>
   );
 }

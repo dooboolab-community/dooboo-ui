@@ -1,42 +1,32 @@
-import {DoobooProvider, RadioGroup, useDooboo} from 'dooboo-ui';
+import {RadioGroup} from 'dooboo-ui';
 
 import type {ReactElement} from 'react';
-import type {ThemeType} from '@dooboo-ui/theme';
 import {View} from 'react-native';
 import {useState} from 'react';
+import {StoryProvider} from './index';
 
 const data = ['one', 'two', 'three', 'four'];
 
-function RadioGroupStory(): ReactElement {
-  const {theme} = useDooboo();
+export default function WithTitle(): ReactElement {
   const [curValue, setCurValue] = useState<string>(data[0]);
 
   return (
-    <View
-      style={{
-        flex: 1,
-        alignSelf: 'stretch',
-        alignItems: 'center',
-        backgroundColor: theme.bg.basic,
-        padding: 15,
-      }}
-    >
-      <RadioGroup
-        title="Title"
-        data={data}
-        selectedValue={curValue}
-        selectValue={setCurValue}
-      />
-    </View>
-  );
-}
-
-type WithTitleProps = {theme: ThemeType};
-
-export function WithTitle({theme}: WithTitleProps): ReactElement {
-  return (
-    <DoobooProvider themeConfig={{initialThemeType: theme}}>
-      <RadioGroupStory />
-    </DoobooProvider>
+    <StoryProvider>
+      <View
+        style={{
+          flex: 1,
+          alignSelf: 'stretch',
+          alignItems: 'center',
+          padding: 15,
+        }}
+      >
+        <RadioGroup
+          title="Title"
+          data={data}
+          selectedValue={curValue}
+          selectValue={setCurValue}
+        />
+      </View>
+    </StoryProvider>
   );
 }

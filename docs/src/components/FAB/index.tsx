@@ -1,10 +1,11 @@
-import {DoobooProvider, FAB} from 'dooboo-ui';
+import {DoobooProvider, FAB, useDooboo} from 'dooboo-ui';
 
 import type {ReactElement} from 'react';
 import {View} from 'react-native';
 import styled from '@emotion/native';
 import {useFonts} from 'expo-font';
-import {useState} from 'react';
+import React, {useEffect, useState} from 'react';
+import {useDarkMode} from 'storybook-dark-mode';
 
 const StoryContainer = styled.View`
   width: 100%;
@@ -13,15 +14,28 @@ const StoryContainer = styled.View`
   background-color: ${({theme}) => theme.bg.basic};
 `;
 
-function FABStory(): ReactElement {
+function StoryWrapper(): ReactElement {
   const [active, setActive] = useState<boolean>(false);
+  const {themeType, changeThemeType} = useDooboo();
+  const isDark = useDarkMode();
+  const storybookTheme = isDark ? 'dark' : 'light';
 
   const [fontsLoaded] = useFonts({
     IcoMoon: require('../../assets/doobooui.ttf'),
   });
 
+  useEffect(() => {
+    if (storybookTheme !== themeType) {
+      changeThemeType();
+    }
+  }, [storybookTheme]);
+
   if (!fontsLoaded) {
-    return <View />;
+    return (
+      <StoryContainer>
+        <View />
+      </StoryContainer>
+    );
   }
 
   return (
@@ -40,14 +54,12 @@ function FABStory(): ReactElement {
   );
 }
 
-export const Light = (): ReactElement => (
-  <DoobooProvider themeConfig={{initialThemeType: 'light'}}>
-    <FABStory />
-  </DoobooProvider>
-);
+export default function Fab(): ReactElement {
+  const isDark = useDarkMode();
 
-export const Dark = (): ReactElement => (
-  <DoobooProvider themeConfig={{initialThemeType: 'dark'}}>
-    <FABStory />
-  </DoobooProvider>
-);
+  return (
+    <DoobooProvider themeConfig={{initialThemeType: isDark ? 'dark' : 'light'}}>
+      <StoryWrapper />
+    </DoobooProvider>
+  );
+}

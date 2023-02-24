@@ -1,11 +1,11 @@
-import {Accordion, DoobooProvider} from 'dooboo-ui';
+import {Accordion, DoobooProvider, useDooboo} from 'dooboo-ui';
 import type {AccordionItemDataType, AccordionProps} from 'dooboo-ui';
 import type {ReactElement, ReactNode} from 'react';
 import {Text, View} from 'react-native';
 
-import type {ThemeType} from '@dooboo-ui/theme';
 import styled from '@emotion/native';
-import {useFonts} from 'expo-font';
+import {useDarkMode} from 'storybook-dark-mode';
+import React, {useEffect} from 'react';
 
 const Container = styled.View`
   padding: 20px;
@@ -32,25 +32,31 @@ export const sampleData: AccordionItemDataType<string, string>[] = [
 ];
 
 export interface AccordionStoryProps extends AccordionProps<string, string> {
-  theme?: ThemeType;
   children?: ReactNode;
 }
 
-const AccordionStory = ({
-  theme = 'light',
+const StoryContainer = styled.View`
+  background-color: ${({theme}) => theme.bg.basic};
+  justify-content: center;
+  align-items: center;
+`;
+
+export function StoryWrapper({
   children,
   ...props
-}: AccordionStoryProps): ReactElement => {
-  const [fontsLoaded] = useFonts({
-    IcoMoon: require('../../assets/doobooui.ttf'),
-  });
+}: AccordionStoryProps): ReactElement {
+  const {themeType, changeThemeType} = useDooboo();
+  const isDark = useDarkMode();
+  const storybookTheme = isDark ? 'dark' : 'light';
 
-  if (!fontsLoaded) {
-    return <View />;
-  }
+  useEffect(() => {
+    if (storybookTheme !== themeType) {
+      changeThemeType();
+    }
+  }, [storybookTheme]);
 
   return (
-    <DoobooProvider themeConfig={{initialThemeType: theme}}>
+    <StoryContainer>
       <Container>
         {children}
         <Accordion<string, string>
@@ -67,8 +73,21 @@ const AccordionStory = ({
           {...props}
         />
       </Container>
+    </StoryContainer>
+  );
+}
+
+export function AccordionStory({
+  children,
+  ...props
+}: AccordionStoryProps): ReactElement {
+  const isDark = useDarkMode();
+
+  return (
+    <DoobooProvider themeConfig={{initialThemeType: isDark ? 'dark' : 'light'}}>
+      <StoryWrapper {...props}>{children}</StoryWrapper>
     </DoobooProvider>
   );
-};
+}
 
 export default AccordionStory;
