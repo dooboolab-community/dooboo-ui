@@ -93,12 +93,32 @@ You can change the color of the selected button with `type` prop. The default va
 is set to `primary`.
 
 ```tsx
-<RadioGroup
-  type="primary"
-  title="Primary"
-  data={data}
-  selectedValue={selectedValue}
-/>
+import type {RadioButtonType} from 'dooboo-ui';
+import {useState} from 'react';
+
+const data = ['one', 'two', 'three', 'four'];
+
+const colors: RadioButtonType = [
+    'primary',
+    'secondary',
+    'success',
+    'warning',
+    'danger',
+    'info',
+    'light',
+  ];
+
+const [selectedValue, setSelectedValue] = useState<string>(data[0]);
+
+{colors.map((color) => (
+  <RadioGroup
+    title={color}
+    type={color}
+    data={data}
+    selectedValue={selectedValue}
+    selectValue={setSelectedValue}
+  />
+))}
 ```
 
 <Colored />
@@ -109,21 +129,34 @@ You should set `selectValue` prop appropriately to make [RadioGroup] component w
 This is a simple example of setting `selectValue` prop using react hooks.
 
 ```tsx
+import type {RadioButtonType} from 'dooboo-ui';
 import {useState} from 'react';
 
 const data = ['one', 'two', 'three', 'four'];
 const labels = ['One', 'Two', 'Three', 'Four'];
 
+const colors: RadioButtonType = [
+    'primary',
+    'secondary',
+    'success',
+    'warning',
+    'danger',
+    'info',
+    'light',
+  ];
+
 const [selectedValue, setSelectedValue] = useState(data[0]);
 
-<RadioGroup
-  title="Primary"
-  type="primary"
-  data={data}
-  labels={labels}
-  selectedValue={selectedValue}
-  selectValue={(value) => setSelectedValue(value)}
-/>;
+{colors.map((color) => (
+  <RadioGroup
+    title={color}
+    type={color}
+    data={data}
+    labels={labels}
+    selectedValue={selectedValue}
+    selectValue={(value) => setSelectedValue(value)}
+  />
+))}
 ```
 
 <SelectValue />

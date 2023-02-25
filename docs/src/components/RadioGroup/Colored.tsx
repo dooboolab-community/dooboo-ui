@@ -1,3 +1,4 @@
+import type {RadioButtonType} from 'dooboo-ui';
 import {RadioGroup} from 'dooboo-ui';
 
 import type {ReactElement} from 'react';
@@ -8,7 +9,17 @@ import {StoryProvider} from './index';
 const data = ['one', 'two', 'three', 'four'];
 
 export default function Colored(): ReactElement {
-  const [curValue, setCurValue] = useState<string>(data[0]);
+  const [selectedValue, setSelectedValue] = useState<string>(data[0]);
+
+  const colors: RadioButtonType = [
+    'primary',
+    'secondary',
+    'success',
+    'warning',
+    'danger',
+    'info',
+    'light',
+  ];
 
   return (
     <StoryProvider>
@@ -20,49 +31,15 @@ export default function Colored(): ReactElement {
           padding: 15,
         }}
       >
-        <RadioGroup
-          title="Primary"
-          type="primary"
-          data={data}
-          selectedValue={curValue}
-          selectValue={setCurValue}
-        />
-        <RadioGroup
-          title="Secondary"
-          type="secondary"
-          data={data}
-          selectedValue={curValue}
-          selectValue={setCurValue}
-        />
-        <RadioGroup
-          title="Success"
-          type="success"
-          data={data}
-          selectedValue={curValue}
-          selectValue={setCurValue}
-        />
-        <RadioGroup
-          title="Warning"
-          type="warning"
-          data={data}
-          selectedValue={curValue}
-          selectValue={setCurValue}
-        />
-
-        <RadioGroup
-          title="Info"
-          type="info"
-          data={data}
-          selectedValue={curValue}
-          selectValue={setCurValue}
-        />
-        <RadioGroup
-          title="Danger"
-          type="danger"
-          data={data}
-          selectedValue={curValue}
-          selectValue={setCurValue}
-        />
+        {colors.map((color) => (
+          <RadioGroup
+            title={color}
+            type={color}
+            data={data}
+            selectedValue={selectedValue}
+            selectValue={setSelectedValue}
+          />
+        ))}
       </View>
     </StoryProvider>
   );
