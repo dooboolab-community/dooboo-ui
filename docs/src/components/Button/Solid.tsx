@@ -1,9 +1,20 @@
+import type {ButtonColorType} from 'dooboo-ui';
 import {Button} from 'dooboo-ui';
 import type {ReactElement} from 'react';
 import {View} from 'react-native';
 import {StoryProvider} from './index';
 
 export default function Solid(): ReactElement {
+  const colors: ButtonColorType[] = [
+    'primary',
+    'secondary',
+    'success',
+    'warning',
+    'danger',
+    'info',
+    'light',
+  ];
+
   return (
     <StoryProvider>
       <View
@@ -14,48 +25,14 @@ export default function Solid(): ReactElement {
           justifyContent: 'center',
         }}
       >
-        <Button
-          color="primary"
-          text="Primary"
-          style={{margin: 8}}
-          onPress={() => {}}
-        />
-        <Button
-          color="secondary"
-          text="Secondary"
-          style={{margin: 8}}
-          onPress={() => {}}
-        />
-        <Button
-          color="success"
-          text="Success"
-          style={{margin: 8}}
-          onPress={() => {}}
-        />
-        <Button
-          color="danger"
-          text="Danger"
-          style={{margin: 8}}
-          onPress={() => {}}
-        />
-        <Button
-          color="warning"
-          text="Warning"
-          style={{margin: 8}}
-          onPress={() => {}}
-        />
-        <Button
-          color="info"
-          text="Info"
-          style={{margin: 8}}
-          onPress={() => {}}
-        />
-        <Button
-          color="light"
-          text="Light"
-          style={{margin: 8}}
-          onPress={() => {}}
-        />
+        {colors.map((color) => (
+          <Button
+            color={color}
+            text={color}
+            style={{margin: 8}}
+            onPress={() => {}}
+          />
+        ))}
       </View>
     </StoryProvider>
   );
