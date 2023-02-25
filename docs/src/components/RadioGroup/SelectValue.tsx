@@ -39,7 +39,7 @@ export default function SelectValue(): ReactElement {
             data={data}
             labels={labels}
             selectedValue={selectedValue}
-            selectValue={(value) => setSelectedValue(value)}
+            selectValue={setSelectedValue}
             styles={{container: {paddingBottom: 5}}}
           />
         ))}

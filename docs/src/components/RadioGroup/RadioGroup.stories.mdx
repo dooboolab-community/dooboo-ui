@@ -53,7 +53,7 @@ With `title` prop, you can add a title to [RadioGroup].
 If no specific styles added, the title is shown top-left of the radio buttons.
 
 ```tsx
-<RadioGroup title={title} data={data} selectedValue={selectedValue} />
+<RadioGroup title="Title" data={data} selectedValue={selectedValue} />
 ```
 
 <WithTitle />
@@ -154,7 +154,7 @@ const [selectedValue, setSelectedValue] = useState(data[0]);
     data={data}
     labels={labels}
     selectedValue={selectedValue}
-    selectValue={(value) => setSelectedValue(value)}
+    selectValue={setSelectedValue}
   />
 ))}
 ```

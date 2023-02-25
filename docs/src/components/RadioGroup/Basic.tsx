@@ -8,7 +8,7 @@ import {StoryProvider} from './index';
 const data = ['one', 'two', 'three', 'four'];
 
 export default function Basic(): ReactElement {
-  const [curValue, setCurValue] = useState<string>(data[0]);
+  const [selectedValue, setSelectedValue] = useState<string>(data[0]);
 
   return (
     <StoryProvider>
@@ -22,8 +22,8 @@ export default function Basic(): ReactElement {
       >
         <RadioGroup
           data={data}
-          selectedValue={curValue}
-          selectValue={setCurValue}
+          selectedValue={selectedValue}
+          selectValue={setSelectedValue}
         />
       </View>
     </StoryProvider>
