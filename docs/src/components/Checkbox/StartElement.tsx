@@ -41,21 +41,10 @@ export default function StartElement(): ReactElement {
         style={{
           flex: 1,
           alignSelf: 'stretch',
-          flexDirection: 'column',
           alignItems: 'center',
           padding: 10,
         }}
       >
-        <Checkbox
-          checked={checked}
-          onPress={() => setChecked(!checked)}
-          startElement={<StyledText>Hello this is a checkbox</StyledText>}
-        />
-        <Checkbox
-          checked={checked}
-          onPress={() => setChecked(!checked)}
-          startElement={<StyledText>Hello this is a checkbox</StyledText>}
-        />
         <Checkbox
           checked={checked}
           onPress={() => setChecked(!checked)}

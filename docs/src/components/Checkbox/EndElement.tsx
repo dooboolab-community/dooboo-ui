@@ -45,23 +45,11 @@ export default function EndElement(): ReactElement {
           padding: 10,
         }}
       >
-        <View style={{flexDirection: 'column'}}>
-          <Checkbox
-            checked={checked}
-            onPress={() => setChecked(!checked)}
-            endElement={<StyledText>Hello this is a checkbox</StyledText>}
-          />
-          <Checkbox
-            checked={checked}
-            onPress={() => setChecked(!checked)}
-            endElement={<StyledText>Hello this is a checkbox</StyledText>}
-          />
-          <Checkbox
-            checked={checked}
-            onPress={() => setChecked(!checked)}
-            endElement={<StyledText>Hello this is a checkbox</StyledText>}
-          />
-        </View>
+        <Checkbox
+          checked={checked}
+          onPress={() => setChecked(!checked)}
+          endElement={<StyledText>Hello this is a checkbox</StyledText>}
+        />
       </View>
     </StoryProvider>
   );
