@@ -1,5 +1,4 @@
 import React from 'react';
-import {themes} from '@storybook/theming';
 import {useDarkMode} from 'storybook-dark-mode';
 import {DocsContainer} from '@storybook/addon-docs';
 import darkTheme from './darkTheme';
@@ -63,10 +62,6 @@ export const parameters = {
      */
     hierarchyRootSeparator: /\|/,
     panelPosition: 'bottom',
-  },
-  darkMode: {
-    dark: {...themes.dark},
-    light: {...themes.light},
   },
 };
 
