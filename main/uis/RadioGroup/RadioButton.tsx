@@ -12,6 +12,7 @@ import {
 } from '../Styled/StyledComponents';
 import type {FC} from 'react';
 import React, {useEffect, useRef, useState} from 'react';
+import {RadioButtonType} from './index';
 
 import styled from '@emotion/native';
 
@@ -19,14 +20,6 @@ type Styles = {
   radio?: StyleProp<ViewStyle>;
   label?: StyleProp<TextStyle>;
 };
-
-export type RadioButtonType =
-  | 'primary'
-  | 'secondary'
-  | 'success'
-  | 'danger'
-  | 'warning'
-  | 'info';
 
 export type RadioButtonProps = {
   testID?: string;

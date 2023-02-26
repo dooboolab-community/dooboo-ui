@@ -1,3 +1,4 @@
+import type {RadioButtonType} from 'dooboo-ui';
 import {RadioGroup} from 'dooboo-ui';
 import React, {useState} from 'react';
 
@@ -11,6 +12,16 @@ const labels = ['One', 'Two', 'Three', 'Four'];
 export default function SelectValue(): ReactElement {
   const [selectedValue, setSelectedValue] = useState<string>(data[0]);
 
+  const colors: RadioButtonType = [
+    'primary',
+    'secondary',
+    'success',
+    'warning',
+    'danger',
+    'info',
+    'light',
+  ];
+
   return (
     <StoryProvider>
       <View
@@ -21,61 +32,17 @@ export default function SelectValue(): ReactElement {
           padding: 15,
         }}
       >
-        <RadioGroup
-          title="Primary"
-          type="primary"
-          data={data}
-          labels={labels}
-          selectedValue={selectedValue}
-          selectValue={(value) => setSelectedValue(value)}
-          styles={{container: {paddingBottom: 5}}}
-        />
-        <RadioGroup
-          title="Secondary"
-          type="secondary"
-          data={data}
-          labels={labels}
-          selectedValue={selectedValue}
-          selectValue={(value) => setSelectedValue(value)}
-          styles={{container: {paddingBottom: 5}}}
-        />
-        <RadioGroup
-          title="Success"
-          type="success"
-          data={data}
-          labels={labels}
-          selectedValue={selectedValue}
-          selectValue={(value) => setSelectedValue(value)}
-          styles={{container: {paddingBottom: 5}}}
-        />
-        <RadioGroup
-          title="Warning"
-          type="warning"
-          data={data}
-          labels={labels}
-          selectedValue={selectedValue}
-          selectValue={(value) => setSelectedValue(value)}
-          styles={{container: {paddingBottom: 5}}}
-        />
-
-        <RadioGroup
-          title="Info"
-          type="info"
-          data={data}
-          labels={labels}
-          selectedValue={selectedValue}
-          selectValue={(value) => setSelectedValue(value)}
-          styles={{container: {paddingBottom: 5}}}
-        />
-        <RadioGroup
-          title="Danger"
-          type="danger"
-          data={data}
-          labels={labels}
-          selectedValue={selectedValue}
-          selectValue={(value) => setSelectedValue(value)}
-          styles={{container: {paddingBottom: 5}}}
-        />
+        {colors.map((color) => (
+          <RadioGroup
+            title={color}
+            type={color}
+            data={data}
+            labels={labels}
+            selectedValue={selectedValue}
+            selectValue={setSelectedValue}
+            styles={{container: {paddingBottom: 5}}}
+          />
+        ))}
       </View>
     </StoryProvider>
   );

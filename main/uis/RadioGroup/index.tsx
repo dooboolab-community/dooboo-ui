@@ -1,4 +1,4 @@
-import type {RadioButtonProps, RadioButtonType} from './RadioButton';
+import type {RadioButtonProps} from './RadioButton';
 import type {StyleProp, TextStyle, ViewStyle} from 'react-native';
 
 import {Heading3} from '../Typography/Typography';
@@ -12,6 +12,15 @@ type Styles = {
   title?: StyleProp<TextStyle>;
   label?: StyleProp<TextStyle>;
 };
+
+export type RadioButtonType =
+  | 'primary'
+  | 'secondary'
+  | 'success'
+  | 'danger'
+  | 'warning'
+  | 'info'
+  | 'light';
 
 type Props<T> = {
   title?: string;

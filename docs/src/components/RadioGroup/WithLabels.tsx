@@ -13,7 +13,7 @@ type WithLabelsProps = {labelPosition: 'left' | 'right'};
 export default function WithLabels({
   labelPosition,
 }: WithLabelsProps): ReactElement {
-  const [curValue, setCurValue] = useState<string>(data[0]);
+  const [selectedValue, setSelectedValue] = useState<string>(data[0]);
 
   return (
     <StoryProvider>
@@ -29,8 +29,8 @@ export default function WithLabels({
           data={data}
           labels={labels}
           labelPosition={labelPosition}
-          selectedValue={curValue}
-          selectValue={setCurValue}
+          selectedValue={selectedValue}
+          selectValue={setSelectedValue}
         />
       </View>
     </StoryProvider>
