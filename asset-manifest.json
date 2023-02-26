@@ -1,13 +1,13 @@
 {
   "files": {
-    "static/js/0.4942709c.chunk.js": "/dooboo-ui/static/js/0.4942709c.chunk.js",
-    "static/js/0.4942709c.chunk.js.map": "/dooboo-ui/static/js/0.4942709c.chunk.js.map",
-    "app.js": "/dooboo-ui/static/js/app.a1cede4a.chunk.js",
-    "app.js.map": "/dooboo-ui/static/js/app.a1cede4a.chunk.js.map",
-    "runtime~app.js": "/dooboo-ui/static/js/runtime~app.80250c34.js",
-    "runtime~app.js.map": "/dooboo-ui/static/js/runtime~app.80250c34.js.map",
-    "static/js/3.b4259cc1.chunk.js": "/dooboo-ui/static/js/3.b4259cc1.chunk.js",
-    "static/js/3.b4259cc1.chunk.js.map": "/dooboo-ui/static/js/3.b4259cc1.chunk.js.map",
+    "static/js/0.2fad4513.chunk.js": "/dooboo-ui/static/js/0.2fad4513.chunk.js",
+    "static/js/0.2fad4513.chunk.js.map": "/dooboo-ui/static/js/0.2fad4513.chunk.js.map",
+    "app.js": "/dooboo-ui/static/js/app.5bbbb93d.chunk.js",
+    "app.js.map": "/dooboo-ui/static/js/app.5bbbb93d.chunk.js.map",
+    "runtime~app.js": "/dooboo-ui/static/js/runtime~app.e0be443b.js",
+    "runtime~app.js.map": "/dooboo-ui/static/js/runtime~app.e0be443b.js.map",
+    "static/js/3.cfae907e.chunk.js": "/dooboo-ui/static/js/3.cfae907e.chunk.js",
+    "static/js/3.cfae907e.chunk.js.map": "/dooboo-ui/static/js/3.cfae907e.chunk.js.map",
     "fonts/AntDesign.ttf": "/dooboo-ui/./fonts/AntDesign.ttf",
     "fonts/Entypo.ttf": "/dooboo-ui/./fonts/Entypo.ttf",
     "fonts/Feather.ttf": "/dooboo-ui/./fonts/Feather.ttf",
@@ -26,7 +26,7 @@
     "index.html": "/dooboo-ui/index.html",
     "manifest.json": "/dooboo-ui/manifest.json",
     "serve.json": "/dooboo-ui/serve.json",
-    "static/js/3.b4259cc1.chunk.js.LICENSE.txt": "/dooboo-ui/static/js/3.b4259cc1.chunk.js.LICENSE.txt",
+    "static/js/3.cfae907e.chunk.js.LICENSE.txt": "/dooboo-ui/static/js/3.cfae907e.chunk.js.LICENSE.txt",
     "static/media/color-circle.png": "/dooboo-ui/static/media/color-circle.aeee73f0.png",
     "static/media/hsv_triangle_mask.png": "/dooboo-ui/static/media/hsv_triangle_mask.cd409b9d.png",
     "static/media/magnifier.png": "/dooboo-ui/static/media/magnifier.9f82873e.png",
@@ -35,8 +35,8 @@
     "static/media/placeholder_light.png": "/dooboo-ui/static/media/placeholder_light.47e6070a.png"
   },
   "entrypoints": [
-    "static/js/runtime~app.80250c34.js",
-    "static/js/3.b4259cc1.chunk.js",
-    "static/js/app.a1cede4a.chunk.js"
+    "static/js/runtime~app.e0be443b.js",
+    "static/js/3.cfae907e.chunk.js",
+    "static/js/app.5bbbb93d.chunk.js"
   ]
 }
