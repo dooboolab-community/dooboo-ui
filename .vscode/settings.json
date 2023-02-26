@@ -24,5 +24,9 @@
   "typescript.preferences.importModuleSpecifier": "relative",
   "prettier.configPath": ".prettierrc.js",
   "typescript.tsdk": "node_modules/typescript/lib",
-  "cSpell.words": ["Pressable", "unhovered"]
+  "cSpell.words": [
+    "ondevice",
+    "Pressable",
+    "unhovered"
+  ]
 }

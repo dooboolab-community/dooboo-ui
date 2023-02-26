@@ -33,6 +33,8 @@ export function StoryWrapper({children}: ContainerProps): ReactElement {
       <StatusBar barStyle="dark-content" />
       <View
         style={{
+          marginBottom: 8,
+
           flexDirection: 'row',
           alignItems: 'center',
           justifyContent: 'flex-end',

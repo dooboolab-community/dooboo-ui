@@ -2,33 +2,25 @@ const {getDefaultConfig} = require('expo/metro-config');
 
 const exclusionList = require('metro-config/src/defaults/exclusionList');
 
-const config = async (): Promise<any> => {
-  const defaultConfig = await getDefaultConfig(__dirname);
+const defaultConfig = getDefaultConfig(__dirname);
 
-  const {
-    resolver: {sourceExts, assetExts},
-  } = defaultConfig;
-
-  return {
-    blacklist: exclusionList([/docs\/.*/]),
-    resolver: {
-      assetExts: assetExts.filter((ext) => ext !== 'svg'),
-      sourceExts: [...sourceExts, 'svg'],
-      resolverMainFields: [
-        'sbmodern',
-        ...defaultConfig.resolver.resolverMainFields,
-      ],
-    },
-    transformer: {
-      getTransformOptions: async () => ({
-        transform: {
-          experimentalImportSupport: false,
-          inlineRequires: false,
-        },
-      }),
-    },
-    watchFolders: [...defaultConfig.watchFolders, './.ondevice'],
-  };
+defaultConfig.resolver = {
+  blacklist: exclusionList([/docs\/.*/]),
+  resolver: {
+    assetExts: defaultConfig.resolver.assetExts.filter((ext) => ext !== 'svg'),
+    sourceExts: [...defaultConfig.resolver.sourceExts, 'svg'],
+  },
+  resolverMainFields: [
+    'sbmodern',
+    ...defaultConfig.resolver.resolverMainFields,
+  ],
 };
 
-module.exports = config();
+defaultConfig.transformer.getTransformOptions = async () => ({
+  transform: {
+    experimentalImportSupport: false,
+    inlineRequires: false,
+  },
+});
+
+module.exports = defaultConfig;

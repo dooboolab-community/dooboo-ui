@@ -3,12 +3,7 @@ module.exports = (api) => {
 
   return {
     presets: [
-      [
-        'babel-preset-expo',
-        {
-          jsxRuntime: 'automatic',
-        },
-      ],
+      ['babel-preset-expo', {jsxRuntime: 'automatic'}],
       '@babel/preset-typescript',
       [
         '@babel/preset-react',
@@ -16,6 +11,7 @@ module.exports = (api) => {
       ],
     ],
     plugins: [
+      ['babel-plugin-react-docgen-typescript', {exclude: 'node_modules'}],
       '@emotion',
       '@babel/plugin-syntax-dynamic-import',
       '@babel/plugin-transform-modules-commonjs',

@@ -12,7 +12,7 @@ import {
 } from '../Styled/StyledComponents';
 import type {FC} from 'react';
 import React, {useEffect, useRef, useState} from 'react';
-import {RadioButtonType} from './index';
+import type {RadioButtonType} from './index';
 
 import styled from '@emotion/native';
 
