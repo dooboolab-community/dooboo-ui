@@ -14,7 +14,7 @@ export default {
       backgroundColor: '#ffffff',
     },
     web: {
-      favicon: './assets/favicon.png',
+      favicon: './assets/icon.png',
     },
   },
 };
