@@ -10,7 +10,7 @@ import React, {useState} from 'react';
 import {boolean, number, select} from '@storybook/addon-knobs';
 import {buttonColors, buttonSizes, buttonTypes} from '../../const';
 
-import {IC_GOOGLE} from '../../../../storybook/assets/icons';
+import {IC_GOOGLE} from '../../../../assets/icons';
 import type {ReactElement} from 'react';
 import {StorySection} from '../../../GlobalStyles';
 import {action} from '@storybook/addon-actions';

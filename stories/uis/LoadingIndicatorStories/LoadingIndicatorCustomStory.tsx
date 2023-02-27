@@ -3,7 +3,7 @@ import type {ImageStyle, StyleProp} from 'react-native';
 // Caveat: Expo web needs React to be imported
 import React, {useEffect, useState} from 'react';
 
-import {IC_MASK} from '../../../storybook/assets/icons';
+import {IC_MASK} from '../../../assets/icons';
 import {LoadingIndicator} from '../../../main';
 import type {ReactElement} from 'react';
 import {StoryContainer} from '../../GlobalStyles';

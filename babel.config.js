@@ -19,6 +19,8 @@ module.exports = (api) => {
       '@emotion',
       '@babel/plugin-syntax-dynamic-import',
       '@babel/plugin-transform-modules-commonjs',
+      'react-native-reanimated/plugin',
+      '@babel/plugin-proposal-export-namespace-from',
     ],
   };
 };
