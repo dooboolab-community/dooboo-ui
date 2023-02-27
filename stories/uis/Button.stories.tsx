@@ -1,14 +1,14 @@
-import ButtonBasic from './ButtonBasicStory';
-import ButtonColor from './ButtonColorStory';
-import ButtonCustom from './ButtonCustomStory';
-import ButtonDisabled from './ButtonDisabledStory';
-import ButtonEvent from './ButtonEventStory';
-import ButtonLoading from './ButtonLoadingStory';
-import ButtonSizes from './ButtonSizeStory';
-import ButtonStartAndEnd from './ButtonStartAndEndStory';
-// Caveat: Expo web needs React to be imported
+import ButtonBasic from './ButtonStories/ButtonBasicStory';
+import ButtonColor from './ButtonStories/ButtonColorStory';
+import ButtonCustom from './ButtonStories/ButtonCustomStory';
+import ButtonDisabled from './ButtonStories/ButtonDisabledStory';
+import ButtonEvent from './ButtonStories/ButtonEventStory';
+import ButtonLoading from './ButtonStories/ButtonLoadingStory';
+import ButtonSizes from './ButtonStories/ButtonSizeStory';
+import ButtonStartAndEnd from './ButtonStories/ButtonStartAndEndStory';
 import React from 'react';
-import {renderStory} from '../../Common';
+// Caveat: Expo web needs React to be imported
+import {renderStory} from '../Common';
 import {storiesOf} from '@storybook/react-native';
 import {withActions} from '@storybook/addon-actions';
 import {withKnobs} from '@storybook/addon-knobs';

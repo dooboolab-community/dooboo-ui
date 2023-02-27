@@ -1,12 +1,27 @@
 import '@expo/match-media';
-import './storybook/addons';
 
 import {configure, getStorybookUI} from '@storybook/react-native';
 
-configure(() => {
-  // Since require.context doesn't exist in metro bundler world, we have to
-  // manually import files ending in *.stories.js
-  require('./storybook');
-}, module);
+const storiesOfUIs = require.context('./stories/uis', true, /\.stories\.tsx$/);
+
+const storiesOfModals = require.context(
+  './stories/modals',
+  true,
+  /\.stories\.tsx$/,
+);
+
+const storiesOfPackages = require.context(
+  './stories/packages',
+  true,
+  /\.stories\.tsx$/,
+);
+
+const getStories = (): any => {
+  storiesOfUIs.keys().forEach((filename) => storiesOfUIs(filename));
+  storiesOfModals.keys().forEach((filename) => storiesOfModals(filename));
+  storiesOfPackages.keys().forEach((filename) => storiesOfPackages(filename));
+};
+
+configure(getStories, module);
 
 export default getStorybookUI({});

@@ -1,9 +1,9 @@
-import CheckboxBasicStory from './CheckboxBasicStory';
-import CheckboxEndElementStory from './CheckboxEndElementStory';
-import CheckboxStartElementStory from './CheckboxStartElementStory';
+import CheckboxBasicStory from './CheckboxStories/CheckboxBasicStory';
+import CheckboxEndElementStory from './CheckboxStories/CheckboxEndElementStory';
+import CheckboxStartElementStory from './CheckboxStories/CheckboxStartElementStory';
 // Caveat: Expo web needs React to be imported
 import React from 'react';
-import {renderStory} from '../../Common';
+import {renderStory} from '../Common';
 import {storiesOf} from '@storybook/react-native';
 import {withActions} from '@storybook/addon-actions';
 import {withKnobs} from '@storybook/addon-knobs';

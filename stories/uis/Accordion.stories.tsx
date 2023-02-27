@@ -1,8 +1,8 @@
-import AccordionBasicStory from './AccordionBasicStory';
-import AccordionCustomStory from './AccordionCustomStory';
+import AccordionBasicStory from './AccordionStories/AccordionBasicStory';
+import AccordionCustomStory from './AccordionStories/AccordionCustomStory';
 // Caveat: Expo web needs React to be imported
 import React from 'react';
-import {renderStory} from '../../Common';
+import {renderStory} from '../Common';
 import {storiesOf} from '@storybook/react-native';
 import {withKnobs} from '@storybook/addon-knobs';
 

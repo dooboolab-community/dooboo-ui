@@ -1,10 +1,9 @@
 const {getDefaultConfig} = require('expo/metro-config');
 
 const exclusionList = require('metro-config/src/defaults/exclusionList');
+const defaultConfig = getDefaultConfig(__dirname);
 
 const config = async (): Promise<any> => {
-  const defaultConfig = await getDefaultConfig(__dirname);
-
   const {
     resolver: {sourceExts, assetExts},
   } = defaultConfig;
@@ -14,10 +13,6 @@ const config = async (): Promise<any> => {
     resolver: {
       assetExts: assetExts.filter((ext) => ext !== 'svg'),
       sourceExts: [...sourceExts, 'svg'],
-      resolverMainFields: [
-        'sbmodern',
-        ...defaultConfig.resolver.resolverMainFields,
-      ],
     },
     transformer: {
       getTransformOptions: async () => ({
