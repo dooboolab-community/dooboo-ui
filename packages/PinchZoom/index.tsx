@@ -88,12 +88,14 @@ function PinchZoom(props: Props, ref: Ref<PinchZoomRef>): ReactElement {
   const initialDistance = useRef<number>();
   const initialTouchesCenter = useRef<TouchePosition>();
 
-  const layout = useRef<{
+  type Layout = {
     width: number;
     height: number;
     pageX: number;
     pageY: number;
-  }>();
+  };
+
+  const layout = useRef<Layout>();
 
   const decayingTranslateAnimation = useRef<Animated.CompositeAnimation>();
   const isResponderActive = useRef(false);
