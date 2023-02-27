@@ -1,8 +1,10 @@
-import React, {ReactElement, useEffect, useState} from 'react';
-import styled, {css} from '@emotion/native';
 import {DoobooProvider, SwitchToggle, Typography, useDooboo} from 'dooboo-ui';
-import {useDarkMode} from 'storybook-dark-mode';
+import React, {useEffect, useState} from 'react';
+import styled, {css} from '@emotion/native';
+
+import type {ReactElement} from 'react';
 import {View} from 'react-native';
+import {useDarkMode} from 'storybook-dark-mode';
 
 const StoryContainer = styled.View`
   background-color: ${({theme}) => theme.bg.basic};
@@ -21,7 +23,7 @@ export function StoryWrapper(): ReactElement {
     if (storybookTheme !== themeType) {
       changeThemeType();
     }
-  }, [storybookTheme]);
+  }, [changeThemeType, storybookTheme, themeType]);
 
   return (
     <StoryContainer>

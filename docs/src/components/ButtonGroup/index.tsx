@@ -1,6 +1,6 @@
+import {ButtonGroup, DoobooProvider, useDooboo} from 'dooboo-ui';
 import React, {useEffect, useState} from 'react';
 
-import {ButtonGroup, DoobooProvider, useDooboo} from 'dooboo-ui';
 import type {ReactElement} from 'react';
 import styled from '@emotion/native';
 import {useDarkMode} from 'storybook-dark-mode';
@@ -36,7 +36,7 @@ export function StoryWrapper(): ReactElement {
     if (storybookTheme !== themeType) {
       changeThemeType();
     }
-  }, [storybookTheme]);
+  }, [changeThemeType, storybookTheme, themeType]);
 
   return (
     <StoryContainer>

@@ -54,7 +54,7 @@ export function StoryWrapper(): ReactElement {
     if (storybookTheme !== themeType) {
       changeThemeType();
     }
-  }, [storybookTheme]);
+  }, [changeThemeType, storybookTheme, themeType]);
 
   return (
     <Container>

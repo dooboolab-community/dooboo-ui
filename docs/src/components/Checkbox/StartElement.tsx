@@ -35,6 +35,7 @@ export default function StartElement(): ReactElement {
       </StoryProvider>
     );
   }
+
   return (
     <StoryProvider>
       <View

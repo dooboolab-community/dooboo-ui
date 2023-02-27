@@ -1,7 +1,7 @@
+import {DoobooProvider, ProgressBar, useDooboo} from 'dooboo-ui';
 import type {ProgressBarStyles, ProgressBarType} from 'dooboo-ui';
 import React, {useEffect, useState} from 'react';
 
-import {DoobooProvider, ProgressBar, useDooboo} from 'dooboo-ui';
 import type {ReactElement} from 'react';
 import {useDarkMode} from 'storybook-dark-mode';
 
@@ -42,7 +42,7 @@ export function StoryWrapper({type, styles}: Props): ReactElement {
     if (storybookTheme !== themeType) {
       changeThemeType();
     }
-  }, [storybookTheme]);
+  }, [changeThemeType, storybookTheme, themeType]);
 
   return <ProgressBar value={value} type={type} styles={styles} />;
 }

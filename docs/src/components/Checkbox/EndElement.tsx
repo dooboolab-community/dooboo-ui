@@ -35,6 +35,7 @@ export default function EndElement(): ReactElement {
       </StoryProvider>
     );
   }
+
   return (
     <StoryProvider>
       <View

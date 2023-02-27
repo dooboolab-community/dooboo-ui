@@ -1,11 +1,11 @@
 import {DoobooProvider, Icon, IconButton, useDooboo} from 'dooboo-ui';
-
 import React, {useEffect} from 'react';
+
 import type {ReactElement} from 'react';
 import {View} from 'react-native';
 import styled from '@emotion/native';
-import {useFonts} from 'expo-font';
 import {useDarkMode} from 'storybook-dark-mode';
+import {useFonts} from 'expo-font';
 
 const StyledIcon = styled(Icon)`
   color: ${({theme}) => theme.text.contrast};
@@ -30,7 +30,7 @@ export function StoryWrapper(): ReactElement {
     if (storybookTheme !== themeType) {
       changeThemeType();
     }
-  }, [storybookTheme]);
+  }, [changeThemeType, storybookTheme, themeType]);
 
   if (!fontsLoaded) {
     return (

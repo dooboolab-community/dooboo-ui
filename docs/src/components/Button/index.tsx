@@ -1,8 +1,9 @@
-import React, {ReactElement, ReactNode, useEffect} from 'react';
-import {useDarkMode} from 'storybook-dark-mode';
 import {DoobooProvider, useDooboo} from 'dooboo-ui';
+import React, {useEffect} from 'react';
+import type {ReactElement, ReactNode} from 'react';
 
 import styled from '@emotion/native';
+import {useDarkMode} from 'storybook-dark-mode';
 
 export {default as AdditionalElement} from './AdditionalElement';
 export {default as Basic} from './Basic';
@@ -33,7 +34,7 @@ export function StoryWrapper({children}: ContainerProps): ReactElement {
     if (storybookTheme !== themeType) {
       changeThemeType();
     }
-  }, [storybookTheme]);
+  }, [changeThemeType, storybookTheme, themeType]);
 
   return <StoryContainer>{children}</StoryContainer>;
 }

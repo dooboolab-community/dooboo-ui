@@ -1,11 +1,11 @@
 import {DoobooProvider, FAB, useDooboo} from 'dooboo-ui';
+import React, {useEffect, useState} from 'react';
 
 import type {ReactElement} from 'react';
 import {View} from 'react-native';
 import styled from '@emotion/native';
-import {useFonts} from 'expo-font';
-import React, {useEffect, useState} from 'react';
 import {useDarkMode} from 'storybook-dark-mode';
+import {useFonts} from 'expo-font';
 
 const StoryContainer = styled.View`
   width: 100%;
@@ -28,7 +28,7 @@ function StoryWrapper(): ReactElement {
     if (storybookTheme !== themeType) {
       changeThemeType();
     }
-  }, [storybookTheme]);
+  }, [changeThemeType, storybookTheme, themeType]);
 
   if (!fontsLoaded) {
     return (

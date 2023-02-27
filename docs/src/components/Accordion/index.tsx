@@ -1,11 +1,11 @@
 import {Accordion, DoobooProvider, useDooboo} from 'dooboo-ui';
 import type {AccordionItemDataType, AccordionProps} from 'dooboo-ui';
+import React, {useEffect} from 'react';
 import type {ReactElement, ReactNode} from 'react';
-import {Text, View} from 'react-native';
 
+import {Text} from 'react-native';
 import styled from '@emotion/native';
 import {useDarkMode} from 'storybook-dark-mode';
-import React, {useEffect} from 'react';
 
 const Container = styled.View`
   padding: 20px;
@@ -53,7 +53,7 @@ export function StoryWrapper({
     if (storybookTheme !== themeType) {
       changeThemeType();
     }
-  }, [storybookTheme]);
+  }, [changeThemeType, storybookTheme, themeType]);
 
   return (
     <StoryContainer>
