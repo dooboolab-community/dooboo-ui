@@ -27,7 +27,7 @@ const config = async (): Promise<any> => {
         },
       }),
     },
-    watchFolders: [...defaultConfig.watchFolders, './.ondevice'],
+    watchFolders: [...defaultConfig.watchFolders],
   };
 };
 
