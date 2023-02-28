@@ -11,7 +11,8 @@ import styled, {css} from '@emotion/native';
 
 import type {DoobooTheme} from '@dooboo-ui/theme';
 import {LoadingIndicator} from '../LoadingIndicator';
-import {getTheme} from '../../utils';
+import {getRootElementStyleType} from '../../utils/guards';
+import {getTheme} from '../../utils/utils';
 import {useHover} from 'react-native-web-hooks';
 import {useTheme} from '@dooboo-ui/theme';
 
@@ -245,16 +246,23 @@ export function Button(props: Props): ReactElement {
     <LoadingIndicator size="small" color={theme.text.basic} />
   );
 
+  const clonedStartElement = startElement
+    ? cloneElement(startElement, {
+        style: [
+          getRootElementStyleType(startElement) === 'TextStyle' && {
+            color: textColor || theme.text.basic,
+          },
+          getRootElementStyleType(startElement) === 'ViewStyle' && {
+            backgroundColor: backgroundColor || theme.bg.basic,
+          },
+          {...startElement.props.style},
+        ],
+      })
+    : null;
+
   const ChildView = (
     <>
-      {startElement
-        ? cloneElement(startElement, {
-            style: {
-              ...startElement.props.style,
-              color: textColor || theme.text.basic,
-            },
-          })
-        : null}
+      {clonedStartElement}
       <Text
         style={[
           compositeStyles.text,
