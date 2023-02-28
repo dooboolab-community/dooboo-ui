@@ -252,8 +252,8 @@ export function Button(props: Props): ReactElement {
     <>
       {cloneElemWithDefaultColors({
         element: startElement,
-        backgroundColor: backgroundColor || theme.bg.basic,
-        color: textColor || theme.text.basic,
+        backgroundColor: backgroundColor,
+        color: textColor,
       })}
       <Text
         style={[
@@ -266,8 +266,8 @@ export function Button(props: Props): ReactElement {
       </Text>
       {cloneElemWithDefaultColors({
         element: endElement,
-        backgroundColor: backgroundColor || theme.bg.basic,
-        color: textColor || theme.text.basic,
+        backgroundColor: backgroundColor,
+        color: textColor,
       })}
     </>
   );
