@@ -12,7 +12,7 @@ import styled, {css} from '@emotion/native';
 import type {DoobooTheme} from '@dooboo-ui/theme';
 import {LoadingIndicator} from '../LoadingIndicator';
 import {getRootElementStyleType} from '../../utils/guards';
-import {getTheme} from '../../utils/utils';
+import {getTheme as getThemeVars} from '../../utils/utils';
 import {useHover} from 'react-native-web-hooks';
 import {useTheme} from '@dooboo-ui/theme';
 
@@ -61,7 +61,7 @@ const ButtonStyles = ({
   disabledBorderColor: string;
   disabledTextColor: string;
 } => {
-  theme = getTheme(theme);
+  theme = getThemeVars(theme);
 
   let backgroundColor = theme.button[color].bg;
   let borderColor = theme.button[color].bg;
@@ -101,13 +101,15 @@ const ButtonStyles = ({
   };
 };
 
-const ButtonContainer = styled.View<{
+type ButtonContainerStyleProps = {
   type: ButtonType;
   size?: ButtonSizeType;
   outlined?: boolean;
   disabled?: boolean;
   loading?: boolean;
-}>`
+};
+
+const ButtonContainer = styled.View<ButtonContainerStyleProps>`
   align-self: stretch;
   flex-direction: row;
   align-items: center;
