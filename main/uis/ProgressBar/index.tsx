@@ -1,7 +1,7 @@
 import type {StyleProp, TextStyle, ViewStyle} from 'react-native';
 
 import React from 'react';
-import {isEmptyObject} from '../../utils';
+import {isEmptyObject} from '../../utils/utils';
 import {light} from '@dooboo-ui/theme';
 import styled from '@emotion/native';
 

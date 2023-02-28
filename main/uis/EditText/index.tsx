@@ -1,18 +1,12 @@
-import type {
-  FC,
-  MutableRefObject,
-  ReactElement,
-  ReactNode,
-  RefObject,
-} from 'react';
+import type {MutableRefObject, ReactElement, ReactNode, RefObject} from 'react';
 import {Platform, Text, TextInput, View} from 'react-native';
-import React, {useRef, useState} from 'react';
 import type {
   StyleProp,
   TextInputProps,
   TextStyle,
   ViewStyle,
 } from 'react-native';
+import {cloneElement, useRef, useState} from 'react';
 
 import {TouchableWithoutFeedback} from 'react-native-gesture-handler';
 import {useHover} from 'react-native-web-hooks';
@@ -45,6 +39,8 @@ export type EditTextProps = {
   // Components
   label?: string | RenderType;
   error?: string | RenderType;
+  startElement?: View | Text;
+  endElement?: ReactElement;
 
   direction?: 'row' | 'column';
   decoration?: 'underline' | 'boxed';
@@ -91,7 +87,7 @@ export type EditTextProps = {
   };
 };
 
-export const EditText: FC<EditTextProps> = (props) => {
+export function EditText(props: EditTextProps): ReactElement {
   const {
     testID,
     inputRef: givenInputRef,
@@ -100,6 +96,8 @@ export const EditText: FC<EditTextProps> = (props) => {
     styles,
     label,
     error,
+    startElement,
+    endElement,
     multiline = false,
     value = '',
     placeholder,
@@ -201,39 +199,49 @@ export const EditText: FC<EditTextProps> = (props) => {
 
   const renderInput = (): ReactElement => {
     return (
-      <TextInput
-        testID={testID}
-        ref={inputRef}
-        autoCapitalize={autoCapitalize}
-        secureTextEntry={secureTextEntry}
-        style={[
-          // Stretch input in order to make remaining space clickable
-          direction === 'row' ? {flex: 1} : {alignSelf: 'stretch'},
-          // @ts-ignore
-          Platform.OS === 'web' && {outlineWidth: 0},
-          direction === 'column' ? {paddingTop: 12} : {paddingLeft: 12},
-          {color: defaultColor, paddingVertical: 12},
-          styles?.input,
-        ]}
-        editable={editable}
-        onFocus={(e) => {
-          setFocused(true);
-          onFocus?.(e);
-        }}
-        onBlur={(e) => {
-          setFocused(false);
-          onBlur?.(e);
-        }}
-        multiline={multiline}
-        maxLength={maxLength}
-        value={value}
-        placeholder={placeholder}
-        placeholderTextColor={placeholderColor || theme.text.placeholder}
-        onChange={onChange}
-        onChangeText={onChangeText}
-        onSubmitEditing={onSubmitEditing}
-        {...textInputProps}
-      />
+      <View>
+        {/* {startElement instanceof View
+          ? cloneElement(startElement, {
+              style: {
+                ...startElement.props.style,
+                // color: textColor || theme.text.basic,
+              },
+            })
+          : null} */}
+        <TextInput
+          testID={testID}
+          ref={inputRef}
+          autoCapitalize={autoCapitalize}
+          secureTextEntry={secureTextEntry}
+          style={[
+            // Stretch input in order to make remaining space clickable
+            direction === 'row' ? {flex: 1} : {alignSelf: 'stretch'},
+            // @ts-ignore
+            Platform.OS === 'web' && {outlineWidth: 0},
+            direction === 'column' ? {paddingTop: 12} : {paddingLeft: 12},
+            {color: defaultColor, paddingVertical: 12},
+            styles?.input,
+          ]}
+          editable={editable}
+          onFocus={(e) => {
+            setFocused(true);
+            onFocus?.(e);
+          }}
+          onBlur={(e) => {
+            setFocused(false);
+            onBlur?.(e);
+          }}
+          multiline={multiline}
+          maxLength={maxLength}
+          value={value}
+          placeholder={placeholder}
+          placeholderTextColor={placeholderColor || theme.text.placeholder}
+          onChange={onChange}
+          onChangeText={onChangeText}
+          onSubmitEditing={onSubmitEditing}
+          {...textInputProps}
+        />
+      </View>
     );
   };
 
@@ -288,4 +296,4 @@ export const EditText: FC<EditTextProps> = (props) => {
       {renderError()}
     </View>
   );
-};
+}
