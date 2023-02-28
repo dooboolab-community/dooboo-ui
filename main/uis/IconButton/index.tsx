@@ -8,7 +8,7 @@ import {Icon} from '../Icon/';
 import type {IconName} from '../Icon/';
 import {LoadingIndicator} from '../LoadingIndicator';
 import {css} from '@emotion/native';
-import {getTheme} from '../../utils';
+import {getTheme} from '../../utils/utils';
 import {useHover} from 'react-native-web-hooks';
 import {useTheme} from '@dooboo-ui/theme';
 

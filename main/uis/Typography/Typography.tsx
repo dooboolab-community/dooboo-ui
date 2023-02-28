@@ -1,5 +1,5 @@
 import type {DoobooTheme} from '@dooboo-ui/theme';
-import {isEmptyObject} from '../../utils';
+import {isEmptyObject} from '../../utils/utils';
 import styled from '@emotion/native';
 import {withTheme} from '@dooboo-ui/theme';
 

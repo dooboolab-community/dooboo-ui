@@ -1,5 +1,5 @@
 import {Platform, Text, TouchableHighlight} from 'react-native';
-import React, {cloneElement, useCallback, useRef} from 'react';
+import React, {useCallback, useRef} from 'react';
 import type {ReactElement, ReactNode} from 'react';
 import type {
   StyleProp,
@@ -11,7 +11,8 @@ import styled, {css} from '@emotion/native';
 
 import type {DoobooTheme} from '@dooboo-ui/theme';
 import {LoadingIndicator} from '../LoadingIndicator';
-import {getTheme} from '../../utils';
+import {cloneElemWithDefaultColors} from '../../utils/guards';
+import {getTheme as getThemeVars} from '../../utils/utils';
 import {useHover} from 'react-native-web-hooks';
 import {useTheme} from '@dooboo-ui/theme';
 
@@ -60,7 +61,7 @@ const ButtonStyles = ({
   disabledBorderColor: string;
   disabledTextColor: string;
 } => {
-  theme = getTheme(theme);
+  theme = getThemeVars(theme);
 
   let backgroundColor = theme.button[color].bg;
   let borderColor = theme.button[color].bg;
@@ -100,13 +101,15 @@ const ButtonStyles = ({
   };
 };
 
-const ButtonContainer = styled.View<{
+type ButtonContainerStyleProps = {
   type: ButtonType;
   size?: ButtonSizeType;
   outlined?: boolean;
   disabled?: boolean;
   loading?: boolean;
-}>`
+};
+
+const ButtonContainer = styled.View<ButtonContainerStyleProps>`
   align-self: stretch;
   flex-direction: row;
   align-items: center;
@@ -247,14 +250,11 @@ export function Button(props: Props): ReactElement {
 
   const ChildView = (
     <>
-      {startElement
-        ? cloneElement(startElement, {
-            style: {
-              ...startElement.props.style,
-              color: textColor || theme.text.basic,
-            },
-          })
-        : null}
+      {cloneElemWithDefaultColors({
+        element: startElement,
+        backgroundColor: backgroundColor,
+        color: textColor,
+      })}
       <Text
         style={[
           compositeStyles.text,
@@ -264,14 +264,11 @@ export function Button(props: Props): ReactElement {
       >
         {text}
       </Text>
-      {endElement
-        ? cloneElement(endElement, {
-            style: {
-              ...endElement.props.style,
-              color: textColor || theme.text.basic,
-            },
-          })
-        : null}
+      {cloneElemWithDefaultColors({
+        element: endElement,
+        backgroundColor: backgroundColor,
+        color: textColor,
+      })}
     </>
   );
 
