@@ -4,7 +4,7 @@ import {Meta} from '@storybook/addon-docs';
 
 # dooboo-ui
 
-> React Native UI components built by `dooboolab`
+> [Expo](https://expo.io) first [React Native UI](https://reactnative.dev) UI components. Simple and flexible which also supports themeing with default colors.
 
 <p>
   <img
@@ -52,14 +52,17 @@ Hosted in [github pages](https://dooboolab.github.io/dooboo-ui)
 ### Expo
 
 ```sh
-expo install dooboo-ui @emotion/react @emotion/native react-native-vector-icons react-native-gesture-handler
+expo install dooboo-ui @emotion/react @emotion/native react-native-vector-icons react-native-gesture-handler react-native-svg expo-screen-orientation @expo/match-media
 ```
 
 ### React Native CLI
 
 ```sh
-# npm
-yarn add dooboo-ui @emotion/react @emotion/native react-native-vector-icons react-native-gesture-handler
+# If using yarn
+yarn add dooboo-ui @emotion/react @emotion/native react-native-vector-icons react-native-gesture-handler react-native-svg expo-screen-orientation @expo/match-media
+
+# Install expo modules
+npx install-expo-modules@latest
 ```
 
 ### dooboo-cli
@@ -93,24 +96,6 @@ You can install our font to use in your project. This is recommended since we us
 
 Find more about [Icon component](?path=/docs/components-icon--page).
 
-### For React Native user
-
-#### 1. Create `react-native.config.cjs` file and add below code.
-
-```diff
-module.exports = {
-  project: {
-    ios: {},
-    android: {},
-  },
-+  assets: ['dooboo-ui/uis/Icon/doobooui.ttf'],
-};
-```
-
-#### 2. Run `yarn react-native link`.
-
-> For more information, please read [add custom fonts to react native](https://medium.com/@aravindmnair/add-custom-fonts-to-react-native-0-60-easily-in-3-steps-fcd71459f4c9).
-
 ### For Expo user
 
 #### 1. In somwhere like `App.tsx`, load dooboo-ui font.
@@ -122,6 +107,34 @@ const [fontsLoaded] = useFonts({
   IcoMoon: require('dooboo-ui/uis/Icon/doobooui.ttf'),
 });
 ```
+
+### For React Native user
+
+#### 1. Create `react-native.config.cjs` file and add below code.
+
+```
+module.exports = {
+  dependencies: {
+    'react-native-vector-icons': {
+      platforms: {
+        ios: null,
+      },
+    },
+  },
+};
+```
+> Above will prevent adding default font icons from [react-native-vector-icons](https://github.com/oblador/react-native-vector-icons) in `ios` platform.
+
+#### 2. Add rnpm config in `package.json`.
+
+```
+"rnpm": { "assets": [ "dooboo-ui/uis/Icon" ] },
+```
+
+#### 3. Run `yarn react-native link`.
+
+> For more information, please read [add custom fonts to react native](https://medium.com/@aravindmnair/add-custom-fonts-to-react-native-0-60-easily-in-3-steps-fcd71459f4c9).
+
 
 > For more question please follow [using custom font in expo](https://docs.expo.io/guides/using-custom-fonts).
 
