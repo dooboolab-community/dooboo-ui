@@ -1,4 +1,5 @@
 import '@expo/match-media';
+import './storybook/addons';
 
 import {configure, getStorybookUI} from '@storybook/react-native';
 
