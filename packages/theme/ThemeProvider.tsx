@@ -1,13 +1,13 @@
 import '@expo/match-media';
 
 import type {Colors, DoobooTheme, ThemeParam, ThemeType} from './colors';
-import type {Theme} from '@emotion/react';
 import {ThemeProvider as EmotionThemeProvider, withTheme} from '@emotion/react';
 import {colors, dark, light} from './colors';
 import {useEffect, useState} from 'react';
 
 import type {ColorSchemeName} from 'react-native';
 import type {ReactElement} from 'react';
+import type {Theme} from '@emotion/react';
 import createDoobooContext from './createDoobooContext';
 import useColorScheme from './useColorScheme';
 import {useMediaQuery} from 'react-responsive';

@@ -40,6 +40,8 @@
     "@emotion/native": ">=11",
     "@emotion/react": ">=11",
     "react": ">=16.9",
-    "react-native": ">=0.58"
+    "react-native": ">=0.58",
+    "@expo/match-media": ">=0.4.0",
+    "react-responsive": ">=9.0.0"
   }
 }
