@@ -25,8 +25,5 @@ doc-build
 # Jest
 .jest
 
-# Below storybook dir is cp from .storybook which is necessary in app
-storybook
-
 # Coverage
 coverage

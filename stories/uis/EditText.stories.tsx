@@ -1,4 +1,5 @@
 import EditTextBasicStory from './EditTextStories/EditTextBasicStory';
+import EditTextStartEndStory from './EditTextStories/EditTextStartEndStory';
 // Caveat: Expo web needs React to be imported
 import React from 'react';
 import {renderStory} from '../Common';
@@ -9,4 +10,5 @@ import {withKnobs} from '@storybook/addon-knobs';
 storiesOf('EditText', module)
   .addDecorator(withKnobs)
   .addDecorator(withActions)
-  .add('Basic', () => renderStory(<EditTextBasicStory />));
+  .add('Basic', () => renderStory(<EditTextBasicStory />))
+  .add('StartEnd', () => renderStory(<EditTextStartEndStory />));

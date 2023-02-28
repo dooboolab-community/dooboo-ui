@@ -1,8 +1,10 @@
 import {Image, Text, TextInput, View} from 'react-native';
 import React, {cloneElement} from 'react';
 
+import {Button} from '../uis/Button';
 import {Icon} from '../uis/Icon';
 import type {ReactElement} from 'react';
+import type {StyleProps} from 'react-native-reanimated';
 
 export const getRootElementStyleType = (
   element: ReactElement,
@@ -16,7 +18,11 @@ export const getRootElementStyleType = (
       return 'TextStyle';
     }
 
-    if (element.type === Image || element.type === View) {
+    if (
+      element.type === Image ||
+      element.type === View ||
+      element.type === Button
+    ) {
       return 'ViewStyle';
     }
   }
@@ -41,6 +47,10 @@ type CloneElemColorsParams = {
    * Invalid if element is TextStyle.
    */
   backgroundColor?: string;
+  /**
+   * Extra style to be applied.
+   */
+  style?: StyleProps;
 };
 
 /**
@@ -53,6 +63,7 @@ export const cloneElemWithDefaultColors = ({
   element,
   color,
   backgroundColor,
+  style,
 }: CloneElemColorsParams): ReactElement | null => {
   return element
     ? cloneElement(element, {
@@ -64,7 +75,7 @@ export const cloneElemWithDefaultColors = ({
             borderColor: color,
             backgroundColor: backgroundColor,
           },
-          {...element.props.style},
+          {...style, ...element.props.style},
         ],
       })
     : null;
