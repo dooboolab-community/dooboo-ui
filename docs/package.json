@@ -6,8 +6,8 @@
   "scripts": {
     "preinstall": "cd .. && yarn && yarn pre && yarn build && cd docs",
     "postinstall": "rm -rf node_modules/dooboo-ui && cp -R ../lib node_modules/dooboo-ui",
-    "build": "build-storybook --docs -o ./doc-build -c ./.storybook && cp -r ./src/assets ./doc-build",
-    "start": "start-storybook --docs -p 9001 -c ./.storybook watch-css -s ./src"
+    "build": "NODE_OPTIONS=--openssl-legacy-provider build-storybook --docs -o ./doc-build -c ./.storybook && cp -r ./src/assets ./doc-build",
+    "start": "NODE_OPTIONS=--openssl-legacy-provider start-storybook --docs -p 9001 -c ./.storybook watch-css -s ./src"
   },
   "dependencies": {
     "@emotion/native": "^11.10.0",
@@ -43,7 +43,7 @@
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
     "react-native-unimodules": "^0.14.10",
-    "storybook-dark-mode": "^2.0.5",
+    "storybook-dark-mode": "^2.1.1",
     "url-loader": "^4.1.1",
     "webpack": "^5.75.0"
   }
