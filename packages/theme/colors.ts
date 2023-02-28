@@ -39,8 +39,6 @@ export const light = {
     basic: colors.white,
     paper: colors.gray1,
     disabled: colors.gray3,
-    border: colors.gray2,
-    borderContrast: colors.gray7,
   },
   role: {
     primary: colors.primaryLight,
@@ -102,8 +100,6 @@ export const dark: typeof light = {
     basic: colors.black,
     paper: colors.gray9,
     disabled: colors.gray7,
-    border: colors.gray6,
-    borderContrast: colors.gray2,
   },
   role: {
     primary: colors.primaryDark,
