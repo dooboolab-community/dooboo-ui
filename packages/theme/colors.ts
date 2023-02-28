@@ -1,18 +1,18 @@
 export type ThemeType = 'light' | 'dark';
 
 export const colors = {
-  primaryLight: '#47498A',
-  secondaryLight: '#9E45B3',
-  acceptLight: '#6BF3C5',
+  primaryLight: '#1B1B1B',
+  secondaryLight: '#3246FF',
+  accentLight: '#6BF3C5',
   infoLight: '#307EF1',
   linkLight: '#A351F4',
   successLight: '#0FC70C',
   warningLight: '#EBBD1A',
   dangerLight: '#F84444',
 
-  primaryDark: '#585DFA',
-  secondaryDark: '#C93AEB',
-  acceptDark: '#6BF3C5',
+  primaryDark: '#FFFFFF',
+  secondaryDark: '#1F50FF',
+  accentDark: '#6BF3C5',
   infoDark: '#2998FF',
   linkDark: '#A351F4',
   successDark: '#2FFA86',
@@ -45,12 +45,13 @@ export const light = {
   role: {
     primary: colors.primaryLight,
     secondary: colors.secondaryLight,
-    accept: colors.acceptLight,
+    accent: colors.accentLight,
     info: colors.infoLight,
     link: colors.linkLight,
     success: colors.successLight,
     warning: colors.warningLight,
     danger: colors.dangerLight,
+    border: colors.gray2,
   },
   text: {
     basic: colors.black,
@@ -107,12 +108,13 @@ export const dark: typeof light = {
   role: {
     primary: colors.primaryDark,
     secondary: colors.secondaryDark,
-    accept: colors.acceptDark,
+    accent: colors.accentDark,
     info: colors.infoDark,
     link: colors.linkDark,
     success: colors.successDark,
     warning: colors.warningDark,
     danger: colors.dangerDark,
+    border: colors.gray6,
   },
   text: {
     basic: colors.white,

@@ -1515,6 +1515,14 @@
   resolved "https://registry.yarnpkg.com/@discoveryjs/json-ext/-/json-ext-0.5.7.tgz#1d572bfbbe14b7704e0ba0f39b74815b84870d70"
   integrity sha512-dBVuXR082gk3jsFp7Rd/JI4kytwGHecnCoTtXFb7DB6CNHp4rg5k1bhg0nWdLGLnOV71lmDzGQaLMy8iPLY0pw==
 
+"@dooboo-ui/theme@^0.10.4":
+  version "0.10.8"
+  resolved "https://registry.yarnpkg.com/@dooboo-ui/theme/-/theme-0.10.8.tgz#ba4840909316b94abf40ffdac1ae58fae11bb4a2"
+  integrity sha512-gVjzjt9qNcZJ+1U6MUjjFZEmla04ylX+zDqLqPkJn/8UWYtPEHeP5bgbX+Bp7krSNB4Qs/SU4QhS/CoG44xRgg==
+  dependencies:
+    "@expo/match-media" "^0.4.0"
+    react-responsive "^9.0.0"
+
 "@dooboo/eslint-config-react-native@^1.0.4":
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/@dooboo/eslint-config-react-native/-/eslint-config-react-native-1.1.1.tgz#4fe60269964ccdee97c27fca885290a71ae6207f"
