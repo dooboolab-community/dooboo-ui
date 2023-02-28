@@ -13,7 +13,7 @@ const Component = (props: FABProps<FABItem>): ReactElement =>
 describe('[FAB]', () => {
   it('should render', async () => {
     let count = 0;
-    let item: FABItem = {icon: 'bell-solid', id: 'item1'};
+    let item: FABItem = {icon: 'Android', id: 'item1'};
     // let resItem: FABItem;
 
     const {getByTestId} = render(
@@ -37,7 +37,7 @@ describe('[FAB]', () => {
   it('should render custom FAB', async () => {
     const testingLib = render(
       Component({
-        items: [{icon: 'bell-solid', id: 'item1'}],
+        items: [{icon: 'Apple', id: 'item1'}],
         isActive: true,
         onPressItem: () => {},
         onPressFAB: () => {},
