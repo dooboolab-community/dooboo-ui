@@ -22,5 +22,5 @@ storiesOf('Button', module)
   .add('Sizes', () => renderStory(<ButtonSizes />))
   .add('Loading', () => renderStory(<ButtonLoading />))
   .add('Custom', () => renderStory(<ButtonCustom />))
-  .add('Start and end elements', () => renderStory(<ButtonStartAndEnd />))
+  .add('StartEnd', () => renderStory(<ButtonStartAndEnd />))
   .add('Event', () => renderStory(<ButtonEvent />));

@@ -1,14 +1,20 @@
 import type {MutableRefObject, ReactElement, ReactNode, RefObject} from 'react';
-import {Platform, Text, TextInput, View} from 'react-native';
+import {
+  Platform,
+  Text,
+  TextInput,
+  TouchableWithoutFeedback,
+  View,
+} from 'react-native';
+import React, {isValidElement, useRef, useState} from 'react';
 import type {
   StyleProp,
   TextInputProps,
   TextStyle,
   ViewStyle,
 } from 'react-native';
-import {cloneElement, useRef, useState} from 'react';
 
-import {TouchableWithoutFeedback} from 'react-native-gesture-handler';
+import {cloneElemWithDefaultColors} from '../../utils/guards';
 import {useHover} from 'react-native-web-hooks';
 import {useTheme} from '@dooboo-ui/theme';
 
@@ -29,6 +35,14 @@ export type EditTextStatus =
 
 type RenderType = (stats: EditTextStatus) => ReactElement;
 
+type CustomElemRenderType = ({
+  color,
+  status,
+}: {
+  color: string;
+  status: EditTextStatus;
+}) => ReactElement;
+
 export type EditTextProps = {
   testID?: TextInputProps['testID'];
   inputRef?: MutableRefObject<TextInput | undefined> | RefObject<TextInput>;
@@ -39,8 +53,8 @@ export type EditTextProps = {
   // Components
   label?: string | RenderType;
   error?: string | RenderType;
-  startElement?: View | Text;
-  endElement?: ReactElement;
+  startElement?: ReactElement | CustomElemRenderType;
+  endElement?: ReactElement | CustomElemRenderType;
 
   direction?: 'row' | 'column';
   decoration?: 'underline' | 'boxed';
@@ -180,6 +194,7 @@ export function EditText(props: EditTextProps): ReactElement {
             {
               flexDirection: direction,
               alignItems: direction === 'row' ? 'center' : 'flex-start',
+              justifyContent: 'space-between',
               // Default border color follows placeholder color for the label.
               borderColor: labelPlaceholderColor
                 ? labelPlaceholderColor.color
@@ -199,48 +214,64 @@ export function EditText(props: EditTextProps): ReactElement {
 
   const renderInput = (): ReactElement => {
     return (
-      <View>
-        {/* {startElement instanceof View
-          ? cloneElement(startElement, {
-              style: {
-                ...startElement.props.style,
-                // color: textColor || theme.text.basic,
-              },
-            })
-          : null} */}
-        <TextInput
-          testID={testID}
-          ref={inputRef}
-          autoCapitalize={autoCapitalize}
-          secureTextEntry={secureTextEntry}
-          style={[
-            // Stretch input in order to make remaining space clickable
-            direction === 'row' ? {flex: 1} : {alignSelf: 'stretch'},
-            // @ts-ignore
-            Platform.OS === 'web' && {outlineWidth: 0},
-            direction === 'column' ? {paddingTop: 12} : {paddingLeft: 12},
-            {color: defaultColor, paddingVertical: 12},
-            styles?.input,
-          ]}
-          editable={editable}
-          onFocus={(e) => {
-            setFocused(true);
-            onFocus?.(e);
-          }}
-          onBlur={(e) => {
-            setFocused(false);
-            onBlur?.(e);
-          }}
-          multiline={multiline}
-          maxLength={maxLength}
-          value={value}
-          placeholder={placeholder}
-          placeholderTextColor={placeholderColor || theme.text.placeholder}
-          onChange={onChange}
-          onChangeText={onChangeText}
-          onSubmitEditing={onSubmitEditing}
-          {...textInputProps}
-        />
+      <View
+        style={{
+          alignSelf: 'stretch',
+
+          flexDirection: 'row',
+          alignItems: 'center',
+          justifyContent: 'space-between',
+        }}
+      >
+        <>
+          {isValidElement(startElement)
+            ? cloneElemWithDefaultColors({
+                element: startElement,
+                color: defaultColor,
+                style: {marginRight: 6},
+              })
+            : startElement?.({color: defaultColor, status})}
+          <TextInput
+            testID={testID}
+            ref={inputRef}
+            autoCapitalize={autoCapitalize}
+            secureTextEntry={secureTextEntry}
+            style={[
+              // Stretch input in order to make remaining space clickable
+              {flex: 1},
+              // @ts-ignore
+              Platform.OS === 'web' && {outlineWidth: 0},
+              direction === 'column' ? {paddingTop: 12} : {paddingLeft: 12},
+              {color: defaultColor, paddingVertical: 12},
+              styles?.input,
+            ]}
+            editable={editable}
+            onFocus={(e) => {
+              setFocused(true);
+              onFocus?.(e);
+            }}
+            onBlur={(e) => {
+              setFocused(false);
+              onBlur?.(e);
+            }}
+            multiline={multiline}
+            maxLength={maxLength}
+            value={value}
+            placeholder={placeholder}
+            placeholderTextColor={placeholderColor || theme.text.placeholder}
+            onChange={onChange}
+            onChangeText={onChangeText}
+            onSubmitEditing={onSubmitEditing}
+            {...textInputProps}
+          />
+          {isValidElement(endElement)
+            ? cloneElemWithDefaultColors({
+                element: endElement,
+                color: defaultColor,
+                style: {marginLeft: 6},
+              })
+            : endElement?.({color: defaultColor, status})}
+        </>
       </View>
     );
   };
