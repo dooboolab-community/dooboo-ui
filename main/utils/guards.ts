@@ -1,7 +1,7 @@
 import {Image, Text, TextInput, View} from 'react-native';
+import React, {cloneElement} from 'react';
 
 import {Icon} from '../uis/Icon';
-import React from 'react';
 import type {ReactElement} from 'react';
 
 export const getRootElementStyleType = (
@@ -22,4 +22,50 @@ export const getRootElementStyleType = (
   }
 
   return 'unknown';
+};
+
+type CloneElemColorsParams = {
+  /**
+   * ReactElement to be cloned to shape default colors.
+   */
+  element?: ReactElement;
+  /**
+   * Text color to be applied.
+   * If not passed, default color will be applied.
+   * Invalid if element is ViewStyle.
+   */
+  color?: string;
+  /**
+   * Background color to be applied.
+   * If not passed, default color will be applied.
+   * Invalid if element is TextStyle.
+   */
+  backgroundColor?: string;
+};
+
+/**
+ * This function applies default colors to cloned element.
+ *
+ * @param {CloneElemColorsParams} params
+ * @returns {ReactElement} - Cloned element with default colors if exists. Otherwise, null.
+ */
+export const cloneElemWithDefaultColors = ({
+  element,
+  color,
+  backgroundColor,
+}: CloneElemColorsParams): ReactElement | null => {
+  return element
+    ? cloneElement(element, {
+        style: [
+          getRootElementStyleType(element) === 'TextStyle' && {
+            color,
+          },
+          getRootElementStyleType(element) === 'ViewStyle' && {
+            borderColor: color,
+            backgroundColor: backgroundColor,
+          },
+          {...element.props.style},
+        ],
+      })
+    : null;
 };

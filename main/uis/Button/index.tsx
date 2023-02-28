@@ -1,5 +1,5 @@
 import {Platform, Text, TouchableHighlight} from 'react-native';
-import React, {cloneElement, useCallback, useRef} from 'react';
+import React, {useCallback, useRef} from 'react';
 import type {ReactElement, ReactNode} from 'react';
 import type {
   StyleProp,
@@ -11,7 +11,7 @@ import styled, {css} from '@emotion/native';
 
 import type {DoobooTheme} from '@dooboo-ui/theme';
 import {LoadingIndicator} from '../LoadingIndicator';
-import {getRootElementStyleType} from '../../utils/guards';
+import {cloneElemWithDefaultColors} from '../../utils/guards';
 import {getTheme as getThemeVars} from '../../utils/utils';
 import {useHover} from 'react-native-web-hooks';
 import {useTheme} from '@dooboo-ui/theme';
@@ -248,23 +248,13 @@ export function Button(props: Props): ReactElement {
     <LoadingIndicator size="small" color={theme.text.basic} />
   );
 
-  const clonedStartElement = startElement
-    ? cloneElement(startElement, {
-        style: [
-          getRootElementStyleType(startElement) === 'TextStyle' && {
-            color: textColor || theme.text.basic,
-          },
-          getRootElementStyleType(startElement) === 'ViewStyle' && {
-            backgroundColor: backgroundColor || theme.bg.basic,
-          },
-          {...startElement.props.style},
-        ],
-      })
-    : null;
-
   const ChildView = (
     <>
-      {clonedStartElement}
+      {cloneElemWithDefaultColors({
+        element: startElement,
+        backgroundColor: backgroundColor || theme.bg.basic,
+        color: textColor || theme.text.basic,
+      })}
       <Text
         style={[
           compositeStyles.text,
@@ -274,14 +264,11 @@ export function Button(props: Props): ReactElement {
       >
         {text}
       </Text>
-      {endElement
-        ? cloneElement(endElement, {
-            style: {
-              ...endElement.props.style,
-              color: textColor || theme.text.basic,
-            },
-          })
-        : null}
+      {cloneElemWithDefaultColors({
+        element: endElement,
+        backgroundColor: backgroundColor || theme.bg.basic,
+        color: textColor || theme.text.basic,
+      })}
     </>
   );
 
