@@ -1,5 +1,5 @@
 module.exports = {
   dependency: {
-    assets: ['Icon'],
+    assets: ['uis/Icon'],
   },
 };
