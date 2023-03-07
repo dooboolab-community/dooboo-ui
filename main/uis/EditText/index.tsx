@@ -201,7 +201,11 @@ export function EditText(props: EditTextProps): ReactElement {
                 : defaultColor,
             },
             decoration === 'boxed'
-              ? {borderWidth: 1, paddingHorizontal: 12, paddingTop: 8}
+              ? {
+                  borderWidth: 1,
+                  paddingHorizontal: 12,
+                  paddingTop: label ? 8 : 0,
+                }
               : {borderBottomWidth: 1},
             styles?.container,
           ]}
