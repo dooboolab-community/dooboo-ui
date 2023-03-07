@@ -21,9 +21,8 @@ InvertedStyledTitle.defaultProps = {style: {includeFontPadding: false}};
 
 export const InvertedTitle = withTheme(InvertedStyledTitle);
 
-// Heading1
-const InvertedStyledHeading1 = styled.Text<{theme: DoobooTheme}>`
-  font-size: 22px;
+// Heading
+const InvertedStyledHeading = styled.Text<{theme: DoobooTheme}>`
   font-weight: 400;
   color: ${({theme}) => {
     if (isEmptyObject(theme)) {
@@ -34,14 +33,40 @@ const InvertedStyledHeading1 = styled.Text<{theme: DoobooTheme}>`
   }};
 `;
 
-InvertedStyledHeading1.defaultProps = {style: {includeFontPadding: false}};
+InvertedStyledHeading.defaultProps = {style: {includeFontPadding: false}};
 
-export const InvertedHeading1 = withTheme(InvertedStyledHeading1);
+export const InvertedHeading1 = withTheme(
+  styled(InvertedStyledHeading)`
+    font-size: 26px;
+  `,
+);
 
-// Heading2
-const InvertedStyledHeading2 = styled.Text<{theme: DoobooTheme}>`
-  font-size: 17px;
-  font-weight: 400;
+export const InvertedHeading2 = withTheme(
+  styled(InvertedStyledHeading)`
+    font-size: 22px;
+  `,
+);
+
+export const InvertedHeading3 = withTheme(
+  styled(InvertedStyledHeading)`
+    font-size: 18px;
+  `,
+);
+
+export const InvertedHeading4 = withTheme(
+  styled(InvertedStyledHeading)`
+    font-size: 16px;
+  `,
+);
+
+export const InvertedHeading5 = withTheme(
+  styled(InvertedStyledHeading)`
+    font-size: 14px;
+  `,
+);
+
+// Body
+const InvertedStyledBody = styled.Text<{theme: DoobooTheme}>`
   color: ${({theme}) => {
     if (isEmptyObject(theme)) {
       return light.text.contrast;
@@ -51,57 +76,28 @@ const InvertedStyledHeading2 = styled.Text<{theme: DoobooTheme}>`
   }};
 `;
 
-InvertedStyledHeading2.defaultProps = {
-  style: {includeFontPadding: false},
-};
+InvertedStyledBody.defaultProps = {style: {includeFontPadding: false}};
 
-export const InvertedHeading2 = withTheme(InvertedStyledHeading2);
+export const InvertedBody1 = withTheme(
+  styled(InvertedStyledBody)`
+    font-size: 18px;
+  `,
+);
 
-// Heading3
-const InvertedStyledHeading3 = styled.Text<{theme: DoobooTheme}>`
-  font-size: 16px;
-  font-weight: 400;
-  color: ${({theme}) => {
-    if (isEmptyObject(theme)) {
-      return light.text.contrast;
-    }
+export const InvertedBody2 = withTheme(
+  styled(InvertedStyledBody)`
+    font-size: 16px;
+  `,
+);
 
-    return theme.text.contrast;
-  }};
-`;
+export const InvertedBody3 = withTheme(
+  styled(InvertedStyledBody)`
+    font-size: 14px;
+  `,
+);
 
-InvertedStyledHeading3.defaultProps = {style: {includeFontPadding: false}};
-
-export const InvertedHeading3 = withTheme(InvertedStyledHeading3);
-
-// Body1
-const InvertedStyledBody1 = styled.Text<{theme: DoobooTheme}>`
-  font-size: 16px;
-  color: ${({theme}) => {
-    if (isEmptyObject(theme)) {
-      return light.text.contrast;
-    }
-
-    return theme.text.contrast;
-  }};
-`;
-
-InvertedStyledBody1.defaultProps = {style: {includeFontPadding: false}};
-
-export const InvertedBody1 = withTheme(InvertedStyledBody1);
-
-// Body2
-const InvertedStyledBody2 = styled.Text<{theme: DoobooTheme}>`
-  font-size: 14px;
-  color: ${({theme}) => {
-    if (isEmptyObject(theme)) {
-      return light.text.contrast;
-    }
-
-    return theme.text.contrast;
-  }};
-`;
-
-InvertedStyledBody2.defaultProps = {style: {includeFontPadding: false}};
-
-export const InvertedBody2 = withTheme(InvertedStyledBody2);
+export const InvertedBody4 = withTheme(
+  styled(InvertedStyledBody)`
+    font-size: 12px;
+  `,
+);
