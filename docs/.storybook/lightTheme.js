@@ -7,12 +7,12 @@ export default create({
   brandImage: '/assets/icon.png',
 
   colorPrimary: 'black',
-  colorSecondary: '#00D9D5',
+  colorSecondary: '#47498A',
 
   // UI
   appBg: 'white',
   appContentBg: 'white',
-  appBorderColor: '#F6F9FC',
+  appBorderColor: '#EDEDED',
   appBorderRadius: 1,
 
   // Typography
@@ -24,9 +24,9 @@ export default create({
   textInverseColor: 'white',
 
   // Toolbar default and active colors
-  barTextColor: '#F6F9FC',
-  barSelectedColor: 'black',
-  barBg: '#33FF2F',
+  barTextColor: '#1E1E1E',
+  barSelectedColor: '#47498A',
+  barBg: 'white',
 
   // Form colors
   inputBg: 'white',

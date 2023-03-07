@@ -63,6 +63,10 @@ export const parameters = {
     hierarchyRootSeparator: /\|/,
     panelPosition: 'bottom',
   },
+  darkMode: {
+    dark: darkTheme,
+    light: lightTheme,
+  },
 };
 
 export const decorators = [(Story) => <Story />];
