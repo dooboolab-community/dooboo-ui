@@ -123,6 +123,7 @@ export type Props = {
   size?: ButtonSizeType;
   disabled?: boolean;
   loading?: boolean;
+  loadingColor?: string;
   loadingElement?: ReactElement;
   text?: string | ReactElement;
   borderRadius?: number;
@@ -156,6 +157,7 @@ export function Button(props: Props): ReactElement {
     activeOpacity = 0.8,
     touchableHighlightProps,
     borderRadius = 4,
+    loadingColor,
   } = props;
 
   const ref = useRef<TouchableHighlight>(null);
@@ -245,7 +247,7 @@ export function Button(props: Props): ReactElement {
   );
 
   const LoadingView = loadingElement ?? (
-    <LoadingIndicator size="small" color={theme.text.basic} />
+    <LoadingIndicator size="small" color={loadingColor || theme.text.basic} />
   );
 
   const ChildView = (
