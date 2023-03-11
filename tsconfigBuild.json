@@ -18,6 +18,8 @@
     "node_modules",
     "lib",
     "**/**/*/__tests__",
+    "**/*.test.tsx",
+    "**/*.spec.tsx",
     "dist",
     "stories",
     "**/*.example.*"
