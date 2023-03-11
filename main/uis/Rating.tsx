@@ -21,7 +21,8 @@ type Styles = {
   starContainer: StyleProp<ViewStyle>;
 };
 
-type Props = {
+export type RatingProps = {
+  testID?: string;
   styles?: Styles;
   style?: StyleProp<ViewStyle>;
   size?: number;
@@ -34,6 +35,7 @@ type Props = {
 };
 
 export default function Rating({
+  testID,
   style,
   styles,
   initialRating = 0,
@@ -43,7 +45,7 @@ export default function Rating({
   allowHalfRating = true,
   disabled = false,
   color,
-}: Props): ReactElement {
+}: RatingProps): ReactElement {
   const [rating, setRating] = useState(initialRating);
 
   const handlePress = (newRating: number, halfPressed?: boolean): void => {
@@ -71,6 +73,7 @@ export default function Rating({
     return (
       <StarContainer
         key={key}
+        testID={testID}
         style={[
           css`
             width: ${size}px;
@@ -97,6 +100,7 @@ export default function Rating({
           />
         )}
         <TouchableOpacity
+          accessibilityRole={'button'}
           onPress={() => handlePress(position, true)}
           disabled={disabled}
         >
@@ -109,6 +113,7 @@ export default function Rating({
           />
         </TouchableOpacity>
         <TouchableOpacity
+          accessibilityRole={'button'}
           onPress={() => handlePress(position)}
           disabled={disabled}
         >
