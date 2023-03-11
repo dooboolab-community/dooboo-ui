@@ -24,7 +24,7 @@ function RatingBasicStory(): ReactElement {
           disabled={disabled}
           size={size}
           direction={direction}
-          onRatingUpdate={(score) => action(`score ${score}`)}
+          onRatingUpdate={action(`score`)}
           allowHalfRating={allowHalfRating}
           color={color}
         />

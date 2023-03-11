@@ -134,7 +134,7 @@ export default function Rating({
       ]}
     >
       {[...Array(5)].map((_, index) => {
-        const position = index + 0.5;
+        const position = index + (allowHalfRating ? 0.5 : 1);
 
         return renderStarIcon({key: `${_}-${index}`, position});
       })}
