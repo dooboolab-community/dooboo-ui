@@ -9,7 +9,6 @@ function RatingBasicStory(): ReactElement {
   const disabled = boolean('disabled', false);
   const allowHalfRating = boolean('allowHalfRating', true);
   const color = text('color', '#000000');
-  const initialRating = number('size', 3);
   const size = number('size', 24);
   const direction = select<'horizontal' | 'vertical'>(
     'horizontal',
@@ -28,7 +27,6 @@ function RatingBasicStory(): ReactElement {
           onRatingUpdate={(score) => action(`score ${score}`)}
           allowHalfRating={allowHalfRating}
           color={color}
-          initialRating={initialRating}
         />
       </StorySection>
     </StoryContainer>

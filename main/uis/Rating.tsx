@@ -12,6 +12,8 @@ const Container = styled.View`
 `;
 
 const StarContainer = styled.View`
+  padding: 1px;
+
   flex-direction: row;
 `;
 
