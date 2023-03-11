@@ -16,4 +16,5 @@ export * from './uis/Accordion';
 export * from './uis/StatusbarBrightness';
 export * from './uis/SwitchToggle';
 export * from './uis/FAB';
+export * from './uis/Rating';
 export * from './providers';
