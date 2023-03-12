@@ -89,7 +89,7 @@
     "@types/react-native": "^0.71.2",
     "@types/react-responsive": "^8.0.5",
     "@types/react-test-renderer": "^18.0.0",
-    "babel-loader": "8.2.5",
+    "babel-loader": "8.3.0",
     "babel-preset-expo": "^9.2.2",
     "babel-preset-react-app": "^10.0.1",
     "commitlint-plugin-function-rules": "^1.7.1",
