@@ -21,7 +21,7 @@ jobs:
           node-version: 18.x
 
       - name: Setup expo cli
-        uses: expo/expo-github-action@v5
+        uses: expo/expo-github-action@v8
         with:
           expo-version: 4.x
 
