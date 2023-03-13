@@ -34,7 +34,7 @@ export type RatingProps = {
   color?: string;
 };
 
-export default function Rating({
+export function Rating({
   testID,
   style,
   styles,
