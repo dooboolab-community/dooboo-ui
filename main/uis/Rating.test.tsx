@@ -1,6 +1,6 @@
 import {fireEvent, render} from '@testing-library/react-native';
 
-import Rating from './Rating';
+import {Rating} from './Rating';
 import type {RatingProps} from './Rating';
 import React from 'react';
 import type {ReactElement} from 'react';

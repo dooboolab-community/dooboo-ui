@@ -1,7 +1,7 @@
 import {StoryContainer, StorySection, StoryTitle} from '../../GlobalStyles';
 import {boolean, number, select, text} from '@storybook/addon-knobs';
 
-import Rating from '../../../main/uis/Rating';
+import {Rating} from '../../../main';
 // Caveat: Expo web needs React to be imported
 import React from 'react';
 import type {ReactElement} from 'react';
