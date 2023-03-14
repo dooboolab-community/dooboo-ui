@@ -26,7 +26,6 @@ jobs:
       - name: Install packages and build storybook
         run: |
           pushd ./docs
-          yarn preinstall
           yarn install --network-concurrency 1
           yarn build
           popd
