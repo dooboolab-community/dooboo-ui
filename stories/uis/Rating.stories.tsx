@@ -1,4 +1,4 @@
-import RatingBasicStory from './RatingStroies/RatingBasicStory';
+import RatingBasicStory from './RatingStories/RatingBasicStory';
 // Caveat: Expo web needs React to be imported
 import React from 'react';
 import {renderStory} from '../Common';

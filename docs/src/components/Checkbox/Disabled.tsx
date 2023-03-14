@@ -1,14 +1,14 @@
 import {Checkbox, LoadingIndicator} from 'dooboo-ui';
 
+import React from 'react';
 import type {ReactElement} from 'react';
+import {StoryProvider} from './index';
 import {View} from 'react-native';
 import {useFonts} from 'expo-font';
-import {StoryProvider} from './index';
-import React from 'react';
 
 export default function Disabled(): ReactElement {
   const [fontsLoaded] = useFonts({
-    IcoMoon: require('../../assets/doobooui.ttf'),
+    doobooui: require('../../assets/doobooui.ttf'),
   });
 
   if (!fontsLoaded) {

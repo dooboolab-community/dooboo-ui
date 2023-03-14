@@ -17,12 +17,14 @@ type ContainerProps = {
   children: ReactNode;
 };
 
+const fontConfig = {
+  doobooui: require('../main/uis/Icon/doobooui.ttf'),
+};
+
 export function StoryWrapper({children}: ContainerProps): ReactElement {
   const {themeType, changeThemeType} = useDooboo();
   const [on, off] = useState(themeType === 'dark');
-  const [fontsLoaded] = useFonts({
-    IcoMoon: require('../main/uis/Icon/doobooui.ttf'),
-  });
+  const [fontsLoaded] = useFonts(fontConfig);
 
   if (!fontsLoaded) {
     return <LoadingIndicator />;

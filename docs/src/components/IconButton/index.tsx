@@ -23,7 +23,7 @@ export function StoryWrapper(): ReactElement {
   const storybookTheme = isDark ? 'dark' : 'light';
 
   const [fontsLoaded] = useFonts({
-    IcoMoon: require('../../assets/doobooui.ttf'),
+    doobooui: require('../../assets/doobooui.ttf'),
   });
 
   useEffect(() => {

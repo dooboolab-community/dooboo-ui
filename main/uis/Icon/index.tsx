@@ -361,7 +361,7 @@ type Props = {
 
 const Ico: FC<Props> = createIconSetFromIcoMoon(
   collectingFontIconSelection,
-  'IcoMoon',
+  'doobooui',
   require('./doobooui.ttf'),
 );
 

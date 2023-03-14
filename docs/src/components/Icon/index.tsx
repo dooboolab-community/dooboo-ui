@@ -66,7 +66,7 @@ export function StoryWrapper(): ReactElement {
 
   const [searchText, setSearchText] = useState('');
   const [fontsLoaded] = useFonts({
-    IcoMoon: require('../../assets/doobooui.ttf'),
+    doobooui: require('../../assets/doobooui.ttf'),
   });
 
   useEffect(() => {
