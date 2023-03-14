@@ -18,6 +18,7 @@ function OutlinedButtonColors(): ReactElement {
       {buttonColors.map((color) => (
         <Button
           key={color}
+          color={color}
           type="outlined"
           size={size}
           disabled={disabled}
