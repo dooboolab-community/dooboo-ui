@@ -11,6 +11,7 @@
     "react",
     "react-native",
     "react-native-reanimated",
-    "@expo/webpack-config"
+    "@expo/webpack-config",
+    "webpack-dev-server"
   ]
 }
