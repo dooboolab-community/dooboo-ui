@@ -5,13 +5,15 @@
   ],
   "prHourlyLimit": 3,
   "prConcurrentLimit": 5,
-  "excludeDepNames": [
-    "expo-font",
-    "babel-loader",
-    "react",
-    "react-native",
-    "react-native-reanimated",
-    "@expo/webpack-config",
-    "webpack-dev-server"
-  ]
+  "packageRule": {
+    "excludeDepNames": [
+      "expo-font",
+      "babel-loader",
+      "react",
+      "react-native",
+      "react-native-reanimated",
+      "@expo/webpack-config",
+      "webpack-dev-server"
+    ]
+  }
 }
