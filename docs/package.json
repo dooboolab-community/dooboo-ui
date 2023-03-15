@@ -45,6 +45,6 @@
     "react-native-unimodules": "^0.14.10",
     "storybook-dark-mode": "^2.1.1",
     "url-loader": "^4.1.1",
-    "webpack": "^5.75.0"
+    "webpack": "^5.76.0"
   }
 }
