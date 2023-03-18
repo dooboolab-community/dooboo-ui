@@ -6150,11 +6150,12 @@ expo-file-system@~11.1.3:
     expo-modules-core "~0.2.0"
     uuid "^3.4.0"
 
-expo-font@^11.0.0:
-  version "11.1.1"
-  resolved "https://registry.yarnpkg.com/expo-font/-/expo-font-11.1.1.tgz#268eed407e94f6e88083c01b68c357d010748d23"
-  integrity sha512-X+aICqYY69hiiDDtcNrjq8KutHrH2TrHuMqk0Rfq0P7hF6hMd+YefwLBNkvIrqrgmTAuqiLjMUwj2rHLqmgluw==
+expo-font@^9.2.1:
+  version "9.3.0"
+  resolved "https://registry.yarnpkg.com/expo-font/-/expo-font-9.3.0.tgz#ef569c57f6742f9db72f9e9de3645d3935aa2d82"
+  integrity sha512-1Hgdos2KBUS/7U/r7BjHM5wh7EYr7KFVtEciQPLE1Zm1xlf+p1ZHdFkyOVagwLdovsfxhxeQQagUeOdtMKfmrQ==
   dependencies:
+    expo-modules-core "~0.3.0"
     fontfaceobserver "^2.1.0"
 
 expo-image-loader@~2.2.0:
@@ -6177,6 +6178,14 @@ expo-modules-core@~0.2.0:
   version "0.2.0"
   resolved "https://registry.yarnpkg.com/expo-modules-core/-/expo-modules-core-0.2.0.tgz#68e5b6e53d0afbf8d131578831aed657589a2d42"
   integrity sha512-inpfZ5X/BaTtbj2wG9PA9AC0MN8VyId6KSRlVuEg7+ziurHBy/kKDFxpOddUokhwiln2uhoYPSStJjR/tKypdw==
+
+expo-modules-core@~0.3.0:
+  version "0.3.2"
+  resolved "https://registry.yarnpkg.com/expo-modules-core/-/expo-modules-core-0.3.2.tgz#b0b92b4100c6c13b69ef80ff0a8e97f2cc4f20b6"
+  integrity sha512-7ESMwkO5AwRflGDwcF0Yki98244/0n57alUJA/87TNZdciU0wa0joHi2Eb/fT2ggLT8ta1/bnavb1i3xGftj1Q==
+  dependencies:
+    compare-versions "^3.4.0"
+    invariant "^2.2.4"
 
 expo-pwa@0.0.124:
   version "0.0.124"
