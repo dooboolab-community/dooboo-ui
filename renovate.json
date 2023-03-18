@@ -5,15 +5,44 @@
   ],
   "prHourlyLimit": 3,
   "prConcurrentLimit": 5,
-  "packageRule": {
-    "excludeDepNames": [
-      "expo-font",
-      "babel-loader",
-      "react",
-      "react-native",
-      "react-native-reanimated",
-      "@expo/webpack-config",
-      "webpack-dev-server"
-    ]
-  }
+  "packageRules": [
+    {
+      "excludeDepPatterns": [
+        "^@expo/",
+        "~@expo/",
+        "^expo",
+        "~expo"
+      ]
+    },
+    {
+      "excludePackageNames": [
+        "babel-loader",
+        "react",
+        "react-native",
+        "react-native-reanimated",
+        "webpack-dev-server"
+      ]
+    },
+    {
+      "packagePatterns": [
+        "^@types/"
+      ],
+      "automerge": true,
+      "automergeType": "pr-comment",
+      "automergeComment": "types: auto merge",
+      "major": {
+        "automerge": false
+      }
+    },
+    {
+      "groupName": "lints",
+      "matchPackagePatterns": [
+        "^eslint",
+        "^prettier"
+      ],
+      "labels": [
+        "lint"
+      ]
+    }
+  ]
 }
