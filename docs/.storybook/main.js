@@ -9,7 +9,6 @@ module.exports = {
         sourceLoaderOptions: null,
       },
     },
-    '@storybook/addon-controls',
     'storybook-dark-mode',
   ],
 };
