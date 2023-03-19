@@ -46,5 +46,8 @@
     "storybook-dark-mode": "^2.1.1",
     "url-loader": "^4.1.1",
     "webpack": "^5.76.0"
+  },
+  "resolutions": {
+    "@storybook/react-docgen-typescript-plugin": "1.0.6--canary.9.cd77847.0"
   }
 }
