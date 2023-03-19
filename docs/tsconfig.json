@@ -22,7 +22,6 @@
     "noImplicitAny": false,
     "strict": true,
     "strictNullChecks": true,
-    "suppressImplicitAnyIndexErrors": true,
     "declaration": true,
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,

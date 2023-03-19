@@ -234,7 +234,7 @@ export function EditText(props: EditTextProps): ReactElement {
                 color: defaultColor,
                 style: {marginRight: 6},
               })
-            : startElement?.({color: defaultColor, status})}
+            : startElement}
           <TextInput
             testID={testID}
             ref={inputRef}
@@ -274,7 +274,7 @@ export function EditText(props: EditTextProps): ReactElement {
                 color: defaultColor,
                 style: {marginLeft: 6},
               })
-            : endElement?.({color: defaultColor, status})}
+            : endElement}
         </>
       </View>
     );
