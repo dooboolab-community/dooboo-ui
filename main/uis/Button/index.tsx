@@ -247,7 +247,14 @@ export function Button(props: Props): ReactElement {
   );
 
   const LoadingView = loadingElement ?? (
-    <LoadingIndicator size="small" color={loadingColor || theme.text.basic} />
+    <LoadingIndicator
+      size="small"
+      color={
+        loadingColor || type === 'solid'
+          ? theme.text.contrast
+          : theme.text.basic
+      }
+    />
   );
 
   const ChildView = (
