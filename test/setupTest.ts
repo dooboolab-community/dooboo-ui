@@ -6,6 +6,7 @@ jest.mock('@dooboo-ui/theme/useColorScheme', () =>
   jest.fn().mockReturnValue('light'),
 );
 
+jest.mock('expo-font');
 jest.mock('react-native/Libraries/Animated/NativeAnimatedHelper');
 
 process.on('unhandledRejection', (err) => {
