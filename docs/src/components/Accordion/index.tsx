@@ -1,4 +1,4 @@
-import {Accordion, DoobooProvider, useDooboo} from 'dooboo-ui';
+import {Accordion, DoobooProvider, Typography, useDooboo} from 'dooboo-ui';
 import type {AccordionItemDataType, AccordionProps} from 'dooboo-ui';
 import React, {useEffect} from 'react';
 import type {ReactElement, ReactNode} from 'react';
@@ -66,9 +66,9 @@ export function StoryWrapper({
           )}
           // @ts-ignore
           renderItem={(item) => (
-            <Text style={{paddingHorizontal: 12}} numberOfLines={1}>
+            <Typography.Body2 style={{paddingHorizontal: 12}} numberOfLines={1}>
               {item}
-            </Text>
+            </Typography.Body2>
           )}
           {...props}
         />
