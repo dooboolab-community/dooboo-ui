@@ -7,20 +7,22 @@
   "prConcurrentLimit": 5,
   "packageRules": [
     {
+      "packagePatterns": [
+        "*"
+      ],
       "excludeDepPatterns": [
         "^@expo/",
         "~@expo/",
         "^expo",
         "~expo"
-      ]
-    },
-    {
+      ],
       "excludePackageNames": [
         "babel-loader",
         "react",
         "react-native",
         "react-native-reanimated",
-        "webpack-dev-server"
+        "webpack-dev-server",
+        "@storybook/react-docgen-typescript-plugin"
       ]
     },
     {
