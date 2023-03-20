@@ -6,7 +6,7 @@ import {Icon} from '../uis/Icon';
 import type {ReactElement} from 'react';
 import type {StyleProps} from 'react-native-reanimated';
 
-export const getRootElementStyleType = (
+const getRootElementStyleType = (
   element: ReactElement,
 ): 'TextStyle' | 'ViewStyle' | 'unknown' => {
   if (React.isValidElement(element)) {
