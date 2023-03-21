@@ -16,7 +16,7 @@ const ScrollContainer = styled.ScrollView`
 
 const StyledTitle = styled.Text`
   font-weight: bold;
-  color: ${({theme}) => theme.text.basic};
+  color: ${({theme}) => theme.text.contrast};
   position: absolute;
   padding: 0px 20px;
 `;

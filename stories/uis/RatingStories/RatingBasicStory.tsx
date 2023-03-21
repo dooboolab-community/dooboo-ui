@@ -12,6 +12,12 @@ function RatingBasicStory(): ReactElement {
   const allowHalfRating = boolean('allowHalfRating', true);
   const color = text('color', '#000000');
   const size = number('size', 24);
+  const iconType = select<'star' | 'dooboo'>(
+    'iconType',
+    ['star', 'dooboo'],
+    'star',
+  );
+
   const direction = select<'horizontal' | 'vertical'>(
     'horizontal',
     ['horizontal', 'vertical'],
@@ -25,6 +31,7 @@ function RatingBasicStory(): ReactElement {
         <Rating
           disabled={disabled}
           size={size}
+          iconType={iconType}
           direction={direction}
           onRatingUpdate={action(`score`)}
           allowHalfRating={allowHalfRating}
