@@ -93,8 +93,7 @@ export function StoryWrapper(): ReactElement {
         <EditText
           direction="row"
           style={{marginBottom: 20}}
-          // eslint-disable-next-line react/no-unstable-nested-components
-          label={() => <Icon name="SearchAlt" />}
+          startElement={<Icon name="SearchAlt" />}
           value={searchText}
           placeholder="Search icons"
           onChangeText={(str) => setSearchText(str)}
