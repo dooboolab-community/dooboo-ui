@@ -3,6 +3,7 @@ import React, {useState} from 'react';
 import type {StyleProp, ViewStyle} from 'react-native';
 import styled, {css} from '@emotion/native';
 
+import type {IconName} from './Icon';
 import {Icon} from './Icon';
 import type {ReactElement} from 'react';
 import {TouchableOpacity} from 'react-native-gesture-handler';
@@ -27,6 +28,7 @@ export type RatingProps = {
   styles?: Styles;
   style?: StyleProp<ViewStyle>;
   size?: number;
+  iconType?: 'star' | 'dooboo';
   initialRating?: number;
   direction?: 'horizontal' | 'vertical';
   allowHalfRating?: boolean;
@@ -41,6 +43,7 @@ export function Rating({
   styles,
   initialRating = 0,
   size = 24,
+  iconType = 'star',
   onRatingUpdate,
   direction = 'horizontal',
   allowHalfRating = true,
@@ -48,6 +51,7 @@ export function Rating({
   color,
 }: RatingProps): ReactElement {
   const [rating, setRating] = useState(initialRating);
+  const iconPrefix = iconType === 'star' ? 'Star' : 'Dooboo';
 
   const handlePress = (newRating: number, halfPressed?: boolean): void => {
     const convertedRating = newRating + (!halfPressed ? 0.5 : 0);
@@ -67,7 +71,7 @@ export function Rating({
     position: number;
   }): ReactElement => {
     const filled = rating >= position + (allowHalfRating ? 0.5 : 0);
-    const iconName = filled ? 'Star' : 'StarAlt';
+    const iconName: IconName = filled ? `${iconPrefix}` : `${iconPrefix}Alt`;
     const halfFilled =
       rating >= position && rating < position + (allowHalfRating ? 0.5 : 0);
 
@@ -85,12 +89,16 @@ export function Rating({
         {halfFilled && allowHalfRating ? (
           <View style={{position: 'absolute'}}>
             <Icon
-              name="StarAlt"
+              name={`${iconPrefix}Alt` as IconName}
               size={size}
               style={{position: 'absolute'}}
               color={color}
             />
-            <Icon name="StarHalf" size={size} color={color} />
+            <Icon
+              name={`${iconPrefix}Half` as IconName}
+              size={size}
+              color={color}
+            />
           </View>
         ) : (
           <Icon

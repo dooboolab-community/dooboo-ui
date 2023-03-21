@@ -31,6 +31,17 @@ describe('Rating', () => {
     expect(halfStars).toHaveLength(5);
   });
 
+  test('renders `dooboo` iconType', () => {
+    const {getAllByTestId} = render(
+      Component({
+        testID: 'star',
+        iconType: 'dooboo',
+      }),
+    );
+    const stars = getAllByTestId('star');
+    expect(stars).toHaveLength(5);
+  });
+
   test('calls onRatingUpdate when a star is clicked', () => {
     const handleRatingUpdate = jest.fn();
     const {getAllByRole} = render(
