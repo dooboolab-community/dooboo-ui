@@ -330,7 +330,7 @@ export function Button(props: Props): ReactElement {
       style={[
         style,
         css`
-          border-radius: ${borderRadius}px;
+          border-radius: ${borderRadius + 'px'};
         `,
       ]}
       {...touchableHighlightProps}
