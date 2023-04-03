@@ -35,7 +35,7 @@ function StartElementAndEndElement(): ReactElement {
         color={color}
         startElement={
           <View style={{marginRight: 12}}>
-            <Image style={{width: 20, height: 20}} source={IC_GOOGLE} />
+            <Image style={{width: 32, height: 32}} source={IC_GOOGLE} />
           </View>
         }
         borderRadius={80}
@@ -44,10 +44,9 @@ function StartElementAndEndElement(): ReactElement {
         style={{margin: 4}}
         styles={{
           container: css`
+            width: 300px;
             border-width: 0.5px;
             border-color: deepskyblue;
-            width: 300px;
-            height: 52px;
           `,
           text: {color: 'deepskyblue'},
         }}

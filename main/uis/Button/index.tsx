@@ -1,4 +1,4 @@
-import {Platform, Text, TouchableHighlight} from 'react-native';
+import {Platform, Text, TouchableHighlight, View} from 'react-native';
 import React, {useCallback, useRef} from 'react';
 import type {ReactElement, ReactNode} from 'react';
 import type {
@@ -214,7 +214,13 @@ export function Button(props: Props): ReactElement {
   };
 
   const renderContainer = useCallback(
-    (children: ReactNode): ReactElement => {
+    ({
+      childView,
+      loadingView,
+    }: {
+      childView: ReactNode;
+      loadingView: ReactNode;
+    }): ReactElement => {
       return (
         <ButtonContainer
           testID={loading ? 'loading-view' : 'button-container'}
@@ -223,13 +229,32 @@ export function Button(props: Props): ReactElement {
             hovered && !innerDisabled && compositeStyles.hovered,
             innerDisabled && compositeStyles.disabled,
             {borderRadius: borderRadius},
-            type === 'text' && {backgroundColor: 'transparent'},
+            type === 'text' &&
+              css`
+                background-color: transparent;
+              `,
           ]}
           type={type}
           size={size}
           disabled={innerDisabled}
         >
-          {children}
+          <View
+            style={css`
+              flex-direction: row;
+              align-items: center;
+              opacity: ${loading ? '0' : '1'};
+            `}
+          >
+            {childView}
+          </View>
+          <View
+            style={css`
+              position: absolute;
+              opacity: ${loading ? '1' : '0'};
+            `}
+          >
+            {loadingView}
+          </View>
         </ButtonContainer>
       );
     },
@@ -268,7 +293,10 @@ export function Button(props: Props): ReactElement {
         style={[
           compositeStyles.text,
           innerDisabled && compositeStyles.disabledText,
-          {textAlignVertical: 'center', textAlign: 'center'},
+          css`
+            text-align-vertical: center;
+            text-align: center;
+          `,
         ]}
       >
         {text}
@@ -299,10 +327,18 @@ export function Button(props: Props): ReactElement {
       onPress={onPress}
       delayPressIn={30}
       disabled={innerDisabled || loading}
-      style={[style, {borderRadius}]}
+      style={[
+        style,
+        css`
+          border-radius: ${borderRadius}px;
+        `,
+      ]}
       {...touchableHighlightProps}
     >
-      {renderContainer(loading ? LoadingView : ChildView)}
+      {renderContainer({
+        childView: ChildView,
+        loadingView: LoadingView,
+      })}
     </TouchableHighlight>
   );
 }
