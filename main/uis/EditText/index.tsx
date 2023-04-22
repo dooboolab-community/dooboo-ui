@@ -138,7 +138,6 @@ export function EditText(props: EditTextProps): ReactElement {
 
   const defaultContainerStyle = css`
     flex-direction: ${direction};
-    border-radius: 4px;
   `;
 
   const defaultColor = !editable
@@ -208,6 +207,7 @@ export function EditText(props: EditTextProps): ReactElement {
             `,
             decoration === 'boxed'
               ? css`
+                  border-radius: 4px;
                   border-width: 1px;
                   padding-left: 12px;
                   padding-right: 12px;
@@ -324,6 +324,7 @@ export function EditText(props: EditTextProps): ReactElement {
             css`
               flex: 1;
               color: ${theme.text.validation};
+              font-size: 12px;
             `,
             styles?.error,
           ]}

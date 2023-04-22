@@ -12,7 +12,8 @@
     "outDir": "lib",
     "skipLibCheck": true,
     "allowSyntheticDefaultImports": true,
-    "declaration": true
+    "declaration": true,
+    "declarationMap": true
   },
   "exclude": [
     "node_modules",
