@@ -1,8 +1,9 @@
 // Caveat: Expo web needs React to be imported
-import {PinchZoom} from '../../../packages/PinchZoom/lib';
-import React from 'react';
 import type {ReactElement} from 'react';
+import React from 'react';
 import styled from '@emotion/native';
+
+import {PinchZoom} from '../../../packages/PinchZoom/lib';
 
 const TitleText = styled.Text`
   font-size: 16px;

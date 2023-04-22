@@ -1,20 +1,20 @@
-import {Button, LoadingIndicator} from '../../../../main';
+import type {ReactElement} from 'react';
+// Caveat: Expo web needs React to be imported
+import React, {useState} from 'react';
+import {Image, View} from 'react-native';
+import {css} from '@emotion/native';
+import {action} from '@storybook/addon-actions';
+import {boolean, number, select} from '@storybook/addon-knobs';
+
+import {IC_GOOGLE} from '../../../../assets/icons';
 import type {
   ButtonColorType,
   ButtonSizeType,
   ButtonType,
 } from '../../../../main';
-import {Image, View} from 'react-native';
-// Caveat: Expo web needs React to be imported
-import React, {useState} from 'react';
-import {boolean, number, select} from '@storybook/addon-knobs';
-import {buttonColors, buttonSizes, buttonTypes} from '../../const';
-
-import {IC_GOOGLE} from '../../../../assets/icons';
-import type {ReactElement} from 'react';
+import {Button, LoadingIndicator} from '../../../../main';
 import {StorySection} from '../../../GlobalStyles';
-import {action} from '@storybook/addon-actions';
-import {css} from '@emotion/native';
+import {buttonColors, buttonSizes, buttonTypes} from '../../const';
 
 function StartElementAndEndElement(): ReactElement {
   const [googleLoading, setGoogleLoading] = useState<boolean>(false);

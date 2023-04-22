@@ -1,9 +1,11 @@
-import Counter from './Counter';
-import GoogleSignIn from './GoogleSignIn';
+import type {ReactElement} from 'react';
 // Caveat: Expo web needs React to be imported
 import React from 'react';
-import type {ReactElement} from 'react';
+
 import {StoryDescription} from '../../../GlobalStyles';
+
+import Counter from './Counter';
+import GoogleSignIn from './GoogleSignIn';
 
 function ButtonEventStory(): ReactElement {
   return (

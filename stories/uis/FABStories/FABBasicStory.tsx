@@ -1,9 +1,9 @@
-import {FAB, Typography} from '../../../main';
+import type {ReactElement} from 'react';
 // Caveat: Expo web needs React to be imported
 import React, {useState} from 'react';
-import {StoryContainer, StoryTitle} from '../../GlobalStyles';
 
-import type {ReactElement} from 'react';
+import {FAB, Typography} from '../../../main';
+import {StoryContainer, StoryTitle} from '../../GlobalStyles';
 
 function FABBasicStory(): ReactElement {
   const [selectedItem, setSelectedItem] = useState('none');

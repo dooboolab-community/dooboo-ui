@@ -3,9 +3,9 @@ import 'intl/locale-data/jsonp/en';
 
 // Caveat: Expo web needs React to be imported
 import React, {useState} from 'react';
+import styled from '@emotion/native';
 
 import CalendarCarousel from '../../../packages/CalendarCarousel/lib';
-import styled from '@emotion/native';
 
 const Container = styled.SafeAreaView`
   flex: 1;

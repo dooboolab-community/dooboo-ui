@@ -1,9 +1,9 @@
-import {Button, Typography} from '../../../main';
-
+import type {ReactElement} from 'react';
 // Caveat: Expo web needs React to be imported
 import React from 'react';
-import type {ReactElement} from 'react';
 import styled from '@emotion/native';
+
+import {Button, Typography} from '../../../main';
 import {useDooboo} from '../../../main/providers';
 
 const Container = styled.SafeAreaView`

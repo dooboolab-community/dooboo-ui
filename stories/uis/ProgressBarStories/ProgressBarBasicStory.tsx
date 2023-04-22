@@ -1,9 +1,10 @@
-import {ProgressBar} from '../../../main';
+import type {ReactElement} from 'react';
 // Caveat: Expo web needs React to be imported
 import React from 'react';
-import type {ReactElement} from 'react';
-import {StoryTitle} from '../../GlobalStyles';
 import styled from '@emotion/native';
+
+import {ProgressBar} from '../../../main';
+import {StoryTitle} from '../../GlobalStyles';
 
 const StoryContainer = styled.View`
   flex: 1;

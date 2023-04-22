@@ -1,8 +1,8 @@
-import {IconButton, LoadingIndicator} from '../../../../main';
-
+import type {ReactElement} from 'react';
 // Caveat: Expo web needs React to be imported
 import React from 'react';
-import type {ReactElement} from 'react';
+
+import {IconButton, LoadingIndicator} from '../../../../main';
 import {StorySection} from '../../../GlobalStyles';
 
 function IconButtonLoadingElement(): ReactElement {

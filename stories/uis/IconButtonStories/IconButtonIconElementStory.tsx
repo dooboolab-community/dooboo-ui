@@ -1,11 +1,11 @@
-import {Icon, IconButton} from '../../../main';
-import {StoryContainer, StorySection, StoryTitle} from '../../GlobalStyles';
-import {boolean, number} from '@storybook/addon-knobs';
-
+import type {ReactElement} from 'react';
 // Caveat: Expo web needs React to be imported
 import React from 'react';
-import type {ReactElement} from 'react';
 import {action} from '@storybook/addon-actions';
+import {boolean, number} from '@storybook/addon-knobs';
+
+import {Icon, IconButton} from '../../../main';
+import {StoryContainer, StorySection, StoryTitle} from '../../GlobalStyles';
 
 function IconButtonIconElementStory(): ReactElement {
   return (

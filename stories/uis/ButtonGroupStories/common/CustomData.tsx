@@ -1,11 +1,11 @@
-import {Button, ButtonGroup, Icon, Typography} from '../../../../main';
+import type {FC} from 'react';
 // Caveat: Expo web needs React to be imported
 import React, {useState} from 'react';
-
-import type {FC} from 'react';
-import type {IconName} from '../../../../main';
 import {View} from 'react-native';
 import {useTheme} from '@dooboo-ui/theme';
+
+import type {IconName} from '../../../../main';
+import {Button, ButtonGroup, Icon, Typography} from '../../../../main';
 
 const CustomData: FC = () => {
   const {theme} = useTheme();

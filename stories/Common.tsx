@@ -1,3 +1,9 @@
+import type {ReactElement, ReactNode} from 'react';
+// Caveat: Expo web needs React to be imported
+import React, {useState} from 'react';
+import {StatusBar, View} from 'react-native';
+import {useFonts} from 'expo-font';
+
 import {
   DoobooProvider,
   LoadingIndicator,
@@ -5,13 +11,8 @@ import {
   Typography,
   useDooboo,
 } from '../main';
-// Caveat: Expo web needs React to be imported
-import React, {useState} from 'react';
-import type {ReactElement, ReactNode} from 'react';
-import {StatusBar, View} from 'react-native';
 
 import {StoryContainer} from './GlobalStyles';
-import {useFonts} from 'expo-font';
 
 type ContainerProps = {
   children: ReactNode;

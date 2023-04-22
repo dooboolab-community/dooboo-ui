@@ -1,12 +1,12 @@
 // Caveat: Expo web needs React to be imported
-import React, {useState} from 'react';
-import {ScrollContainer, StoryContainer, StoryTitle} from '../../GlobalStyles';
-
 import type {ReactElement} from 'react';
-import {SwitchToggle} from '../../../main';
+import React, {useState} from 'react';
 import {View} from 'react-native';
-import {number} from '@storybook/addon-knobs';
 import {useTheme} from '@dooboo-ui/theme';
+import {number} from '@storybook/addon-knobs';
+
+import {SwitchToggle} from '../../../main';
+import {ScrollContainer, StoryContainer, StoryTitle} from '../../GlobalStyles';
 
 function SwitchToggleBasicStory(): ReactElement {
   const [on, off] = useState<boolean>(false);

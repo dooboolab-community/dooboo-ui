@@ -1,6 +1,6 @@
-import type {ButtonColorType, ButtonGroupProps} from '../../../main';
 import {number, select} from '@storybook/addon-knobs';
 
+import type {ButtonColorType, ButtonGroupProps} from '../../../main';
 import {useDooboo} from '../../../main';
 
 export function useButtonGroupKnobs(): Pick<

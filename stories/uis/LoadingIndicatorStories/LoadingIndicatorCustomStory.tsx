@@ -1,11 +1,11 @@
-import {Animated, Easing} from 'react-native';
-import type {ImageStyle, StyleProp} from 'react-native';
+import type {ReactElement} from 'react';
 // Caveat: Expo web needs React to be imported
 import React, {useEffect, useState} from 'react';
+import type {ImageStyle, StyleProp} from 'react-native';
+import {Animated, Easing} from 'react-native';
 
 import {IC_MASK} from '../../../assets/icons';
 import {LoadingIndicator} from '../../../main';
-import type {ReactElement} from 'react';
 import {StoryContainer} from '../../GlobalStyles';
 
 type Props = {

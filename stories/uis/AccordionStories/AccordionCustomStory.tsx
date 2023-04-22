@@ -1,17 +1,17 @@
-import {ScrollContainer, StoryContainer, StoryTitle} from '../../GlobalStyles';
-import {boolean, number, object} from '@storybook/addon-knobs';
-
-import {Accordion} from '../../../main/uis/Accordion';
-import type {AccordionItemDataType} from '../../../main/uis/Accordion';
-import {Icon} from '../../../main/uis/Icon';
+import type {ReactElement} from 'react';
 // Caveat: Expo web needs React to be imported
 import React from 'react';
-import type {ReactElement} from 'react';
-import {Typography} from '../../../main/uis/Typography';
 import {View} from 'react-native';
-import {action} from '@storybook/addon-actions';
 import styled from '@emotion/native';
+import {action} from '@storybook/addon-actions';
+import {boolean, number, object} from '@storybook/addon-knobs';
+
 import {useDooboo} from '../../../main';
+import type {AccordionItemDataType} from '../../../main/uis/Accordion';
+import {Accordion} from '../../../main/uis/Accordion';
+import {Icon} from '../../../main/uis/Icon';
+import {Typography} from '../../../main/uis/Typography';
+import {ScrollContainer, StoryContainer, StoryTitle} from '../../GlobalStyles';
 
 const CustomStyledItem = styled.Text`
   padding-left: 10px;

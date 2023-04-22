@@ -1,12 +1,12 @@
 // Caveat: Expo web needs React to be imported
-import {Animated, Dimensions, Image} from 'react-native';
-import type {ImageProps, ImageSourcePropType} from 'react-native';
-
-import {PinchZoom} from '../../../packages/PinchZoom/lib';
-import type {PinchZoomRef} from '../../../packages/PinchZoom/lib';
-import React from 'react';
 import type {ReactElement} from 'react';
+import React from 'react';
+import type {ImageProps, ImageSourcePropType} from 'react-native';
+import {Animated, Dimensions, Image} from 'react-native';
 import styled from '@emotion/native';
+
+import type {PinchZoomRef} from '../../../packages/PinchZoom/lib';
+import {PinchZoom} from '../../../packages/PinchZoom/lib';
 
 const Container = styled.View`
   flex: 1;

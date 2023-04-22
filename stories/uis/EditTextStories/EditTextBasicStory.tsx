@@ -1,13 +1,13 @@
 // Caveat: Expo web needs React to be imported
-import React, {useState} from 'react';
-import {ScrollContainer, StoryContainer} from '../../GlobalStyles';
-
-import {EditText} from '../../../main/uis/EditText';
-import type {EditTextStatus} from '../../../main/uis/EditText';
 import type {ReactElement} from 'react';
-import {Typography} from '../../../main/uis/Typography';
-import {boolean} from '@storybook/addon-knobs';
+import React, {useState} from 'react';
 import {useTheme} from '@dooboo-ui/theme';
+import {boolean} from '@storybook/addon-knobs';
+
+import type {EditTextStatus} from '../../../main/uis/EditText';
+import {EditText} from '../../../main/uis/EditText';
+import {Typography} from '../../../main/uis/Typography';
+import {ScrollContainer, StoryContainer} from '../../GlobalStyles';
 
 const EditTextBasicStory = (): ReactElement => {
   const {theme} = useTheme();

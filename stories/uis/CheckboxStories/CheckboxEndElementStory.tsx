@@ -1,11 +1,11 @@
-import {Checkbox, Typography} from '../../../main';
 import type {FC, ReactElement} from 'react';
 // Caveat: Expo web needs React to be imported
 import React, {useState} from 'react';
-import {ScrollContainer, StoryContainer, StoryTitle} from '../../GlobalStyles';
-
 import {View} from 'react-native';
 import {boolean} from '@storybook/addon-knobs';
+
+import {Checkbox, Typography} from '../../../main';
+import {ScrollContainer, StoryContainer, StoryTitle} from '../../GlobalStyles';
 
 type CheckBoxProps = {
   setChecked: (checked: boolean) => void;

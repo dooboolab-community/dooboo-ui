@@ -1,10 +1,10 @@
-import {NetworkImage, Typography} from '../../../main';
-
 // Caveat: Expo web needs React to be imported
 import React from 'react';
 import {View} from 'react-native';
-import styled from '@emotion/native';
 import {useTheme} from '@dooboo-ui/theme';
+import styled from '@emotion/native';
+
+import {NetworkImage, Typography} from '../../../main';
 
 const ScrollContainer = styled.ScrollView`
   width: 100%;

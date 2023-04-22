@@ -1,16 +1,16 @@
-import {Button, LoadingIndicator} from '../../../../main';
+import type {ReactElement} from 'react';
+// Caveat: Expo web needs React to be imported
+import React from 'react';
+import {boolean, number, select} from '@storybook/addon-knobs';
+
 import type {
   ButtonColorType,
   ButtonSizeType,
   ButtonType,
 } from '../../../../main';
-import {boolean, number, select} from '@storybook/addon-knobs';
-import {buttonColors, buttonSizes, buttonTypes} from '../../const';
-
-// Caveat: Expo web needs React to be imported
-import React from 'react';
-import type {ReactElement} from 'react';
+import {Button, LoadingIndicator} from '../../../../main';
 import {StorySection} from '../../../GlobalStyles';
+import {buttonColors, buttonSizes, buttonTypes} from '../../const';
 
 function Loading(): ReactElement {
   const type = select<ButtonType>('type', buttonTypes, 'solid');

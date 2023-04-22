@@ -1,13 +1,13 @@
-import type {ButtonColorType, ButtonSizeType, ButtonType} from '../../../main';
-import {StoryContainer, StorySection, StoryTitle} from '../../GlobalStyles';
-import {buttonColors, buttonSizes, buttonTypes} from '../const';
-
-import {Button} from '../../../main';
+import type {ReactElement} from 'react';
 // Caveat: Expo web needs React to be imported
 import React from 'react';
-import type {ReactElement} from 'react';
 import {css} from '@emotion/native';
 import {select} from '@storybook/addon-knobs';
+
+import type {ButtonColorType, ButtonSizeType, ButtonType} from '../../../main';
+import {Button} from '../../../main';
+import {StoryContainer, StorySection, StoryTitle} from '../../GlobalStyles';
+import {buttonColors, buttonSizes, buttonTypes} from '../const';
 
 function ButtonCustomStory(): ReactElement {
   const type = select<ButtonType>('type', buttonTypes, 'solid');

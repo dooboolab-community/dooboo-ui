@@ -1,10 +1,10 @@
-import {Button, ButtonGroup, Typography} from '../../../../main';
+import type {ReactElement} from 'react';
 // Caveat: Expo web needs React to be imported
 import React, {useState} from 'react';
-
-import type {ReactElement} from 'react';
 import {View} from 'react-native';
 import {useTheme} from '@dooboo-ui/theme';
+
+import {ButtonGroup, Typography} from '../../../../main';
 
 function SingleSelect(): ReactElement {
   const data = ['Item 1', 'Item 2', 'Item 3', 'Item 4'];

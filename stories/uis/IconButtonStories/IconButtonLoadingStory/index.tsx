@@ -1,10 +1,10 @@
-import {StoryContainer, StorySection, StoryTitle} from '../../../GlobalStyles';
+import type {ReactElement} from 'react';
+// Caveat: Expo web needs React to be imported
+import React from 'react';
 
 import type {ButtonType} from '../../../../main';
 import {IconButton} from '../../../../main';
-// Caveat: Expo web needs React to be imported
-import React from 'react';
-import type {ReactElement} from 'react';
+import {StoryContainer, StorySection, StoryTitle} from '../../../GlobalStyles';
 
 function IconButtonLoadingStory(): ReactElement {
   const types: ButtonType[] = ['text', 'solid', 'outlined'];

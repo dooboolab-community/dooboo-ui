@@ -1,11 +1,11 @@
 // Caveat: Expo web needs React to be imported
-import React, {useState} from 'react';
-import {ScrollContainer, StoryContainer, StoryTitle} from '../../GlobalStyles';
-
-import type {RadioButtonType} from '../../../main/uis/RadioGroup';
-import {RadioGroup} from '../../../main';
 import type {ReactElement} from 'react';
+import React, {useState} from 'react';
 import {View} from 'react-native';
+
+import {RadioGroup} from '../../../main';
+import type {RadioButtonType} from '../../../main/uis/RadioGroup';
+import {ScrollContainer, StoryContainer, StoryTitle} from '../../GlobalStyles';
 
 const types = ['primary', 'secondary', 'success', 'info', 'warning', 'danger'];
 const data = ['Person', 'Animal', 'Bird', 'Other'];

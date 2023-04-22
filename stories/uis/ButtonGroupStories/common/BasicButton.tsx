@@ -1,9 +1,9 @@
-import {ButtonGroup} from '../../../../main';
+import type {FC} from 'react';
 // Caveat: Expo web needs React to be imported
 import React, {useState} from 'react';
 
-import type {FC} from 'react';
 import type {ButtonGroupProps} from '../../../../main';
+import {ButtonGroup} from '../../../../main';
 
 type BasicButtonProps = Pick<
   ButtonGroupProps,

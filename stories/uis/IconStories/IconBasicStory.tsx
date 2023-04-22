@@ -1,11 +1,11 @@
-import {EditText, Icon, Typography, doobooIconList} from '../../../main';
+import type {ReactElement} from 'react';
 // Caveat: Expo web needs React to be imported
 import React, {useState} from 'react';
-
-import type {IconNames} from '../../../main';
-import type {ReactElement} from 'react';
 import {View} from 'react-native';
 import styled from '@emotion/native';
+
+import type {IconNames} from '../../../main';
+import {doobooIconList, EditText, Icon, Typography} from '../../../main';
 
 const StoryContainer = styled.View`
   flex: 1;

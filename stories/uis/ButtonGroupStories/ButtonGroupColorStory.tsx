@@ -1,10 +1,12 @@
-import {StoryContainer, StorySection, StoryTitle} from '../../GlobalStyles';
+import type {ReactElement} from 'react';
 // Caveat: Expo web needs React to be imported
 import React from 'react';
-import type {ReactElement} from 'react';
-import {useButtonGroupKnobs} from './useButtonGroupKnobs';
-import BasicButton from './common/BasicButton';
 import {ScrollView} from 'react-native';
+
+import {StoryContainer, StorySection, StoryTitle} from '../../GlobalStyles';
+
+import BasicButton from './common/BasicButton';
+import {useButtonGroupKnobs} from './useButtonGroupKnobs';
 
 function ButtonGroupColorStory(): ReactElement {
   const {styles, borderStyle} = useButtonGroupKnobs();

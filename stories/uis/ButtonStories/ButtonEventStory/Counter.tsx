@@ -1,17 +1,17 @@
+import type {ReactElement} from 'react';
+// Caveat: Expo web needs React to be imported
+import React, {useState} from 'react';
+import {action} from '@storybook/addon-actions';
+import {boolean, number, select} from '@storybook/addon-knobs';
+
 import type {
   ButtonColorType,
   ButtonSizeType,
   ButtonType,
 } from '../../../../main';
-// Caveat: Expo web needs React to be imported
-import React, {useState} from 'react';
-import {StoryDescription, StorySection} from '../../../GlobalStyles';
-import {boolean, number, select} from '@storybook/addon-knobs';
-import {buttonColors, buttonSizes, buttonTypes} from '../../const';
-
 import {Button} from '../../../../main';
-import type {ReactElement} from 'react';
-import {action} from '@storybook/addon-actions';
+import {StoryDescription, StorySection} from '../../../GlobalStyles';
+import {buttonColors, buttonSizes, buttonTypes} from '../../const';
 
 function Counter(): ReactElement {
   const [count, setCount] = useState(0);

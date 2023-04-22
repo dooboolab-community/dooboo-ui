@@ -3,6 +3,7 @@ import styled from '@emotion/native';
 export const StoryContainer = styled.View`
   flex: 1;
   align-self: stretch;
+  padding: 0 12px;
   background-color: ${({theme}) => theme.bg.basic};
 `;
 

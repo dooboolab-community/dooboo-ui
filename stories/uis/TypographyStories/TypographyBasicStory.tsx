@@ -1,9 +1,9 @@
-import {ScrollContainer, StoryContainer} from '../../GlobalStyles';
-
 // Caveat: Expo web needs React to be imported
 import React from 'react';
-import {Typography} from '../../../main';
 import {View} from 'react-native';
+
+import {Typography} from '../../../main';
+import {ScrollContainer, StoryContainer} from '../../GlobalStyles';
 
 function TypographyBasicStory(): React.ReactElement {
   return (

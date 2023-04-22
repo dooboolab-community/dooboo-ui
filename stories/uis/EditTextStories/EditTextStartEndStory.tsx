@@ -1,13 +1,13 @@
-import {Button, Icon} from '../../../main';
+import type {ReactElement} from 'react';
 // Caveat: Expo web needs React to be imported
 import React, {useState} from 'react';
-import {ScrollContainer, StoryContainer} from '../../GlobalStyles';
-
-import {EditText} from '../../../main/uis/EditText';
-import type {ReactElement} from 'react';
-import {Typography} from '../../../main/uis/Typography';
 import {action} from '@storybook/addon-actions';
 import {boolean} from '@storybook/addon-knobs';
+
+import {Button, Icon} from '../../../main';
+import {EditText} from '../../../main/uis/EditText';
+import {Typography} from '../../../main/uis/Typography';
+import {ScrollContainer, StoryContainer} from '../../GlobalStyles';
 
 const EditTextStartEndStory = (): ReactElement => {
   const [text, setText] = useState<string>('');

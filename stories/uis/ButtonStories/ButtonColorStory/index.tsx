@@ -1,3 +1,8 @@
+import type {ReactElement} from 'react';
+// Caveat: Expo web needs React to be imported
+import React from 'react';
+
+import {Typography} from '../../../../main';
 import {
   ScrollContainer,
   StoryContainer,
@@ -5,12 +10,8 @@ import {
 } from '../../../GlobalStyles';
 
 import OutlinedButtonColors from './OutlinedButtonColors';
-// Caveat: Expo web needs React to be imported
-import React from 'react';
-import type {ReactElement} from 'react';
 import SolidButtonColors from './SolidButtonColors';
 import TextButtonColors from './TextButtonColors';
-import {Typography} from '../../../../main';
 
 function ButtonColorStory(): ReactElement {
   return (
