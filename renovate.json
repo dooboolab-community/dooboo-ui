@@ -24,7 +24,12 @@
         "babel-loader",
         "react",
         "react-native",
+        "react-native-web",
         "react-native-reanimated",
+        "react-native-svg",
+        "react-native-safe-area-context",
+        "@react-native-async-storage/async-storage",
+        "@react-native-community/datetimepicker",
         "webpack-dev-server",
         "@storybook/react-docgen-typescript-plugin"
       ]
