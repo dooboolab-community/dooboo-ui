@@ -15,6 +15,7 @@ import {
 } from 'react-native';
 import {useHover} from 'react-native-web-hooks';
 import {useTheme} from '@dooboo-ui/theme';
+import {css} from '@emotion/native';
 
 import {cloneElemWithDefaultColors} from '../../utils/guards';
 
@@ -35,13 +36,9 @@ export type EditTextStatus =
 
 type RenderType = (stats: EditTextStatus) => ReactElement;
 
-type CustomElemRenderType = ({
-  color,
-  status,
-}: {
-  color: string;
-  status: EditTextStatus;
-}) => ReactElement;
+type CustomElemRenderType =
+  | (({color, status}: {color: string; status: EditTextStatus}) => ReactElement)
+  | null;
 
 export type EditTextProps = {
   testID?: TextInputProps['testID'];
@@ -173,7 +170,14 @@ export function EditText(props: EditTextProps): ReactElement {
   const renderLabel = (): ReactElement | null => {
     return typeof label === 'string' ? (
       <Text
-        style={[{color: defaultColor}, labelPlaceholderColor, styles?.label]}
+        style={[
+          css`
+            color: ${defaultColor};
+            margin-right: 8px;
+          `,
+          labelPlaceholderColor,
+          styles?.label,
+        ]}
       >
         {label}
       </Text>
@@ -192,22 +196,26 @@ export function EditText(props: EditTextProps): ReactElement {
           testID="container"
           style={[
             defaultContainerStyle,
-            {
-              flexDirection: direction,
-              alignItems: direction === 'row' ? 'center' : 'flex-start',
-              justifyContent: 'space-between',
-              // Default border color follows placeholder color for the label.
-              borderColor: labelPlaceholderColor
+            css`
+              flex-direction: ${direction};
+              align-items: ${direction === 'row' ? 'center' : 'flex-start'};
+              justify-content: ${direction === 'row'
+                ? 'flex-start'
+                : 'space-between'};
+              border-color: ${labelPlaceholderColor
                 ? labelPlaceholderColor.color
-                : defaultColor,
-            },
+                : defaultColor};
+            `,
             decoration === 'boxed'
-              ? {
-                  borderWidth: 1,
-                  paddingHorizontal: 12,
-                  paddingTop: label ? 8 : 0,
-                }
-              : {borderBottomWidth: 1},
+              ? css`
+                  border-width: 1px;
+                  padding-left: 12px;
+                  padding-right: 12px;
+                  padding-top: ${label ? '8px' : 0};
+                `
+              : css`
+                  border-bottom-width: 1px;
+                `,
             styles?.container,
           ]}
         >
@@ -220,20 +228,30 @@ export function EditText(props: EditTextProps): ReactElement {
   const renderInput = (): ReactElement => {
     return (
       <View
-        style={{
-          alignSelf: 'stretch',
-
-          flexDirection: 'row',
-          alignItems: 'center',
-          justifyContent: 'space-between',
-        }}
+        style={[
+          direction === 'row'
+            ? css`
+                flex: 1;
+              `
+            : css`
+                align-self: stretch;
+              `,
+          css`
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+          `,
+        ]}
       >
         <>
           {isValidElement(startElement)
             ? cloneElemWithDefaultColors({
                 element: startElement,
                 color: defaultColor,
-                style: {marginRight: 6},
+                style: css`
+                  margin-left: ${decoration === 'boxed' ? '-10px' : '-4px'};
+                  margin-right: 4px;
+                `,
               })
             : startElement}
           <TextInput
@@ -244,11 +262,24 @@ export function EditText(props: EditTextProps): ReactElement {
             selectionColor={colors.focused || theme.text.basic}
             style={[
               // Stretch input in order to make remaining space clickable
-              {flex: 1},
-              // @ts-ignore
-              Platform.OS === 'web' && {outlineWidth: 0},
-              direction === 'column' ? {paddingTop: 12} : {paddingLeft: 12},
-              {color: defaultColor, paddingVertical: 12},
+              css`
+                flex: 1;
+              `,
+              Platform.OS === 'web' &&
+                css`
+                  outline-width: 0;
+                `,
+              direction === 'column'
+                ? css`
+                    padding-top: 12px;
+                  `
+                : css`
+                    padding-left: 12px;
+                  `,
+              css`
+                color: ${defaultColor};
+                padding: 12px 0;
+              `,
               styles?.input,
             ]}
             editable={editable}
@@ -274,7 +305,10 @@ export function EditText(props: EditTextProps): ReactElement {
             ? cloneElemWithDefaultColors({
                 element: endElement,
                 color: defaultColor,
-                style: {marginLeft: 6},
+                style: css`
+                  margin-left: 4px;
+                  margin-right: ${decoration === 'boxed' ? '-12px' : '-4px'};
+                `,
               })
             : endElement}
         </>
@@ -287,8 +321,10 @@ export function EditText(props: EditTextProps): ReactElement {
       typeof error === 'string' ? (
         <Text
           style={[
-            {color: theme.text.validation},
-            {marginTop: 8},
+            css`
+              color: ${theme.text.validation};
+              margin-top: 8px;
+            `,
             styles?.error,
           ]}
         >
@@ -328,7 +364,13 @@ export function EditText(props: EditTextProps): ReactElement {
     <View
       testID="edit-text"
       ref={Platform.select({web: ref, default: undefined})}
-      style={[{alignSelf: 'stretch', flexDirection: 'column'}, style]}
+      style={[
+        css`
+          align-self: stretch;
+          flex-direction: column;
+        `,
+        style,
+      ]}
     >
       {renderContainer(
         <>

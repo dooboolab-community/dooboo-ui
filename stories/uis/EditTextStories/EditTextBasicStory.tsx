@@ -4,6 +4,7 @@ import React, {useState} from 'react';
 import {useTheme} from '@dooboo-ui/theme';
 import {boolean} from '@storybook/addon-knobs';
 
+import {Button, Icon} from '../../../main';
 import type {EditTextStatus} from '../../../main/uis/EditText';
 import {EditText} from '../../../main/uis/EditText';
 import {Typography} from '../../../main/uis/Typography';
@@ -65,6 +66,30 @@ const EditTextBasicStory = (): ReactElement => {
           value={text}
           onChangeText={(str) => onTextChanged(str)}
           style={{marginTop: 20}}
+          startElement={
+            <Button
+              onPress={() => onTextChanged('')}
+              text={
+                <Icon name="AddLocation" size={18} color={theme.role.primary} />
+              }
+              type="text"
+            />
+          }
+          endElement={
+            text ? (
+              <Button
+                onPress={() => onTextChanged('')}
+                text={
+                  <Icon
+                    name="CancelCircle"
+                    size={18}
+                    color={theme.role.primary}
+                  />
+                }
+                type="text"
+              />
+            ) : null
+          }
         />
 
         <EditText
@@ -76,6 +101,30 @@ const EditTextBasicStory = (): ReactElement => {
           value={text}
           onChangeText={(str) => onTextChanged(str)}
           style={{marginTop: 20}}
+          startElement={
+            <Button
+              onPress={() => onTextChanged('')}
+              text={
+                <Icon name="AddLocation" size={18} color={theme.role.primary} />
+              }
+              type="text"
+            />
+          }
+          endElement={
+            text ? (
+              <Button
+                onPress={() => onTextChanged('')}
+                text={
+                  <Icon
+                    name="CancelCircle"
+                    size={18}
+                    color={theme.role.primary}
+                  />
+                }
+                type="text"
+              />
+            ) : null
+          }
         />
 
         <EditText
@@ -88,6 +137,30 @@ const EditTextBasicStory = (): ReactElement => {
           onChangeText={(str) => onTextChanged(str)}
           style={{marginTop: 20}}
           maxLength={200}
+          startElement={
+            <Button
+              onPress={() => onTextChanged('')}
+              text={
+                <Icon name="AddLocation" size={18} color={theme.role.primary} />
+              }
+              type="text"
+            />
+          }
+          endElement={
+            text ? (
+              <Button
+                onPress={() => onTextChanged('')}
+                text={
+                  <Icon
+                    name="CancelCircle"
+                    size={18}
+                    color={theme.role.primary}
+                  />
+                }
+                type="text"
+              />
+            ) : null
+          }
         />
 
         <EditText
