@@ -5,6 +5,10 @@
   ],
   "prHourlyLimit": 3,
   "prConcurrentLimit": 5,
+  "ignorePaths": [
+    "**/node_modules/**",
+    "docs"
+  ],
   "packageRules": [
     {
       "packagePatterns": [
