@@ -1,6 +1,6 @@
 import type {ReactElement} from 'react';
-import {StatusBar} from 'react-native';
 import type {StatusBarStyle} from 'react-native';
+import {StatusBar} from 'react-native';
 import {useTheme} from '@dooboo-ui/theme';
 
 function StatusBarBrightness(): ReactElement {

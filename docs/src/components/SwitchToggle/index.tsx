@@ -1,9 +1,8 @@
-import {DoobooProvider, SwitchToggle, Typography, useDooboo} from 'dooboo-ui';
-import React, {useEffect, useState} from 'react';
-import styled, {css} from '@emotion/native';
-
 import type {ReactElement} from 'react';
+import React, {useEffect, useState} from 'react';
 import {View} from 'react-native';
+import styled, {css} from '@emotion/native';
+import {DoobooProvider, SwitchToggle, Typography, useDooboo} from 'dooboo-ui';
 import {useDarkMode} from 'storybook-dark-mode';
 
 const StoryContainer = styled.View`

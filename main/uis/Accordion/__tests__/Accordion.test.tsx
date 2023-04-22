@@ -1,12 +1,12 @@
-import type {AccordionItemDataType} from '../../..';
-import {Accordion} from '../../..';
-import {createComponent, createTestProps} from '../../../../test/testUtils';
+import type {ReactElement} from 'react';
+import React from 'react';
+import {Text} from 'react-native';
+import type {RenderAPI} from '@testing-library/react-native';
 import {fireEvent, render} from '@testing-library/react-native';
 
-import React from 'react';
-import type {ReactElement} from 'react';
-import type {RenderAPI} from '@testing-library/react-native';
-import {Text} from 'react-native';
+import {createComponent, createTestProps} from '../../../../test/testUtils';
+import type {AccordionItemDataType} from '../../..';
+import {Accordion} from '../../..';
 
 let props: any;
 let component: ReactElement;

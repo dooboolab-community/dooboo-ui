@@ -1,8 +1,9 @@
 import {Animated} from 'react-native';
 import type {DoobooTheme} from '@dooboo-ui/theme';
-import {isEmptyObject} from '../../utils/utils';
 import {light} from '@dooboo-ui/theme';
 import styled from '@emotion/native';
+
+import {isEmptyObject} from '../../utils/utils';
 
 export type ButtonType =
   | 'primary'

@@ -1,10 +1,10 @@
-import {Checkbox, LoadingIndicator} from 'dooboo-ui';
-
-import React from 'react';
 import type {ReactElement} from 'react';
-import {StoryProvider} from './index';
+import React from 'react';
 import {View} from 'react-native';
+import {Checkbox, LoadingIndicator} from 'dooboo-ui';
 import {useFonts} from 'expo-font';
+
+import {StoryProvider} from './index';
 
 export default function Disabled(): ReactElement {
   const [fontsLoaded] = useFonts({

@@ -1,6 +1,7 @@
-import AccordionStory from '.';
-import type {AccordionStoryProps} from '.';
 import {Icon} from 'dooboo-ui';
+
+import type {AccordionStoryProps} from '.';
+import AccordionStory from '.';
 
 function ExToggleElement(baseProps: AccordionStoryProps): React.ReactElement {
   return (

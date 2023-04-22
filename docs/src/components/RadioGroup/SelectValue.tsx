@@ -1,9 +1,9 @@
+import type {ReactElement} from 'react';
+import React, {useState} from 'react';
+import {View} from 'react-native';
 import type {RadioButtonType} from 'dooboo-ui';
 import {RadioGroup} from 'dooboo-ui';
-import React, {useState} from 'react';
 
-import type {ReactElement} from 'react';
-import {View} from 'react-native';
 import {StoryProvider} from './index';
 
 const data = ['one', 'two', 'three', 'four'];

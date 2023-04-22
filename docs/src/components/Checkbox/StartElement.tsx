@@ -1,11 +1,11 @@
-import {Checkbox, LoadingIndicator} from 'dooboo-ui';
-
 import type {ReactElement} from 'react';
-import {StoryProvider} from './index';
+import {useState} from 'react';
 import {View} from 'react-native';
 import styled from '@emotion/native';
+import {Checkbox, LoadingIndicator} from 'dooboo-ui';
 import {useFonts} from 'expo-font';
-import {useState} from 'react';
+
+import {StoryProvider} from './index';
 
 const StyledText = styled.Text`
   color: ${({theme}) => theme.text.basic};

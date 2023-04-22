@@ -1,13 +1,13 @@
 import type {MutableRefObject, ReactElement} from 'react';
 import React, {useRef} from 'react';
-import type {SnackbarContext, SnackbarOptions} from '../modals/Snackbar';
+import {View} from 'react-native';
 import type {ThemeContext, ThemeProps} from '@dooboo-ui/theme';
 import {ThemeProvider, useTheme} from '@dooboo-ui/theme';
 
-import AlertDialog from '../modals/AlertDialog';
 import type {AlertDialogContext} from '../modals/AlertDialog';
+import AlertDialog from '../modals/AlertDialog';
+import type {SnackbarContext, SnackbarOptions} from '../modals/Snackbar';
 import Snackbar from '../modals/Snackbar';
-import {View} from 'react-native';
 import createCtx from '../utils/createCtx';
 
 export type {ThemeContext} from '@dooboo-ui/theme';

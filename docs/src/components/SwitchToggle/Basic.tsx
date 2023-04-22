@@ -1,10 +1,9 @@
-import {DoobooProvider, SwitchToggle, Typography} from 'dooboo-ui';
-
 import type {ReactElement} from 'react';
-import type {ThemeType} from '@dooboo-ui/theme';
-import {View} from 'react-native';
-import {css} from '@emotion/native';
 import {useState} from 'react';
+import {View} from 'react-native';
+import type {ThemeType} from '@dooboo-ui/theme';
+import {css} from '@emotion/native';
+import {DoobooProvider, SwitchToggle, Typography} from 'dooboo-ui';
 
 type BasicProps = {
   themeType: ThemeType;

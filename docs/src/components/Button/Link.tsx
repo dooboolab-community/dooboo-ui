@@ -1,6 +1,7 @@
-import {Button} from 'dooboo-ui';
-import {Linking, StyleSheet, View} from 'react-native';
 import type {ReactElement} from 'react';
+import {Linking, StyleSheet, View} from 'react-native';
+import {Button} from 'dooboo-ui';
+
 import {StoryProvider} from './index';
 
 const styles = StyleSheet.create({

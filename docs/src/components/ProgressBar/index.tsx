@@ -1,8 +1,7 @@
-import {DoobooProvider, ProgressBar, useDooboo} from 'dooboo-ui';
-import type {ProgressBarStyles, ProgressBarType} from 'dooboo-ui';
-import React, {useEffect, useState} from 'react';
-
 import type {ReactElement} from 'react';
+import React, {useEffect, useState} from 'react';
+import type {ProgressBarStyles, ProgressBarType} from 'dooboo-ui';
+import {DoobooProvider, ProgressBar, useDooboo} from 'dooboo-ui';
 import {useDarkMode} from 'storybook-dark-mode';
 
 type Props = {

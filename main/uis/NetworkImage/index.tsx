@@ -1,17 +1,17 @@
+import type {ReactElement} from 'react';
+import React, {isValidElement, useCallback, useEffect, useState} from 'react';
 import type {
   ImageProps,
   ImageRequireSource,
   StyleProp,
   ViewStyle,
 } from 'react-native';
-import React, {isValidElement, useCallback, useEffect, useState} from 'react';
-
 import {Image} from 'react-native';
+import {useTheme} from '@dooboo-ui/theme';
+import styled from '@emotion/native';
+
 import PlaceholderDark from '../../__assets__/placeholder_dark.png';
 import PlaceholderLight from '../../__assets__/placeholder_light.png';
-import type {ReactElement} from 'react';
-import styled from '@emotion/native';
-import {useTheme} from '@dooboo-ui/theme';
 
 const Container = styled.View`
   background-color: ${({theme}) => theme.bg.paper};

@@ -1,7 +1,8 @@
-import AccordionStory from '.';
-import type {AccordionStoryProps} from '.';
-import {Icon} from 'dooboo-ui';
 import styled from '@emotion/native';
+import {Icon} from 'dooboo-ui';
+
+import type {AccordionStoryProps} from '.';
+import AccordionStory from '.';
 
 const Container = styled.View`
   padding-left: 20px;

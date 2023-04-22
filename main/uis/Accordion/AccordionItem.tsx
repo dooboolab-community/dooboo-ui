@@ -1,13 +1,14 @@
-import {Animated, Easing} from 'react-native';
+import type {ReactElement} from 'react';
 // Caveat: Expo web needs React to be imported
 import React, {useEffect, useRef, useState} from 'react';
+import type {LayoutChangeEvent} from 'react-native';
+import {Animated, Easing} from 'react-native';
+import {useTheme} from '@dooboo-ui/theme';
+import styled from '@emotion/native';
+
+import {Icon} from '../Icon';
 
 import type {AccordionBaseProps} from './Accordion';
-import {Icon} from '../Icon';
-import type {LayoutChangeEvent} from 'react-native';
-import type {ReactElement} from 'react';
-import styled from '@emotion/native';
-import {useTheme} from '@dooboo-ui/theme';
 
 const TitleContainer = styled.TouchableOpacity`
   justify-content: center;

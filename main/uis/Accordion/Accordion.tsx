@@ -1,11 +1,11 @@
+import type {ReactElement} from 'react';
 import React, {useRef} from 'react';
 import type {StyleProp, ViewStyle} from 'react-native';
-
-import AccordionItem from './AccordionItem';
-import type {AccordionItemDataType} from './AccordionItem';
 import {Animated} from 'react-native';
-import type {ReactElement} from 'react';
 import styled from '@emotion/native';
+
+import type {AccordionItemDataType} from './AccordionItem';
+import AccordionItem from './AccordionItem';
 
 const Container = styled.View`
   flex-direction: column;

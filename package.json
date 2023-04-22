@@ -61,7 +61,7 @@
     "@babel/preset-react": "^7.18.6",
     "@commitlint/cli": "^17.4.2",
     "@commitlint/config-conventional": "^17.4.2",
-    "@dooboo/eslint-config-react-native": "^1.0.4",
+    "@dooboo/eslint-config-react-native": "^1.2.0",
     "@jest/types": "^29.4.1",
     "@storybook/addon-actions": "^6.5.16",
     "@storybook/addon-knobs": "^6.4.0",

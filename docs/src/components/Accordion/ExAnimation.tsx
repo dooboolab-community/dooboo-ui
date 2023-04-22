@@ -1,10 +1,10 @@
-import {EditText, SwitchToggle, Typography} from 'dooboo-ui';
 import React, {useState} from 'react';
-
-import AccordionStory from '.';
-import type {AccordionStoryProps} from '.';
 import {View} from 'react-native';
 import {css} from '@emotion/native';
+import {EditText, SwitchToggle, Typography} from 'dooboo-ui';
+
+import type {AccordionStoryProps} from '.';
+import AccordionStory from '.';
 
 function ExAnimation(baseProps: AccordionStoryProps): React.ReactElement {
   const [shouldAnimate, setShouldAnimate] = useState(true);

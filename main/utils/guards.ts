@@ -1,10 +1,10 @@
-import {Image, Text, TextInput, View} from 'react-native';
+import type {ReactElement} from 'react';
 import React, {cloneElement} from 'react';
+import {Image, Text, TextInput, View} from 'react-native';
+import type {StyleProps} from 'react-native-reanimated';
 
 import {Button} from '../uis/Button';
 import {Icon} from '../uis/Icon';
-import type {ReactElement} from 'react';
-import type {StyleProps} from 'react-native-reanimated';
 
 const getRootElementStyleType = (
   element: ReactElement,

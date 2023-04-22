@@ -1,18 +1,17 @@
+import type {ReactElement} from 'react';
+import React, {useEffect, useState} from 'react';
+import {View} from 'react-native';
+import styled from '@emotion/native';
+import type {IconNames} from 'dooboo-ui';
 import {
+  doobooIconList,
   DoobooProvider,
   EditText,
   Icon,
-  doobooIconList,
   useDooboo,
 } from 'dooboo-ui';
-import React, {useEffect, useState} from 'react';
-
-import type {IconNames} from 'dooboo-ui';
-import type {ReactElement} from 'react';
-import {View} from 'react-native';
-import styled from '@emotion/native';
-import {useDarkMode} from 'storybook-dark-mode';
 import {useFonts} from 'expo-font';
+import {useDarkMode} from 'storybook-dark-mode';
 
 const StoryContainer = styled.View`
   background-color: ${({theme}) => theme.bg.basic};

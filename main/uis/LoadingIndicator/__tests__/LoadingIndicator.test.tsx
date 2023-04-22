@@ -1,10 +1,9 @@
 import * as React from 'react';
-
-import {createComponent, createTestProps} from '../../../../test/testUtils';
-
-import {LoadingIndicator} from '../../..';
 import {View} from 'react-native';
 import renderer from 'react-test-renderer';
+
+import {createComponent, createTestProps} from '../../../../test/testUtils';
+import {LoadingIndicator} from '../../..';
 
 let props: any;
 let component: React.ReactElement;

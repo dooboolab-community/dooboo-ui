@@ -1,16 +1,16 @@
-import {dark, light} from '@dooboo-ui/theme';
-import {fireEvent, render} from '@testing-library/react-native';
-
-import {Button} from '../../..';
-import type {Props as ButtonProps} from '..';
-import {LoadingIndicator} from '../../LoadingIndicator';
-import React from 'react';
 import type {ReactElement} from 'react';
-import type {RenderAPI} from '@testing-library/react-native';
+import React from 'react';
 import {Text} from 'react-native';
 import type {ThemeType} from '@dooboo-ui/theme';
-import {createComponent} from '../../../../test/testUtils';
+import {dark, light} from '@dooboo-ui/theme';
 import {css} from '@emotion/native';
+import type {RenderAPI} from '@testing-library/react-native';
+import {fireEvent, render} from '@testing-library/react-native';
+
+import {createComponent} from '../../../../test/testUtils';
+import {Button} from '../../..';
+import {LoadingIndicator} from '../../LoadingIndicator';
+import type {Props as ButtonProps} from '..';
 
 let testingLib: RenderAPI;
 

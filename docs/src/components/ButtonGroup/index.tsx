@@ -1,8 +1,7 @@
-import {ButtonGroup, DoobooProvider, useDooboo} from 'dooboo-ui';
-import React, {useEffect, useState} from 'react';
-
 import type {ReactElement} from 'react';
+import React, {useEffect, useState} from 'react';
 import styled from '@emotion/native';
+import {ButtonGroup, DoobooProvider, useDooboo} from 'dooboo-ui';
 import {useDarkMode} from 'storybook-dark-mode';
 
 const Container = styled.SafeAreaView`

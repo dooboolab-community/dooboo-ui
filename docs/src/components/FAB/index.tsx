@@ -1,11 +1,10 @@
-import {DoobooProvider, FAB, useDooboo} from 'dooboo-ui';
-import React, {useEffect, useState} from 'react';
-
 import type {ReactElement} from 'react';
+import React, {useEffect, useState} from 'react';
 import {View} from 'react-native';
 import styled from '@emotion/native';
-import {useDarkMode} from 'storybook-dark-mode';
+import {DoobooProvider, FAB, useDooboo} from 'dooboo-ui';
 import {useFonts} from 'expo-font';
+import {useDarkMode} from 'storybook-dark-mode';
 
 const StoryContainer = styled.View`
   width: 100%;

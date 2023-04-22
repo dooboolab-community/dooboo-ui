@@ -1,13 +1,13 @@
-import {Animated, Easing, View} from 'react-native';
-import type {LayoutChangeEvent, StyleProp, ViewStyle} from 'react-native';
+import type {ReactElement} from 'react';
 import React, {useLayoutEffect, useMemo, useRef} from 'react';
+import type {LayoutChangeEvent, StyleProp, ViewStyle} from 'react-native';
+import {Animated, Easing, View} from 'react-native';
+import {useTheme} from '@dooboo-ui/theme';
 
 import type {ButtonSizeType} from '../Button';
+import type {IconName} from '../Icon';
 import {Icon} from '../Icon';
 import {IconButton} from '../IconButton';
-import type {IconName} from '../Icon';
-import type {ReactElement} from 'react';
-import {useTheme} from '@dooboo-ui/theme';
 
 interface Styles {
   FAB?: StyleProp<ViewStyle>;

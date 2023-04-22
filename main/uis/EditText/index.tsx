@@ -1,11 +1,4 @@
 import type {MutableRefObject, ReactElement, ReactNode, RefObject} from 'react';
-import {
-  Platform,
-  Text,
-  TextInput,
-  TouchableWithoutFeedback,
-  View,
-} from 'react-native';
 import React, {isValidElement, useRef, useState} from 'react';
 import type {
   StyleProp,
@@ -13,10 +6,17 @@ import type {
   TextStyle,
   ViewStyle,
 } from 'react-native';
-
-import {cloneElemWithDefaultColors} from '../../utils/guards';
+import {
+  Platform,
+  Text,
+  TextInput,
+  TouchableWithoutFeedback,
+  View,
+} from 'react-native';
 import {useHover} from 'react-native-web-hooks';
 import {useTheme} from '@dooboo-ui/theme';
+
+import {cloneElemWithDefaultColors} from '../../utils/guards';
 
 type Styles = {
   container?: StyleProp<ViewStyle>;
