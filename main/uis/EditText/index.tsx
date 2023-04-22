@@ -136,10 +136,10 @@ export function EditText(props: EditTextProps): ReactElement {
     (givenInputRef as MutableRefObject<TextInput>) || defaultInputRef;
   const hovered = useHover(ref);
 
-  const defaultContainerStyle: ViewStyle = {
-    flexDirection: direction,
-    borderRadius: 4,
-  };
+  const defaultContainerStyle = css`
+    flex-direction: ${direction};
+    border-radius: 4px;
+  `;
 
   const defaultColor = !editable
     ? colors.disabled || theme.text.disabled
@@ -322,8 +322,8 @@ export function EditText(props: EditTextProps): ReactElement {
         <Text
           style={[
             css`
+              flex: 1;
               color: ${theme.text.validation};
-              margin-top: 8px;
             `,
             styles?.error,
           ]}
@@ -340,20 +340,10 @@ export function EditText(props: EditTextProps): ReactElement {
     return maxLength ? (
       <Text
         style={[
-          {
-            color: theme.text.placeholder,
-            alignSelf: 'flex-end',
-            fontSize: 12,
-          },
-          decoration === 'boxed'
-            ? {
-                right: -4,
-                marginBottom: 6,
-              }
-            : {
-                position: 'absolute',
-                bottom: -24,
-              },
+          css`
+            color: ${theme.text.placeholder};
+            font-size: 12px;
+          `,
           styles?.counter,
         ]}
       >{`${value.length}/${maxLength}`}</Text>
@@ -376,10 +366,23 @@ export function EditText(props: EditTextProps): ReactElement {
         <>
           {renderLabel()}
           {renderInput()}
-          {renderCounter()}
         </>,
       )}
-      {renderError()}
+      {renderError || renderCounter ? (
+        <View
+          style={css`
+            flex: 1;
+            margin-top: 6px;
+
+            flex-direction: row;
+            justify-content: space-between;
+            gap: 4px;
+          `}
+        >
+          {renderError() || <View />}
+          {renderCounter()}
+        </View>
+      ) : null}
     </View>
   );
 }

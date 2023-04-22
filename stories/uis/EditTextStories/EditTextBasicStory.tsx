@@ -2,6 +2,7 @@
 import type {ReactElement} from 'react';
 import React, {useState} from 'react';
 import {useTheme} from '@dooboo-ui/theme';
+import {css} from '@emotion/native';
 import {boolean} from '@storybook/addon-knobs';
 
 import {Button, Icon} from '../../../main';
@@ -65,7 +66,10 @@ const EditTextBasicStory = (): ReactElement => {
           placeholder="direction: column"
           value={text}
           onChangeText={(str) => onTextChanged(str)}
-          style={{marginTop: 20}}
+          style={css`
+            margin-top: 20px;
+          `}
+          maxLength={240}
           startElement={
             <Button
               onPress={() => onTextChanged('')}
@@ -100,16 +104,10 @@ const EditTextBasicStory = (): ReactElement => {
           label="Row"
           value={text}
           onChangeText={(str) => onTextChanged(str)}
-          style={{marginTop: 20}}
-          startElement={
-            <Button
-              onPress={() => onTextChanged('')}
-              text={
-                <Icon name="AddLocation" size={18} color={theme.role.primary} />
-              }
-              type="text"
-            />
-          }
+          style={css`
+            margin-top: 20px;
+          `}
+          maxLength={240}
           endElement={
             text ? (
               <Button
@@ -135,7 +133,9 @@ const EditTextBasicStory = (): ReactElement => {
           placeholder="decoration: boxed with max length"
           value={text}
           onChangeText={(str) => onTextChanged(str)}
-          style={{marginTop: 20}}
+          style={css`
+            margin-top: 20px;
+          `}
           maxLength={200}
           startElement={
             <Button
@@ -168,11 +168,29 @@ const EditTextBasicStory = (): ReactElement => {
           editable={boolean('editable', true)}
           direction="column"
           decoration="boxed"
+          endElement={
+            text ? (
+              <Button
+                onPress={() => onTextChanged('')}
+                text={
+                  <Icon
+                    name="CancelCircle"
+                    size={18}
+                    color={theme.role.primary}
+                  />
+                }
+                type="text"
+              />
+            ) : null
+          }
           placeholder="decoration: boxed"
+          multiline={true}
           label="Boxed"
           value={text}
           onChangeText={(str) => onTextChanged(str)}
-          style={{marginTop: 20}}
+          style={css`
+            margin-top: 20px;
+          `}
         />
 
         <EditText
