@@ -67,7 +67,7 @@
     "@react-native-community/datetimepicker": "^7.0.1",
     "@react-native-community/slider": "^4.4.2",
     "@storybook/addon-actions": "^6.5.16",
-    "@storybook/addon-knobs": "^6.4.0",
+    "@storybook/addon-knobs": "^7.0.0",
     "@storybook/addon-ondevice-actions": "^6.0.0",
     "@storybook/addon-ondevice-knobs": "^6.0.0",
     "@storybook/addon-ondevice-notes": "^6.0.0",
