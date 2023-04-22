@@ -1,4 +1,4 @@
-import {Modal, Platform, StyleSheet} from 'react-native';
+import type {ReactElement} from 'react';
 import React, {
   cloneElement,
   forwardRef,
@@ -6,14 +6,14 @@ import React, {
   useState,
 } from 'react';
 import type {StyleProp, TextStyle, ViewStyle} from 'react-native';
+import {Modal, Platform, StyleSheet} from 'react-native';
+import {TouchableWithoutFeedback} from 'react-native-gesture-handler';
+import {useTheme} from '@dooboo-ui/theme';
+import styled from '@emotion/native';
 
 import {Button} from '../../uis/Button';
 import {Icon} from '../../uis/Icon';
-import type {ReactElement} from 'react';
-import {TouchableWithoutFeedback} from 'react-native-gesture-handler';
 import {Typography} from '../../uis/Typography';
-import styled from '@emotion/native';
-import {useTheme} from '@dooboo-ui/theme';
 
 const Container = styled.View`
   flex: 1;

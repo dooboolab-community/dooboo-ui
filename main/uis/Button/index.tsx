@@ -1,20 +1,20 @@
-import {Platform, Text, TouchableHighlight, View} from 'react-native';
-import React, {useCallback, useRef} from 'react';
 import type {ReactElement, ReactNode} from 'react';
+import React, {useCallback, useRef} from 'react';
 import type {
   StyleProp,
   TextStyle,
   TouchableHighlightProps,
   ViewStyle,
 } from 'react-native';
+import {Platform, Text, TouchableHighlight, View} from 'react-native';
+import {useHover} from 'react-native-web-hooks';
+import type {DoobooTheme} from '@dooboo-ui/theme';
+import {useTheme} from '@dooboo-ui/theme';
 import styled, {css} from '@emotion/native';
 
-import type {DoobooTheme} from '@dooboo-ui/theme';
-import {LoadingIndicator} from '../LoadingIndicator';
 import {cloneElemWithDefaultColors} from '../../utils/guards';
 import {getTheme as getThemeVars} from '../../utils/utils';
-import {useHover} from 'react-native-web-hooks';
-import {useTheme} from '@dooboo-ui/theme';
+import {LoadingIndicator} from '../LoadingIndicator';
 
 type Styles = {
   container?: StyleProp<ViewStyle>;

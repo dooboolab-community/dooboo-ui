@@ -1,14 +1,14 @@
+import type {ReactElement} from 'react';
+import React from 'react';
+import {Text} from 'react-native';
+import RNWebHooks from 'react-native-web-hooks';
+import {light} from '@dooboo-ui/theme';
+import type {RenderAPI} from '@testing-library/react-native';
 import {act, fireEvent, render} from '@testing-library/react-native';
 
-import {EditText} from '..';
-import type {EditTextProps} from '..';
-import RNWebHooks from 'react-native-web-hooks';
-import React from 'react';
-import type {ReactElement} from 'react';
-import type {RenderAPI} from '@testing-library/react-native';
-import {Text} from 'react-native';
 import {createComponent} from '../../../../test/testUtils';
-import {light} from '@dooboo-ui/theme';
+import type {EditTextProps} from '..';
+import {EditText} from '..';
 
 jest.mock('react-native-web-hooks', () => ({
   useHover: () => false,

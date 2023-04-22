@@ -1,6 +1,6 @@
+import {useEffect, useState} from 'react';
 import type {ColorSchemeName, NativeEventSubscription} from 'react-native';
 import {Appearance, Platform} from 'react-native';
-import {useEffect, useState} from 'react';
 
 export const useColorScheme = (): ColorSchemeName => {
   const deviceThemeType = Appearance.getColorScheme();

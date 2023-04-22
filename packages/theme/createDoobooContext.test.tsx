@@ -1,6 +1,7 @@
 import type {ReactElement} from 'react';
-import createDoobooContext from './createDoobooContext';
 import {renderHook} from '@testing-library/react-hooks';
+
+import createDoobooContext from './createDoobooContext';
 
 describe('createDoobooContext', () => {
   const [useCtx, Provider] = createDoobooContext();

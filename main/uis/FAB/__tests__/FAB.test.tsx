@@ -1,11 +1,11 @@
-import type {FABItem, FABProps} from '../../..';
+import type {ReactElement} from 'react';
+import React from 'react';
+import {View} from 'react-native';
 import {fireEvent, render} from '@testing-library/react-native';
 
-import {FAB} from '../../..';
-import React from 'react';
-import type {ReactElement} from 'react';
-import {View} from 'react-native';
 import {createComponent} from '../../../../test/testUtils';
+import type {FABItem, FABProps} from '../../..';
+import {FAB} from '../../..';
 
 const Component = (props: FABProps<FABItem>): ReactElement =>
   createComponent(<FAB {...props} />);

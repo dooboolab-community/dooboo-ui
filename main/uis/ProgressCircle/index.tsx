@@ -1,13 +1,13 @@
-import Svg, {Circle as SvgCircle} from 'react-native-svg';
-import type {TextStyle, ViewStyle} from 'react-native';
-import {useMemo, useRef, useState} from 'react';
-
-import {Animated} from 'react-native';
-import type {ButtonColorType} from '../Button';
-import type {DoobooTheme} from '@dooboo-ui/theme';
 import type {ReactElement} from 'react';
-import styled from '@emotion/native';
+import {useMemo, useRef, useState} from 'react';
+import type {TextStyle, ViewStyle} from 'react-native';
+import {Animated} from 'react-native';
+import Svg, {Circle as SvgCircle} from 'react-native-svg';
+import type {DoobooTheme} from '@dooboo-ui/theme';
 import {useTheme} from '@dooboo-ui/theme';
+import styled from '@emotion/native';
+
+import type {ButtonColorType} from '../Button';
 
 type DoobooThemeContext = {theme: DoobooTheme};
 type Props = {

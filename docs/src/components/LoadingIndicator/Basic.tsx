@@ -1,7 +1,7 @@
-import {LoadingIndicator} from 'dooboo-ui';
-
 import type {ReactElement} from 'react';
 import styled from '@emotion/native';
+import {LoadingIndicator} from 'dooboo-ui';
+
 import {StoryProvider} from './index';
 
 const StyledView = styled.View`

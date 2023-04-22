@@ -1,11 +1,11 @@
-import {ThemeProvider, useTheme} from './index';
-import {act, renderHook} from '@testing-library/react-hooks';
-import {colors, dark} from './colors';
-
 import type {ReactElement} from 'react';
 import {Context as ResponsiveContext} from 'react-responsive';
-import getGiven from 'givens';
 import {useTheme as useThemeEmotion} from '@emotion/react';
+import {act, renderHook} from '@testing-library/react-hooks';
+import getGiven from 'givens';
+
+import {colors, dark} from './colors';
+import {ThemeProvider, useTheme} from './index';
 
 const given = getGiven();
 

@@ -1,11 +1,11 @@
+import type {ReactElement} from 'react';
+import React from 'react';
+import {Text} from 'react-native';
+import renderer from 'react-test-renderer';
 import {fireEvent, render} from '@testing-library/react-native';
 
-import React from 'react';
-import type {ReactElement} from 'react';
-import {SwitchToggle} from '..';
-import {Text} from 'react-native';
 import {createComponent} from '../../../../test/testUtils';
-import renderer from 'react-test-renderer';
+import {SwitchToggle} from '..';
 
 describe('[SwitchToggle]', () => {
   const handlePress = jest.fn();

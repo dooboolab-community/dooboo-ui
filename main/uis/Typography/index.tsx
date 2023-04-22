@@ -1,3 +1,6 @@
+import React from 'react';
+import {Text} from 'react-native';
+
 import {
   Body1,
   Body2,
@@ -22,9 +25,6 @@ import {
   InvertedHeading5,
   InvertedTitle,
 } from './TypographyInverted';
-
-import React from 'react';
-import {Text} from 'react-native';
 
 export const Typography = {
   Title,

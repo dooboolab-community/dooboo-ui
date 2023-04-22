@@ -1,7 +1,6 @@
-import {BackHandler, FlatList, Keyboard, Platform, View} from 'react-native';
-import type {BackHandlerStatic, ListRenderItem, TextInput} from 'react-native';
 import React, {useEffect, useRef, useState} from 'react';
-
+import type {BackHandlerStatic, ListRenderItem, TextInput} from 'react-native';
+import {BackHandler, FlatList, Keyboard, Platform, View} from 'react-native';
 import styled from '@emotion/native';
 
 const StyledKeyboardAvoidingView = styled.KeyboardAvoidingView`

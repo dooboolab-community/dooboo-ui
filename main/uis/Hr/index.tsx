@@ -1,5 +1,6 @@
-import {isEmptyObject} from '../../utils/utils';
 import styled from '@emotion/native';
+
+import {isEmptyObject} from '../../utils/utils';
 
 export const Hr = styled.View`
   height: 1px;

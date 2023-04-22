@@ -1,10 +1,12 @@
-import {Button} from 'dooboo-ui';
-import {IC_FACEBOOK, IC_GOOGLE} from '../../icon';
+import type {ReactElement} from 'react';
+import {useState} from 'react';
 import {Image, View} from 'react-native';
 import {css} from '@emotion/native';
-import type {ReactElement} from 'react';
 import {action} from '@storybook/addon-actions';
-import {useState} from 'react';
+import {Button} from 'dooboo-ui';
+
+import {IC_FACEBOOK, IC_GOOGLE} from '../../icon';
+
 import {StoryProvider} from './index';
 
 export default function AdditionalElement(): ReactElement {

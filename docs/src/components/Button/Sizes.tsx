@@ -1,7 +1,8 @@
-import type {ButtonSizeType} from 'dooboo-ui';
-import {Button} from 'dooboo-ui';
 import type {ReactElement} from 'react';
 import {View} from 'react-native';
+import type {ButtonSizeType} from 'dooboo-ui';
+import {Button} from 'dooboo-ui';
+
 import {StoryProvider} from './index';
 
 export default function Sizes(): ReactElement {

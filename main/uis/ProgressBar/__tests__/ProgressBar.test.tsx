@@ -1,11 +1,12 @@
-import {ProgressBar} from '../../..';
-import type {ProgressBarProps} from '../../..';
-import React from 'react';
 import type {ReactElement} from 'react';
-import type {RenderAPI} from '@testing-library/react-native';
-import {createComponent} from '../../../../test/testUtils';
+import React from 'react';
 import {light} from '@dooboo-ui/theme';
+import type {RenderAPI} from '@testing-library/react-native';
 import {render} from '@testing-library/react-native';
+
+import {createComponent} from '../../../../test/testUtils';
+import type {ProgressBarProps} from '../../..';
+import {ProgressBar} from '../../..';
 
 let testingLib: RenderAPI;
 

@@ -1,14 +1,14 @@
-import type {RenderAPI} from '@testing-library/react-native';
-import {render, fireEvent} from '@testing-library/react-native';
-
-import type {ButtonGroupProps, ButtonGroupRenderItem} from '..';
-import {ButtonGroup} from '..';
 import type {ReactElement} from 'react';
 import React from 'react';
-import {createComponent} from '../../../../test/testUtils';
 import type {StyleProp, ViewStyle} from 'react-native';
-import {View, Text} from 'react-native';
+import {Text, View} from 'react-native';
 import type {ReactTestInstance} from 'react-test-renderer';
+import type {RenderAPI} from '@testing-library/react-native';
+import {fireEvent, render} from '@testing-library/react-native';
+
+import {createComponent} from '../../../../test/testUtils';
+import type {ButtonGroupProps, ButtonGroupRenderItem} from '..';
+import {ButtonGroup} from '..';
 
 type Item = {text: string};
 

@@ -1,10 +1,11 @@
-import {IconButton} from '../../..';
-import type {Props} from '../../..';
-import React from 'react';
 import type {ReactElement} from 'react';
+import React from 'react';
 import type {RenderAPI} from '@testing-library/react-native';
-import {createComponent} from '../../../../test/testUtils';
 import {render} from '@testing-library/react-native';
+
+import {createComponent} from '../../../../test/testUtils';
+import type {Props} from '../../..';
+import {IconButton} from '../../..';
 
 let testingLib: RenderAPI;
 

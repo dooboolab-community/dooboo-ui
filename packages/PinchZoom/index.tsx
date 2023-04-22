@@ -1,10 +1,3 @@
-import {Animated, PanResponder} from 'react-native';
-import type {
-  NativeMethods,
-  NativeTouchEvent,
-  PanResponderInstance,
-  ViewStyle,
-} from 'react-native';
 import type {PropsWithChildren, ReactElement, Ref} from 'react';
 import React, {
   forwardRef,
@@ -13,6 +6,13 @@ import React, {
   useRef,
   useState,
 } from 'react';
+import type {
+  NativeMethods,
+  NativeTouchEvent,
+  PanResponderInstance,
+  ViewStyle,
+} from 'react-native';
+import {Animated, PanResponder} from 'react-native';
 
 type Props = PropsWithChildren<{
   style?: ViewStyle;

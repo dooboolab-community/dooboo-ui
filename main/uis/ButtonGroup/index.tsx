@@ -1,3 +1,6 @@
+import type {ReactElement} from 'react';
+// Caveat: Expo web needs React to be imported
+import React from 'react';
 import type {
   StyleProp,
   TextStyle,
@@ -5,10 +8,6 @@ import type {
   ViewStyle,
 } from 'react-native';
 import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
-
-// Caveat: Expo web needs React to be imported
-import React from 'react';
-import type {ReactElement} from 'react';
 import {useTheme} from '@dooboo-ui/theme';
 
 interface Styles {

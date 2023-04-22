@@ -1,6 +1,14 @@
 import 'intl';
 import 'intl/locale-data/jsonp/en';
 
+import type {PropsWithChildren, ReactElement} from 'react';
+import React, {useRef, useState} from 'react';
+import type {
+  NativeScrollEvent,
+  NativeSyntheticEvent,
+  TextStyle,
+  ViewStyle,
+} from 'react-native';
 import {
   FlatList,
   SafeAreaView,
@@ -10,15 +18,6 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
-import type {
-  NativeScrollEvent,
-  NativeSyntheticEvent,
-  TextStyle,
-  ViewStyle,
-} from 'react-native';
-import type {PropsWithChildren, ReactElement} from 'react';
-import React, {useRef, useState} from 'react';
-
 import {useTheme} from '@dooboo-ui/theme';
 
 interface Style {

@@ -1,16 +1,16 @@
+import type {FC} from 'react';
+import React, {useEffect, useRef} from 'react';
+import type {StyleProp, ViewStyle} from 'react-native';
 import {Animated, Platform, View} from 'react-native';
+import type {DoobooTheme} from '@dooboo-ui/theme';
+import {useTheme} from '@dooboo-ui/theme';
+import styled from '@emotion/native';
+
+import {Icon} from '../Icon';
 import {
   CheckboxWrapper,
   CheckboxWrapperOutlined,
 } from '../Styled/StyledComponents';
-import React, {useEffect, useRef} from 'react';
-import type {StyleProp, ViewStyle} from 'react-native';
-
-import type {DoobooTheme} from '@dooboo-ui/theme';
-import type {FC} from 'react';
-import {Icon} from '../Icon';
-import styled from '@emotion/native';
-import {useTheme} from '@dooboo-ui/theme';
 
 type Styles = {
   checkbox?: StyleProp<ViewStyle>;

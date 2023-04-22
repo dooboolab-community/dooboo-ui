@@ -1,11 +1,12 @@
-import React from 'react';
 import type {ReactElement} from 'react';
-import type {RenderAPI} from '@testing-library/react-native';
-import StatusBarBrightness from '..';
-import {ThemeProvider} from '@dooboo-ui/theme';
+import React from 'react';
 import {View} from 'react-native';
-import {createComponent} from '../../../../test/testUtils';
+import {ThemeProvider} from '@dooboo-ui/theme';
+import type {RenderAPI} from '@testing-library/react-native';
 import {render} from '@testing-library/react-native';
+
+import {createComponent} from '../../../../test/testUtils';
+import StatusBarBrightness from '..';
 
 let testingLib: RenderAPI;
 

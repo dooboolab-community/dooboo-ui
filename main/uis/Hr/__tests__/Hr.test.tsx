@@ -1,10 +1,11 @@
-import {Hr} from '../../..';
-import React from 'react';
 import type {ReactElement} from 'react';
-import type {RenderAPI} from '@testing-library/react-native';
+import React from 'react';
 import {View} from 'react-native';
-import {createComponent} from '../../../../test/testUtils';
+import type {RenderAPI} from '@testing-library/react-native';
 import {render} from '@testing-library/react-native';
+
+import {createComponent} from '../../../../test/testUtils';
+import {Hr} from '../../..';
 
 let testingLib: RenderAPI;
 

@@ -1,3 +1,5 @@
+import type {FC} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import type {
   LayoutRectangle,
   StyleProp,
@@ -5,16 +7,15 @@ import type {
   ViewStyle,
 } from 'react-native';
 import {Animated, Platform, View} from 'react-native';
+import styled from '@emotion/native';
+
 import {
   ColoredText,
   RadioButtonWrapper,
   RadioWrapper,
 } from '../Styled/StyledComponents';
-import type {FC} from 'react';
-import React, {useEffect, useRef, useState} from 'react';
-import type {RadioButtonType} from './index';
 
-import styled from '@emotion/native';
+import type {RadioButtonType} from './index';
 
 type Styles = {
   radio?: StyleProp<ViewStyle>;

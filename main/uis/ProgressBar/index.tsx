@@ -1,9 +1,9 @@
-import type {StyleProp, TextStyle, ViewStyle} from 'react-native';
-
 import React from 'react';
-import {isEmptyObject} from '../../utils/utils';
+import type {StyleProp, TextStyle, ViewStyle} from 'react-native';
 import {light} from '@dooboo-ui/theme';
 import styled from '@emotion/native';
+
+import {isEmptyObject} from '../../utils/utils';
 
 const Container = styled.View`
   flex-direction: row;

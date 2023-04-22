@@ -1,13 +1,13 @@
 // React import is needed for expo-web
+import type {ReactElement} from 'react';
 import React, {useState} from 'react';
 import type {StyleProp, ViewStyle} from 'react-native';
+import {View} from 'react-native';
+import {TouchableOpacity} from 'react-native-gesture-handler';
 import styled, {css} from '@emotion/native';
 
 import type {IconName} from './Icon';
 import {Icon} from './Icon';
-import type {ReactElement} from 'react';
-import {TouchableOpacity} from 'react-native-gesture-handler';
-import {View} from 'react-native';
 
 const Container = styled.View`
   flex-direction: row;

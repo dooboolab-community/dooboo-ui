@@ -1,10 +1,9 @@
-import {Accordion, DoobooProvider, Typography, useDooboo} from 'dooboo-ui';
-import type {AccordionItemDataType, AccordionProps} from 'dooboo-ui';
-import React, {useEffect} from 'react';
 import type {ReactElement, ReactNode} from 'react';
-
+import React, {useEffect} from 'react';
 import {Text} from 'react-native';
 import styled from '@emotion/native';
+import type {AccordionItemDataType, AccordionProps} from 'dooboo-ui';
+import {Accordion, DoobooProvider, Typography, useDooboo} from 'dooboo-ui';
 import {useDarkMode} from 'storybook-dark-mode';
 
 const Container = styled.View`
