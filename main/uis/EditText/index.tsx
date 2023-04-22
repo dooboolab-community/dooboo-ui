@@ -68,12 +68,14 @@ export type EditTextProps = {
   autoCapitalize?: TextInputProps['autoCapitalize'];
   secureTextEntry?: TextInputProps['secureTextEntry'];
   onSubmitEditing?: TextInputProps['onSubmitEditing'];
+  numberOfLines?: TextInputProps['numberOfLines'];
   maxLength?: TextInputProps['maxLength'];
 
   textInputProps?: Omit<
     TextInputProps,
     | 'value'
     | 'onChange'
+    | 'numberOfLines'
     | 'multiline'
     | 'onChange'
     | 'onChangeText'
@@ -118,6 +120,7 @@ export function EditText(props: EditTextProps): ReactElement {
     onFocus,
     onBlur,
     onSubmitEditing,
+    numberOfLines,
     maxLength,
     autoCapitalize = 'none',
     secureTextEntry = false,
@@ -171,6 +174,7 @@ export function EditText(props: EditTextProps): ReactElement {
       <Text
         style={[
           css`
+            margin-bottom: ${decoration === 'boxed' ? '8px' : 0};
             color: ${defaultColor};
             margin-right: 8px;
           `,
@@ -211,7 +215,6 @@ export function EditText(props: EditTextProps): ReactElement {
                   border-width: 1px;
                   padding-left: 12px;
                   padding-right: 12px;
-                  padding-top: ${label ? '8px' : 0};
                 `
               : css`
                   border-bottom-width: 1px;
@@ -249,7 +252,7 @@ export function EditText(props: EditTextProps): ReactElement {
                 element: startElement,
                 color: defaultColor,
                 style: css`
-                  margin-left: ${decoration === 'boxed' ? '-10px' : '-4px'};
+                  margin-left: -4px;
                   margin-right: 4px;
                 `,
               })
@@ -292,13 +295,14 @@ export function EditText(props: EditTextProps): ReactElement {
               onBlur?.(e);
             }}
             multiline={multiline}
-            maxLength={maxLength}
             value={value}
             placeholder={placeholder}
             placeholderTextColor={placeholderColor || theme.text.placeholder}
             onChange={onChange}
             onChangeText={onChangeText}
             onSubmitEditing={onSubmitEditing}
+            maxLength={maxLength}
+            numberOfLines={numberOfLines}
             {...textInputProps}
           />
           {isValidElement(endElement)
@@ -357,22 +361,16 @@ export function EditText(props: EditTextProps): ReactElement {
       ref={Platform.select({web: ref, default: undefined})}
       style={[
         css`
-          align-self: stretch;
           flex-direction: column;
         `,
         style,
       ]}
     >
-      {renderContainer(
-        <>
-          {renderLabel()}
-          {renderInput()}
-        </>,
-      )}
+      {renderLabel()}
+      {renderContainer(renderInput())}
       {renderError || renderCounter ? (
         <View
           style={css`
-            flex: 1;
             margin-top: 6px;
 
             flex-direction: row;
