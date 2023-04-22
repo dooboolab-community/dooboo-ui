@@ -21,9 +21,9 @@ Check out [dooboo-ui.dooboolab.com](https://dooboo-ui.dooboolab.com)
 
 ## Demo
 
-Hosted in [github pages](https://dooboolab.github.io/dooboo-ui)
+Run the storybook in your local environments. Follow [Contributing Guide](./Contributing) for that.
 
-> `Documentation` is not identical to `Demo`. `Demo` is just a playground whereas `documentation` is for the customers.
+> `Documentation` is not identical to `Demo`. `Demo` is just a playground whereas `documentation` is for the customers. Documentations are missing many features yet.
 
 ## Sponsors
 
