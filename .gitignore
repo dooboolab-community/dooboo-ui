@@ -27,3 +27,6 @@ doc-build
 
 # Coverage
 coverage
+
+# Storybook
+storybook

@@ -83,6 +83,18 @@ const EditTextBasicStory = (): ReactElement => {
           editable={boolean('editable', true)}
           direction="column"
           decoration="boxed"
+          placeholder="decoration: boxed with max length"
+          value={text}
+          onChangeText={(str) => onTextChanged(str)}
+          style={{marginTop: 20}}
+          maxLength={200}
+        />
+
+        <EditText
+          secureTextEntry={boolean('secureTextEntry', false)}
+          editable={boolean('editable', true)}
+          direction="column"
+          decoration="boxed"
           placeholder="decoration: boxed"
           label="Boxed"
           value={text}

@@ -141,6 +141,7 @@ export function EditText(props: EditTextProps): ReactElement {
 
   const defaultContainerStyle: ViewStyle = {
     flexDirection: direction,
+    borderRadius: 4,
   };
 
   const defaultColor = !editable
@@ -240,6 +241,7 @@ export function EditText(props: EditTextProps): ReactElement {
             ref={inputRef}
             autoCapitalize={autoCapitalize}
             secureTextEntry={secureTextEntry}
+            selectionColor={colors.focused || theme.text.basic}
             style={[
               // Stretch input in order to make remaining space clickable
               {flex: 1},
@@ -303,12 +305,19 @@ export function EditText(props: EditTextProps): ReactElement {
       <Text
         style={[
           {
-            position: 'absolute',
             color: theme.text.placeholder,
             alignSelf: 'flex-end',
             fontSize: 12,
-            bottom: -24,
           },
+          decoration === 'boxed'
+            ? {
+                right: -4,
+                marginBottom: 6,
+              }
+            : {
+                position: 'absolute',
+                bottom: -24,
+              },
           styles?.counter,
         ]}
       >{`${value.length}/${maxLength}`}</Text>
