@@ -73,6 +73,7 @@
     "@storybook/addon-ondevice-notes": "^6.0.0",
     "@storybook/addons": "^6.5.16",
     "@storybook/preset-typescript": "^3.0.0",
+    "@storybook/preview-api": "^7.0.6",
     "@storybook/react": "^6.5.16",
     "@storybook/react-native": "6.5.3",
     "@storybook/react-native-server": "6.5.3",
