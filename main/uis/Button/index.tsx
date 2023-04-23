@@ -1,6 +1,7 @@
 import type {ReactElement, ReactNode} from 'react';
 import React, {useCallback, useRef} from 'react';
 import type {
+  Insets,
   StyleProp,
   TextStyle,
   TouchableHighlightProps,
@@ -137,6 +138,7 @@ export type Props = {
     TouchableHighlightProps,
     'onPress' | 'activeOpacity' | 'style'
   >;
+  hitSlop?: null | Insets | number | undefined;
 };
 
 export function Button(props: Props): ReactElement {
@@ -158,6 +160,7 @@ export function Button(props: Props): ReactElement {
     touchableHighlightProps,
     borderRadius = 4,
     loadingColor,
+    hitSlop = {top: 8, bottom: 8, left: 8, right: 8},
   } = props;
 
   const ref = useRef<TouchableHighlight>(null);
@@ -294,7 +297,6 @@ export function Button(props: Props): ReactElement {
           compositeStyles.text,
           innerDisabled && compositeStyles.disabledText,
           css`
-            text-align-vertical: center;
             text-align: center;
           `,
         ]}
@@ -311,6 +313,7 @@ export function Button(props: Props): ReactElement {
 
   return (
     <TouchableHighlight
+      hitSlop={hitSlop}
       testID={testID}
       ref={Platform.select({
         web: ref,
