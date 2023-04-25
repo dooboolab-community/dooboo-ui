@@ -8400,9 +8400,9 @@ ejs@^3.1.7:
     jake "^10.8.5"
 
 electron-to-chromium@^1.4.284:
-  version "1.4.369"
-  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.4.369.tgz#a98d838cdd79be4471cd04e9b4dffe891d037874"
-  integrity sha512-LfxbHXdA/S+qyoTEA4EbhxGjrxx7WK2h6yb5K2v0UCOufUKX+VZaHbl3svlzZfv9sGseym/g3Ne4DpsgRULmqg==
+  version "1.4.371"
+  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.4.371.tgz#393983ef087268a20c926a89be30e9f0bfc803b0"
+  integrity sha512-jlBzY4tFcJaiUjzhRTCWAqRvTO/fWzjA3Bls0mykzGZ7zvcMP7h05W6UcgzfT9Ca1SW2xyKDOFRyI0pQeRNZGw==
 
 elliptic@^6.5.3:
   version "6.5.4"
@@ -9128,9 +9128,9 @@ expo-screen-orientation@~5.1.1:
   integrity sha512-rYpHUwHpuKlEErxupl3wM+KWcySrSJTXb5Une5gDINMmjWbLBx0N1P2MG1aSPA2eT7bShTO/xDJyegjf438l8w==
 
 expo@^48.0.7:
-  version "48.0.11"
-  resolved "https://registry.yarnpkg.com/expo/-/expo-48.0.11.tgz#afd43c7a5ddce3d02a3f27263c95f8d01e1fb84d"
-  integrity sha512-KX1RCHhdhdT4DjCeRqYJpZXhdCTuqxHHdNIRoFkmCgkUARYlZbB+Y1U8/KMz8fBAlFoEq99cF/KyRr87VAxRCw==
+  version "48.0.12"
+  resolved "https://registry.yarnpkg.com/expo/-/expo-48.0.12.tgz#faef549d70b3e7a8928e74d27c71e41469723645"
+  integrity sha512-DjHYxIHOEvsM+yd2JFnRXtogTZKYWVhyT76Q8CKz91cdM7coXPtTAC23dj9nHx6aKP8RmHnpr902lY5uYPP83A==
   dependencies:
     "@babel/runtime" "^7.20.0"
     "@expo/cli" "0.7.0"
