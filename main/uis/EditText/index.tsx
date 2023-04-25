@@ -18,6 +18,7 @@ import {useTheme} from '@dooboo-ui/theme';
 import {css} from '@emotion/native';
 
 import {cloneElemWithDefaultColors} from '../../utils/guards';
+import {Icon} from '../Icon';
 
 type Styles = {
   container?: StyleProp<ViewStyle>;
@@ -36,13 +37,14 @@ export type EditTextStatus =
 
 type RenderType = (stats: EditTextStatus) => ReactElement;
 
-type CustomElemRenderType =
+type CustomRenderType =
   | (({color, status}: {color: string; status: EditTextStatus}) => ReactElement)
   | null;
 
 export type EditTextProps = {
   testID?: TextInputProps['testID'];
   inputRef?: MutableRefObject<TextInput | undefined> | RefObject<TextInput>;
+  required?: boolean;
 
   style?: StyleProp<ViewStyle>;
   styles?: Styles;
@@ -50,8 +52,8 @@ export type EditTextProps = {
   // Components
   label?: string | RenderType;
   error?: string | RenderType;
-  startElement?: ReactElement | CustomElemRenderType;
-  endElement?: ReactElement | CustomElemRenderType;
+  startElement?: ReactElement | CustomRenderType;
+  endElement?: ReactElement | CustomRenderType;
 
   direction?: 'row' | 'column';
   decoration?: 'underline' | 'boxed';
@@ -128,6 +130,7 @@ export function EditText(props: EditTextProps): ReactElement {
     direction = 'column',
     decoration = 'underline',
     colors = {},
+    required = false,
   } = props;
 
   const {theme} = useTheme();
@@ -170,22 +173,50 @@ export function EditText(props: EditTextProps): ReactElement {
     : 'basic';
 
   const renderLabel = (): ReactElement | null => {
+    // eslint-disable-next-line react/no-unstable-nested-components
+    const Wrapper = ({children}): ReactElement => {
+      return (
+        <View
+          style={css`
+            margin-bottom: ${decoration === 'boxed' ? '14px' : 0};
+
+            flex-direction: row;
+            align-items: center;
+          `}
+        >
+          {children}
+          {required && (
+            <Icon
+              name="Emergency"
+              style={css`
+                color: ${theme.role.danger};
+                opacity: ${focused ? '1' : '0.5'};
+              `}
+            />
+          )}
+        </View>
+      );
+    };
+
     return typeof label === 'string' ? (
-      <Text
-        style={[
-          css`
-            margin-bottom: ${decoration === 'boxed' ? '8px' : 0};
-            color: ${defaultColor};
-            margin-right: 8px;
-          `,
-          labelPlaceholderColor,
-          styles?.label,
-        ]}
-      >
-        {label}
-      </Text>
+      <Wrapper>
+        <Text
+          style={[
+            css`
+              color: ${defaultColor};
+              margin-right: 4px;
+              font-weight: bold;
+              font-size: 16px;
+            `,
+            labelPlaceholderColor,
+            styles?.label,
+          ]}
+        >
+          {label}
+        </Text>
+      </Wrapper>
     ) : label ? (
-      label(status)
+      <Wrapper>{label(status)}</Wrapper>
     ) : null;
   };
 
@@ -240,6 +271,8 @@ export function EditText(props: EditTextProps): ReactElement {
                 align-self: stretch;
               `,
           css`
+            padding: ${decoration === 'boxed' ? '4px 0' : '2px 0'};
+
             flex-direction: row;
             align-items: center;
             justify-content: space-between;
@@ -311,7 +344,7 @@ export function EditText(props: EditTextProps): ReactElement {
                 color: defaultColor,
                 style: css`
                   margin-left: 4px;
-                  margin-right: ${decoration === 'boxed' ? '-12px' : '-4px'};
+                  margin-right: ${decoration === 'boxed' ? '-8px' : '-4px'};
                 `,
               })
             : endElement}

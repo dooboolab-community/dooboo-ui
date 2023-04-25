@@ -184,7 +184,8 @@ const EditTextBasicStory = (): ReactElement => {
             ) : null
           }
           placeholder="decoration: boxed"
-          multiline={true}
+          multiline
+          required
           label="Boxed"
           value={text}
           onChangeText={(str) => onTextChanged(str)}
