@@ -292,7 +292,7 @@ export function Button(props: Props): ReactElement {
         backgroundColor: backgroundColor,
         color: textColor,
       })}
-      {typeof text === 'string' ? (
+      {!text || typeof text === 'string' ? (
         <Text
           style={[
             innerDisabled && compositeStyles.disabledText,
@@ -307,7 +307,6 @@ export function Button(props: Props): ReactElement {
       ) : (
         text
       )}
-
       {cloneElemWithDefaultColors({
         element: endElement,
         backgroundColor: backgroundColor,
