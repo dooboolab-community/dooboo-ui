@@ -292,17 +292,22 @@ export function Button(props: Props): ReactElement {
         backgroundColor: backgroundColor,
         color: textColor,
       })}
-      <Text
-        style={[
-          compositeStyles.text,
-          innerDisabled && compositeStyles.disabledText,
-          css`
-            text-align: center;
-          `,
-        ]}
-      >
-        {text}
-      </Text>
+      {typeof text === 'string' ? (
+        <Text
+          style={[
+            innerDisabled && compositeStyles.disabledText,
+            css`
+              text-align: left;
+            `,
+            compositeStyles.text,
+          ]}
+        >
+          {text}
+        </Text>
+      ) : (
+        text
+      )}
+
       {cloneElemWithDefaultColors({
         element: endElement,
         backgroundColor: backgroundColor,
