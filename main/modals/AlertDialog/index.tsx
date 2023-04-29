@@ -9,7 +9,7 @@ import type {StyleProp, TextStyle, ViewStyle} from 'react-native';
 import {Modal, Platform, StyleSheet} from 'react-native';
 import {TouchableWithoutFeedback} from 'react-native-gesture-handler';
 import {useTheme} from '@dooboo-ui/theme';
-import styled from '@emotion/native';
+import styled, {css} from '@emotion/native';
 
 import {Button} from '../../uis/Button';
 import {Icon} from '../../uis/Icon';
@@ -24,9 +24,9 @@ const Container = styled.View`
 `;
 
 const AlertDialogContainer = styled.View`
-  flex: 0.8;
+  flex: 0.87;
   background-color: ${({theme}) => theme.bg.basic};
-  padding: 24px 24px 28px 28px;
+  padding: 20px 20px 28px 24px;
   border-radius: 8px;
 `;
 
@@ -39,7 +39,7 @@ const TitleRow = styled.View`
 const BodyRow = styled.View`
   flex-direction: row;
   margin-top: 12px;
-  margin-bottom: 20px;
+  margin-bottom: 8px;
 `;
 
 const ActionRow = styled.View`
@@ -109,12 +109,11 @@ function AlertDialog(
 
   const AlertDialogContent = (
     <Container
-      style={{
-        backgroundColor:
-          themeType === 'light'
-            ? `rgba(0,0,0,${backdropOpacity})`
-            : `rgba(255,255,255,${backdropOpacity})`,
-      }}
+      style={css`
+        background-color: ${themeType === 'light'
+          ? `rgba(0,0,0,${backdropOpacity})`
+          : `rgba(255,255,255,${backdropOpacity})`};
+      `}
     >
       <AlertDialogContainer
         style={StyleSheet.flatten([
@@ -126,9 +125,9 @@ function AlertDialog(
         ])}
       >
         <TitleRow style={styles?.titleContainer}>
-          <Typography.Heading1 style={styles?.title}>
+          <Typography.Heading3 style={styles?.title}>
             {title}
-          </Typography.Heading1>
+          </Typography.Heading3>
           <Button
             type="text"
             onPress={() => setVisible(false)}
@@ -136,7 +135,7 @@ function AlertDialog(
           />
         </TitleRow>
         <BodyRow style={styles?.bodyContainer}>
-          <Typography.Body1 style={styles?.body}>{body}</Typography.Body1>
+          <Typography.Body3 style={styles?.body}>{body}</Typography.Body3>
         </BodyRow>
         {actions ? (
           <ActionRow style={styles?.actionContainer}>
@@ -145,7 +144,7 @@ function AlertDialog(
                 key: `action-${index}`,
                 style: {
                   flex: 1,
-                  marginLeft: index !== 0 ? 6 : 0,
+                  marginLeft: index !== 0 ? 12 : 0,
                 },
               }),
             )}

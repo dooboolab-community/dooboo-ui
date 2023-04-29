@@ -37,6 +37,7 @@ const EditTextBasicStory = (): ReactElement => {
         justifyContent: 'center',
         alignItems: 'center',
       }}
+      scrollIndicatorInsets={{right: 0}}
     >
       <StoryContainer>
         <Typography.Heading1>EditText</Typography.Heading1>

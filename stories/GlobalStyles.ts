@@ -3,13 +3,12 @@ import styled from '@emotion/native';
 export const StoryContainer = styled.View`
   flex: 1;
   align-self: stretch;
-  padding: 0 12px;
   background-color: ${({theme}) => theme.bg.basic};
+  padding: 0 12px;
 `;
 
 export const ScrollContainer = styled.ScrollView`
   width: 100%;
-  padding: 0 12px;
   color: ${({theme}) => theme.text.basic};
 `;
 

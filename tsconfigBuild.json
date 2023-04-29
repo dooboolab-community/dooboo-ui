@@ -5,6 +5,7 @@
     "noImplicitAny": false,
     "removeComments": false,
     "sourceMap": false,
+    "declarationMap": false,
     "moduleResolution": "node",
     "module": "esnext",
     "target": "esnext",
@@ -12,8 +13,7 @@
     "outDir": "lib",
     "skipLibCheck": true,
     "allowSyntheticDefaultImports": true,
-    "declaration": true,
-    "declarationMap": true
+    "declaration": true
   },
   "exclude": [
     "node_modules",
