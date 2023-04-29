@@ -401,7 +401,7 @@ export function EditText(props: EditTextProps): ReactElement {
     >
       {renderLabel()}
       {renderContainer(renderInput())}
-      {renderError || renderCounter ? (
+      {renderError() || renderCounter() ? (
         <View
           style={css`
             margin-top: 6px;
@@ -411,7 +411,7 @@ export function EditText(props: EditTextProps): ReactElement {
             gap: 4px;
           `}
         >
-          {renderError() || <View />}
+          {renderError()}
           {renderCounter()}
         </View>
       ) : null}

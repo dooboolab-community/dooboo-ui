@@ -6,8 +6,12 @@ import React, {
   useState,
 } from 'react';
 import type {StyleProp, TextStyle, ViewStyle} from 'react-native';
-import {Modal, Platform, StyleSheet} from 'react-native';
-import {TouchableWithoutFeedback} from 'react-native-gesture-handler';
+import {
+  Modal,
+  Platform,
+  StyleSheet,
+  TouchableWithoutFeedback,
+} from 'react-native';
 import {useTheme} from '@dooboo-ui/theme';
 import styled, {css} from '@emotion/native';
 
@@ -37,7 +41,6 @@ const TitleRow = styled.View`
 `;
 
 const BodyRow = styled.View`
-  flex-direction: row;
   margin-top: 12px;
   margin-bottom: 8px;
 `;
@@ -65,8 +68,8 @@ export type AlertDialogStyles = {
 
 export type AlertDialogOptions = {
   styles?: AlertDialogStyles;
-  title?: string;
-  body?: string;
+  title?: string | ReactElement;
+  body?: string | ReactElement;
   backdropOpacity?: number;
   closeOnTouchOutside?: boolean;
   actions?: ReactElement[];
@@ -125,9 +128,13 @@ function AlertDialog(
         ])}
       >
         <TitleRow style={styles?.titleContainer}>
-          <Typography.Heading3 style={styles?.title}>
-            {title}
-          </Typography.Heading3>
+          {typeof title === 'string' ? (
+            <Typography.Heading3 style={styles?.title}>
+              {title}
+            </Typography.Heading3>
+          ) : (
+            title
+          )}
           <Button
             type="text"
             onPress={() => setVisible(false)}
@@ -135,7 +142,11 @@ function AlertDialog(
           />
         </TitleRow>
         <BodyRow style={styles?.bodyContainer}>
-          <Typography.Body3 style={styles?.body}>{body}</Typography.Body3>
+          {typeof body === 'string' ? (
+            <Typography.Body3 style={styles?.body}>{body}</Typography.Body3>
+          ) : (
+            body
+          )}
         </BodyRow>
         {actions ? (
           <ActionRow style={styles?.actionContainer}>
@@ -163,8 +174,9 @@ function AlertDialog(
     >
       {closeOnTouchOutside ? (
         <TouchableWithoutFeedback
-          style={{flex: 1}}
-          containerStyle={{flex: 1}}
+          style={css`
+            flex: 1;
+          `}
           onPress={() => setVisible(false)}
         >
           {AlertDialogContent}
