@@ -295,11 +295,11 @@ export function Button(props: Props): ReactElement {
       {!text || typeof text === 'string' ? (
         <Text
           style={[
-            innerDisabled && compositeStyles.disabledText,
             css`
               text-align: left;
             `,
             compositeStyles.text,
+            innerDisabled && compositeStyles.disabledText,
           ]}
         >
           {text}
