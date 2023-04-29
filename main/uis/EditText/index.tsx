@@ -174,7 +174,7 @@ export function EditText(props: EditTextProps): ReactElement {
 
   const renderLabel = (): ReactElement | null => {
     // eslint-disable-next-line react/no-unstable-nested-components
-    const Wrapper = ({children}): ReactElement => {
+    const Wrapper = ({children}: {children: ReactNode}): ReactElement => {
       return (
         <View
           style={css`

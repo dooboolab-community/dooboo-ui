@@ -150,7 +150,7 @@ export const RadioButton: FC<RadioButtonProps> = ({
               selected={!!selected}
               disabled={!!disabled}
               innerLayout={innerLayout}
-              onLayout={(e) => setInnerLayout(e.nativeEvent.layout)}
+              onLayout={(e: any) => setInnerLayout(e.nativeEvent.layout)}
               style={{
                 opacity: fadeAnim,
                 transform: [{scale: scaleAnim}],

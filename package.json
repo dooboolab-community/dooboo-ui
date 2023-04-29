@@ -20,7 +20,7 @@
     "test:post": "mv packages/theme/packages.json packages/theme/package.json",
     "test": "yarn test:pre; jest; yarn test:post;",
     "test:all": "yarn pre && yarn lint && yarn tsc && yarn test",
-    "build": "tsc --project tsconfigBuild.json && yarn cp:ts && yarn cp:icon; yarn cp:assets;",
+    "build": "tsc --project tsconfigBuild.json && yarn cp:icon; yarn cp:assets;",
     "cp:ts": "cp -r main/* ./lib",
     "cp:assets": "cp -R main/__assets__ lib",
     "cp:icon": "mkdir -p `dirname ./lib/uis/Icon/selection.json` && cp ./main/uis/Icon/selection.json ./lib/uis/Icon/selection.json && cp ./main/uis/Icon/doobooui.ttf ./lib/uis/Icon/doobooui.ttf",
