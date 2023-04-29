@@ -65,7 +65,7 @@
     "@commitlint/config-conventional": "^17.4.2",
     "@dooboo/eslint-config-react-native": "^1.2.0",
     "@jest/types": "^29.4.1",
-    "@react-native-community/datetimepicker": "6.7.3",
+    "@react-native-community/datetimepicker": "7.0.1",
     "@react-native-community/slider": "^4.4.2",
     "@storybook/addon-actions": "^6.5.16",
     "@storybook/addon-knobs": "^7.0.0",
