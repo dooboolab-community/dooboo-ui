@@ -353,7 +353,7 @@ export function EditText(props: EditTextProps): ReactElement {
     );
   };
 
-  const renderError = (): ReactElement | null => {
+  const renderError = (): ReactElement => {
     return error ? (
       typeof error === 'string' ? (
         <Text
@@ -371,7 +371,9 @@ export function EditText(props: EditTextProps): ReactElement {
       ) : (
         error?.(status)
       )
-    ) : null;
+    ) : (
+      <View />
+    );
   };
 
   const renderCounter = (): ReactElement | null => {
