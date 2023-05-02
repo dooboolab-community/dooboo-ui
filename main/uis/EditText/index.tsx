@@ -259,7 +259,7 @@ export function EditText(props: EditTextProps): ReactElement {
     );
   };
 
-  const renderInput = (): ReactElement => {
+  const renderInput = (): ReactElement | null => {
     return (
       <View
         style={[
@@ -353,7 +353,7 @@ export function EditText(props: EditTextProps): ReactElement {
     );
   };
 
-  const renderError = (): ReactElement => {
+  const renderError = (): ReactElement | null => {
     return error ? (
       typeof error === 'string' ? (
         <Text
@@ -371,9 +371,7 @@ export function EditText(props: EditTextProps): ReactElement {
       ) : (
         error?.(status)
       )
-    ) : (
-      <View />
-    );
+    ) : null;
   };
 
   const renderCounter = (): ReactElement | null => {
@@ -408,8 +406,9 @@ export function EditText(props: EditTextProps): ReactElement {
           style={css`
             margin-top: 6px;
 
-            flex-direction: row;
-            justify-content: space-between;
+            flex-direction: ${!renderError() && renderCounter()
+              ? 'row-reverse'
+              : 'row'};
             gap: 4px;
           `}
         >
