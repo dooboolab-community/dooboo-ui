@@ -2,10 +2,10 @@
 
 [![Npm Version](http://img.shields.io/npm/v/dooboo-ui.svg?style=flat-square)](https://npmjs.org/package/dooboo-ui)
 [![Downloads](http://img.shields.io/npm/dm/dooboo-ui.svg?style=flat-square)](https://npmjs.org/package/dooboo-ui)
-[![codecov](https://codecov.io/gh/dooboolab/dooboo-ui/branch/main/graph/badge.svg?token=ncTMAOVpOM)](https://codecov.io/gh/dooboolab/dooboo-ui)
-[![CI](https://github.com/dooboolab/dooboo-ui/actions/workflows/ci.yml/badge.svg)](https://github.com/dooboolab/dooboo-ui/actions/workflows/ci.yml)
-[![gh-pages](https://github.com/dooboolab/dooboo-ui/actions/workflows/gh-pages.yml/badge.svg)](https://dooboolab.github.io/dooboo-ui)
-[![Publish](https://github.com/dooboolab/dooboo-ui/actions/workflows/publish.yml/badge.svg)](https://github.com/dooboolab/dooboo-ui/actions/workflows/publish.yml)
+[![codecov](https://codecov.io/gh/dooboolab-community/dooboo-ui/branch/main/graph/badge.svg?token=ncTMAOVpOM)](https://codecov.io/gh/dooboolab-community/dooboo-ui)
+[![CI](https://github.com/dooboolab-community/dooboo-ui/actions/workflows/ci.yml/badge.svg)](https://github.com/dooboolab-community/dooboo-ui/actions/workflows/ci.yml)
+[![gh-pages](https://github.com/dooboolab-community/dooboo-ui/actions/workflows/gh-pages.yml/badge.svg)](https://dooboolab-community.github.io/dooboo-ui)
+[![Publish](https://github.com/dooboolab-community/dooboo-ui/actions/workflows/publish.yml/badge.svg)](https://github.com/dooboolab-community/dooboo-ui/actions/workflows/publish.yml)
 [![Sponsor](https://opencollective.com/dooboo-ui/tiers/badge.svg?style=shield)](https://opencollective.com/dooboo-ui/tiers/badge.svg)
 ![License](http://img.shields.io/npm/l/dooboo-ui.svg?style=flat-square)
 
