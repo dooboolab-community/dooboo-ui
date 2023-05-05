@@ -300,6 +300,7 @@ export function EditText(props: EditTextProps): ReactElement {
               // Stretch input in order to make remaining space clickable
               css`
                 flex: 1;
+                font-size: 16px;
               `,
               Platform.OS === 'web' &&
                 css`
