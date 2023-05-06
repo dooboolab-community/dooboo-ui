@@ -1,6 +1,6 @@
 import type {ReactElement} from 'react';
 import React, {useRef} from 'react';
-import type {StyleProp, ViewStyle} from 'react-native';
+import type {StyleProp, TextStyle, ViewStyle} from 'react-native';
 import {Animated} from 'react-native';
 import styled from '@emotion/native';
 
@@ -12,11 +12,15 @@ const Container = styled.View`
 `;
 
 interface Styles {
+  container?: StyleProp<ViewStyle>;
   titleContainer?: StyleProp<ViewStyle>;
+  titleText?: StyleProp<TextStyle>;
   bodyContainer?: StyleProp<ViewStyle>;
+  bodyText?: StyleProp<TextStyle>;
+  toggleElement?: StyleProp<ViewStyle>;
 }
 
-export type AccordionBaseProps<T, K> = {
+export type AccordionBaseProps<T = string, K = string> = {
   data: AccordionItemDataType<T, K>[];
   style?: StyleProp<ViewStyle>;
   styles?: Styles;
@@ -24,10 +28,11 @@ export type AccordionBaseProps<T, K> = {
   collapseOnStart?: boolean;
   animDuration?: number;
   activeOpacity?: number;
+  toggleElementPosition?: 'left' | 'right';
   toggleElement?: ReactElement | null;
-  renderTitle: (title: T) => ReactElement;
-  renderItem: (body: K) => ReactElement;
-  onPressItem?: (title: T, body: K) => void;
+  renderTitle?: (title: T) => ReactElement;
+  renderItem?: (body: K) => ReactElement;
+  onPressItem?: (title: T | string, body: K | string) => void;
 };
 
 export type AccordionProps<T, K> = AccordionBaseProps<T, K>;
@@ -42,6 +47,7 @@ function Accordion<T, K>(props: AccordionProps<T, K>): ReactElement {
     animDuration,
     activeOpacity,
     toggleElement,
+    toggleElementPosition = 'right',
     renderTitle,
     renderItem,
     onPressItem,
@@ -66,6 +72,7 @@ function Accordion<T, K>(props: AccordionProps<T, K>): ReactElement {
             activeOpacity={activeOpacity}
             dropDownAnimValue={dropDownAnimValueList[titleKey]}
             toggleElement={toggleElement}
+            toggleElementPosition={toggleElementPosition}
             renderTitle={renderTitle}
             renderItem={renderItem}
             onPressItem={onPressItem}

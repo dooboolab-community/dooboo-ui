@@ -2,9 +2,9 @@ import type {ReactElement} from 'react';
 // Caveat: Expo web needs React to be imported
 import React from 'react';
 import {View} from 'react-native';
-import styled from '@emotion/native';
+import styled, {css} from '@emotion/native';
 import {action} from '@storybook/addon-actions';
-import {boolean, number, object} from '@storybook/addon-knobs';
+import {boolean, number} from '@storybook/addon-knobs';
 
 import {useDooboo} from '../../../main';
 import type {AccordionItemDataType} from '../../../main/uis/Accordion';
@@ -14,27 +14,35 @@ import {Typography} from '../../../main/uis/Typography';
 import {ScrollContainer, StoryContainer, StoryTitle} from '../../GlobalStyles';
 
 const CustomStyledItem = styled.Text`
-  padding-left: 10px;
+  color: ${({theme}) => theme.text.basic};
+  padding-left: 8px;
   font-weight: bold;
-  position: absolute;
-  left: 40px;
 `;
 
-type AccordionTitle = {text: string};
+type AccordionTitle = {key: string; text: string};
 type AccordionItem = {text: string};
 
 const data: AccordionItemDataType<AccordionTitle, AccordionItem>[] = [
   {
-    title: {text: 'Lists'},
+    title: {
+      key: 'HEADING_1',
+      text: 'accordion heading 1',
+    },
     items: [{text: 'User'}, {text: 'Mail'}, {text: 'Text'}],
   },
   {
-    title: {text: 'Lists'},
-    items: [{text: 'User'}, {text: 'Mail'}, {text: 'Text'}],
+    title: {
+      key: 'HEADING_2',
+      text: 'accordion heading 2',
+    },
+    items: [{text: 'Movie'}, {text: 'Image'}, {text: 'File'}],
   },
   {
-    title: {text: 'Lists'},
-    items: [{text: 'User'}, {text: 'Mail'}, {text: 'Text'}],
+    title: {
+      key: 'HEADING_3',
+      text: 'accordion heading 3',
+    },
+    items: [{text: 'TicTok'}, {text: 'Youtube'}, {text: 'Puzz'}],
   },
 ];
 
@@ -52,43 +60,86 @@ const AccordionCustom = (): ReactElement => {
           animDuration={number('animDuration', 200)}
           activeOpacity={number('activeOpacity', 1)}
           collapseOnStart={boolean('collapseOnStart', true)}
-          styles={object('styles', {
-            titleContainer: {
-              backgroundColor: 'gray',
-            },
-            bodyContainer: {
-              backgroundColor: 'lightgray',
-            },
-          })}
-          data={object(
-            'data',
-            data.map((datum) => ({
-              ...datum,
-              title: {
-                ...datum.title,
-                text: datum.title.text.toUpperCase(),
-              },
-            })),
-          )}
+          styles={{
+            titleContainer: css`
+              padding-right: 0;
+            `,
+          }}
+          data={data}
           onPressItem={action('onPressItem')}
-          renderTitle={(item) => (
+          renderTitle={({text, key}) => (
             <View
-              style={{
-                paddingLeft: 20,
-                alignItems: 'center',
-                flexDirection: 'row',
-              }}
+              style={css`
+                flex: 1;
+
+                flex-direction: row;
+                align-items: center;
+                justify-content: space-between;
+              `}
             >
-              <Icon name="SearchAlt" color={theme.text.contrast} />
-              <View style={{width: 8}} />
-              <Typography.Heading3>{item.text}</Typography.Heading3>
+              <Typography.Heading4>{text}</Typography.Heading4>
+              <Icon
+                name={
+                  key === 'HEADING_1'
+                    ? 'Home'
+                    : key === 'HEADING_2'
+                    ? 'Star'
+                    : 'Bookmark'
+                }
+                color={theme.text.basic}
+                size={14}
+                style={css`
+                  margin-right: 12px;
+                `}
+              />
             </View>
           )}
-          renderItem={(item) => (
-            <CustomStyledItem>{item.text}</CustomStyledItem>
-          )}
+          renderItem={({text}) => {
+            if (text === 'User' || text === 'Image' || text === 'Puzz') {
+              return (
+                <View
+                  style={css`
+                    padding-left: 2px;
+                    flex: 1;
+                    flex-direction: row;
+                    align-items: center;
+                  `}
+                >
+                  <Icon
+                    name={
+                      text === 'User'
+                        ? 'AutoAwesome'
+                        : text === 'Puzz'
+                        ? 'Puzz'
+                        : 'Image'
+                    }
+                    color={theme.text.basic}
+                    size={14}
+                    style={css`
+                      margin-right: 4px;
+                    `}
+                  />
+                  <CustomStyledItem>{text}</CustomStyledItem>
+                </View>
+              );
+            }
+
+            return (
+              <View
+                style={css`
+                  padding-left: 20px;
+                  flex: 1;
+                  flex-direction: row;
+                  align-items: center;
+                `}
+              >
+                <CustomStyledItem>{text}</CustomStyledItem>
+              </View>
+            );
+          }}
+          toggleElementPosition="left"
           toggleElement={
-            <Icon name="ChevronDownAlt" color={theme.text.contrast} />
+            <Icon name="ArrowCircleDown" color={theme.text.basic} size={16} />
           }
         />
       </StoryContainer>

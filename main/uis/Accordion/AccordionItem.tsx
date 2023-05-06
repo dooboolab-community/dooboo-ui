@@ -4,28 +4,40 @@ import React, {useEffect, useRef, useState} from 'react';
 import type {LayoutChangeEvent} from 'react-native';
 import {Animated, Easing} from 'react-native';
 import {useTheme} from '@dooboo-ui/theme';
-import styled from '@emotion/native';
+import styled, {css} from '@emotion/native';
 
 import {Icon} from '../Icon';
+import {Typography} from '../Typography';
 
 import type {AccordionBaseProps} from './Accordion';
 
-const TitleContainer = styled.TouchableOpacity`
-  justify-content: center;
-  background-color: ${({theme}) => theme.text.basic};
-  height: 50px;
+const TitleTouch = styled.TouchableOpacity`
   z-index: 10;
 `;
 
-const StyledIcon = styled(Icon)`
-  color: ${({theme}) => theme.text.contrast};
-`;
-
-const ItemContainer = styled.TouchableOpacity`
+const TitleContainer = styled.View`
+  height: 48px;
   background-color: ${({theme}) => theme.bg.basic};
+
   flex-direction: row;
   align-items: center;
-  padding: 20px 0px;
+  padding: 8px 12px;
+`;
+
+const StyledIcon = styled(Icon)`
+  color: ${({theme}) => theme.text.basic};
+  font-weight: 600;
+`;
+
+const ItemTouch = styled.TouchableOpacity``;
+
+const BodyContainer = styled.View`
+  height: 48px;
+  background-color: ${({theme}) => theme.bg.paper};
+  padding: 8px 12px;
+
+  flex-direction: row;
+  align-items: center;
 `;
 
 export type AccordionItemDataType<T, K> = {
@@ -33,9 +45,9 @@ export type AccordionItemDataType<T, K> = {
   items: K[];
 };
 
-type Props<T, K> = Omit<AccordionBaseProps<T, K>, 'data'> & {
+type Props<T, K> = Omit<AccordionBaseProps<T, K>, 'data' | 'style'> & {
   testID: string;
-  data: AccordionItemDataType<T, K>;
+  data: AccordionItemDataType<string, string> | AccordionItemDataType<T, K>;
   dropDownAnimValue: Animated.Value;
 };
 
@@ -49,19 +61,14 @@ function AccordionItem<T, K>(props: Props<T, K>): ReactElement {
     collapseOnStart = true,
     animDuration = 200,
     activeOpacity = 1,
-    toggleElement = <StyledIcon name="ChevronDownAlt" theme={theme} />,
+    toggleElement = <StyledIcon name="ChevronDown" size={14} />,
+    toggleElementPosition,
     onPressItem,
     renderTitle,
     renderItem,
     dropDownAnimValue,
     styles,
-    style,
   } = props;
-
-  const {
-    titleContainer = {backgroundColor: theme.role.primary},
-    bodyContainer = {backgroundColor: theme.bg.basic},
-  } = styles ?? {};
 
   const rotateAnimValueRef = useRef(new Animated.Value(0));
   const dropDownAnimValueRef = useRef(dropDownAnimValue);
@@ -119,20 +126,24 @@ function AccordionItem<T, K>(props: Props<T, K>): ReactElement {
     ]).start();
   }, [hasCollapsed, shouldAnimate, animDuration]);
 
-  const indicatorEl = (
+  const toggleElContainer = (
     <Animated.View
-      style={{
-        position: 'absolute',
-        right: 20,
-        transform: [
-          {
-            rotate: rotateAnimValueRef.current.interpolate({
-              inputRange: [0, 1],
-              outputRange: ['0deg', '180deg'],
-            }),
-          },
-        ],
-      }}
+      style={[
+        css`
+          margin-right: ${toggleElementPosition === 'left' ? '12px' : 0};
+        `,
+        {
+          transform: [
+            {
+              rotate: rotateAnimValueRef.current.interpolate({
+                inputRange: [0, 1],
+                outputRange: ['0deg', '180deg'],
+              }),
+            },
+          ],
+        },
+        styles?.toggleElement,
+      ]}
     >
       {toggleElement}
     </Animated.View>
@@ -141,24 +152,39 @@ function AccordionItem<T, K>(props: Props<T, K>): ReactElement {
   return (
     <Animated.View
       style={[
-        {
-          backgroundColor: 'transparent',
-          overflow: 'hidden',
-          opacity: fadeAnim,
-        },
-        style,
+        css`
+          background-color: transparent;
+          overflow: hidden;
+        `,
+        {opacity: fadeAnim},
+        styles?.container,
       ]}
     >
-      <TitleContainer
+      <TitleTouch
         theme={theme}
         testID={`title-${testID}`}
         onPress={handlePress}
         activeOpacity={activeOpacity}
-        style={titleContainer}
       >
-        {renderTitle(item.title)}
-        {indicatorEl}
-      </TitleContainer>
+        <TitleContainer
+          style={[
+            css`
+              justify-content: ${toggleElementPosition === 'right'
+                ? 'space-between'
+                : 'flex-start'};
+            `,
+            styles?.titleContainer,
+          ]}
+        >
+          {toggleElementPosition === 'left' ? toggleElContainer : null}
+          {typeof item.title === 'string' ? (
+            <Typography.Heading4>{item.title}</Typography.Heading4>
+          ) : (
+            renderTitle?.(item.title)
+          )}
+          {toggleElementPosition === 'right' ? toggleElContainer : null}
+        </TitleContainer>
+      </TitleTouch>
       <Animated.View
         testID={`body-${testID}`}
         style={{
@@ -173,14 +199,21 @@ function AccordionItem<T, K>(props: Props<T, K>): ReactElement {
         accessibilityState={{expanded: !hasCollapsed}}
       >
         {item.items.map((body, index) => (
-          <ItemContainer
+          <ItemTouch
             key={`body-${index}`}
-            style={bodyContainer}
             activeOpacity={activeOpacity}
             onPress={() => onPressItem?.(item.title, body)}
           >
-            {renderItem(body)}
-          </ItemContainer>
+            <BodyContainer style={styles?.bodyContainer}>
+              {typeof body === 'string' ? (
+                <Typography.Body3 style={styles?.bodyText}>
+                  {body}
+                </Typography.Body3>
+              ) : (
+                renderItem?.(body)
+              )}
+            </BodyContainer>
+          </ItemTouch>
         ))}
       </Animated.View>
     </Animated.View>
