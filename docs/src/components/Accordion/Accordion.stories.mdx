@@ -1,10 +1,9 @@
-import {Meta} from '@storybook/addon-docs';
-import AccordionStory, {sampleData} from './index';
-import ExAnimation from './ExAnimation';
-import ExRenderFunction from './ExRenderFunction';
-import ExToggleElement from './ExToggleElement';
+import {Meta, Story, Canvas} from '@storybook/addon-docs';
 
-<Meta title="Components/Accordion" />
+import {AccordionBasic} from './AccordionBasic';
+import {Accordion} from 'dooboo-ui';
+
+<Meta title="Components/Accordion" component={Accordion} />
 
 # Accordion
 
@@ -18,130 +17,14 @@ import {Accordion} from 'dooboo-ui';
 <Accordion {...props} />;
 ```
 
-## Props
-
-|                 | necessary | Types                    | Description                                                                                                         | Default               |
-| --------------- | --------- | -------------------------| ------------------------------------------------------------------------------------------------------------------- | --------------------- |
-| style           |           | `StyleProp<ViewStyle>`   |                                                                                                                     | `undefined`           |
-| styles          |           | Styles                   | This props determine styles of the component. you don't need to fill this props because the default values are set. | `undefined`           |
-| data            | ✓         | AccordionListType        | The data of the component. It supports those type definition that make sense for this component.                    |                       |
-| shouldAnimate   |           | boolean                  | If `false`, the accordion can't use animation.                                                                      | `true`                |
-| collapseOnStart |           | boolean                  | If `false`, expands the accordion by default.                                                                       | `true `               |
-| animDuration    |           | number                   | The duration for the animation, in milliseconds.                                                                    | `200`                 |
-| activeOpacity   |           | number                   |                                                                                                                     | `1`                   |
-| toggleElement   |           | ReactElement             | The element to display as the toggle indicator.                                                                     | `default arrow image` |
-| renderTitle     |           | (string) => ReactElement | It supports seperate `render function` for title element of Accordion.                                              | `default wrapper`     |
-| renderBody      |           | (string) => ReactElement | It supports seperate `render function` for body element of Accordion.                                               | `default wrapper`     |
-
 ## Demo
 
 ### Basic accordion
 
-<AccordionStory data={sampleData} />
+<Canvas>
+  <Story name='Basic' story={AccordionBasic} />
+</Canvas>
 
 ### Animation Setting
 
 This component supports drop down toggle with animation. Animation actions are based [Animated](https://reactnative.dev/docs/animated) library for React-Native, You can set an animation effect starts and duration when this component is mounted.
-
-<ExAnimation data={sampleData} />
-
-## Customization
-
-### Styled accordion
-
-Customize `titleContainer` or `bodyContainer` style with style object.
-
-```tsx
-<Accordion
-  styles={{
-    titleContainer: {
-      backgroundColor: 'gray',
-      alignItems: 'center',
-      height: 60,
-    },
-    bodyContainer: {
-      backgroundColor: 'lightgray',
-      borderTopWidth: 0,
-      borderWidth: 0.5,
-      borderColor: 'gray',
-      justifyContent: 'center',
-      height: 20,
-    },
-  }}
-  {...props}
-/>
-```
-
-<AccordionStory
-  data={sampleData}
-  collapseOnStart={false}
-  styles={{
-    titleContainer: {
-      backgroundColor: 'gray',
-      alignItems: 'center',
-      height: 60,
-    },
-    bodyContainer: {
-      backgroundColor: 'lightgray',
-      borderTopWidth: 0,
-      borderWidth: 0.5,
-      borderColor: 'gray',
-      justifyContent: 'center',
-      height: 20,
-    },
-  }}
-/>
-
-### Using render function
-
-It supports seperate render function for Accordion. You can customize the look of each component with the `renderTitle` or `renderBody` function.
-
-```tsx
-const Container = styled.View`
-  padding-left: 20px;
-  align-items: center;
-  flex-direction: row;
-`;
-
-const Title = styled.Text`
-  margin-left: 20px;
-  color: white;
-  font-size: 18px;
-`;
-
-const Body = styled.Text`
-  flex: 1;
-  width: 80px;
-  font-weight: bold;
-`;
-
-<Accordion
-  renderTitle={(item) => (
-    <Container>
-      <Icon name="search-light" color="white" />
-      <Title>{item}</Title>
-    </Container>
-  )}
-  renderBody={(item) => (
-    <Container>
-      <Body numberOfLines={1}>{item.toUpperCase()}</Body>
-    </Container>
-  )}
-  {...props}
-/>;
-```
-
-<ExRenderFunction data={sampleData} />
-
-### Using custom toggle element
-
-You can also use custom toggle element, which switches the status of each accordion item, with `toggleElement`.
-
-```tsx
-<Accordion
-  toggleElement={<Icon name="ChevronRight" color="white" />}
-  {...props}
-/>
-```
-
-<ExToggleElement data={sampleData} />
