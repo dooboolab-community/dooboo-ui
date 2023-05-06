@@ -1,6 +1,5 @@
 {
   "compilerOptions": {
-    "allowSyntheticDefaultImports": true,
     "jsx": "react-jsx",
     "lib": ["es2017"],
     "moduleResolution": "node",
@@ -25,7 +24,6 @@
     "declaration": true,
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
-    "esModuleInterop": true,
     "noUnusedLocals": false
   },
   "include": ["src/**/*"],

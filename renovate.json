@@ -30,8 +30,7 @@
         "react-native-safe-area-context",
         "@react-native-async-storage/async-storage",
         "@react-native-community/datetimepicker",
-        "webpack-dev-server",
-        "@storybook/react-docgen-typescript-plugin"
+        "webpack-dev-server"
       ]
     },
     {

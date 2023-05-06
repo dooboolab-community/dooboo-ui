@@ -4,8 +4,8 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "preinstall": "cd .. && yarn && yarn pre && yarn build && cd docs",
-    "postinstall": "rm -rf node_modules/dooboo-ui && cp -R ../lib node_modules/dooboo-ui",
+    "cp:lib": "rm -rf node_modules/dooboo-ui && cp -R ../main node_modules/dooboo-ui",
+    "postinstall": "yarn cp:lib",
     "build": "NODE_OPTIONS=--openssl-legacy-provider build-storybook --docs -o ./doc-build -c ./.storybook && cp -r ./src/assets ./doc-build",
     "start": "NODE_OPTIONS=--openssl-legacy-provider start-storybook --docs -p 9001 -c ./.storybook watch-css -s ./src"
   },
@@ -46,8 +46,5 @@
     "storybook-dark-mode": "^2.1.1",
     "url-loader": "^4.1.1",
     "webpack": "^5.76.0"
-  },
-  "resolutions": {
-    "@storybook/react-docgen-typescript-plugin": "1.0.6--canary.9.cd77847.0"
   }
 }

@@ -11,6 +11,7 @@ module.exports = (api) => {
       ],
     ],
     plugins: [
+      'react-docgen',
       'react-require',
       'react-native-web',
       '@babel/plugin-syntax-dynamic-import',

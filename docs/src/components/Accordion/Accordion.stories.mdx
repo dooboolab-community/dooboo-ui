@@ -1,4 +1,4 @@
-import {Meta, Story, Canvas} from '@storybook/addon-docs';
+import {Meta, Story, Canvas, ArgsTable} from '@storybook/addon-docs';
 
 import {AccordionBasic} from './AccordionBasic';
 import {Accordion} from 'dooboo-ui';
@@ -20,6 +20,8 @@ import {Accordion} from 'dooboo-ui';
 ## Demo
 
 ### Basic accordion
+
+<ArgsTable of={Accordion} />
 
 <Canvas>
   <Story name='Basic' story={AccordionBasic} />
