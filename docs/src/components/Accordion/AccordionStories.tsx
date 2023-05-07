@@ -1,15 +1,17 @@
-import type {ReactElement} from 'react';
+import type {ComponentProps, ReactElement} from 'react';
 import type {Meta, Story} from '@storybook/react/types-6-0';
-import type {AccordionProps} from 'dooboo-ui';
 import {Accordion, DoobooProvider} from 'dooboo-ui';
 import {useDarkMode} from 'storybook-dark-mode';
 
 export default {
   title: 'Accordion',
   component: Accordion,
+  viewMode: 'docs',
 } as Meta;
 
-const Template: Story<AccordionProps<any, any>> = (args): ReactElement => {
+const Template: Story<ComponentProps<typeof Accordion>> = (
+  args,
+): ReactElement => {
   const isDark = useDarkMode();
 
   return (
@@ -22,6 +24,7 @@ const Template: Story<AccordionProps<any, any>> = (args): ReactElement => {
 export const AccordionBasic = Template.bind({});
 
 AccordionBasic.args = {
+  shouldAnimate: true,
   data: [
     {
       title: 'Accordion heading 1',

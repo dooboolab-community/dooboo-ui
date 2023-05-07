@@ -1,15 +1,13 @@
 import {Meta, Story, Canvas, ArgsTable} from '@storybook/addon-docs';
 
-import {AccordionBasic} from './AccordionBasic';
+import {AccordionBasic} from './AccordionStories';
 import {Accordion} from 'dooboo-ui';
 
 <Meta title="Components/Accordion" component={Accordion} />
 
 # Accordion
 
-> Simple drop down item component for react-native. This component supports drop down toggle with animation.<br/>
-
-## Usage
+> Simple dropdown component which can have multiple items collapsed at the same time.
 
 ```tsx
 import {Accordion} from 'dooboo-ui';
@@ -17,16 +15,11 @@ import {Accordion} from 'dooboo-ui';
 <Accordion {...props} />;
 ```
 
-## Demo
-
-### Basic accordion
-
-<ArgsTable of={Accordion} />
-
 <Canvas>
   <Story name='Basic' story={AccordionBasic} />
 </Canvas>
 
-### Animation Setting
+## Props
+<ArgsTable of={Accordion} />
 
-This component supports drop down toggle with animation. Animation actions are based [Animated](https://reactnative.dev/docs/animated) library for React-Native, You can set an animation effect starts and duration when this component is mounted.
+<br/><br/><br/><br/>
