@@ -1,10 +1,20 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
+import {useStorybookState} from '@storybook/api';
 import {useDarkMode} from 'storybook-dark-mode';
 import {DocsContainer} from '@storybook/addon-docs';
 import darkTheme from './darkTheme';
 import lightTheme from './lightTheme';
 
 export const parameters = {
+  previewTabs: {
+    'storybook/docs/panel': {
+      index: 0,
+      title: 'Docs',
+    },
+    canvas: {
+      // hidden: true,
+    },
+  },
   docs: {
     container: ({children, context}) => (
       <DocsContainer
@@ -61,12 +71,13 @@ export const parameters = {
      * @type {Regex}
      */
     hierarchyRootSeparator: /\|/,
-    panelPosition: 'bottom',
+
+    isToolshown: true,
+    showPanel: true,
+    panelPosition: "bottom",
   },
   darkMode: {
     dark: darkTheme,
     light: lightTheme,
   },
 };
-
-export const decorators = [(Story) => <Story />];

@@ -1,12 +1,11 @@
 import type {ReactElement, ReactNode} from 'react';
-import React, {useEffect} from 'react';
+import {useEffect} from 'react';
 import styled from '@emotion/native';
 import {DoobooProvider, useDooboo} from 'dooboo-ui';
 import {useDarkMode} from 'storybook-dark-mode';
 
 export {default as Basic} from './Basic';
 export {default as ImageVersion} from './ImageVersion';
-export {default as Link} from '../Button/Link';
 
 type ContainerProps = {
   children: ReactNode;
