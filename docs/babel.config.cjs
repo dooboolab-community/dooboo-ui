@@ -17,7 +17,6 @@ module.exports = (api) => {
       '@babel/plugin-syntax-dynamic-import',
       '@babel/plugin-transform-modules-commonjs',
       '@babel/plugin-proposal-export-namespace-from',
-      'react-native-reanimated/plugin',
     ],
   };
 };
