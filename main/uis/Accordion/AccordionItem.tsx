@@ -177,10 +177,10 @@ function AccordionItem<T, K>(props: Props<T, K>): ReactElement {
           ]}
         >
           {toggleElementPosition === 'left' ? toggleElContainer : null}
-          {typeof item.title === 'string' ? (
+          {typeof item.title === 'string' && !renderTitle ? (
             <Typography.Heading4>{item.title}</Typography.Heading4>
           ) : (
-            renderTitle?.(item.title)
+            renderTitle?.(item.title as T)
           )}
           {toggleElementPosition === 'right' ? toggleElContainer : null}
         </TitleContainer>
@@ -205,7 +205,7 @@ function AccordionItem<T, K>(props: Props<T, K>): ReactElement {
             onPress={() => onPressItem?.(item.title, body)}
           >
             <BodyContainer style={styles?.bodyContainer}>
-              {typeof body === 'string' ? (
+              {typeof body === 'string' && !renderItem ? (
                 <Typography.Body3 style={styles?.bodyText}>
                   {body}
                 </Typography.Body3>
