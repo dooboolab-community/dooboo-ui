@@ -15,8 +15,8 @@ interface Styles {
   container?: StyleProp<ViewStyle>;
   titleContainer?: StyleProp<ViewStyle>;
   titleText?: StyleProp<TextStyle>;
-  bodyContainer?: StyleProp<ViewStyle>;
-  bodyText?: StyleProp<TextStyle>;
+  itemContainer?: StyleProp<ViewStyle>;
+  itemText?: StyleProp<TextStyle>;
   toggleElement?: StyleProp<ViewStyle>;
 }
 

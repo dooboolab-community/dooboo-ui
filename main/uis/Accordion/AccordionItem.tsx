@@ -31,8 +31,7 @@ const StyledIcon = styled(Icon)`
 
 const ItemTouch = styled.TouchableOpacity``;
 
-const BodyContainer = styled.View`
-  height: 48px;
+const ItemContainer = styled.View`
   background-color: ${({theme}) => theme.bg.paper};
   padding: 8px 12px;
 
@@ -204,15 +203,15 @@ function AccordionItem<T, K>(props: Props<T, K>): ReactElement {
             activeOpacity={activeOpacity}
             onPress={() => onPressItem?.(item.title, body)}
           >
-            <BodyContainer style={styles?.bodyContainer}>
+            <ItemContainer style={styles?.itemContainer}>
               {typeof body === 'string' && !renderItem ? (
-                <Typography.Body3 style={styles?.bodyText}>
+                <Typography.Body3 style={styles?.itemText}>
                   {body}
                 </Typography.Body3>
               ) : (
-                renderItem?.(body)
+                renderItem?.(body as K)
               )}
-            </BodyContainer>
+            </ItemContainer>
           </ItemTouch>
         ))}
       </Animated.View>
