@@ -35,7 +35,7 @@ export type AccordionBaseProps<T = string, K = string> = {
   onPressItem?: (title: T | string, body: K | string) => void;
 };
 
-export type AccordionProps<T, K> = AccordionBaseProps<T, K>;
+export type AccordionProps<T = string, K = string> = AccordionBaseProps<T, K>;
 
 function Accordion<T, K>(props: AccordionProps<T, K>): ReactElement {
   const {
