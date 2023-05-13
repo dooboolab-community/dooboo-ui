@@ -1,13 +1,12 @@
-import {Meta} from '@storybook/addon-docs';
-import Fab from './index';
+import {Meta, Story, Canvas, ArgsTable} from '@storybook/addon-docs';
+import {FAB} from 'dooboo-ui';
+import {FABTemplate} from './FABStories';
 
-<Meta title="Components/FAB" />
+<Meta title="Components/FAB" component={FABTemplate} />
 
 # FAB
 
-> [FAB] Floating Action Button is a component for represent the primary action of screen
-
-## Usage
+> FAB component.
 
 ```tsx
 import {FAB} from 'dooboo-ui';
@@ -15,36 +14,10 @@ import {FAB} from 'dooboo-ui';
 <FAB {...props} />;
 ```
 
+<Canvas>
+  <Story name="FAB" story={FABTemplate} />
+</Canvas>
+
 ## Props
 
-|                | Types                                       | Description                                | Default |
-| -------------- | ------------------------------------------- | ------------------------------------------ | ------- |
-| isActive       | `boolean`                                   |                                            |         |
-| FABItems       | `Array<Item>`                               | List of id and iconName form each FABItems |         |
-| onPressFAB     | `() => void`                                | Press callback for main FAB button         |         |
-| onPressFABItem | `(item?: Item) => void`                     | Press callback for main FAB button         |         |
-| renderFAB?     | `() => ReactElement`                        |                                            |         |
-| renderFABItem? | `(item: Item, idx: number) => ReactElement` |                                            |         |
-| style?         | `Styles`                                    |                                            |         |
-| styles?        | `Styles`                                    | Extra Props for FAB styles                 |         |
-
-## FABItem
-
-|      | Types      | Description                                                                        | Default |
-| ---- | ---------- | ---------------------------------------------------------------------------------- | ------- |
-| icon | `IconName` |                                                                                    |         |
-| id   | `string`   | Id for distinguishing from other FABItems that passed from onPressFABItem callback |         |
-
-## Styles
-
-|            | Types                  | Description             | Default |
-| ---------- | ---------------------- | ----------------------- | ------- |
-| FAB?       | `StyleProp<ViewStyle>` | Style for main FAB      |         |
-| FABItem?   | `StyleProp<ViewStyle>` | Style for FABItem       |         |
-| iconSize?  | `number`               |                         | 24      |
-| buttonSize | `ButtonSize`           |                         |         |
-| gap?       | `number`               | Gap between FAB Buttons | 20      |
-
-## Demo
-
-<Fab/>
+<ArgsTable of={FAB} />

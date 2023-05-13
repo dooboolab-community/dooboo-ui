@@ -1,58 +1,23 @@
-import {Meta, Story, Canvas} from '@storybook/addon-docs';
-import SwitchToggle from './index'
+import {Meta, Story, Canvas, ArgsTable} from '@storybook/addon-docs';
+import {SwitchToggle} from 'dooboo-ui';
+import {SwitchToggleTemplate} from './SwitchToggleStories';
 
-<Meta title="Components/SwitchToggle" />
+<Meta title="Components/SwitchToggle" component={SwitchToggleTemplate} />
 
 # SwitchToggle
 
-> Simple SwitchToggle with animation for react-native.<br/>
+> SwitchToggle component.
+
+```tsx
+import {SwitchToggle} from 'dooboo-ui';
+
+<SwitchToggle {...props} />;
+```
+
+<Canvas>
+  <Story name="SwitchToggle" story={SwitchToggleTemplate} />
+</Canvas>
 
 ## Props
 
-|                 | necessary | types                   | Description   | default               |
-| --------------- | --------- | ----------------------- | ------------- | --------------------- |
-| testID          |           | `string`                |               | `undefined`           |
-| isOn            |     ✓     | `boolean`               |               |                       |
-| theme           |           | `DoobooTheme`           |               | `light`               |
-| style           |           | `styleProp<ViewStyle>`  |               | `undefined`           |
-| styles          |           | `Styles`                |               | `defaultContainer, defaultCircle`               |
-| duration        |           | `number`                |               | `300`                 |
-| onElement       |           | `React.ReactElement`    |               | `undefined`           |
-| offElement      |           | `React.ReactElement`    |               | `undefined`           |
-| onPress         |           | `() => void`            |               | `undefined`           |
-
-
-```typescript
-interface Styles {
-  container?: ViewStyle;
-  onElementContainer?: StyleProp<ViewStyle>;
-  offElementContainer?: StyleProp<ViewStyle>;
-  circle?: ViewStyle;
-  button?: StyleProp<ViewStyle>;
-  circleColorOff?: string;
-  circleColorOn?: string;
-  backgroundColorOn?: string;
-  backgroundColorOff?: string;
-}
-
-const defaultContainer: ViewStyle = {
-  width: 80,
-  height: 40,
-  borderRadius: 25,
-  padding: 5,
-};
-
-const defaultCircle: ViewStyle = {
-  width: 32,
-  height: 32,
-  borderRadius: 16,
-};
-```
-
-## Demo
-
-### Basic Style
-
-<SwitchToggle/>
-
-
+<ArgsTable of={SwitchToggle} />

@@ -27,7 +27,7 @@ interface Props {
   containerStyle?: StyleProp<ViewStyle>;
   style?: StyleProp<ViewStyle>;
   color?: string;
-  size?: number | 'small' | 'large';
+  size?: number | ('small' | 'large');
   imgSource?: string | ImageSourcePropType;
   customElement?: ReactElement | (() => ReactElement);
 }
