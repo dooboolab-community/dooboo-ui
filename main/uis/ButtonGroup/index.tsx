@@ -9,6 +9,7 @@ import type {
 } from 'react-native';
 import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import {useTheme} from '@dooboo-ui/theme';
+import {css} from '@emotion/native';
 
 interface Styles {
   selectedButton?: StyleProp<ViewStyle>;
@@ -88,8 +89,12 @@ export function ButtonGroup<T>({
         testID={`button-group-item-${index}`}
         style={StyleSheet.flatten([
           selected
-            ? {backgroundColor: theme.button.primary.bg}
-            : {backgroundColor: theme.bg.basic},
+            ? css`
+                background-color: ${theme.button.primary.bg};
+              `
+            : css`
+                background-color: ${theme.bg.basic};
+              `,
           selected ? styles?.selectedButton : styles?.unselectedButton,
           getBorderStyle(index),
         ])}
