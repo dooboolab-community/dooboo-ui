@@ -1,13 +1,12 @@
-import {Meta} from '@storybook/addon-docs';
-import Icon from './index';
+import {Meta, Story, Canvas, ArgsTable} from '@storybook/addon-docs';
+import {Icon} from 'dooboo-ui';
+import {IconTemplate} from './IconStories';
 
-<Meta title="Components/Icon" />
+<Meta title="Components/Icon" component={IconTemplate} />
 
 # Icon
 
-> [Icon] component contains the vector icons that we've designed.
-
-## Usage
+> Icon component.
 
 ```tsx
 import {Icon} from 'dooboo-ui';
@@ -15,14 +14,11 @@ import {Icon} from 'dooboo-ui';
 <Icon {...props} />;
 ```
 
+<Canvas>
+  <Story name="Icon" story={IconTemplate} />
+</Canvas>
+
 ## Props
 
-|        | Types      | Description                                                             |
-| ------ | ---------- | ----------------------------------------------------------------------- |
-| name?  | `IconName` | Name of the `dooboo-ui` icons. They are typed when you use `typescript` |
-| size?  | `number`   |                                                                         |
-| color? | `string`   |                                                                         |
+<ArgsTable of={Icon} />
 
-## All Icons
-
-<Icon/>

@@ -1,13 +1,12 @@
-import {Meta} from '@storybook/addon-docs';
-import IconButton from './index';
+import {Meta, Story, Canvas, ArgsTable} from '@storybook/addon-docs';
+import {IconButton} from 'dooboo-ui';
+import {IconButtonTemplate} from './IconButtonStories';
 
-<Meta title="Components/IconButton" />
+<Meta title="Components/IconButton" component={IconButtonTemplate} />
 
 # IconButton
 
-> [IconButton] component that can add buttons using icons.
-
-## Usage
+> IconButton component.
 
 ```tsx
 import {IconButton} from 'dooboo-ui';
@@ -15,24 +14,10 @@ import {IconButton} from 'dooboo-ui';
 <IconButton {...props} />;
 ```
 
+<Canvas>
+  <Story name="IconButton" story={IconButtonTemplate} />
+</Canvas>
+
 ## Props
 
-|                        | necessary | Types                                    | Description                                    | Default   |
-| ---------------------- | --------- | ---------------------------------------- | ---------------------------------------------- | --------- |
-| testID?                |           | `string`                                 |                                                |  `black`  |
-| indicatorColor?        |           | `string`                                 |                                                |           |
-| loading?               |           | `boolean`                                |                                                |  `false`  |
-| disabled?              |           | `boolean`                                |                                                |  `false`  |
-| outlined?              |           | `boolean`                                |                                                |  `false`  |
-| style?                 |           | `ViewStyle`                              |                                                |           |
-| styles?                |           | `Styles`                                 |  List of all style props within [IconButton].  |           |
-| activeOpacity?         |           | `TouchableOpacityProps['activeOpacity']` |                                                |   `0.6`   |
-| icon                   |     ✓     | `React.ReactElement`                     |  Icon component to use as a button.            |           |
-| onPress?               |           | `TouchableOpacityProps['onPress']`       |  callback for press event.                     |           |
-| touchableOpacityProps? |           | `Partial<TouchableOpacityProps>`         |                                                |           |
-| type?                  |           | `ButtonType`                             |                                                | `primary` |
-| size?                  |           | `ButtonSize`                             |                                                | `medium`  |
-
-## Demo
-
-<IconButton/>
+<ArgsTable of={IconButton} />

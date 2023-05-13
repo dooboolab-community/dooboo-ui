@@ -1,8 +1,7 @@
-import type {FC} from 'react';
+import type {ReactElement} from 'react';
 import React, {useEffect, useRef} from 'react';
 import type {StyleProp, ViewStyle} from 'react-native';
 import {Animated, Platform, View} from 'react-native';
-import type {DoobooTheme} from '@dooboo-ui/theme';
 import {useTheme} from '@dooboo-ui/theme';
 import styled from '@emotion/native';
 
@@ -40,11 +39,7 @@ const Container = styled.TouchableOpacity`
   align-items: center;
 `;
 
-const StyledCheckboxOutlined = styled(CheckboxWrapperOutlined)<{
-  checked?: boolean;
-  disabled?: boolean;
-  type?: CheckboxColor;
-}>`
+const StyledCheckboxOutlined = styled(CheckboxWrapperOutlined)`
   width: 20px;
   height: 20px;
   border-width: 1px;
@@ -54,11 +49,7 @@ const StyledCheckboxOutlined = styled(CheckboxWrapperOutlined)<{
   align-items: center;
 `;
 
-const StyledCheckbox = styled(CheckboxWrapper)<{
-  checked?: boolean;
-  disabled?: boolean;
-  type?: CheckboxColor;
-}>`
+const StyledCheckbox = styled(CheckboxWrapper)`
   width: 20px;
   height: 20px;
   margin: 0 6px;
@@ -67,11 +58,11 @@ const StyledCheckbox = styled(CheckboxWrapper)<{
   align-items: center;
 `;
 
-const StyledCheck = styled(Icon)<{theme: DoobooTheme; checked?: boolean}>`
+const StyledCheck = styled(Icon)<{checked?: boolean}>`
   color: ${({theme, checked}) => (checked ? theme.bg.basic : 'transparent')};
 `;
 
-export const Checkbox: FC<CheckboxProps> = ({
+export function Checkbox({
   style,
   styles,
   endElement,
@@ -80,7 +71,7 @@ export const Checkbox: FC<CheckboxProps> = ({
   disabled = false,
   checked = false,
   onPress,
-}) => {
+}: CheckboxProps): ReactElement {
   const animatedValue = new Animated.Value(0);
   const fadeAnim = useRef(animatedValue).current;
   const scaleAnim = useRef(animatedValue).current;
@@ -147,4 +138,4 @@ export const Checkbox: FC<CheckboxProps> = ({
       </View>
     </Container>
   );
-};
+}

@@ -1,106 +1,23 @@
-import {Meta} from '@storybook/addon-docs';
-import Default from './index';
+import {Meta, Story, Canvas, ArgsTable} from '@storybook/addon-docs';
+import {EditText} from 'dooboo-ui';
+import {EditTextTemplate} from './EditTextStories';
 
-<Meta title="Components/EditText" />
+<Meta title="Components/EditText" component={EditTextTemplate} />
 
 # EditText
 
-> `EditText` helps decorating react-native [TextInput](https://reactnative.dev/docs/textinput) faster. It even helps you to decorate web component style like `hovered` mode.
-
-<br />
-
-## Usage
+> EditText component.
 
 ```tsx
 import {EditText} from 'dooboo-ui';
 
-<EditText
-  type="row"
-  placeholder="Default EditText"
-  value={email}
-  onChangeText={(text) => onTextChanged('EMAIL', text)}
-  style={{marginTop: 20, marginBottom: 24, paddingHorizontal: 36}}
-/>;
+<EditText {...props} />;
 ```
+
+<Canvas>
+  <Story name="EditText" story={EditTextTemplate} />
+</Canvas>
 
 ## Props
 
-```tsx
-type EditTextProps = {
-  testID?: TextInputProps['testID'];
-  inputRef?: LegacyRef<TextInput>;
-
-  style?: StyleProp<ViewStyle>;
-  styles?: Styles;
-
-  // Components
-  label?: string | RenderType;
-  error?: string | RenderType;
-
-  direction?: 'row' | 'column';
-  decoration?: 'underline' | 'boxed';
-
-  value?: TextInputProps['value'];
-  multiline?: TextInputProps['multiline'];
-  onChange?: TextInputProps['onChange'];
-  onChangeText?: TextInputProps['onChangeText'];
-  placeholder?: TextInputProps['placeholder'];
-  placeholderColor?: TextInputProps['placeholderTextColor'];
-  onFocus?: TextInputProps['onFocus'] | undefined;
-  onBlur?: TextInputProps['onBlur'] | undefined;
-  editable?: TextInputProps['editable'];
-  autoCapitalize?: TextInputProps['autoCapitalize'];
-  secureTextEntry?: TextInputProps['secureTextEntry'];
-  onSubmitEditing?: TextInputProps['onSubmitEditing'];
-  maxLength?: TextInputProps['maxLength'];
-
-  textInputProps?: Omit<
-    TextInputProps,
-    | 'value'
-    | 'onChange'
-    | 'multiline'
-    | 'onChange'
-    | 'onChangeText'
-    | 'placeholder'
-    | 'placeholderTextColor'
-    | 'onFocus'
-    | 'onBlur'
-    | 'editable'
-    | 'autoCapitalize'
-    | 'secureTextEntry'
-    | 'onSubmitEditing'
-    | 'maxLength'
-  >;
-
-  colors?: {
-    basic?: string;
-    disabled?: string;
-    error?: string;
-    focused?: string;
-    hovered?: string;
-    placeholder?: string;
-  };
-};
-```
-
-## Demo
-
-<br />
-
-### Direction column (default)
-
-<p>
-  <Default direction="column" placeholder="Default EditText" labelText="Label" />
-</p>
-
-### Direction row
-
-<p>
-  <Default direction="row" placeholder="Default EditText" labelText="Label" />
-</p>
-
-### Type boxed
-
-<p>
-  <Default type="boxed" placeholder="Write a message"/>
-</p>
+<ArgsTable of={EditText} />

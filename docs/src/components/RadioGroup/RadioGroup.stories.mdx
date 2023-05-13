@@ -1,20 +1,12 @@
-import {Meta} from '@storybook/addon-docs';
+import {Meta, Story, Canvas, ArgsTable} from '@storybook/addon-docs';
+import {RadioGroup} from 'dooboo-ui';
+import {RadioGroupTemplate} from './RadioGroupStories';
 
-import {
-  Basic,
-  Colored,
-  WithLabels,
-  WithTitle,
-  SelectValue,
-} from './index';
-
-<Meta title="Components/RadioGroup" />
+<Meta title="Components/RadioGroup" component={RadioGroupTemplate} />
 
 # RadioGroup
 
-> [RadioGroup] component with default styles with animation. `title` and `labels` can be added.
-
-## Usage
+> RadioGroup component.
 
 ```tsx
 import {RadioGroup} from 'dooboo-ui';
@@ -22,141 +14,10 @@ import {RadioGroup} from 'dooboo-ui';
 <RadioGroup {...props} />;
 ```
 
+<Canvas>
+  <Story name="RadioGroup" story={RadioGroupTemplate} />
+</Canvas>
+
 ## Props
 
-|               | necessary | Types                    | Description                                 | Default   |
-| ------------- | --------- | ------------------------ | ------------------------------------------- | --------- |
-| title         |           | `string`                 |                                             |           |
-| labels        |           | `string[]`               | List of labels for each button              |           |
-| data          | ✓         | `T[]`                    | List of values for each button              |           |
-| selectedValue | ✓         | `T`                      | Default selected value                      |           |
-| selectValue   |           | `(item: T) => void`      |                                             |           |
-| type          |           | `RadioButtonType`        | Type for [RadioGroup]                       | `primary` |
-| style         |           | `StyleProp<ViewStyle>`   | root ViewStyle                              |           |
-| styles        |           | `Styles`                 | List of all style props within [RadioGroup] |           |
-| labelPosition |           | `'left'` &#124 `'right'` |                                             | `right`   |
-| radioType     |           |                          |                                             |           |
-
-##
-
-### Basic Style
-
-```tsx
-<RadioGroup data={data} selectedValue={selectedValue} />
-```
-
-<Basic />
-
-### With Title
-
-With `title` prop, you can add a title to [RadioGroup].
-If no specific styles added, the title is shown top-left of the radio buttons.
-
-```tsx
-<RadioGroup title="Title" data={data} selectedValue={selectedValue} />
-```
-
-<WithTitle />
-
-### With Labels
-
-With `labels` prop, you can add a label for each button.
-
-```tsx
-const labels = ['One', 'Two', 'Three', 'Four'];
-
-<RadioGroup data={data} labels={labels} selectedValue={selectedValue} />;
-```
-
-<WithLabels labelPosition="right" />
-<br />
-
-If you want to put labels on the left side of the buttons, you can do so with `labelPosition`
-prop. The default value is set to `right`.
-
-```tsx
-<RadioGroup
-  data={data}
-  labels={labels}
-  selectedValue={selectedValue}
-  labelPosition="left"
-/>
-```
-
-<WithLabels labelPosition="left" />
-
-### Colored Style
-
-`primary` `secondary` `success` `danger` `warning` `info` `light`
-
-You can change the color of the selected button with `type` prop. The default value
-is set to `primary`.
-
-```tsx
-import type {RadioButtonType} from 'dooboo-ui';
-import {useState} from 'react';
-
-const data = ['one', 'two', 'three', 'four'];
-
-const colors: RadioButtonType = [
-    'primary',
-    'secondary',
-    'success',
-    'warning',
-    'danger',
-    'info',
-    'light',
-  ];
-
-const [selectedValue, setSelectedValue] = useState<string>(data[0]);
-
-{colors.map((color) => (
-  <RadioGroup
-    title={color}
-    type={color}
-    data={data}
-    selectedValue={selectedValue}
-    selectValue={setSelectedValue}
-  />
-))}
-```
-
-<Colored />
-
-### `selectValue` event
-
-You should set `selectValue` prop appropriately to make [RadioGroup] component work as intended.
-This is a simple example of setting `selectValue` prop using react hooks.
-
-```tsx
-import type {RadioButtonType} from 'dooboo-ui';
-import {useState} from 'react';
-
-const data = ['one', 'two', 'three', 'four'];
-const labels = ['One', 'Two', 'Three', 'Four'];
-
-const colors: RadioButtonType = [
-    'primary',
-    'secondary',
-    'success',
-    'warning',
-    'danger',
-    'info',
-    'light',
-  ];
-
-const [selectedValue, setSelectedValue] = useState(data[0]);
-
-{colors.map((color) => (
-  <RadioGroup
-    title={color}
-    type={color}
-    data={data}
-    labels={labels}
-    selectedValue={selectedValue}
-    selectValue={setSelectedValue}
-  />
-))}
-```
-
-<SelectValue />
+<ArgsTable of={RadioGroup} />

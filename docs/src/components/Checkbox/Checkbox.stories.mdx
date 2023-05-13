@@ -1,15 +1,12 @@
-import {Meta} from '@storybook/addon-docs';
-import {Basic, Solid, Disabled, StartElement, EndElement} from './index';
+import {Meta, Story, Canvas, ArgsTable} from '@storybook/addon-docs';
+import {Checkbox} from 'dooboo-ui';
+import {CheckboxTemplate} from './CheckboxStories';
 
-<Meta title="Components/Checkbox" />
+<Meta title="Components/Checkbox" component={CheckboxTemplate} />
 
 # Checkbox
 
-> [Checkbox] component that can be used inside the product. Has basic feature like `disabled` state, can apply different color with `type` prop, and also can put the extra element to the `left` and `right` side of the checkbox.
-
-<br />
-
-## Usage
+> Checkbox component.
 
 ```tsx
 import {Checkbox} from 'dooboo-ui';
@@ -17,118 +14,10 @@ import {Checkbox} from 'dooboo-ui';
 <Checkbox {...props} />;
 ```
 
+<Canvas>
+  <Story name="Checkbox" story={CheckboxTemplate} />
+</Canvas>
+
 ## Props
 
-|               | Necessary | Types                  | Description                               | Default |
-| ------------- | --------- | ---------------------- | ----------------------------------------- | ------- |
-| onPress?      |           | `() => void`           |                                           |         |
-| style?        |           | `StyleProp<ViewStyle>` | root `ViewStyle`                          |         |
-| styles?       |           | `Styles`               | List of all style props within [Checkbox] |         |
-| type?         |           | `CheckboxType`         |                                           | primary |
-| disabled?     |           | `boolean`              |                                           |         |
-| theme?        |           | `DoobooTheme`          |                                           |         |
-| chekced?      |           | `boolean`              |                                           |         |
-| startElement? |           | `ReactElement`         | Extra element to place on the left        |         |
-| endElement?   |           | `ReactElement`         | Extra element to place on the right       |         |
-
-<br />
-
-## Demo
-
-### Basic Style
-
-```tsx
-<Checkbox text="check" checked={checked} onPress={() => setChecked(!checked)} />
-```
-
-<Basic  />
-<br />
-
-### Solid Color Types
-
-`primary` `secondary` `success` `warning` `info` `danger`
-
-The `type` prop can generate different color of Checkbox. The default value of type is `primary`.
-
-```tsx
-<Checkbox
-  checked={checked}
-  onPress={() => setChecked(!checked)}
-  color="primary"
-/>
-<Checkbox
-  checked={checked}
-  onPress={() => setChecked(!checked)}
-  color="secondary"
-/>
-<Checkbox
-  checked={checked}
-  onPress={() => setChecked(!checked)}
-  color="success"
-/>
-<Checkbox
-  checked={checked}
-  onPress={() => setChecked(!checked)}
-  color="warning"
-/>
-<Checkbox
-  checked={checked}
-  onPress={() => setChecked(!checked)}
-  color="info"
-/>
-<Checkbox
-  checked={checked}
-  onPress={() => setChecked(!checked)}
-  color="danger"
-/>
-```
-
-<Solid />
-<br />
-
-### Disabled Checkbox
-
-The `disabled` prop can generate disabled Checkbox which is not pressable.
-
-It can't apply `type` prop at the same time.
-
-```tsx
-<Checkbox disabled />
-```
-
-<Disabled />
-<br />
-
-### Checkbox with startElement
-
-The `startElement` prop can generate Checkbox following behind the element.
-
-It can be used with the `type` prop.
-
-```tsx
-<Checkbox
-  checked={checked}
-  onPress={() => setChecked(!checked)}
-  startElement={<StyledText>Hello this is a checkbox</StyledText>}
-/>
-```
-
-<StartElement />
-<br />
-
-### Checkbox with endElement
-
-The `endElement` prop can generate Checkbox in front of the element.
-
-It can be used with the `type` prop.
-
-```tsx
-<Checkbox
-  checked={checked}
-  onPress={() => setChecked(!checked)}
-  endElement={<StyledText>Hello this is a checkbox</StyledText>}
-/>
-```
-
-<EndElement />
-<br />
+<ArgsTable of={Checkbox} />

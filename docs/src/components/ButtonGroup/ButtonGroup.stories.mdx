@@ -1,14 +1,12 @@
-import {Meta} from '@storybook/addon-docs';
+import {Meta, Story, Canvas, ArgsTable} from '@storybook/addon-docs';
+import {ButtonGroup} from 'dooboo-ui';
+import {ButtonGroupTemplate} from './ButtonGroupStories';
 
-import ButtonGroup from './index';
-
-<Meta title="Components/ButtonGroup" />
+<Meta title="Components/ButtonGroup" component={ButtonGroupTemplate} />
 
 # ButtonGroup
 
-> [ButtonGroup] component that can be used inside product. Has basic features like `loading` state, `disabled` state and also has ability to put extra `element` to left, right or bot.
-
-## Usage
+> The component like [segmented control](https://developer.apple.com/design/human-interface-guidelines/ios/controls/segmented-controls).
 
 ```tsx
 import {ButtonGroup} from 'dooboo-ui';
@@ -16,23 +14,12 @@ import {ButtonGroup} from 'dooboo-ui';
 <ButtonGroup {...props} />;
 ```
 
+<Canvas>
+  <Story name="ButtonGroup" story={ButtonGroupTemplate} />
+</Canvas>
+
 ## Props
 
-|                 | Types                 | Description                                    |
-| --------------- | --------------------- | ---------------------------------------------- |
-| testID?         | `string`              |                                                |
-| borderRadius?   | `number`              | The radius of the container.                   |
-| borderWidth?    | `number`              | The width of the border.                       |
-| containerStyle? | `ViewStyle`           |                                                |
-| style?          | `ViewStyle`           |                                                |
-| styles?         | `Styles`              | List of all style props within [ButtonGroup].  |
-| data            | `string[]`            | List of strings to be rendered in each button. |
-| color?          | `string`              | Represents main color.                         |
-| onPress?        | `(i: number) => void` | `callback` for press event.                    |
-| selectedIndex?  | `number`              | `index` of selected data.                      |
+<ArgsTable of={ButtonGroup} />
 
-## Demo
 
-###
-
-<ButtonGroup/>
