@@ -97,8 +97,8 @@ export const light = {
 
 export const dark: typeof light = {
   bg: {
-    basic: colors.black,
-    paper: colors.gray9,
+    basic: '#242424',
+    paper: '#1E1D1D',
     disabled: colors.gray7,
   },
   role: {
@@ -110,7 +110,7 @@ export const dark: typeof light = {
     success: colors.successDark,
     warning: colors.warningDark,
     danger: colors.dangerDark,
-    border: colors.gray6,
+    border: '#363636',
   },
   text: {
     basic: colors.white,
@@ -150,8 +150,8 @@ export const dark: typeof light = {
       bg: colors.gray8,
     },
     disabled: {
-      text: colors.gray7,
-      bg: colors.gray9,
+      text: '#292929',
+      bg: '#313131',
     },
   },
 };
