@@ -170,7 +170,13 @@ function AlertDialog(
       animationType="fade"
       transparent={true}
       visible={visible}
-      style={style}
+      style={[
+        css`
+          flex: 1;
+          align-self: stretch;
+        `,
+        style,
+      ]}
     >
       {closeOnTouchOutside ? (
         <TouchableWithoutFeedback

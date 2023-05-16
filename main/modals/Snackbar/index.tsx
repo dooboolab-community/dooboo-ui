@@ -3,7 +3,7 @@ import React, {forwardRef, useImperativeHandle, useState} from 'react';
 import type {StyleProp, TextStyle, ViewStyle} from 'react-native';
 import {Modal, Platform, StyleSheet} from 'react-native';
 import {useTheme} from '@dooboo-ui/theme';
-import styled from '@emotion/native';
+import styled, {css} from '@emotion/native';
 
 import type {ButtonColorType} from '../../uis/Button';
 import {Button} from '../../uis/Button';
@@ -156,7 +156,13 @@ function Snackbar(
       animationType="fade"
       transparent={true}
       visible={visible}
-      style={style}
+      style={[
+        css`
+          flex: 1;
+          align-self: stretch;
+        `,
+        style,
+      ]}
     >
       {SnackbarContent}
     </Modal>
