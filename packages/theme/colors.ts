@@ -2,12 +2,12 @@ export type ThemeType = 'light' | 'dark';
 
 export const colors = {
   primaryLight: '#1B1B1B',
-  secondaryLight: '#3246FF',
+  secondaryLight: '#3D8BFF',
   accentLight: '#6BF3C5',
   infoLight: '#307EF1',
   linkLight: '#A351F4',
-  successLight: '#0FC70C',
-  warningLight: '#EBBD1A',
+  successLight: '#1CD66C',
+  warningLight: '#E2B101',
   dangerLight: '#F84444',
 
   primaryDark: '#FFFFFF',
@@ -89,8 +89,8 @@ export const light = {
       bg: colors.gray1,
     },
     disabled: {
-      text: colors.gray3,
-      bg: colors.gray1,
+      text: '#EDEDED',
+      bg: '#BEBEBE',
     },
   },
 };
@@ -150,8 +150,8 @@ export const dark: typeof light = {
       bg: colors.gray8,
     },
     disabled: {
-      text: '#292929',
-      bg: '#313131',
+      text: '#474747',
+      bg: '#292929',
     },
   },
 };
