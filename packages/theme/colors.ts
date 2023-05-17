@@ -52,7 +52,7 @@ export const light = {
     },
     light: {
       bg: '#E8E8E8',
-      text: '#232323',
+      text: '#FFFFFF',
     },
     disabled: {
       text: '#EDEDED',
@@ -113,7 +113,7 @@ export const dark: typeof light = {
     },
     light: {
       bg: '#313131',
-      text: '#232323',
+      text: '#EBEBEB',
     },
     disabled: {
       text: '#292929',
