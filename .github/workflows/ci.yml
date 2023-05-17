@@ -37,9 +37,6 @@ jobs:
       - name: Build
         run: yarn build
 
-      - name: Remove theme built lib
-        run: rm -rf packages/theme/lib
-
       - name: Test
         run: |
           export NODE_OPTIONS="--max-old-space-size=8192"
