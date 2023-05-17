@@ -2,7 +2,7 @@ import '@testing-library/jest-native/extend-expect';
 import 'jest-plugin-context/setup';
 import 'givens/setup';
 
-jest.mock('@dooboo-ui/theme/useColorScheme', () =>
+jest.mock('@dooboo-ui/theme/lib/useColorScheme', () =>
   jest.fn().mockReturnValue('light'),
 );
 

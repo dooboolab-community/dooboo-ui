@@ -7,8 +7,8 @@ import {useMediaQuery} from 'react-responsive';
 import type {Theme} from '@emotion/react';
 import {ThemeProvider as EmotionThemeProvider, withTheme} from '@emotion/react';
 
-import type {Colors, DoobooTheme, ThemeParam, ThemeType} from './colors';
-import {colors, dark, light} from './colors';
+import type {DoobooTheme, ThemeParam, ThemeType} from './colors';
+import {dark, light} from './colors';
 import createDoobooContext from './createDoobooContext';
 import useColorScheme from './useColorScheme';
 
@@ -22,7 +22,6 @@ export type ThemeContext = {
   };
   theme: Theme & DoobooTheme;
   changeThemeType: (themeType?: ColorSchemeName) => void;
-  colors: Colors;
 };
 
 const [useCtx, DoobooProvider] = createDoobooContext<ThemeContext>();
@@ -138,7 +137,6 @@ export function ThemeProvider({
         themeType,
         changeThemeType,
         theme,
-        colors,
       }}
     >
       <EmotionThemeProvider theme={{...theme, ...media}}>

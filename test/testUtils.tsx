@@ -1,9 +1,9 @@
 import 'react-native';
 
-import React from 'react';
 import type {ReactElement} from 'react';
-import {ThemeProvider} from '@dooboo-ui/theme';
+import React from 'react';
 import type {ThemeType} from '@dooboo-ui/theme';
+import {ThemeProvider} from '@dooboo-ui/theme';
 
 export const createTestProps = (
   obj?: Record<string, unknown>,

@@ -4,7 +4,7 @@ import {useTheme as useThemeEmotion} from '@emotion/react';
 import {act, renderHook} from '@testing-library/react-hooks';
 import getGiven from 'givens';
 
-import {colors, dark} from './colors';
+import {dark} from './colors';
 import {ThemeProvider, useTheme} from './index';
 
 const given = getGiven();
@@ -37,12 +37,6 @@ describe('doobooContext', () => {
         const {result} = renderHook(() => useTheme(), {wrapper});
 
         expect(result.current.theme).toEqual({...dark, ...customDarkTheme});
-      });
-
-      it('returns colors', () => {
-        const {result} = renderHook(() => useTheme(), {wrapper});
-
-        expect(result.current.colors).toEqual(colors);
       });
 
       it('returns theme changer', () => {
