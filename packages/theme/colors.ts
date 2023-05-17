@@ -52,7 +52,7 @@ export const light = {
     },
     light: {
       bg: '#E8E8E8',
-      text: '#FFFFFF',
+      text: '#232323',
     },
     disabled: {
       bg: '#EDEDED',
