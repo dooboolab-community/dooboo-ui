@@ -17,7 +17,7 @@ import {Meta} from '@storybook/addon-docs';
 > What's been published to `npm` is only the `main` components in `main` directory. This is what you should be considering for production.
 > Please try writing `test code` for components when you've created the new one.
 > We encourage you to write `stories` in `storybook` directory so other users can see [the demo](https://dooboolab.github.io/dooboo-ui) for all components at a glance.
-> You can check out more on [our goal](https://github.com/dooboolab/dooboo-ui/discussions/8#discussioncomment-1015465) for the project.
+> You can check out more on [our goal](https://github.com/dooboolab-community/dooboo-ui/discussions/8#discussioncomment-1015465) for the project.
 
 - See also
   - dooboolab's [vision-and-mission](https://dooboolab.com/vision_and_mission)
@@ -34,7 +34,7 @@ import {Meta} from '@storybook/addon-docs';
 
    - Recommended to have `forked` main branch to be updated to upstream.
    - Configure [Syncing a fork](https://help.github.com/articles/configuring-a-remote-for-a-fork/).
-     - `git remote add upstream https://github.com/dooboolab/dooboo-ui`
+     - `git remote add upstream https://github.com/dooboolab-community/dooboo-ui`
      - Check it with `git remote -v`
    - Fetch the branches from upstream repository by `git fetch upstream`
    - When you want to give `PR`, make new branch `git checkout -b [feature_name]`
@@ -80,10 +80,10 @@ import {Meta} from '@storybook/addon-docs';
 
    - Example vscode [setting.json](https://gist.github.com/hyochan/815e9040593180c4725d7694d863e5a1)
 
-6. While implementing UI component in [packages](https://github.com/dooboolab/dooboo-ui/tree/main/packages), you should run `yarn watch` in order to build typescript file dynamically while coding.
+6. While implementing UI component in [packages](https://github.com/dooboolab-community/dooboo-ui/tree/main/packages), you should run `yarn watch` in order to build typescript file dynamically while coding.
    This is currently the best solution to sync with your typescript code using `package.json`. If you find something more efficient, please give a pull request.
 
-   > **Finally, you might want to check out [short story for the design](https://github.com/dooboolab/dooboo-ui/pull/49#issuecomment-894665037).**
+   > **Finally, you might want to check out [short story for the design](https://github.com/dooboolab-community/dooboo-ui/pull/49#issuecomment-894665037).**
 
 ### Commit message
 
@@ -145,12 +145,12 @@ There are also few others to be considered specific to `dooboo-ui`.
    };
    ```
 
-   > You can see the exmaple in [Button L62-L63](https://github.com/dooboolab/dooboo-ui/blob/c0d114c46bbba5a8a8a05e91a782a682e4803dac/main/Button/Styles.tsx#L62-L63).
+   > You can see the exmaple in [Button L62-L63](https://github.com/dooboolab-community/dooboo-ui/blob/c0d114c46bbba5a8a8a05e91a782a682e4803dac/main/Button/Styles.tsx#L62-L63).
    > This lets developers to check what kind of styles are nested in component.
 
 3. Provide `react element` when you find that there are more possibilities to have in your component.
 
-   For example, see the [CheckBox](https://github.com/dooboolab/dooboo-ui/blob/main/main/Checkbox/Styles.tsx) component.
+   For example, see the [CheckBox](https://github.com/dooboolab-community/dooboo-ui/blob/main/main/Checkbox/Styles.tsx) component.
 
    ```tsx
    <Checkbox
@@ -193,7 +193,7 @@ There are also few others to be considered specific to `dooboo-ui`.
 
    > When `renderTitle` or `renderBody` is not provided, the component will render default implemented design underneath.
 
-   You can see the sample in [Accordion](https://github.com/dooboolab/dooboo-ui/tree/master/main/Accordion).
+   You can see the sample in [Accordion](https://github.com/dooboolab-community/dooboo-ui/tree/master/main/Accordion).
 
 5. Provide default colors for each theme (`light` and `dark`)
 
@@ -219,7 +219,7 @@ For example, does below looks great? Anything more you think would be needed?
 />
 ```
 
-> If you want to discuss on your proposal please feel free to open up anything in [discussions](https://github.com/dooboolab/dooboo-ui/discussions).
+> If you want to discuss on your proposal please feel free to open up anything in [discussions](https://github.com/dooboolab-community/dooboo-ui/discussions).
 
 #### Naming conventions
 

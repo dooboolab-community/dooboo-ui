@@ -2,7 +2,7 @@
   "name": "@dooboo-ui/theme",
   "version": "0.12.5",
   "description": "dooboo-ui theme provider",
-  "homepage": "https://github.com/dooboolab/dooboo-ui#readme",
+  "homepage": "https://github.com/dooboolab-community/dooboo-ui#readme",
   "license": "ISC",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",

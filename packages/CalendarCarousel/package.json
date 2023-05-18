@@ -12,13 +12,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/dooboolab/dooboo-ui.git",
+    "url": "https://github.com/dooboolab-community/dooboo-ui.git",
     "directory": "packages/CalendarCarousel"
   },
   "bugs": {
-    "url": "https://github.com/dooboolab/dooboo-ui/issues"
+    "url": "https://github.com/dooboolab-community/dooboo-ui/issues"
   },
-  "homepage": "https://github.com/dooboolab/dooboo-ui#readme",
+  "homepage": "https://github.com/dooboolab-community/dooboo-ui#readme",
   "dependencies": {
     "dooboolab-welcome": "^1.3.2",
     "intl": "^1.2.5"
