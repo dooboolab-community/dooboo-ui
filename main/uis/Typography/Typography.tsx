@@ -7,7 +7,7 @@ import {isEmptyObject} from '../../utils/utils';
 // Title
 const StyledTitle = styled.Text<{theme: DoobooTheme}>`
   font-size: 28px;
-  line-height: 36px;
+  line-height: 39.2px;
   font-weight: bold;
   color: ${({theme}) => {
     if (isEmptyObject(theme)) {
@@ -39,35 +39,35 @@ StyledHeading.defaultProps = {style: {includeFontPadding: false}};
 export const Heading1 = withTheme(
   styled(StyledHeading)`
     font-size: 26px;
-    line-height: 34px;
+    line-height: 36.4px;
   `,
 );
 
 export const Heading2 = withTheme(
   styled(StyledHeading)`
     font-size: 22px;
-    line-height: 30px;
+    line-height: 30.8px;
   `,
 );
 
 export const Heading3 = withTheme(
   styled(StyledHeading)`
     font-size: 18px;
-    line-height: 26px;
+    line-height: 25.2px;
   `,
 );
 
 export const Heading4 = withTheme(
   styled(StyledHeading)`
     font-size: 16px;
-    line-height: 24px;
+    line-height: 22.4px;
   `,
 );
 
 export const Heading5 = withTheme(
   styled(StyledHeading)`
     font-size: 14px;
-    line-height: 22px;
+    line-height: 19.6px;
   `,
 );
 
@@ -87,27 +87,27 @@ StyledBody.defaultProps = {style: {includeFontPadding: false}};
 export const Body1 = withTheme(
   styled(StyledBody)`
     font-size: 18px;
-    line-height: 24px;
+    line-height: 25.2px;
   `,
 );
 
 export const Body2 = withTheme(
   styled(StyledBody)`
     font-size: 16px;
-    line-height: 22px;
+    line-height: 22.4px;
   `,
 );
 
 export const Body3 = withTheme(
   styled(StyledBody)`
     font-size: 14px;
-    line-height: 20px;
+    line-height: 19.6px;
   `,
 );
 
 export const Body4 = withTheme(
   styled(StyledBody)`
     font-size: 12px;
-    line-height: 18px;
+    line-height: 16.4px;
   `,
 );
