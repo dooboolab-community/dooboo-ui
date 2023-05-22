@@ -16,6 +16,8 @@ export const light = {
     warning: '#E2B101',
     danger: '#F84444',
     border: '#CCCCCC',
+    underlay: 'rgba(0, 0, 0, 0.16)',
+    underlayContrast: 'rgba(0, 0, 0, 0.8)',
   },
   text: {
     basic: '#000000',
@@ -77,6 +79,8 @@ export const dark: typeof light = {
     warning: '#F4CC3E',
     danger: '#FF3C3C',
     border: '#363636',
+    underlay: 'rgba(255, 255, 255, 0.16)',
+    underlayContrast: 'rgba(255, 255, 255, 0.8)',
   },
   text: {
     basic: '#FFFFFF',
