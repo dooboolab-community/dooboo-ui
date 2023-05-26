@@ -71,7 +71,8 @@ function AccordionItem<T, K>(props: Props<T, K>): ReactElement {
 
   const rotateAnimValueRef = useRef(new Animated.Value(0));
   const dropDownAnimValueRef = useRef(dropDownAnimValue);
-  const fadeAnim = useRef(new Animated.Value(0)).current;
+  const fadeRootAnim = useRef(new Animated.Value(0)).current;
+  const fadeItemAnim = useRef(new Animated.Value(0)).current;
 
   const [bodyHeight, setBodyHeight] = useState(0);
   const [hasItemMounted, setHasItemMounted] = useState(false);
@@ -94,13 +95,23 @@ function AccordionItem<T, K>(props: Props<T, K>): ReactElement {
 
   useEffect(() => {
     if (hasItemMounted) {
-      Animated.timing(fadeAnim, {
+      Animated.timing(fadeRootAnim, {
         toValue: 1,
         duration: 30,
         useNativeDriver: true,
       }).start();
     }
-  }, [hasItemMounted, fadeAnim]);
+  }, [hasItemMounted, fadeRootAnim]);
+
+  useEffect(() => {
+    if (hasItemMounted) {
+      Animated.timing(fadeItemAnim, {
+        toValue: hasCollapsed ? 0 : 1,
+        duration: 100,
+        useNativeDriver: false,
+      }).start();
+    }
+  }, [hasItemMounted, fadeItemAnim, hasCollapsed]);
 
   useEffect(() => {
     const targetValue = hasCollapsed ? 0 : 1;
@@ -155,7 +166,7 @@ function AccordionItem<T, K>(props: Props<T, K>): ReactElement {
           background-color: transparent;
           overflow: hidden;
         `,
-        {opacity: fadeAnim},
+        {opacity: fadeRootAnim},
         styles?.container,
       ]}
     >
@@ -187,7 +198,7 @@ function AccordionItem<T, K>(props: Props<T, K>): ReactElement {
       <Animated.View
         testID={`body-${testID}`}
         style={{
-          opacity: hasCollapsed ? 0 : 1,
+          opacity: fadeItemAnim,
           height: hasItemMounted
             ? dropDownAnimValueRef.current.interpolate({
                 inputRange: [0, 1],
