@@ -74,18 +74,18 @@ function AccordionItem<T, K>(props: Props<T, K>): ReactElement {
   const fadeAnim = useRef(new Animated.Value(0)).current;
 
   const [bodyHeight, setBodyHeight] = useState(0);
-  const [isBodyMounted, setIsBodyMounted] = useState(false);
+  const [hasItemMounted, setHasItemMounted] = useState(false);
   const [hasCollapsed, setHasCollapsed] = useState(collapseOnStart);
 
   const handleBodyLayout = (e: LayoutChangeEvent): void => {
-    if (isBodyMounted) {
+    if (hasItemMounted) {
       return;
     }
 
     const {height} = e.nativeEvent.layout;
 
     setBodyHeight(height);
-    setIsBodyMounted(true);
+    setHasItemMounted(true);
   };
 
   const handlePress = (): void => {
@@ -93,14 +93,14 @@ function AccordionItem<T, K>(props: Props<T, K>): ReactElement {
   };
 
   useEffect(() => {
-    if (isBodyMounted) {
+    if (hasItemMounted) {
       Animated.timing(fadeAnim, {
         toValue: 1,
         duration: 30,
         useNativeDriver: true,
       }).start();
     }
-  }, [isBodyMounted, fadeAnim]);
+  }, [hasItemMounted, fadeAnim]);
 
   useEffect(() => {
     const targetValue = hasCollapsed ? 0 : 1;
@@ -187,7 +187,8 @@ function AccordionItem<T, K>(props: Props<T, K>): ReactElement {
       <Animated.View
         testID={`body-${testID}`}
         style={{
-          height: isBodyMounted
+          opacity: hasCollapsed ? 0 : 1,
+          height: hasItemMounted
             ? dropDownAnimValueRef.current.interpolate({
                 inputRange: [0, 1],
                 outputRange: [0, bodyHeight],
