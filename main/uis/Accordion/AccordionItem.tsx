@@ -107,7 +107,7 @@ function AccordionItem<T, K>(props: Props<T, K>): ReactElement {
     if (hasItemMounted) {
       Animated.timing(fadeItemAnim, {
         toValue: hasCollapsed ? 0 : 1,
-        duration: 100,
+        duration: !hasCollapsed ? 300 : 100,
         useNativeDriver: false,
       }).start();
     }
