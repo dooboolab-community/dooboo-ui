@@ -26,7 +26,7 @@ const TitleContainer = styled.View`
 
 const StyledIcon = styled(Icon)`
   color: ${({theme}) => theme.text.basic};
-  font-weight: 600;
+  font-weight: bold;
 `;
 
 const ItemTouch = styled.TouchableOpacity``;

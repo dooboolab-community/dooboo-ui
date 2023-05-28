@@ -8,7 +8,7 @@ import {isEmptyObject} from '../../utils/utils';
 const InvertedStyledTitle = styled.Text<{theme: DoobooTheme}>`
   font-size: 28px;
   line-height: 39.2px;
-  font-weight: 400;
+  font-weight: bold;
   color: ${({theme}) => {
     if (isEmptyObject(theme)) {
       return light.text.contrast;
@@ -24,7 +24,7 @@ export const InvertedTitle = withTheme(InvertedStyledTitle);
 
 // Heading
 const InvertedStyledHeading = styled.Text<{theme: DoobooTheme}>`
-  font-weight: 400;
+  font-weight: bold;
   color: ${({theme}) => {
     if (isEmptyObject(theme)) {
       return light.text.contrast;
