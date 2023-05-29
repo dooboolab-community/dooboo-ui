@@ -7,10 +7,12 @@ import {PinchZoom} from '../../../packages/PinchZoom/lib';
 
 const TitleText = styled.Text`
   font-size: 16px;
+  line-height: 22.4px;
 `;
 
 const ContentText = styled.Text`
   font-size: 14px;
+  line-height: 19.6px;
 `;
 
 const PinchZoomArticleStory = (): ReactElement => {

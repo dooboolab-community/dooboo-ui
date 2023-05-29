@@ -9,7 +9,6 @@ const InvertedStyledTitle = styled.Text<{theme: DoobooTheme}>`
   font-family: 'Pretendard-Bold';
   font-size: 28px;
   line-height: 39.2px;
-  font-weight: bold;
   color: ${({theme}) => {
     if (isEmptyObject(theme)) {
       return light.text.contrast;

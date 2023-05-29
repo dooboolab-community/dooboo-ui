@@ -27,6 +27,7 @@ const StyledViewChat = styled.View`
 
 const StyledInputChat = styled.TextInput`
   font-size: 14px;
+  line-height: 19.6px;
   padding-left: 48px;
   padding-bottom: 4px;
 `;

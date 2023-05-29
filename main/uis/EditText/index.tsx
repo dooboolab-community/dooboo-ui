@@ -203,11 +203,11 @@ export function EditText(props: EditTextProps): ReactElement {
         <Text
           style={[
             css`
-              font-family: Pretendard;
+              font-family: Pretendard-Bold;
               color: ${defaultColor};
               margin-right: 4px;
-              font-weight: bold;
               font-size: 16px;
+              line-height: 22.4px;
             `,
             labelPlaceholderColor,
             styles?.label,
@@ -303,6 +303,7 @@ export function EditText(props: EditTextProps): ReactElement {
                 font-family: Pretendard;
                 flex: 1;
                 font-size: 16px;
+                line-height: 22.4px;
               `,
               Platform.OS === 'web' &&
                 css`
@@ -365,6 +366,7 @@ export function EditText(props: EditTextProps): ReactElement {
               flex: 1;
               color: ${theme.text.validation};
               font-size: 12px;
+              line-height: 16.8px;
             `,
             styles?.error,
           ]}
@@ -384,6 +386,7 @@ export function EditText(props: EditTextProps): ReactElement {
           css`
             color: ${theme.text.placeholder};
             font-size: 12px;
+            line-height: 16.8px;
           `,
           styles?.counter,
         ]}

@@ -15,13 +15,15 @@ export const ScrollContainer = styled.ScrollView`
 export const StoryTitle = styled.Text`
   margin: 8px 0;
   font-size: 18px;
-  font-weight: bold;
+  line-height: 25.2px;
+  font-family: Pretendard-Bold;
   color: ${({theme}) => theme.text.basic};
 `;
 
 export const StoryDescription = styled.Text`
   margin: 8px 12px;
   font-size: 16px;
+  line-height: 22.4px;
   color: ${({theme}) => theme.text.basic};
 `;
 

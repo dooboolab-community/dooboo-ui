@@ -36,6 +36,7 @@ const Progress = styled.View<ProgressProps>`
 const NumberText = styled.Text`
   position: absolute;
   font-size: 14px;
+  line-height: 19.6px;
   z-index: 2;
   color: ${({theme}) => theme.text.basic};
 `;

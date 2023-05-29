@@ -16,7 +16,7 @@ import {ScrollContainer, StoryContainer, StoryTitle} from '../../GlobalStyles';
 const CustomStyledItem = styled.Text`
   color: ${({theme}) => theme.text.basic};
   padding-left: 8px;
-  font-weight: bold;
+  font-family: Pretendard-Bold;
 `;
 
 type AccordionTitle = {key: string; text: string};
