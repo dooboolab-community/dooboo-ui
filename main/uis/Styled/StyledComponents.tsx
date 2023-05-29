@@ -66,6 +66,7 @@ export const ButtonText = styled.Text<{
   loading?: boolean;
   theme?: DoobooTheme;
 }>`
+  font-family: Pretendard;
   color: ${({theme, outlined, type, disabled}) => {
     theme = isEmptyObject(theme) ? light : theme;
 
@@ -176,6 +177,7 @@ export const ColoredText = styled.Text<{
   disabled?: boolean;
   selected?: boolean;
 }>`
+  font-family: Pretendard;
   color: ${({theme, selected, type, disabled}) => {
     theme = isEmptyObject(theme) ? light : theme;
 

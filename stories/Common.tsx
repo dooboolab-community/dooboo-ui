@@ -3,7 +3,13 @@ import type {ReactElement, ReactNode} from 'react';
 import React, {useState} from 'react';
 import {StatusBar, View} from 'react-native';
 
-import {DoobooProvider, SwitchToggle, Typography, useDooboo} from '../main';
+import {
+  DoobooProvider,
+  LoadingIndicator,
+  SwitchToggle,
+  Typography,
+  useDooboo,
+} from '../main';
 
 import {StoryContainer} from './GlobalStyles';
 
@@ -12,8 +18,12 @@ type ContainerProps = {
 };
 
 export function StoryWrapper({children}: ContainerProps): ReactElement {
-  const {themeType, changeThemeType} = useDooboo();
+  const {themeType, changeThemeType, assetLoaded} = useDooboo();
   const [on, off] = useState(themeType === 'dark');
+
+  if (!assetLoaded) {
+    return <LoadingIndicator />;
+  }
 
   return (
     <StoryContainer>

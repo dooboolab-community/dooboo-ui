@@ -6,9 +6,9 @@ import {isEmptyObject} from '../../utils/utils';
 
 // Title
 const StyledTitle = styled.Text<{theme: DoobooTheme}>`
+  font-family: 'Pretendard-Bold';
   font-size: 28px;
   line-height: 39.2px;
-  font-weight: bold;
   color: ${({theme}) => {
     if (isEmptyObject(theme)) {
       return theme.text.disabled;
@@ -24,7 +24,7 @@ export const Title = withTheme(StyledTitle);
 
 // Heading
 const StyledHeading = styled.Text<{theme: DoobooTheme}>`
-  font-weight: bold;
+  font-family: 'Pretendard-Bold';
   color: ${({theme}) => {
     if (isEmptyObject(theme)) {
       return theme.text.disabled;
@@ -73,6 +73,7 @@ export const Heading5 = withTheme(
 
 // Body
 const StyledBody = styled.Text<{theme: DoobooTheme}>`
+  font-family: 'Pretendard';
   color: ${({theme}) => {
     if (isEmptyObject(theme)) {
       return theme.text.disabled;

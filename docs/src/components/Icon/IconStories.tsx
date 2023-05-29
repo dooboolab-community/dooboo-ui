@@ -11,7 +11,6 @@ import {
   Icon,
   Typography,
 } from 'dooboo-ui';
-import {useFonts} from 'expo-font';
 import {useDarkMode} from 'storybook-dark-mode';
 
 export default {
@@ -56,18 +55,6 @@ IconTemplate.args = initialProps;
 // IconList
 export function IconList(): ReactElement {
   const [searchText, setSearchText] = useState('');
-  const [fontsLoaded] = useFonts({
-    doobooui: require('../../assets/doobooui.ttf'),
-  });
-
-  if (!fontsLoaded) {
-    return (
-      <Container>
-        <View />
-      </Container>
-    );
-  }
-
   const filteredIcons = (doobooIconList as IconNames).filter((icon) =>
     icon.toLocaleLowerCase().includes(searchText.toLocaleLowerCase()),
   );

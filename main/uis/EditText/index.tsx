@@ -203,6 +203,7 @@ export function EditText(props: EditTextProps): ReactElement {
         <Text
           style={[
             css`
+              font-family: Pretendard;
               color: ${defaultColor};
               margin-right: 4px;
               font-weight: bold;
@@ -299,6 +300,7 @@ export function EditText(props: EditTextProps): ReactElement {
             style={[
               // Stretch input in order to make remaining space clickable
               css`
+                font-family: Pretendard;
                 flex: 1;
                 font-size: 16px;
               `,

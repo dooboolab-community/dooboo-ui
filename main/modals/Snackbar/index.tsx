@@ -36,6 +36,7 @@ const ActionContainer = styled.View`
 `;
 
 const SnackbarText = styled.Text<{color: ButtonColorType}>`
+  font-family: Pretendard;
   color: ${({theme, color}) => theme.button[color].text};
   flex: 1;
   padding: 12px;
@@ -120,7 +121,10 @@ function Snackbar(
         <SnackbarText
           color={color}
           style={StyleSheet.flatten([
-            {color: theme.button[color].text},
+            css`
+              font-family: 'Pretendard';
+              color: ${theme.button[color].text};
+            `,
             styles?.text,
           ])}
         >
@@ -133,7 +137,10 @@ function Snackbar(
               onPress={() => setVisible(false)}
               styles={{
                 text: StyleSheet.flatten([
-                  {color: theme.button[color].text},
+                  css`
+                    font-family: 'Pretendard';
+                    color: ${theme.button[color].text};
+                  `,
                   styles?.actionText,
                 ]),
               }}

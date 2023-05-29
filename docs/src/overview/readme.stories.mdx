@@ -92,60 +92,33 @@ The major changes in `0.2.0` is that we recommend using `DoobooProvider` instead
 
 ## Install Font (Recommended)
 
-You can install our font to use in your project. This is recommended since we use these fonts in some of `dooboo-ui` components. They might not show correct icons when the font is not loaded.
+In `dooboo-ui`, the default font is [pretendard](https://github.com/orioncactus/pretendard). We use `Pretandard`, `Pretendard-Bold`, `Pretendard-Thin` as font families.
+Fonts are installed automatically when installing `dooboo-ui` from `0.2.1`.
+However, you should check the `assetLoaded` from `DoobooProvider` to make sure that the fonts are loaded.
 
-Find more about [Icon component](?path=/docs/components-icon--page).
+```tsx
+import {useDooboo} from 'dooboo-ui';
 
-### For Expo user
+const {assetLoaded} = useDooboo();
 
-#### 1. In somwhere like `App.tsx`, load dooboo-ui font.
+if (assetLoaded) {
+  /// Loading
+  return ...
+}
 
-```js
-import {useFonts} from 'expo-font';
-
-const [fontsLoaded] = useFonts({
-  doobooui: require('dooboo-ui/uis/Icon/doobooui.ttf'),
-});
+return <Main/>
 ```
 
-### For React Native user
+## Using font icons
 
-#### 1. Create `react-native.config.cjs` file and add below code.
-
-```
-module.exports = {
-  dependencies: {
-    'react-native-vector-icons': {
-      platforms: {
-        ios: null,
-      },
-    },
-  },
-};
-```
-> Above will prevent adding default font icons from [react-native-vector-icons](https://github.com/oblador/react-native-vector-icons) in `ios` platform.
-
-#### 2. Add rnpm config in `package.json`.
-
-```
-"rnpm": { "assets": [ "dooboo-ui/uis/Icon" ] },
-```
-
-#### 3. Run `yarn react-native link`.
-
-> For more information, please read [add custom fonts to react native](https://medium.com/@aravindmnair/add-custom-fonts-to-react-native-0-60-easily-in-3-steps-fcd71459f4c9).
-
-
-> For more question please follow [using custom font in expo](https://docs.expo.io/guides/using-custom-fonts).
-
-## Using fonts
+[Phosphoricons](https://phosphoricons.com) can be used in `dooboo-ui`. You can use `Icon` component to use the icons.
 
 ```js
 import {Icon} from 'dooboo-ui';
 
 ...
 
-<Icon name="like-solid" color="black" size={32} />;
+<Icon name="..." color="#AAA" size={32} />;
 ```
 
 ## Compatibility

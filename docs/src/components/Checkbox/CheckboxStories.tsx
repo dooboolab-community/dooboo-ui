@@ -3,13 +3,7 @@ import {useState} from 'react';
 import {View} from 'react-native';
 import {css} from '@emotion/native';
 import type {Meta, Story} from '@storybook/react/types-6-0';
-import {
-  Checkbox,
-  DoobooProvider,
-  LoadingIndicator,
-  Typography,
-} from 'dooboo-ui';
-import {useFonts} from 'expo-font';
+import {Checkbox, DoobooProvider, Typography} from 'dooboo-ui';
 import {useDarkMode} from 'storybook-dark-mode';
 
 export default {
@@ -53,28 +47,6 @@ CheckboxTemplate.args = initialProps;
 
 // Disabled
 export function CheckboxDisabledStory(): ReactElement {
-  const [fontsLoaded] = useFonts({
-    doobooui: require('../../assets/doobooui.ttf'),
-  });
-
-  if (!fontsLoaded) {
-    return (
-      <Container>
-        <View
-          style={{
-            flex: 1,
-            alignSelf: 'stretch',
-            flexDirection: 'column',
-            alignItems: 'center',
-            padding: 10,
-          }}
-        >
-          <LoadingIndicator />
-        </View>
-      </Container>
-    );
-  }
-
   return (
     <Container>
       <View
@@ -94,28 +66,6 @@ export function CheckboxDisabledStory(): ReactElement {
 
 export function CheckboxSolid(): ReactElement {
   const [checked, setChecked] = useState<boolean>(false);
-
-  const [fontsLoaded] = useFonts({
-    doobooui: require('../../assets/doobooui.ttf'),
-  });
-
-  if (!fontsLoaded) {
-    return (
-      <Container>
-        <View
-          style={{
-            flex: 1,
-            alignSelf: 'stretch',
-            flexDirection: 'column',
-            alignItems: 'center',
-            padding: 10,
-          }}
-        >
-          <LoadingIndicator />
-        </View>
-      </Container>
-    );
-  }
 
   return (
     <Container>
@@ -172,28 +122,6 @@ export function CheckboxSolid(): ReactElement {
 export function CheckboxStartElement(): ReactElement {
   const [checked, setChecked] = useState<boolean>(false);
 
-  const [fontsLoaded] = useFonts({
-    doobooui: require('../../assets/doobooui.ttf'),
-  });
-
-  if (!fontsLoaded) {
-    return (
-      <Container>
-        <View
-          style={{
-            flex: 1,
-            alignSelf: 'stretch',
-            flexDirection: 'column',
-            alignItems: 'center',
-            padding: 10,
-          }}
-        >
-          <LoadingIndicator />
-        </View>
-      </Container>
-    );
-  }
-
   return (
     <Container>
       <View
@@ -219,28 +147,6 @@ export function CheckboxStartElement(): ReactElement {
 // EndElement
 export function CheckboxEndElement(): ReactElement {
   const [checked, setChecked] = useState<boolean>(false);
-
-  const [fontsLoaded] = useFonts({
-    doobooui: require('../../assets/doobooui.ttf'),
-  });
-
-  if (!fontsLoaded) {
-    return (
-      <Container>
-        <View
-          style={{
-            flex: 1,
-            alignSelf: 'stretch',
-            flexDirection: 'column',
-            alignItems: 'center',
-            padding: 10,
-          }}
-        >
-          <LoadingIndicator />
-        </View>
-      </Container>
-    );
-  }
 
   return (
     <Container>
