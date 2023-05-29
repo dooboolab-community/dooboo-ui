@@ -1,11 +1,9 @@
 import type {ReactElement} from 'react';
 // Caveat: Expo web needs React to be imported
-import React, {useState} from 'react';
 import {View} from 'react-native';
 import styled from '@emotion/native';
 
-import type {IconNames} from '../../../main';
-import {doobooIconList, EditText, Icon, Typography} from '../../../main';
+import {doobooIconList, Icon, Typography} from '../../../main';
 
 const StoryContainer = styled.View`
   flex: 1;
@@ -37,25 +35,11 @@ const StyledIcon = styled(Icon)`
 `;
 
 function IconBasicStory(): ReactElement {
-  const [searchText, setSearchText] = useState('');
-
-  const filteredIcons = (doobooIconList as IconNames).filter((icon) =>
-    icon.toLocaleLowerCase().includes(searchText.toLocaleLowerCase()),
-  );
-
   return (
     <StoryContainer>
-      <EditText
-        direction="row"
-        // eslint-disable-next-line react/no-unstable-nested-components
-        label={() => <Icon name="SearchAlt" />}
-        value={searchText}
-        placeholder="Search icons"
-        onChangeText={(str) => setSearchText(str)}
-      />
       <ScrollContainer contentContainerStyle={{alignSelf: 'stretch'}}>
         <Container style={{paddingVertical: 60}}>
-          {filteredIcons.map((icon): ReactElement => {
+          {doobooIconList.map((icon): ReactElement => {
             return (
               <View
                 key={icon}

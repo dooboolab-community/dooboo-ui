@@ -3,11 +3,13 @@ import React, {useRef} from 'react';
 import {View} from 'react-native';
 import type {ThemeContext, ThemeProps} from '@dooboo-ui/theme';
 import {ThemeProvider, useTheme} from '@dooboo-ui/theme';
+import {useFonts} from 'expo-font';
 
 import type {AlertDialogContext} from '../modals/AlertDialog';
 import AlertDialog from '../modals/AlertDialog';
 import type {SnackbarContext, SnackbarOptions} from '../modals/Snackbar';
 import Snackbar from '../modals/Snackbar';
+import {LoadingIndicator} from '../uis/LoadingIndicator';
 import createCtx from '../utils/createCtx';
 
 export type {ThemeContext} from '@dooboo-ui/theme';
@@ -30,6 +32,9 @@ const [useCtx, Provider] = createCtx<DoobooContext>(
 );
 
 function DoobooProvider(props: DoobooProviderProps): React.ReactElement {
+  const [fontsLoaded] = useFonts({
+    doobooui: require('../uis/Icon/doobooui.ttf'),
+  });
   const themeContext = useTheme();
   const {children} = props;
   const snackbar =
@@ -61,6 +66,10 @@ function DoobooProvider(props: DoobooProviderProps): React.ReactElement {
       alertDialog.current && alertDialog.current.close();
     },
   };
+
+  if (!fontsLoaded) {
+    return <LoadingIndicator />;
+  }
 
   return (
     <View style={{flex: 1, alignSelf: 'stretch'}}>
