@@ -3,7 +3,7 @@ import {useState} from 'react';
 import {View} from 'react-native';
 import {css} from '@emotion/native';
 import type {Meta, Story} from '@storybook/react/types-6-0';
-import {DoobooProvider, EditText} from 'dooboo-ui';
+import {DoobooProvider, EditText, Icon} from 'dooboo-ui';
 import {useDarkMode} from 'storybook-dark-mode';
 
 export default {
@@ -15,7 +15,21 @@ export default {
 type EditTextProps = ComponentProps<typeof EditText>;
 
 const initialProps: EditTextProps = {
-  label: 'Write any letters',
+  label: 'Letters',
+  required: true,
+  autoCapitalize: 'none',
+  decoration: 'underline',
+  direction: 'row',
+  editable: true,
+  endElement: <Icon name="Phone" style={{padding: 8}} />,
+  startElement: <Icon name="Label" style={{padding: 8}} />,
+  multiline: false,
+  error: '',
+  numberOfLines: 1,
+  maxLength: 100,
+  placeholder: 'Write any letters',
+  secureTextEntry: false,
+  value: '',
 };
 
 const Container = ({children}): ReactElement => {
