@@ -165,7 +165,7 @@ export function Button(props: Props): ReactElement {
 
   const ref = useRef<TouchableHighlight>(null);
   const hovered = useHover(ref);
-  const {theme, themeType} = useTheme();
+  const {theme} = useTheme();
   const innerDisabled = disabled || !onPress;
 
   const {
@@ -334,13 +334,7 @@ export function Button(props: Props): ReactElement {
         web: ref,
         default: undefined,
       })}
-      underlayColor={
-        type === 'text'
-          ? 'transparent'
-          : themeType === 'light'
-          ? '#000000'
-          : '#FFFFFF'
-      }
+      underlayColor={type === 'text' ? 'transparent' : theme.role.underlay}
       activeOpacity={activeOpacity}
       onPress={onPress}
       delayPressIn={30}

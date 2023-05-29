@@ -133,7 +133,7 @@ export const IconButton: FC<IconButtonProps> = (props) => {
   const ref = useRef<TouchableHighlight>(null);
   const hovered = useHover(ref);
 
-  const {theme, themeType} = useTheme();
+  const {theme} = useTheme();
 
   const {
     backgroundColor,
@@ -219,7 +219,7 @@ export const IconButton: FC<IconButtonProps> = (props) => {
         web: ref,
         default: undefined,
       })}
-      underlayColor={themeType === 'light' ? '#000000' : '#FFFFFF'}
+      underlayColor={theme.role.underlay}
       activeOpacity={activeOpacity}
       onPress={onPress}
       delayPressIn={50}
