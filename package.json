@@ -22,7 +22,7 @@
     "cp:ts": "cp -r main/* ./lib",
     "cp:assets": "cp -R main/__assets__ lib",
     "cp:icon": "mkdir -p `dirname ./lib/uis/Icon/selection.json` && cp ./main/uis/Icon/selection.json ./lib/uis/Icon/selection.json && cp ./main/uis/Icon/doobooui.ttf ./lib/uis/Icon/doobooui.ttf",
-    "postbuild": "cp ./main/react-native.config.cjs ./lib/react-native.config.cjs && rm -rf ./lib/tsconfig* && cp README.md ./lib/README.md && cp -R main/__assets__ lib",
+    "postbuild": "cp ./main/react-native.config.cjs ./lib/react-native.config.cjs && rm -rf ./lib/tsconfig* && cp README.md ./lib/README.md && cp -R main/__assets__ lib && cp ./main/uis/Icon/**.otf ./lib/uis/Icon/",
     "build:storybook": "NODE_OPTIONS=--openssl-legacy-provider expo export:web && sh web-build-postinstall.sh",
     "deploy:storybook": "gh-pages -d web-build",
     "build:packages": "lerna exec -- yarn build",
