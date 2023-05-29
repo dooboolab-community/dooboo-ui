@@ -59,6 +59,7 @@ const StyledCheckbox = styled(CheckboxWrapper)`
 `;
 
 const StyledCheck = styled(Icon)<{checked?: boolean}>`
+  font-weight: bold;
   color: ${({theme, checked}) => (checked ? theme.bg.basic : 'transparent')};
 `;
 
@@ -75,7 +76,6 @@ export function Checkbox({
   const animatedValue = new Animated.Value(0);
   const fadeAnim = useRef(animatedValue).current;
   const scaleAnim = useRef(animatedValue).current;
-
   const {theme} = useTheme();
 
   useEffect(() => {

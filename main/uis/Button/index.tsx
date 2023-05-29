@@ -196,7 +196,13 @@ export function Button(props: Props): ReactElement {
       `,
       styles?.container,
     ],
-    text: [{color: textColor}, styles?.text],
+    text: [
+      css`
+        font-family: 'Pretendard';
+        color: ${textColor};
+      `,
+      styles?.text,
+    ],
     disabled: [
       css`
         background-color: ${disabledBackgroundColor};
@@ -204,7 +210,12 @@ export function Button(props: Props): ReactElement {
       `,
       styles?.disabled,
     ],
-    disabledText: [{color: disabledTextColor}, styles?.disabledText],
+    disabledText: [
+      css`
+        color: ${disabledTextColor};
+      `,
+      styles?.disabledText,
+    ],
     hovered: [
       {
         shadowColor: 'black',

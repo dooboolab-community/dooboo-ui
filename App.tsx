@@ -1,9 +1,8 @@
 import '@expo/match-media';
 import './storybook/addons';
 
-import {configure, getStorybookUI} from '@storybook/react-native';
-
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import {configure, getStorybookUI} from '@storybook/react-native';
 
 const storiesOfUIs = require.context('./stories/uis', true, /\.stories\.tsx$/);
 
@@ -28,5 +27,6 @@ const getStories = (): any => {
 configure(getStories, module);
 
 export default getStorybookUI({
+  // @ts-ignore
   asyncStorage: AsyncStorage,
 });

@@ -3,6 +3,7 @@ import React, {useRef} from 'react';
 import {View} from 'react-native';
 import type {ThemeContext, ThemeProps} from '@dooboo-ui/theme';
 import {ThemeProvider, useTheme} from '@dooboo-ui/theme';
+import {useFonts} from 'expo-font';
 
 import type {AlertDialogContext} from '../modals/AlertDialog';
 import AlertDialog from '../modals/AlertDialog';
@@ -15,6 +16,7 @@ export type ThemeType = ThemeContext['themeType'];
 export type DoobooTheme = ThemeContext['theme'];
 
 export type DoobooContext = {
+  assetLoaded: boolean;
   snackbar: SnackbarContext;
   alertDialog: AlertDialogContext;
 } & ThemeContext;
@@ -30,6 +32,12 @@ const [useCtx, Provider] = createCtx<DoobooContext>(
 );
 
 function DoobooProvider(props: DoobooProviderProps): React.ReactElement {
+  const [assetLoaded] = useFonts({
+    doobooui: require('../uis/Icon/doobooui.ttf'),
+    'Pretendard-Bold': require('../uis/Icon/Pretendard-Bold.otf'),
+    Pretendard: require('../uis/Icon/Pretendard-Regular.otf'),
+    'Pretendard-Thin': require('../uis/Icon/Pretendard-Thin.otf'),
+  });
   const themeContext = useTheme();
   const {children} = props;
   const snackbar =
@@ -67,6 +75,7 @@ function DoobooProvider(props: DoobooProviderProps): React.ReactElement {
       <Provider
         value={{
           ...themeContext,
+          assetLoaded,
           snackbar: snackbarContext,
           alertDialog: alertDialogContext,
         }}

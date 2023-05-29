@@ -17,9 +17,17 @@ function TypographyBasicStory(): React.ReactElement {
         <View style={{height: 8}} />
         <Typography.Heading3>Heading3</Typography.Heading3>
         <View style={{height: 8}} />
+        <Typography.Heading4>Heading4</Typography.Heading4>
+        <View style={{height: 8}} />
+        <Typography.Heading5>Heading5</Typography.Heading5>
+        <View style={{height: 8}} />
         <Typography.Body1>Body1</Typography.Body1>
         <View style={{height: 8}} />
         <Typography.Body2>Body2</Typography.Body2>
+        <View style={{height: 8}} />
+        <Typography.Body3>Body3</Typography.Body3>
+        <View style={{height: 8}} />
+        <Typography.Body4>Body4</Typography.Body4>
       </StoryContainer>
     </ScrollContainer>
   );

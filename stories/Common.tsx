@@ -2,7 +2,6 @@ import type {ReactElement, ReactNode} from 'react';
 // Caveat: Expo web needs React to be imported
 import React, {useState} from 'react';
 import {StatusBar, View} from 'react-native';
-import {useFonts} from 'expo-font';
 
 import {
   DoobooProvider,
@@ -18,16 +17,11 @@ type ContainerProps = {
   children: ReactNode;
 };
 
-const fontConfig = {
-  doobooui: require('../main/uis/Icon/doobooui.ttf'),
-};
-
 export function StoryWrapper({children}: ContainerProps): ReactElement {
-  const {themeType, changeThemeType} = useDooboo();
+  const {themeType, changeThemeType, assetLoaded} = useDooboo();
   const [on, off] = useState(themeType === 'dark');
-  const [fontsLoaded] = useFonts(fontConfig);
 
-  if (!fontsLoaded) {
+  if (!assetLoaded) {
     return <LoadingIndicator />;
   }
 

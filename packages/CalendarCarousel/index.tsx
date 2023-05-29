@@ -143,7 +143,7 @@ const styles = StyleSheet.create<Style>({
   },
   eventText: {
     color: 'white',
-    fontWeight: '600',
+    fontWeight: 'bold',
     paddingLeft: 30,
     fontSize: 14,
   },
