@@ -1,8 +1,11 @@
 {
   "files": {
-    "main.js": "/dooboo-ui/static/js/main.e10d09b4.js",
+    "main.js": "/dooboo-ui/static/js/main.41d8d4c0.js",
     "static/js/238.8814d3c7.chunk.js": "/dooboo-ui/static/js/238.8814d3c7.chunk.js",
-    "static/js/347.2988bf2c.js": "/dooboo-ui/static/js/347.2988bf2c.js",
+    "static/js/347.fba4701d.js": "/dooboo-ui/static/js/347.fba4701d.js",
+    "static/media/Pretendard-Bold.otf": "/dooboo-ui/static/media/Pretendard-Bold.3ec32cdae5bc0c0026a6.otf",
+    "static/media/Pretendard-Regular.otf": "/dooboo-ui/static/media/Pretendard-Regular.de88013f2ea98a04dede.otf",
+    "static/media/Pretendard-Thin.otf": "/dooboo-ui/static/media/Pretendard-Thin.6c732c788300615e6a65.otf",
     "static/media/MaterialCommunityIcons.ttf": "/dooboo-ui/static/media/MaterialCommunityIcons.5d42b4e60858731e7b65.ttf",
     "static/media/Fontisto.ttf": "/dooboo-ui/static/media/Fontisto.c0edd68811e0237502fe.ttf",
     "static/media/Ionicons.ttf": "/dooboo-ui/static/media/Ionicons.3517aeaa34b2f8cd8eef.ttf",
@@ -32,12 +35,12 @@
     "favicon-16.png": "/dooboo-ui/favicon-16.png",
     "serve.json": "/dooboo-ui/serve.json",
     "manifest.json": "/dooboo-ui/manifest.json",
-    "main.e10d09b4.js.map": "/dooboo-ui/static/js/main.e10d09b4.js.map",
+    "main.41d8d4c0.js.map": "/dooboo-ui/static/js/main.41d8d4c0.js.map",
     "238.8814d3c7.chunk.js.map": "/dooboo-ui/static/js/238.8814d3c7.chunk.js.map",
-    "347.2988bf2c.js.map": "/dooboo-ui/static/js/347.2988bf2c.js.map"
+    "347.fba4701d.js.map": "/dooboo-ui/static/js/347.fba4701d.js.map"
   },
   "entrypoints": [
-    "static/js/347.2988bf2c.js",
-    "static/js/main.e10d09b4.js"
+    "static/js/347.fba4701d.js",
+    "static/js/main.41d8d4c0.js"
   ]
 }
