@@ -303,7 +303,7 @@ export function EditText(props: EditTextProps): ReactElement {
                 font-family: Pretendard;
                 flex: 1;
                 font-size: 16px;
-                line-height: 22.4px;
+                line-height: ${multiline ? '22.4px' : '16px'};
               `,
               Platform.OS === 'web' &&
                 css`
