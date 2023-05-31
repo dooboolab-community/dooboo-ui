@@ -22,7 +22,6 @@ const Section = styled.View`
 
 const SubTitle = styled.Text`
   font-size: 14px;
-  line-height: 19.6px;
   text-align: center;
   margin-top: 10px;
   margin-bottom: 10px;
