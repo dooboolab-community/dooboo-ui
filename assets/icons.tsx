@@ -1,9 +1,9 @@
+import icFacebook from './icons/facebook.png';
+import icGoogle from './icons/google.png';
 import icArrDown from './icons/ic_arr_down.png';
 import icArrUp from './icons/ic_arr_up.png';
 import icDelete from './icons/ic_delete.png';
 import icEdit from './icons/ic_edit.png';
-import icFacebook from './icons/facebook.png';
-import icGoogle from './icons/google.png';
 import icMagnifier from './icons/magnifier.png';
 import icMask from './icons/mask.png';
 

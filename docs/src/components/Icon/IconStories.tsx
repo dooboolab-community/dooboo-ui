@@ -22,7 +22,7 @@ export default {
 type IconProps = ComponentProps<typeof Icon>;
 
 const initialProps: IconProps = {
-  name: 'HomeAlt',
+  name: 'Airplane',
 };
 
 const Container = ({children}): ReactElement => {
@@ -69,8 +69,17 @@ export function IconList(): ReactElement {
       >
         <EditText
           direction="row"
-          style={{marginBottom: 20}}
-          startElement={<Icon name="SearchAlt" />}
+          style={css`
+            margin-bottom: 20px;
+          `}
+          startElement={
+            <Icon
+              name="MagnifyingGlass"
+              style={css`
+                margin-right: 8px;
+              `}
+            />
+          }
           value={searchText}
           placeholder="Search icons"
           onChangeText={(str) => setSearchText(str)}
