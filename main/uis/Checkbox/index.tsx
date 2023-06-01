@@ -130,7 +130,7 @@ export function Checkbox({
               type={color}
               disabled={disabled}
             >
-              <StyledCheck theme={theme} name="CheckAlt" checked={checked} />
+              <StyledCheck theme={theme} name="Check" checked={checked} />
             </StyledCheckbox>
           </StyledCheckboxOutlined>
           {endElement}

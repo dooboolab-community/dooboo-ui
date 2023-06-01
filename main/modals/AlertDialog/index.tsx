@@ -138,7 +138,7 @@ function AlertDialog(
           <Button
             type="text"
             onPress={() => setVisible(false)}
-            text={<Icon name="CloseAlt" size={18} color={theme.text.basic} />}
+            text={<Icon name="X" size={18} color={theme.text.basic} />}
           />
         </TitleRow>
         <BodyRow style={styles?.bodyContainer}>

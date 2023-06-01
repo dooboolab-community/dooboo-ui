@@ -187,7 +187,7 @@ export function EditText(props: EditTextProps): ReactElement {
           {children}
           {required && (
             <Icon
-              name="Emergency"
+              name="AsteriskBold"
               style={css`
                 color: ${theme.role.danger};
                 opacity: ${focused ? '1' : '0.5'};

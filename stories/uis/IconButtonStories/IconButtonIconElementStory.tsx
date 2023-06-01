@@ -17,7 +17,7 @@ function IconButtonIconElementStory(): ReactElement {
           activeOpacity={number('activeOpacity', 0.8)}
           loading={boolean('loading', false)}
           onPress={action('onPress')}
-          iconElement={<Icon size={24} color="pink" name="AddAlt" />}
+          iconElement={<Icon size={24} color="pink" name="MagnifyingGlass" />}
         />
       </StorySection>
     </StoryContainer>

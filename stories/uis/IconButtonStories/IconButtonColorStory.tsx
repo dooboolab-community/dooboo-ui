@@ -32,7 +32,7 @@ function IconButtonColorStory(): ReactElement {
             key={color}
             color={color}
             size="small"
-            icon="DeleteAlt"
+            icon="Eraser"
             style={{margin: 4}}
           />
         ))}

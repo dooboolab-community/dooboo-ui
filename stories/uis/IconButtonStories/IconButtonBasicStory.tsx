@@ -23,7 +23,7 @@ function IconButtonBasicStory(): ReactElement {
             onPress={action('onPress')}
             key={type}
             type={type}
-            icon="Menu"
+            icon="Hamburger"
             style={{margin: 4}}
           />
         ))}
