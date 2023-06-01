@@ -89,13 +89,13 @@ export function Rating({
         {halfFilled && allowHalfRating ? (
           <View style={{position: 'absolute'}}>
             <Icon
-              name={`${iconPrefix}Alt` as IconName}
+              name={`${iconPrefix}` as IconName}
               size={size}
               style={{position: 'absolute'}}
               color={color}
             />
             <Icon
-              name={`${iconPrefix}Half` as IconName}
+              name={`${iconPrefix}HalfFill` as IconName}
               size={size}
               color={color}
             />
