@@ -1,5 +1,7 @@
 # dooboo-ui
 
+> React Native UI components built by `dooboolab`. Which follows the Neutral Design.
+
 [![Npm Version](http://img.shields.io/npm/v/dooboo-ui.svg?style=flat-square)](https://npmjs.org/package/dooboo-ui)
 [![Downloads](http://img.shields.io/npm/dm/dooboo-ui.svg?style=flat-square)](https://npmjs.org/package/dooboo-ui)
 [![codecov](https://codecov.io/gh/dooboolab-community/dooboo-ui/branch/main/graph/badge.svg?token=ncTMAOVpOM)](https://codecov.io/gh/dooboolab-community/dooboo-ui)
@@ -9,15 +11,13 @@
 [![Sponsor](https://opencollective.com/dooboo-ui/tiers/badge.svg?style=shield)](https://opencollective.com/dooboo-ui/tiers/badge.svg)
 ![License](http://img.shields.io/npm/l/dooboo-ui.svg?style=flat-square)
 
-> React Native UI components built by `dooboolab`. Which follows the Neutral Design.
-
 <img src="https://user-images.githubusercontent.com/27461460/220830925-7882b7ba-f7af-4bd2-ada5-d6d820e3cee4.png" width="80%"/>
 
 ## Documentation
 
 Check out [dooboo-ui.dooboolab.com](https://dooboo-ui.dooboolab.com)
 
-> Not all ui components are written in documents. Currently working :construction_worker:. Please see the [Demo](#Demo) to see all components.
+> Not all ui components are written in documents. Currently working :construction_worker:. Please see the [Demo](https://github.com/dooboolab-community/dooboo-ui#demo) to see all components.
 
 ## Demo
 
