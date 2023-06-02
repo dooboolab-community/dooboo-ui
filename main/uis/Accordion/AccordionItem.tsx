@@ -60,7 +60,7 @@ function AccordionItem<T, K>(props: Props<T, K>): ReactElement {
     collapseOnStart = true,
     animDuration = 200,
     activeOpacity = 1,
-    toggleElement = <StyledIcon name="ChevronDown" size={14} />,
+    toggleElement = <StyledIcon name="CaretDown" size={14} />,
     toggleElementPosition,
     onPressItem,
     renderTitle,

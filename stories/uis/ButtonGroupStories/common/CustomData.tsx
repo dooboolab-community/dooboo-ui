@@ -12,9 +12,9 @@ const CustomData: FC = () => {
   const [selectedIndex, setSelectedIndex] = useState(0);
 
   const data: {text: string; icon: IconName}[] = [
-    {text: 'Item 1', icon: 'Home'},
-    {text: 'Item 2', icon: 'Person'},
-    {text: 'Item 3', icon: 'Tiktok'},
+    {text: 'Item 1', icon: 'HouseFill'},
+    {text: 'Item 2', icon: 'UsersFill'},
+    {text: 'Item 3', icon: 'RocketLaunch'},
   ];
 
   return (

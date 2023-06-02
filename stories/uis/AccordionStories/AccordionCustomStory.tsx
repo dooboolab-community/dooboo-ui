@@ -81,7 +81,7 @@ const AccordionCustom = (): ReactElement => {
               <Icon
                 name={
                   key === 'HEADING_1'
-                    ? 'Home'
+                    ? 'HouseFill'
                     : key === 'HEADING_2'
                     ? 'Star'
                     : 'Bookmark'
@@ -110,8 +110,8 @@ const AccordionCustom = (): ReactElement => {
                       text === 'User'
                         ? 'AutoAwesome'
                         : text === 'Puzz'
-                        ? 'Puzz'
-                        : 'Image'
+                        ? 'QuestBoxFill'
+                        : 'House'
                     }
                     color={theme.text.basic}
                     size={14}

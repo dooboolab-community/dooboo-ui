@@ -51,7 +51,7 @@ export function Rating({
   color,
 }: RatingProps): ReactElement {
   const [rating, setRating] = useState(initialRating);
-  const iconPrefix = iconType === 'star' ? 'Star' : 'Dooboo';
+  const iconPrefix = iconType === 'star' ? 'Star' : 'QuestBox';
 
   const handlePress = (newRating: number, halfPressed?: boolean): void => {
     const convertedRating = newRating + (!halfPressed ? 0.5 : 0);
@@ -71,7 +71,7 @@ export function Rating({
     position: number;
   }): ReactElement => {
     const filled = rating >= position + (allowHalfRating ? 0.5 : 0);
-    const iconName: IconName = filled ? `${iconPrefix}` : `${iconPrefix}Alt`;
+    const iconName: IconName = filled ? `${iconPrefix}Fill` : `${iconPrefix}`;
     const halfFilled =
       rating >= position && rating < position + (allowHalfRating ? 0.5 : 0);
 
@@ -89,13 +89,13 @@ export function Rating({
         {halfFilled && allowHalfRating ? (
           <View style={{position: 'absolute'}}>
             <Icon
-              name={`${iconPrefix}Alt` as IconName}
+              name={`${iconPrefix}` as IconName}
               size={size}
               style={{position: 'absolute'}}
               color={color}
             />
             <Icon
-              name={`${iconPrefix}Half` as IconName}
+              name={`${iconPrefix}HalfFill` as IconName}
               size={size}
               color={color}
             />

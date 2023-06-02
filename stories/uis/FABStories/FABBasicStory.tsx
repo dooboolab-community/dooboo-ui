@@ -18,8 +18,8 @@ function FABBasicStory(): ReactElement {
         isActive={active}
         styles={{buttonSize: 'medium', iconSize: 25}}
         items={[
-          {id: 'search', icon: 'HomeAlt'},
-          {id: 'like', icon: 'FavoriteAlt'},
+          {id: 'search', icon: 'MagnifyingGlass'},
+          {id: 'like', icon: 'Heart'},
         ]}
         onPressFAB={() => setActive((prev) => !prev)}
         onPressItem={(item) => {

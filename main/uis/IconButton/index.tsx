@@ -209,7 +209,7 @@ export const IconButton: FC<IconButtonProps> = (props) => {
 
   const renderChild = (): ReactElement =>
     iconElement || (
-      <Icon size={iconSize} color={iconColor} name={icon || 'Dooboolab'} />
+      <Icon size={iconSize} color={iconColor} name={icon || 'QuestBoxFill'} />
     );
 
   return (

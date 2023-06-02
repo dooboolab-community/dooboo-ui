@@ -74,9 +74,7 @@ const EditTextBasicStory = (): ReactElement => {
           startElement={
             <Button
               onPress={() => onTextChanged('')}
-              text={
-                <Icon name="AddLocation" size={18} color={theme.role.primary} />
-              }
+              text={<Icon name="MapPin" size={18} color={theme.role.primary} />}
               type="text"
             />
           }
@@ -85,11 +83,7 @@ const EditTextBasicStory = (): ReactElement => {
               <Button
                 onPress={() => onTextChanged('')}
                 text={
-                  <Icon
-                    name="CancelCircle"
-                    size={18}
-                    color={theme.role.primary}
-                  />
+                  <Icon name="XCircle" size={18} color={theme.role.primary} />
                 }
                 type="text"
               />
@@ -114,11 +108,7 @@ const EditTextBasicStory = (): ReactElement => {
               <Button
                 onPress={() => onTextChanged('')}
                 text={
-                  <Icon
-                    name="CancelCircle"
-                    size={18}
-                    color={theme.role.primary}
-                  />
+                  <Icon name="XCircle" size={18} color={theme.role.primary} />
                 }
                 type="text"
               />
@@ -141,9 +131,7 @@ const EditTextBasicStory = (): ReactElement => {
           startElement={
             <Button
               onPress={() => onTextChanged('')}
-              text={
-                <Icon name="AddLocation" size={18} color={theme.role.primary} />
-              }
+              text={<Icon name="MapPin" size={18} color={theme.role.primary} />}
               type="text"
             />
           }
@@ -152,11 +140,7 @@ const EditTextBasicStory = (): ReactElement => {
               <Button
                 onPress={() => onTextChanged('')}
                 text={
-                  <Icon
-                    name="CancelCircle"
-                    size={18}
-                    color={theme.role.primary}
-                  />
+                  <Icon name="XCircle" size={18} color={theme.role.primary} />
                 }
                 type="text"
               />
@@ -174,11 +158,7 @@ const EditTextBasicStory = (): ReactElement => {
               <Button
                 onPress={() => onTextChanged('')}
                 text={
-                  <Icon
-                    name="CancelCircle"
-                    size={18}
-                    color={theme.role.primary}
-                  />
+                  <Icon name="XCircle" size={18} color={theme.role.primary} />
                 }
                 type="text"
               />

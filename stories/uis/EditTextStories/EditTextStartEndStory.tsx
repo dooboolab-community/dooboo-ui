@@ -31,7 +31,7 @@ const EditTextStartEndStory = (): ReactElement => {
           placeholder="Basic text input"
           value={text}
           onChangeText={(str) => onTextChanged(str)}
-          startElement={<Icon name="Add" />}
+          startElement={<Icon name="Plus" />}
         />
         <Typography.Heading3 style={{marginTop: 20}}>
           EndElement
@@ -46,7 +46,7 @@ const EditTextStartEndStory = (): ReactElement => {
           endElement={({color}) => (
             <Button
               onPress={action('EndElement button pressed')}
-              text={<Icon name="Visibility" color={color} />}
+              text={<Icon name="Eye" color={color} />}
               type="text"
               style={{marginRight: 0, zIndex: 99}}
             />
@@ -63,14 +63,14 @@ const EditTextStartEndStory = (): ReactElement => {
           onChangeText={(str) => onTextChanged(str)}
           startElement={
             <Button
-              text={<Icon name="Add" />}
+              text={<Icon name="Plus" />}
               type="text"
               style={{marginRight: 0}}
             />
           }
           endElement={
             <Button
-              text={<Icon name="Visibility" />}
+              text={<Icon name="Eye" />}
               type="text"
               style={{marginRight: 0}}
             />

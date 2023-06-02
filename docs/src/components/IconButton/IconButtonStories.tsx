@@ -14,6 +14,7 @@ type IconButtonProps = ComponentProps<typeof IconButton>;
 
 const initialProps: IconButtonProps = {
   onPress: action('icon btn clicked'),
+  icon: 'Airplane',
 };
 
 const Container = ({children}): ReactElement => {
