@@ -338,7 +338,7 @@ export function Button(props: Props): ReactElement {
       activeOpacity={activeOpacity}
       onPress={onPress}
       delayPressIn={30}
-      disabled={innerDisabled || loading}
+      disabled={innerDisabled || loading || !onPress}
       style={[
         style,
         css`
