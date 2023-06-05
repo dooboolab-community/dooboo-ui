@@ -1,19 +1,18 @@
 import type {ReactElement} from 'react';
 import type {PressableProps, StyleProp, ViewStyle} from 'react-native';
 import {Pressable} from 'react-native';
+import {useTheme} from '@dooboo-ui/theme';
 import {css} from '@emotion/native';
-
-import {useDooboo} from '../providers';
 
 export default function CustomPressable(
   props: PressableProps & {style?: StyleProp<ViewStyle>},
 ): ReactElement {
   const {children, style, hitSlop} = props;
-  const {theme} = useDooboo();
+  const {theme} = useTheme();
 
   return (
     <Pressable
-      hitSlop={hitSlop || {top: 20, bottom: 20, left: 20, right: 20}}
+      hitSlop={hitSlop || {top: 4, bottom: 4, left: 6, right: 6}}
       {...props}
       style={({pressed}) => {
         if (pressed) {
