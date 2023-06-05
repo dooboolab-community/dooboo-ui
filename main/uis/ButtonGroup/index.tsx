@@ -67,6 +67,14 @@ export function ButtonGroup({
   style,
   styles,
 }: ButtonGroupProps): ReactElement {
+  if (typeof initialValue !== 'string') {
+    // eslint-disable-next-line no-console
+    console.warn('initialValue must be string');
+  } else if (!options.includes(initialValue)) {
+    // eslint-disable-next-line no-console
+    console.warn('initialValue must be one of the options');
+  }
+
   const {theme} = useTheme();
   const colorType = color as keyof DoobooTheme['button'];
 
@@ -110,7 +118,7 @@ export function ButtonGroup({
               style={[
                 isSelected
                   ? {
-                      shadowColor: '#000',
+                      shadowColor: theme.role.underlay,
                       shadowOffset: {width: 0, height: 2},
                       shadowOpacity: 0.25,
                       shadowRadius: 3.84,

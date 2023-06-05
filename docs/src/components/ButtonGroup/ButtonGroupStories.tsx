@@ -1,7 +1,5 @@
 import type {ComponentProps, ReactElement} from 'react';
 import {useState} from 'react';
-import {View} from 'react-native';
-import {css} from '@emotion/native';
 import type {Meta, Story} from '@storybook/react/types-6-0';
 import {ButtonGroup, DoobooProvider} from 'dooboo-ui';
 import {useDarkMode} from 'storybook-dark-mode';
@@ -12,10 +10,12 @@ export default {
   viewMode: 'docs',
 } as Meta;
 
-type ButtonGroupProps = ComponentProps<typeof ButtonGroup<string>>;
+type ButtonGroupProps = ComponentProps<typeof ButtonGroup>;
 
 const initialProps: ButtonGroupProps = {
-  data: ['Option 1', 'Option 2', 'Option 3', 'Option 4'],
+  options: ['Option 1', 'Option 2', 'Option 3', 'Option 4'],
+  initialValue: 'Option 1',
+  color: 'primary',
 };
 
 const Container = ({children}): ReactElement => {
@@ -23,29 +23,22 @@ const Container = ({children}): ReactElement => {
 
   return (
     <DoobooProvider themeConfig={{initialThemeType: isDark ? 'dark' : 'light'}}>
-      <View
-        style={css`
-          flex-direction: row;
-        `}
-      >
-        {children}
-      </View>
+      {children}
     </DoobooProvider>
   );
 };
 
 const ButtonGroupStory: Story<ButtonGroupProps> = (args): ReactElement => {
-  const {data, selectedIndex: initialSelectedIndex} = args;
-  const [selectedIndex, setSelectedIndex] = useState(initialSelectedIndex);
+  const {options, initialValue} = args;
+  const [selectedIndex, setSelectedIndex] = useState(initialValue);
 
   return (
     <Container>
       <ButtonGroup
-        style={{marginTop: 40, marginHorizontal: 20, marginBottom: 40}}
-        onPress={(index: number): void => setSelectedIndex(index)}
-        selectedIndex={selectedIndex}
+        initialValue={selectedIndex}
+        onValueChange={setSelectedIndex}
         {...args}
-        data={data}
+        options={options}
       />
     </Container>
   );
