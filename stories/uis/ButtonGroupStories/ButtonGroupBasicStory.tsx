@@ -1,25 +1,30 @@
 // Caveat: Expo web needs React to be imported
 import React from 'react';
-import {SafeAreaView, ScrollView} from 'react-native';
-import {useTheme} from '@dooboo-ui/theme';
+import {ScrollView} from 'react-native';
+import {select} from '@storybook/addon-knobs';
 
-import CustomButton from './common/CustomButton';
-import CustomData from './common/CustomData';
-import SingleSelect from './common/SingleSelect';
-import Vertical from './common/Vertical';
+import type {DoobooTheme} from '../../../main';
+import ButtonGroup from '../../../main/uis/ButtonGroup';
+import {StoryContainer, StoryTitle} from '../../GlobalStyles';
 
 const ButtonGroupBasic = (): React.ReactElement => {
-  const {theme} = useTheme();
+  const color = select<keyof DoobooTheme['button']>(
+    'color',
+    ['primary', 'secondary', 'success', 'warning', 'danger', 'light', 'info'],
+    'primary',
+  );
 
   return (
-    <SafeAreaView style={{flex: 1, backgroundColor: theme.bg.basic}}>
-      <ScrollView contentContainerStyle={{flexDirection: 'column'}}>
-        <SingleSelect />
-        <Vertical />
-        <CustomData />
-        <CustomButton />
-      </ScrollView>
-    </SafeAreaView>
+    <ScrollView contentContainerStyle={{flexDirection: 'column'}}>
+      <StoryContainer>
+        <StoryTitle style={{fontSize: 18, marginBottom: 8}}>Basic</StoryTitle>
+        <ButtonGroup
+          options={['Option1', 'Option2', 'Option3']}
+          defaultSelected="Option1"
+          color={color}
+        />
+      </StoryContainer>
+    </ScrollView>
   );
 };
 

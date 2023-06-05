@@ -1,156 +1,164 @@
 import type {ReactElement} from 'react';
-// Caveat: Expo web needs React to be imported
-import React from 'react';
-import type {
-  StyleProp,
-  TextStyle,
-  TouchableOpacityProps,
-  ViewStyle,
-} from 'react-native';
-import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
-import {useTheme} from '@dooboo-ui/theme';
-import {css} from '@emotion/native';
+import React, {useState} from 'react';
+import type {StyleProp, TextStyle, ViewStyle} from 'react-native';
+import {Text, View} from 'react-native';
+import styled, {css} from '@emotion/native';
 
-interface Styles {
-  selectedButton?: StyleProp<ViewStyle>;
-  selectedText?: StyleProp<TextStyle>;
-  unselectedButton?: StyleProp<ViewStyle>;
-  unselectedText?: StyleProp<TextStyle>;
-}
+import type {DoobooTheme} from '../../providers';
+import {useDooboo} from '../../providers';
+import CustomPressable from '../CustomPressable';
 
-export type ButtonGroupProps<T = string> = {
-  data: T[];
-  direction?: 'row' | 'column';
+const ButtonGroupContainer = styled.View`
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  border-radius: 6px;
+  overflow: hidden;
+  border-color: ${({theme}) => theme.role.border};
+  border-width: 1px;
+`;
+
+const Button = styled(CustomPressable)`
+  flex: 1;
+  padding: 10px;
+  justify-content: center;
+  align-items: center;
+  background-color: ${({theme}) => theme.bg.basic};
+`;
+
+const ButtonText = styled(Text)`
+  font-size: 14px;
+  font-family: Pretendard-Bold;
+`;
+
+const Divider = styled.View`
+  width: 1px;
+  align-self: stretch;
+`;
+
+type Styles = {
+  container?: ViewStyle;
+  button?: ViewStyle;
+  buttonContainer?: ViewStyle;
+  buttonText?: TextStyle;
+  divider?: ViewStyle;
+};
+
+type ButtonGroupProps = {
   testID?: string;
+  options: string[];
+  startElement?: ReactElement;
+  endElement?: ReactElement;
+  defaultSelected?: string;
+  onValueChange?: (selected: string) => void;
+  color?: Omit<keyof DoobooTheme['button'], 'light'>;
   style?: StyleProp<ViewStyle>;
   styles?: Styles;
-  onPress?: (index: number, item: T) => void;
-  touchableOpacityProps?: TouchableOpacityProps;
-  borderStyle?: {
-    color?: string;
-    width?: number;
-    radius?: number;
-  };
-  selectedIndex?: number;
-} & (T extends string
-  ? {renderItem?: ButtonGroupRenderItem<T>}
-  : {renderItem: ButtonGroupRenderItem<T>});
+};
 
-export type ButtonGroupRenderItem<ItemT> = (info: {
-  item: ItemT;
-  selected: boolean;
-  index: number;
-}) => ReactElement;
-
-export function ButtonGroup<T>({
+function ButtonGroup({
   testID,
+  options,
+  defaultSelected,
+  onValueChange,
+  color = 'primary',
+  startElement,
+  endElement,
   style,
   styles,
-  data,
-  onPress,
-  renderItem,
-  touchableOpacityProps,
-  direction = 'row',
-  selectedIndex,
-  borderStyle: {
-    width: borderWidth = 1,
-    color: borderColor,
-    radius: borderRadius = 10,
-  } = {},
-}: ButtonGroupProps<T>): ReactElement {
-  const {theme} = useTheme();
+}: ButtonGroupProps): ReactElement {
+  const {theme} = useDooboo();
+  const [selectedValue, setSelectedValue] = useState<string | undefined>(
+    defaultSelected,
+  );
 
-  const getBorderStyle = (index: number): ViewStyle => {
-    if (index === data.length - 1) {
-      return {borderColor};
-    }
+  const colorType = color as keyof DoobooTheme['button'];
 
-    return direction === 'row'
-      ? {borderRightWidth: borderWidth, borderColor}
-      : {borderBottomWidth: borderWidth, borderColor};
-  };
-
-  const renderButton = (item: T, index: number): ReactElement => {
-    const selected = index === selectedIndex;
-
-    if (typeof renderItem === 'function') {
-      return (
-        <View
-          testID={`button-group-item-${index}`}
-          style={getBorderStyle(index)}
-        >
-          {renderItem({item, index, selected})}
-        </View>
-      );
-    }
-
-    return (
-      <View
-        testID={`button-group-item-${index}`}
-        style={StyleSheet.flatten([
-          selected
-            ? css`
-                background-color: ${theme.button.primary.bg};
-              `
-            : css`
-                background-color: ${theme.bg.basic};
-              `,
-          selected ? styles?.selectedButton : styles?.unselectedButton,
-          getBorderStyle(index),
-        ])}
-      >
-        {typeof item === 'string' ? (
-          <Text
-            testID={`button-group-text-${index}`}
-            style={StyleSheet.flatten([
-              selected
-                ? {color: theme.button.primary.text}
-                : {color: theme.button.primary.bg},
-              selected ? styles?.selectedText : styles?.unselectedText,
-            ])}
-          >
-            {item}
-          </Text>
-        ) : null}
-      </View>
-    );
+  const onPressButton = (option: string): void => {
+    setSelectedValue(option);
+    onValueChange && onValueChange(option);
   };
 
   return (
-    <View
+    <ButtonGroupContainer
       testID={testID}
-      style={StyleSheet.flatten([
-        {borderRadius, borderColor, borderWidth, overflow: 'hidden'},
+      style={[
+        css`
+          border-width: 1px;
+          border-color: ${theme.button[colorType].bg};
+        `,
         style,
-        {flexDirection: direction},
-      ])}
+      ]}
     >
-      {data.map((item, index) => {
+      {options.map((option, index) => {
+        const isSelected = selectedValue === option;
+
         return (
-          <TouchableOpacity
-            disabled={!onPress}
-            {...touchableOpacityProps}
-            onPress={() => onPress && onPress(index, item)}
-            key={index}
+          <View
+            key={`${option}-${index}`}
+            style={[
+              css`
+                flex: 1;
+                flex-direction: row;
+              `,
+              styles?.container,
+            ]}
           >
-            {renderButton(item, index)}
-          </TouchableOpacity>
+            <Button
+              key={index}
+              onPress={() => onPressButton(option)}
+              style={[
+                isSelected
+                  ? {
+                      shadowColor: '#000',
+                      shadowOffset: {width: 0, height: 2},
+                      shadowOpacity: 0.25,
+                      shadowRadius: 3.84,
+                      elevation: 5,
+                      backgroundColor: theme.button[colorType].bg,
+                    }
+                  : {},
+                styles?.button,
+              ]}
+            >
+              <View
+                style={[
+                  css`
+                    flex-direction: row;
+                    align-items: center;
+                    gap: 4px;
+                  `,
+                  styles?.buttonContainer,
+                ]}
+              >
+                {startElement}
+                <ButtonText
+                  style={{
+                    color: isSelected
+                      ? theme.button[colorType].text
+                      : theme.button[colorType].bg,
+                  }}
+                >
+                  {option}
+                </ButtonText>
+                {endElement}
+              </View>
+            </Button>
+            {index !== options.length - 1 && (
+              <Divider
+                style={[
+                  css`
+                    background-color: ${theme.button[colorType].bg};
+                  `,
+                  styles?.divider,
+                ]}
+              />
+            )}
+          </View>
         );
       })}
-    </View>
+    </ButtonGroupContainer>
   );
 }
 
-ButtonGroup.defaultProps = {
-  style: {alignSelf: 'flex-start'},
-  styles: {
-    selectedButton: {
-      paddingHorizontal: 20,
-      paddingVertical: 12,
-    },
-    unselectedButton: {
-      paddingHorizontal: 20,
-      paddingVertical: 12,
-    },
-  },
-};
+export default ButtonGroup;

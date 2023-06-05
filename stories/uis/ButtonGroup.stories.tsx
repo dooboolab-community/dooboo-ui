@@ -7,10 +7,8 @@ import {storiesOf} from '@storybook/react-native';
 import {renderStory} from '../Common';
 
 import ButtonGroupBasicStory from './ButtonGroupStories/ButtonGroupBasicStory';
-import ButtonGroupColorStory from './ButtonGroupStories/ButtonGroupColorStory';
 
 storiesOf('ButtonGroup', module)
   .addDecorator(withKnobs)
   .addDecorator(withActions)
-  .add('Basic', () => renderStory(<ButtonGroupBasicStory />))
-  .add('Colors', () => renderStory(<ButtonGroupColorStory />));
+  .add('Basic', () => renderStory(<ButtonGroupBasicStory />));
