@@ -16,14 +16,14 @@ jest.mock('react-native-web-hooks', () => ({
 
 let testingLib: RenderAPI;
 
-const component = (editProps?: EditTextProps): ReactElement =>
+const Component = (editProps?: EditTextProps): ReactElement =>
   createComponent(<EditText {...editProps} />);
 
 describe('[EditText]', () => {
   jest.spyOn(console, 'error').mockImplementation(() => {});
 
   beforeAll(() => {
-    testingLib = render(component());
+    testingLib = render(Component());
   });
 
   describe('hovered', () => {
@@ -33,7 +33,7 @@ describe('[EditText]', () => {
 
     describe('label', () => {
       it('renders label text', async () => {
-        testingLib = render(component({label: 'label text'}));
+        testingLib = render(Component({label: 'label text'}));
 
         const label = testingLib.getByText('label text');
 
@@ -42,7 +42,7 @@ describe('[EditText]', () => {
 
       it('renders label style', async () => {
         testingLib = render(
-          component({
+          Component({
             label: 'label text',
             colors: {
               basic: 'blue',
@@ -76,7 +76,7 @@ describe('[EditText]', () => {
         };
 
         testingLib = render(
-          component({
+          Component({
             label: renderCustomLabel,
           }),
         );
@@ -93,7 +93,7 @@ describe('[EditText]', () => {
 
         it('should contain `focusColor` when focused', async () => {
           testingLib = render(
-            component({
+            Component({
               testID: 'INPUT_TEST',
               label: 'label text',
               colors: {
@@ -121,7 +121,7 @@ describe('[EditText]', () => {
 
         it('renders error element when provided', async () => {
           testingLib = render(
-            component({
+            Component({
               testID: 'INPUT_TEST',
               label: 'label text',
               error: 'error text',
@@ -149,7 +149,7 @@ describe('[EditText]', () => {
   describe('layout', () => {
     it('renders [direction] row', () => {
       testingLib = render(
-        component({
+        Component({
           testID: 'INPUT_TEST',
           direction: 'row',
         }),
@@ -164,7 +164,7 @@ describe('[EditText]', () => {
 
     it('renders [decoration] boxed', () => {
       testingLib = render(
-        component({
+        Component({
           testID: 'INPUT_TEST',
           decoration: 'boxed',
         }),
@@ -181,7 +181,7 @@ describe('[EditText]', () => {
   describe('start and end elements', () => {
     it('renders start element', () => {
       testingLib = render(
-        component({
+        Component({
           testID: 'INPUT_TEST',
           startElement: <Text>Start</Text>,
         }),
@@ -193,7 +193,7 @@ describe('[EditText]', () => {
 
     it('renders end element', () => {
       testingLib = render(
-        component({
+        Component({
           testID: 'INPUT_TEST',
           endElement: <Text>End</Text>,
         }),
@@ -214,7 +214,7 @@ describe('[EditText]', () => {
 
     it('renders web style', () => {
       testingLib = render(
-        component({
+        Component({
           testID: 'INPUT_TEST',
         }),
       );
@@ -235,7 +235,7 @@ describe('[EditText]', () => {
       };
 
       testingLib = render(
-        component({
+        Component({
           testID: 'INPUT_TEST',
           editable: false,
           onChangeText: onChangeTextMock,
@@ -251,7 +251,7 @@ describe('[EditText]', () => {
 
     it('should have value', () => {
       testingLib = render(
-        component({
+        Component({
           testID: 'INPUT_TEST',
           value: 'text123',
         }),
@@ -266,7 +266,7 @@ describe('[EditText]', () => {
 
     it('should have render counter', () => {
       testingLib = render(
-        component({
+        Component({
           testID: 'INPUT_TEST',
           value: 'text123',
           maxLength: 100,
@@ -282,7 +282,7 @@ describe('[EditText]', () => {
       const renderCustomError = (): ReactElement => <Text>custom error</Text>;
 
       testingLib = render(
-        component({
+        Component({
           testID: 'INPUT_TEST',
           value: 'text123',
           error: renderCustomError,
@@ -298,7 +298,7 @@ describe('[EditText]', () => {
   describe('disabled', () => {
     it('renders [default] disabled style', () => {
       testingLib = render(
-        component({
+        Component({
           testID: 'INPUT_TEST',
           editable: false,
         }),
@@ -313,7 +313,7 @@ describe('[EditText]', () => {
 
     it('renders [custom] disabled style', () => {
       testingLib = render(
-        component({
+        Component({
           testID: 'INPUT_TEST',
           colors: {disabled: 'yellow'},
           editable: false,
@@ -331,7 +331,7 @@ describe('[EditText]', () => {
   describe('focus', () => {
     it('should trigger `onFocus`', async () => {
       testingLib = render(
-        component({
+        Component({
           testID: 'INPUT_TEST',
           onFocus: jest.fn(),
         }),
@@ -348,7 +348,7 @@ describe('[EditText]', () => {
 
     it('should trigger `onFocus` and render custom color', async () => {
       testingLib = render(
-        component({
+        Component({
           testID: 'INPUT_TEST',
           onFocus: jest.fn(),
           colors: {focused: 'yellow'},
@@ -368,7 +368,7 @@ describe('[EditText]', () => {
       const focusFn = jest.fn();
 
       testingLib = render(
-        component({
+        Component({
           onFocus: focusFn,
           colors: {focused: 'yellow'},
         }),
@@ -386,7 +386,7 @@ describe('[EditText]', () => {
     describe('onBlur (focused === false)', () => {
       it('should trigger blur without errorText', async () => {
         testingLib = render(
-          component({
+          Component({
             onBlur: () => {},
             testID: 'INPUT_TEST',
             colors: {placeholder: 'green'},

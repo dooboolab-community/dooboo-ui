@@ -2,10 +2,10 @@ import type {ReactElement} from 'react';
 import React, {useState} from 'react';
 import type {StyleProp, TextStyle, ViewStyle} from 'react-native';
 import {Text, View} from 'react-native';
+import type {DoobooTheme} from '@dooboo-ui/theme';
+import {useTheme} from '@dooboo-ui/theme';
 import styled, {css} from '@emotion/native';
 
-import type {DoobooTheme} from '../../providers';
-import {useDooboo} from '../../providers';
 import CustomPressable from '../CustomPressable';
 
 const ButtonGroupContainer = styled.View`
@@ -49,17 +49,17 @@ type ButtonGroupProps = {
   options: string[];
   startElement?: ReactElement;
   endElement?: ReactElement;
-  defaultSelected?: string;
+  initialValue?: string;
   onValueChange?: (selected: string) => void;
   color?: Omit<keyof DoobooTheme['button'], 'light'>;
   style?: StyleProp<ViewStyle>;
   styles?: Styles;
 };
 
-function ButtonGroup({
+export function ButtonGroup({
   testID,
   options,
-  defaultSelected,
+  initialValue,
   onValueChange,
   color = 'primary',
   startElement,
@@ -67,12 +67,12 @@ function ButtonGroup({
   style,
   styles,
 }: ButtonGroupProps): ReactElement {
-  const {theme} = useDooboo();
-  const [selectedValue, setSelectedValue] = useState<string | undefined>(
-    defaultSelected,
-  );
-
+  const {theme} = useTheme();
   const colorType = color as keyof DoobooTheme['button'];
+
+  const [selectedValue, setSelectedValue] = useState<string | undefined>(
+    initialValue,
+  );
 
   const onPressButton = (option: string): void => {
     setSelectedValue(option);
@@ -160,5 +160,3 @@ function ButtonGroup({
     </ButtonGroupContainer>
   );
 }
-
-export default ButtonGroup;
