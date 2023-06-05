@@ -4,7 +4,7 @@ import {ScrollView} from 'react-native';
 import {select} from '@storybook/addon-knobs';
 
 import type {DoobooTheme} from '../../../main';
-import ButtonGroup from '../../../main/uis/ButtonGroup';
+import {ButtonGroup} from '../../../main/uis/ButtonGroup';
 import {StoryContainer, StoryTitle} from '../../GlobalStyles';
 
 const ButtonGroupBasic = (): React.ReactElement => {
@@ -20,7 +20,7 @@ const ButtonGroupBasic = (): React.ReactElement => {
         <StoryTitle style={{fontSize: 18, marginBottom: 8}}>Basic</StoryTitle>
         <ButtonGroup
           options={['Option1', 'Option2', 'Option3']}
-          defaultSelected="Option1"
+          initialValue="Option1"
           color={color}
         />
       </StoryContainer>
