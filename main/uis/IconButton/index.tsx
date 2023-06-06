@@ -43,7 +43,7 @@ export const ButtonStyles = ({
   theme?: DoobooTheme;
   type?: ButtonType;
   color?: ButtonColorType;
-  size?: ButtonSizeType;
+  size?: ButtonSizeType | number;
   disabled?: boolean;
   loading?: boolean;
 }): {
@@ -96,7 +96,7 @@ export type IconButtonProps = {
   testID?: string;
   type?: ButtonType;
   color?: ButtonColorType;
-  size?: ButtonSizeType;
+  size?: ButtonSizeType | number;
   disabled?: boolean;
   loading?: boolean;
   loadingElement?: ReactElement;
@@ -105,11 +105,7 @@ export type IconButtonProps = {
   style?: StyleProp<Omit<ViewStyle, 'borderRadius' | 'padding'>>;
   styles?: Styles;
   onPress?: TouchableHighlightProps['onPress'];
-  activeOpacity?: TouchableHighlightProps['activeOpacity'];
-  touchableHighlightProps?: Omit<
-    TouchableHighlightProps,
-    'onPress' | 'activeOpacity' | 'style'
-  >;
+  touchableHighlightProps?: Omit<TouchableHighlightProps, 'onPress' | 'style'>;
 };
 
 export const IconButton: FC<IconButtonProps> = (props) => {
@@ -126,7 +122,6 @@ export const IconButton: FC<IconButtonProps> = (props) => {
     style,
     styles,
     onPress,
-    activeOpacity = 0.8,
     touchableHighlightProps,
   } = props;
 
@@ -139,7 +134,6 @@ export const IconButton: FC<IconButtonProps> = (props) => {
     backgroundColor,
     borderColor,
     borderWidth,
-    buttonSize,
     iconColor,
     iconSize,
     disabledBackgroundColor,
@@ -153,32 +147,41 @@ export const IconButton: FC<IconButtonProps> = (props) => {
     disabled,
   });
 
-  const buttonSizeStr = `${buttonSize}px`;
   const borderWidthStr = `${borderWidth}px`;
 
   const compositeStyles: Styles = {
-    container: css`
-      background-color: ${backgroundColor};
-      border-color: ${borderColor};
-      border-radius: ${buttonSizeStr};
-      border-width: ${borderWidthStr};
-      height: ${buttonSizeStr};
-      width: ${buttonSizeStr};
-    `,
-    icon: css`
-      color: ${iconColor};
-    `,
-    disabled: css`
-      background-color: ${disabledBackgroundColor};
-      border-color: ${disabledBorderColor};
-    `,
-    hovered: {
-      shadowColor: theme.text.basic,
-      shadowOpacity: 0.24,
-      shadowRadius: 16,
-      elevation: 10,
-    },
-    ...styles,
+    container: [
+      css`
+        background-color: ${backgroundColor};
+        border-color: ${borderColor};
+        border-radius: 50%;
+        border-width: ${borderWidthStr};
+        padding: 12px;
+      `,
+      styles?.container,
+    ],
+    icon: [
+      css`
+        color: ${iconColor};
+      `,
+      styles?.icon,
+    ],
+    disabled: [
+      css`
+        background-color: ${disabledBackgroundColor};
+        border-color: ${disabledBorderColor};
+      `,
+      styles?.disabled,
+    ],
+    hovered: [
+      {
+        shadowColor: theme.text.basic,
+        shadowOpacity: 0.24,
+        shadowRadius: 16,
+        elevation: 10,
+      },
+      styles?.hovered,
+    ],
   };
 
   const renderContainer = (children: ReactNode): ReactElement => {
@@ -186,12 +189,13 @@ export const IconButton: FC<IconButtonProps> = (props) => {
       <View
         testID={loading ? 'loading-view' : 'button-container'}
         style={[
-          {
-            flexDirection: 'row',
-            alignItems: 'center',
-            justifyContent: 'center',
-            padding: 4,
-          },
+          css`
+            padding: 4px;
+
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+          `,
           compositeStyles.container,
           hovered && !disabled && compositeStyles.hovered,
           disabled && compositeStyles.disabled,
@@ -220,11 +224,15 @@ export const IconButton: FC<IconButtonProps> = (props) => {
         default: undefined,
       })}
       underlayColor={theme.role.underlay}
-      activeOpacity={activeOpacity}
       onPress={onPress}
       delayPressIn={50}
       disabled={disabled || loading}
-      style={[style, {borderRadius: buttonSize}]}
+      style={[
+        css`
+          border-radius: 50%;
+        `,
+        style,
+      ]}
       {...touchableHighlightProps}
     >
       {renderContainer(loading ? renderLoading() : renderChild())}

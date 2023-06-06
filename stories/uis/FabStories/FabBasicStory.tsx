@@ -1,6 +1,7 @@
 import type {ReactElement} from 'react';
 // Caveat: Expo web needs React to be imported
 import React, {useState} from 'react';
+import {css} from '@emotion/native';
 
 import {Fab, Typography} from '../../../main';
 import {StoryContainer, StoryTitle} from '../../GlobalStyles';
@@ -14,20 +15,18 @@ function FabBasicStory(): ReactElement {
       <StoryTitle>Basic</StoryTitle>
       <Typography.Heading2>{`clicked item: ${selectedItem}`}</Typography.Heading2>
       <Fab
-        style={{bottom: 80}}
+        style={css`
+          bottom: 30px;
+        `}
         isActive={active}
-        styles={{buttonSize: 'medium', iconSize: 25}}
-        items={[
-          {id: 'search', icon: 'MagnifyingGlass'},
-          {id: 'like', icon: 'Heart'},
-        ]}
+        icons={['MagnifyingGlass', 'Heart']}
         onPressFab={() => setActive((prev) => !prev)}
         onPressItem={(item) => {
           if (!item) {
             return;
           }
 
-          setSelectedItem(item.id);
+          setSelectedItem(item);
         }}
       />
     </StoryContainer>

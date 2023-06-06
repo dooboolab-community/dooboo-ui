@@ -1,6 +1,7 @@
 import type {ReactElement} from 'react';
 // Caveat: Expo web needs React to be imported
 import React from 'react';
+import {css} from '@emotion/native';
 import {action} from '@storybook/addon-actions';
 import {boolean, number} from '@storybook/addon-knobs';
 
@@ -18,13 +19,20 @@ function IconButtonBasicStory(): ReactElement {
         {types.map((type) => (
           <IconButton
             disabled={boolean('disabled', false)}
-            activeOpacity={number('activeOpacity', 0.8)}
             loading={boolean('loading', false)}
             onPress={action('onPress')}
+            size={number('size', 14)}
             key={type}
             type={type}
             icon="Hamburger"
-            style={{margin: 4}}
+            style={css`
+              margin: 4px;
+            `}
+            // styles={{
+            //   container: css`
+            //     padding: 4px;
+            //   `,
+            // }}
           />
         ))}
       </StorySection>
