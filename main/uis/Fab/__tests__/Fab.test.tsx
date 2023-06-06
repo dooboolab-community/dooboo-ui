@@ -1,6 +1,5 @@
 import type {ReactElement} from 'react';
 import React from 'react';
-import {View} from 'react-native';
 import {fireEvent, render} from '@testing-library/react-native';
 
 import {createComponent} from '../../../../test/testUtils';
@@ -12,12 +11,12 @@ const Component = (props): ReactElement => createComponent(<Fab {...props} />);
 describe('[Fab]', () => {
   it('should render', async () => {
     let count = 0;
-    let item: IconName[] = ['AndroidLogo', 'AppleLogo'];
+    let items: IconName[] = ['AndroidLogo', 'AppleLogo'];
     // let resItem: FabItem;
 
     const {getByTestId} = render(
       Component({
-        items: [item],
+        icons: items,
         isActive: true,
         onPressItem: () => {
           count += 1;
@@ -28,7 +27,7 @@ describe('[Fab]', () => {
     );
 
     expect(count).toBe(0);
-    fireEvent.press(getByTestId('item1'));
+    fireEvent.press(getByTestId('AndroidLogo'));
     expect(count).toBe(1);
     // expect(resItem.id).toBe(item.id);
   });
@@ -36,12 +35,10 @@ describe('[Fab]', () => {
   it('should render custom Fab', async () => {
     const testingLib = render(
       Component({
-        items: [{icon: 'Apple', id: 'item1'}],
+        icons: ['AppleLogo', 'AndroidLogo'],
         isActive: true,
         onPressItem: () => {},
         onPressFab: () => {},
-        renderFab: () => <View />,
-        renderFabItem: () => <View />,
       }),
     );
 
