@@ -17,10 +17,7 @@ type FabProps = ComponentProps<typeof Fab>;
 const initialProps: FabProps = {
   onPressFab: () => {},
   onPressItem: () => {},
-  items: [
-    {id: 'search', icon: 'HomeAlt'},
-    {id: 'like', icon: 'FavoriteAlt'},
-  ],
+  icons: ['AppleLogo', 'AndroidLogo'],
   isActive: true,
 };
 
@@ -54,9 +51,9 @@ const FabStory: Story<FabProps> = (args): ReactElement => {
     >
       <Fab
         {...args}
-        styles={{buttonSize: 'medium', iconSize: 25, gap: 60}}
         isActive={isActive}
         onPressFab={() => setIsActive(!isActive)}
+        gap={60}
       />
     </Container>
   );
