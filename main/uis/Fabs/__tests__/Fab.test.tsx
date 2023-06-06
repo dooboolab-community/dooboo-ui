@@ -4,16 +4,15 @@ import {View} from 'react-native';
 import {fireEvent, render} from '@testing-library/react-native';
 
 import {createComponent} from '../../../../test/testUtils';
-import type {FabItem, FabProps} from '../../..';
+import type {IconName} from '../../..';
 import {Fab} from '../../..';
 
-const Component = (props: FabProps<FabItem>): ReactElement =>
-  createComponent(<Fab {...props} />);
+const Component = (props): ReactElement => createComponent(<Fab {...props} />);
 
 describe('[Fab]', () => {
   it('should render', async () => {
     let count = 0;
-    let item: FabItem = {icon: 'Android', id: 'item1'};
+    let item: IconName[] = ['AndroidLogo', 'AppleLogo'];
     // let resItem: FabItem;
 
     const {getByTestId} = render(
