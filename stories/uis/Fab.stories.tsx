@@ -6,7 +6,7 @@ import {storiesOf} from '@storybook/react-native';
 
 import {renderStory} from '../Common';
 
-import FabBasicStory from './FabsStories/FabBasicStory';
+import FabBasicStory from './FabStories/FabBasicStory';
 
 storiesOf('Fab', module)
   .addDecorator(withKnobs)

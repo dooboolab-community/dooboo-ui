@@ -156,11 +156,7 @@ function FloatingActionButtons<Item extends FabItem = FabItem>({
           <IconButton
             size={buttonSize}
             iconElement={
-              <Icon
-                color={theme.text.contrast}
-                size={iconSize}
-                name="PlusSquare"
-              />
+              <Icon color={theme.text.contrast} size={iconSize} name="Plus" />
             }
             onPress={onPressFab}
           />
