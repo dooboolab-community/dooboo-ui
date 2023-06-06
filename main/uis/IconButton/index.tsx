@@ -105,6 +105,7 @@ export type IconButtonProps = {
   style?: StyleProp<Omit<ViewStyle, 'borderRadius' | 'padding'>>;
   styles?: Styles;
   onPress?: TouchableHighlightProps['onPress'];
+  activeOpacity?: number;
   touchableHighlightProps?: Omit<TouchableHighlightProps, 'onPress' | 'style'>;
 };
 
@@ -122,6 +123,7 @@ export const IconButton: FC<IconButtonProps> = (props) => {
     style,
     styles,
     onPress,
+    activeOpacity = 0.95,
     touchableHighlightProps,
   } = props;
 
@@ -218,6 +220,7 @@ export const IconButton: FC<IconButtonProps> = (props) => {
 
   return (
     <TouchableHighlight
+      activeOpacity={activeOpacity}
       testID={testID}
       ref={Platform.select({
         web: ref,
