@@ -10,43 +10,43 @@ import {Icon} from '../Icon';
 import {IconButton} from '../IconButton';
 
 interface Styles {
-  FAB?: StyleProp<ViewStyle>;
-  FABItem?: StyleProp<ViewStyle>;
+  Fab?: StyleProp<ViewStyle>;
+  FabItem?: StyleProp<ViewStyle>;
   buttonSize: ButtonSizeType;
   iconSize?: number;
   gap?: number;
 }
 
-export interface FABItem {
+export interface FabItem {
   icon: IconName;
   id: string;
 }
 
-export interface FABProps<Item extends FABItem> {
+export interface FabProps<Item extends FabItem> {
   isActive: boolean;
   items: Item[];
-  onPressFAB: () => void;
+  onPressFab: () => void;
   onPressItem: (item?: Item) => void;
-  renderFAB?: () => ReactElement;
-  renderFABItem?: (item: Item, idx: number) => ReactElement;
+  renderFab?: () => ReactElement;
+  renderFabItem?: (item: Item, idx: number) => ReactElement;
 
   style?: StyleProp<ViewStyle>;
   styles?: Styles;
 }
 
-function FloatingActionButtons<Item extends FABItem = FABItem>({
+function FloatingActionButtons<Item extends FabItem = FabItem>({
   isActive,
   style,
   styles,
   items,
-  onPressFAB,
+  onPressFab,
   onPressItem,
-  renderFAB,
-  renderFABItem,
-}: FABProps<Item>): ReactElement {
+  renderFab,
+  renderFabItem,
+}: FabProps<Item>): ReactElement {
   const {
-    FAB,
-    FABItem,
+    Fab,
+    FabItem,
     buttonSize = 'large',
     iconSize = 24,
     gap = 20,
@@ -112,11 +112,11 @@ function FloatingActionButtons<Item extends FABItem = FABItem>({
                 position: 'absolute',
                 transform: [{translateY: offsets[idx]}],
               },
-              FABItem,
+              FabItem,
             ]}
           >
-            {renderFABItem ? (
-              renderFABItem(item, idx)
+            {renderFabItem ? (
+              renderFabItem(item, idx)
             ) : (
               <IconButton
                 testID={id}
@@ -147,11 +147,11 @@ function FloatingActionButtons<Item extends FABItem = FABItem>({
               },
             ],
           },
-          FAB,
+          Fab,
         ]}
       >
-        {renderFAB ? (
-          renderFAB()
+        {renderFab ? (
+          renderFab()
         ) : (
           <IconButton
             size={buttonSize}
@@ -162,7 +162,7 @@ function FloatingActionButtons<Item extends FABItem = FABItem>({
                 name="PlusSquare"
               />
             }
-            onPress={onPressFAB}
+            onPress={onPressFab}
           />
         )}
       </Animated.View>
@@ -170,4 +170,4 @@ function FloatingActionButtons<Item extends FABItem = FABItem>({
   );
 }
 
-export {FloatingActionButtons as FAB};
+export {FloatingActionButtons as Fab};

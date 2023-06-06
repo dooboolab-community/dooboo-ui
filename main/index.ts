@@ -15,7 +15,7 @@ export * from './uis/LoadingIndicator';
 export * from './uis/Accordion';
 export * from './uis/StatusbarBrightness';
 export * from './uis/SwitchToggle';
-export * from './uis/FAB';
+export * from './uis/Fabs';
 export * from './uis/Rating';
 export * from './uis/CustomPressable';
 export * from './providers';

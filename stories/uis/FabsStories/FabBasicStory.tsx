@@ -2,10 +2,10 @@ import type {ReactElement} from 'react';
 // Caveat: Expo web needs React to be imported
 import React, {useState} from 'react';
 
-import {FAB, Typography} from '../../../main';
+import {Fab, Typography} from '../../../main';
 import {StoryContainer, StoryTitle} from '../../GlobalStyles';
 
-function FABBasicStory(): ReactElement {
+function FabBasicStory(): ReactElement {
   const [selectedItem, setSelectedItem] = useState('none');
   const [active, setActive] = useState(false);
 
@@ -13,7 +13,7 @@ function FABBasicStory(): ReactElement {
     <StoryContainer>
       <StoryTitle>Basic</StoryTitle>
       <Typography.Heading2>{`clicked item: ${selectedItem}`}</Typography.Heading2>
-      <FAB
+      <Fab
         style={{bottom: 80}}
         isActive={active}
         styles={{buttonSize: 'medium', iconSize: 25}}
@@ -21,7 +21,7 @@ function FABBasicStory(): ReactElement {
           {id: 'search', icon: 'MagnifyingGlass'},
           {id: 'like', icon: 'Heart'},
         ]}
-        onPressFAB={() => setActive((prev) => !prev)}
+        onPressFab={() => setActive((prev) => !prev)}
         onPressItem={(item) => {
           if (!item) {
             return;
@@ -34,4 +34,4 @@ function FABBasicStory(): ReactElement {
   );
 }
 
-export default FABBasicStory;
+export default FabBasicStory;

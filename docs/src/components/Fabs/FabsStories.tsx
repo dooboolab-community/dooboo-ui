@@ -3,19 +3,19 @@ import {useState} from 'react';
 import {View} from 'react-native';
 import {css} from '@emotion/native';
 import type {Meta, Story} from '@storybook/react/types-6-0';
-import {DoobooProvider, FAB} from 'dooboo-ui';
+import {DoobooProvider, Fab} from 'dooboo-ui';
 import {useDarkMode} from 'storybook-dark-mode';
 
 export default {
-  title: 'FAB',
-  component: FAB,
+  title: 'Fab',
+  component: Fab,
   viewMode: 'docs',
 } as Meta;
 
-type FABProps = ComponentProps<typeof FAB>;
+type FabProps = ComponentProps<typeof Fab>;
 
-const initialProps: FABProps = {
-  onPressFAB: () => {},
+const initialProps: FabProps = {
+  onPressFab: () => {},
   onPressItem: () => {},
   items: [
     {id: 'search', icon: 'HomeAlt'},
@@ -43,7 +43,7 @@ const Container = ({style, children}): ReactElement => {
   );
 };
 
-const FABStory: Story<FABProps> = (args): ReactElement => {
+const FabStory: Story<FabProps> = (args): ReactElement => {
   const [isActive, setIsActive] = useState(false);
 
   return (
@@ -52,15 +52,15 @@ const FABStory: Story<FABProps> = (args): ReactElement => {
         height: 240px;
       `}
     >
-      <FAB
+      <Fab
         {...args}
         styles={{buttonSize: 'medium', iconSize: 25, gap: 60}}
         isActive={isActive}
-        onPressFAB={() => setIsActive(!isActive)}
+        onPressFab={() => setIsActive(!isActive)}
       />
     </Container>
   );
 };
 
-export const FABTemplate = FABStory.bind({});
-FABTemplate.args = initialProps;
+export const FabTemplate = FabStory.bind({});
+FabTemplate.args = initialProps;
