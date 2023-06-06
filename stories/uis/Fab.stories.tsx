@@ -6,9 +6,9 @@ import {storiesOf} from '@storybook/react-native';
 
 import {renderStory} from '../Common';
 
-import FABBasicStory from './FABStories/FABBasicStory';
+import FabBasicStory from './FabStories/FabBasicStory';
 
-storiesOf('FAB', module)
+storiesOf('Fab', module)
   .addDecorator(withKnobs)
   .addDecorator(withActions)
-  .add('Basic', () => renderStory(<FABBasicStory />));
+  .add('Basic', () => renderStory(<FabBasicStory />));

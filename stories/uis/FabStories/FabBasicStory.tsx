@@ -1,11 +1,12 @@
 import type {ReactElement} from 'react';
 // Caveat: Expo web needs React to be imported
 import React, {useState} from 'react';
+import {css} from '@emotion/native';
 
-import {FAB, Typography} from '../../../main';
+import {Fab, Typography} from '../../../main';
 import {StoryContainer, StoryTitle} from '../../GlobalStyles';
 
-function FABBasicStory(): ReactElement {
+function FabBasicStory(): ReactElement {
   const [selectedItem, setSelectedItem] = useState('none');
   const [active, setActive] = useState(false);
 
@@ -13,25 +14,23 @@ function FABBasicStory(): ReactElement {
     <StoryContainer>
       <StoryTitle>Basic</StoryTitle>
       <Typography.Heading2>{`clicked item: ${selectedItem}`}</Typography.Heading2>
-      <FAB
-        style={{bottom: 80}}
+      <Fab
+        style={css`
+          bottom: 30px;
+        `}
         isActive={active}
-        styles={{buttonSize: 'medium', iconSize: 25}}
-        items={[
-          {id: 'search', icon: 'MagnifyingGlass'},
-          {id: 'like', icon: 'Heart'},
-        ]}
-        onPressFAB={() => setActive((prev) => !prev)}
+        icons={['MagnifyingGlass', 'Heart']}
+        onPressFab={() => setActive((prev) => !prev)}
         onPressItem={(item) => {
           if (!item) {
             return;
           }
 
-          setSelectedItem(item.id);
+          setSelectedItem(item);
         }}
       />
     </StoryContainer>
   );
 }
 
-export default FABBasicStory;
+export default FabBasicStory;
