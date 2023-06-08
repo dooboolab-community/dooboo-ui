@@ -23,6 +23,7 @@ import {Icon} from '../Icon';
 type Styles = {
   container?: StyleProp<ViewStyle>;
   label?: StyleProp<TextStyle>;
+  inputContainer?: StyleProp<TextStyle>;
   input?: StyleProp<TextStyle>;
   error?: StyleProp<TextStyle>;
   counter?: StyleProp<TextStyle>;
@@ -277,6 +278,7 @@ export function EditText(props: EditTextProps): ReactElement {
             align-items: center;
             justify-content: space-between;
           `,
+          styles?.inputContainer,
         ]}
       >
         <>
