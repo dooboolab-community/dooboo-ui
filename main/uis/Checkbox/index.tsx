@@ -3,7 +3,7 @@ import React, {useEffect, useRef} from 'react';
 import type {StyleProp, ViewStyle} from 'react-native';
 import {Animated, Platform, View} from 'react-native';
 import {useTheme} from '@dooboo-ui/theme';
-import styled from '@emotion/native';
+import styled, {css} from '@emotion/native';
 
 import {Icon} from '../Icon';
 import {
@@ -12,6 +12,7 @@ import {
 } from '../Styled/StyledComponents';
 
 type Styles = {
+  container?: StyleProp<ViewStyle>;
   checkbox?: StyleProp<ViewStyle>;
 };
 
@@ -105,36 +106,38 @@ export function Checkbox({
       activeOpacity={0.9}
     >
       <View
-        style={{
-          flexDirection: 'row',
-          paddingVertical: 6,
-          paddingLeft: startElement ? 6 : 0,
-          paddingRight: endElement ? 6 : 0,
-        }}
+        style={[
+          css`
+            flex: 1;
+            padding: 6px 0;
+
+            flex-direction: row;
+            column-gap: 6px;
+          `,
+          styles?.container,
+        ]}
       >
-        <>
-          {startElement}
-          <StyledCheckboxOutlined
-            testID="doobooui-checkbox"
+        {startElement}
+        <StyledCheckboxOutlined
+          testID="doobooui-checkbox"
+          checked={checked}
+          type={color}
+          disabled={disabled}
+          style={styles?.checkbox}
+        >
+          <StyledCheckbox
+            style={[
+              styles?.checkbox,
+              {opacity: fadeAnim, transform: [{scale: scaleAnim}]},
+            ]}
             checked={checked}
             type={color}
             disabled={disabled}
-            style={styles?.checkbox}
           >
-            <StyledCheckbox
-              style={[
-                styles?.checkbox,
-                {opacity: fadeAnim, transform: [{scale: scaleAnim}]},
-              ]}
-              checked={checked}
-              type={color}
-              disabled={disabled}
-            >
-              <StyledCheck theme={theme} name="Check" checked={checked} />
-            </StyledCheckbox>
-          </StyledCheckboxOutlined>
-          {endElement}
-        </>
+            <StyledCheck theme={theme} name="Check" checked={checked} />
+          </StyledCheckbox>
+        </StyledCheckboxOutlined>
+        {endElement}
       </View>
     </Container>
   );
