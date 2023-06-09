@@ -136,6 +136,7 @@ export const IconButton: FC<IconButtonProps> = (props) => {
     backgroundColor,
     borderColor,
     borderWidth,
+    buttonSize,
     iconColor,
     iconSize,
     disabledBackgroundColor,
@@ -156,7 +157,7 @@ export const IconButton: FC<IconButtonProps> = (props) => {
       css`
         background-color: ${backgroundColor};
         border-color: ${borderColor};
-        border-radius: 50%;
+        border-radius: ${buttonSize + 'px'};
         border-width: ${borderWidthStr};
         padding: 12px;
       `,
@@ -232,7 +233,7 @@ export const IconButton: FC<IconButtonProps> = (props) => {
       disabled={disabled || loading}
       style={[
         css`
-          border-radius: 50%;
+          border-radius: ${buttonSize + 'px'};
         `,
         style,
       ]}
