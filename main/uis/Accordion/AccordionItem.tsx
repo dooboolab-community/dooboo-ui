@@ -202,6 +202,7 @@ function AccordionItem<T, K>(props: Props<T, K>): ReactElement {
       <Animated.View
         testID={`body-${testID}`}
         style={{
+          opacity: fadeItemAnim,
           height: dropDownAnimValueRef.current.interpolate({
             inputRange: [0, 1],
             outputRange: [0, bodyHeight],
