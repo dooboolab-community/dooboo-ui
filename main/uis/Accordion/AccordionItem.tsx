@@ -2,7 +2,7 @@ import type {ReactElement} from 'react';
 // Caveat: Expo web needs React to be imported
 import React, {useEffect, useRef, useState} from 'react';
 import type {LayoutChangeEvent} from 'react-native';
-import {Animated, Easing} from 'react-native';
+import {Animated, Easing, View} from 'react-native';
 import {useTheme} from '@dooboo-ui/theme';
 import styled, {css} from '@emotion/native';
 
@@ -71,22 +71,14 @@ function AccordionItem<T, K>(props: Props<T, K>): ReactElement {
 
   const rotateAnimValueRef = useRef(new Animated.Value(0));
   const dropDownAnimValueRef = useRef(dropDownAnimValue);
-  const fadeRootAnim = useRef(new Animated.Value(0)).current;
   const fadeItemAnim = useRef(new Animated.Value(0)).current;
 
   const [bodyHeight, setBodyHeight] = useState(0);
-  const [hasItemMounted, setHasItemMounted] = useState(false);
   const [hasCollapsed, setHasCollapsed] = useState(collapseOnStart);
 
   const handleBodyLayout = (e: LayoutChangeEvent): void => {
-    if (hasItemMounted) {
-      return;
-    }
-
     const {height} = e.nativeEvent.layout;
-
     setBodyHeight(height);
-    setHasItemMounted(true);
   };
 
   const handlePress = (): void => {
@@ -94,24 +86,12 @@ function AccordionItem<T, K>(props: Props<T, K>): ReactElement {
   };
 
   useEffect(() => {
-    if (hasItemMounted) {
-      Animated.timing(fadeRootAnim, {
-        toValue: 1,
-        duration: 30,
-        useNativeDriver: true,
-      }).start();
-    }
-  }, [hasItemMounted, fadeRootAnim]);
-
-  useEffect(() => {
-    if (hasItemMounted) {
-      Animated.timing(fadeItemAnim, {
-        toValue: hasCollapsed ? 0 : 1,
-        duration: !hasCollapsed ? 300 : 100,
-        useNativeDriver: false,
-      }).start();
-    }
-  }, [hasItemMounted, fadeItemAnim, hasCollapsed]);
+    Animated.timing(fadeItemAnim, {
+      toValue: hasCollapsed ? 0 : 1,
+      duration: !hasCollapsed ? 300 : 100,
+      useNativeDriver: false,
+    }).start();
+  }, [fadeItemAnim, hasCollapsed]);
 
   useEffect(() => {
     const targetValue = hasCollapsed ? 0 : 1;
@@ -166,7 +146,6 @@ function AccordionItem<T, K>(props: Props<T, K>): ReactElement {
           background-color: transparent;
           overflow: hidden;
         `,
-        {opacity: fadeRootAnim},
         styles?.container,
       ]}
     >
@@ -195,18 +174,39 @@ function AccordionItem<T, K>(props: Props<T, K>): ReactElement {
           {toggleElementPosition === 'right' ? toggleElContainer : null}
         </TitleContainer>
       </TitleTouch>
+      <View
+        onLayout={handleBodyLayout}
+        style={css`
+          position: absolute;
+          opacity: 0;
+        `}
+      >
+        {item.items.map((body, index) => (
+          <ItemTouch
+            key={`body-${index}`}
+            activeOpacity={activeOpacity}
+            onPress={() => onPressItem?.(item.title, body)}
+          >
+            <ItemContainer style={styles?.itemContainer}>
+              {typeof body === 'string' && !renderItem ? (
+                <Typography.Body3 style={styles?.itemText}>
+                  {body}
+                </Typography.Body3>
+              ) : (
+                renderItem?.(body as K)
+              )}
+            </ItemContainer>
+          </ItemTouch>
+        ))}
+      </View>
       <Animated.View
         testID={`body-${testID}`}
         style={{
-          opacity: fadeItemAnim,
-          height: hasItemMounted
-            ? dropDownAnimValueRef.current.interpolate({
-                inputRange: [0, 1],
-                outputRange: [0, bodyHeight],
-              })
-            : undefined,
+          height: dropDownAnimValueRef.current.interpolate({
+            inputRange: [0, 1],
+            outputRange: [0, bodyHeight],
+          }),
         }}
-        onLayout={handleBodyLayout}
         accessibilityState={{expanded: !hasCollapsed}}
       >
         {item.items.map((body, index) => (
