@@ -206,6 +206,7 @@ function AccordionItem<T, K>(props: Props<T, K>): ReactElement {
             inputRange: [0, 1],
             outputRange: [0, bodyHeight],
           }),
+          opacity: fadeItemAnim,
         }}
         accessibilityState={{expanded: !hasCollapsed}}
       >

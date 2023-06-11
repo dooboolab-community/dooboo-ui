@@ -1,6 +1,6 @@
 # dooboo-ui
 
-> React Native UI components built by `dooboolab`. Which follows the Neutral Design.
+Expo first React Native UI components. Simple and flexible which also supports themeing with default colors.
 
 [![Npm Version](http://img.shields.io/npm/v/dooboo-ui.svg?style=flat-square)](https://npmjs.org/package/dooboo-ui)
 [![Downloads](http://img.shields.io/npm/dm/dooboo-ui.svg?style=flat-square)](https://npmjs.org/package/dooboo-ui)
