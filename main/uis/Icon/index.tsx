@@ -3793,7 +3793,7 @@ const Ico: FC<Props> = createIconSetFromIcoMoon(
   collectingFontIconSelection,
   'doobooui',
   require('./doobooui.ttf'),
-);
+) as any;
 
 export const Icon = styled(Ico)`
   color: ${({theme, color}) => color || theme.text.basic};

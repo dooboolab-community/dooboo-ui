@@ -1,9 +1,6 @@
 import React from 'react';
 import type {StyleProp, TextStyle, ViewStyle} from 'react-native';
-import {light} from '@dooboo-ui/theme';
 import styled from '@emotion/native';
-
-import {isEmptyObject} from '../../utils/utils';
 
 const Container = styled.View`
   flex-direction: row;
@@ -26,9 +23,8 @@ const BackgroundView = styled.View`
 const Progress = styled.View<ProgressProps>`
   width: ${({value}) => `${value}%`};
   background-color: ${({theme, type}) => {
-    theme = isEmptyObject(theme) ? light : theme;
-
-    return theme.role[type ?? 'info'];
+    // @ts-ignore
+    return theme.role[type || 'info'];
   }};
   height: 100%;
 `;

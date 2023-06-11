@@ -1,5 +1,5 @@
 import type {ReactElement} from 'react';
-import {useMemo, useRef, useState} from 'react';
+import React, {useMemo, useRef, useState} from 'react';
 import type {TextStyle, ViewStyle} from 'react-native';
 import {Animated} from 'react-native';
 import Svg, {Circle as SvgCircle} from 'react-native-svg';
@@ -48,6 +48,7 @@ export function ProgressCircle({
     color: circleColor,
   } = styles?.circle || {};
   const {theme} = useTheme() as unknown as DoobooThemeContext;
+  // @ts-ignore
   const strokeColor = circleColor || theme.role[color];
   const animValue = useRef(new Animated.Value(progress));
 
