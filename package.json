@@ -3,7 +3,7 @@
   "private": true,
   "main": "node_modules/expo/AppEntry.js",
   "scripts": {
-    "pre": "lerna run clean && lerna clean --yes && lerna bootstrap && lerna run build",
+    "pre": "lerna run clean && lerna clean --yes && lerna run build",
     "predeploy": "yarn build",
     "postinstall": "dooboolab-welcome postinstall",
     "publish": "yarn build && cd lib && npm publish && cd ..",
