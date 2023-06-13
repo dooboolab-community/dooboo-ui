@@ -3,7 +3,7 @@
   "private": true,
   "main": "node_modules/expo/AppEntry.js",
   "scripts": {
-    "pre": "lerna run clean && lerna clean --yes && lerna bootstrap && lerna run build",
+    "pre": "lerna run clean && lerna clean --yes && lerna run build",
     "predeploy": "yarn build",
     "postinstall": "dooboolab-welcome postinstall",
     "publish": "yarn build && cd lib && npm publish && cd ..",
@@ -100,7 +100,7 @@
     "jest": "^29.4.1",
     "jest-expo": "^48.0.0",
     "jest-plugin-context": "^2.9.0",
-    "lerna": "^6.4.1",
+    "lerna": "^7.0.0",
     "react-native-safe-area-context": "4.5.0",
     "react-test-renderer": "^18.2.0",
     "react-useinterval": "^1.0.2",
