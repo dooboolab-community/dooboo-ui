@@ -1,9 +1,9 @@
 import type {MutableRefObject, ReactElement} from 'react';
-import React, {useRef} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import {View} from 'react-native';
 import type {ThemeContext, ThemeProps} from '@dooboo-ui/theme';
 import {ThemeProvider, useTheme} from '@dooboo-ui/theme';
-import {useFonts} from 'expo-font';
+import {loadAsync} from 'expo-font';
 
 import type {AlertDialogContext} from '../modals/AlertDialog';
 import AlertDialog from '../modals/AlertDialog';
@@ -32,12 +32,23 @@ const [useCtx, Provider] = createCtx<DoobooContext>(
 );
 
 function DoobooProvider(props: DoobooProviderProps): React.ReactElement {
-  const [assetLoaded] = useFonts({
-    doobooui: require('../uis/Icon/doobooui.ttf'),
-    'Pretendard-Bold': require('../uis/Icon/Pretendard-Bold.otf'),
-    Pretendard: require('../uis/Icon/Pretendard-Regular.otf'),
-    'Pretendard-Thin': require('../uis/Icon/Pretendard-Thin.otf'),
-  });
+  const [assetLoaded, setAssetLoaded] = useState(false);
+
+  useEffect(() => {
+    const loadAsset = async (): Promise<void> => {
+      await loadAsync({
+        doobooui: require('../uis/Icon/doobooui.ttf'),
+        'Pretendard-Bold': require('../uis/Icon/Pretendard-Bold.otf'),
+        Pretendard: require('../uis/Icon/Pretendard-Regular.otf'),
+        'Pretendard-Thin': require('../uis/Icon/Pretendard-Thin.otf'),
+      });
+
+      setAssetLoaded(true);
+    };
+
+    loadAsset();
+  }, []);
+
   const themeContext = useTheme();
   const {children} = props;
   const snackbar =
@@ -90,7 +101,7 @@ function DoobooProvider(props: DoobooProviderProps): React.ReactElement {
 
 function DoobooWithThemeProvider(props: DoobooProviderProps): ReactElement {
   return (
-    <ThemeProvider {...props.themeConfig}>
+    <ThemeProvider>
       <DoobooProvider {...props} />
     </ThemeProvider>
   );
