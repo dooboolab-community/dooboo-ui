@@ -1,18 +1,21 @@
 {
   "name": "@dooboo-ui/theme",
-  "version": "0.12.7",
+  "version": "0.12.8",
   "description": "dooboo-ui theme provider",
   "homepage": "https://github.com/dooboolab-community/dooboo-ui#readme",
   "license": "ISC",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
+  "react-native": "lib/index",
+  "module": "lib/index",
+  "source": "lib/index",
   "repository": {
     "type": "git",
     "directory": "packages/theme"
   },
   "scripts": {
     "clean": "rm -rf lib",
-    "build": "yarn clean && tsc",
+    "build": "yarn clean && tsc && cp *.ts *.tsx ./lib",
     "watch": "tsc -w"
   },
   "bugs": {

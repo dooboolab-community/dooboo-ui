@@ -2,12 +2,15 @@
   "name": "@dooboo-ui/pinch-zoom",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
+  "react-native": "lib/index",
+  "module": "lib/index",
+  "source": "lib/index",
   "version": "0.1.0",
   "license": "MIT",
   "postinstall": "tsc",
   "scripts": {
     "clean": "rm -rf lib",
-    "build": "tsc",
+    "build": "tsc && cp *.ts *.tsx ./lib",
     "watch": "tsc -w"
   },
   "repository": {
