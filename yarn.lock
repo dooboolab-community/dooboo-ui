@@ -7111,10 +7111,10 @@ commander@~2.13.0:
   resolved "https://registry.yarnpkg.com/commander/-/commander-2.13.0.tgz#6964bca67685df7c1f1430c584f07d7597885b9c"
   integrity sha512-MVuS359B+YzaWqjCL/c+22gfryv+mCBPHAv3zyVI2GN8EY6IRP8VwtasXn8jyyhvvq84R4ImN1OKRtcbIasjYA==
 
-commitlint-plugin-function-rules@^1.7.1:
-  version "1.7.1"
-  resolved "https://registry.yarnpkg.com/commitlint-plugin-function-rules/-/commitlint-plugin-function-rules-1.7.1.tgz#11c028fa817ef3420d260213be9c1cef7752d707"
-  integrity sha512-hGLShcCM3my+q3unMoznSfV23JmpJ/R8aHQ5KGzxVwv3HFpDS4cFWraCdBRAkMbL1UzUrVOEutG4EDur5S7AsA==
+commitlint-plugin-function-rules@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/commitlint-plugin-function-rules/-/commitlint-plugin-function-rules-2.0.0.tgz#7e480f0121d422dfbad6fe9bf0589ff99f3af08c"
+  integrity sha512-EV84gdxir4sL5fHfG++gXEKYjw/CYwnI86tt3S4Z/tyPpi89ULTy8aJJMTW08EAQ6SuPvWYbuCFMSkl3mvGn2g==
 
 common-path-prefix@^3.0.0:
   version "3.0.0"

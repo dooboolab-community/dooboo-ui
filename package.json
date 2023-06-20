@@ -90,7 +90,7 @@
     "babel-loader": "^8.2.5",
     "babel-preset-expo": "^9.2.2",
     "babel-preset-react-app": "^10.0.1",
-    "commitlint-plugin-function-rules": "^1.7.1",
+    "commitlint-plugin-function-rules": "^2.0.0",
     "eslint": "^8.33.0",
     "eslint-plugin-storybook": "^0.6.11",
     "gh-pages": "^5.0.0",
