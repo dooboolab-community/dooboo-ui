@@ -10,7 +10,7 @@
   "postinstall": "tsc",
   "scripts": {
     "clean": "rm -rf lib",
-    "build": "tsc && cp *.ts *.tsx ./lib",
+    "build": "tsc && cp *.tsx ./lib",
     "watch": "tsc -w"
   },
   "repository": {
