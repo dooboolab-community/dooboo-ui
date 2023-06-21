@@ -101,7 +101,7 @@ function DoobooProvider(props: DoobooProviderProps): React.ReactElement {
 
 function DoobooWithThemeProvider(props: DoobooProviderProps): ReactElement {
   return (
-    <ThemeProvider>
+    <ThemeProvider {...props.themeConfig}>
       <DoobooProvider {...props} />
     </ThemeProvider>
   );
