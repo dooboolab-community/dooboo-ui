@@ -30,6 +30,7 @@ export const ButtonWrapper = styled.View<{
 }>`
   border-width: ${({outlined}) => (outlined ? '1px' : undefined)};
   background-color: ${({theme, type, outlined, loading, disabled}) => {
+    // @ts-ignore
     theme = isEmptyObject(theme) ? light : theme;
 
     if (loading) {
@@ -68,6 +69,7 @@ export const ButtonText = styled.Text<{
 }>`
   font-family: Pretendard;
   color: ${({theme, outlined, type, disabled}) => {
+    // @ts-ignore
     theme = isEmptyObject(theme) ? light : theme;
 
     if (outlined) {
@@ -134,6 +136,7 @@ export const RadioButtonWrapper = styled.View<{
 }>`
   border-width: 1px;
   border-color: ${({theme, type, selected, disabled}) => {
+    // @ts-ignore
     theme = isEmptyObject(theme) ? light : theme;
 
     if (disabled) {
@@ -179,6 +182,7 @@ export const ColoredText = styled.Text<{
 }>`
   font-family: Pretendard;
   color: ${({theme, selected, type, disabled}) => {
+    // @ts-ignore
     theme = isEmptyObject(theme) ? light : theme;
 
     if (disabled) {
