@@ -7,7 +7,7 @@ export const useColorScheme = (): ColorSchemeName => {
   const [colorType, setColorType] = useState(deviceThemeType);
 
   useEffect(() => {
-    const listener = ({colorScheme}): void => {
+    const listener = ({colorScheme}: {colorScheme: ColorSchemeName}): void => {
       const platformColorScheme =
         Platform.OS === 'ios' ? Appearance.getColorScheme() : colorScheme;
 
