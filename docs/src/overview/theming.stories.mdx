@@ -18,7 +18,7 @@ import {DoobooProvider} from 'dooboo-ui';
 
   `import {ThemeProvider} from '@dooboo-ui/theme';`
 
-   > Then use `useTheme` from `@dooboo-ui/theme`.
+  > Then use `useTheme` from `@dooboo-ui/theme`.
 
 #### 2. Wrap your component with `DoobooProvider` with given customTheme.
 
@@ -213,6 +213,7 @@ export const dark: typeof light = {
 - [Example theme.ts](https://github.com/dooboolab/hackatalk/blob/master/client/src/theme.ts)
 
 Note that you can type your custom theme type as below
+
 ```ts
 export type Theme = typeof light & DoobooThemeParams;
 ```
@@ -235,7 +236,6 @@ declare module 'dooboo-ui' {
   // eslint-disable-next-line @typescript-eslint/no-shadow
   export interface DoobooTheme extends AllTheme {}
 }
-
 ```
 
 - [Example styled.d.ts](https://github.com/dooboolab/hackatalk/blob/master/client/src/styled.d.ts).
@@ -257,6 +257,29 @@ const Container = styled.View`
       margin-left: 48px;
     `}
 `;
+```
+
+You can also use `mediaQuery` props inside of react component directly. Example below.
+
+```tsx
+import {type ReactElement} from 'react';
+import {View} from 'react-native';
+import {Typography, useDooboo} from 'dooboo-ui';
+
+export default function Home(): ReactElement {
+  const { media: {isDesktop} } = useDooboo();
+
+  return (
+    <View>
+      <Typography.Heading1
+        style={{
+          fontSize: isDesktop ? 30 : 20,
+        }}
+      >
+        Hello World
+      </Typography.Heading1>
+    </View>
+  )
 ```
 
 ### Orientation support
