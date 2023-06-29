@@ -3,19 +3,14 @@ import type {ReactElement} from 'react';
 import React, {useEffect, useRef, useState} from 'react';
 import type {LayoutChangeEvent} from 'react-native';
 import {Animated, Easing, View} from 'react-native';
-import {useTheme} from '@dooboo-ui/theme';
 import styled, {css} from '@emotion/native';
 
 import {Icon} from '../Icon';
 import {Typography} from '../Typography';
 
-import type {AccordionBaseProps} from './Accordion';
+import type {AccordionBaseProps} from './';
 
 const TitleTouch = styled.TouchableOpacity`
-  z-index: 10;
-`;
-
-const TitleContainer = styled.View`
   height: 48px;
   background-color: ${({theme}) => theme.bg.basic};
 
@@ -29,9 +24,7 @@ const StyledIcon = styled(Icon)`
   font-weight: bold;
 `;
 
-const ItemTouch = styled.TouchableOpacity``;
-
-const ItemContainer = styled.View`
+const ItemTouch = styled.TouchableOpacity`
   background-color: ${({theme}) => theme.bg.paper};
   padding: 8px 12px;
 
@@ -47,15 +40,12 @@ export type AccordionItemDataType<T, K> = {
 type Props<T, K> = Omit<AccordionBaseProps<T, K>, 'data' | 'style'> & {
   testID: string;
   data: AccordionItemDataType<string, string> | AccordionItemDataType<T, K>;
-  dropDownAnimValue: Animated.Value;
 };
 
-function AccordionItem<T, K>(props: Props<T, K>): ReactElement {
-  const {theme} = useTheme();
-
+export function AccordionItem<T, K>(props: Props<T, K>): ReactElement {
   const {
     testID,
-    data: item,
+    data: data,
     shouldAnimate = true,
     collapseOnStart = true,
     animDuration = 200,
@@ -65,36 +55,25 @@ function AccordionItem<T, K>(props: Props<T, K>): ReactElement {
     onPressItem,
     renderTitle,
     renderItem,
-    dropDownAnimValue,
     styles,
   } = props;
 
+  const dropDownAnimValueRef = useRef(new Animated.Value(0));
   const rotateAnimValueRef = useRef(new Animated.Value(0));
-  const dropDownAnimValueRef = useRef(dropDownAnimValue);
   const fadeItemAnim = useRef(new Animated.Value(0)).current;
-
-  const [bodyHeight, setBodyHeight] = useState(0);
-  const [hasCollapsed, setHasCollapsed] = useState(collapseOnStart);
-
-  const handleBodyLayout = (e: LayoutChangeEvent): void => {
-    const {height} = e.nativeEvent.layout;
-    setBodyHeight(height);
-  };
-
-  const handlePress = (): void => {
-    setHasCollapsed(!hasCollapsed);
-  };
+  const [itemHeight, setItemHeight] = useState(0);
+  const [collapsed, setCollapsed] = useState(collapseOnStart);
 
   useEffect(() => {
     Animated.timing(fadeItemAnim, {
-      toValue: hasCollapsed ? 0 : 1,
-      duration: !hasCollapsed ? 300 : 100,
+      toValue: collapsed ? 0 : 1,
+      duration: !collapsed ? 300 : 100,
       useNativeDriver: false,
     }).start();
-  }, [fadeItemAnim, hasCollapsed]);
+  }, [fadeItemAnim, collapsed]);
 
   useEffect(() => {
-    const targetValue = hasCollapsed ? 0 : 1;
+    const targetValue = collapsed ? 0 : 1;
 
     if (!shouldAnimate) {
       rotateAnimValueRef.current.setValue(targetValue);
@@ -114,7 +93,7 @@ function AccordionItem<T, K>(props: Props<T, K>): ReactElement {
       Animated.timing(rotateAnimValueRef.current, config),
       Animated.timing(dropDownAnimValueRef.current, config),
     ]).start();
-  }, [hasCollapsed, shouldAnimate, animDuration]);
+  }, [collapsed, shouldAnimate, animDuration]);
 
   const toggleElContainer = (
     <Animated.View
@@ -149,87 +128,89 @@ function AccordionItem<T, K>(props: Props<T, K>): ReactElement {
         styles?.container,
       ]}
     >
+      {/* Title */}
       <TitleTouch
-        theme={theme}
         testID={`title-${testID}`}
-        onPress={handlePress}
+        style={[
+          css`
+            justify-content: ${toggleElementPosition === 'right'
+              ? 'space-between'
+              : 'flex-start'};
+          `,
+          styles?.titleContainer,
+        ]}
+        onPress={() => setCollapsed(!collapsed)}
         activeOpacity={activeOpacity}
       >
-        <TitleContainer
-          style={[
-            css`
-              justify-content: ${toggleElementPosition === 'right'
-                ? 'space-between'
-                : 'flex-start'};
-            `,
-            styles?.titleContainer,
-          ]}
-        >
-          {toggleElementPosition === 'left' ? toggleElContainer : null}
-          {typeof item.title === 'string' && !renderTitle ? (
-            <Typography.Heading4>{item.title}</Typography.Heading4>
-          ) : (
-            renderTitle?.(item.title as T)
-          )}
-          {toggleElementPosition === 'right' ? toggleElContainer : null}
-        </TitleContainer>
+        {toggleElementPosition === 'left' ? toggleElContainer : null}
+        {typeof data.title === 'string' && !renderTitle ? (
+          <Typography.Heading4 style={styles?.titleText}>
+            {data.title}
+          </Typography.Heading4>
+        ) : (
+          renderTitle?.(data.title as T)
+        )}
+        {toggleElementPosition === 'right' ? toggleElContainer : null}
       </TitleTouch>
+
+      {/* Item */}
+      <Animated.View
+        testID={`body-${testID}`}
+        style={[
+          {
+            opacity: fadeItemAnim,
+            height: dropDownAnimValueRef.current.interpolate({
+              inputRange: [0, 1],
+              outputRange: [0, itemHeight],
+            }),
+          },
+        ]}
+        accessibilityState={{expanded: !collapsed}}
+      >
+        {data.items.map((body, index) => (
+          <ItemTouch
+            key={`body-${index}`}
+            activeOpacity={activeOpacity}
+            onPress={() => onPressItem?.(data.title, body)}
+            style={styles?.itemContainer}
+          >
+            {typeof body === 'string' && !renderItem ? (
+              <Typography.Body3 style={styles?.itemText}>
+                {body}
+              </Typography.Body3>
+            ) : (
+              renderItem?.(body as K)
+            )}
+          </ItemTouch>
+        ))}
+      </Animated.View>
+
+      {/* Invisible */}
       <View
-        onLayout={handleBodyLayout}
+        onLayout={(e: LayoutChangeEvent) => {
+          setItemHeight(e.nativeEvent.layout.height);
+        }}
         style={css`
           position: absolute;
           opacity: 0;
         `}
       >
-        {item.items.map((body, index) => (
+        {data.items.map((body, index) => (
           <ItemTouch
             key={`body-${index}`}
             activeOpacity={activeOpacity}
-            onPress={() => onPressItem?.(item.title, body)}
+            onPress={() => onPressItem?.(data.title, body)}
           >
-            <ItemContainer style={styles?.itemContainer}>
-              {typeof body === 'string' && !renderItem ? (
-                <Typography.Body3 style={styles?.itemText}>
-                  {body}
-                </Typography.Body3>
-              ) : (
-                renderItem?.(body as K)
-              )}
-            </ItemContainer>
+            {typeof body === 'string' && !renderItem ? (
+              <Typography.Body3 style={styles?.itemText}>
+                {body}
+              </Typography.Body3>
+            ) : (
+              renderItem?.(body as K)
+            )}
           </ItemTouch>
         ))}
       </View>
-      <Animated.View
-        testID={`body-${testID}`}
-        style={{
-          opacity: fadeItemAnim,
-          height: dropDownAnimValueRef.current.interpolate({
-            inputRange: [0, 1],
-            outputRange: [0, bodyHeight],
-          }),
-        }}
-        accessibilityState={{expanded: !hasCollapsed}}
-      >
-        {item.items.map((body, index) => (
-          <ItemTouch
-            key={`body-${index}`}
-            activeOpacity={activeOpacity}
-            onPress={() => onPressItem?.(item.title, body)}
-          >
-            <ItemContainer style={styles?.itemContainer}>
-              {typeof body === 'string' && !renderItem ? (
-                <Typography.Body3 style={styles?.itemText}>
-                  {body}
-                </Typography.Body3>
-              ) : (
-                renderItem?.(body as K)
-              )}
-            </ItemContainer>
-          </ItemTouch>
-        ))}
-      </Animated.View>
     </Animated.View>
   );
 }
-
-export default AccordionItem;
