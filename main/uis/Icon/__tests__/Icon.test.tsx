@@ -8,8 +8,7 @@ import {Icon} from '../../..';
 
 let testingLib: RenderAPI;
 
-const Component = (): ReactElement =>
-  createComponent(<Icon name="PersonAlt" />);
+const Component = (): ReactElement => createComponent(<Icon name="Person" />);
 
 describe('[Icon]', () => {
   it('should render without crashing', () => {

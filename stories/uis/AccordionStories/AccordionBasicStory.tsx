@@ -5,7 +5,6 @@ import styled from '@emotion/native';
 import {action} from '@storybook/addon-actions';
 import {boolean, number} from '@storybook/addon-knobs';
 
-import type {AccordionItemDataType} from '../../../main/uis/Accordion';
 import {Accordion} from '../../../main/uis/Accordion';
 import {StoryContainer, StoryTitle} from '../../GlobalStyles';
 
@@ -13,7 +12,7 @@ const ScrollContainer = styled.ScrollView`
   width: 100%;
 `;
 
-const data: AccordionItemDataType<string, string>[] = [
+const data = [
   {
     title: 'Lists',
     items: ['User', 'Mail', 'Text'],
