@@ -106,7 +106,7 @@
     "react-useinterval": "^1.0.2",
     "ts-jest": "^29.0.5",
     "ts-node": "^10.9.1",
-    "typescript": "^5.0.0",
+    "typescript": "5.0.4",
     "webpack-dev-server": "^3.11.3"
   },
   "workspaces": {

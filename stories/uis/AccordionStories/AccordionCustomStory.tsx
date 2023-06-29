@@ -7,7 +7,6 @@ import {action} from '@storybook/addon-actions';
 import {boolean, number} from '@storybook/addon-knobs';
 
 import {useDooboo} from '../../../main';
-import type {AccordionItemDataType} from '../../../main/uis/Accordion';
 import {Accordion} from '../../../main/uis/Accordion';
 import {Icon} from '../../../main/uis/Icon';
 import {Typography} from '../../../main/uis/Typography';
@@ -22,7 +21,7 @@ const CustomStyledItem = styled.Text`
 type AccordionTitle = {key: string; text: string};
 type AccordionItem = {text: string};
 
-const data: AccordionItemDataType<AccordionTitle, AccordionItem>[] = [
+const data = [
   {
     title: {
       key: 'HEADING_1',
