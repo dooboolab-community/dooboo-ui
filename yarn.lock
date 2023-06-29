@@ -3366,18 +3366,18 @@
     react-select "^5.7.0"
 
 "@storybook/addon-ondevice-actions@^6.5.3":
-  version "6.5.3"
-  resolved "https://registry.yarnpkg.com/@storybook/addon-ondevice-actions/-/addon-ondevice-actions-6.5.3.tgz#14a204ab09bb758f0e9cc9c2f2156a3427394490"
-  integrity sha512-kxQme4syTh7Du9MT0BGS+sJG9taPFrfnxwzqRuYPXlQavkcGM1XDpOcmfkQ+FO5EhtUJDNuClI+9ryw80oxs9A==
+  version "6.5.4"
+  resolved "https://registry.yarnpkg.com/@storybook/addon-ondevice-actions/-/addon-ondevice-actions-6.5.4.tgz#5f87ffcb5d255bd08b81e044498316fb59476e76"
+  integrity sha512-4ZN+eiYLzeBZyj7B+Ujda7N1pOFm63S8RWrgscjwdka/3+eQ8i0zRRndKeiM7jSBLlhUfd8MyCQ2l6ooScToBg==
   dependencies:
     "@storybook/addons" "^6.5.14"
     "@storybook/core-events" "^6.5.14"
     fast-deep-equal "^2.0.1"
 
 "@storybook/addon-ondevice-knobs@^6.5.3":
-  version "6.5.3"
-  resolved "https://registry.yarnpkg.com/@storybook/addon-ondevice-knobs/-/addon-ondevice-knobs-6.5.3.tgz#6d098cc7995df9b98870433d7e79b4125c89ebea"
-  integrity sha512-DIw0uaP4xJf+psuHi/s971JBc7n1OAI2NhlR3iqrOIoca4dTIH0NllDOrYDoIJ6OYkrmvf+qINGWEJGwZaLGzQ==
+  version "6.5.4"
+  resolved "https://registry.yarnpkg.com/@storybook/addon-ondevice-knobs/-/addon-ondevice-knobs-6.5.4.tgz#d43efe19781ea528b1bb4d68d802f8547dde5a4c"
+  integrity sha512-sapMmWp3Ytx4JHlNvQvJ9Ag+yYAsJiLVrprAlncTLAonzjAMW4vahOab9b/LgRjF9w0WRsVDOcEqjJNPwF+f7Q==
   dependencies:
     "@emotion/native" "^10.0.14"
     "@storybook/addons" "^6.5.14"
@@ -3947,10 +3947,10 @@
     react-docgen-typescript "^2.1.1"
     tslib "^2.0.0"
 
-"@storybook/react-native-server@6.5.3":
-  version "6.5.3"
-  resolved "https://registry.yarnpkg.com/@storybook/react-native-server/-/react-native-server-6.5.3.tgz#929599e154b77aa9141f57c47c81f36765433064"
-  integrity sha512-aYOMji/yJAAEGBWt6tB9cxgw6BlSyaOmMgjcCJ9tD2fetAiPGpO59SkpwwBOtm/VKfqzUztWdDDjNkw3aFy06g==
+"@storybook/react-native-server@6.5.4":
+  version "6.5.4"
+  resolved "https://registry.yarnpkg.com/@storybook/react-native-server/-/react-native-server-6.5.4.tgz#0285f3261276088f81956345132dd74d67a9392a"
+  integrity sha512-qB6LnhvbPBBGKV+yeVAobV5L7FjDz9SIIJu4BlXJE21btgzdDIaAiaeBdUF5OcpFVpIrT/kGoInwvTNIlFNOsQ==
   dependencies:
     "@storybook/addons" "^6.5.14"
     "@storybook/api" "^6.5.14"
@@ -3966,10 +3966,10 @@
     uuid "^3.3.2"
     ws "^7.1.2"
 
-"@storybook/react-native@6.5.3":
-  version "6.5.3"
-  resolved "https://registry.yarnpkg.com/@storybook/react-native/-/react-native-6.5.3.tgz#08016d997fc6a52bb3be7510bb997fae5516e355"
-  integrity sha512-Ka9tu5DORXwmoQK8Wz1aA0FARNI44BINmM/8CBjHdDF9lmU5M2bqn08h5AZgGHQus7a4wDhrJyenbOh2prrMxA==
+"@storybook/react-native@6.5.4":
+  version "6.5.4"
+  resolved "https://registry.yarnpkg.com/@storybook/react-native/-/react-native-6.5.4.tgz#f1524d822b3b251db25972613508084f2cd22fcb"
+  integrity sha512-8H5deEacilMdLXq7gEmZ4NAm5IsWzjIvoAjxJItq4SLYnz/E9XgflqXT/tgpyspYlOFgjBMRa5s8ILqo/ebRuQ==
   dependencies:
     "@emotion/core" "^10.0.20"
     "@emotion/native" "^10.0.14"
@@ -7479,7 +7479,12 @@ core-js-pure@^3.23.3:
   resolved "https://registry.yarnpkg.com/core-js-pure/-/core-js-pure-3.30.2.tgz#005a82551f4af3250dcfb46ed360fad32ced114e"
   integrity sha512-p/npFUJXXBkCCTIlEGBdghofn00jWG6ZOtdoIXSJmAu2QBvN0IqpZXWweOytcwE6cfx8ZvVUy1vw8zxhe4Y2vg==
 
-core-js@^3.0.1, core-js@^3.0.4, core-js@^3.29.0, core-js@^3.6.5, core-js@^3.8.2:
+core-js@^3.0.1, core-js@^3.6.5, core-js@^3.8.2:
+  version "3.31.0"
+  resolved "https://registry.yarnpkg.com/core-js/-/core-js-3.31.0.tgz#4471dd33e366c79d8c0977ed2d940821719db344"
+  integrity sha512-NIp2TQSGfR6ba5aalZD+ZQ1fSxGhDo/s1w0nx3RYzf2pnJxt7YynxFlFScP6eV7+GZsKO95NSjGxyJsU3DZgeQ==
+
+core-js@^3.0.4, core-js@^3.29.0:
   version "3.30.2"
   resolved "https://registry.yarnpkg.com/core-js/-/core-js-3.30.2.tgz#6528abfda65e5ad728143ea23f7a14f0dcf503fc"
   integrity sha512-uBJiDmwqsbJCWHAwjrx3cvjbMXP7xD72Dmsn5LOJpiRmE3WbBbN5rCqQ2Qh6Ek6/eOrjlWngEynBWo4VxerQhg==
