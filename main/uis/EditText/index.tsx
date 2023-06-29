@@ -68,6 +68,7 @@ export type EditTextProps = {
   onFocus?: TextInputProps['onFocus'] | undefined;
   onBlur?: TextInputProps['onBlur'] | undefined;
   editable?: TextInputProps['editable'];
+  autoComplete?: TextInputProps['autoComplete'];
   autoCapitalize?: TextInputProps['autoCapitalize'];
   secureTextEntry?: TextInputProps['secureTextEntry'];
   onSubmitEditing?: TextInputProps['onSubmitEditing'];
@@ -125,6 +126,7 @@ export function EditText(props: EditTextProps): ReactElement {
     onSubmitEditing,
     numberOfLines,
     maxLength,
+    autoComplete,
     autoCapitalize = 'none',
     secureTextEntry = false,
     editable = true,
@@ -295,6 +297,7 @@ export function EditText(props: EditTextProps): ReactElement {
           <TextInput
             testID={testID}
             ref={inputRef}
+            autoComplete={autoComplete}
             autoCapitalize={autoCapitalize}
             secureTextEntry={secureTextEntry}
             selectionColor={colors.focused || theme.text.basic}
