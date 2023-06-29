@@ -1,11 +1,12 @@
 {
   "files": {
-    "main.js": "/dooboo-ui/static/js/main.4bde8d11.js",
+    "main.js": "/dooboo-ui/static/js/main.153ef4d6.js",
     "static/js/238.8814d3c7.chunk.js": "/dooboo-ui/static/js/238.8814d3c7.chunk.js",
-    "static/js/347.fba4701d.js": "/dooboo-ui/static/js/347.fba4701d.js",
+    "static/js/347.8a39fe2f.js": "/dooboo-ui/static/js/347.8a39fe2f.js",
     "static/media/Pretendard-Bold.otf": "/dooboo-ui/static/media/Pretendard-Bold.3ec32cdae5bc0c0026a6.otf",
     "static/media/Pretendard-Regular.otf": "/dooboo-ui/static/media/Pretendard-Regular.de88013f2ea98a04dede.otf",
     "static/media/Pretendard-Thin.otf": "/dooboo-ui/static/media/Pretendard-Thin.6c732c788300615e6a65.otf",
+    "static/media/doobooui.ttf": "/dooboo-ui/static/media/doobooui.39a1ca6a9fbb40dd5cb1.ttf",
     "static/media/MaterialCommunityIcons.ttf": "/dooboo-ui/static/media/MaterialCommunityIcons.5d42b4e60858731e7b65.ttf",
     "static/media/Fontisto.ttf": "/dooboo-ui/static/media/Fontisto.c0edd68811e0237502fe.ttf",
     "static/media/Ionicons.ttf": "/dooboo-ui/static/media/Ionicons.3517aeaa34b2f8cd8eef.ttf",
@@ -13,7 +14,6 @@
     "static/media/FontAwesome5_Solid.ttf": "/dooboo-ui/static/media/FontAwesome5_Solid.07c3313b24f7b1ca85ee.ttf",
     "static/media/FontAwesome.ttf": "/dooboo-ui/static/media/FontAwesome.1e59d2330b4c6deb84b3.ttf",
     "static/media/FontAwesome5_Brands.ttf": "/dooboo-ui/static/media/FontAwesome5_Brands.9e138496e8f1719c6ebf.ttf",
-    "static/media/doobooui.ttf": "/dooboo-ui/static/media/doobooui.7887a043717b735bb8bc.ttf",
     "static/media/AntDesign.ttf": "/dooboo-ui/static/media/AntDesign.163adab9dbd7cb1ed12a.ttf",
     "static/media/Entypo.ttf": "/dooboo-ui/static/media/Entypo.fc6169344c041cffcdae.ttf",
     "static/media/Foundation.ttf": "/dooboo-ui/static/media/Foundation.c0cbb004854f9c746f89.ttf",
@@ -35,12 +35,12 @@
     "favicon-16.png": "/dooboo-ui/favicon-16.png",
     "serve.json": "/dooboo-ui/serve.json",
     "manifest.json": "/dooboo-ui/manifest.json",
-    "main.4bde8d11.js.map": "/dooboo-ui/static/js/main.4bde8d11.js.map",
+    "main.153ef4d6.js.map": "/dooboo-ui/static/js/main.153ef4d6.js.map",
     "238.8814d3c7.chunk.js.map": "/dooboo-ui/static/js/238.8814d3c7.chunk.js.map",
-    "347.fba4701d.js.map": "/dooboo-ui/static/js/347.fba4701d.js.map"
+    "347.8a39fe2f.js.map": "/dooboo-ui/static/js/347.8a39fe2f.js.map"
   },
   "entrypoints": [
-    "static/js/347.fba4701d.js",
-    "static/js/main.4bde8d11.js"
+    "static/js/347.8a39fe2f.js",
+    "static/js/main.153ef4d6.js"
   ]
 }
