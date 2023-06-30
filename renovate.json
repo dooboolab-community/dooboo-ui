@@ -10,6 +10,9 @@
     "docs"
   ],
   "ignoreDeps": [
+    "@types/react",
+    "@types/react-dom",
+    "@react-native-async-storage/async-storage",
     "react-native",
     "react-native-gesture-handler",
     "react-native-reanimated",
