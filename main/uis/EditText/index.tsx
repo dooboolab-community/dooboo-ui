@@ -88,6 +88,7 @@ export type EditTextProps = {
     | 'onFocus'
     | 'onBlur'
     | 'editable'
+    | 'autoComplete'
     | 'autoCapitalize'
     | 'secureTextEntry'
     | 'onSubmitEditing'
