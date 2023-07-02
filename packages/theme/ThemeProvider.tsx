@@ -106,7 +106,7 @@ export function ThemeProvider({
   const isPortrait = useMediaQuery({orientation: 'portrait'});
 
   const isMobile = useMediaQuery(
-    responsiveDesignMode === 'mobile-first' ? undefined : {maxWidth: 767},
+    responsiveDesignMode === 'mobile-first' ? {minWidth: 0} : {maxWidth: 767},
   );
 
   const isTablet = useMediaQuery(
@@ -114,7 +114,7 @@ export function ThemeProvider({
   );
 
   const isDesktop = useMediaQuery(
-    responsiveDesignMode === 'mobile-first' ? {minWidth: 992} : undefined,
+    responsiveDesignMode === 'mobile-first' ? {minWidth: 992} : {minWidth: 0},
   );
 
   const colorScheme = useColorScheme();
