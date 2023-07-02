@@ -12,6 +12,8 @@ import {dark, light} from './colors';
 import createDoobooContext from './createDoobooContext';
 import useColorScheme from './useColorScheme';
 
+type ResponsiveDesignMode = 'mobile-first' | 'desktop-first';
+
 export type ThemeContext = {
   themeType: ColorSchemeName;
   media: {
@@ -22,6 +24,12 @@ export type ThemeContext = {
   };
   theme: Theme & DoobooTheme;
   changeThemeType: (themeType?: ColorSchemeName) => void;
+  /*
+    @description
+    - mobile-first: mobile first responsive design mode
+    - desktop-first: desktop first responsive design mode
+  */
+  setResponsiveDesignMode?: (mode: ResponsiveDesignMode) => void;
 };
 
 const [useCtx, DoobooProvider] = createDoobooContext<ThemeContext>();
@@ -92,10 +100,23 @@ export function ThemeProvider({
   initialThemeType,
   customTheme = {},
 }: ThemeProps): ReactElement {
+  const [responsiveDesignMode, setResponsiveDesignMode] =
+    useState<ResponsiveDesignMode>('mobile-first');
+
   const isPortrait = useMediaQuery({orientation: 'portrait'});
-  const isMobile = useMediaQuery({maxWidth: 767});
-  const isTablet = useMediaQuery({minWidth: 767, maxWidth: 992});
-  const isDesktop = useMediaQuery({minWidth: 992});
+
+  const isMobile = useMediaQuery(
+    responsiveDesignMode === 'mobile-first' ? undefined : {maxWidth: 767},
+  );
+
+  const isTablet = useMediaQuery(
+    responsiveDesignMode === 'mobile-first' ? {minWidth: 767} : {maxWidth: 992},
+  );
+
+  const isDesktop = useMediaQuery(
+    responsiveDesignMode === 'mobile-first' ? {minWidth: 992} : undefined,
+  );
+
   const colorScheme = useColorScheme();
   const [themeType, setThemeType] = useState(initialThemeType ?? colorScheme);
 
@@ -137,6 +158,7 @@ export function ThemeProvider({
         themeType,
         changeThemeType,
         theme,
+        setResponsiveDesignMode,
       }}
     >
       <EmotionThemeProvider theme={{...theme, ...media}}>
