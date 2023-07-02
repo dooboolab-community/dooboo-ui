@@ -24,12 +24,6 @@ export type ThemeContext = {
   };
   theme: Theme & DoobooTheme;
   changeThemeType: (themeType?: ColorSchemeName) => void;
-  /*
-    @description
-    - mobile-first: mobile first responsive design mode
-    - desktop-first: desktop first responsive design mode
-  */
-  setResponsiveDesignMode?: (mode: ResponsiveDesignMode) => void;
 };
 
 const [useCtx, DoobooProvider] = createDoobooContext<ThemeContext>();
@@ -38,6 +32,13 @@ export type ThemeProps = {
   children?: ReactElement;
   initialThemeType?: ThemeType;
   customTheme?: ThemeParam;
+  /*
+    @description
+    default: mobile-first
+    - mobile-first: mobile first responsive design mode
+    - desktop-first: desktop first responsive design mode
+  */
+  responsiveDesignMode?: ResponsiveDesignMode;
 };
 
 const genTheme = (type: ThemeType, themeParam: ThemeParam): any => {
@@ -99,10 +100,8 @@ export function ThemeProvider({
   children,
   initialThemeType,
   customTheme = {},
+  responsiveDesignMode = 'mobile-first',
 }: ThemeProps): ReactElement {
-  const [responsiveDesignMode, setResponsiveDesignMode] =
-    useState<ResponsiveDesignMode>('mobile-first');
-
   const isPortrait = useMediaQuery({orientation: 'portrait'});
 
   const isMobile = useMediaQuery(
@@ -158,7 +157,6 @@ export function ThemeProvider({
         themeType,
         changeThemeType,
         theme,
-        setResponsiveDesignMode,
       }}
     >
       <EmotionThemeProvider theme={{...theme, ...media}}>
