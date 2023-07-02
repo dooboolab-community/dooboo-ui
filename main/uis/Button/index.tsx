@@ -189,6 +189,7 @@ export function Button(props: Props): ReactElement {
   const compositeStyles: Styles = {
     container: [
       css`
+        border-radius: ${borderRadius + 'px'};
         padding: ${padding};
         background-color: ${backgroundColor};
         border-color: ${borderColor};
@@ -242,7 +243,6 @@ export function Button(props: Props): ReactElement {
             compositeStyles.container,
             hovered && !innerDisabled && compositeStyles.hovered,
             innerDisabled && compositeStyles.disabled,
-            {borderRadius: borderRadius},
             type === 'text' &&
               css`
                 background-color: transparent;
@@ -279,7 +279,6 @@ export function Button(props: Props): ReactElement {
       compositeStyles.disabled,
       hovered,
       innerDisabled,
-      borderRadius,
       type,
       size,
     ],
