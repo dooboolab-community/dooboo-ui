@@ -105,11 +105,15 @@ export function ThemeProvider({
   const isPortrait = useMediaQuery({orientation: 'portrait'});
 
   const isMobile = useMediaQuery(
-    responsiveDesignMode === 'mobile-first' ? {minWidth: 0} : {maxWidth: 767},
+    responsiveDesignMode === 'mobile-first'
+      ? {minWidth: 0}
+      : {minWidth: 0, maxWidth: 767},
   );
 
   const isTablet = useMediaQuery(
-    responsiveDesignMode === 'mobile-first' ? {minWidth: 767} : {maxWidth: 992},
+    responsiveDesignMode === 'mobile-first'
+      ? {minWidth: 767}
+      : {minWidth: 768, maxWidth: 992},
   );
 
   const isDesktop = useMediaQuery(
