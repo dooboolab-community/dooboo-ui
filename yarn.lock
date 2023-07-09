@@ -2025,7 +2025,7 @@
   dependencies:
     "@emotion/primitives-core" "10.0.27"
 
-"@emotion/native@^11.0.0", "@emotion/native@^11.10.0", "@emotion/native@^11.11.0":
+"@emotion/native@^11.0.0", "@emotion/native@^11.11.0":
   version "11.11.0"
   resolved "https://registry.yarnpkg.com/@emotion/native/-/native-11.11.0.tgz#1584a9ff12d8a069a1089601205b53ec4c4e757e"
   integrity sha512-t1b5bLv+o5OUNLqXlnw+LJYU10OpmYkLC/1W873Y1ohG+vObx5TT3o3Eh1okXb2KCuZTTBPgsEnU/Sl7NNkJ9Q==
@@ -2046,7 +2046,7 @@
   dependencies:
     css-to-react-native "^3.0.0"
 
-"@emotion/react@^11.10.4", "@emotion/react@^11.10.5", "@emotion/react@^11.11.1", "@emotion/react@^11.4.1", "@emotion/react@^11.8.1":
+"@emotion/react@^11.10.4", "@emotion/react@^11.11.0", "@emotion/react@^11.11.1", "@emotion/react@^11.4.1", "@emotion/react@^11.8.1":
   version "11.11.1"
   resolved "https://registry.yarnpkg.com/@emotion/react/-/react-11.11.1.tgz#b2c36afac95b184f73b08da8c214fdf861fa4157"
   integrity sha512-5mlW1DquU5HaxjLkfkGN1GA/fvVGdyHURRiX/0FHl2cfIfRxSOfmxEH5YS43edp0OldZrZ+dkBKbngxcNCdZvA==
@@ -2500,7 +2500,7 @@
   resolved "https://registry.yarnpkg.com/@expo/vector-icons/-/vector-icons-13.0.0.tgz#e2989b85e95a82bce216f88cf8fb583ab050ec95"
   integrity sha512-TI+l71+5aSKnShYclFa14Kum+hQMZ86b95SH6tQUG3qZEmLTarvWpKwqtTwQKqvlJSJrpFiSFu3eCuZokY6zWA==
 
-"@expo/webpack-config@^18.0.1":
+"@expo/webpack-config@^18.1.0":
   version "18.1.1"
   resolved "https://registry.yarnpkg.com/@expo/webpack-config/-/webpack-config-18.1.1.tgz#8f55442e44e8e906c7516973c12f143aa7db25ad"
   integrity sha512-6mBEnnviwIsQ/+YBT9Nos+nFkNP+g+58DU4y3DTR8sKR/MPm3FAtJ57FOGAoCKX/Kur/5aV92qWVax6L08M4+g==
