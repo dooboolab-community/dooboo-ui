@@ -1,6 +1,6 @@
 {
   "name": "dooboo-ui",
-  "version": "0.2.12",
+  "version": "0.2.14",
   "main": "index",
   "react-native": "index",
   "module": "index",
@@ -22,8 +22,7 @@
     "react": ">=16.9",
     "react-native": ">=0.58",
     "react-native-gesture-handler": "*",
-    "react-native-vector-icons": "*",
-    "@types/react-native-vector-icons": "*"
+    "@expo/vector-icons": "*"
   },
   "dependencies": {
     "@dooboo-ui/theme": "^0.12.14",

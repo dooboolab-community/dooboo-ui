@@ -18,7 +18,6 @@
     "expo-font": "^9.2.1",
     "react-native-gesture-handler": "^2.8.0",
     "react-native-svg": "^13.9.0",
-    "react-native-vector-icons": "^9.2.0",
     "react-native-web": "^0.18.10"
   },
   "devDependencies": {

@@ -128,6 +128,32 @@ export function AccordionItem<T, K>(props: Props<T, K>): ReactElement {
         styles?.container,
       ]}
     >
+      {/* Invisible: Place it at the top for z-index */}
+      <View
+        onLayout={(e: LayoutChangeEvent) => {
+          setItemHeight(e.nativeEvent.layout.height);
+        }}
+        style={css`
+          position: absolute;
+          opacity: 0;
+        `}
+      >
+        {data.items.map((body, index) => (
+          <ItemTouch
+            key={`body-${index}`}
+            activeOpacity={activeOpacity}
+            onPress={() => onPressItem?.(data.title, body)}
+          >
+            {typeof body === 'string' && !renderItem ? (
+              <Typography.Body3 style={styles?.itemText}>
+                {body}
+              </Typography.Body3>
+            ) : (
+              renderItem?.(body as K)
+            )}
+          </ItemTouch>
+        ))}
+      </View>
       {/* Title */}
       <TitleTouch
         testID={`title-${testID}`}
@@ -184,33 +210,6 @@ export function AccordionItem<T, K>(props: Props<T, K>): ReactElement {
           </ItemTouch>
         ))}
       </Animated.View>
-
-      {/* Invisible */}
-      <View
-        onLayout={(e: LayoutChangeEvent) => {
-          setItemHeight(e.nativeEvent.layout.height);
-        }}
-        style={css`
-          position: absolute;
-          opacity: 0;
-        `}
-      >
-        {data.items.map((body, index) => (
-          <ItemTouch
-            key={`body-${index}`}
-            activeOpacity={activeOpacity}
-            onPress={() => onPressItem?.(data.title, body)}
-          >
-            {typeof body === 'string' && !renderItem ? (
-              <Typography.Body3 style={styles?.itemText}>
-                {body}
-              </Typography.Body3>
-            ) : (
-              renderItem?.(body as K)
-            )}
-          </ItemTouch>
-        ))}
-      </View>
     </Animated.View>
   );
 }

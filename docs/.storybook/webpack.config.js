@@ -12,7 +12,7 @@ const ttfLoaderConfig = {
     },
   ],
   include: [
-    resolve(__dirname, '../', "node_modules/react-native-vector-icons"),
+    resolve(__dirname, '../', "node_modules/@expo/vector-icons"),
     resolve(__dirname, '../', "node_modules/dooboo-ui/ui/Icon"),
   ],
 };
