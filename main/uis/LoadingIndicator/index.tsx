@@ -6,68 +6,34 @@ import type {
   StyleProp,
   ViewStyle,
 } from 'react-native';
-import {ActivityIndicator, Image, StyleSheet, View} from 'react-native';
+import {ActivityIndicator, Image, View} from 'react-native';
 import {useTheme} from '@dooboo-ui/theme';
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    // position: 'absolute',
-    backgroundColor: 'transparent',
-    flexDirection: 'row',
-    alignItems: 'center',
-    alignSelf: 'center',
-    justifyContent: 'center',
-    height: '100%',
-    width: '100%',
-  },
-});
+type Styles = {
+  activityIndicator?: ViewStyle;
+  image?: ImageStyle;
+};
 
 interface Props {
-  containerStyle?: StyleProp<ViewStyle>;
   style?: StyleProp<ViewStyle>;
+  styles?: Styles;
   color?: string;
-  size?: number | ('small' | 'large');
+  size?: 'small' | 'large';
   imgSource?: string | ImageSourcePropType;
   customElement?: ReactElement | (() => ReactElement);
 }
 
 export function LoadingIndicator(props: Props): ReactElement {
   const {
-    containerStyle,
     customElement,
     style,
+    styles,
     size = 'large',
     color,
     imgSource,
   } = props;
 
   const {theme} = useTheme();
-
-  const handleImgSize = (imgSize: number | string | undefined): ImageStyle => {
-    if (imgSize === 'large') {
-      return {
-        width: 80,
-        height: 80,
-      };
-    }
-
-    if (imgSize === 'small') {
-      return {
-        width: 50,
-        height: 50,
-      };
-    }
-
-    if (!imgSize) {
-      return {};
-    }
-
-    return {
-      width: imgSize,
-      height: imgSize,
-    };
-  };
 
   const handleImgSourceType = (
     src: string | ImageSourcePropType,
@@ -82,7 +48,7 @@ export function LoadingIndicator(props: Props): ReactElement {
   };
 
   return (
-    <View style={StyleSheet.flatten([styles.container, containerStyle])}>
+    <View style={style}>
       {customElement ? (
         typeof customElement === 'function' ? (
           customElement()
@@ -91,14 +57,21 @@ export function LoadingIndicator(props: Props): ReactElement {
         )
       ) : !imgSource ? (
         <ActivityIndicator
-          style={style}
+          style={styles?.activityIndicator}
           size={size}
           color={color || theme.role.secondary}
         />
       ) : (
         <Image
           source={handleImgSourceType(imgSource)}
-          style={handleImgSize(size)}
+          style={[
+            size === 'large'
+              ? {width: 50, height: 50}
+              : size === 'small'
+              ? {width: 30, height: 30}
+              : undefined,
+            styles?.image,
+          ]}
         />
       )}
     </View>

@@ -160,9 +160,11 @@ export function ThemeProvider({
         media,
         themeType,
         changeThemeType,
+        // @ts-ignore
         theme,
       }}
     >
+      {/* @ts-ignore */}
       <EmotionThemeProvider theme={{...theme, ...media}}>
         {children}
       </EmotionThemeProvider>

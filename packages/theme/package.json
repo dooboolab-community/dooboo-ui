@@ -1,6 +1,6 @@
 {
   "name": "@dooboo-ui/theme",
-  "version": "0.12.13",
+  "version": "0.12.14",
   "description": "dooboo-ui theme provider",
   "homepage": "https://github.com/dooboolab-community/dooboo-ui#readme",
   "license": "ISC",
@@ -32,11 +32,11 @@
   ],
   "dependencies": {
     "@expo/match-media": "^0.4.0",
-    "react-responsive": "^9.0.0"
+    "react-responsive": "^9.0.2"
   },
   "devDependencies": {
-    "@emotion/native": "^11.10.0",
-    "@emotion/react": "^11.10.4",
+    "@emotion/native": "^11.11.0",
+    "@emotion/react": "^11.11.1",
     "typescript": "^5.0.0"
   },
   "peerDependencies": {

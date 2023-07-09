@@ -1880,7 +1880,7 @@
   dependencies:
     "@emotion/primitives-core" "10.0.27"
 
-"@emotion/native@^11.0.0", "@emotion/native@^11.10.0":
+"@emotion/native@^11.0.0", "@emotion/native@^11.10.0", "@emotion/native@^11.11.0":
   version "11.11.0"
   resolved "https://registry.yarnpkg.com/@emotion/native/-/native-11.11.0.tgz#1584a9ff12d8a069a1089601205b53ec4c4e757e"
   integrity sha512-t1b5bLv+o5OUNLqXlnw+LJYU10OpmYkLC/1W873Y1ohG+vObx5TT3o3Eh1okXb2KCuZTTBPgsEnU/Sl7NNkJ9Q==
@@ -1901,7 +1901,7 @@
   dependencies:
     css-to-react-native "^3.0.0"
 
-"@emotion/react@^11.10.4", "@emotion/react@^11.10.5", "@emotion/react@^11.4.1", "@emotion/react@^11.8.1":
+"@emotion/react@^11.10.4", "@emotion/react@^11.10.5", "@emotion/react@^11.11.1", "@emotion/react@^11.4.1", "@emotion/react@^11.8.1":
   version "11.11.1"
   resolved "https://registry.yarnpkg.com/@emotion/react/-/react-11.11.1.tgz#b2c36afac95b184f73b08da8c214fdf861fa4157"
   integrity sha512-5mlW1DquU5HaxjLkfkGN1GA/fvVGdyHURRiX/0FHl2cfIfRxSOfmxEH5YS43edp0OldZrZ+dkBKbngxcNCdZvA==
@@ -16608,7 +16608,7 @@ react-refresh@^0.4.0:
   resolved "https://registry.yarnpkg.com/react-refresh/-/react-refresh-0.4.3.tgz#966f1750c191672e76e16c2efa569150cc73ab53"
   integrity sha512-Hwln1VNuGl/6bVwnd0Xdn1e84gT/8T9aYNL+HAKDArLCS7LWjwr7StE30IEYbIkx0Vi3vs+coQxe+SQDbGbbpA==
 
-react-responsive@^9.0.0:
+react-responsive@^9.0.2:
   version "9.0.2"
   resolved "https://registry.yarnpkg.com/react-responsive/-/react-responsive-9.0.2.tgz#34531ca77a61e7a8775714016d21241df7e4205c"
   integrity sha512-+4CCab7z8G8glgJoRjAwocsgsv6VA2w7JPxFWHRc7kvz8mec1/K5LutNC2MG28Mn8mu6+bu04XZxHv5gyfT7xQ==
