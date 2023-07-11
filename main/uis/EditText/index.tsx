@@ -308,6 +308,7 @@ export function EditText(props: EditTextProps): ReactElement {
                 font-family: Pretendard;
                 flex: 1;
                 font-size: 16px;
+                text-align-vertical: top;
               `,
               Platform.OS === 'web' &&
                 css`
