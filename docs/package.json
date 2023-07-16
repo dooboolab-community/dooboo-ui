@@ -39,6 +39,7 @@
     "babel-preset-expo": "^9.2.2",
     "file-loader": "^6.2.0",
     "react": "^17",
+    "react-docgen-typescript-plugin": "^1.0.5",
     "react-dom": "^17",
     "react-native-unimodules": "^0.14.10",
     "storybook-dark-mode": "^2.1.1",

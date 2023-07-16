@@ -1,7 +1,7 @@
 // Caveat: Expo web needs React to be imported
 import type {ReactElement} from 'react';
 import React, {useState} from 'react';
-import type {ImageSourcePropType} from 'react-native';
+import type {DimensionValue, ImageSourcePropType} from 'react-native';
 import {Dimensions, FlatList, Image} from 'react-native';
 import styled from '@emotion/native';
 
@@ -64,7 +64,7 @@ function ImageItem({
   title,
   content,
 }: ImageItemProps): ReactElement {
-  const [width, setWidth] = useState<string | number>('100%');
+  const [width, setWidth] = useState<DimensionValue>('100%');
 
   return (
     <ItemContainer>
