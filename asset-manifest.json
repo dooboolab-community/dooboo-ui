@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.js": "/dooboo-ui/static/js/main.153ef4d6.js",
-    "static/js/238.8814d3c7.chunk.js": "/dooboo-ui/static/js/238.8814d3c7.chunk.js",
-    "static/js/347.8a39fe2f.js": "/dooboo-ui/static/js/347.8a39fe2f.js",
+    "main.js": "/dooboo-ui/static/js/main.a20b1203.js",
+    "static/js/931.5f45ef07.chunk.js": "/dooboo-ui/static/js/931.5f45ef07.chunk.js",
+    "static/js/64.50b6baf0.js": "/dooboo-ui/static/js/64.50b6baf0.js",
     "static/media/Pretendard-Bold.otf": "/dooboo-ui/static/media/Pretendard-Bold.3ec32cdae5bc0c0026a6.otf",
     "static/media/Pretendard-Regular.otf": "/dooboo-ui/static/media/Pretendard-Regular.de88013f2ea98a04dede.otf",
     "static/media/Pretendard-Thin.otf": "/dooboo-ui/static/media/Pretendard-Thin.6c732c788300615e6a65.otf",
@@ -31,16 +31,22 @@
     "index.html": "/dooboo-ui/index.html",
     "static/media/placeholder_dark.png": "/dooboo-ui/static/media/placeholder_dark.168ee04933a1df8a6913.png",
     "static/media/placeholder_light.png": "/dooboo-ui/static/media/placeholder_light.47e6070ae07c31afeb38.png",
+    "static/media/google.png": "/dooboo-ui/static/media/google.3825992ff5f176bd2318.png",
     "favicon-32.png": "/dooboo-ui/favicon-32.png",
+    "static/media/facebook.png": "/dooboo-ui/static/media/facebook.5466c53753af6b4411bb.png",
     "favicon-16.png": "/dooboo-ui/favicon-16.png",
+    "static/media/ic_delete.png": "/dooboo-ui/static/media/ic_delete.7d8b16b3349241350746.png",
+    "static/media/ic_edit.png": "/dooboo-ui/static/media/ic_edit.2206248b83b4b215ea3f.png",
     "serve.json": "/dooboo-ui/serve.json",
+    "static/media/ic_arr_down.png": "/dooboo-ui/static/media/ic_arr_down.cad392c3611d531d19dc.png",
     "manifest.json": "/dooboo-ui/manifest.json",
-    "main.153ef4d6.js.map": "/dooboo-ui/static/js/main.153ef4d6.js.map",
-    "238.8814d3c7.chunk.js.map": "/dooboo-ui/static/js/238.8814d3c7.chunk.js.map",
-    "347.8a39fe2f.js.map": "/dooboo-ui/static/js/347.8a39fe2f.js.map"
+    "static/media/ic_arr_up.png": "/dooboo-ui/static/media/ic_arr_up.caac537439d5de9094b4.png",
+    "main.a20b1203.js.map": "/dooboo-ui/static/js/main.a20b1203.js.map",
+    "931.5f45ef07.chunk.js.map": "/dooboo-ui/static/js/931.5f45ef07.chunk.js.map",
+    "64.50b6baf0.js.map": "/dooboo-ui/static/js/64.50b6baf0.js.map"
   },
   "entrypoints": [
-    "static/js/347.8a39fe2f.js",
-    "static/js/main.153ef4d6.js"
+    "static/js/64.50b6baf0.js",
+    "static/js/main.a20b1203.js"
   ]
 }
