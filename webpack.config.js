@@ -11,8 +11,6 @@ module.exports = async (env, argv) => {
     argv,
   );
 
-  config.resolve.alias['lottie-react-native'] = 'react-native-web-lottie';
-
   // Remove existing rules about SVG and inject our own
   // (Inspired by https://github.com/storybookjs/storybook/issues/6758#issuecomment-495598635)
   config.module.rules = config.module.rules.map((rule) => {
