@@ -1,10 +1,10 @@
 import * as React from 'react';
 import {View} from 'react-native';
 import type {RenderAPI} from '@testing-library/react-native';
-import {act, fireEvent, render} from '@testing-library/react-native';
+import {act, fireEvent, render, waitFor} from '@testing-library/react-native';
 
 import {createComponent, createTestProps} from '../../../../test/testUtils';
-import type {RadioButtonType} from '../RadioButton';
+import type {RadioButtonType} from '..';
 import {RadioButton} from '../RadioButton';
 import {RadioGroup} from '..';
 
@@ -15,7 +15,7 @@ let testingLib: RenderAPI;
 const data = ['Person', 'Animal', 'Bird', 'Other'];
 
 describe('[RadioButton] render', () => {
-  it('should render without crashing', () => {
+  it('should render without crashing', async () => {
     props = createTestProps({
       selectedValue: data[0],
       selectValue: (value: string) => (props.selectedValue = value),
@@ -34,13 +34,12 @@ describe('[RadioButton] render', () => {
 
     testingLib = render(component);
 
-    const json = testingLib.toJSON();
-
-    expect(json).toBeTruthy();
+    const baseElement = await waitFor(() => testingLib.toJSON());
+    expect(baseElement).toBeTruthy();
   });
 
   describe('label', () => {
-    it('should render `labels`', () => {
+    it('should render `labels`', async () => {
       props = createTestProps();
 
       component = createComponent(
@@ -58,12 +57,11 @@ describe('[RadioButton] render', () => {
 
       testingLib = render(component);
 
-      const json = testingLib.toJSON();
-
-      expect(json).toBeTruthy();
+      const baseElement = await waitFor(() => testingLib.toJSON());
+      expect(baseElement).toBeTruthy();
     });
 
-    it('should render `labels` with left position', () => {
+    it('should render `labels` with left position', async () => {
       props = createTestProps();
 
       component = createComponent(
@@ -82,9 +80,8 @@ describe('[RadioButton] render', () => {
 
       testingLib = render(component);
 
-      const json = testingLib.toJSON();
-
-      expect(json).toBeTruthy();
+      const baseElement = await waitFor(() => testingLib.toJSON());
+      expect(baseElement).toBeTruthy();
     });
   });
 
@@ -108,7 +105,6 @@ describe('[RadioButton] render', () => {
     testingLib = render(component);
 
     const secondOption = testingLib.getByTestId('radio-1');
-
     expect(props.selectedValue).toEqual(data[0]);
 
     fireEvent.press(secondOption);
@@ -165,7 +161,7 @@ describe('[RadioButton]', () => {
       'danger',
     ];
 
-    it('should render all colors', () => {
+    it('should render all colors', async () => {
       component = createComponent(
         <View>
           {types.map((el) => {
@@ -186,21 +182,19 @@ describe('[RadioButton]', () => {
 
       testingLib = render(component);
 
-      const json = testingLib.toJSON();
-
-      expect(json).toBeTruthy();
+      const baseElement = await waitFor(() => testingLib.toJSON());
+      expect(baseElement).toBeTruthy();
     });
 
-    it('should render `disabled color', () => {
+    it('should render `disabled color', async () => {
       component = createComponent(
         <RadioButton disabled={true} label="label" />,
       );
 
       testingLib = render(component);
 
-      const json = testingLib.toJSON();
-
-      expect(json).toBeTruthy();
+      const baseElement = await waitFor(() => testingLib.toJSON());
+      expect(baseElement).toBeTruthy();
     });
   });
 });

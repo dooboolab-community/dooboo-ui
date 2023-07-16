@@ -11,7 +11,11 @@ let testingLib: RenderAPI;
 
 const Component = (props?: ComponentProps<typeof ButtonGroup>): ReactElement =>
   createComponent(
-    <ButtonGroup options={['Option1', 'Option2', 'Option3']} {...props} />,
+    <ButtonGroup
+      options={['Option1', 'Option2', 'Option3']}
+      initialValue="Option1"
+      {...props}
+    />,
   );
 
 describe('[ButtonGroup]', () => {
@@ -29,6 +33,7 @@ describe('[ButtonGroup]', () => {
       testingLib = render(
         Component({
           options: ['Button 1', 'Button 2'],
+          initialValue: 'Button 1',
           onValueChange: mockPress,
         }),
       );
@@ -51,6 +56,7 @@ describe('[ButtonGroup]', () => {
         Component({
           testID: 'button-group-test',
           options: ['Button 1', 'Button 2'],
+          initialValue: 'Button 1',
           color: 'secondary',
         }),
       );

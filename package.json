@@ -16,7 +16,7 @@
     "android": "NODE_OPTIONS=--openssl-legacy-provider  expo start --android",
     "ios": "NODE_OPTIONS=--openssl-legacy-provider expo start --ios",
     "web": "NODE_OPTIONS=--openssl-legacy-provider expo start --web",
-    "test": "jest;",
+    "test": "jest",
     "test:all": "yarn pre && yarn lint && yarn tsc && yarn test",
     "build": "tsc --project tsconfigBuild.json && yarn cp:icon; yarn cp:assets; yarn cp:main",
     "cp:assets": "cp -R main/__assets__ lib",

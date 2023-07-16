@@ -1,11 +1,13 @@
 import type {ReactElement} from 'react';
 import React from 'react';
 import {Text} from 'react-native';
-import renderer from 'react-test-renderer';
-import {fireEvent, render} from '@testing-library/react-native';
+import type {RenderAPI} from '@testing-library/react-native';
+import {fireEvent, render, waitFor} from '@testing-library/react-native';
 
 import {createComponent} from '../../../../test/testUtils';
 import {SwitchToggle} from '..';
+
+let testingLib: RenderAPI;
 
 describe('[SwitchToggle]', () => {
   const handlePress = jest.fn();
@@ -14,11 +16,15 @@ describe('[SwitchToggle]', () => {
     handlePress.mockClear();
   });
 
-  it('handles press event', () => {
-    const {getByRole} = render(
+  it('handles press event', async () => {
+    testingLib = render(
       createComponent(<SwitchToggle isOn={false} onPress={handlePress} />),
     );
 
+    const baseElement = await waitFor(() => testingLib.toJSON());
+    expect(baseElement).toBeTruthy();
+
+    const {getByRole} = testingLib;
     fireEvent.press(getByRole('switch'));
     expect(handlePress).toBeCalled();
   });
@@ -46,20 +52,21 @@ describe('[SwitchToggle]', () => {
     );
 
   context('when switch toggle is on', () => {
-    it('renders as on state', () => {
-      const component = renderer.create(getSwitchToggle({isOn: true})).toJSON();
+    it('renders as on state', async () => {
+      testingLib = render(createComponent(getSwitchToggle({isOn: true})));
 
-      expect(component).toBeTruthy();
+      const baseElement = await waitFor(() => testingLib.toJSON());
+      expect(baseElement).toBeTruthy();
     });
   });
 
   context('when switch toggle is off', () => {
     it('renders as off state', () => {
-      const component = renderer
-        .create(getSwitchToggle({isOn: false}))
-        .toJSON();
+      const component = createComponent(getSwitchToggle({isOn: false}));
+      testingLib = render(component);
 
-      expect(component).toBeTruthy();
+      const baseElement = testingLib.toJSON();
+      expect(baseElement).toBeTruthy();
     });
   });
 });

@@ -13,3 +13,13 @@ process.on('unhandledRejection', (err) => {
   // eslint-disable-next-line jest/no-jasmine-globals
   fail(err);
 });
+
+beforeAll(() => {
+  // we're using fake timers because we don't want to
+  // wait a full second for this test to run.
+  jest.useFakeTimers();
+});
+
+afterAll(() => {
+  jest.useRealTimers();
+});
