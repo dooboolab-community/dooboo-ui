@@ -22,7 +22,7 @@ const initialProps: EditTextProps = {
   direction: 'row',
   editable: true,
   endElement: <Icon name="Phone" style={{padding: 8}} />,
-  startElement: <Icon name="Label" style={{padding: 8}} />,
+  startElement: <Icon name="Code" style={{padding: 8}} />,
   multiline: false,
   error: '',
   numberOfLines: 1,
