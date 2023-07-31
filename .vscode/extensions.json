@@ -2,8 +2,13 @@
   "recommendations": [
     "esbenp.prettier-vscode",
     "dbaeumer.vscode-eslint",
+    "aaron-bond.better-comments",
     "wix.vscode-import-cost",
     "jpoissonnier.vscode-styled-components",
-    "silvenon.mdx"
+    "vscode-icons-team.vscode-icons",
+    "formulahendry.auto-rename-tag",
+    "unifiedjs.vscode-mdx",
+    "streetsidesoftware.code-spell-checker",
+    "figma.figma-vscode-extension"
   ]
 }
