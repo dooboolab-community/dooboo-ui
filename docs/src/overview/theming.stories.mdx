@@ -4,23 +4,25 @@ import {Meta} from '@storybook/addon-docs';
 
 # Theming
 
-> The `theme` module easily provides ability to make `light` and `dark` theme.
+> The `theme` module easily provides the ability to create `light` and `dark` themes.
 
 ## Installation
 
-#### 1. Import
+### 1. Import
 
 ```ts
 import {DoobooProvider} from 'dooboo-ui';
 ```
 
-- if you only want to use `theme` pacakage, you can install it seperately.
+- If you only want to use the `theme` package, you can install it separately.
 
-  `import {ThemeProvider} from '@dooboo-ui/theme';`
+```ts
+import {ThemeProvider} from '@dooboo-ui/theme';
+```
 
-  > Then use `useTheme` from `@dooboo-ui/theme`.
+> Then use `useTheme` from `@dooboo-ui/theme`.
 
-#### 2. Wrap your component with `DoobooProvider` with given customTheme.
+### 2. Wrap your component with `DoobooProvider`
 
 ```tsx
 <DoobooProvider>
@@ -30,19 +32,19 @@ import {DoobooProvider} from 'dooboo-ui';
 
 ## Usage
 
-#### 1. Import `useDooboo`
+### 1. Import `useDooboo`
 
 ```ts
 import {useDooboo} from 'dooboo-ui';
 ```
 
-#### 2. Retrive theme and use it
+### 2. Retrieve theme and use it
 
 ```ts
 const {theme} = useDooboo();
 ```
 
-Then use theme props inside your component.
+Then use theme props inside your component:
 
 ```ts
 {
@@ -51,178 +53,89 @@ Then use theme props inside your component.
 }
 ```
 
-#### Also availabe with [emotion](https://emotion.sh/docs/@emotion/native).
+### Emotion support
+
+You can also use the theme with [emotion](https://emotion.sh/docs/@emotion/native):
 
 ```tsx
 const StyledContainer = styled.SafeAreaView`
   flex: 1;
   background-color: ${({theme}) => theme.bg.basic};
+
   flex-direction: column;
   align-items: center;
 `;
 ```
 
-#### With Expo
+### Expo Config
 
-If you are using expo, add below `userInterfaceStyle` to `automatic`.
+For Expo app configuration, set `userInterfaceStyle` to `automatic`:
 
 ```ts
 userInterfaceStyle: 'automatic',
 ```
 
-## Customizing theme
+## Tips
 
-#### 1. Define colors for `light` and `dark` theme.
+### System UI Background
+The `@dooboo-ui/theme` package assists in managing the color of the topmost element in a React Native screen. However, if the native background color remains white and you change the theme color to black, you may temporarily see the white native background during transitions, such as when switching between landscape/portrait modes. To avoid this, you can use [expo-system-ui](https://github.com/expo/expo/tree/sdk-49/packages/expo-system-ui). Learn how to use it in the section on [Persistent Color Scheme](#Persistent-Color-Scheme).
 
-```ts
-export const light = {
-  bg: {
-    basic: '#FFFFFF',
-    paper: '#EDEDED',
-    disabled: '#BEBEBE',
-  },
-  role: {
-    primary: '#1B1B1B',
-    secondary: '#3D8BFF',
-    accent: '#6BF3C5',
-    info: '#307EF1',
-    link: '#A351F4',
-    success: '#1CD66C',
-    warning: '#E2B101',
-    danger: '#F84444',
-    border: '#CCCCCC',
-    underlay: 'rgba(0, 0, 0, 0.16)',
-    underlayContrast: 'rgba(0, 0, 0, 0.8)',
-  },
-  text: {
-    basic: '#000000',
-    label: '#4D4D4D',
-    placeholder: '#787878',
-    disabled: '#BEBEBE',
-    validation: '#DA0000',
-    contrast: '#FFFFFF',
-  },
-  button: {
-    primary: {
-      bg: '#1B1B1B',
-      text: '#FFFFFF',
-    },
-    secondary: {
-      bg: '#3D8BFF',
-      text: '#FFFFFF',
-    },
-    success: {
-      bg: '#1CD66C',
-      text: '#FFFFFF',
-    },
-    danger: {
-      bg: '#F84444',
-      text: '#FFFFFF',
-    },
-    warning: {
-      bg: '#E2B101',
-      text: '#FFFFFF',
-    },
-    info: {
-      bg: '#307EF1',
-      text: '#FFFFFF',
-    },
-    light: {
-      bg: '#E8E8E8',
-      text: '#232323',
-    },
-    disabled: {
-      bg: '#EDEDED',
-      text: '#BEBEBE',
-    },
-  },
-};
-
-export const dark: typeof light = {
-  bg: {
-    basic: '#242424',
-    paper: '#1E1D1D',
-    disabled: '#474747',
-  },
-  role: {
-    primary: '#FFFFFF',
-    secondary: '#3D8BFF',
-    accent: '#6BF3C5',
-    info: '#2998FF',
-    link: '#A351F4',
-    success: '#2FFA86',
-    warning: '#F4CC3E',
-    danger: '#FF3C3C',
-    border: '#363636',
-    underlay: 'rgba(255, 255, 255, 0.16)',
-    underlayContrast: 'rgba(255, 255, 255, 0.8)',
-  },
-  text: {
-    basic: '#FFFFFF',
-    label: '#BEBEBE',
-    placeholder: '#909090',
-    disabled: '#4D4D4D',
-    validation: '#FF2C2C',
-    contrast: '#000000',
-  },
-  button: {
-    primary: {
-      bg: '#FFFFFF',
-      text: '#000000',
-    },
-    secondary: {
-      bg: '#3D8BFF',
-      text: '#000000',
-    },
-    success: {
-      bg: '#2FFA86',
-      text: '#000000',
-    },
-    danger: {
-      bg: '#FF3C3C',
-      text: '#000000',
-    },
-    warning: {
-      bg: '#F4CC3E',
-      text: '#000000',
-    },
-    info: {
-      bg: '#2998FF',
-      text: '#000000',
-    },
-    light: {
-      bg: '#313131',
-      text: '#EBEBEB',
-    },
-    disabled: {
-      bg: '#292929',
-      text: '#474747',
-    },
-  },
-};
-```
-
-#### 2. Wrap your component with `ThemeProvider` with given customTheme.
+### Persistent Color Scheme
+By default, dooboo-ui checks the device's color scheme and assigns a color that matches the theme. However, app developers might want to set the color persistently. For instance, even if a device is set to light mode, when a user sets the app to dark theme, the app should display in dark theme. To achieve this, you can install additional packages like [@react-native-async-storage/async-storage](https://www.npmjs.com/package/@react-native-async-storage/async-storage) and proceed as shown below:
 
 ```tsx
-<ThemeProvider customTheme={{light, dark}}>
+useEffect(() => {
+  const initializeThemeType = async (): Promise<void> => {
+    const darkMode = await AsyncStorage.getItem(AsyncStorageKey.DarkMode);
+    const isDarkMode = darkMode && darkMode === 'true';
+
+    // Change app background color
+    SystemUI.setBackgroundColorAsync(
+      isDarkMode ? dark.bg.basic : light.bg.basic,
+    );
+
+    setLocalThemeType(isDarkMode ? 'dark' : 'light');
+  };
+
+  initializeThemeType();
+}, []);
+```
+
+After that, specify the `initialThemeType` as shown below:
+
+```tsx
+<DoobooProvider
+  themeConfig={{
+    initialThemeType: localThemeType,
+    customTheme: theme,
+  }}
+>
+  ...
+```
+
+## Customizing Theme
+
+### 1. Define colors for `light` and `dark` theme
+
+The `light` and `dark` theme color definitions are provided as examples above. They are objects that contain color properties for different UI components and states.
+
+### 2. Integrating with `DoobooProvider`
+
+When integrating with `DoobooProvider`, you will provide your defined light and dark themes as the custom theme:
+
+```tsx
+<DoobooProvider customTheme={{light, dark}}>
   <App />
-</ThemeProvider>
+</DoobooProvider>
 ```
 
-- [Example theme.ts](https://github.com/dooboolab/hackatalk/blob/master/client/src/theme.ts)
+**Note:** If you're using `@dooboo-ui/theme` separately, opt for `ThemeProvider` instead of `DoobooProvider`.
 
-Note that you can type your custom theme type as below
+### 3. TypeScript Support with Emotion
 
-```ts
-export type Theme = typeof light & DoobooThemeParams;
-```
+To get TypeScript support with [emotion](https://emotion.sh/docs/typescript#define-a-theme), you should declare your theme types and extend the default ones:
 
-### Typescript support with [emotion](https://emotion.sh/docs/typescript#define-a-theme)
-
-> Inside `src` dir, add `styled.d.ts`.
-
-```ts
+```typescript
 import type {DoobooTheme} from 'dooboo-ui';
 import {Theme} from './theme';
 
@@ -233,16 +146,17 @@ declare module '@emotion/react' {
 }
 
 declare module 'dooboo-ui' {
-  // eslint-disable-next-line @typescript-eslint/no-shadow
   export interface DoobooTheme extends AllTheme {}
 }
 ```
 
-- [Example styled.d.ts](https://github.com/dooboolab/hackatalk/blob/master/client/src/styled.d.ts).
+This ensures that when you're using styled components with Emotion, the theme's properties are correctly typed.
 
-### Media support
+### 4. Media Support with `@dooboo-ui/theme`
 
-`@dooboo-ui/theme` also supports `mediaQuery` with `isMobile`, `isTablet`, and `isDesktop` props. Example below.
+`@dooboo-ui/theme` provides media query props to make it easier to design responsive UI:
+
+**In Styled Components:**
 
 ```tsx
 const Container = styled.View`
@@ -259,14 +173,15 @@ const Container = styled.View`
 `;
 ```
 
-You can also use `mediaQuery` props inside of react component directly. Example below.
+**Directly Inside React Components:**
+
+You can directly use media query props inside your React components for conditional styling:
 
 ```tsx
-import {type ReactElement} from 'react';
 import {View} from 'react-native';
 import {Typography, useDooboo} from 'dooboo-ui';
 
-export default function Home(): ReactElement {
+export default function Home(): JSX.Element {
   const { media: {isDesktop} } = useDooboo();
 
   return (
@@ -282,21 +197,27 @@ export default function Home(): ReactElement {
   )
 ```
 
-### Orientation support
+### Orientation Support with `@dooboo-ui/theme`
 
-If you also want to check the `orientation` change detection, you need to install `@expo/match-media`.
+To detect orientation changes, integrate with `@expo/match-media`.
+
+1. **Installation:**
 
 ```sh
 yarn add @expo/match-media
 ```
 
-Then import it in your root.
+2. **Initialization:**
 
-```ts
+Import at your project root:
+
+```typescript
 import '@expo/match-media';
 ```
 
-After that you can use `isPortrait` props in `@dooboo-ui/theme` to detect the orientation of your app. Example below.
+3. **Usage:**
+
+Using `@dooboo-ui/theme`, you can detect orientation:
 
 ```tsx
 const Container = styled.View`

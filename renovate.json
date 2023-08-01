@@ -17,7 +17,7 @@
     "react-native-gesture-handler",
     "react-native-reanimated",
     "react-native-svg",
-    "react-native-vector-icons",
+    "@expo/vector-icons",
     "react-native-web",
     "react-native-web-hooks",
     "react-native-safe-area-context",

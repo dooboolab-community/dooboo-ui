@@ -4,25 +4,11 @@ import {Meta} from '@storybook/addon-docs';
 
 # dooboo-ui
 
-> [Expo](https://expo.io) first [React Native](https://reactnative.dev) UI components. Simple and flexible which also supports themeing with default colors.
+> [Expo](https://expo.io) first [React Native](https://reactnative.dev) UI components. Simple and flexible which also supports theming with default colors.
 
-<p>
-  <img
-    alt="Supports Expo iOS"
-    longdesc="Supports Expo iOS"
-    src="https://img.shields.io/badge/iOS-4630EB.svg?style=flat-square&logo=APPLE&labelColor=999999&logoColor=fff"
-  />
-  <img
-    alt="Supports Expo Android"
-    longdesc="Supports Expo Android"
-    src="https://img.shields.io/badge/Android-4630EB.svg?style=flat-square&logo=ANDROID&labelColor=A4C639&logoColor=fff"
-  />
-  <img
-    alt="Supports Expo Web"
-    longdesc="Supports Expo Web"
-    src="https://img.shields.io/badge/web-4630EB.svg?style=flat-square&logo=GOOGLE-CHROME&labelColor=4285F4&logoColor=fff"
-  />
-</p>
+![Supports Expo iOS](https://img.shields.io/badge/iOS-4630EB.svg?style=flat-square&logo=APPLE&labelColor=999999&logoColor=fff)
+![Supports Expo Android](https://img.shields.io/badge/Android-4630EB.svg?style=flat-square&logo=ANDROID&labelColor=A4C639&logoColor=fff)
+![Supports Expo Web](https://img.shields.io/badge/web-4630EB.svg?style=flat-square&logo=GOOGLE-CHROME&labelColor=4285F4&logoColor=fff)
 
 [![Npm Version](http://img.shields.io/npm/v/dooboo-ui.svg?style=flat-square)](https://npmjs.org/package/dooboo-ui)
 [![Downloads](http://img.shields.io/npm/dm/dooboo-ui.svg?style=flat-square)](https://npmjs.org/package/dooboo-ui)
@@ -33,38 +19,29 @@ import {Meta} from '@storybook/addon-docs';
 [![Sponsor](https://opencollective.com/dooboo-ui/tiers/badge.svg?style=shield)](https://opencollective.com/dooboo-ui/tiers/badge.svg)
 ![License](http://img.shields.io/npm/l/dooboo-ui.svg?style=flat-square)
 
-We love [react-hooks](https://code.fb.com/open-source/react-hooks) and willing to share our [react-native](https://facebook.github.io/react-native) ui components built in [function components](https://reactjs.org/docs/components-and-props.html#function-and-class-components) using hooks. Also the `dooboo-ui` is built on top of our favorite stacks like [emotion](https://emotion.sh/docs/@emotion/native), [typescript](https://www.typescriptlang.org/), [jest](https://jestjs.io), [react-testing-library](https://testing-library.com/docs/react-testing-library/intro), [expo](https://expo.io), [storybook](https://storybook.js.org), and so on.
+We are passionate about [react-hooks](https://code.fb.com/open-source/react-hooks) and are excited to share our [react-native](https://facebook.github.io/react-native) UI components, crafted using hooks within [function components](https://reactjs.org/docs/components-and-props.html#function-and-class-components). `dooboo-ui` is constructed using our preferred technologies, including [emotion](https://emotion.sh/docs/@emotion/native), [typescript](https://www.typescriptlang.org/), [jest](https://jestjs.io), [react-native-testing-library](https://github.com/callstack/react-native-testing-library), [expo](https://expo.io), and [storybook](https://storybook.js.org).
 
 ## Philosophy
 
-`dooboo-ui` aims to provide easy, lightweight, and flexible UI components with the full control of `theme` variants and responsive layout.
+`dooboo-ui` is designed to offer user-friendly, lightweight, and adaptable UI components, emphasizing customizable `theme` variations and a responsive layout.
 
-## Notice
+## Announcement
 
-Current project is forked from [dooboo-ui-legacy](https://github.com/dooboolab-community/dooboo-ui-legacy) to renew the project. We've made this decision because one of our sponsors wanted to rebrand this awesome project with better communication design and features. We are very happy to continue this project aggregating the aspiration of various people. The version of current project will start from `dooboo-ui@0.1.0` in [npm registry](https://www.npmjs.com).
-
-## Demo
-
-Hosted in [github pages](https://dooboolab.github.io/dooboo-ui)
+This project has evolved from [dooboo-ui-legacy](https://github.com/dooboolab-community/dooboo-ui-legacy) as a part of our rejuvenation initiative. Our decision to transition was spurred by a sponsor's desire to revamp the project with enhanced design communication and functionalities. We're excited to further this project, blending the visions of a diverse community. The project's version will commence with `dooboo-ui@0.1.0` in the [npm registry](https://www.npmjs.com).
 
 ## Install
 
 ### Expo
 
 ```sh
-expo install dooboo-ui @emotion/react @emotion/native react-native-vector-icons react-native-gesture-handler react-native-svg expo-screen-orientation @expo/match-media
-```
-> Install development pacakges
-
-```sh
-yarn add -D @types/react-native-vector-icons
+expo install dooboo-ui @emotion/react @emotion/native @expo/vector-icons react-native-gesture-handler react-native-svg expo-screen-orientation @expo/match-media
 ```
 
 ### React Native CLI
 
 ```sh
-# If using yarn
-yarn add dooboo-ui @emotion/react @emotion/native react-native-vector-icons react-native-gesture-handler react-native-svg expo-screen-orientation @expo/match-media
+# When using yarn
+yarn add dooboo-ui @emotion/react @emotion/native @expo/vector-icons react-native-gesture-handler react-native-svg expo-screen-orientation @expo/match-media
 
 # Install expo modules
 npx install-expo-modules@latest
@@ -72,15 +49,13 @@ npx install-expo-modules@latest
 
 ### dooboo-cli
 
-You can easily set boilerplate code with `dooboo-ui` by using [dooboo-cli](https://github.com/dooboolab/dooboo-cli).
-Please read the `doobo-cli` documents.
+Easily initialize your boilerplate code using `dooboo-ui` with the help of [dooboo-cli](https://github.com/dooboolab-community/dooboo-cli).
 
 ## Usage
 
-We aim to support `react-native` ui components in all platforms and we are currently targeting `iOS`, `android` and `web`. If you read [issue on plan for unifying dooboo-ui-legacy](https://github.com/dooboolab-community/dooboo-ui-legacy/issues/194), you can see in more detail how we want to drive this project.
+We're dedicated to helping [expo](https://expo.io) users craft code efficiently and reliably across all platforms, with a current focus on `iOS`, `android`, and `web`. For an in-depth understanding of our project's direction, refer to the [issue discussing the unification of dooboo-ui-legacy](https://github.com/dooboolab-community/dooboo-ui-legacy/issues/194).
 
-From version `0.2.0`, we recommend you to wrap your App with `DoobooProvider` in order to apply theme and uis provided by `dooboo-ui`.
-The original `ThemeProvider` is embedded in `DoobooProvder`.
+Starting from version `0.2.0`, it's advisable to encase your App with `DoobooProvider`. This ensures the seamless application of themes and UI elements from `dooboo-ui`. Note: The original `ThemeProvider` is now integrated within `DoobooProvider`.
 
 ```tsx
 import {DoobooProvider} from 'dooboo-ui';
@@ -92,31 +67,28 @@ import {DoobooProvider} from 'dooboo-ui';
 
 ## Theming
 
-See [how to theme your app](?path=/docs/overview-theming--page).
-The major changes in `0.2.0` is that we recommend using `DoobooProvider` instead of `ThemeProvider` in your application.
+Refer to [how to theme your app](?path=/docs/overview-theming--page) for guidance. A key update in version `0.2.0` is our recommendation to use `DoobooProvider` over `ThemeProvider` in your application.
 
-## Install Font (Recommended)
+## Installing Fonts (Recommended)
 
-In `dooboo-ui`, the default font is [pretendard](https://github.com/orioncactus/pretendard). We use `Pretandard`, `Pretendard-Bold`, `Pretendard-Thin` as font families.
-Fonts are installed automatically when installing `dooboo-ui` from `0.2.1`.
-However, you should check the `assetLoaded` from `DoobooProvider` to make sure that the fonts are loaded.
+In `dooboo-ui`, our default font is [Pretendard](https://github.com/orioncactus/pretendard). The font families we use include `Pretandard`, `Pretendard-Bold`, and `Pretendard-Thin`. Starting from version `0.2.1`, these fonts are automatically installed when you add `dooboo-ui`. Still, it's essential to verify if the fonts have loaded correctly using `assetLoaded` from the `DoobooProvider`.
 
 ```tsx
 import {useDooboo} from 'dooboo-ui';
 
 const {assetLoaded} = useDooboo();
 
-if (assetLoaded) {
-  /// Loading
-  return ...
+if (!assetLoaded) {
+  // Render loading state
+  return ...;
 }
 
 return <Main/>
 ```
 
-## Using font icons
+## Font Icons Integration
 
-[Phosphoricons](https://phosphoricons.com) can be used in `dooboo-ui`. You can use `Icon` component to use the icons.
+`dooboo-ui` supports [Phosphoricons](https://phosphoricons.com). To use them, leverage the `Icon` component.
 
 ```js
 import {Icon} from 'dooboo-ui';
@@ -128,39 +100,40 @@ import {Icon} from 'dooboo-ui';
 
 ## Compatibility
 
-| package                   | version  |
-| ------------------------- | -------- |
-| react                     | >=16.13  |
-| react-native              | >=0.58   |
-| emotion                   | >=11.0.0 |
-| emotion/react             | >=11.0.0 |
-| emotion/native            | >=11.0.0 |
-| react-native-vector-icons | \*       |
+| Package                  | Version  |
+|:------------------------:|:--------:|
+| react                    | >=16.13  |
+| react-native             | >=0.58   |
+| emotion                  | >=11.0.0 |
+| emotion/react            | >=11.0.0 |
+| emotion/native           | >=11.0.0 |
+| @expo/vector-icons       | \*       |
 
-## List of independent components in `@dooboo-ui/*`
+## Standalone Components in `@dooboo-ui/*`
 
-> Below elements are not included in `dooboo-ui` package since it depends on other packages that may overload its package.
-> Here are separate packages that are maintained with [Lerna](https://lerna.js.org/) for the mono repo. For more information, please read [dooboo-ui-strategy](https://github.com/dooboolab-community/dooboo-ui/pull/49)
+Certain components aren't bundled with the `dooboo-ui` package due to dependencies that might bulk up the package. Instead, they are managed separately using [Lerna](https://lerna.js.org/) for a mono-repo approach. For an in-depth overview, check out the [dooboo-ui-strategy](https://github.com/dooboolab-community/dooboo-ui/pull/49).
 
-- [CalendarCarousel](https://github.com/dooboolab-community/dooboo-ui/tree/main/packages/CalendarCarousel)
-- [GiftedChat](https://github.com/dooboolab-community/dooboo-ui/tree/main/packages/GiftedChat)
-- [PinchZoom](https://github.com/dooboolab-community/dooboo-ui/tree/main/packages/PinchZoom)
+- **[CalendarCarousel](https://github.com/dooboolab-community/dooboo-ui/tree/main/packages/CalendarCarousel)**
+- **[GiftedChat](https://github.com/dooboolab-community/dooboo-ui/tree/main/packages/GiftedChat)**
+- **[PinchZoom](https://github.com/dooboolab-community/dooboo-ui/tree/main/packages/PinchZoom)**
 
-## Troubleshoot
+## Troubleshooting
 
-### Workaround when you face error in expo web
+### Resolving Errors in Expo Web with "dooboo-ui"
 
-You need to set webpack for using "dooboo-ui" in expo-web.
+If you're encountering errors when using "dooboo-ui" with expo-web, follow these steps to configure webpack:
 
-#### 1. Install @expo/webpack-config in your expo's project.
+#### 1. Add `@expo/webpack-config` to Your Expo Project
+
+Install the necessary package:
 
 ```sh
 yarn add @expo/webpack-config
 ```
 
-#### 2. Create webpack.config.js in root path and Add below code.
+#### 2. Configure Webpack
 
-See [issue](https://forums.expo.io/t/error-when-running-expo-start-web/33096/3) below for more details.
+Create a `webpack.config.js` file in your project root. Then, add the following configuration:
 
 ```javascript
 const createExpoWebpackConfigAsync = require('@expo/webpack-config');
@@ -178,6 +151,8 @@ module.exports = async function (env, argv) {
   return config;
 };
 ```
+
+For more context on this solution, refer to this related [issue](https://forums.expo.io/t/error-when-running-expo-start-web/33096/3).
 
 ## Sponsors
 

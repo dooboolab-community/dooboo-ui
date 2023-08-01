@@ -10,7 +10,7 @@ import {ThemeProvider as EmotionThemeProvider, withTheme} from '@emotion/react';
 import type {DoobooTheme, ThemeParam, ThemeType} from './colors';
 import {dark, light} from './colors';
 import createDoobooContext from './createDoobooContext';
-import useColorScheme from './useColorScheme';
+import {useDebouncedColorScheme} from './useDebouncedColorScheme';
 
 type ResponsiveDesignMode = 'mobile-first' | 'desktop-first';
 
@@ -105,18 +105,22 @@ export function ThemeProvider({
   const isPortrait = useMediaQuery({orientation: 'portrait'});
 
   const isMobile = useMediaQuery(
-    responsiveDesignMode === 'mobile-first' ? {minWidth: 0} : {maxWidth: 767},
+    responsiveDesignMode === 'mobile-first'
+      ? {minWidth: 0}
+      : {minWidth: 0, maxWidth: 767},
   );
 
   const isTablet = useMediaQuery(
-    responsiveDesignMode === 'mobile-first' ? {minWidth: 767} : {maxWidth: 992},
+    responsiveDesignMode === 'mobile-first'
+      ? {minWidth: 767}
+      : {minWidth: 768, maxWidth: 992},
   );
 
   const isDesktop = useMediaQuery(
     responsiveDesignMode === 'mobile-first' ? {minWidth: 992} : {minWidth: 0},
   );
 
-  const colorScheme = useColorScheme();
+  const colorScheme = useDebouncedColorScheme();
   const [themeType, setThemeType] = useState(initialThemeType ?? colorScheme);
 
   useEffect(() => {
@@ -141,7 +145,7 @@ export function ThemeProvider({
   > = {
     light: genTheme('light', customTheme),
     dark: genTheme('dark', customTheme),
-  }[themeType ?? 'light'];
+  }[themeType || 'light'];
 
   const media = {
     isPortrait,
@@ -156,9 +160,11 @@ export function ThemeProvider({
         media,
         themeType,
         changeThemeType,
+        // @ts-ignore
         theme,
       }}
     >
+      {/* @ts-ignore */}
       <EmotionThemeProvider theme={{...theme, ...media}}>
         {children}
       </EmotionThemeProvider>

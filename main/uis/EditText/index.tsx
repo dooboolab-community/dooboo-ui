@@ -74,6 +74,7 @@ export type EditTextProps = {
   onSubmitEditing?: TextInputProps['onSubmitEditing'];
   numberOfLines?: TextInputProps['numberOfLines'];
   maxLength?: TextInputProps['maxLength'];
+  hideCounter?: boolean;
 
   textInputProps?: Omit<
     TextInputProps,
@@ -127,6 +128,7 @@ export function EditText(props: EditTextProps): ReactElement {
     onSubmitEditing,
     numberOfLines,
     maxLength,
+    hideCounter = false,
     autoComplete,
     autoCapitalize = 'none',
     secureTextEntry = false,
@@ -308,6 +310,7 @@ export function EditText(props: EditTextProps): ReactElement {
                 font-family: Pretendard;
                 flex: 1;
                 font-size: 16px;
+                text-align-vertical: ${multiline ? 'top' : 'center'};
               `,
               Platform.OS === 'web' &&
                 css`
@@ -322,7 +325,7 @@ export function EditText(props: EditTextProps): ReactElement {
                   `,
               css`
                 color: ${defaultColor};
-                padding: 12px 0;
+                padding: 10px 0 12px 0;
               `,
               styles?.input,
             ]}
@@ -383,6 +386,10 @@ export function EditText(props: EditTextProps): ReactElement {
   };
 
   const renderCounter = (): ReactElement | null => {
+    if (hideCounter) {
+      return null;
+    }
+
     return maxLength ? (
       <Text
         style={[

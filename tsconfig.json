@@ -37,6 +37,29 @@
     "typeRoots": [
       "./types",
       "./node_modules/@types"
+    ],
+    "plugins": [
+      {
+        "name": "typescript-styled-plugin",
+        "lint": {
+          "validProperties": [
+            "shadow-color",
+            "shadow-opacity",
+            "shadow-offset",
+            "shadow-radius",
+            "spread-radius",
+            "padding-horizontal",
+            "padding-vertical",
+            "margin-vertical",
+            "margin-horizontal",
+            "tint-color",
+            "aspect-ratio",
+            "elevation",
+            "blur-radius",
+            "text-align-vertical"
+          ]
+        }
+      }
     ]
   },
   "include": [

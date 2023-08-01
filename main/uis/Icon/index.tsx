@@ -1,7 +1,7 @@
 import type {FC} from 'react';
 import type {ViewStyle} from 'react-native';
-import {createIconSetFromIcoMoon} from 'react-native-vector-icons';
 import styled from '@emotion/native';
+import {createIconSetFromIcoMoon} from '@expo/vector-icons';
 
 import collectingFontIconSelection from './selection.json';
 

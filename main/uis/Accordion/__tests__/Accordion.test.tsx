@@ -5,14 +5,13 @@ import type {RenderAPI} from '@testing-library/react-native';
 import {fireEvent, render} from '@testing-library/react-native';
 
 import {createComponent, createTestProps} from '../../../../test/testUtils';
-import type {AccordionItemDataType} from '../../..';
 import {Accordion} from '../../..';
 
 let props: any;
 let component: ReactElement;
 let testingLib: RenderAPI;
 
-const data: AccordionItemDataType<string, string>[] = [
+const data: any[] = [
   {
     title: 'title1',
     items: ['body1', 'body2', 'body3'],
