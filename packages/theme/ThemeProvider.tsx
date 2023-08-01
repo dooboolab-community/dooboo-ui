@@ -10,7 +10,7 @@ import {ThemeProvider as EmotionThemeProvider, withTheme} from '@emotion/react';
 import type {DoobooTheme, ThemeParam, ThemeType} from './colors';
 import {dark, light} from './colors';
 import createDoobooContext from './createDoobooContext';
-import useColorScheme from './useColorScheme';
+import {useDebouncedColorScheme} from './useDebouncedColorScheme';
 
 type ResponsiveDesignMode = 'mobile-first' | 'desktop-first';
 
@@ -120,7 +120,7 @@ export function ThemeProvider({
     responsiveDesignMode === 'mobile-first' ? {minWidth: 992} : {minWidth: 0},
   );
 
-  const colorScheme = useColorScheme();
+  const colorScheme = useDebouncedColorScheme();
   const [themeType, setThemeType] = useState(initialThemeType ?? colorScheme);
 
   useEffect(() => {
@@ -145,7 +145,7 @@ export function ThemeProvider({
   > = {
     light: genTheme('light', customTheme),
     dark: genTheme('dark', customTheme),
-  }[themeType ?? 'light'];
+  }[themeType || 'light'];
 
   const media = {
     isPortrait,
