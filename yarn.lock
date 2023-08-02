@@ -1553,7 +1553,7 @@
     "@emotion/weak-memoize" "^0.3.1"
     stylis "4.2.0"
 
-"@emotion/core@^10.0.20", "@emotion/core@^10.0.9":
+"@emotion/core@^10.0.9":
   version "10.3.1"
   resolved "https://registry.yarnpkg.com/@emotion/core/-/core-10.3.1.tgz#4021b6d8b33b3304d48b0bb478485e7d7421c69d"
   integrity sha512-447aUEjPIm0MnE6QYIaFz9VQOHSXf4Iu6EWOIqq11EAPqinkSZmfymPTmlOE3QjLv846lH4JVZBUOtwGbuQoww==
@@ -1594,26 +1594,12 @@
   resolved "https://registry.yarnpkg.com/@emotion/memoize/-/memoize-0.8.1.tgz#c1ddb040429c6d21d38cc945fe75c818cfb68e17"
   integrity sha512-W2P2c/VRW1/1tLox0mVUalvnWXxavmv/Oum2aPsRcoDJuob75FC3Y8FbpfLwUegRcxINtGUMPq0tFCvYNTBXNA==
 
-"@emotion/native@^10.0.14":
-  version "10.0.27"
-  resolved "https://registry.yarnpkg.com/@emotion/native/-/native-10.0.27.tgz#67c2c0ceeeed873c849c611d9a6497a006d43a8f"
-  integrity sha512-3qxR2XFizGfABKKbX9kAYc0PHhKuCEuyxshoq3TaMEbi9asWHdQVChg32ULpblm4XAf9oxaitAU7J9SfdwFxtw==
-  dependencies:
-    "@emotion/primitives-core" "10.0.27"
-
 "@emotion/native@^11.0.0", "@emotion/native@^11.11.0":
   version "11.11.0"
   resolved "https://registry.yarnpkg.com/@emotion/native/-/native-11.11.0.tgz#1584a9ff12d8a069a1089601205b53ec4c4e757e"
   integrity sha512-t1b5bLv+o5OUNLqXlnw+LJYU10OpmYkLC/1W873Y1ohG+vObx5TT3o3Eh1okXb2KCuZTTBPgsEnU/Sl7NNkJ9Q==
   dependencies:
     "@emotion/primitives-core" "^11.11.0"
-
-"@emotion/primitives-core@10.0.27":
-  version "10.0.27"
-  resolved "https://registry.yarnpkg.com/@emotion/primitives-core/-/primitives-core-10.0.27.tgz#7a5fae07fe06a046ced597f5c0048f22d5c45842"
-  integrity sha512-fRBEDNPSFFOrBJ0OcheuElayrNTNdLF9DzMxtL0sFgsCFvvadlzwJHhJMSwEJuxwARm9GhVLr1p8G8JGkK98lQ==
-  dependencies:
-    css-to-react-native "^2.2.1"
 
 "@emotion/primitives-core@^11.11.0":
   version "11.11.0"
@@ -3298,20 +3284,20 @@
     react-select "^3.2.0"
 
 "@storybook/addon-ondevice-actions@^6.5.3":
-  version "6.5.4"
-  resolved "https://registry.yarnpkg.com/@storybook/addon-ondevice-actions/-/addon-ondevice-actions-6.5.4.tgz#5f87ffcb5d255bd08b81e044498316fb59476e76"
-  integrity sha512-4ZN+eiYLzeBZyj7B+Ujda7N1pOFm63S8RWrgscjwdka/3+eQ8i0zRRndKeiM7jSBLlhUfd8MyCQ2l6ooScToBg==
+  version "6.5.5"
+  resolved "https://registry.yarnpkg.com/@storybook/addon-ondevice-actions/-/addon-ondevice-actions-6.5.5.tgz#ae30b00da4b7cd37c485248db63d8df464885f52"
+  integrity sha512-M0hBXs4Mz2y68qHbnjiCxwHOMsPh2njvqKM4mhNQBPU8GNKfZ7g0ZqbveIpq9My2KCMf5eZ6BltyAJuEMZCtag==
   dependencies:
     "@storybook/addons" "^6.5.14"
     "@storybook/core-events" "^6.5.14"
     fast-deep-equal "^2.0.1"
 
 "@storybook/addon-ondevice-knobs@^6.5.3":
-  version "6.5.4"
-  resolved "https://registry.yarnpkg.com/@storybook/addon-ondevice-knobs/-/addon-ondevice-knobs-6.5.4.tgz#d43efe19781ea528b1bb4d68d802f8547dde5a4c"
-  integrity sha512-sapMmWp3Ytx4JHlNvQvJ9Ag+yYAsJiLVrprAlncTLAonzjAMW4vahOab9b/LgRjF9w0WRsVDOcEqjJNPwF+f7Q==
+  version "6.5.5"
+  resolved "https://registry.yarnpkg.com/@storybook/addon-ondevice-knobs/-/addon-ondevice-knobs-6.5.5.tgz#8f8e4a55c81b6ef7e3f44820a665551266f64282"
+  integrity sha512-wa1YtkOnC1EPC/aJPvBJzknS+MKRTxziHP7dYjQB1EdmzsSsact9K6RKQ/sxr94fn9OnNYRNL1cxXPYwP5g0Rg==
   dependencies:
-    "@emotion/native" "^10.0.14"
+    "@emotion/native" "^11.11.0"
     "@storybook/addons" "^6.5.14"
     "@storybook/core-events" "^6.5.14"
     core-js "^3.0.1"
@@ -3817,10 +3803,10 @@
     react-docgen-typescript "^2.1.1"
     tslib "^2.0.0"
 
-"@storybook/react-native-server@6.5.4":
-  version "6.5.4"
-  resolved "https://registry.yarnpkg.com/@storybook/react-native-server/-/react-native-server-6.5.4.tgz#0285f3261276088f81956345132dd74d67a9392a"
-  integrity sha512-qB6LnhvbPBBGKV+yeVAobV5L7FjDz9SIIJu4BlXJE21btgzdDIaAiaeBdUF5OcpFVpIrT/kGoInwvTNIlFNOsQ==
+"@storybook/react-native-server@6.5.5":
+  version "6.5.5"
+  resolved "https://registry.yarnpkg.com/@storybook/react-native-server/-/react-native-server-6.5.5.tgz#65e6e5427e24eb05812631a4736657df8d4202aa"
+  integrity sha512-bDI1ZV7GAeK1JUQIcFVnDLmrYAvfZe3R6Pp+OPs/GpJs3gGFR9yt4rcIhee8xZmKqz7JRJwwYFd2da8v3JK/XA==
   dependencies:
     "@storybook/addons" "^6.5.14"
     "@storybook/api" "^6.5.14"
@@ -3836,13 +3822,21 @@
     uuid "^3.3.2"
     ws "^7.1.2"
 
-"@storybook/react-native@6.5.4":
-  version "6.5.4"
-  resolved "https://registry.yarnpkg.com/@storybook/react-native/-/react-native-6.5.4.tgz#f1524d822b3b251db25972613508084f2cd22fcb"
-  integrity sha512-8H5deEacilMdLXq7gEmZ4NAm5IsWzjIvoAjxJItq4SLYnz/E9XgflqXT/tgpyspYlOFgjBMRa5s8ILqo/ebRuQ==
+"@storybook/react-native-theming@^6.5.5":
+  version "6.5.5"
+  resolved "https://registry.yarnpkg.com/@storybook/react-native-theming/-/react-native-theming-6.5.5.tgz#15db22f2a2f58166213f40b886c96c23ecb2d79a"
+  integrity sha512-xu/Anap96d1Jh1IfbmMwma9cBdC0iD0QyxOG+zVgcUybZ9NOI0PcDMnTb1+XpIB2banIPQbKOLQegT8txV77FQ==
   dependencies:
-    "@emotion/core" "^10.0.20"
-    "@emotion/native" "^10.0.14"
+    "@emotion/native" "^11.11.0"
+    "@emotion/react" "^11.11.1"
+
+"@storybook/react-native@6.5.5":
+  version "6.5.5"
+  resolved "https://registry.yarnpkg.com/@storybook/react-native/-/react-native-6.5.5.tgz#e899225bd3ad3db0c5d99db52bd0af6d97735b2a"
+  integrity sha512-pqwNYpV1Xd52i75NKqM1jfmooqfTifyjhSxd/PjDJHt9bTdKRnNjToALqy/xH3zvSz4V63ugii61VcWxt6UlLg==
+  dependencies:
+    "@emotion/native" "^11.11.0"
+    "@emotion/react" "^11.11.1"
     "@storybook/addons" "^6.5.14"
     "@storybook/channel-websocket" "^6.5.14"
     "@storybook/channels" "^6.5.14"
@@ -3852,10 +3846,10 @@
     "@storybook/core-events" "^6.5.14"
     "@storybook/csf" "0.0.2--canary.4566f4d.1"
     "@storybook/preview-web" "^6.5.14"
+    "@storybook/react-native-theming" "^6.5.5"
     chokidar "^3.5.1"
     commander "^8.2.0"
     deepmerge "^4.3.0"
-    emotion-theming "^10.0.19"
     glob "^7.1.7"
     jotai "^2.0.2"
     prettier "^2.4.1"
@@ -7383,7 +7377,12 @@ core-js-pure@^3.23.3:
   resolved "https://registry.yarnpkg.com/core-js-pure/-/core-js-pure-3.31.1.tgz#73d154958881873bc19381df80bddb20c8d0cdb5"
   integrity sha512-w+C62kvWti0EPs4KPMCMVv9DriHSXfQOCQ94bGGBiEW5rrbtt/Rz8n5Krhfw9cpFyzXBjf3DB3QnPdEzGDY4Fw==
 
-core-js@^3.0.1, core-js@^3.0.4, core-js@^3.6.5, core-js@^3.8.2:
+core-js@^3.0.1, core-js@^3.6.5, core-js@^3.8.2:
+  version "3.32.0"
+  resolved "https://registry.yarnpkg.com/core-js/-/core-js-3.32.0.tgz#7643d353d899747ab1f8b03d2803b0312a0fb3b6"
+  integrity sha512-rd4rYZNlF3WuoYuRIDEmbR/ga9CeuWX9U05umAvgrrZoHY4Z++cp/xwPQMvUpBB4Ag6J8KfD80G0zwCyaSxDww==
+
+core-js@^3.0.4:
   version "3.31.1"
   resolved "https://registry.yarnpkg.com/core-js/-/core-js-3.31.1.tgz#f2b0eea9be9da0def2c5fece71064a7e5d687653"
   integrity sha512-2sKLtfq1eFST7l7v62zaqXacPc7uG8ZAya8ogijLhTtaKNcpzpB4TMoTw2Si+8GYKRwFPMMtUT0263QFWFfqyQ==
@@ -7648,15 +7647,6 @@ css-select@^5.1.0:
     domhandler "^5.0.2"
     domutils "^3.0.1"
     nth-check "^2.0.1"
-
-css-to-react-native@^2.2.1:
-  version "2.3.2"
-  resolved "https://registry.yarnpkg.com/css-to-react-native/-/css-to-react-native-2.3.2.tgz#e75e2f8f7aa385b4c3611c52b074b70a002f2e7d"
-  integrity sha512-VOFaeZA053BqvvvqIA8c9n0+9vFppVBAHCp6JgFTtTMU3Mzi+XnelJ9XC9ul3BqFzZyQ5N+H0SnwsWT2Ebchxw==
-  dependencies:
-    camelize "^1.0.0"
-    css-color-keywords "^1.0.0"
-    postcss-value-parser "^3.3.0"
 
 css-to-react-native@^3.0.0:
   version "3.2.0"
@@ -8385,15 +8375,6 @@ emojis-list@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/emojis-list/-/emojis-list-3.0.0.tgz#5570662046ad29e2e916e71aae260abdff4f6a78"
   integrity sha512-/kyM18EfinwXZbno9FyUGeFh87KC8HRQBQGildHZbEuRyWFOmv1U10o9BBp8XVZDVNNuQKyIGIu5ZYAAXJ0V2Q==
-
-emotion-theming@^10.0.19:
-  version "10.3.0"
-  resolved "https://registry.yarnpkg.com/emotion-theming/-/emotion-theming-10.3.0.tgz#7f84d7099581d7ffe808aab5cd870e30843db72a"
-  integrity sha512-mXiD2Oj7N9b6+h/dC6oLf9hwxbtKHQjoIqtodEyL8CpkN4F3V4IK/BT4D0C7zSs4BBFOu4UlPJbvvBLa88SGEA==
-  dependencies:
-    "@babel/runtime" "^7.5.5"
-    "@emotion/weak-memoize" "0.2.5"
-    hoist-non-react-statics "^3.3.0"
 
 encodeurl@~1.0.2:
   version "1.0.2"
@@ -15400,11 +15381,6 @@ postcss-unique-selectors@^5.1.1:
   integrity sha512-5JiODlELrz8L2HwxfPnhOWZYWDxVHWL83ufOv84NrcgipI7TaeRsatAhK4Tr2/ZiYldpK/wBvw5BD3qfaK96GA==
   dependencies:
     postcss-selector-parser "^6.0.5"
-
-postcss-value-parser@^3.3.0:
-  version "3.3.1"
-  resolved "https://registry.yarnpkg.com/postcss-value-parser/-/postcss-value-parser-3.3.1.tgz#9ff822547e2893213cf1c30efa51ac5fd1ba8281"
-  integrity sha512-pISE66AbVkp4fDQ7VHBwRNXzAAKJjw4Vw7nWI/+Q3vuly7SNfgYXvm6i5IgFylHGK5sP/xHAbB7N49OS4gWNyQ==
 
 postcss-value-parser@^4.0.2, postcss-value-parser@^4.1.0, postcss-value-parser@^4.2.0:
   version "4.2.0"
