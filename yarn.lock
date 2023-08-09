@@ -3366,22 +3366,22 @@
     react-select "^3.2.0"
 
 "@storybook/addon-ondevice-actions@^6.5.3":
-  version "6.5.5"
-  resolved "https://registry.yarnpkg.com/@storybook/addon-ondevice-actions/-/addon-ondevice-actions-6.5.5.tgz#ae30b00da4b7cd37c485248db63d8df464885f52"
-  integrity sha512-M0hBXs4Mz2y68qHbnjiCxwHOMsPh2njvqKM4mhNQBPU8GNKfZ7g0ZqbveIpq9My2KCMf5eZ6BltyAJuEMZCtag==
+  version "6.5.6"
+  resolved "https://registry.yarnpkg.com/@storybook/addon-ondevice-actions/-/addon-ondevice-actions-6.5.6.tgz#a7895a26b3879b9a228e45c7fc9bbf79c677167b"
+  integrity sha512-AgOfcwtzC4TVTN5T7lJ3VQkr0bcbC9j7rKwX/Vr8kne7G4SW6hZEDsfJWfzSLLwrO4NMiCefGXibpTV+IB+T9w==
   dependencies:
     "@storybook/addons" "^6.5.14"
     "@storybook/core-events" "^6.5.14"
     fast-deep-equal "^2.0.1"
 
 "@storybook/addon-ondevice-knobs@^6.5.3":
-  version "6.5.5"
-  resolved "https://registry.yarnpkg.com/@storybook/addon-ondevice-knobs/-/addon-ondevice-knobs-6.5.5.tgz#8f8e4a55c81b6ef7e3f44820a665551266f64282"
-  integrity sha512-wa1YtkOnC1EPC/aJPvBJzknS+MKRTxziHP7dYjQB1EdmzsSsact9K6RKQ/sxr94fn9OnNYRNL1cxXPYwP5g0Rg==
+  version "6.5.6"
+  resolved "https://registry.yarnpkg.com/@storybook/addon-ondevice-knobs/-/addon-ondevice-knobs-6.5.6.tgz#103ecf26415b4ac2c58aecf75d9d473ec2da145d"
+  integrity sha512-9voAgzD0RBZ4oTlUXKmlmkmllywx2TTGDV1iZeAE1GWSuqqok1X2fOKRLVSqvQTsJmEqFg/1sKuLC9ay2tvXlA==
   dependencies:
-    "@emotion/native" "^11.11.0"
     "@storybook/addons" "^6.5.14"
     "@storybook/core-events" "^6.5.14"
+    "@storybook/react-native-theming" "^6.5.6"
     core-js "^3.0.1"
     deep-equal "^1.0.1"
     prop-types "^15.7.2"
@@ -3885,10 +3885,10 @@
     react-docgen-typescript "^2.1.1"
     tslib "^2.0.0"
 
-"@storybook/react-native-server@6.5.5":
-  version "6.5.5"
-  resolved "https://registry.yarnpkg.com/@storybook/react-native-server/-/react-native-server-6.5.5.tgz#65e6e5427e24eb05812631a4736657df8d4202aa"
-  integrity sha512-bDI1ZV7GAeK1JUQIcFVnDLmrYAvfZe3R6Pp+OPs/GpJs3gGFR9yt4rcIhee8xZmKqz7JRJwwYFd2da8v3JK/XA==
+"@storybook/react-native-server@6.5.6":
+  version "6.5.6"
+  resolved "https://registry.yarnpkg.com/@storybook/react-native-server/-/react-native-server-6.5.6.tgz#da1361d54b097a2700a4dfcbd1b69c766c784db5"
+  integrity sha512-h4T0fzOLkDKPEwnNqFNkCFX35Fk1AnXafOWcaM13QDr72MqMqXnjlkn6zfnvUfddCZyN1gpXZ8Qy6UokpWwjAw==
   dependencies:
     "@storybook/addons" "^6.5.14"
     "@storybook/api" "^6.5.14"
@@ -3904,21 +3904,16 @@
     uuid "^3.3.2"
     ws "^7.1.2"
 
-"@storybook/react-native-theming@^6.5.5":
-  version "6.5.5"
-  resolved "https://registry.yarnpkg.com/@storybook/react-native-theming/-/react-native-theming-6.5.5.tgz#15db22f2a2f58166213f40b886c96c23ecb2d79a"
-  integrity sha512-xu/Anap96d1Jh1IfbmMwma9cBdC0iD0QyxOG+zVgcUybZ9NOI0PcDMnTb1+XpIB2banIPQbKOLQegT8txV77FQ==
-  dependencies:
-    "@emotion/native" "^11.11.0"
-    "@emotion/react" "^11.11.1"
+"@storybook/react-native-theming@^6.5.6":
+  version "6.5.6"
+  resolved "https://registry.yarnpkg.com/@storybook/react-native-theming/-/react-native-theming-6.5.6.tgz#e10953d8265e6e6b752440a84334a671a38e04ab"
+  integrity sha512-SP7Y0meSjQxg6FtB0JWu4LLPBWPHYX6SgbFWzLbowzUSM8bkmoNsmFQjroVseuAtYRIXiIkKJuPMFhm/dtAGCw==
 
-"@storybook/react-native@6.5.5":
-  version "6.5.5"
-  resolved "https://registry.yarnpkg.com/@storybook/react-native/-/react-native-6.5.5.tgz#e899225bd3ad3db0c5d99db52bd0af6d97735b2a"
-  integrity sha512-pqwNYpV1Xd52i75NKqM1jfmooqfTifyjhSxd/PjDJHt9bTdKRnNjToALqy/xH3zvSz4V63ugii61VcWxt6UlLg==
+"@storybook/react-native@6.5.6":
+  version "6.5.6"
+  resolved "https://registry.yarnpkg.com/@storybook/react-native/-/react-native-6.5.6.tgz#c8a9ac8c0b78b7da76f482ca7b5ba722631ca43f"
+  integrity sha512-2qqhwVOFFb6Iq49AEK7mogH28vo+YyFTVg5O4TGID0LBRX1l/iMdS8y18sH/TKSI42HlVjln0BId1Iu1+1r6YA==
   dependencies:
-    "@emotion/native" "^11.11.0"
-    "@emotion/react" "^11.11.1"
     "@storybook/addons" "^6.5.14"
     "@storybook/channel-websocket" "^6.5.14"
     "@storybook/channels" "^6.5.14"
@@ -3928,7 +3923,7 @@
     "@storybook/core-events" "^6.5.14"
     "@storybook/csf" "0.0.2--canary.4566f4d.1"
     "@storybook/preview-web" "^6.5.14"
-    "@storybook/react-native-theming" "^6.5.5"
+    "@storybook/react-native-theming" "^6.5.6"
     chokidar "^3.5.1"
     commander "^8.2.0"
     deepmerge "^4.3.0"
