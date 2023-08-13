@@ -1,8 +1,17 @@
 import React, {cloneElement} from 'react';
-import {Image, Text, TextInput, View} from 'react-native';
+import {
+  Button,
+  Image,
+  Pressable,
+  Text,
+  TextInput,
+  TouchableHighlight,
+  TouchableOpacity,
+  TouchableWithoutFeedback,
+  View,
+} from 'react-native';
 import type {StyleProps} from 'react-native-reanimated';
 
-import {Button} from '../uis/Button';
 import {Icon} from '../uis/Icon';
 
 const getRootElementStyleType = (
@@ -20,7 +29,11 @@ const getRootElementStyleType = (
     if (
       element.type === Image ||
       element.type === View ||
-      element.type === Button
+      element.type === Button ||
+      element.type === TouchableHighlight ||
+      element.type === TouchableOpacity ||
+      element.type === Pressable ||
+      element.type === TouchableWithoutFeedback
     ) {
       return 'ViewStyle';
     }
@@ -31,7 +44,7 @@ const getRootElementStyleType = (
 
 type CloneElemColorsParams = {
   /**
-   * JSX.Element to be cloned to shape default colors.
+   * ReactElement to be cloned to shape default colors.
    */
   element?: JSX.Element;
   /**
