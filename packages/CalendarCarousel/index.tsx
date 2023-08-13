@@ -1,7 +1,7 @@
 import 'intl';
 import 'intl/locale-data/jsonp/en';
 
-import type {PropsWithChildren, ReactElement} from 'react';
+import type {PropsWithChildren} from 'react';
 import React, {useRef, useState} from 'react';
 import type {
   NativeScrollEvent,
@@ -169,7 +169,7 @@ function CalendarCarousel({
   selectedDate,
   markedDayEvents = [],
   monthFormatter = new Intl.DateTimeFormat('en', {month: 'long'}),
-}: PropsWithChildren<Props>): ReactElement {
+}: PropsWithChildren<Props>): JSX.Element {
   const {theme} = useTheme();
   const scrollRef = useRef<ScrollView>(null);
   const [layoutWidth, setLayoutWidth] = useState(330);
@@ -232,8 +232,8 @@ function CalendarCarousel({
     return onDateChanged?.(update);
   };
 
-  const renderCalendars = (): ReactElement => {
-    const renderCalendar = (displayDate: Date): ReactElement => {
+  const renderCalendars = (): JSX.Element => {
+    const renderCalendar = (displayDate: Date): JSX.Element => {
       const monthName = monthFormatter.format(displayDate);
       const year = displayDate.getFullYear();
       const month = displayDate.getMonth();
@@ -296,7 +296,7 @@ function CalendarCarousel({
         eventYears.selectedEventDate.getFullYear(),
       );
 
-      const renderDates = (dateItem: Date): ReactElement => {
+      const renderDates = (dateItem: Date): JSX.Element => {
         const itemYear = dateItem.getFullYear();
         const itemMonth = dateItem.getMonth();
         const itemDay = dateItem.getDate();
@@ -402,7 +402,7 @@ function CalendarCarousel({
         );
       };
 
-      const renderEvent = (): ReactElement[] => {
+      const renderEvent = (): JSX.Element[] => {
         return markedDayEvents.map((markedDayEvent, i) => {
           if (
             markedDates[i] === eventDay &&

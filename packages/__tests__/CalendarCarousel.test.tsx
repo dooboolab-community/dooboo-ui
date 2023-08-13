@@ -1,14 +1,12 @@
 import 'react-native';
 
-// import * as React from 'react';
-
 // import Calendar from '../CalendarCarousel';
 // import {createComponent} from '../../test/testUtils';
 // import renderer from 'react-test-renderer';
 
 // let props: any;
 
-// const component = (): React.ReactElement => {
+// const component = (): JSX.Element => {
 //   return <Calendar {...props} />;
 // };
 

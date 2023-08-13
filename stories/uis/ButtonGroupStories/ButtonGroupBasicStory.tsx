@@ -7,7 +7,7 @@ import type {DoobooTheme} from '../../../main';
 import {ButtonGroup} from '../../../main/uis/ButtonGroup';
 import {StoryContainer, StoryTitle} from '../../GlobalStyles';
 
-const ButtonGroupBasic = (): React.ReactElement => {
+const ButtonGroupBasic = (): JSX.Element => {
   const color = select<keyof DoobooTheme['button']>(
     'color',
     ['primary', 'secondary', 'success', 'warning', 'danger', 'light', 'info'],

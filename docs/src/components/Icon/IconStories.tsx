@@ -1,4 +1,4 @@
-import type {ComponentProps, ReactElement} from 'react';
+import type {ComponentProps} from 'react';
 import {useState} from 'react';
 import {View} from 'react-native';
 import {css} from '@emotion/native';
@@ -25,7 +25,7 @@ const initialProps: IconProps = {
   name: 'Airplane',
 };
 
-const Container = ({children}): ReactElement => {
+const Container = ({children}): JSX.Element => {
   const isDark = useDarkMode();
 
   return (
@@ -41,7 +41,7 @@ const Container = ({children}): ReactElement => {
   );
 };
 
-const IconStory: Story<IconProps> = (args): ReactElement => {
+const IconStory: Story<IconProps> = (args): JSX.Element => {
   return (
     <Container>
       <Icon {...args} />
@@ -53,7 +53,7 @@ export const IconTemplate = IconStory.bind({});
 IconTemplate.args = initialProps;
 
 // IconList
-export function IconList(): ReactElement {
+export function IconList(): JSX.Element {
   const [searchText, setSearchText] = useState('');
   const filteredIcons = (doobooIconList as IconNames).filter((icon) =>
     icon.toLocaleLowerCase().includes(searchText.toLocaleLowerCase()),
@@ -91,7 +91,7 @@ export function IconList(): ReactElement {
             gap: 12px;
           `}
         >
-          {filteredIcons.map((icon): ReactElement => {
+          {filteredIcons.map((icon): JSX.Element => {
             return (
               <View
                 key={icon}

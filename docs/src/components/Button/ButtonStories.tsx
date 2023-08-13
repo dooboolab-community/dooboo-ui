@@ -1,4 +1,4 @@
-import type {ComponentProps, ReactElement} from 'react';
+import type {ComponentProps} from 'react';
 import {useState} from 'react';
 import {Image, View} from 'react-native';
 import {css} from '@emotion/native';
@@ -29,7 +29,7 @@ const initialProps: ButtonProps = {
   type: 'solid',
 };
 
-const Container = ({children}): ReactElement => {
+const Container = ({children}): JSX.Element => {
   const isDark = useDarkMode();
 
   return (
@@ -39,7 +39,7 @@ const Container = ({children}): ReactElement => {
   );
 };
 
-const ButtonStory: Story<ButtonProps> = (args): ReactElement => {
+const ButtonStory: Story<ButtonProps> = (args): JSX.Element => {
   return (
     <Container>
       <Button {...args} />
@@ -51,7 +51,7 @@ export const ButtonTemplate = ButtonStory.bind({});
 ButtonTemplate.args = initialProps;
 
 // Story: Button Types - Solid
-const ButtonTypesStory = ({type}: {type?: ButtonType}): ReactElement => {
+const ButtonTypesStory = ({type}: {type?: ButtonType}): JSX.Element => {
   const colors: ButtonColorType[] = [
     'primary',
     'secondary',
@@ -88,22 +88,22 @@ const ButtonTypesStory = ({type}: {type?: ButtonType}): ReactElement => {
   );
 };
 
-export const ButtonTypeSolidStory = (): ReactElement => (
+export const ButtonTypeSolidStory = (): JSX.Element => (
   <ButtonTypesStory type="solid" />
 );
 
 // Story: Button Types - Outline
-export const ButtonTypeOutlinedStory = (): ReactElement => (
+export const ButtonTypeOutlinedStory = (): JSX.Element => (
   <ButtonTypesStory type="outlined" />
 );
 
 // Story: Button Types - Text
-export const ButtonTypeTextStory = (): ReactElement => (
+export const ButtonTypeTextStory = (): JSX.Element => (
   <ButtonTypesStory type="text" />
 );
 
 // Story: Button Sizes
-export function ButtonSizeStory(): ReactElement {
+export function ButtonSizeStory(): JSX.Element {
   const sizes: ButtonSizeType[] = ['large', 'medium', 'small'];
 
   return (
@@ -132,7 +132,7 @@ export function ButtonSizeStory(): ReactElement {
 }
 
 // Story: Button Elements
-export const ButtonElementStory = (): ReactElement => {
+export const ButtonElementStory = (): JSX.Element => {
   const [facebookLoading, setFacebookLoading] = useState<boolean>(false);
   const [googleLoading, setGoogleLoading] = useState<boolean>(false);
 

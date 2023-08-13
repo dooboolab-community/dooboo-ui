@@ -1,4 +1,3 @@
-import type {ReactElement} from 'react';
 // Caveat: Expo web needs React to be imported
 import React, {useState} from 'react';
 import {action} from '@storybook/addon-actions';
@@ -13,7 +12,7 @@ import {Button} from '../../../../main';
 import {StoryDescription, StorySection} from '../../../GlobalStyles';
 import {buttonColors, buttonSizes, buttonTypes} from '../../const';
 
-function Counter(): ReactElement {
+function Counter(): JSX.Element {
   const [count, setCount] = useState(0);
 
   const type = select<ButtonType>('type', buttonTypes, 'solid');

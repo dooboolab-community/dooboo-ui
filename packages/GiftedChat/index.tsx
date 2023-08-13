@@ -59,21 +59,21 @@ interface Props<T> {
   onEndReached?: () => void;
   keyboardOffset?: number;
   renderItem: ListRenderItem<T>;
-  optionView?: React.ReactElement;
+  optionView?: JSX.Element;
   ListEmptyComponent?:
     | React.ComponentType<any>
-    | React.ReactElement
+    | React.JSX.Element
     | null
     | undefined;
-  renderViewMenu?: () => React.ReactElement;
+  renderViewMenu?: () => JSX.Element;
   message?: string;
   onChangeMessage?: (text: string) => void;
   placeholder?: string;
   placeholderColor?: string;
-  renderSendButton?: () => React.ReactElement;
+  renderSendButton?: () => JSX.Element;
 }
 
-function Shared<T>(props: Props<T>): React.ReactElement {
+function Shared<T>(props: Props<T>): JSX.Element {
   const input1 = useRef<TextInput>();
   const input2 = useRef<TextInput>();
 
@@ -282,12 +282,12 @@ Shared.defaultProps = {
   keyboardOffset: 0,
   optionView: <View />,
   ListEmptyComponent: <View />,
-  renderItem: (): React.ReactElement => <View />,
-  renderViewMenu: (): React.ReactElement => <View />,
+  renderItem: (): JSX.Element => <View />,
+  renderViewMenu: (): JSX.Element => <View />,
   message: '',
   onChangeMessage: (): void => {},
   placeholder: '',
-  renderSendButton: (): React.ReactElement => <View />,
+  renderSendButton: (): JSX.Element => <View />,
 };
 
 export default Shared;

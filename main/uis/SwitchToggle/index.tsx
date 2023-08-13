@@ -1,4 +1,3 @@
-import type {ReactElement} from 'react';
 import React, {useEffect, useState} from 'react';
 import type {StyleProp, ViewStyle} from 'react-native';
 import {Animated, TouchableOpacity} from 'react-native';
@@ -75,7 +74,7 @@ const largeCircle: ViewStyle = {
   borderRadius: 16,
 };
 
-export function SwitchToggle(props: Props): ReactElement {
+export function SwitchToggle(props: Props): JSX.Element {
   const {
     testID,
     isOn,

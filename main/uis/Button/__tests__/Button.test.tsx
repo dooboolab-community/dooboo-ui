@@ -1,4 +1,3 @@
-import type {ReactElement} from 'react';
 import React from 'react';
 import {Text} from 'react-native';
 import type {ThemeType} from '@dooboo-ui/theme';
@@ -24,7 +23,7 @@ const Component = ({
 }: {
   props?: ButtonProps;
   themeType?: ThemeType;
-}): ReactElement =>
+}): JSX.Element =>
   createComponent(<Button onPress={jest.fn} {...props} />, themeType);
 
 describe('[Button]', () => {

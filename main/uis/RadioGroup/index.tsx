@@ -1,4 +1,3 @@
-import type {ReactElement} from 'react';
 import type {StyleProp, TextStyle, ViewStyle} from 'react-native';
 import {View} from 'react-native';
 import styled from '@emotion/native';
@@ -47,7 +46,7 @@ const Content = styled.View`
 
 function RadioGroupContainer<T>(
   props: Omit<Props<T>, 'selected'>,
-): ReactElement {
+): JSX.Element {
   const {
     title,
     data,

@@ -1,4 +1,3 @@
-import type {ReactElement} from 'react';
 // Caveat: Expo web needs React to be imported
 import React, {useEffect, useState} from 'react';
 import type {ImageStyle, StyleProp} from 'react-native';
@@ -12,7 +11,7 @@ type Props = {
   style?: StyleProp<ImageStyle>;
 };
 
-function LoadingIndicatorCustomStory({style}: Props): ReactElement {
+function LoadingIndicatorCustomStory({style}: Props): JSX.Element {
   const [spinAnim] = useState(new Animated.Value(0));
 
   const spin = spinAnim.interpolate({

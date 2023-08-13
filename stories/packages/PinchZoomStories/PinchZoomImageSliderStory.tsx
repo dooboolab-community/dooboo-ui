@@ -1,5 +1,4 @@
 // Caveat: Expo web needs React to be imported
-import type {ReactElement} from 'react';
 import React from 'react';
 import type {ImageProps, ImageSourcePropType} from 'react-native';
 import {Animated, Dimensions, Image} from 'react-native';
@@ -44,7 +43,7 @@ const images = [
 
 function AutoHeightImage(
   props: ImageProps & {style: {width: number}},
-): React.ReactElement {
+): JSX.Element {
   const {style} = props;
   const [heightPerWidth, setHightPerWidth] = React.useState(0);
 
@@ -67,7 +66,7 @@ const PinchZoomImageSliderStory = ({
   imageSources = images,
 }: {
   imageSources?: ImageSourcePropType[];
-}): ReactElement => {
+}): JSX.Element => {
   const [currentIndex, setCurrentIndex] = React.useState(0);
 
   const animValues = React.useRef({

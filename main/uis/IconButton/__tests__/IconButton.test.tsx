@@ -1,4 +1,3 @@
-import type {ReactElement} from 'react';
 import React from 'react';
 import type {RenderAPI} from '@testing-library/react-native';
 import {render} from '@testing-library/react-native';
@@ -13,7 +12,7 @@ jest.mock('react-native-web-hooks', () => ({
   useHover: () => true,
 }));
 
-const Component = (props?: Props): ReactElement =>
+const Component = (props?: Props): JSX.Element =>
   createComponent(<IconButton {...props} />);
 
 describe('[IconButton]', () => {

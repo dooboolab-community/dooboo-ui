@@ -1,4 +1,3 @@
-import type {ReactElement} from 'react';
 // Caveat: Expo web needs React to be imported
 import React, {useEffect, useRef, useState} from 'react';
 import type {LayoutChangeEvent} from 'react-native';
@@ -42,7 +41,7 @@ type Props<T, K> = Omit<AccordionBaseProps<T, K>, 'data' | 'style'> & {
   data: AccordionItemDataType<string, string> | AccordionItemDataType<T, K>;
 };
 
-export function AccordionItem<T, K>(props: Props<T, K>): ReactElement {
+export function AccordionItem<T, K>(props: Props<T, K>): JSX.Element {
   const {
     testID,
     data: data,

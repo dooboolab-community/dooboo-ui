@@ -1,4 +1,3 @@
-import type {ReactElement} from 'react';
 // Caveat: Expo web needs React to be imported
 import React from 'react';
 import {action} from '@storybook/addon-actions';
@@ -7,7 +6,7 @@ import {boolean, number, select, text} from '@storybook/addon-knobs';
 import {Rating} from '../../../main';
 import {StoryContainer, StorySection, StoryTitle} from '../../GlobalStyles';
 
-function RatingBasicStory(): ReactElement {
+function RatingBasicStory(): JSX.Element {
   const disabled = boolean('disabled', false);
   const allowHalfRating = boolean('allowHalfRating', true);
   const color = text('color', '#000000');

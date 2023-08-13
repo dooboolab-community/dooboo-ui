@@ -1,4 +1,3 @@
-import type {ReactElement} from 'react';
 import type {PressableProps, StyleProp, ViewStyle} from 'react-native';
 import {Pressable} from 'react-native';
 import {useTheme} from '@dooboo-ui/theme';
@@ -6,7 +5,7 @@ import {css} from '@emotion/native';
 
 export default function CustomPressable(
   props: PressableProps & {style?: StyleProp<ViewStyle>},
-): ReactElement {
+): JSX.Element {
   const {children, style, hitSlop} = props;
   const {theme} = useTheme();
 

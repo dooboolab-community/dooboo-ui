@@ -1,4 +1,3 @@
-import type {ReactElement} from 'react';
 import React from 'react';
 import {Text} from 'react-native';
 import RNWebHooks from 'react-native-web-hooks';
@@ -16,7 +15,7 @@ jest.mock('react-native-web-hooks', () => ({
 
 let testingLib: RenderAPI;
 
-const Component = (editProps?: EditTextProps): ReactElement =>
+const Component = (editProps?: EditTextProps): JSX.Element =>
   createComponent(<EditText {...editProps} />);
 
 describe('[EditText]', () => {
@@ -61,7 +60,7 @@ describe('[EditText]', () => {
       });
 
       it('renders custom label style', async () => {
-        const renderCustomLabel = (): ReactElement => {
+        const renderCustomLabel = (): JSX.Element => {
           return (
             <Text
               style={{
@@ -279,7 +278,7 @@ describe('[EditText]', () => {
     });
 
     it('should have render custom error', () => {
-      const renderCustomError = (): ReactElement => <Text>custom error</Text>;
+      const renderCustomError = (): JSX.Element => <Text>custom error</Text>;
 
       testingLib = render(
         Component({

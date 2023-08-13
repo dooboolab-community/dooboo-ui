@@ -1,4 +1,4 @@
-import type {ComponentProps, ReactElement} from 'react';
+import type {ComponentProps} from 'react';
 import {useState} from 'react';
 import type {Meta, Story} from '@storybook/react/types-6-0';
 import {ButtonGroup, DoobooProvider} from 'dooboo-ui';
@@ -18,7 +18,7 @@ const initialProps: ButtonGroupProps = {
   color: 'primary',
 };
 
-const Container = ({children}): ReactElement => {
+const Container = ({children}): JSX.Element => {
   const isDark = useDarkMode();
 
   return (
@@ -28,7 +28,7 @@ const Container = ({children}): ReactElement => {
   );
 };
 
-const ButtonGroupStory: Story<ButtonGroupProps> = (args): ReactElement => {
+const ButtonGroupStory: Story<ButtonGroupProps> = (args): JSX.Element => {
   const {options, initialValue} = args;
   const [selectedIndex, setSelectedIndex] = useState(initialValue);
 

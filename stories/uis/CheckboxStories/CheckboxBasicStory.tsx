@@ -1,4 +1,3 @@
-import type {FC, ReactElement, ReactNode} from 'react';
 // Caveat: Expo web needs React to be imported
 import React, {useState} from 'react';
 import {View} from 'react-native';
@@ -8,60 +7,68 @@ import {Checkbox, Typography} from '../../../main';
 import {ScrollContainer, StoryContainer, StoryTitle} from '../../GlobalStyles';
 import {checkboxColors} from '../const';
 
-const LabelWrapper: FC<{
+function LabelWrapper({
+  label,
+  children,
+}: {
   label: string;
-  children: ReactNode;
-}> = ({label, children}) => (
-  <View
-    style={{
-      flexDirection: 'column',
-      alignItems: 'center',
-    }}
-  >
-    <>
-      <Typography.Body1>{label}</Typography.Body1>
-      {children}
-    </>
-  </View>
-);
+  children: JSX.Element;
+}): JSX.Element {
+  return (
+    <View
+      style={{
+        flexDirection: 'column',
+        alignItems: 'center',
+      }}
+    >
+      <>
+        <Typography.Body1>{label}</Typography.Body1>
+        {children}
+      </>
+    </View>
+  );
+}
 
-type CheckBoxProps = {
+function Checkboxes({
+  setChecked,
+  checked,
+}: {
   setChecked: (checked: boolean) => void;
   checked: boolean;
-};
+}): JSX.Element {
+  return (
+    <View
+      style={{
+        flexDirection: 'row',
+        flexWrap: 'wrap',
+        justifyContent: 'center',
+      }}
+    >
+      {checkboxColors.map((color, i) => (
+        <LabelWrapper key={`${color}_${i}`} label={color}>
+          <Checkbox
+            style={{margin: 25}}
+            checked={checked}
+            disabled={boolean('disabled', false)}
+            onPress={() => setChecked(!checked)}
+            color={color}
+          />
+        </LabelWrapper>
+      ))}
 
-const Checkboxes: FC<CheckBoxProps> = ({setChecked, checked}) => (
-  <View
-    style={{
-      flexDirection: 'row',
-      flexWrap: 'wrap',
-      justifyContent: 'center',
-    }}
-  >
-    {checkboxColors.map((color, i) => (
-      <LabelWrapper key={`${color}_${i}`} label={color}>
+      <LabelWrapper label="disabled">
         <Checkbox
           style={{margin: 25}}
-          checked={checked}
+          checked={boolean('checked', checked)}
           disabled={boolean('disabled', false)}
           onPress={() => setChecked(!checked)}
-          color={color}
         />
       </LabelWrapper>
-    ))}
+    </View>
+  );
+}
 
-    <LabelWrapper label="disabled">
-      <Checkbox
-        style={{margin: 25}}
-        checked={boolean('checked', checked)}
-        disabled={boolean('disabled', false)}
-        onPress={() => setChecked(!checked)}
-      />
-    </LabelWrapper>
-  </View>
-);
-
-function CheckboxBasicStory(): ReactElement {
+function CheckboxBasicStory(): JSX.Element {
   const [checked, setChecked] = useState<boolean>(false);
 
   return (

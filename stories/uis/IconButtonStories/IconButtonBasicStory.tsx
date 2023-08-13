@@ -1,4 +1,3 @@
-import type {ReactElement} from 'react';
 // Caveat: Expo web needs React to be imported
 import React from 'react';
 import {css} from '@emotion/native';
@@ -9,7 +8,7 @@ import type {ButtonType} from '../../../main';
 import {IconButton} from '../../../main';
 import {StoryContainer, StorySection, StoryTitle} from '../../GlobalStyles';
 
-function IconButtonBasicStory(): ReactElement {
+function IconButtonBasicStory(): JSX.Element {
   const types: ButtonType[] = ['text', 'solid', 'outlined'];
 
   return (

@@ -1,4 +1,3 @@
-import type {ReactElement} from 'react';
 import React, {isValidElement, useCallback, useEffect, useState} from 'react';
 import type {
   ImageProps,
@@ -22,12 +21,12 @@ const Container = styled.View`
 interface Props {
   style?: StyleProp<ViewStyle>;
   url: string | undefined;
-  loadingSource?: ImageRequireSource | ReactElement;
+  loadingSource?: ImageRequireSource | JSX.Element;
   imageProps?: Partial<ImageProps>;
   shouldFixImageRatio?: boolean;
 }
 
-function NetworkImage(props: Props): ReactElement {
+function NetworkImage(props: Props): JSX.Element {
   const {themeType} = useTheme();
   const logo = themeType === 'light' ? PlaceholderLight : PlaceholderDark;
   const {style, url, imageProps = false} = props;

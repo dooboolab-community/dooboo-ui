@@ -14,13 +14,13 @@
 | fontColor          |           | string              |         |
 | keyboardOffset     |           | number              |         |
 | renderItem         |           | ListRenderItem<any> |         |
-| ListEmptyComponent |           | ReactElement        |         |
-| renderViewMenu     |           | () => ReactElement  |         |
-| optionView         |           | ReactElement        |         |
+| ListEmptyComponent |           | JSX.Element         |         |
+| renderViewMenu     |           | () => JSX.Element   |         |
+| optionView         |           | JSX.Element         |         |
 | onChangeMessage    |           | Function            |         |
 | placeholder        |           | string              |         |
 | placeholderColor   |           | string              |         |
-| renderSendButton   |           | () => ReactElement  |         |
+| renderSendButton   |           | () => JSX.Element   |         |
 
 ## Installation
 
@@ -86,7 +86,7 @@ yarn add @dooboo-ui/gifted-chat
     chats: Chat[];
   }
 
-  function Screen(props: Props): React.ReactElement {
+  function Screen(props: Props): JSX.Element {
     const { theme } = props;
 
     const [isSending, setIsSending] = useState<boolean>(false);
@@ -164,7 +164,7 @@ yarn add @dooboo-ui/gifted-chat
           }: {
             item: Chat;
             index: number;
-          }): React.ReactElement => {
+          }): JSX.Element => {
             return (
               <ChatListItem
                 prevItem={index > 0 ? chats[index - 1] : undefined}
@@ -182,7 +182,7 @@ yarn add @dooboo-ui/gifted-chat
             />
           }
           ListEmptyComponent={<EmptyListItem>{getString('NO_CONTENT')}</EmptyListItem>}
-          renderViewMenu={(): React.ReactElement => (
+          renderViewMenu={(): JSX.Element => (
             <View
               style={{
                 flexDirection: 'row',
@@ -223,7 +223,7 @@ yarn add @dooboo-ui/gifted-chat
               </TouchableOpacity>
             </View>
           )}
-          renderSendButton={(): React.ReactElement => (
+          renderSendButton={(): JSX.Element => (
             <Button
               testID="btn_chat"
               height={Platform.OS === 'android' ? 40 : undefined}

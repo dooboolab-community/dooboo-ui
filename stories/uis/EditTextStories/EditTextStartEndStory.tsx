@@ -1,4 +1,3 @@
-import type {ReactElement} from 'react';
 // Caveat: Expo web needs React to be imported
 import React, {useState} from 'react';
 import {action} from '@storybook/addon-actions';
@@ -9,7 +8,7 @@ import {EditText} from '../../../main/uis/EditText';
 import {Typography} from '../../../main/uis/Typography';
 import {ScrollContainer, StoryContainer} from '../../GlobalStyles';
 
-const EditTextStartEndStory = (): ReactElement => {
+const EditTextStartEndStory = (): JSX.Element => {
   const [text, setText] = useState<string>('');
   const onTextChanged = (str: string): void => setText(str);
 

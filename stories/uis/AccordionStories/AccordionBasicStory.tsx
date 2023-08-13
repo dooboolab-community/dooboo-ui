@@ -1,4 +1,3 @@
-import type {ReactElement} from 'react';
 // Caveat: Expo web needs React to be imported
 import React from 'react';
 import styled from '@emotion/native';
@@ -27,7 +26,7 @@ const data = [
   },
 ];
 
-const AccordionBasic = (): ReactElement => {
+const AccordionBasic = (): JSX.Element => {
   return (
     <ScrollContainer>
       <StoryContainer>

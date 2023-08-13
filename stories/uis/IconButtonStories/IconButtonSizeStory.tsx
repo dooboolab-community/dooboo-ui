@@ -1,4 +1,3 @@
-import type {ReactElement} from 'react';
 // Caveat: Expo web needs React to be imported
 import React from 'react';
 import {action} from '@storybook/addon-actions';
@@ -8,7 +7,7 @@ import type {ButtonSizeType} from '../../../main';
 import {IconButton} from '../../../main';
 import {StoryContainer, StorySection, StoryTitle} from '../../GlobalStyles';
 
-function IconButtonSizeStory(): ReactElement {
+function IconButtonSizeStory(): JSX.Element {
   const sizes: ButtonSizeType[] = ['small', 'medium', 'large'];
 
   return (

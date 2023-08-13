@@ -1,4 +1,3 @@
-import type {ReactElement} from 'react';
 import React from 'react';
 import {fireEvent, render} from '@testing-library/react-native';
 
@@ -6,7 +5,7 @@ import {createComponent} from '../../../../test/testUtils';
 import type {IconName} from '../../..';
 import {Fab} from '../../..';
 
-const Component = (props): ReactElement => createComponent(<Fab {...props} />);
+const Component = (props): JSX.Element => createComponent(<Fab {...props} />);
 
 describe('[Fab]', () => {
   it('should render', async () => {

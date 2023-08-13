@@ -1,5 +1,4 @@
 // Caveat: Expo web needs React to be imported
-import type {ReactElement} from 'react';
 import React, {useState} from 'react';
 import {View} from 'react-native';
 import {useTheme} from '@dooboo-ui/theme';
@@ -8,7 +7,7 @@ import {number} from '@storybook/addon-knobs';
 import {SwitchToggle} from '../../../main';
 import {ScrollContainer, StoryContainer, StoryTitle} from '../../GlobalStyles';
 
-function SwitchToggleBasicStory(): ReactElement {
+function SwitchToggleBasicStory(): JSX.Element {
   const [on, off] = useState<boolean>(false);
   const {theme} = useTheme();
 

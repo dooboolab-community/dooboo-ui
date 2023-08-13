@@ -1,4 +1,4 @@
-import type {ComponentProps, ReactElement} from 'react';
+import type {ComponentProps} from 'react';
 import {useState} from 'react';
 import {View} from 'react-native';
 import {css} from '@emotion/native';
@@ -21,7 +21,7 @@ const initialProps: FabProps = {
   isActive: true,
 };
 
-const Container = ({style, children}): ReactElement => {
+const Container = ({style, children}): JSX.Element => {
   const isDark = useDarkMode();
 
   return (
@@ -40,7 +40,7 @@ const Container = ({style, children}): ReactElement => {
   );
 };
 
-const FabStory: Story<FabProps> = (args): ReactElement => {
+const FabStory: Story<FabProps> = (args): JSX.Element => {
   const [isActive, setIsActive] = useState(false);
 
   return (

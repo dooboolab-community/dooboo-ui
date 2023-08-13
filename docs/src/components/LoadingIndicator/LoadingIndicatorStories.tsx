@@ -1,4 +1,4 @@
-import type {ComponentProps, ReactElement} from 'react';
+import type {ComponentProps} from 'react';
 import {View} from 'react-native';
 import {css} from '@emotion/native';
 import type {Meta, Story} from '@storybook/react/types-6-0';
@@ -15,7 +15,7 @@ type LoadingIndicatorProps = ComponentProps<typeof LoadingIndicator>;
 
 const initialProps: LoadingIndicatorProps = {};
 
-const Container = ({children}): ReactElement => {
+const Container = ({children}): JSX.Element => {
   const isDark = useDarkMode();
 
   return (
@@ -33,7 +33,7 @@ const Container = ({children}): ReactElement => {
 
 const LoadingIndicatorStory: Story<LoadingIndicatorProps> = (
   args,
-): ReactElement => {
+): JSX.Element => {
   return (
     <Container>
       <LoadingIndicator {...args} />

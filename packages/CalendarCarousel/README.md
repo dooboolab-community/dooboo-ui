@@ -145,7 +145,7 @@ It also containes the function renderCalendar() which is described below.
     style={styles.dayContainer}
     data={calendarDates}
     numColumns={7}
-    renderItem ={({ item }): ReactElement => renderDates(item)}
+    renderItem ={({ item }): JSX.Element => renderDates(item)}
     keyExtractor={(item, id): string => id.toString()}
   />
   {renderDayEvents()}
@@ -181,7 +181,7 @@ In addition to rendering the calendar, renderCalendar() renders the dates and th
 Takes the data markedDayEvents that is recieved from the props and renders the events based on that. 
 
 ```tsx
-      const renderEvent = (): ReactElement[] => {
+      const renderEvent = (): JSX.Element[] => {
         return markedDayEvents.map((markedDayEvent, i) => {
           if (markedDates[i] === eventDay &&
             markedMonths.includes(month) &&

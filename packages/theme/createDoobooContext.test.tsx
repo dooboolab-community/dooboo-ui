@@ -1,4 +1,3 @@
-import type {ReactElement} from 'react';
 import {renderHook} from '@testing-library/react-hooks';
 
 import createDoobooContext from './createDoobooContext';
@@ -8,7 +7,7 @@ describe('createDoobooContext', () => {
 
   context('when theme provider exists', () => {
     it('returns context value provided by provider', () => {
-      const wrapper = ({children}): ReactElement => (
+      const wrapper = ({children}): JSX.Element => (
         <Provider value="context">{children}</Provider>
       );
 

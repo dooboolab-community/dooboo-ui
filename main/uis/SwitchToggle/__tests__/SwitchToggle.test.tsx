@@ -1,4 +1,3 @@
-import type {ReactElement} from 'react';
 import React from 'react';
 import {Text} from 'react-native';
 import type {RenderAPI} from '@testing-library/react-native';
@@ -29,7 +28,7 @@ describe('[SwitchToggle]', () => {
     expect(handlePress).toBeCalled();
   });
 
-  const getSwitchToggle = ({isOn}: {isOn: boolean}): ReactElement =>
+  const getSwitchToggle = ({isOn}: {isOn: boolean}): JSX.Element =>
     createComponent(
       <SwitchToggle
         isOn={isOn}

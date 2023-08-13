@@ -1,4 +1,4 @@
-import type {ComponentProps, ReactElement} from 'react';
+import type {ComponentProps} from 'react';
 import {useState} from 'react';
 import {View} from 'react-native';
 import {css} from '@emotion/native';
@@ -19,7 +19,7 @@ const initialProps: RadioGroupProps = {
   selectedValue: 'Option 1',
 };
 
-const Container = ({children}): ReactElement => {
+const Container = ({children}): JSX.Element => {
   const isDark = useDarkMode();
 
   return (
@@ -35,7 +35,7 @@ const Container = ({children}): ReactElement => {
   );
 };
 
-const RadioGroupStory: Story<RadioGroupProps> = (args): ReactElement => {
+const RadioGroupStory: Story<RadioGroupProps> = (args): JSX.Element => {
   const [selectedValue, setSelectedValue] = useState(
     args.selectedValue as string,
   );

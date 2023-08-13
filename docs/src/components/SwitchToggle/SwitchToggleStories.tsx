@@ -1,4 +1,4 @@
-import type {ComponentProps, ReactElement} from 'react';
+import type {ComponentProps} from 'react';
 import {useState} from 'react';
 import {View} from 'react-native';
 import {css} from '@emotion/native';
@@ -16,7 +16,7 @@ type SwitchToggleProps = ComponentProps<typeof SwitchToggle>;
 
 const initialProps: SwitchToggleProps = {isOn: false};
 
-const Container = ({children}): ReactElement => {
+const Container = ({children}): JSX.Element => {
   const isDark = useDarkMode();
 
   return (
@@ -32,7 +32,7 @@ const Container = ({children}): ReactElement => {
   );
 };
 
-const SwitchToggleStory: Story<SwitchToggleProps> = (args): ReactElement => {
+const SwitchToggleStory: Story<SwitchToggleProps> = (args): JSX.Element => {
   const [isOn, setIsOn] = useState(args.isOn);
 
   return (

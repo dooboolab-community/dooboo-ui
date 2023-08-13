@@ -1,6 +1,5 @@
 import 'react-native';
 
-import type {ReactElement} from 'react';
 import React from 'react';
 import type {ThemeType} from '@dooboo-ui/theme';
 import {ThemeProvider} from '@dooboo-ui/theme';
@@ -16,8 +15,8 @@ export const createTestProps = (
 });
 
 export const createComponent = (
-  children: ReactElement,
+  children: JSX.Element,
   themeType?: ThemeType,
-): ReactElement => {
+): JSX.Element => {
   return <ThemeProvider initialThemeType={themeType}>{children}</ThemeProvider>;
 };

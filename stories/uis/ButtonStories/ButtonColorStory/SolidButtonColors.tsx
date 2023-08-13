@@ -1,4 +1,3 @@
-import type {ReactElement} from 'react';
 // Caveat: Expo web needs React to be imported
 import React from 'react';
 import {boolean, number, select} from '@storybook/addon-knobs';
@@ -8,7 +7,7 @@ import {Button} from '../../../../main';
 import {StorySection} from '../../../GlobalStyles';
 import {buttonColors, buttonSizes} from '../../const';
 
-function SolidButtonColors(): ReactElement {
+function SolidButtonColors(): JSX.Element {
   const size = select<ButtonSizeType>('size', buttonSizes, 'medium');
   const disabled = boolean('disabled', false);
   const activeOpacity = number('activeOpacity', 0.8);

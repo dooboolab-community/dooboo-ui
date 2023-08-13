@@ -1,4 +1,3 @@
-import type {ReactElement} from 'react';
 import React from 'react';
 import {View} from 'react-native';
 import {ThemeProvider} from '@dooboo-ui/theme';
@@ -10,7 +9,7 @@ import StatusBarBrightness from '..';
 
 let testingLib: RenderAPI;
 
-const Component = (): ReactElement =>
+const Component = (): JSX.Element =>
   createComponent(
     <View>
       <StatusBarBrightness />

@@ -1,4 +1,3 @@
-import type {ReactElement} from 'react';
 import React from 'react';
 import {View} from 'react-native';
 import type {RenderAPI} from '@testing-library/react-native';
@@ -9,7 +8,7 @@ import {Hr} from '../../..';
 
 let testingLib: RenderAPI;
 
-const Component = (): ReactElement =>
+const Component = (): JSX.Element =>
   createComponent(
     <View>
       <Hr />

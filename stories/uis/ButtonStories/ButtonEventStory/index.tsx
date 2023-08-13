@@ -1,4 +1,3 @@
-import type {ReactElement} from 'react';
 // Caveat: Expo web needs React to be imported
 import React from 'react';
 
@@ -7,7 +6,7 @@ import {StoryDescription} from '../../../GlobalStyles';
 import Counter from './Counter';
 import GoogleSignIn from './GoogleSignIn';
 
-function ButtonEventStory(): ReactElement {
+function ButtonEventStory(): JSX.Element {
   return (
     <>
       <StoryDescription>Counter</StoryDescription>

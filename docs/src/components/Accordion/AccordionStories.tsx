@@ -1,4 +1,4 @@
-import type {ComponentProps, ReactElement} from 'react';
+import type {ComponentProps} from 'react';
 import type {Meta, Story} from '@storybook/react/types-6-0';
 import {Accordion, DoobooProvider} from 'dooboo-ui';
 import {useDarkMode} from 'storybook-dark-mode';
@@ -11,7 +11,7 @@ export default {
 
 const Template: Story<ComponentProps<typeof Accordion>> = (
   args,
-): ReactElement => {
+): JSX.Element => {
   const isDark = useDarkMode();
 
   return (

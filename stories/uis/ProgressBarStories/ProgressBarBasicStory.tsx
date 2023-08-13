@@ -1,4 +1,3 @@
-import type {ReactElement} from 'react';
 // Caveat: Expo web needs React to be imported
 import React from 'react';
 import styled from '@emotion/native';
@@ -28,7 +27,7 @@ const SubTitle = styled.Text`
   color: ${({theme}) => theme.role.primary};
 `;
 
-function ProgressBarBasicStory(): ReactElement {
+function ProgressBarBasicStory(): JSX.Element {
   return (
     <StoryContainer>
       <StoryTitle>Basic</StoryTitle>

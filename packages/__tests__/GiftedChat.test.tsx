@@ -8,7 +8,7 @@ import {createTestProps} from '../../test/testUtils';
 import GiftedChatInput from '../GiftedChat';
 
 let props: any;
-let component: React.ReactElement;
+let component: JSX.Element;
 let testingLib: RenderAPI;
 
 jest.useFakeTimers();

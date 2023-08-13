@@ -1,4 +1,4 @@
-import type {MutableRefObject, ReactElement, ReactNode, RefObject} from 'react';
+import type {MutableRefObject, ReactNode, RefObject} from 'react';
 import React, {isValidElement, useRef, useState} from 'react';
 import type {
   StyleProp,
@@ -36,10 +36,10 @@ export type EditTextStatus =
   | 'hovered'
   | 'basic';
 
-type RenderType = (stats: EditTextStatus) => ReactElement;
+type RenderType = (stats: EditTextStatus) => JSX.Element;
 
 type CustomRenderType =
-  | (({color, status}: {color: string; status: EditTextStatus}) => ReactElement)
+  | (({color, status}: {color: string; status: EditTextStatus}) => JSX.Element)
   | null;
 
 export type EditTextProps = {
@@ -53,8 +53,8 @@ export type EditTextProps = {
   // Components
   label?: string | RenderType;
   error?: string | RenderType;
-  startElement?: ReactElement | CustomRenderType;
-  endElement?: ReactElement | CustomRenderType;
+  startElement?: JSX.Element | CustomRenderType;
+  endElement?: JSX.Element | CustomRenderType;
 
   direction?: 'row' | 'column';
   decoration?: 'underline' | 'boxed';
@@ -106,7 +106,7 @@ export type EditTextProps = {
   };
 };
 
-export function EditText(props: EditTextProps): ReactElement {
+export function EditText(props: EditTextProps): JSX.Element {
   const {
     testID,
     inputRef: givenInputRef,
@@ -178,9 +178,9 @@ export function EditText(props: EditTextProps): ReactElement {
     ? 'focused'
     : 'basic';
 
-  const renderLabel = (): ReactElement | null => {
+  const renderLabel = (): JSX.Element | null => {
     // eslint-disable-next-line react/no-unstable-nested-components
-    const Wrapper = ({children}: {children: ReactNode}): ReactElement => {
+    const Wrapper = ({children}: {children: ReactNode}): JSX.Element => {
       return (
         <View
           style={css`
@@ -226,7 +226,7 @@ export function EditText(props: EditTextProps): ReactElement {
     ) : null;
   };
 
-  const renderContainer = (children: ReactNode): ReactElement => {
+  const renderContainer = (children: ReactNode): JSX.Element => {
     return (
       <TouchableWithoutFeedback
         testID="container-touch"
@@ -265,7 +265,7 @@ export function EditText(props: EditTextProps): ReactElement {
     );
   };
 
-  const renderInput = (): ReactElement | null => {
+  const renderInput = (): JSX.Element | null => {
     return (
       <View
         style={[
@@ -364,7 +364,7 @@ export function EditText(props: EditTextProps): ReactElement {
     );
   };
 
-  const renderError = (): ReactElement | null => {
+  const renderError = (): JSX.Element | null => {
     return error ? (
       typeof error === 'string' ? (
         <Text
@@ -385,7 +385,7 @@ export function EditText(props: EditTextProps): ReactElement {
     ) : null;
   };
 
-  const renderCounter = (): ReactElement | null => {
+  const renderCounter = (): JSX.Element | null => {
     if (hideCounter) {
       return null;
     }

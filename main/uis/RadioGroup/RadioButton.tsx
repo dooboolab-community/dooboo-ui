@@ -32,8 +32,8 @@ export type RadioButtonProps = {
   type?: RadioButtonType;
   disabled?: boolean;
   selected?: boolean;
-  endElement?: React.ReactElement;
-  startElement?: React.ReactElement;
+  endElement?: JSX.Element;
+  startElement?: JSX.Element;
 };
 
 const Container = styled.TouchableOpacity`

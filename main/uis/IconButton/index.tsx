@@ -1,4 +1,4 @@
-import type {FC, ReactElement, ReactNode} from 'react';
+import type {FC, ReactNode} from 'react';
 import React, {useRef} from 'react';
 import type {StyleProp, TouchableHighlightProps, ViewStyle} from 'react-native';
 import {Platform, TouchableHighlight, View} from 'react-native';
@@ -99,9 +99,9 @@ export type IconButtonProps = {
   size?: ButtonSizeType | number;
   disabled?: boolean;
   loading?: boolean;
-  loadingElement?: ReactElement;
+  loadingElement?: JSX.Element;
   icon?: IconName;
-  iconElement?: ReactElement;
+  iconElement?: JSX.Element;
   style?: StyleProp<Omit<ViewStyle, 'borderRadius' | 'padding'>>;
   styles?: Styles;
   onPress?: TouchableHighlightProps['onPress'];
@@ -187,7 +187,7 @@ export const IconButton: FC<IconButtonProps> = (props) => {
     ],
   };
 
-  const renderContainer = (children: ReactNode): ReactElement => {
+  const renderContainer = (children: ReactNode): JSX.Element => {
     return (
       <View
         testID={loading ? 'loading-view' : 'button-container'}
@@ -209,12 +209,12 @@ export const IconButton: FC<IconButtonProps> = (props) => {
     );
   };
 
-  const renderLoading = (): ReactElement =>
+  const renderLoading = (): JSX.Element =>
     loadingElement ?? (
       <LoadingIndicator size="small" color={theme.text.basic} />
     );
 
-  const renderChild = (): ReactElement =>
+  const renderChild = (): JSX.Element =>
     iconElement || (
       <Icon size={iconSize} color={iconColor} name={icon || 'QuestBoxFill'} />
     );

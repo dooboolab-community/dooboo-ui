@@ -1,4 +1,3 @@
-import type {ReactElement} from 'react';
 import React, {useMemo, useRef, useState} from 'react';
 import type {TextStyle, ViewStyle} from 'react-native';
 import {Animated} from 'react-native';
@@ -41,7 +40,7 @@ export function ProgressCircle({
   styles,
   progress,
   color = 'info',
-}: Props): ReactElement {
+}: Props): JSX.Element {
   const {
     radius = 30,
     strokeWidth = 5,

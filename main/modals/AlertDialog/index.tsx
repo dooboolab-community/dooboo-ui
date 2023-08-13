@@ -1,4 +1,3 @@
-import type {ReactElement} from 'react';
 import React, {
   cloneElement,
   forwardRef,
@@ -68,11 +67,11 @@ export type AlertDialogStyles = {
 
 export type AlertDialogOptions = {
   styles?: AlertDialogStyles;
-  title?: string | ReactElement;
-  body?: string | ReactElement;
+  title?: string | JSX.Element;
+  body?: string | JSX.Element;
   backdropOpacity?: number;
   closeOnTouchOutside?: boolean;
-  actions?: ReactElement[];
+  actions?: JSX.Element[];
 };
 
 export type AlertDialogContext = {
@@ -83,7 +82,7 @@ export type AlertDialogContext = {
 function AlertDialog(
   {style}: AlertDialogProps,
   ref: React.Ref<AlertDialogContext>,
-): ReactElement {
+): JSX.Element {
   const [options, setOptions] = useState<AlertDialogOptions | null>(null);
   const [visible, setVisible] = useState(false);
   const {theme, themeType} = useTheme();
