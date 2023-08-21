@@ -409,7 +409,7 @@ export function EditText(props: EditTextProps): JSX.Element {
       ref={Platform.select({web: ref, default: undefined})}
       style={[
         css`
-          flex-direction: column;
+          width: 100%;
         `,
         style,
       ]}
