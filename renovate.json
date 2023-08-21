@@ -60,10 +60,14 @@
       }
     },
     {
-      "groupName": "lints",
+      "groupName": "all non-major dependencies",
+      "groupSlug": "all-minor-patch",
       "matchPackagePatterns": [
-        "^eslint",
-        "^prettier"
+        "*"
+      ],
+      "matchUpdateTypes": [
+        "minor",
+        "patch"
       ],
       "labels": [
         "lint"
