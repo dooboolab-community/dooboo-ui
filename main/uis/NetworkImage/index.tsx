@@ -21,7 +21,7 @@ const Container = styled.View`
 interface Props {
   style?: StyleProp<ViewStyle>;
   url: string | undefined;
-  loadingSource?: ImageSourcePropType;
+  loadingSource?: ImageSourcePropType | JSX.Element;
   imageProps?: Partial<ImageProps>;
   shouldFixImageRatio?: boolean;
 }
@@ -35,7 +35,7 @@ function NetworkImage(props: Props): JSX.Element {
   const [loading, setLoading] = useState(true);
 
   const renderFallback = useCallback(() => {
-    return isValidElement(props?.loadingSource) ? (
+    return props?.loadingSource && isValidElement(props?.loadingSource) ? (
       props?.loadingSource
     ) : (
       <Image
