@@ -1,7 +1,7 @@
 import React, {isValidElement, useCallback, useEffect, useState} from 'react';
 import type {
   ImageProps,
-  ImageRequireSource,
+  ImageSourcePropType,
   StyleProp,
   ViewStyle,
 } from 'react-native';
@@ -21,7 +21,7 @@ const Container = styled.View`
 interface Props {
   style?: StyleProp<ViewStyle>;
   url: string | undefined;
-  loadingSource?: ImageRequireSource | JSX.Element;
+  loadingSource?: ImageSourcePropType;
   imageProps?: Partial<ImageProps>;
   shouldFixImageRatio?: boolean;
 }
@@ -39,6 +39,7 @@ function NetworkImage(props: Props): JSX.Element {
       props?.loadingSource
     ) : (
       <Image
+        // @ts-ignore
         source={props.loadingSource ?? logo}
         resizeMethod="resize"
         resizeMode="cover"
