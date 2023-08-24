@@ -30,20 +30,18 @@ type ButtonColorType =
   | 'info'
   | 'light';
 
-type ButtonSizeType = 'small' | 'medium' | 'large';
+type ButtonSizeType = 'small' | 'medium' | 'large' | number;
 
 export const ButtonStyles = ({
   theme,
   type = 'solid',
   color = 'primary',
-  size = 'medium',
   loading,
   disabled,
 }: {
   theme?: DoobooTheme;
   type?: ButtonType;
   color?: ButtonColorType;
-  size?: ButtonSizeType | number;
   disabled?: boolean;
   loading?: boolean;
 }): {
@@ -51,9 +49,7 @@ export const ButtonStyles = ({
   backgroundColor?: string;
   borderColor?: string;
   borderWidth?: number;
-  buttonSize: number;
   iconColor?: string;
-  iconSize?: number;
   disabledBackgroundColor: string;
   disabledBorderColor: string;
   disabledTextColor: string;
@@ -82,9 +78,7 @@ export const ButtonStyles = ({
     backgroundColor,
     borderColor,
     borderWidth: type === 'outlined' ? 1 : 0,
-    buttonSize: size === 'large' ? 80 : size === 'medium' ? 50 : 32,
     iconColor,
-    iconSize: size === 'large' ? 32 : size === 'medium' ? 24 : 16,
     disabledBackgroundColor:
       type === 'solid' && !loading ? theme.button.disabled.bg : theme.bg.basic,
     disabledBorderColor: theme.bg.disabled,
@@ -136,28 +130,33 @@ export const IconButton: FC<IconButtonProps> = (props) => {
     backgroundColor,
     borderColor,
     borderWidth,
-    buttonSize,
     iconColor,
-    iconSize,
     disabledBackgroundColor,
     disabledBorderColor,
   } = ButtonStyles({
     theme,
     type,
     color,
-    size,
     loading,
     disabled,
   });
 
+  const iconSize =
+    size === 'large'
+      ? 32
+      : size === 'medium'
+      ? 24
+      : size === 'small'
+      ? 16
+      : size;
   const borderWidthStr = `${borderWidth}px`;
+  const borderRadiusStr = `99px`;
 
   const compositeStyles: Styles = {
     container: [
       css`
         background-color: ${backgroundColor};
         border-color: ${borderColor};
-        border-radius: ${buttonSize + 'px'};
         border-width: ${borderWidthStr};
         padding: 12px;
       `,
@@ -194,6 +193,7 @@ export const IconButton: FC<IconButtonProps> = (props) => {
         style={[
           css`
             padding: 4px;
+            border-radius: ${borderRadiusStr};
 
             flex-direction: row;
             justify-content: center;
@@ -214,7 +214,7 @@ export const IconButton: FC<IconButtonProps> = (props) => {
       <LoadingIndicator size="small" color={theme.text.basic} />
     );
 
-  const renderChild = (): JSX.Element =>
+  const renderIcon = (): JSX.Element =>
     iconElement || (
       <Icon size={iconSize} color={iconColor} name={icon || 'QuestBoxFill'} />
     );
@@ -233,13 +233,15 @@ export const IconButton: FC<IconButtonProps> = (props) => {
       disabled={disabled || loading}
       style={[
         css`
-          border-radius: ${buttonSize + 'px'};
+          width: ${iconSize + 24 + 'px'};
+          height: ${iconSize + 24 + 'px'};
+          border-radius: ${borderRadiusStr};
         `,
         style,
       ]}
       {...touchableHighlightProps}
     >
-      {renderContainer(loading ? renderLoading() : renderChild())}
+      {renderContainer(loading ? renderLoading() : renderIcon())}
     </TouchableHighlight>
   );
 };
