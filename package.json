@@ -35,7 +35,7 @@
     "@emotion/native": "^11.11.0",
     "@emotion/react": "^11.11.0",
     "@expo/match-media": "^0.4.0",
-    "@expo/webpack-config": "^18.1.0",
+    "@expo/webpack-config": "^19.0.0",
     "@react-native-async-storage/async-storage": "1.18.2",
     "expo": "^49.0.0",
     "expo-font": "~11.4.0",
