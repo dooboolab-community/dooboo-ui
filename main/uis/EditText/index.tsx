@@ -20,6 +20,8 @@ import {css} from '@emotion/native';
 import {cloneElemWithDefaultColors} from '../../utils/guards';
 import {Icon} from '../Icon';
 
+import GlobalStyles from './style';
+
 type Styles = {
   container?: StyleProp<ViewStyle>;
   label?: StyleProp<TextStyle>;
@@ -404,33 +406,36 @@ export function EditText(props: EditTextProps): JSX.Element {
   };
 
   return (
-    <View
-      testID="edit-text"
-      ref={Platform.select({web: ref, default: undefined})}
-      style={[
-        css`
-          width: 100%;
-        `,
-        style,
-      ]}
-    >
-      {renderLabel()}
-      {renderContainer(renderInput())}
-      {renderError() || renderCounter() ? (
-        <View
-          style={css`
-            margin-top: 6px;
+    <>
+      {Platform.OS === 'web' ? <GlobalStyles /> : null}
+      <View
+        testID="edit-text"
+        ref={Platform.select({web: ref, default: undefined})}
+        style={[
+          css`
+            width: 100%;
+          `,
+          style,
+        ]}
+      >
+        {renderLabel()}
+        {renderContainer(renderInput())}
+        {renderError() || renderCounter() ? (
+          <View
+            style={css`
+              margin-top: 6px;
 
-            flex-direction: ${!renderError() && renderCounter()
-              ? 'row-reverse'
-              : 'row'};
-            gap: 4px;
-          `}
-        >
-          {renderError()}
-          {renderCounter()}
-        </View>
-      ) : null}
-    </View>
+              flex-direction: ${!renderError() && renderCounter()
+                ? 'row-reverse'
+                : 'row'};
+              gap: 4px;
+            `}
+          >
+            {renderError()}
+            {renderCounter()}
+          </View>
+        ) : null}
+      </View>
+    </>
   );
 }
