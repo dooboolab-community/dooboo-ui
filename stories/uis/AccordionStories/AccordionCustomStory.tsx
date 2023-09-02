@@ -1,4 +1,3 @@
-import type {ReactElement} from 'react';
 // Caveat: Expo web needs React to be imported
 import React from 'react';
 import {View} from 'react-native';
@@ -45,7 +44,7 @@ const data = [
   },
 ];
 
-const AccordionCustom = (): ReactElement => {
+const AccordionCustom = (): JSX.Element => {
   const {theme} = useDooboo();
 
   return (

@@ -1,6 +1,4 @@
 // Caveat: Expo web needs React to be imported
-import type {ReactElement} from 'react';
-import React from 'react';
 import styled from '@emotion/native';
 
 import {PinchZoom} from '../../../packages/PinchZoom/lib';
@@ -13,7 +11,7 @@ const ContentText = styled.Text`
   font-size: 14px;
 `;
 
-const PinchZoomArticleStory = (): ReactElement => {
+const PinchZoomArticleStory = (): JSX.Element => {
   return (
     <PinchZoom style={{width: '100%', backgroundColor: '#eee', padding: 10}}>
       <TitleText>Article Title</TitleText>

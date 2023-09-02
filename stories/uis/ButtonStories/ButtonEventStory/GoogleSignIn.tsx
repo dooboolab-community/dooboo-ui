@@ -1,4 +1,3 @@
-import type {ReactElement} from 'react';
 // Caveat: Expo web needs React to be imported
 import React, {useState} from 'react';
 import {Image, View} from 'react-native';
@@ -16,7 +15,7 @@ import {Button, LoadingIndicator} from '../../../../main';
 import {StorySection} from '../../../GlobalStyles';
 import {buttonColors, buttonSizes, buttonTypes} from '../../const';
 
-function StartElementAndEndElement(): ReactElement {
+function StartElementAndEndElement(): JSX.Element {
   const [googleLoading, setGoogleLoading] = useState<boolean>(false);
 
   const type = select<ButtonType>('type', buttonTypes, 'solid');

@@ -1,4 +1,3 @@
-import type {ReactElement} from 'react';
 import {Context as ResponsiveContext} from 'react-responsive';
 import {useTheme as useThemeEmotion} from '@emotion/react';
 import {act, renderHook} from '@testing-library/react-hooks';
@@ -18,7 +17,7 @@ describe('doobooContext', () => {
       const themeType = 'dark';
       const customDarkTheme = {primary: 'pink'};
 
-      const wrapper = ({children}): ReactElement => (
+      const wrapper = ({children}): JSX.Element => (
         <ThemeProvider
           initialThemeType={themeType}
           customTheme={{dark: customDarkTheme}}
@@ -59,7 +58,7 @@ describe('doobooContext', () => {
     });
 
     describe('media', () => {
-      const wrapper = ({children}): ReactElement => (
+      const wrapper = ({children}): JSX.Element => (
         <ResponsiveContext.Provider value={given.deviceInfo}>
           <ThemeProvider>{children}</ThemeProvider>
         </ResponsiveContext.Provider>

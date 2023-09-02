@@ -1,4 +1,3 @@
-import type {ReactElement} from 'react';
 import React from 'react';
 import {Text} from 'react-native';
 import type {RenderAPI} from '@testing-library/react-native';
@@ -8,7 +7,7 @@ import {createComponent, createTestProps} from '../../../../test/testUtils';
 import {Accordion} from '../../..';
 
 let props: any;
-let component: ReactElement;
+let component: JSX.Element;
 let testingLib: RenderAPI;
 
 const data: any[] = [

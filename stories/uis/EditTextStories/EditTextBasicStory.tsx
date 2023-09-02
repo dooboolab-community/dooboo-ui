@@ -1,5 +1,4 @@
 // Caveat: Expo web needs React to be imported
-import type {ReactElement} from 'react';
 import React, {useState} from 'react';
 import {useTheme} from '@dooboo-ui/theme';
 import {css} from '@emotion/native';
@@ -11,13 +10,13 @@ import {EditText} from '../../../main/uis/EditText';
 import {Typography} from '../../../main/uis/Typography';
 import {ScrollContainer, StoryContainer} from '../../GlobalStyles';
 
-const EditTextBasicStory = (): ReactElement => {
+const EditTextBasicStory = (): JSX.Element => {
   const {theme} = useTheme();
   const [text, setText] = useState<string>('');
 
   const onTextChanged = (str: string): void => setText(str);
 
-  const renderCustomLabel = (status: EditTextStatus): ReactElement => {
+  const renderCustomLabel = (status: EditTextStatus): JSX.Element => {
     return (
       <Typography.Body1
         style={{

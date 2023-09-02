@@ -1,4 +1,3 @@
-import type {ReactElement} from 'react';
 // Caveat: Expo web needs React to be imported
 import React, {useState} from 'react';
 import {css} from '@emotion/native';
@@ -6,7 +5,7 @@ import {css} from '@emotion/native';
 import {Fab, Typography} from '../../../main';
 import {StoryContainer, StoryTitle} from '../../GlobalStyles';
 
-function FabBasicStory(): ReactElement {
+function FabBasicStory(): JSX.Element {
   const [selectedItem, setSelectedItem] = useState('none');
   const [active, setActive] = useState(false);
 

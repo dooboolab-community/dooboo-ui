@@ -1,4 +1,3 @@
-import type {ReactElement} from 'react';
 // Caveat: Expo web needs React to be imported
 import React from 'react';
 
@@ -13,7 +12,7 @@ import OutlinedButtonColors from './OutlinedButtonColors';
 import SolidButtonColors from './SolidButtonColors';
 import TextButtonColors from './TextButtonColors';
 
-function ButtonColorStory(): ReactElement {
+function ButtonColorStory(): JSX.Element {
   return (
     <ScrollContainer>
       <StoryContainer>

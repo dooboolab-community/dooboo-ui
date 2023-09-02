@@ -1,4 +1,3 @@
-import type {ReactElement} from 'react';
 import React from 'react';
 import {fireEvent, render} from '@testing-library/react-native';
 
@@ -7,7 +6,7 @@ import {createComponent} from '../../test/testUtils';
 import type {RatingProps} from './Rating';
 import {Rating} from './Rating';
 
-const Component = (props?: RatingProps): ReactElement =>
+const Component = (props?: RatingProps): JSX.Element =>
   createComponent(<Rating {...props} />);
 
 describe('Rating', () => {

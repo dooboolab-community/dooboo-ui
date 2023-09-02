@@ -1,4 +1,4 @@
-import type {ComponentProps, ReactElement} from 'react';
+import type {ComponentProps} from 'react';
 import {action} from '@storybook/addon-actions';
 import type {Meta, Story} from '@storybook/react/types-6-0';
 import {DoobooProvider, IconButton} from 'dooboo-ui';
@@ -17,7 +17,7 @@ const initialProps: IconButtonProps = {
   icon: 'Airplane',
 };
 
-const Container = ({children}): ReactElement => {
+const Container = ({children}): JSX.Element => {
   const isDark = useDarkMode();
 
   return (
@@ -27,7 +27,7 @@ const Container = ({children}): ReactElement => {
   );
 };
 
-const IconButtonStory: Story<IconButtonProps> = (args): ReactElement => {
+const IconButtonStory: Story<IconButtonProps> = (args): JSX.Element => {
   return (
     <Container>
       <IconButton {...args} />

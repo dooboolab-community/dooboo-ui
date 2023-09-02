@@ -11,7 +11,7 @@ const ScrollContainer = styled.ScrollView`
   background-color: ${({theme}) => theme.bg.basic};
 `;
 
-function NetworkImageBasicStory(): React.ReactElement {
+function NetworkImageBasicStory(): JSX.Element {
   const {theme} = useTheme();
 
   return (

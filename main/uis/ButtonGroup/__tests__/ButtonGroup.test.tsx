@@ -1,4 +1,4 @@
-import type {ComponentProps, ReactElement} from 'react';
+import type {ComponentProps} from 'react';
 import React from 'react';
 import {light} from '@dooboo-ui/theme';
 import type {RenderAPI} from '@testing-library/react-native';
@@ -9,7 +9,7 @@ import {ButtonGroup} from '../../..';
 
 let testingLib: RenderAPI;
 
-const Component = (props?: ComponentProps<typeof ButtonGroup>): ReactElement =>
+const Component = (props?: ComponentProps<typeof ButtonGroup>): JSX.Element =>
   createComponent(
     <ButtonGroup
       options={['Option1', 'Option2', 'Option3']}

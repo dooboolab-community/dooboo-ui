@@ -7,7 +7,7 @@ import {NetworkImage} from '..';
 // import useColorScheme from '@dooboo-ui/theme/useColorScheme';
 
 let props: any;
-let component: React.ReactElement;
+let component: JSX.Element;
 
 describe('[NetworkImage] render', () => {
   beforeEach(() => {

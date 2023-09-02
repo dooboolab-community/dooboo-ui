@@ -1,4 +1,4 @@
-import type {PropsWithChildren, ReactElement, Ref} from 'react';
+import type {PropsWithChildren, Ref} from 'react';
 import React, {
   forwardRef,
   useEffect,
@@ -63,7 +63,7 @@ function getRelativeTouchesCenterPosition(
   };
 }
 
-function PinchZoom(props: Props, ref: Ref<PinchZoomRef>): ReactElement {
+function PinchZoom(props: Props, ref: Ref<PinchZoomRef>): JSX.Element {
   const {
     style,
     children,

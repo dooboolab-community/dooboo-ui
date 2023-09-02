@@ -1,4 +1,3 @@
-import type {ReactElement, ReactNode} from 'react';
 // Caveat: Expo web needs React to be imported
 import React, {useState} from 'react';
 import {StatusBar, View} from 'react-native';
@@ -14,10 +13,10 @@ import {
 import {StoryContainer} from './GlobalStyles';
 
 type ContainerProps = {
-  children: ReactNode;
+  children: JSX.Element;
 };
 
-export function StoryWrapper({children}: ContainerProps): ReactElement {
+export function StoryWrapper({children}: ContainerProps): JSX.Element {
   const {themeType, changeThemeType, assetLoaded} = useDooboo();
   const [on, off] = useState(themeType === 'dark');
 
@@ -51,7 +50,7 @@ export function StoryWrapper({children}: ContainerProps): ReactElement {
   );
 }
 
-export function renderStory(el: ReactElement): ReactElement {
+export function renderStory(el: JSX.Element): JSX.Element {
   return (
     <DoobooProvider>
       <StoryWrapper>{el}</StoryWrapper>

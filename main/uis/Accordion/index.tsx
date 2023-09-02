@@ -1,4 +1,3 @@
-import type {ReactElement} from 'react';
 import type {StyleProp, TextStyle, ViewStyle} from 'react-native';
 import styled from '@emotion/native';
 
@@ -27,15 +26,15 @@ export type AccordionBaseProps<T = string, K = string> = {
   animDuration?: number;
   activeOpacity?: number;
   toggleElementPosition?: 'left' | 'right';
-  toggleElement?: ReactElement | null;
-  renderTitle?: (title: T) => ReactElement;
-  renderItem?: (body: K) => ReactElement;
+  toggleElement?: JSX.Element | null;
+  renderTitle?: (title: T) => JSX.Element;
+  renderItem?: (body: K) => JSX.Element;
   onPressItem?: (title: T | string, body: K | string) => void;
 };
 
 export type AccordionProps<T = string, K = string> = AccordionBaseProps<T, K>;
 
-export function Accordion<T, K>(props: AccordionProps<T, K>): ReactElement {
+export function Accordion<T, K>(props: AccordionProps<T, K>): JSX.Element {
   const {style, toggleElementPosition = 'right', data, ...rest} = props;
 
   return (

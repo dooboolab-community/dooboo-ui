@@ -1,4 +1,3 @@
-import type {ReactElement} from 'react';
 // Caveat: Expo web needs React to be imported
 import {View} from 'react-native';
 import styled from '@emotion/native';
@@ -34,12 +33,12 @@ const StyledIcon = styled(Icon)`
   padding: 8px;
 `;
 
-function IconBasicStory(): ReactElement {
+function IconBasicStory(): JSX.Element {
   return (
     <StoryContainer>
       <ScrollContainer contentContainerStyle={{alignSelf: 'stretch'}}>
         <Container style={{paddingVertical: 60}}>
-          {doobooIconList.map((icon): ReactElement => {
+          {doobooIconList.map((icon): JSX.Element => {
             return (
               <View
                 key={icon}

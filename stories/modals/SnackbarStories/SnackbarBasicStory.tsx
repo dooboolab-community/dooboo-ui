@@ -1,4 +1,3 @@
-import type {ReactElement} from 'react';
 // Caveat: Expo web needs React to be imported
 import React from 'react';
 import styled from '@emotion/native';
@@ -10,7 +9,7 @@ const Container = styled.SafeAreaView`
   background-color: ${({theme}) => theme.bg.basic};
 `;
 
-function SnackbarBasicStory(): ReactElement {
+function SnackbarBasicStory(): JSX.Element {
   const {snackbar} = useDooboo();
 
   return (

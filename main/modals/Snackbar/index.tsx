@@ -1,4 +1,3 @@
-import type {ReactElement} from 'react';
 import React, {forwardRef, useImperativeHandle, useState} from 'react';
 import type {StyleProp, TextStyle, ViewStyle} from 'react-native';
 import {Modal, Platform, StyleSheet} from 'react-native';
@@ -80,7 +79,7 @@ function clearTimer(): void {
 function Snackbar(
   {style}: SnackbarProps,
   ref: React.Ref<SnackbarContext>,
-): ReactElement {
+): JSX.Element {
   const [options, setOptions] = useState<SnackbarOptions | null>(null);
   const [visible, setVisible] = useState(false);
   const {theme} = useTheme();

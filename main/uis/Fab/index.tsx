@@ -1,4 +1,3 @@
-import type {ReactElement} from 'react';
 import React, {useLayoutEffect, useMemo, useRef} from 'react';
 import type {LayoutChangeEvent, StyleProp, ViewStyle} from 'react-native';
 import {Animated, Easing, View} from 'react-native';
@@ -37,7 +36,7 @@ function FloatingActionButtons({
   buttonSize = 'medium',
   gap = 6,
   animationDuration = 200,
-}: FabProps): ReactElement {
+}: FabProps): JSX.Element {
   const {Fab, FabItem} = styles ?? {};
 
   const spinValue = useRef(new Animated.Value(0));

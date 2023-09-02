@@ -1,4 +1,3 @@
-import type {ReactElement} from 'react';
 import React, {useEffect, useRef} from 'react';
 import type {StyleProp, ViewStyle} from 'react-native';
 import {Animated, Platform, View} from 'react-native';
@@ -31,8 +30,8 @@ export interface CheckboxProps {
   color?: CheckboxColor;
   disabled?: boolean;
   checked?: boolean;
-  endElement?: React.ReactElement;
-  startElement?: React.ReactElement;
+  endElement?: JSX.Element;
+  startElement?: JSX.Element;
 }
 
 const Container = styled.TouchableOpacity`
@@ -73,7 +72,7 @@ export function Checkbox({
   disabled = false,
   checked = false,
   onPress,
-}: CheckboxProps): ReactElement {
+}: CheckboxProps): JSX.Element {
   const animatedValue = new Animated.Value(0);
   const fadeAnim = useRef(animatedValue).current;
   const scaleAnim = useRef(animatedValue).current;

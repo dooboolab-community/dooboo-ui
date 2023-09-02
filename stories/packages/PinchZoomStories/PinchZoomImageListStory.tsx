@@ -1,5 +1,4 @@
 // Caveat: Expo web needs React to be imported
-import type {ReactElement} from 'react';
 import React, {useState} from 'react';
 import type {DimensionValue, ImageSourcePropType} from 'react-native';
 import {Dimensions, FlatList, Image} from 'react-native';
@@ -63,7 +62,7 @@ function ImageItem({
   source: imageSource,
   title,
   content,
-}: ImageItemProps): ReactElement {
+}: ImageItemProps): JSX.Element {
   const [width, setWidth] = useState<DimensionValue>('100%');
 
   return (
@@ -88,7 +87,7 @@ function ImageItem({
   );
 }
 
-function PinchZoomImageListStory(): ReactElement {
+function PinchZoomImageListStory(): JSX.Element {
   return (
     <Container>
       <FlatList
@@ -96,7 +95,7 @@ function PinchZoomImageListStory(): ReactElement {
         style={{flex: 1}}
         keyExtractor={(item): string => item.uri}
         // @ts-ignore
-        renderItem={({item, index}): React.ReactElement => (
+        renderItem={({item, index}): JSX.Element => (
           <ImageItem
             source={item}
             title={`Image ${index + 1}`}

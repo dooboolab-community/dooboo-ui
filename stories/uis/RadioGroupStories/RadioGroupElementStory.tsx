@@ -1,5 +1,4 @@
 // Caveat: Expo web needs React to be imported
-import type {ReactElement} from 'react';
 import React, {useState} from 'react';
 import {View} from 'react-native';
 
@@ -10,7 +9,7 @@ import {ScrollContainer, StoryContainer, StoryTitle} from '../../GlobalStyles';
 const types = ['primary', 'secondary', 'success', 'info', 'warning', 'danger'];
 const data = ['Person', 'Animal', 'Bird', 'Other'];
 
-function RadioButtonElementStory(): ReactElement {
+function RadioButtonElementStory(): JSX.Element {
   const [selectedValue, setSelectedValue] = useState<string>(data[0]);
 
   return (

@@ -1,4 +1,4 @@
-import type {ComponentProps, ReactElement} from 'react';
+import type {ComponentProps} from 'react';
 import {useState} from 'react';
 import {View} from 'react-native';
 import {css} from '@emotion/native';
@@ -32,7 +32,7 @@ const initialProps: EditTextProps = {
   value: '',
 };
 
-const Container = ({children}): ReactElement => {
+const Container = ({children}): JSX.Element => {
   const isDark = useDarkMode();
 
   return (
@@ -48,7 +48,7 @@ const Container = ({children}): ReactElement => {
   );
 };
 
-const EditTextStory: Story<EditTextProps> = (args): ReactElement => {
+const EditTextStory: Story<EditTextProps> = (args): JSX.Element => {
   const [value, setValue] = useState<string>('');
 
   return (

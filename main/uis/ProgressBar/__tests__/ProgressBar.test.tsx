@@ -1,4 +1,3 @@
-import type {ReactElement} from 'react';
 import React from 'react';
 import {light} from '@dooboo-ui/theme';
 import type {RenderAPI} from '@testing-library/react-native';
@@ -10,7 +9,7 @@ import {ProgressBar} from '../../..';
 
 let testingLib: RenderAPI;
 
-const Component = (props?: ProgressBarProps): ReactElement =>
+const Component = (props?: ProgressBarProps): JSX.Element =>
   createComponent(<ProgressBar value={0} {...props} />);
 
 describe('[ProgressBar]', () => {

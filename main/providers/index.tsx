@@ -1,5 +1,5 @@
-import type {MutableRefObject, ReactElement} from 'react';
-import React, {useEffect, useRef, useState} from 'react';
+import type {MutableRefObject} from 'react';
+import {useEffect, useRef, useState} from 'react';
 import {View} from 'react-native';
 import type {ThemeContext, ThemeProps} from '@dooboo-ui/theme';
 import {ThemeProvider, useTheme} from '@dooboo-ui/theme';
@@ -22,7 +22,7 @@ export type DoobooContext = {
 } & ThemeContext;
 
 export type DoobooProviderProps = {
-  children?: ReactElement;
+  children?: JSX.Element;
   themeConfig?: Omit<ThemeProps, 'children'>;
   snackbarConfig?: SnackbarOptions;
 };
@@ -31,7 +31,7 @@ const [useCtx, Provider] = createCtx<DoobooContext>(
   'dooboo-ui modals should be used within DoobooProvider.',
 );
 
-function DoobooProvider(props: DoobooProviderProps): React.ReactElement {
+function DoobooProvider(props: DoobooProviderProps): JSX.Element {
   const [assetLoaded, setAssetLoaded] = useState(false);
 
   useEffect(() => {
@@ -99,7 +99,7 @@ function DoobooProvider(props: DoobooProviderProps): React.ReactElement {
   );
 }
 
-function DoobooWithThemeProvider(props: DoobooProviderProps): ReactElement {
+function DoobooWithThemeProvider(props: DoobooProviderProps): JSX.Element {
   return (
     <ThemeProvider {...props.themeConfig}>
       <DoobooProvider {...props} />

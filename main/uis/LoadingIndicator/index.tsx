@@ -1,4 +1,3 @@
-import type {ReactElement} from 'react';
 import React from 'react';
 import type {
   ImageSourcePropType,
@@ -20,10 +19,10 @@ interface Props {
   color?: string;
   size?: 'small' | 'large';
   imgSource?: string | ImageSourcePropType;
-  customElement?: ReactElement | (() => ReactElement);
+  customElement?: JSX.Element | (() => JSX.Element);
 }
 
-export function LoadingIndicator(props: Props): ReactElement {
+export function LoadingIndicator(props: Props): JSX.Element {
   const {
     customElement,
     style,

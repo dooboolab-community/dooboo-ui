@@ -1,5 +1,4 @@
 // React import is needed for expo-web
-import type {ReactElement} from 'react';
 import React, {useState} from 'react';
 import type {StyleProp, ViewStyle} from 'react-native';
 import {View} from 'react-native';
@@ -49,7 +48,7 @@ export function Rating({
   allowHalfRating = true,
   disabled = false,
   color,
-}: RatingProps): ReactElement {
+}: RatingProps): JSX.Element {
   const [rating, setRating] = useState(initialRating);
   const iconPrefix = iconType === 'star' ? 'Star' : 'QuestBox';
 
@@ -69,7 +68,7 @@ export function Rating({
   }: {
     key: string;
     position: number;
-  }): ReactElement => {
+  }): JSX.Element => {
     const filled = rating >= position + (allowHalfRating ? 0.5 : 0);
     const iconName: IconName = filled ? `${iconPrefix}Fill` : `${iconPrefix}`;
     const halfFilled =

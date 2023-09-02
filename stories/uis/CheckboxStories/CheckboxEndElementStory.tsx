@@ -1,4 +1,3 @@
-import type {FC, ReactElement} from 'react';
 // Caveat: Expo web needs React to be imported
 import React, {useState} from 'react';
 import {View} from 'react-native';
@@ -12,26 +11,28 @@ type CheckBoxProps = {
   checked: boolean;
 };
 
-const CheckboxWithEndElementStory: FC<CheckBoxProps> = ({
+function CheckboxWithEndElementStory({
   setChecked,
   checked,
-}) => (
-  <View style={{flexDirection: 'column'}}>
-    {[1, 2, 3].map((i) => (
-      <Checkbox
-        key={i}
-        checked={checked}
-        disabled={boolean('disabled', false)}
-        onPress={() => setChecked(!checked)}
-        endElement={
-          <Typography.Body2>Hello this is a checkbox</Typography.Body2>
-        }
-      />
-    ))}
-  </View>
-);
+}: CheckBoxProps): JSX.Element {
+  return (
+    <View style={{flexDirection: 'column'}}>
+      {[1, 2, 3].map((i) => (
+        <Checkbox
+          key={i}
+          checked={checked}
+          disabled={boolean('disabled', false)}
+          onPress={() => setChecked(!checked)}
+          endElement={
+            <Typography.Body2>Hello this is a checkbox</Typography.Body2>
+          }
+        />
+      ))}
+    </View>
+  );
+}
 
-function CheckboxEndElement(): ReactElement {
+function CheckboxEndElement(): JSX.Element {
   const [checked, setChecked] = useState<boolean>(false);
 
   return (

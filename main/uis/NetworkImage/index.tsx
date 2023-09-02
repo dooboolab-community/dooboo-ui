@@ -1,8 +1,7 @@
-import type {ReactElement} from 'react';
 import React, {isValidElement, useCallback, useEffect, useState} from 'react';
 import type {
   ImageProps,
-  ImageRequireSource,
+  ImageSourcePropType,
   StyleProp,
   ViewStyle,
 } from 'react-native';
@@ -22,12 +21,12 @@ const Container = styled.View`
 interface Props {
   style?: StyleProp<ViewStyle>;
   url: string | undefined;
-  loadingSource?: ImageRequireSource | ReactElement;
+  loadingSource?: ImageSourcePropType | JSX.Element;
   imageProps?: Partial<ImageProps>;
   shouldFixImageRatio?: boolean;
 }
 
-function NetworkImage(props: Props): ReactElement {
+function NetworkImage(props: Props): JSX.Element {
   const {themeType} = useTheme();
   const logo = themeType === 'light' ? PlaceholderLight : PlaceholderDark;
   const {style, url, imageProps = false} = props;
@@ -36,10 +35,11 @@ function NetworkImage(props: Props): ReactElement {
   const [loading, setLoading] = useState(true);
 
   const renderFallback = useCallback(() => {
-    return isValidElement(props?.loadingSource) ? (
+    return props?.loadingSource && isValidElement(props?.loadingSource) ? (
       props?.loadingSource
     ) : (
       <Image
+        // @ts-ignore
         source={props.loadingSource ?? logo}
         resizeMethod="resize"
         resizeMode="cover"

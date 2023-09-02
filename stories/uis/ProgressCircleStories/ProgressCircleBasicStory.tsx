@@ -1,5 +1,4 @@
 // Caveat: Expo web needs React to be imported
-import type {ReactElement} from 'react';
 import React, {useEffect, useState} from 'react';
 import {
   boolean as booleanInput,
@@ -12,7 +11,7 @@ import type {ButtonColorType} from '../../../main';
 import {ProgressCircle} from '../../../main';
 import {StoryContainer, StoryTitle} from '../../GlobalStyles';
 
-function ProgressCircleBasicStory(): ReactElement {
+function ProgressCircleBasicStory(): JSX.Element {
   const progressInput = numberInput('progress', 0);
   const autoPlay = booleanInput('auto play', true);
 

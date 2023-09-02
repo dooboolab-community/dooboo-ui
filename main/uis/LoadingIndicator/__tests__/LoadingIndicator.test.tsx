@@ -6,7 +6,7 @@ import {createComponent, createTestProps} from '../../../../test/testUtils';
 import {LoadingIndicator} from '../../..';
 
 let props: any;
-let component: React.ReactElement;
+let component: JSX.Element;
 
 describe('[LoadingIndicator] render', () => {
   beforeEach(() => {
@@ -23,7 +23,7 @@ describe('[LoadingIndicator] render', () => {
 
   it('should render [customElement]', () => {
     props = createTestProps({
-      renderCustomElement: (): React.ReactElement => <View />,
+      renderCustomElement: (): JSX.Element => <View />,
     });
 
     component = createComponent(<LoadingIndicator {...props} />);

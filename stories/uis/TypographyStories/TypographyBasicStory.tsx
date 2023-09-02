@@ -5,7 +5,7 @@ import {View} from 'react-native';
 import {Typography} from '../../../main';
 import {ScrollContainer, StoryContainer} from '../../GlobalStyles';
 
-function TypographyBasicStory(): React.ReactElement {
+function TypographyBasicStory(): JSX.Element {
   return (
     <ScrollContainer>
       <StoryContainer>

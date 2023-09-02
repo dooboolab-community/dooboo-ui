@@ -9,7 +9,7 @@ import {RadioButton} from '../RadioButton';
 import {RadioGroup} from '..';
 
 let props: any;
-let component: React.ReactElement;
+let component: JSX.Element;
 let testingLib: RenderAPI;
 
 const data = ['Person', 'Animal', 'Bird', 'Other'];

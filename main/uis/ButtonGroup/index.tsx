@@ -1,4 +1,3 @@
-import type {ReactElement} from 'react';
 import React, {useState} from 'react';
 import type {StyleProp, TextStyle, ViewStyle} from 'react-native';
 import {Text, View} from 'react-native';
@@ -47,8 +46,8 @@ type Styles = {
 type ButtonGroupProps = {
   testID?: string;
   options: string[];
-  startElement?: ReactElement;
-  endElement?: ReactElement;
+  startElement?: JSX.Element;
+  endElement?: JSX.Element;
   initialValue?: string;
   onValueChange?: (selected: string) => void;
   color?: Omit<keyof DoobooTheme['button'], 'light'>;
@@ -66,7 +65,7 @@ export function ButtonGroup({
   endElement,
   style,
   styles,
-}: ButtonGroupProps): ReactElement {
+}: ButtonGroupProps): JSX.Element {
   if (typeof initialValue !== 'string') {
     // eslint-disable-next-line no-console
     console.warn('initialValue must be string');

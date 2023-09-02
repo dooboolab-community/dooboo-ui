@@ -1,4 +1,4 @@
-import type {ComponentProps, ReactElement} from 'react';
+import type {ComponentProps} from 'react';
 import {useState} from 'react';
 import {View} from 'react-native';
 import {css} from '@emotion/native';
@@ -18,7 +18,7 @@ const initialProps: CheckboxProps = {
   checked: false,
 };
 
-const Container = ({children}): ReactElement => {
+const Container = ({children}): JSX.Element => {
   const isDark = useDarkMode();
 
   return (
@@ -34,7 +34,7 @@ const Container = ({children}): ReactElement => {
   );
 };
 
-const CheckboxStory: Story<CheckboxProps> = (args): ReactElement => {
+const CheckboxStory: Story<CheckboxProps> = (args): JSX.Element => {
   return (
     <Container>
       <Checkbox {...args} />
@@ -46,7 +46,7 @@ export const CheckboxTemplate = CheckboxStory.bind({});
 CheckboxTemplate.args = initialProps;
 
 // Disabled
-export function CheckboxDisabledStory(): ReactElement {
+export function CheckboxDisabledStory(): JSX.Element {
   return (
     <Container>
       <View
@@ -64,7 +64,7 @@ export function CheckboxDisabledStory(): ReactElement {
   );
 }
 
-export function CheckboxSolid(): ReactElement {
+export function CheckboxSolid(): JSX.Element {
   const [checked, setChecked] = useState<boolean>(false);
 
   return (
@@ -119,7 +119,7 @@ export function CheckboxSolid(): ReactElement {
 }
 
 // StartElement
-export function CheckboxStartElement(): ReactElement {
+export function CheckboxStartElement(): JSX.Element {
   const [checked, setChecked] = useState<boolean>(false);
 
   return (
@@ -145,7 +145,7 @@ export function CheckboxStartElement(): ReactElement {
 }
 
 // EndElement
-export function CheckboxEndElement(): ReactElement {
+export function CheckboxEndElement(): JSX.Element {
   const [checked, setChecked] = useState<boolean>(false);
 
   return (

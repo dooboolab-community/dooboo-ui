@@ -1,4 +1,3 @@
-import type {ReactElement, ReactNode} from 'react';
 import React, {useCallback, useRef} from 'react';
 import type {
   Insets,
@@ -125,11 +124,11 @@ export type Props = {
   disabled?: boolean;
   loading?: boolean;
   loadingColor?: string;
-  loadingElement?: ReactElement;
-  text?: string | ReactElement;
+  loadingElement?: JSX.Element;
+  text?: string | JSX.Element;
   borderRadius?: number;
-  startElement?: ReactElement;
-  endElement?: ReactElement;
+  startElement?: JSX.Element;
+  endElement?: JSX.Element;
   style?: StyleProp<Omit<ViewStyle, 'borderRadius' | 'padding'>>;
   styles?: Styles;
   onPress?: TouchableHighlightProps['onPress'];
@@ -141,7 +140,7 @@ export type Props = {
   hitSlop?: null | Insets | number | undefined;
 };
 
-export function Button(props: Props): ReactElement {
+export function Button(props: Props): JSX.Element {
   const {
     testID,
     type = 'solid',
@@ -230,12 +229,12 @@ export function Button(props: Props): ReactElement {
 
   const renderContainer = useCallback(
     ({
-      childView,
+      children,
       loadingView,
     }: {
-      childView: ReactNode;
-      loadingView: ReactNode;
-    }): ReactElement => {
+      children: JSX.Element;
+      loadingView: JSX.Element;
+    }): JSX.Element => {
       return (
         <ButtonContainer
           testID={loading ? 'loading-view' : 'button-container'}
@@ -259,7 +258,7 @@ export function Button(props: Props): ReactElement {
               opacity: ${loading ? '0' : '1'};
             `}
           >
-            {childView}
+            {children}
           </View>
           <View
             style={css`
@@ -347,7 +346,7 @@ export function Button(props: Props): ReactElement {
       {...touchableHighlightProps}
     >
       {renderContainer({
-        childView: ChildView,
+        children: ChildView,
         loadingView: LoadingView,
       })}
     </TouchableHighlight>

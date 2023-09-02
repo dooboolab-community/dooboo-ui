@@ -1,6 +1,5 @@
 import '@expo/match-media';
 
-import type {ReactElement} from 'react';
 import {useEffect, useState} from 'react';
 import type {ColorSchemeName} from 'react-native';
 import {useMediaQuery} from 'react-responsive';
@@ -29,7 +28,7 @@ export type ThemeContext = {
 const [useCtx, DoobooProvider] = createDoobooContext<ThemeContext>();
 
 export type ThemeProps = {
-  children?: ReactElement;
+  children?: JSX.Element;
   initialThemeType?: ThemeType;
   customTheme?: ThemeParam;
   /*
@@ -101,7 +100,7 @@ export function ThemeProvider({
   initialThemeType,
   customTheme = {},
   responsiveDesignMode = 'mobile-first',
-}: ThemeProps): ReactElement {
+}: ThemeProps): JSX.Element {
   const isPortrait = useMediaQuery({orientation: 'portrait'});
 
   const isMobile = useMediaQuery(

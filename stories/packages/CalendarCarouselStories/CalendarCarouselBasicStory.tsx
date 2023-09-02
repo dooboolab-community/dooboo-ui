@@ -16,7 +16,7 @@ const Container = styled.SafeAreaView`
 
 const date = new Date();
 
-function CalendarCarouselBasicStory(): React.ReactElement {
+function CalendarCarouselBasicStory(): JSX.Element {
   const [currentDate, setCurrentDate] = useState<Date>(date);
   const [selectedDate, setSelectedDate] = useState<Date>();
   const monthFormatter = new Intl.DateTimeFormat('default', {month: 'long'});

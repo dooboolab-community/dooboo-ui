@@ -1,4 +1,3 @@
-import type {ReactElement} from 'react';
 import React from 'react';
 import {View} from 'react-native';
 import {light} from '@dooboo-ui/theme';
@@ -11,7 +10,7 @@ import {Checkbox} from '../../..';
 
 let testingLib: RenderAPI;
 
-const Component = (props?: CheckboxProps): ReactElement =>
+const Component = (props?: CheckboxProps): JSX.Element =>
   createComponent(<Checkbox {...props} />);
 
 describe('[Checkbox]', () => {
