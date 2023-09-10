@@ -13,6 +13,7 @@ import {
 type Styles = {
   container?: StyleProp<ViewStyle>;
   checkbox?: StyleProp<ViewStyle>;
+  check?: ViewStyle;
 };
 
 export type CheckboxColor =
@@ -133,7 +134,12 @@ export function Checkbox({
             type={color}
             disabled={disabled}
           >
-            <StyledCheck theme={theme} name="Check" checked={checked} />
+            <StyledCheck
+              style={styles?.check}
+              theme={theme}
+              name="Check"
+              checked={checked}
+            />
           </StyledCheckbox>
         </StyledCheckboxOutlined>
         {endElement}
