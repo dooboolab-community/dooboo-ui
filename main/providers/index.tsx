@@ -3,6 +3,7 @@ import {useEffect, useRef, useState} from 'react';
 import {View} from 'react-native';
 import type {ThemeContext, ThemeProps} from '@dooboo-ui/theme';
 import {ThemeProvider, useTheme} from '@dooboo-ui/theme';
+import {css} from '@emotion/native';
 import {loadAsync} from 'expo-font';
 
 import type {AlertDialogContext} from '../modals/AlertDialog';
@@ -82,7 +83,12 @@ function DoobooProvider(props: DoobooProviderProps): JSX.Element {
   };
 
   return (
-    <View style={{flex: 1, alignSelf: 'stretch'}}>
+    <View
+      style={css`
+        flex: 1;
+        align-self: stretch;
+      `}
+    >
       <Provider
         value={{
           ...themeContext,

@@ -4,13 +4,14 @@ import styled from '@emotion/native';
 
 import {Heading3} from '../Typography/Typography';
 
-import type {RadioButtonProps} from './RadioButton';
+import type {RadioButtonProps, RadioButtonStyles} from './RadioButton';
 import {RadioButton as RadioButtonComp} from './RadioButton';
 
 type Styles = {
   container?: StyleProp<ViewStyle>;
   title?: StyleProp<TextStyle>;
-  label?: StyleProp<TextStyle>;
+  radio?: StyleProp<ViewStyle>;
+  radioStyles?: RadioButtonStyles;
 };
 
 export type RadioButtonType =
@@ -74,7 +75,8 @@ function RadioGroupContainer<T>(
               type={type}
               selected={selectedValue === datum}
               onPress={() => selectValue?.(datum)}
-              styles={{label: styles?.label}}
+              style={styles?.radio}
+              styles={styles?.radioStyles}
               labelPosition={labelPosition}
             />
           );

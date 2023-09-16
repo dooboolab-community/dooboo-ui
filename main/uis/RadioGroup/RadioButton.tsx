@@ -7,7 +7,7 @@ import type {
   ViewStyle,
 } from 'react-native';
 import {Animated, Platform, View} from 'react-native';
-import styled from '@emotion/native';
+import styled, {css} from '@emotion/native';
 
 import {
   ColoredText,
@@ -17,9 +17,11 @@ import {
 
 import type {RadioButtonType} from './index';
 
-type Styles = {
-  radio?: StyleProp<ViewStyle>;
+export type RadioButtonStyles = {
+  container?: StyleProp<ViewStyle>;
   label?: StyleProp<TextStyle>;
+  circleWrapper?: StyleProp<ViewStyle>;
+  circle?: StyleProp<ViewStyle>;
 };
 
 export type RadioButtonProps = {
@@ -28,7 +30,7 @@ export type RadioButtonProps = {
   label?: string;
   labelPosition?: 'left' | 'right';
   style?: StyleProp<ViewStyle>;
-  styles?: Styles;
+  styles?: RadioButtonStyles;
   type?: RadioButtonType;
   disabled?: boolean;
   selected?: boolean;
@@ -115,16 +117,22 @@ export const RadioButton: FC<RadioButtonProps> = ({
       activeOpacity={0.9}
     >
       <View
-        style={{
-          paddingVertical: 6,
-          paddingLeft:
-            startElement || (label && labelPosition === 'left') ? 8 : 0,
-          paddingRight:
-            endElement || (label && labelPosition === 'right') ? 8 : 0,
+        style={[
+          css`
+            padding-top: 6px;
+            padding-bottom: 6px;
+            padding-left: ${startElement || (label && labelPosition === 'left')
+              ? '8px'
+              : 0};
+            padding-right: ${endElement || (label && labelPosition === 'right')
+              ? '8px'
+              : 0};
 
-          flexDirection: 'row',
-          alignItems: 'center',
-        }}
+            flex-direction: row;
+            align-items: center;
+          `,
+          styles?.container,
+        ]}
       >
         <>
           {startElement}
@@ -139,7 +147,7 @@ export const RadioButton: FC<RadioButtonProps> = ({
             </ColoredText>
           ) : null}
           <StyledRadioButton
-            style={styles?.radio}
+            style={styles?.circleWrapper}
             selected={!!selected}
             type={type}
             disabled={disabled}
@@ -151,10 +159,13 @@ export const RadioButton: FC<RadioButtonProps> = ({
               disabled={!!disabled}
               innerLayout={innerLayout}
               onLayout={(e: any) => setInnerLayout(e.nativeEvent.layout)}
-              style={{
-                opacity: fadeAnim,
-                transform: [{scale: scaleAnim}],
-              }}
+              style={[
+                styles?.circle,
+                {
+                  opacity: fadeAnim,
+                  transform: [{scale: scaleAnim}],
+                },
+              ]}
             />
           </StyledRadioButton>
           {label && labelPosition === 'right' ? (
