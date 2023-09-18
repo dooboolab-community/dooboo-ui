@@ -5,7 +5,7 @@ import styled from '@emotion/native';
 import {Heading3} from '../Typography/Typography';
 
 import type {RadioButtonProps, RadioButtonStyles} from './RadioButton';
-import {RadioButton as RadioButtonComp} from './RadioButton';
+import RadioButtonComp from './RadioButton';
 
 type Styles = {
   container?: StyleProp<ViewStyle>;
@@ -45,21 +45,18 @@ const Content = styled.View`
   flex-direction: row;
 `;
 
-function RadioGroupContainer<T>(
-  props: Omit<Props<T>, 'selected'>,
-): JSX.Element {
-  const {
-    title,
-    data,
-    selectedValue,
-    selectValue,
-    style,
-    styles,
-    type,
-    labels,
-    labelPosition,
-  } = props;
-
+function RadioGroupContainer<T>({
+  title,
+  data,
+  selectedValue,
+  selectValue,
+  style,
+  styles,
+  type,
+  labels,
+  labelPosition,
+  radioType,
+}: Omit<Props<T>, 'selected'>): JSX.Element {
   return (
     <Container style={style}>
       <Heading3 style={styles?.title}>{title}</Heading3>
@@ -70,14 +67,14 @@ function RadioGroupContainer<T>(
             <RadioButtonComp
               key={`radio-${i}`}
               testID={`radio-${i}`}
-              {...props.radioType}
+              {...radioType}
               label={labels?.[i] || ''}
-              type={type}
-              selected={selectedValue === datum}
+              labelPosition={labelPosition}
               onPress={() => selectValue?.(datum)}
+              selected={selectedValue === datum}
               style={styles?.radio}
               styles={styles?.radioStyles}
-              labelPosition={labelPosition}
+              type={type}
             />
           );
         })}

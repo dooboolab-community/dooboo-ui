@@ -16,16 +16,16 @@ function OutlinedButtonColors(): JSX.Element {
     <StorySection>
       {buttonColors.map((color) => (
         <Button
-          key={color}
-          color={color}
-          type="outlined"
-          size={size}
-          disabled={disabled}
           activeOpacity={activeOpacity}
-          text={color.toUpperCase()}
-          style={{margin: 4}}
+          color={color}
+          disabled={disabled}
+          key={color}
           // eslint-disable-next-line no-console
           onPress={() => console.log(`press ${color} outlined button`)}
+          size={size}
+          style={{margin: 4}}
+          text={color.toUpperCase()}
+          type="outlined"
         />
       ))}
     </StorySection>

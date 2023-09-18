@@ -69,30 +69,27 @@ interface Props<T> {
   message?: string;
   onChangeMessage?: (text: string) => void;
   placeholder?: string;
-  placeholderColor?: string;
   renderSendButton?: () => JSX.Element;
 }
 
-function Shared<T>(props: Props<T>): JSX.Element {
+function Shared<T>({
+  chats = [],
+  borderColor,
+  backgroundColor,
+  fontColor,
+  keyboardOffset,
+  renderItem,
+  ListEmptyComponent,
+  renderViewMenu,
+  optionView,
+  message,
+  onChangeMessage,
+  placeholder,
+  renderSendButton,
+  onEndReached,
+}: Props<T>): JSX.Element {
   const input1 = useRef<TextInput>();
   const input2 = useRef<TextInput>();
-
-  const {
-    chats = [],
-    borderColor,
-    backgroundColor,
-    fontColor,
-    keyboardOffset,
-    renderItem,
-    ListEmptyComponent,
-    renderViewMenu,
-    optionView,
-    message,
-    onChangeMessage,
-    placeholder,
-    renderSendButton,
-    onEndReached,
-  } = props;
 
   const [keyboardHeight, setKeyboardHeight] = useState(258);
   const [showMenu, setShowMenu] = useState<boolean>(false);
@@ -144,14 +141,17 @@ function Shared<T>(props: Props<T>): JSX.Element {
   return (
     <>
       <StyledKeyboardAvoidingView
-        keyboardVerticalOffset={keyboardOffset}
         behavior={Platform.select({
           ios: 'padding',
           default: undefined,
         })}
+        keyboardVerticalOffset={keyboardOffset}
       >
         <FlatList
-          style={{alignSelf: 'stretch'}}
+          ListEmptyComponent={ListEmptyComponent}
+          ListHeaderComponent={
+            <View style={{height: showMenu ? keyboardHeight + 80 : 28}} />
+          }
           contentContainerStyle={
             chats.length === 0
               ? {
@@ -161,15 +161,12 @@ function Shared<T>(props: Props<T>): JSX.Element {
                 }
               : null
           }
+          data={chats}
           inverted
           keyExtractor={(item, index): string => index.toString()}
-          data={chats}
-          renderItem={renderItem}
           onEndReached={onEndReached}
-          ListEmptyComponent={ListEmptyComponent}
-          ListHeaderComponent={
-            <View style={{height: showMenu ? keyboardHeight + 80 : 28}} />
-          }
+          renderItem={renderItem}
+          style={{alignSelf: 'stretch'}}
         />
         {!showMenu ? (
           <StyledViewChat
@@ -179,7 +176,13 @@ function Shared<T>(props: Props<T>): JSX.Element {
             }}
           >
             <StyledInputChat
-              testID="input-chat"
+              defaultValue={message}
+              multiline={true}
+              onChangeText={onChangeMessage}
+              onFocus={(): void => setShowMenu(false)}
+              placeholder={placeholder}
+              // @ts-ignore
+              ref={input1}
               style={{
                 flexGrow: 1,
                 flexShrink: 1,
@@ -189,21 +192,15 @@ function Shared<T>(props: Props<T>): JSX.Element {
                 color: fontColor,
                 backgroundColor: backgroundColor,
               }}
-              // @ts-ignore
-              ref={input1}
-              onFocus={(): void => setShowMenu(false)}
-              multiline={true}
-              placeholder={placeholder}
+              testID="input-chat"
               value={message}
-              defaultValue={message}
-              onChangeText={onChangeMessage}
             />
             <StyledTouchMenu
-              testID="touch-menu"
               onPress={(): void => {
                 Keyboard.dismiss();
                 setShowMenu(true);
               }}
+              testID="touch-menu"
             >
               {/* @ts-ignore */}
               {optionView}
@@ -230,23 +227,23 @@ function Shared<T>(props: Props<T>): JSX.Element {
             }}
           >
             <StyledInputChat
+              defaultValue={message}
+              multiline={true}
+              onFocus={(): void => setShowMenu(false)}
+              placeholder={placeholder}
               // @ts-ignore
               ref={input2}
-              onFocus={(): void => setShowMenu(false)}
               style={{
                 color: fontColor,
                 backgroundColor: backgroundColor,
                 flexGrow: 1,
                 flexShrink: 1,
               }}
-              multiline={true}
-              placeholder={placeholder}
               value={message}
-              defaultValue={message}
             />
             <StyledTouchMenu
-              testID="touch-menu"
               onPress={(): void => setShowMenu(false)}
+              testID="touch-menu"
             >
               {/* @ts-ignore */}
               {optionView}
@@ -262,11 +259,11 @@ function Shared<T>(props: Props<T>): JSX.Element {
             </View>
           </StyledViewChat>
           <StyledViewMenu
-            testID="view-menu"
             height={keyboardHeight}
             style={{
               backgroundColor: backgroundColor,
             }}
+            testID="view-menu"
           >
             {/* @ts-ignore */}
             {renderViewMenu?.()}

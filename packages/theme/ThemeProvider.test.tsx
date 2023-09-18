@@ -19,8 +19,8 @@ describe('doobooContext', () => {
 
       const wrapper = ({children}): JSX.Element => (
         <ThemeProvider
-          initialThemeType={themeType}
           customTheme={{dark: customDarkTheme}}
+          initialThemeType={themeType}
         >
           {children}
         </ThemeProvider>

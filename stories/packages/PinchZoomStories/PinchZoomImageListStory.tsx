@@ -72,14 +72,14 @@ function ImageItem({
       <ImageContainer style={{overflow: 'hidden' /** It may be important! */}}>
         <PinchZoom style={{width, height: 200}}>
           <Image
-            style={{width, height: 200, backgroundColor: '#fff'}}
             onLoad={({nativeEvent: {source}}): void => {
               if (source && source.width && source.height) {
                 setWidth((200 * source.width) / source.height);
               }
             }}
+            resizeMode="contain"
             source={imageSource}
-            resizeMode={'contain'}
+            style={{width, height: 200, backgroundColor: '#fff'}}
           />
         </PinchZoom>
       </ImageContainer>
@@ -92,16 +92,15 @@ function PinchZoomImageListStory(): JSX.Element {
     <Container>
       <FlatList
         data={images}
-        style={{flex: 1}}
         keyExtractor={(item): string => item.uri}
-        // @ts-ignore
         renderItem={({item, index}): JSX.Element => (
           <ImageItem
+            content="This line is for the description of the image"
             source={item}
             title={`Image ${index + 1}`}
-            content="This line is for the description of the image"
           />
         )}
+        style={{flex: 1}}
       />
     </Container>
   );

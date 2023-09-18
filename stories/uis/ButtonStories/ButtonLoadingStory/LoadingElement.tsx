@@ -22,16 +22,16 @@ function Loading(): JSX.Element {
   return (
     <StorySection>
       <Button
-        loading={loading}
-        color={color}
-        size={size}
         activeOpacity={activeOpacity}
+        color={color}
         disabled={disabled}
-        type={type}
-        loadingElement={<LoadingIndicator size="small" color="yellow" />}
-        style={{margin: 4}}
+        loading={loading}
+        loadingElement={<LoadingIndicator color="yellow" size="small" />}
         // eslint-disable-next-line no-console
         onPress={() => console.log(`press loading button`)}
+        size={size}
+        style={{margin: 4}}
+        type={type}
       />
     </StorySection>
   );

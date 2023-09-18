@@ -17,9 +17,9 @@ function CheckboxWithStartElementStory({
     <View style={{flexDirection: 'column'}}>
       {[1, 2, 3].map((i) => (
         <Checkbox
-          key={i}
           checked={checked}
           disabled={boolean('disabled', false)}
+          key={i}
           onPress={() => setChecked(!checked)}
           startElement={
             <Typography.Body2>Hello this is a checkbox</Typography.Body2>
@@ -43,8 +43,8 @@ function CheckboxStartElement(): JSX.Element {
       <StoryContainer>
         <StoryTitle>Start Element</StoryTitle>
         <CheckboxWithStartElementStory
-          setChecked={setChecked}
           checked={checked}
+          setChecked={setChecked}
         />
       </StoryContainer>
     </ScrollContainer>

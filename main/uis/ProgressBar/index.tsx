@@ -57,9 +57,11 @@ interface ProgressBarProps {
 
 export {ProgressBarProps};
 
-export const ProgressBar: React.FC<ProgressBarProps> = (props) => {
-  const {value, type = 'info', styles = {}} = props;
-
+export function ProgressBar({
+  value,
+  type = 'info',
+  styles = {},
+}: ProgressBarProps): JSX.Element {
   return (
     <Container>
       <BackgroundView
@@ -68,9 +70,9 @@ export const ProgressBar: React.FC<ProgressBarProps> = (props) => {
       >
         <Progress
           style={styles?.progress}
-          value={value}
-          type={type}
           testID="progress-line-main"
+          type={type}
+          value={value}
         />
       </BackgroundView>
       <NumberText
@@ -79,4 +81,4 @@ export const ProgressBar: React.FC<ProgressBarProps> = (props) => {
       >{`${value}%`}</NumberText>
     </Container>
   );
-};
+}

@@ -18,7 +18,7 @@ const initialProps: ButtonGroupProps = {
   color: 'primary',
 };
 
-const Container = ({children}): JSX.Element => {
+function Container({children}): JSX.Element {
   const isDark = useDarkMode();
 
   return (
@@ -26,8 +26,9 @@ const Container = ({children}): JSX.Element => {
       {children}
     </DoobooProvider>
   );
-};
+}
 
+// eslint-disable-next-line react/function-component-definition
 const ButtonGroupStory: Story<ButtonGroupProps> = (args): JSX.Element => {
   const {options, initialValue} = args;
   const [selectedIndex, setSelectedIndex] = useState(initialValue);

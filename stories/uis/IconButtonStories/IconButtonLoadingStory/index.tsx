@@ -13,7 +13,7 @@ function IconButtonLoadingStory(): JSX.Element {
       <StoryTitle>Loading</StoryTitle>
       <StorySection>
         {types.map((type) => (
-          <IconButton key={type} type={type} loading style={{margin: 4}} />
+          <IconButton key={type} loading style={{margin: 4}} type={type} />
         ))}
       </StorySection>
     </StoryContainer>

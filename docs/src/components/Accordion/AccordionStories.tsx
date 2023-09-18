@@ -9,6 +9,7 @@ export default {
   viewMode: 'docs',
 } as Meta;
 
+// eslint-disable-next-line react/function-component-definition
 const Template: Story<ComponentProps<typeof Accordion>> = (
   args,
 ): JSX.Element => {

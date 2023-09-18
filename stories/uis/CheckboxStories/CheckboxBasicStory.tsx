@@ -17,13 +17,13 @@ function LabelWrapper({
   return (
     <View
       style={{
-        flexDirection: 'column',
+        flexDirection: 'row',
         alignItems: 'center',
       }}
     >
       <>
-        <Typography.Body1>{label}</Typography.Body1>
         {children}
+        <Typography.Body1>{label}</Typography.Body1>
       </>
     </View>
   );
@@ -39,29 +39,27 @@ function Checkboxes({
   return (
     <View
       style={{
-        flexDirection: 'row',
         flexWrap: 'wrap',
-        justifyContent: 'center',
       }}
     >
       {checkboxColors.map((color, i) => (
         <LabelWrapper key={`${color}_${i}`} label={color}>
           <Checkbox
-            style={{margin: 25}}
             checked={checked}
+            color={color}
             disabled={boolean('disabled', false)}
             onPress={() => setChecked(!checked)}
-            color={color}
+            style={{margin: 12, width: 24}}
           />
         </LabelWrapper>
       ))}
 
       <LabelWrapper label="disabled">
         <Checkbox
-          style={{margin: 25}}
           checked={boolean('checked', checked)}
           disabled={boolean('disabled', false)}
           onPress={() => setChecked(!checked)}
+          style={{margin: 12, width: 24}}
         />
       </LabelWrapper>
     </View>
@@ -80,7 +78,7 @@ function CheckboxBasicStory(): JSX.Element {
     >
       <StoryContainer>
         <StoryTitle>Basic</StoryTitle>
-        <Checkboxes setChecked={setChecked} checked={checked} />
+        <Checkboxes checked={checked} setChecked={setChecked} />
       </StoryContainer>
     </ScrollContainer>
   );

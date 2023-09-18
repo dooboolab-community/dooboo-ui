@@ -19,7 +19,6 @@ export type FabProps = {
   onPressItem: (item?: IconName) => void;
   buttonSize?: ButtonSizeType | number;
   fabIcon?: IconName;
-  iconSize?: number;
   gap?: number;
   style?: StyleProp<ViewStyle>;
   styles?: Styles;
@@ -100,10 +99,10 @@ function FloatingActionButtons({
             ]}
           >
             <IconButton
-              size={buttonSize}
-              testID={icon}
               icon={icon}
               onPress={() => onPressItem(icon)}
+              size={buttonSize}
+              testID={icon}
             />
           </Animated.View>
         );
@@ -124,7 +123,7 @@ function FloatingActionButtons({
           Fab,
         ]}
       >
-        <IconButton size={buttonSize} icon={fabIcon} onPress={onPressFab} />
+        <IconButton icon={fabIcon} onPress={onPressFab} size={buttonSize} />
       </Animated.View>
     </View>
   );

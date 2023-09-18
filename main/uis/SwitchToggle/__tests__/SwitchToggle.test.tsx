@@ -32,9 +32,9 @@ describe('[SwitchToggle]', () => {
     createComponent(
       <SwitchToggle
         isOn={isOn}
-        onPress={handlePress}
-        onElement={<Text>on</Text>}
         offElement={<Text>off</Text>}
+        onElement={<Text>on</Text>}
+        onPress={handlePress}
         style={{padding: 6}}
         styles={{
           container: {paddingLeft: 6, paddingRight: 5},

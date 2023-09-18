@@ -21,7 +21,7 @@ const initialProps: FabProps = {
   isActive: true,
 };
 
-const Container = ({style, children}): JSX.Element => {
+function Container({style, children}): JSX.Element {
   const isDark = useDarkMode();
 
   return (
@@ -38,8 +38,9 @@ const Container = ({style, children}): JSX.Element => {
       </View>
     </DoobooProvider>
   );
-};
+}
 
+// eslint-disable-next-line react/function-component-definition
 const FabStory: Story<FabProps> = (args): JSX.Element => {
   const [isActive, setIsActive] = useState(false);
 
@@ -51,9 +52,9 @@ const FabStory: Story<FabProps> = (args): JSX.Element => {
     >
       <Fab
         {...args}
+        gap={60}
         isActive={isActive}
         onPressFab={() => setIsActive(!isActive)}
-        gap={60}
       />
     </Container>
   );

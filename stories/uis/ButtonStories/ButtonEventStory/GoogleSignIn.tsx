@@ -28,27 +28,11 @@ function StartElementAndEndElement(): JSX.Element {
     <StorySection>
       <Button
         activeOpacity={activeOpacity}
-        disabled={disabled}
-        type={type}
-        size={size}
-        color={color}
-        startElement={
-          <View style={{marginRight: 12}}>
-            <Image style={{width: 32, height: 32}} source={IC_GOOGLE} />
-          </View>
-        }
         borderRadius={80}
+        color={color}
+        disabled={disabled}
         loading={googleLoading}
-        loadingElement={<LoadingIndicator size="small" color="deepskyblue" />}
-        style={{margin: 4}}
-        styles={{
-          container: css`
-            width: 300px;
-            border-width: 0.5px;
-            border-color: deepskyblue;
-          `,
-          text: {color: 'deepskyblue'},
-        }}
+        loadingElement={<LoadingIndicator color="deepskyblue" size="small" />}
         onPress={(e): void => {
           setGoogleLoading(true);
           action('GOOGLE SIGN IN')(e);
@@ -58,7 +42,23 @@ function StartElementAndEndElement(): JSX.Element {
             clearTimeout(timeout);
           }, 2000);
         }}
+        size={size}
+        startElement={
+          <View style={{marginRight: 12}}>
+            <Image source={IC_GOOGLE} style={{width: 32, height: 32}} />
+          </View>
+        }
+        style={{margin: 4}}
+        styles={{
+          container: css`
+            width: 300px;
+            border-width: 0.5px;
+            border-color: deepskyblue;
+          `,
+          text: {color: 'deepskyblue'},
+        }}
         text="GOOGLE SIGN IN"
+        type={type}
       />
     </StorySection>
   );

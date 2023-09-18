@@ -1,4 +1,4 @@
-import type {FC, ReactNode} from 'react';
+import type {ReactNode} from 'react';
 import React, {useRef} from 'react';
 import type {StyleProp, TouchableHighlightProps, ViewStyle} from 'react-native';
 import {Platform, TouchableHighlight, View} from 'react-native';
@@ -103,24 +103,22 @@ export type IconButtonProps = {
   touchableHighlightProps?: Omit<TouchableHighlightProps, 'onPress' | 'style'>;
 };
 
-export const IconButton: FC<IconButtonProps> = (props) => {
-  const {
-    testID,
-    type = 'solid',
-    color = 'primary',
-    size = 'medium',
-    disabled,
-    loading = false,
-    loadingElement,
-    icon,
-    iconElement,
-    style,
-    styles,
-    onPress,
-    activeOpacity = 0.95,
-    touchableHighlightProps,
-  } = props;
-
+export function IconButton({
+  testID,
+  type = 'solid',
+  color = 'primary',
+  size = 'medium',
+  disabled,
+  loading = false,
+  loadingElement,
+  icon,
+  iconElement,
+  style,
+  styles,
+  onPress,
+  activeOpacity = 0.95,
+  touchableHighlightProps,
+}: IconButtonProps): JSX.Element {
   const ref = useRef<TouchableHighlight>(null);
   const hovered = useHover(ref);
 
@@ -189,7 +187,6 @@ export const IconButton: FC<IconButtonProps> = (props) => {
   const renderContainer = (children: ReactNode): JSX.Element => {
     return (
       <View
-        testID={loading ? 'loading-view' : 'button-container'}
         style={[
           css`
             padding: 4px;
@@ -203,6 +200,7 @@ export const IconButton: FC<IconButtonProps> = (props) => {
           hovered && !disabled && compositeStyles.hovered,
           disabled && compositeStyles.disabled,
         ]}
+        testID={loading ? 'loading-view' : 'button-container'}
       >
         {children}
       </View>
@@ -211,26 +209,24 @@ export const IconButton: FC<IconButtonProps> = (props) => {
 
   const renderLoading = (): JSX.Element =>
     loadingElement ?? (
-      <LoadingIndicator size="small" color={theme.text.basic} />
+      <LoadingIndicator color={theme.text.basic} size="small" />
     );
 
   const renderIcon = (): JSX.Element =>
     iconElement || (
-      <Icon size={iconSize} color={iconColor} name={icon || 'QuestBoxFill'} />
+      <Icon color={iconColor} name={icon || 'QuestBoxFill'} size={iconSize} />
     );
 
   return (
     <TouchableHighlight
       activeOpacity={activeOpacity}
-      testID={testID}
+      delayPressIn={50}
+      disabled={disabled || loading}
+      onPress={onPress}
       ref={Platform.select({
         web: ref,
         default: undefined,
       })}
-      underlayColor={theme.role.underlay}
-      onPress={onPress}
-      delayPressIn={50}
-      disabled={disabled || loading}
       style={[
         css`
           width: ${iconSize + 24 + 'px'};
@@ -239,9 +235,11 @@ export const IconButton: FC<IconButtonProps> = (props) => {
         `,
         style,
       ]}
+      testID={testID}
+      underlayColor={theme.role.underlay}
       {...touchableHighlightProps}
     >
       {renderContainer(loading ? renderLoading() : renderIcon())}
     </TouchableHighlight>
   );
-};
+}

@@ -16,16 +16,16 @@ function TextButtonColors(): JSX.Element {
     <StorySection>
       {buttonColors.map((color) => (
         <Button
-          key={color}
-          type="text"
-          disabled={disabled}
           activeOpacity={activeOpacity}
           color={color}
-          size={size}
-          text={color.toUpperCase()}
-          style={{margin: 4}}
+          disabled={disabled}
+          key={color}
           // eslint-disable-next-line no-console
           onPress={() => console.log(`press ${color} text button`)}
+          size={size}
+          style={{margin: 4}}
+          text={color.toUpperCase()}
+          type="text"
         />
       ))}
     </StorySection>

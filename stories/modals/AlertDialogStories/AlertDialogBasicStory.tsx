@@ -26,33 +26,38 @@ function AlertDialogBasicStory(): JSX.Element {
       <Typography.Title>AlertDialog</Typography.Title>
       <Button
         color="primary"
-        text="Dialog"
-        style={{marginTop: 60, width: 200}}
         onPress={() =>
           alertDialog.open({
             title: 'Hello there!',
             body: 'This is an alert dialog.',
           })
         }
+        style={{marginTop: 60, width: 200}}
+        text="Dialog"
       />
       <Button
         color="primary"
-        text="With actions"
-        style={{marginTop: 20, width: 200}}
         onPress={() =>
           alertDialog.open({
             title: 'Hello there!',
             body: 'This is an alert dialog.',
             actions: [
               <Button
-                text="Cancel"
                 color="light"
+                key="button-cancel"
                 onPress={() => alertDialog.close()}
+                text="Cancel"
               />,
-              <Button text="OK" onPress={() => alertDialog.close()} />,
+              <Button
+                key="button-ok"
+                onPress={() => alertDialog.close()}
+                text="OK"
+              />,
             ],
           })
         }
+        style={{marginTop: 20, width: 200}}
+        text="With actions"
       />
     </Container>
   );

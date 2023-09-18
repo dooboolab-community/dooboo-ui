@@ -108,39 +108,37 @@ export type EditTextProps = {
   };
 };
 
-export function EditText(props: EditTextProps): JSX.Element {
-  const {
-    testID,
-    inputRef: givenInputRef,
-    textInputProps,
-    style,
-    styles,
-    label,
-    error,
-    startElement,
-    endElement,
-    multiline = false,
-    value = '',
-    placeholder,
-    placeholderColor,
-    onChange,
-    onChangeText,
-    onFocus,
-    onBlur,
-    onSubmitEditing,
-    numberOfLines,
-    maxLength,
-    hideCounter = false,
-    autoComplete,
-    autoCapitalize = 'none',
-    secureTextEntry = false,
-    editable = true,
-    direction = 'column',
-    decoration = 'underline',
-    colors = {},
-    required = false,
-  } = props;
-
+export function EditText({
+  testID,
+  inputRef: givenInputRef,
+  textInputProps,
+  style,
+  styles,
+  label,
+  error,
+  startElement,
+  endElement,
+  multiline = false,
+  value = '',
+  placeholder,
+  placeholderColor,
+  onChange,
+  onChangeText,
+  onFocus,
+  onBlur,
+  onSubmitEditing,
+  numberOfLines,
+  maxLength,
+  hideCounter = false,
+  autoComplete,
+  autoCapitalize = 'none',
+  secureTextEntry = false,
+  editable = true,
+  direction = 'column',
+  decoration = 'underline',
+  colors = {},
+  required = false,
+}: EditTextProps): JSX.Element {
   const {theme} = useTheme();
 
   const [focused, setFocused] = useState(false);
@@ -182,7 +180,7 @@ export function EditText(props: EditTextProps): JSX.Element {
 
   const renderLabel = (): JSX.Element | null => {
     // eslint-disable-next-line react/no-unstable-nested-components
-    const Wrapper = ({children}: {children: ReactNode}): JSX.Element => {
+    function Wrapper({children}: {children: ReactNode}): JSX.Element {
       return (
         <View
           style={css`
@@ -193,7 +191,7 @@ export function EditText(props: EditTextProps): JSX.Element {
           `}
         >
           {children}
-          {required && (
+          {required ? (
             <Icon
               name="AsteriskBold"
               style={css`
@@ -201,10 +199,10 @@ export function EditText(props: EditTextProps): JSX.Element {
                 opacity: ${focused ? '1' : '0.5'};
               `}
             />
-          )}
+          ) : null}
         </View>
       );
-    };
+    }
 
     return typeof label === 'string' ? (
       <Wrapper>
@@ -231,11 +229,10 @@ export function EditText(props: EditTextProps): JSX.Element {
   const renderContainer = (children: ReactNode): JSX.Element => {
     return (
       <TouchableWithoutFeedback
-        testID="container-touch"
         onPress={() => inputRef.current?.focus()}
+        testID="container-touch"
       >
         <View
-          testID="container"
           style={[
             defaultContainerStyle,
             css`
@@ -260,6 +257,7 @@ export function EditText(props: EditTextProps): JSX.Element {
                 `,
             styles?.container,
           ]}
+          testID="container"
         >
           {children}
         </View>
@@ -300,10 +298,26 @@ export function EditText(props: EditTextProps): JSX.Element {
               })
             : startElement}
           <TextInput
-            testID={testID}
-            ref={inputRef}
-            autoComplete={autoComplete}
             autoCapitalize={autoCapitalize}
+            autoComplete={autoComplete}
+            editable={editable}
+            maxLength={maxLength}
+            multiline={multiline}
+            numberOfLines={numberOfLines}
+            onBlur={(e) => {
+              setFocused(false);
+              onBlur?.(e);
+            }}
+            onChange={onChange}
+            onChangeText={onChangeText}
+            onFocus={(e) => {
+              setFocused(true);
+              onFocus?.(e);
+            }}
+            onSubmitEditing={onSubmitEditing}
+            placeholder={placeholder}
+            placeholderTextColor={placeholderColor || theme.text.placeholder}
+            ref={inputRef}
             secureTextEntry={secureTextEntry}
             selectionColor={colors.focused || theme.text.basic}
             style={[
@@ -331,24 +345,8 @@ export function EditText(props: EditTextProps): JSX.Element {
               `,
               styles?.input,
             ]}
-            editable={editable}
-            onFocus={(e) => {
-              setFocused(true);
-              onFocus?.(e);
-            }}
-            onBlur={(e) => {
-              setFocused(false);
-              onBlur?.(e);
-            }}
-            multiline={multiline}
+            testID={testID}
             value={value}
-            placeholder={placeholder}
-            placeholderTextColor={placeholderColor || theme.text.placeholder}
-            onChange={onChange}
-            onChangeText={onChangeText}
-            onSubmitEditing={onSubmitEditing}
-            maxLength={maxLength}
-            numberOfLines={numberOfLines}
             {...textInputProps}
           />
           {isValidElement(endElement)
@@ -409,7 +407,6 @@ export function EditText(props: EditTextProps): JSX.Element {
     <>
       {Platform.OS === 'web' ? <GlobalStyles /> : null}
       <View
-        testID="edit-text"
         ref={Platform.select({web: ref, default: undefined})}
         style={[
           css`
@@ -417,6 +414,7 @@ export function EditText(props: EditTextProps): JSX.Element {
           `,
           style,
         ]}
+        testID="edit-text"
       >
         {renderLabel()}
         {renderContainer(renderInput())}

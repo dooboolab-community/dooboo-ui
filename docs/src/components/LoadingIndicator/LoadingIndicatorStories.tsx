@@ -15,7 +15,7 @@ type LoadingIndicatorProps = ComponentProps<typeof LoadingIndicator>;
 
 const initialProps: LoadingIndicatorProps = {};
 
-const Container = ({children}): JSX.Element => {
+function Container({children}): JSX.Element {
   const isDark = useDarkMode();
 
   return (
@@ -29,8 +29,9 @@ const Container = ({children}): JSX.Element => {
       </View>
     </DoobooProvider>
   );
-};
+}
 
+// eslint-disable-next-line react/function-component-definition
 const LoadingIndicatorStory: Story<LoadingIndicatorProps> = (
   args,
 ): JSX.Element => {

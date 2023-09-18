@@ -20,16 +20,17 @@ function ButtonBasicStory(): JSX.Element {
       <StorySection style={{flexDirection: 'column'}}>
         {buttonTypes.map((type) => (
           <Button
-            loading={loading}
-            size={size}
-            color={color}
             activeOpacity={activeOpacity}
+            color={color}
             disabled={disabled}
             key={type}
-            type={type}
-            text={`type: ${type}`}
-            style={{margin: 4}} // eslint-disable-next-line no-console
+            loading={loading}
+            // eslint-disable-next-line no-console
             onPress={() => console.log(`press ${type} basic button`)}
+            size={size}
+            style={{margin: 4}} // eslint-disable-next-line no-console
+            text={`type: ${type}`}
+            type={type}
           />
         ))}
       </StorySection>

@@ -26,22 +26,22 @@ const data = [
   },
 ];
 
-const AccordionBasic = (): JSX.Element => {
+function AccordionBasic(): JSX.Element {
   return (
     <ScrollContainer>
       <StoryContainer>
         <StoryTitle style={{fontSize: 18, marginBottom: 8}}>Basic</StoryTitle>
         <Accordion<string, string>
-          shouldAnimate={boolean('shouldAnimate', true)}
-          animDuration={number('animDuration', 200)}
           activeOpacity={number('activeOpacity', 0.8)}
+          animDuration={number('animDuration', 200)}
           collapseOnStart={boolean('collapseOnStart', true)}
           data={data}
           onPressItem={action('onPressItem')}
+          shouldAnimate={boolean('shouldAnimate', true)}
         />
       </StoryContainer>
     </ScrollContainer>
   );
-};
+}
 
 export default AccordionBasic;

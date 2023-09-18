@@ -60,7 +60,7 @@
     "@babel/preset-react": "^7.22.15",
     "@commitlint/cli": "^17.7.1",
     "@commitlint/config-conventional": "^17.7.0",
-    "@dooboo/eslint-config-react-native": "^1.4.1",
+    "@dooboo/eslint-config-react-native": "^1.4.2",
     "@jest/types": "^29.6.3",
     "@react-native-community/datetimepicker": "^7.5.0",
     "@react-native-community/slider": "^4.4.3",

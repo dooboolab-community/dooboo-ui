@@ -242,7 +242,7 @@ function CalendarCarousel({
       const firstWeekday = new Date(year, month, 1).getDay();
       const lastWeekday = new Date(year, month, lastDate).getDay();
 
-      const weekdays: unknown[] = [];
+      const weekdays: JSX.Element[] = [];
 
       for (let idx = 0; idx <= 6; idx++) {
         const matchMonth = new Date(2020, 5, idx);
@@ -332,7 +332,7 @@ function CalendarCarousel({
 
         if (itemMonth !== month) {
           return (
-            <View style={styles.defaultView} key={`${itemMonth}-${itemDay}`}>
+            <View key={`${itemMonth}-${itemDay}`} style={styles.defaultView}>
               <Text
                 style={[styles.otherDaysText, {color: theme.text.disabled}]}
               >{`${itemDay}`}</Text>
@@ -410,7 +410,7 @@ function CalendarCarousel({
             markedYears.includes(year)
           ) {
             return (
-              <View style={styles.eventContainer} key={`${eventDay}-${i}`}>
+              <View key={`${eventDay}-${i}`} style={styles.eventContainer}>
                 <Text style={styles.eventDate}>
                   {markedDayEvents[i].selectedEventDate.getDate()}
                 </Text>
@@ -421,7 +421,7 @@ function CalendarCarousel({
             );
           }
 
-          return <View />;
+          return <View key="none" />;
         });
       };
 
@@ -446,16 +446,14 @@ function CalendarCarousel({
               <Text style={styles.arrowText}>&#8250;</Text>
             </TouchableOpacity>
           </View>
-          <View style={styles.rowContainer}>
-            <>{weekdays}</>
-          </View>
+          <View style={styles.rowContainer}>{weekdays}</View>
           <FlatList
-            style={styles.dayContainer}
             data={calendarDates}
+            keyExtractor={(item, id) => `${item}-${id}`}
             numColumns={7}
             renderItem={({item}) => renderDates(item)}
-            keyExtractor={(item, id) => `${item}-${id}`}
             scrollEnabled={false}
+            style={styles.dayContainer}
           />
           {renderEvent()}
         </View>
@@ -473,19 +471,19 @@ function CalendarCarousel({
 
   return (
     <SafeAreaView
-      style={styles.wrapperContainer}
       onLayout={(e): void => {
         setLayoutWidth(e.nativeEvent.layout.width);
         scrollToMiddleCalendar();
       }}
+      style={styles.wrapperContainer}
     >
       <ScrollView
-        horizontal
-        pagingEnabled
-        scrollEventThrottle={16}
         contentOffset={{x: layoutWidth, y: 0}}
-        ref={scrollRef}
+        horizontal
         onMomentumScrollEnd={scrollEffect}
+        pagingEnabled
+        ref={scrollRef}
+        scrollEventThrottle={16}
       >
         {renderCalendars()}
       </ScrollView>

@@ -34,17 +34,20 @@ export type AccordionBaseProps<T = string, K = string> = {
 
 export type AccordionProps<T = string, K = string> = AccordionBaseProps<T, K>;
 
-export function Accordion<T, K>(props: AccordionProps<T, K>): JSX.Element {
-  const {style, toggleElementPosition = 'right', data, ...rest} = props;
-
+export function Accordion<T, K>({
+  style,
+  toggleElementPosition = 'right',
+  data,
+  ...rest
+}: AccordionProps<T, K>): JSX.Element {
   return (
     <Container style={style}>
       {data.map((datum, titleKey) => {
         return (
           <AccordionItem
+            data={datum}
             key={titleKey}
             testID={`${titleKey}`}
-            data={datum}
             toggleElementPosition={toggleElementPosition}
             {...rest}
           />

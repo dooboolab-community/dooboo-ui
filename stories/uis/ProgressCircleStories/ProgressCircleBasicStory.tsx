@@ -63,9 +63,9 @@ function ProgressCircleBasicStory(): JSX.Element {
     <StoryContainer>
       <StoryTitle>Basic</StoryTitle>
       <ProgressCircle
+        baseStrokeWidth={baseStrokeWidth}
         color={color}
         progress={progress}
-        baseStrokeWidth={baseStrokeWidth}
       />
     </StoryContainer>
   );

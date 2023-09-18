@@ -95,30 +95,30 @@ export function ProgressCircle({
       style={[containerLayout, style, styles?.container]}
     >
       <Svg
-        style={{position: 'absolute'}}
-        width={containerLayout.width}
         height={containerLayout.height}
+        style={{position: 'absolute'}}
         viewBox={`0 0 ${containerLayout.width} ${containerLayout.height}`}
+        width={containerLayout.width}
       >
         <AnimCircle
           // @ts-ignore => PR given https://github.com/react-native-svg/react-native-svg/pull/1822
           fill="transparent"
           r={radius}
-          strokeWidth={strokeWidth}
-          stroke={strokeColor}
           rotation={-90}
+          stroke={strokeColor}
           strokeDasharray={2 * Math.PI * radius}
           strokeDashoffset={animValue.current.interpolate({
             inputRange: [0, 1],
             outputRange: [2 * Math.PI * radius, 0],
           })}
+          strokeWidth={strokeWidth}
           {...circleProps}
         />
         <SvgCircle
           fill="transparent"
           r={radius + strokeWidth / 2}
-          strokeWidth={baseStrokeWidth}
           stroke={strokeColor}
+          strokeWidth={baseStrokeWidth}
           {...circleProps}
         />
       </Svg>

@@ -1,14 +1,14 @@
 import type {MutableRefObject} from 'react';
 import {useEffect, useRef, useState} from 'react';
 import {View} from 'react-native';
-import type {ThemeContext, ThemeProps} from '@dooboo-ui/theme';
+import type {ThemeContext} from '@dooboo-ui/theme';
 import {ThemeProvider, useTheme} from '@dooboo-ui/theme';
 import {css} from '@emotion/native';
 import {loadAsync} from 'expo-font';
 
 import type {AlertDialogContext} from '../modals/AlertDialog';
 import AlertDialog from '../modals/AlertDialog';
-import type {SnackbarContext, SnackbarOptions} from '../modals/Snackbar';
+import type {SnackbarContext} from '../modals/Snackbar';
 import Snackbar from '../modals/Snackbar';
 import createCtx from '../utils/createCtx';
 
@@ -24,15 +24,13 @@ export type DoobooContext = {
 
 export type DoobooProviderProps = {
   children?: JSX.Element;
-  themeConfig?: Omit<ThemeProps, 'children'>;
-  snackbarConfig?: SnackbarOptions;
 };
 
 const [useCtx, Provider] = createCtx<DoobooContext>(
   'dooboo-ui modals should be used within DoobooProvider.',
 );
 
-function DoobooProvider(props: DoobooProviderProps): JSX.Element {
+function DoobooProvider({children}: DoobooProviderProps): JSX.Element {
   const [assetLoaded, setAssetLoaded] = useState(false);
 
   useEffect(() => {
@@ -51,7 +49,7 @@ function DoobooProvider(props: DoobooProviderProps): JSX.Element {
   }, []);
 
   const themeContext = useTheme();
-  const {children} = props;
+
   const snackbar =
     useRef<SnackbarContext>() as MutableRefObject<SnackbarContext>;
 
@@ -107,7 +105,7 @@ function DoobooProvider(props: DoobooProviderProps): JSX.Element {
 
 function DoobooWithThemeProvider(props: DoobooProviderProps): JSX.Element {
   return (
-    <ThemeProvider {...props.themeConfig}>
+    <ThemeProvider>
       <DoobooProvider {...props} />
     </ThemeProvider>
   );

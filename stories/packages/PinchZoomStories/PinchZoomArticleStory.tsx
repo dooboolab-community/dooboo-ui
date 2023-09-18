@@ -11,7 +11,7 @@ const ContentText = styled.Text`
   font-size: 14px;
 `;
 
-const PinchZoomArticleStory = (): JSX.Element => {
+function PinchZoomArticleStory(): JSX.Element {
   return (
     <PinchZoom style={{width: '100%', backgroundColor: '#eee', padding: 10}}>
       <TitleText>Article Title</TitleText>
@@ -22,6 +22,6 @@ PinchZoom works at only Image but also other views. So, let's zoom in with your 
       </ContentText>
     </PinchZoom>
   );
-};
+}
 
 export default PinchZoomArticleStory;

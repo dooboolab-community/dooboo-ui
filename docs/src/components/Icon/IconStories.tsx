@@ -25,7 +25,7 @@ const initialProps: IconProps = {
   name: 'Airplane',
 };
 
-const Container = ({children}): JSX.Element => {
+function Container({children}): JSX.Element {
   const isDark = useDarkMode();
 
   return (
@@ -39,8 +39,9 @@ const Container = ({children}): JSX.Element => {
       </View>
     </DoobooProvider>
   );
-};
+}
 
+// eslint-disable-next-line react/function-component-definition
 const IconStory: Story<IconProps> = (args): JSX.Element => {
   return (
     <Container>
@@ -69,9 +70,8 @@ export function IconList(): JSX.Element {
       >
         <EditText
           direction="row"
-          style={css`
-            margin-bottom: 20px;
-          `}
+          onChangeText={(str) => setSearchText(str)}
+          placeholder="Search icons"
           startElement={
             <Icon
               name="MagnifyingGlass"
@@ -80,9 +80,10 @@ export function IconList(): JSX.Element {
               `}
             />
           }
+          style={css`
+            margin-bottom: 20px;
+          `}
           value={searchText}
-          placeholder="Search icons"
-          onChangeText={(str) => setSearchText(str)}
         />
         <View
           style={css`

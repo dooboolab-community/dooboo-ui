@@ -40,11 +40,11 @@ function CalendarCarouselBasicStory(): JSX.Element {
     <Container>
       <CalendarCarousel
         date={currentDate}
-        onDateChanged={(dateProp: Date): void => setCurrentDate(dateProp)}
-        selectedDate={selectedDate}
-        selectDate={(dateProp: Date): void => setSelectedDate(dateProp)}
         markedDayEvents={markedDayEvents}
         monthFormatter={monthFormatter}
+        onDateChanged={(dateProp: Date): void => setCurrentDate(dateProp)}
+        selectDate={(dateProp: Date): void => setSelectedDate(dateProp)}
+        selectedDate={selectedDate}
       />
     </Container>
   );

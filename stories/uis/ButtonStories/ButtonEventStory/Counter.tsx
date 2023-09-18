@@ -26,30 +26,30 @@ function Counter(): JSX.Element {
     <StorySection>
       <Button
         activeOpacity={activeOpacity}
+        color={color}
         disabled={disabled}
         loading={loading}
-        type={type}
-        size={size}
-        color={color}
-        style={{margin: 4}}
         onPress={(e): void => {
           setCount(count + 1);
           action('PLUS COUNT 1')(e);
         }}
+        size={size}
+        style={{margin: 4}}
         text="+"
+        type={type}
       />
       <Button
         activeOpacity={activeOpacity}
         disabled={disabled}
         loading={loading}
-        type={type}
-        size={size}
-        style={{margin: 4}}
         onPress={(e): void => {
           setCount(count - 1);
           action('MINUS COUNT 1')(e);
         }}
+        size={size}
+        style={{margin: 4}}
         text="-"
+        type={type}
       />
       <StoryDescription>Count : {count}</StoryDescription>
     </StorySection>

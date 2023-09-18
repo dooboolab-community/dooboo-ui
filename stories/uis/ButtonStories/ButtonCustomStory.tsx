@@ -18,13 +18,11 @@ function ButtonCustomStory(): JSX.Element {
       <StoryTitle>Custom</StoryTitle>
       <StorySection>
         <Button
-          type={type}
-          text="ENABLED"
-          size={size}
           color={color}
-          style={{margin: 4}}
           // eslint-disable-next-line no-console
           onPress={() => console.log(`press enabled button`)}
+          size={size}
+          style={{margin: 4}}
           styles={{
             container: css`
               background-color: #449944;
@@ -34,11 +32,11 @@ function ButtonCustomStory(): JSX.Element {
             disabled: {backgroundColor: '#efefef'},
             disabledText: {color: '#ccc'},
           }}
+          text="ENABLED"
+          type={type}
         />
 
         <Button
-          type="solid"
-          text="DISABLED"
           disabled
           style={{margin: 4}}
           styles={{
@@ -50,6 +48,8 @@ function ButtonCustomStory(): JSX.Element {
             disabled: {backgroundColor: '#efefef'},
             disabledText: {color: '#ccc'},
           }}
+          text="DISABLED"
+          type="solid"
         />
       </StorySection>
     </StoryContainer>

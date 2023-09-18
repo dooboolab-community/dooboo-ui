@@ -24,14 +24,14 @@ function ButtonLoadingStory(): JSX.Element {
       <StorySection>
         {types.map((type) => (
           <Button
-            key={type}
-            size={size}
             color={color}
-            type={type}
+            key={type}
             loading
-            style={{margin: 4}}
             // eslint-disable-next-line no-console
             onPress={() => console.log(`press ${type} button`)}
+            size={size}
+            style={{margin: 4}}
+            type={type}
           />
         ))}
       </StorySection>

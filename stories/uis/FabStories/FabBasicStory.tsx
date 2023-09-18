@@ -14,11 +14,8 @@ function FabBasicStory(): JSX.Element {
       <StoryTitle>Basic</StoryTitle>
       <Typography.Heading2>{`clicked item: ${selectedItem}`}</Typography.Heading2>
       <Fab
-        style={css`
-          bottom: 30px;
-        `}
-        isActive={active}
         icons={['MagnifyingGlass', 'Heart']}
+        isActive={active}
         onPressFab={() => setActive((prev) => !prev)}
         onPressItem={(item) => {
           if (!item) {
@@ -27,6 +24,9 @@ function FabBasicStory(): JSX.Element {
 
           setSelectedItem(item);
         }}
+        style={css`
+          bottom: 30px;
+        `}
       />
     </StoryContainer>
   );

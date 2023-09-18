@@ -24,14 +24,14 @@ function IconButtonColorStory(): JSX.Element {
       <StorySection>
         {colors.map((color) => (
           <IconButton
-            disabled={boolean('disabled', false)}
             activeOpacity={number('activeOpacity', 0.8)}
+            color={color}
+            disabled={boolean('disabled', false)}
+            icon="Eraser"
+            key={color}
             loading={boolean('loading', false)}
             onPress={action('onPress')}
-            key={color}
-            color={color}
             size="small"
-            icon="Eraser"
             style={{margin: 4}}
           />
         ))}
