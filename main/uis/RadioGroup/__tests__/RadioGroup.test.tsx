@@ -5,7 +5,7 @@ import {act, fireEvent, render, waitFor} from '@testing-library/react-native';
 
 import {createComponent, createTestProps} from '../../../../test/testUtils';
 import type {RadioButtonType} from '..';
-import {RadioButton} from '../RadioButton';
+import RadioButton from '../RadioButton';
 import {RadioGroup} from '..';
 
 let props: any;
@@ -24,10 +24,10 @@ describe('[RadioButton] render', () => {
     component = createComponent(
       <View style={{flexDirection: 'row', marginTop: 24}}>
         <RadioGroup<string>
-          title={'title'}
           data={data}
-          selectedValue={props.selectedValue}
           selectValue={props.selectValue}
+          selectedValue={props.selectedValue}
+          title="title"
         />
       </View>,
     );
@@ -46,10 +46,10 @@ describe('[RadioButton] render', () => {
         <View>
           <View style={{flexDirection: 'row', marginTop: 24}}>
             <RadioGroup<string>
-              title={'title'}
               data={data}
               labels={data}
               selectedValue={data[0]}
+              title="title"
             />
           </View>
         </View>,
@@ -68,11 +68,11 @@ describe('[RadioButton] render', () => {
         <View>
           <View style={{flexDirection: 'row', marginTop: 24}}>
             <RadioGroup<string>
-              title={'title'}
               data={data}
+              labelPosition="left"
               labels={data}
               selectedValue={data[0]}
-              labelPosition="left"
+              title="title"
             />
           </View>
         </View>,
@@ -94,10 +94,10 @@ describe('[RadioButton] render', () => {
     component = createComponent(
       <View style={{flexDirection: 'row', marginTop: 24}}>
         <RadioGroup<string>
-          title={'title'}
           data={data}
-          selectedValue={props.selectedValue}
           selectValue={props.selectValue}
+          selectedValue={props.selectedValue}
+          title="title"
         />
       </View>,
     );
@@ -122,10 +122,10 @@ describe('[RadioButton]', () => {
     component = createComponent(
       <View style={{flexDirection: 'row', marginTop: 24}}>
         <RadioGroup<string>
-          title={'title'}
           data={data}
-          selectedValue={props.selectedValue}
           selectValue={props.selectValue}
+          selectedValue={props.selectedValue}
+          title="title"
         />
       </View>,
     );
@@ -168,11 +168,11 @@ describe('[RadioButton]', () => {
             return (
               <View key={el} style={{flexDirection: 'row', marginTop: 24}}>
                 <RadioGroup<string>
-                  title={el}
                   data={data}
-                  type={el as RadioButtonType}
-                  selectedValue={data[0]}
                   labels={data}
+                  selectedValue={data[0]}
+                  title={el}
+                  type={el as RadioButtonType}
                 />
               </View>
             );

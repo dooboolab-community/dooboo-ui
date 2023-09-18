@@ -41,22 +41,20 @@ type Props<T, K> = Omit<AccordionBaseProps<T, K>, 'data' | 'style'> & {
   data: AccordionItemDataType<string, string> | AccordionItemDataType<T, K>;
 };
 
-export function AccordionItem<T, K>(props: Props<T, K>): JSX.Element {
-  const {
-    testID,
-    data: data,
-    shouldAnimate = true,
-    collapseOnStart = true,
-    animDuration = 200,
-    activeOpacity = 1,
-    toggleElement = <StyledIcon name="CaretDown" size={14} />,
-    toggleElementPosition,
-    onPressItem,
-    renderTitle,
-    renderItem,
-    styles,
-  } = props;
-
+export function AccordionItem<T, K>({
+  testID,
+  data: data,
+  shouldAnimate = true,
+  collapseOnStart = true,
+  animDuration = 200,
+  activeOpacity = 1,
+  toggleElement = <StyledIcon name="CaretDown" size={14} />,
+  toggleElementPosition,
+  onPressItem,
+  renderTitle,
+  renderItem,
+  styles,
+}: Props<T, K>): JSX.Element {
   const dropDownAnimValueRef = useRef(new Animated.Value(0));
   const rotateAnimValueRef = useRef(new Animated.Value(0));
   const fadeItemAnim = useRef(new Animated.Value(0)).current;
@@ -139,8 +137,8 @@ export function AccordionItem<T, K>(props: Props<T, K>): JSX.Element {
       >
         {data.items.map((body, index) => (
           <ItemTouch
-            key={`body-${index}`}
             activeOpacity={activeOpacity}
+            key={`body-${index}`}
             onPress={() => onPressItem?.(data.title, body)}
           >
             {typeof body === 'string' && !renderItem ? (
@@ -155,7 +153,8 @@ export function AccordionItem<T, K>(props: Props<T, K>): JSX.Element {
       </View>
       {/* Title */}
       <TitleTouch
-        testID={`title-${testID}`}
+        activeOpacity={activeOpacity}
+        onPress={() => setCollapsed(!collapsed)}
         style={[
           css`
             justify-content: ${toggleElementPosition === 'right'
@@ -164,8 +163,7 @@ export function AccordionItem<T, K>(props: Props<T, K>): JSX.Element {
           `,
           styles?.titleContainer,
         ]}
-        onPress={() => setCollapsed(!collapsed)}
-        activeOpacity={activeOpacity}
+        testID={`title-${testID}`}
       >
         {toggleElementPosition === 'left' ? toggleElContainer : null}
         {typeof data.title === 'string' && !renderTitle ? (
@@ -180,7 +178,7 @@ export function AccordionItem<T, K>(props: Props<T, K>): JSX.Element {
 
       {/* Item */}
       <Animated.View
-        testID={`body-${testID}`}
+        accessibilityState={{expanded: !collapsed}}
         style={[
           {
             opacity: fadeItemAnim,
@@ -190,12 +188,12 @@ export function AccordionItem<T, K>(props: Props<T, K>): JSX.Element {
             }),
           },
         ]}
-        accessibilityState={{expanded: !collapsed}}
+        testID={`body-${testID}`}
       >
         {data.items.map((body, index) => (
           <ItemTouch
-            key={`body-${index}`}
             activeOpacity={activeOpacity}
+            key={`body-${index}`}
             onPress={() => onPressItem?.(data.title, body)}
             style={styles?.itemContainer}
           >

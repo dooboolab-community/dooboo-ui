@@ -17,30 +17,30 @@ function ButtonSizeStory(): JSX.Element {
       <StorySection>
         {sizes.map((size) => (
           <Button
-            key={size}
-            size={size}
+            activeOpacity={number('activeOpacity', 0.8)}
             color={color}
             disabled={boolean('disabled', false)}
-            activeOpacity={number('activeOpacity', 0.8)}
-            text={size.toUpperCase()}
-            style={{margin: 4}}
+            key={size}
             // eslint-disable-next-line no-console
             onPress={() => console.log(`press ${size} button`)}
+            size={size}
+            style={{margin: 4}}
+            text={size.toUpperCase()}
           />
         ))}
 
         {sizes.map((size) => (
           <Button
-            key={size}
-            size={size}
-            color={color}
-            type="outlined"
-            disabled={boolean('disabled', false)}
             activeOpacity={number('activeOpacity', 0.8)}
-            text={size.toUpperCase()}
-            style={{margin: 4}}
+            color={color}
+            disabled={boolean('disabled', false)}
+            key={size}
             // eslint-disable-next-line no-console
             onPress={() => console.log(`press ${size} button`)}
+            size={size}
+            style={{margin: 4}}
+            text={size.toUpperCase()}
+            type="outlined"
           />
         ))}
       </StorySection>

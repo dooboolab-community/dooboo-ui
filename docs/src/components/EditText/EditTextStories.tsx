@@ -32,7 +32,7 @@ const initialProps: EditTextProps = {
   value: '',
 };
 
-const Container = ({children}): JSX.Element => {
+function Container({children}): JSX.Element {
   const isDark = useDarkMode();
 
   return (
@@ -46,8 +46,9 @@ const Container = ({children}): JSX.Element => {
       </View>
     </DoobooProvider>
   );
-};
+}
 
+// eslint-disable-next-line react/function-component-definition
 const EditTextStory: Story<EditTextProps> = (args): JSX.Element => {
   const [value, setValue] = useState<string>('');
 
@@ -55,10 +56,10 @@ const EditTextStory: Story<EditTextProps> = (args): JSX.Element => {
     <Container>
       <EditText
         {...args}
+        onChangeText={(text) => setValue(text)}
         style={css`
           flex: 1;
         `}
-        onChangeText={(text) => setValue(text)}
         value={value}
       />
     </Container>

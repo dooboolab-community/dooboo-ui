@@ -12,8 +12,8 @@ let testingLib: RenderAPI;
 const Component = (props?: ComponentProps<typeof ButtonGroup>): JSX.Element =>
   createComponent(
     <ButtonGroup
-      options={['Option1', 'Option2', 'Option3']}
       initialValue="Option1"
+      options={['Option1', 'Option2', 'Option3']}
       {...props}
     />,
   );

@@ -37,15 +37,15 @@ function ProgressBarBasicStory(): JSX.Element {
       </Section>
       <Section>
         <SubTitle>Warning</SubTitle>
-        <ProgressBar value={50} type="warning" />
+        <ProgressBar type="warning" value={50} />
       </Section>
       <Section>
         <SubTitle>Danger</SubTitle>
-        <ProgressBar value={75} type="danger" />
+        <ProgressBar type="danger" value={75} />
       </Section>
       <Section>
         <SubTitle>Success</SubTitle>
-        <ProgressBar value={100} type="success" />
+        <ProgressBar type="success" value={100} />
       </Section>
     </StoryContainer>
   );

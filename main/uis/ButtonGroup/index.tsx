@@ -88,7 +88,6 @@ export function ButtonGroup({
 
   return (
     <ButtonGroupContainer
-      testID={testID}
       style={[
         css`
           border-width: 1px;
@@ -96,6 +95,7 @@ export function ButtonGroup({
         `,
         style,
       ]}
+      testID={testID}
     >
       {options.map((option, index) => {
         const isSelected = selectedValue === option;
@@ -151,7 +151,7 @@ export function ButtonGroup({
                 {endElement}
               </View>
             </Button>
-            {index !== options.length - 1 && (
+            {index !== options.length - 1 ? (
               <Divider
                 style={[
                   css`
@@ -160,7 +160,7 @@ export function ButtonGroup({
                   styles?.divider,
                 ]}
               />
-            )}
+            ) : null}
           </View>
         );
       })}

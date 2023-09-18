@@ -9,7 +9,7 @@ function IconButtonLoadingElement(): JSX.Element {
     <StorySection>
       <IconButton
         loading
-        loadingElement={<LoadingIndicator size="small" color="yellow" />}
+        loadingElement={<LoadingIndicator color="yellow" size="small" />}
         style={{margin: 4}}
       />
     </StorySection>

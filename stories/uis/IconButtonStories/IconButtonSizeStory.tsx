@@ -16,13 +16,13 @@ function IconButtonSizeStory(): JSX.Element {
       <StorySection>
         {sizes.map((size) => (
           <IconButton
-            disabled={boolean('disabled', false)}
             activeOpacity={number('activeOpacity', 0.8)}
+            disabled={boolean('disabled', false)}
+            icon="MagnifyingGlass"
+            key={size}
             loading={boolean('loading', false)}
             onPress={action('onPress')}
-            key={size}
             size={size}
-            icon="MagnifyingGlass"
             style={{margin: 4}}
           />
         ))}

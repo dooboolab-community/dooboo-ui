@@ -74,19 +74,17 @@ const largeCircle: ViewStyle = {
   borderRadius: 16,
 };
 
-export function SwitchToggle(props: Props): JSX.Element {
-  const {
-    testID,
-    isOn,
-    style,
-    styles,
-    duration = 300,
-    onElement,
-    size = 'medium',
-    offElement,
-    onPress,
-  } = props;
-
+export function SwitchToggle({
+  testID,
+  isOn,
+  style,
+  styles,
+  duration = 300,
+  onElement,
+  size = 'medium',
+  offElement,
+  onPress,
+}: Props): JSX.Element {
   const {theme} = useTheme();
 
   const {
@@ -194,11 +192,11 @@ export function SwitchToggle(props: Props): JSX.Element {
 
   return (
     <TouchableOpacity
-      testID={testID}
       accessibilityRole="switch"
-      style={style}
-      onPress={onPress}
       activeOpacity={0.8}
+      onPress={onPress}
+      style={style}
+      testID={testID}
     >
       <AnimatedContainer
         style={[

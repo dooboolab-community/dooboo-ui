@@ -26,57 +26,57 @@ function SnackbarBasicStory(): JSX.Element {
       <Typography.Title>Snackbar</Typography.Title>
       <Button
         color="primary"
-        text="Snackbar"
-        style={{marginTop: 60, width: 200}}
         onPress={() =>
           snackbar.open({
             text: 'Hello there!',
           })
         }
+        style={{marginTop: 60, width: 200}}
+        text="Snackbar"
       />
       <Button
         color="primary"
-        text="With action"
-        style={{marginTop: 20, width: 200}}
         onPress={() =>
           snackbar.open({
             text: 'Hello there!',
             actionText: 'Cancel',
           })
         }
+        style={{marginTop: 20, width: 200}}
+        text="With action"
       />
       <Button
         color="info"
-        text="Color = info"
-        style={{marginTop: 20, width: 200}}
         onPress={() =>
           snackbar.open({
             text: 'Hello there!',
             color: 'info',
           })
         }
+        style={{marginTop: 20, width: 200}}
+        text="Color = info"
       />
       <Button
         color="danger"
-        text="Color = danger"
-        style={{marginTop: 20, width: 200}}
         onPress={() =>
           snackbar.open({
             text: 'Hello there!',
             color: 'danger',
           })
         }
+        style={{marginTop: 20, width: 200}}
+        text="Color = danger"
       />
       <Button
         color="light"
-        text="Color = light"
-        style={{marginTop: 20, width: 200}}
         onPress={() =>
           snackbar.open({
             text: 'Hello there!',
             color: 'light',
           })
         }
+        style={{marginTop: 20, width: 200}}
+        text="Color = light"
       />
     </Container>
   );

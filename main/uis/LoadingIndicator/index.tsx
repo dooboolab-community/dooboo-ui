@@ -22,16 +22,14 @@ interface Props {
   customElement?: JSX.Element | (() => JSX.Element);
 }
 
-export function LoadingIndicator(props: Props): JSX.Element {
-  const {
-    customElement,
-    style,
-    styles,
-    size = 'large',
-    color,
-    imgSource,
-  } = props;
-
+export function LoadingIndicator({
+  customElement,
+  style,
+  styles,
+  size = 'large',
+  color,
+  imgSource,
+}: Props): JSX.Element {
   const {theme} = useTheme();
 
   const handleImgSourceType = (
@@ -56,9 +54,9 @@ export function LoadingIndicator(props: Props): JSX.Element {
         )
       ) : !imgSource ? (
         <ActivityIndicator
-          style={styles?.activityIndicator}
-          size={size}
           color={color || theme.role.secondary}
+          size={size}
+          style={styles?.activityIndicator}
         />
       ) : (
         <Image

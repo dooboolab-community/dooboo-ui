@@ -20,11 +20,12 @@ function ButtonStartAndEndStory(): JSX.Element {
       <StoryTitle>Start and end element</StoryTitle>
       <StorySection>
         <Button
-          color={color}
-          type={type}
-          disabled={disabled}
           activeOpacity={activeOpacity}
+          color={color}
+          disabled={disabled}
           loading={loading}
+          // eslint-disable-next-line no-console
+          onPress={() => console.log(`press button with startElement`)}
           size={size}
           startElement={
             boolean('showElement', true) ? (
@@ -32,26 +33,27 @@ function ButtonStartAndEndStory(): JSX.Element {
             ) : undefined
           }
           // eslint-disable-next-line no-console
-          onPress={() => console.log(`press button with startElement`)}
-          text="HOME"
           style={{margin: 4}}
+          text="HOME"
+          type={type}
         />
         <Button
-          color={color}
-          type={type}
-          disabled={disabled}
           activeOpacity={activeOpacity}
-          loading={loading}
-          size={size}
+          color={color}
+          disabled={disabled}
           endElement={
             boolean('showElement', true) ? (
               <Icon name="House" style={{marginLeft: 8}} />
             ) : undefined
           }
+          loading={loading}
           // eslint-disable-next-line no-console
           onPress={() => console.log(`press button with endElement`)}
-          text="HOME"
+          size={size}
+          // eslint-disable-next-line no-console
           style={{margin: 4}}
+          text="HOME"
+          type={type}
         />
       </StorySection>
     </StoryContainer>

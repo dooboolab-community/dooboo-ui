@@ -49,7 +49,7 @@ function IconBasicStory(): JSX.Element {
                   padding: 8,
                 }}
               >
-                <StyledIcon size={16} name={icon} />
+                <StyledIcon name={icon} size={16} />
                 <Typography.Body2 style={{fontSize: 12, textAlign: 'center'}}>
                   {icon}
                 </Typography.Body2>

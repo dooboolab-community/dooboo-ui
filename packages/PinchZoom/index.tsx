@@ -63,8 +63,8 @@ function getRelativeTouchesCenterPosition(
   };
 }
 
-function PinchZoom(props: Props, ref: Ref<PinchZoomRef>): JSX.Element {
-  const {
+function PinchZoom(
+  {
     style,
     children,
     onScaleChanged,
@@ -72,8 +72,9 @@ function PinchZoom(props: Props, ref: Ref<PinchZoomRef>): JSX.Element {
     onTranslateChanged,
     allowEmpty,
     fixOverflowAfterRelease = true,
-  } = props;
-
+  }: Props,
+  ref: Ref<PinchZoomRef>,
+): JSX.Element {
   const containerView = useRef<NativeMethods>();
   const scale = useRef(new Animated.Value(1)).current;
   const translate = useRef(new Animated.ValueXY({x: 0, y: 0})).current;
@@ -358,7 +359,6 @@ function PinchZoom(props: Props, ref: Ref<PinchZoomRef>): JSX.Element {
 
   return (
     <Animated.View
-      testID="PINCH_ZOOM_CONTAINER"
       //! @JongtaekChoi Hope you have time to remove underlying ts ignore.
       // @ts-ignore
       ref={(pinchViewRef: NativeMethods | undefined) => {
@@ -376,6 +376,7 @@ function PinchZoom(props: Props, ref: Ref<PinchZoomRef>): JSX.Element {
               ],
             },
       ]}
+      testID="PINCH_ZOOM_CONTAINER"
       {...(panResponder?.panHandlers || {})}
     >
       {children}

@@ -16,7 +16,7 @@ type SwitchToggleProps = ComponentProps<typeof SwitchToggle>;
 
 const initialProps: SwitchToggleProps = {isOn: false};
 
-const Container = ({children}): JSX.Element => {
+function Container({children}): JSX.Element {
   const isDark = useDarkMode();
 
   return (
@@ -30,9 +30,11 @@ const Container = ({children}): JSX.Element => {
       </View>
     </DoobooProvider>
   );
-};
+}
 
+// eslint-disable-next-line react/function-component-definition
 const SwitchToggleStory: Story<SwitchToggleProps> = (args): JSX.Element => {
+  // eslint-disable-next-line react/destructuring-assignment
   const [isOn, setIsOn] = useState(args.isOn);
 
   return (

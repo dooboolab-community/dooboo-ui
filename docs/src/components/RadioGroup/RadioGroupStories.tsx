@@ -19,7 +19,7 @@ const initialProps: RadioGroupProps = {
   selectedValue: 'Option 1',
 };
 
-const Container = ({children}): JSX.Element => {
+function Container({children}): JSX.Element {
   const isDark = useDarkMode();
 
   return (
@@ -33,10 +33,12 @@ const Container = ({children}): JSX.Element => {
       </View>
     </DoobooProvider>
   );
-};
+}
 
+// eslint-disable-next-line react/function-component-definition
 const RadioGroupStory: Story<RadioGroupProps> = (args): JSX.Element => {
   const [selectedValue, setSelectedValue] = useState(
+    // eslint-disable-next-line react/destructuring-assignment
     args.selectedValue as string,
   );
 
@@ -44,8 +46,8 @@ const RadioGroupStory: Story<RadioGroupProps> = (args): JSX.Element => {
     <Container>
       <RadioGroup
         {...args}
-        selectedValue={selectedValue}
         selectValue={(val) => setSelectedValue(val as string)}
+        selectedValue={selectedValue}
       />
     </Container>
   );

@@ -1,4 +1,3 @@
-import type {FC} from 'react';
 import React, {useEffect, useRef, useState} from 'react';
 import type {
   LayoutRectangle,
@@ -71,7 +70,7 @@ const StyledRadioCircle = styled(RadioWrapper)<{
     innerLayout && `${innerLayout.width / 2}px`};
 `;
 
-export const RadioButton: FC<RadioButtonProps> = ({
+export default function RadioButton({
   testID,
   style,
   styles,
@@ -83,7 +82,7 @@ export const RadioButton: FC<RadioButtonProps> = ({
   onPress,
   label,
   labelPosition = 'right',
-}) => {
+}: RadioButtonProps): JSX.Element {
   const [innerLayout, setInnerLayout] = useState<LayoutRectangle>();
   const animatedValue = new Animated.Value(0);
   const fadeAnim = useRef(animatedValue).current;
@@ -110,11 +109,11 @@ export const RadioButton: FC<RadioButtonProps> = ({
 
   return (
     <Container
-      testID={testID}
-      disabled={disabled}
-      style={style}
-      onPress={onPress}
       activeOpacity={0.9}
+      disabled={disabled}
+      onPress={onPress}
+      style={style}
+      testID={testID}
     >
       <View
         style={[
@@ -138,27 +137,25 @@ export const RadioButton: FC<RadioButtonProps> = ({
           {startElement}
           {label && labelPosition === 'left' ? (
             <ColoredText
-              type={type}
-              selected={!!selected}
               disabled={!!disabled}
+              selected={!!selected}
               style={styles?.label}
+              type={type}
             >
               {label}
             </ColoredText>
           ) : null}
           <StyledRadioButton
-            style={styles?.circleWrapper}
-            selected={!!selected}
-            type={type}
             disabled={disabled}
+            selected={!!selected}
+            style={styles?.circleWrapper}
+            type={type}
           >
             <StyledRadioCircle
-              testID={`circle-${testID}`}
-              type={type}
-              selected={!!selected}
               disabled={!!disabled}
               innerLayout={innerLayout}
               onLayout={(e: any) => setInnerLayout(e.nativeEvent.layout)}
+              selected={!!selected}
               style={[
                 styles?.circle,
                 {
@@ -166,14 +163,16 @@ export const RadioButton: FC<RadioButtonProps> = ({
                   transform: [{scale: scaleAnim}],
                 },
               ]}
+              testID={`circle-${testID}`}
+              type={type}
             />
           </StyledRadioButton>
           {label && labelPosition === 'right' ? (
             <ColoredText
-              type={type}
-              selected={!!selected}
               disabled={!!disabled}
+              selected={!!selected}
               style={styles?.label}
+              type={type}
             >
               {label}
             </ColoredText>
@@ -183,4 +182,4 @@ export const RadioButton: FC<RadioButtonProps> = ({
       </View>
     </Container>
   );
-};
+}

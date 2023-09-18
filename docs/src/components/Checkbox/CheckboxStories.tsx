@@ -18,7 +18,7 @@ const initialProps: CheckboxProps = {
   checked: false,
 };
 
-const Container = ({children}): JSX.Element => {
+function Container({children}): JSX.Element {
   const isDark = useDarkMode();
 
   return (
@@ -32,8 +32,9 @@ const Container = ({children}): JSX.Element => {
       </View>
     </DoobooProvider>
   );
-};
+}
 
+// eslint-disable-next-line react/function-component-definition
 const CheckboxStory: Story<CheckboxProps> = (args): JSX.Element => {
   return (
     <Container>
@@ -80,38 +81,38 @@ export function CheckboxSolid(): JSX.Element {
       >
         <Checkbox
           checked={checked}
-          onPress={() => setChecked(!checked)}
           color="primary"
+          onPress={() => setChecked(!checked)}
         />
         <View style={{width: 8}} />
         <Checkbox
           checked={checked}
-          onPress={() => setChecked(!checked)}
           color="secondary"
+          onPress={() => setChecked(!checked)}
         />
         <View style={{width: 8}} />
         <Checkbox
           checked={checked}
-          onPress={() => setChecked(!checked)}
           color="success"
+          onPress={() => setChecked(!checked)}
         />
         <View style={{width: 8}} />
         <Checkbox
           checked={checked}
-          onPress={() => setChecked(!checked)}
           color="warning"
+          onPress={() => setChecked(!checked)}
         />
         <View style={{width: 8}} />
         <Checkbox
           checked={checked}
-          onPress={() => setChecked(!checked)}
           color="info"
+          onPress={() => setChecked(!checked)}
         />
         <View style={{width: 8}} />
         <Checkbox
           checked={checked}
-          onPress={() => setChecked(!checked)}
           color="danger"
+          onPress={() => setChecked(!checked)}
         />
       </View>
     </Container>
@@ -160,10 +161,10 @@ export function CheckboxEndElement(): JSX.Element {
       >
         <Checkbox
           checked={checked}
-          onPress={() => setChecked(!checked)}
           endElement={
             <Typography.Body2>Hello this is a checkbox</Typography.Body2>
           }
+          onPress={() => setChecked(!checked)}
         />
       </View>
     </Container>

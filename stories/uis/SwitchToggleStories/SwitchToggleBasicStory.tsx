@@ -20,9 +20,9 @@ function SwitchToggleBasicStory(): JSX.Element {
         <View style={{height: 40}} />
         <StoryTitle>Custom</StoryTitle>
         <SwitchToggle
+          duration={number('duration', 500)}
           isOn={on}
           onPress={() => off(!on)}
-          duration={number('duration', 500)}
           styles={{
             circleColorOff: theme.text.disabled,
             circleColorOn: theme.text.basic,

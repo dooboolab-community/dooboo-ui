@@ -7,7 +7,7 @@ import type {DoobooTheme} from '../../../main';
 import {ButtonGroup} from '../../../main/uis/ButtonGroup';
 import {StoryContainer, StoryTitle} from '../../GlobalStyles';
 
-const ButtonGroupBasic = (): JSX.Element => {
+function ButtonGroupBasic(): JSX.Element {
   const color = select<keyof DoobooTheme['button']>(
     'color',
     ['primary', 'secondary', 'success', 'warning', 'danger', 'light', 'info'],
@@ -19,13 +19,13 @@ const ButtonGroupBasic = (): JSX.Element => {
       <StoryContainer>
         <StoryTitle style={{fontSize: 18, marginBottom: 8}}>Basic</StoryTitle>
         <ButtonGroup
-          options={['Option1', 'Option2', 'Option3']}
-          initialValue="Option1"
           color={color}
+          initialValue="Option1"
+          options={['Option1', 'Option2', 'Option3']}
         />
       </StoryContainer>
     </ScrollView>
   );
-};
+}
 
 export default ButtonGroupBasic;

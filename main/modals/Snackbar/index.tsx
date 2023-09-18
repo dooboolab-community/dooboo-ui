@@ -42,9 +42,7 @@ const SnackbarText = styled.Text<{color: ButtonColorType}>`
 `;
 
 export type SnackbarProps = {
-  testID?: string;
   style?: StyleProp<ViewStyle>;
-  ref: React.MutableRefObject<SnackbarContext>;
 };
 
 export type SnackbarStyles = {
@@ -135,7 +133,6 @@ function Snackbar(
         <ActionContainer style={styles?.actionContainer}>
           {actionText ? (
             <Button
-              type="text"
               onPress={() => setVisible(false)}
               styles={{
                 text: StyleSheet.flatten([
@@ -147,12 +144,13 @@ function Snackbar(
                 ]),
               }}
               text={actionText}
+              type="text"
             />
           ) : (
             <Button
-              type="text"
               onPress={() => setVisible(false)}
-              text={<Icon name="X" color={theme.button[color].text} />}
+              text={<Icon color={theme.button[color].text} name="X" />}
+              type="text"
             />
           )}
         </ActionContainer>
@@ -163,8 +161,6 @@ function Snackbar(
   return (
     <Modal
       animationType="fade"
-      transparent={true}
-      visible={visible}
       style={[
         css`
           flex: 1;
@@ -172,6 +168,8 @@ function Snackbar(
         `,
         style,
       ]}
+      transparent={true}
+      visible={visible}
     >
       {SnackbarContent}
     </Modal>

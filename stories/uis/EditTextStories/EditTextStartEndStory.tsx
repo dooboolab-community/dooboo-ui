@@ -8,7 +8,7 @@ import {EditText} from '../../../main/uis/EditText';
 import {Typography} from '../../../main/uis/Typography';
 import {ScrollContainer, StoryContainer} from '../../GlobalStyles';
 
-const EditTextStartEndStory = (): JSX.Element => {
+function EditTextStartEndStory(): JSX.Element {
   const [text, setText] = useState<string>('');
   const onTextChanged = (str: string): void => setText(str);
 
@@ -25,59 +25,58 @@ const EditTextStartEndStory = (): JSX.Element => {
           StartElement
         </Typography.Heading3>
         <EditText
-          secureTextEntry={boolean('secureTextEntry', false)}
           editable={boolean('editable', true)}
-          placeholder="Basic text input"
-          value={text}
           onChangeText={(str) => onTextChanged(str)}
+          placeholder="Basic text input"
+          secureTextEntry={boolean('secureTextEntry', false)}
           startElement={<Icon name="Plus" />}
+          value={text}
         />
         <Typography.Heading3 style={{marginTop: 20}}>
           EndElement
         </Typography.Heading3>
         <EditText
-          secureTextEntry={boolean('secureTextEntry', false)}
           editable={boolean('editable', true)}
-          placeholder="Basic text input"
-          value={text}
-          onChangeText={(str) => onTextChanged(str)}
-          // eslint-disable-next-line react/no-unstable-nested-components
           endElement={({color}) => (
             <Button
               onPress={action('EndElement button pressed')}
-              text={<Icon name="Eye" color={color} />}
-              type="text"
               style={{marginRight: 0, zIndex: 99}}
+              text={<Icon color={color} name="Eye" />}
+              type="text"
             />
           )}
+          onChangeText={(str) => onTextChanged(str)}
+          placeholder="Basic text input"
+          secureTextEntry={boolean('secureTextEntry', false)}
+          value={text}
         />
         <Typography.Heading3 style={{marginTop: 20}}>
           Both Start and End
         </Typography.Heading3>
         <EditText
-          secureTextEntry={boolean('secureTextEntry', false)}
           editable={boolean('editable', true)}
-          placeholder="Basic text input"
-          value={text}
-          onChangeText={(str) => onTextChanged(str)}
-          startElement={
-            <Button
-              text={<Icon name="Plus" />}
-              type="text"
-              style={{marginRight: 0}}
-            />
-          }
           endElement={
             <Button
+              style={{marginRight: 0}}
               text={<Icon name="Eye" />}
               type="text"
-              style={{marginRight: 0}}
             />
           }
+          onChangeText={(str) => onTextChanged(str)}
+          placeholder="Basic text input"
+          secureTextEntry={boolean('secureTextEntry', false)}
+          startElement={
+            <Button
+              style={{marginRight: 0}}
+              text={<Icon name="Plus" />}
+              type="text"
+            />
+          }
+          value={text}
         />
       </StoryContainer>
     </ScrollContainer>
   );
-};
+}
 
 export default EditTextStartEndStory;

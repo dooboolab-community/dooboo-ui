@@ -17,13 +17,13 @@ function IconButtonDisabledStory(): JSX.Element {
         {types.map((type) => (
           <IconButton
             activeOpacity={number('activeOpacity', 0.8)}
-            loading={boolean('loading', false)}
-            onPress={action('onPress')}
-            key={type}
-            type={type}
             disabled
             icon="Hamburger"
+            key={type}
+            loading={boolean('loading', false)}
+            onPress={action('onPress')}
             style={{margin: 4}}
+            type={type}
           />
         ))}
       </StorySection>

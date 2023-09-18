@@ -12,11 +12,11 @@ function IconButtonIconElementStory(): JSX.Element {
       <StoryTitle>IconElement</StoryTitle>
       <StorySection>
         <IconButton
-          disabled={boolean('disabled', false)}
           activeOpacity={number('activeOpacity', 0.8)}
+          disabled={boolean('disabled', false)}
+          iconElement={<Icon color="pink" name="MagnifyingGlass" size={24} />}
           loading={boolean('loading', false)}
           onPress={action('onPress')}
-          iconElement={<Icon size={24} color="pink" name="MagnifyingGlass" />}
         />
       </StorySection>
     </StoryContainer>

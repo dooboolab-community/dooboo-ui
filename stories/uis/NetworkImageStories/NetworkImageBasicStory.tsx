@@ -39,6 +39,7 @@ function NetworkImageBasicStory(): JSX.Element {
       </View>
 
       <NetworkImage
+        loadingSource={<Typography.Title>Loading</Typography.Title>}
         style={{
           width: 300,
           height: 300,
@@ -46,7 +47,6 @@ function NetworkImageBasicStory(): JSX.Element {
           alignSelf: 'center',
           borderRadius: 45,
         }}
-        loadingSource={<Typography.Title>Loading</Typography.Title>}
         url="https://reactnative.dev/img/tiny_logo.png"
       />
 

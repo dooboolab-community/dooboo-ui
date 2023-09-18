@@ -51,9 +51,7 @@ const ActionRow = styled.View`
 `;
 
 export type AlertDialogProps = {
-  testID?: string;
   style?: StyleProp<ViewStyle>;
-  ref: React.MutableRefObject<AlertDialogContext>;
 };
 
 export type AlertDialogStyles = {
@@ -135,9 +133,9 @@ function AlertDialog(
             title
           )}
           <Button
-            type="text"
             onPress={() => setVisible(false)}
-            text={<Icon name="X" size={18} color={theme.text.basic} />}
+            text={<Icon color={theme.text.basic} name="X" size={18} />}
+            type="text"
           />
         </TitleRow>
         <BodyRow style={styles?.bodyContainer}>
@@ -167,8 +165,6 @@ function AlertDialog(
   return (
     <Modal
       animationType="fade"
-      transparent={true}
-      visible={visible}
       style={[
         css`
           flex: 1;
@@ -176,13 +172,15 @@ function AlertDialog(
         `,
         style,
       ]}
+      transparent={true}
+      visible={visible}
     >
       {closeOnTouchOutside ? (
         <TouchableWithoutFeedback
+          onPress={() => setVisible(false)}
           style={css`
             flex: 1;
           `}
-          onPress={() => setVisible(false)}
         >
           {AlertDialogContent}
         </TouchableWithoutFeedback>

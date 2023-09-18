@@ -35,6 +35,7 @@ function LoadingIndicatorCustomStory({style}: Props): JSX.Element {
       <LoadingIndicator
         customElement={
           <Animated.Image
+            source={IC_MASK}
             style={[
               {
                 opacity: 0.95,
@@ -45,7 +46,6 @@ function LoadingIndicatorCustomStory({style}: Props): JSX.Element {
               },
               style,
             ]}
-            source={IC_MASK}
           />
         }
       />

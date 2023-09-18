@@ -29,7 +29,7 @@ const initialProps: ButtonProps = {
   type: 'solid',
 };
 
-const Container = ({children}): JSX.Element => {
+function Container({children}): JSX.Element {
   const isDark = useDarkMode();
 
   return (
@@ -37,8 +37,9 @@ const Container = ({children}): JSX.Element => {
       {children}
     </DoobooProvider>
   );
-};
+}
 
+// eslint-disable-next-line react/function-component-definition
 const ButtonStory: Story<ButtonProps> = (args): JSX.Element => {
   return (
     <Container>
@@ -51,7 +52,7 @@ export const ButtonTemplate = ButtonStory.bind({});
 ButtonTemplate.args = initialProps;
 
 // Story: Button Types - Solid
-const ButtonTypesStory = ({type}: {type?: ButtonType}): JSX.Element => {
+function ButtonTypesStory({type}: {type?: ButtonType}): JSX.Element {
   const colors: ButtonColorType[] = [
     'primary',
     'secondary',
@@ -76,31 +77,32 @@ const ButtonTypesStory = ({type}: {type?: ButtonType}): JSX.Element => {
       >
         {colors.map((color) => (
           <Button
-            type={type}
             color={color}
-            text={color}
-            style={{margin: 8}}
+            key={`button-${color}`}
             onPress={() => {}}
+            style={{margin: 8}}
+            text={color}
+            type={type}
           />
         ))}
       </View>
     </Container>
   );
-};
+}
 
-export const ButtonTypeSolidStory = (): JSX.Element => (
-  <ButtonTypesStory type="solid" />
-);
+export function ButtonTypeSolidStory(): JSX.Element {
+  return <ButtonTypesStory type="solid" />;
+}
 
 // Story: Button Types - Outline
-export const ButtonTypeOutlinedStory = (): JSX.Element => (
-  <ButtonTypesStory type="outlined" />
-);
+export function ButtonTypeOutlinedStory(): JSX.Element {
+  return <ButtonTypesStory type="outlined" />;
+}
 
 // Story: Button Types - Text
-export const ButtonTypeTextStory = (): JSX.Element => (
-  <ButtonTypesStory type="text" />
-);
+export function ButtonTypeTextStory(): JSX.Element {
+  return <ButtonTypesStory type="text" />;
+}
 
 // Story: Button Sizes
 export function ButtonSizeStory(): JSX.Element {
@@ -120,10 +122,11 @@ export function ButtonSizeStory(): JSX.Element {
         {sizes.map((size) => (
           <Button
             color="primary"
-            size={size}
-            text={size}
-            style={{margin: 8}}
+            key={`button-${size}`}
             onPress={() => {}}
+            size={size}
+            style={{margin: 8}}
+            text={size}
           />
         ))}
       </View>
@@ -132,7 +135,7 @@ export function ButtonSizeStory(): JSX.Element {
 }
 
 // Story: Button Elements
-export const ButtonElementStory = (): JSX.Element => {
+export function ButtonElementStory(): JSX.Element {
   const [facebookLoading, setFacebookLoading] = useState<boolean>(false);
   const [googleLoading, setGoogleLoading] = useState<boolean>(false);
 
@@ -145,13 +148,21 @@ export const ButtonElementStory = (): JSX.Element => {
         `}
       >
         <Button
+          loading={googleLoading}
+          onPress={(): void => {
+            setGoogleLoading(true);
+            action('google btn clicked');
+
+            const timeout = setTimeout(() => {
+              setGoogleLoading(false);
+              clearTimeout(timeout);
+            }, 2000);
+          }}
           startElement={
             <View style={{marginRight: 12}}>
-              <Image style={{width: 20, height: 20}} source={IC_GOOGLE} />
+              <Image source={IC_GOOGLE} style={{width: 20, height: 20}} />
             </View>
           }
-          type="outlined"
-          loading={googleLoading}
           style={css`
             margin: 10px;
           `}
@@ -163,30 +174,29 @@ export const ButtonElementStory = (): JSX.Element => {
               height: 52px;
             `,
           }}
+          text="GOOGLE SIGN IN"
+          type="outlined"
+        />
+        <Button
+          loading={facebookLoading}
           onPress={(): void => {
-            setGoogleLoading(true);
-            action('google btn clicked');
+            setFacebookLoading(true);
+            action('facebook btn clicked');
 
             const timeout = setTimeout(() => {
-              setGoogleLoading(false);
+              setFacebookLoading(false);
               clearTimeout(timeout);
             }, 2000);
           }}
-          text="GOOGLE SIGN IN"
-        />
-        <Button
-          testID="btnFacebook"
-          type="outlined"
           startElement={
             <View
               style={css`
                 margin-right: 12px;
               `}
             >
-              <Image style={{width: 15, height: 28}} source={IC_FACEBOOK} />
+              <Image source={IC_FACEBOOK} style={{width: 15, height: 28}} />
             </View>
           }
-          loading={facebookLoading}
           style={css`
             margin: 10px;
           `}
@@ -198,18 +208,11 @@ export const ButtonElementStory = (): JSX.Element => {
               height: 52px;
             `,
           }}
-          onPress={(): void => {
-            setFacebookLoading(true);
-            action('facebook btn clicked');
-
-            const timeout = setTimeout(() => {
-              setFacebookLoading(false);
-              clearTimeout(timeout);
-            }, 2000);
-          }}
+          testID="btnFacebook"
           text="FACEBOOK SIGN IN"
+          type="outlined"
         />
       </View>
     </Container>
   );
-};
+}

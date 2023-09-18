@@ -77,40 +77,40 @@ export function Rating({
     return (
       <StarContainer
         key={key}
-        testID={testID}
         style={[
           css`
             width: ${size}px;
           `,
           styles?.starContainer,
         ]}
+        testID={testID}
       >
         {halfFilled && allowHalfRating ? (
           <View style={{position: 'absolute'}}>
             <Icon
+              color={color}
               name={`${iconPrefix}` as IconName}
               size={size}
               style={{position: 'absolute'}}
-              color={color}
             />
             <Icon
+              color={color}
               name={`${iconPrefix}HalfFill` as IconName}
               size={size}
-              color={color}
             />
           </View>
         ) : (
           <Icon
+            color={color}
             name={iconName}
             size={size}
             style={{position: 'absolute'}}
-            color={color}
           />
         )}
         <TouchableOpacity
-          accessibilityRole={'button'}
-          onPress={() => handlePress(position, true)}
+          accessibilityRole="button"
           disabled={disabled}
+          onPress={() => handlePress(position, true)}
         >
           <View
             style={{
@@ -121,9 +121,9 @@ export function Rating({
           />
         </TouchableOpacity>
         <TouchableOpacity
-          accessibilityRole={'button'}
-          onPress={() => handlePress(position)}
+          accessibilityRole="button"
           disabled={disabled}
+          onPress={() => handlePress(position)}
         >
           <View
             style={{

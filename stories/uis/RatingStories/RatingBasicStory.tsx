@@ -28,13 +28,13 @@ function RatingBasicStory(): JSX.Element {
       <StoryTitle>Basic</StoryTitle>
       <StorySection style={{flexDirection: 'column'}}>
         <Rating
-          disabled={disabled}
-          size={size}
-          iconType={iconType}
-          direction={direction}
-          onRatingUpdate={action(`score`)}
           allowHalfRating={allowHalfRating}
           color={color}
+          direction={direction}
+          disabled={disabled}
+          iconType={iconType}
+          onRatingUpdate={action(`score`)}
+          size={size}
         />
       </StorySection>
     </StoryContainer>

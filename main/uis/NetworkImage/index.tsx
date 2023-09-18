@@ -29,7 +29,7 @@ interface Props {
 function NetworkImage(props: Props): JSX.Element {
   const {themeType} = useTheme();
   const logo = themeType === 'light' ? PlaceholderLight : PlaceholderDark;
-  const {style, url, imageProps = false} = props;
+  const {style, url, imageProps = false, loadingSource} = props;
   const [isValidSource, setIsValidSource] = useState(true);
 
   const [loading, setLoading] = useState(true);
@@ -40,21 +40,21 @@ function NetworkImage(props: Props): JSX.Element {
     ) : (
       <Image
         // @ts-ignore
-        source={props.loadingSource ?? logo}
         resizeMethod="resize"
         resizeMode="cover"
+        source={loadingSource ?? logo}
       />
     );
-  }, [logo, props.loadingSource]);
+  }, [props?.loadingSource, loadingSource, logo]);
 
   const renderImage = useCallback(
     () => (
       <Image
         key={url}
-        style={[{flex: 1, alignSelf: 'stretch'}]}
-        source={{uri: url}}
         resizeMethod="resize"
         resizeMode="cover"
+        source={{uri: url}}
+        style={[{flex: 1, alignSelf: 'stretch'}]}
         {...imageProps}
       />
     ),

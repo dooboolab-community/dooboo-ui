@@ -18,13 +18,13 @@ function ButtonDisabledStory(): JSX.Element {
       <StorySection>
         {types.map((type) => (
           <Button
+            color={color}
+            disabled={true}
             key={type}
             size={size}
-            color={color}
-            type={type}
-            disabled={true}
-            text="TEXT"
             style={{margin: 2}}
+            text="TEXT"
+            type={type}
           />
         ))}
       </StorySection>

@@ -36,12 +36,12 @@ export function StoryWrapper({children}: ContainerProps): JSX.Element {
       >
         <Typography.Heading3>{themeType}</Typography.Heading3>
         <SwitchToggle
-          size="small"
           isOn={on}
           onPress={() => {
             off(!on);
             changeThemeType();
           }}
+          size="small"
           style={{padding: 8}}
         />
       </View>

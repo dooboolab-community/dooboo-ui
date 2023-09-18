@@ -140,28 +140,26 @@ export type Props = {
   hitSlop?: null | Insets | number | undefined;
 };
 
-export function Button(props: Props): JSX.Element {
-  const {
-    testID,
-    type = 'solid',
-    color = 'primary',
-    size = 'medium',
-    disabled,
-    loading = false,
-    loadingElement,
-    text,
-    startElement,
-    endElement,
-    style,
-    styles,
-    onPress,
-    activeOpacity = 0.8,
-    touchableHighlightProps,
-    borderRadius = 4,
-    loadingColor,
-    hitSlop = {top: 8, bottom: 8, left: 8, right: 8},
-  } = props;
-
+export function Button({
+  testID,
+  type = 'solid',
+  color = 'primary',
+  size = 'medium',
+  disabled,
+  loading = false,
+  loadingElement,
+  text,
+  startElement,
+  endElement,
+  style,
+  styles,
+  onPress,
+  activeOpacity = 0.8,
+  touchableHighlightProps,
+  borderRadius = 4,
+  loadingColor,
+  hitSlop = {top: 8, bottom: 8, left: 8, right: 8},
+}: Props): JSX.Element {
   const ref = useRef<TouchableHighlight>(null);
   const hovered = useHover(ref);
   const {theme} = useTheme();
@@ -237,7 +235,8 @@ export function Button(props: Props): JSX.Element {
     }): JSX.Element => {
       return (
         <ButtonContainer
-          testID={loading ? 'loading-view' : 'button-container'}
+          disabled={innerDisabled}
+          size={size}
           style={[
             compositeStyles.container,
             hovered && !innerDisabled && compositeStyles.hovered,
@@ -247,9 +246,8 @@ export function Button(props: Props): JSX.Element {
                 background-color: transparent;
               `,
           ]}
+          testID={loading ? 'loading-view' : 'button-container'}
           type={type}
-          size={size}
-          disabled={innerDisabled}
         >
           <View
             style={css`
@@ -285,12 +283,12 @@ export function Button(props: Props): JSX.Element {
 
   const LoadingView = loadingElement ?? (
     <LoadingIndicator
-      size="small"
       color={
         loadingColor || type === 'solid'
           ? theme.text.contrast
           : theme.text.basic
       }
+      size="small"
     />
   );
 
@@ -326,23 +324,23 @@ export function Button(props: Props): JSX.Element {
 
   return (
     <TouchableHighlight
+      activeOpacity={activeOpacity}
+      delayPressIn={30}
+      disabled={innerDisabled || loading || !onPress}
       hitSlop={hitSlop}
-      testID={testID}
+      onPress={onPress}
       ref={Platform.select({
         web: ref,
         default: undefined,
       })}
-      underlayColor={type === 'text' ? 'transparent' : theme.role.underlay}
-      activeOpacity={activeOpacity}
-      onPress={onPress}
-      delayPressIn={30}
-      disabled={innerDisabled || loading || !onPress}
       style={[
         style,
         css`
           border-radius: ${borderRadius + 'px'};
         `,
       ]}
+      testID={testID}
+      underlayColor={type === 'text' ? 'transparent' : theme.role.underlay}
       {...touchableHighlightProps}
     >
       {renderContainer({

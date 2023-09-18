@@ -100,10 +100,10 @@ export function Checkbox({
 
   return (
     <Container
-      disabled={disabled}
-      style={style}
-      onPress={onPress}
       activeOpacity={0.9}
+      disabled={disabled}
+      onPress={onPress}
+      style={style}
     >
       <View
         style={[
@@ -119,26 +119,26 @@ export function Checkbox({
       >
         {startElement}
         <StyledCheckboxOutlined
-          testID="doobooui-checkbox"
           checked={checked}
-          type={color}
           disabled={disabled}
           style={styles?.checkbox}
+          testID="doobooui-checkbox"
+          type={color}
         >
           <StyledCheckbox
+            checked={checked}
+            disabled={disabled}
             style={[
               styles?.checkbox,
               {opacity: fadeAnim, transform: [{scale: scaleAnim}]},
             ]}
-            checked={checked}
             type={color}
-            disabled={disabled}
           >
             <StyledCheck
+              checked={checked}
+              name="Check"
               style={styles?.check}
               theme={theme}
-              name="Check"
-              checked={checked}
             />
           </StyledCheckbox>
         </StyledCheckboxOutlined>

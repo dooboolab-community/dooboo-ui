@@ -19,13 +19,13 @@ function CheckboxWithEndElementStory({
     <View style={{flexDirection: 'column'}}>
       {[1, 2, 3].map((i) => (
         <Checkbox
-          key={i}
           checked={checked}
           disabled={boolean('disabled', false)}
-          onPress={() => setChecked(!checked)}
           endElement={
             <Typography.Body2>Hello this is a checkbox</Typography.Body2>
           }
+          key={i}
+          onPress={() => setChecked(!checked)}
         />
       ))}
     </View>
@@ -45,8 +45,8 @@ function CheckboxEndElement(): JSX.Element {
       <StoryContainer>
         <StoryTitle>End Element</StoryTitle>
         <CheckboxWithEndElementStory
-          setChecked={setChecked}
           checked={checked}
+          setChecked={setChecked}
         />
       </StoryContainer>
     </ScrollContainer>

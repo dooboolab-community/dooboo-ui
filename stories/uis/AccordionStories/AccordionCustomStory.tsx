@@ -44,7 +44,7 @@ const data = [
   },
 ];
 
-const AccordionCustom = (): JSX.Element => {
+function AccordionCustom(): JSX.Element {
   const {theme} = useDooboo();
 
   return (
@@ -54,44 +54,11 @@ const AccordionCustom = (): JSX.Element => {
           Custom Style
         </StoryTitle>
         <Accordion<AccordionTitle, AccordionItem>
-          shouldAnimate={boolean('shouldAnimate', true)}
-          animDuration={number('animDuration', 200)}
           activeOpacity={number('activeOpacity', 1)}
+          animDuration={number('animDuration', 200)}
           collapseOnStart={boolean('collapseOnStart', true)}
-          styles={{
-            titleContainer: css`
-              padding-right: 0;
-            `,
-          }}
           data={data}
           onPressItem={action('onPressItem')}
-          renderTitle={({text, key}) => (
-            <View
-              style={css`
-                flex: 1;
-
-                flex-direction: row;
-                align-items: center;
-                justify-content: space-between;
-              `}
-            >
-              <Typography.Heading4>{text}</Typography.Heading4>
-              <Icon
-                name={
-                  key === 'HEADING_1'
-                    ? 'HouseFill'
-                    : key === 'HEADING_2'
-                    ? 'Star'
-                    : 'Bookmark'
-                }
-                color={theme.text.basic}
-                size={14}
-                style={css`
-                  margin-right: 12px;
-                `}
-              />
-            </View>
-          )}
           renderItem={({text}) => {
             if (text === 'User' || text === 'Image' || text === 'Puzz') {
               return (
@@ -104,6 +71,7 @@ const AccordionCustom = (): JSX.Element => {
                   `}
                 >
                   <Icon
+                    color={theme.text.basic}
                     name={
                       text === 'User'
                         ? 'AutoAwesome'
@@ -111,7 +79,6 @@ const AccordionCustom = (): JSX.Element => {
                         ? 'QuestBoxFill'
                         : 'House'
                     }
-                    color={theme.text.basic}
                     size={14}
                     style={css`
                       margin-right: 4px;
@@ -135,14 +102,47 @@ const AccordionCustom = (): JSX.Element => {
               </View>
             );
           }}
-          toggleElementPosition="left"
+          renderTitle={({text, key}) => (
+            <View
+              style={css`
+                flex: 1;
+
+                flex-direction: row;
+                align-items: center;
+                justify-content: space-between;
+              `}
+            >
+              <Typography.Heading4>{text}</Typography.Heading4>
+              <Icon
+                color={theme.text.basic}
+                name={
+                  key === 'HEADING_1'
+                    ? 'HouseFill'
+                    : key === 'HEADING_2'
+                    ? 'Star'
+                    : 'Bookmark'
+                }
+                size={14}
+                style={css`
+                  margin-right: 12px;
+                `}
+              />
+            </View>
+          )}
+          shouldAnimate={boolean('shouldAnimate', true)}
+          styles={{
+            titleContainer: css`
+              padding-right: 0;
+            `,
+          }}
           toggleElement={
-            <Icon name="ArrowCircleDown" color={theme.text.basic} size={16} />
+            <Icon color={theme.text.basic} name="ArrowCircleDown" size={16} />
           }
+          toggleElementPosition="left"
         />
       </StoryContainer>
     </ScrollContainer>
   );
-};
+}
 
 export default AccordionCustom;

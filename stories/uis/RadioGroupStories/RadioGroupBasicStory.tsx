@@ -23,11 +23,11 @@ function RadioButtonBasicStory(): JSX.Element {
               style={{flexDirection: 'row', marginTop: 24}}
             >
               <RadioGroup
-                title={el}
                 data={data}
-                type={el as RadioButtonType}
-                selectedValue={selectedValue}
                 selectValue={(value) => setSelectedValue(value)}
+                selectedValue={selectedValue}
+                title={el}
+                type={el as RadioButtonType}
               />
             </View>
           );

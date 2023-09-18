@@ -50,23 +50,23 @@ function AutoHeightImage(
   return (
     <Image
       {...props}
-      style={[style, {height: heightPerWidth * style.width || style.width}]}
       onLoad={({nativeEvent: {source}}): void => {
         if (source && source.width && source.height) {
           setHightPerWidth(source.height / source.width);
         }
       }}
+      style={[style, {height: heightPerWidth * style.width || style.width}]}
     />
   );
 }
 
 const WIDTH = 300;
 
-const PinchZoomImageSliderStory = ({
+function PinchZoomImageSliderStory({
   imageSources = images,
 }: {
   imageSources?: ImageSourcePropType[];
-}): JSX.Element => {
+}): JSX.Element {
   const [currentIndex, setCurrentIndex] = React.useState(0);
 
   const animValues = React.useRef({
@@ -175,15 +175,16 @@ const PinchZoomImageSliderStory = ({
             }}
           >
             <AutoHeightImage
+              resizeMode="contain"
               source={imageSources[currentIndex - 1]}
               style={{width: WIDTH, bottom: 0}}
-              resizeMode="contain"
             />
           </PinchZoom>
         ) : null}
         <PinchZoom
+          fixOverflowAfterRelease={false}
           key={`${currentIndex}`}
-          ref={pinchZoom}
+          onRelease={onRelease}
           onScaleChanged={(value): void => {
             animValues.scale = value;
             translateOtherImages();
@@ -193,17 +194,16 @@ const PinchZoomImageSliderStory = ({
             animValues.y = value.y;
             translateOtherImages();
           }}
-          onRelease={onRelease}
-          fixOverflowAfterRelease={false}
+          ref={pinchZoom}
           style={{
             width: WIDTH,
             justifyContent: 'center',
           }}
         >
           <AutoHeightImage
+            resizeMode="contain"
             source={imageSources[currentIndex]}
             style={{width: WIDTH, bottom: 0}}
-            resizeMode="contain"
           />
         </PinchZoom>
         {currentIndex < imageSources.length - 1 ? (
@@ -221,15 +221,15 @@ const PinchZoomImageSliderStory = ({
             }}
           >
             <AutoHeightImage
+              resizeMode="contain"
               source={imageSources[currentIndex + 1]}
               style={{width: WIDTH}}
-              resizeMode="contain"
             />
           </PinchZoom>
         ) : null}
       </ImageSliderContainer>
     </Container>
   );
-};
+}
 
 export default PinchZoomImageSliderStory;

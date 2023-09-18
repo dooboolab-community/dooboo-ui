@@ -18,20 +18,15 @@ function IconButtonBasicStory(): JSX.Element {
         {types.map((type) => (
           <IconButton
             disabled={boolean('disabled', false)}
+            icon="Hamburger"
+            key={type}
             loading={boolean('loading', false)}
             onPress={action('onPress')}
             size={number('size', 14)}
-            key={type}
-            type={type}
-            icon="Hamburger"
             style={css`
               margin: 4px;
             `}
-            // styles={{
-            //   container: css`
-            //     padding: 4px;
-            //   `,
-            // }}
+            type={type}
           />
         ))}
       </StorySection>
