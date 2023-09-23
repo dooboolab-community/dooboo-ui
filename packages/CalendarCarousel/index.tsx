@@ -1,493 +1,196 @@
-import 'intl';
-import 'intl/locale-data/jsonp/en';
-
-import type {PropsWithChildren} from 'react';
-import React, {useRef, useState} from 'react';
+import {useEffect, useRef, useState} from 'react';
 import type {
-  NativeScrollEvent,
-  NativeSyntheticEvent,
+  FlatListProps,
+  StyleProp,
   TextStyle,
   ViewStyle,
 } from 'react-native';
-import {
-  FlatList,
-  SafeAreaView,
-  ScrollView,
-  StyleSheet,
-  Text,
-  TouchableOpacity,
-  View,
-} from 'react-native';
-import {useTheme} from '@dooboo-ui/theme';
+import {FlatList, View} from 'react-native';
+import {css} from '@emotion/native';
+import type {Locale} from 'date-fns';
+import {addMonths, subMonths} from 'date-fns';
 
-interface Style {
-  wrapperContainer: ViewStyle;
-  calendarContainer: ViewStyle;
-  headerStyle: ViewStyle;
-  arrowText: TextStyle;
-  titleContainer: ViewStyle;
-  titleText: TextStyle;
-  yearText: TextStyle;
-  rowContainer: ViewStyle;
-  weekdayText: TextStyle;
-  dayContainer: ViewStyle;
-  defaultView: ViewStyle;
-  otherDaysText: TextStyle;
-  currentDayView: ViewStyle;
-  currentDayText: TextStyle;
-  inactiveText: TextStyle;
-  activeView: ViewStyle;
-  activeText: TextStyle;
-  mark: ViewStyle;
-  eventContainer: ViewStyle;
-  eventText: TextStyle;
-  eventDate: TextStyle;
-}
+import type {DateItemStyles} from './CalendarItem/DateItem';
+import type {DateObject} from './CalendarItem';
+import CalendarItem from './CalendarItem';
+import MonthHeader from './MonthHeader';
+import {getDatesInMonths as getDatesInMonths} from './utils';
+import WeekdayItem from './WeekdayItem';
 
-const styles = StyleSheet.create<Style>({
-  wrapperContainer: {
-    paddingTop: 40,
-    width: 332,
-    height: 470,
-    paddingBottom: 40,
-  },
-  calendarContainer: {
-    height: 390,
-  },
-  dayContainer: {
-    width: 330,
-    height: 350,
-  },
-  headerStyle: {
-    flexDirection: 'row',
-    justifyContent: 'center',
-    paddingBottom: 28,
-  },
-  arrowText: {
-    color: 'royalblue',
-    fontSize: 30,
-  },
-  titleContainer: {
-    display: 'flex',
-    flexDirection: 'column',
-  },
-  titleText: {
-    fontSize: 20,
-    textAlign: 'center',
-    justifyContent: 'center',
-    width: 300,
-  },
-  yearText: {
-    fontSize: 12,
-    textAlign: 'center',
-    justifyContent: 'center',
-  },
-  rowContainer: {
-    flexDirection: 'row',
-  },
-  weekdayText: {
-    textAlign: 'center',
-    color: '#4F4F4F',
-    fontSize: 20,
-  },
-  defaultView: {
-    width: 47,
-    height: 47,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  otherDaysText: {
-    color: 'lightgray',
-    textAlign: 'center',
-  },
-  currentDayView: {
-    width: 47,
-    height: 47,
-    alignItems: 'center',
-    justifyContent: 'center',
-    borderRadius: 50,
-    backgroundColor: '#109CF1',
-  },
-  activeView: {
-    width: 47,
-    height: 47,
-    justifyContent: 'center',
-    alignItems: 'center',
-    borderRadius: 50,
-    backgroundColor: '#F0F8FD',
-  },
-  currentDayText: {
-    color: 'white',
-    textAlign: 'center',
-  },
-  inactiveText: {
-    textAlign: 'center',
-  },
-  activeText: {
-    color: '#109CF1',
-    textAlign: 'center',
-  },
-  mark: {
-    width: 4,
-    height: 4,
-    borderRadius: 50,
-    backgroundColor: '#109CF1',
-  },
-  eventContainer: {
-    width: 320,
-    height: 50,
-    backgroundColor: '#109CF1',
-    borderRadius: 30,
-    paddingTop: 15,
-    flexDirection: 'row',
-  },
-  eventText: {
-    color: 'white',
-    fontWeight: 'bold',
-    paddingLeft: 30,
-    fontSize: 14,
-  },
-  eventDate: {
-    fontWeight: '900',
-    paddingLeft: 25,
-    color: 'white',
-  },
-});
-
-interface Props {
+type CalendarCarouselProps = {
+  initialSelectedDate?: Date;
+  locale?: Locale;
+  headerIconLeft?: JSX.Element;
+  headerIconRIght?: JSX.Element;
+  width?: number;
   date?: Date;
-  onDateChanged?: (date: Date) => void;
-  selectedDate?: Date;
-  selectDate?: (date: Date) => void;
-  markedDayEvents?: Record<string, any>[];
-  monthFormatter?: {format: (date: Date) => string};
-}
+  showPrevDates?: boolean;
+  showNextDates?: boolean;
+  events?: Date[];
+  onSelectDate?: (date: Date) => void;
+  style?: Omit<ViewStyle, 'width'>;
+  styles?: {
+    container?: ViewStyle;
+    date?: DateItemStyles;
+    header?: {
+      container?: StyleProp<ViewStyle>;
+      text?: StyleProp<TextStyle>;
+      startIcon?: ViewStyle;
+      endIcon?: ViewStyle;
+    };
+    weekday?: {
+      container?: StyleProp<ViewStyle>;
+      text?: StyleProp<TextStyle>;
+      weekendContainer?: StyleProp<ViewStyle>;
+      weekendText?: StyleProp<TextStyle>;
+    };
+  };
+  renderHeader?: (date: Date) => JSX.Element;
+  renderWeekday?: (date: Date) => JSX.Element;
+  renderDate?: (props: {
+    date: Date;
+    selected?: boolean;
+    isPrev?: boolean;
+    isNext?: boolean;
+    isWeekend?: boolean;
+  }) => JSX.Element;
+};
+
 function CalendarCarousel({
-  date = new Date(),
-  onDateChanged,
-  selectDate,
-  selectedDate,
-  markedDayEvents = [],
-  monthFormatter = new Intl.DateTimeFormat('en', {month: 'long'}),
-}: PropsWithChildren<Props>): JSX.Element {
-  const {theme} = useTheme();
-  const scrollRef = useRef<ScrollView>(null);
-  const [layoutWidth, setLayoutWidth] = useState(330);
-  const [eventDay, setEventDay] = useState(0);
-  const [currentDate, setCurrentDate] = useState<Date>(date);
+  locale,
+  style,
+  width = 300,
+  date,
+  events,
+  showNextDates,
+  showPrevDates,
+  styles,
+  initialSelectedDate,
+  headerIconLeft,
+  headerIconRIght,
+  onSelectDate,
+  renderHeader,
+  renderWeekday,
+  renderDate,
+}: CalendarCarouselProps): JSX.Element {
+  const [index, setIndex] = useState(1);
+  const [selectedDateObject, setSelectedDateObject] = useState<
+    DateObject | undefined
+  >(undefined);
 
-  const prevMonth = new Date(
-    currentDate.getFullYear(),
-    currentDate.getMonth() - 1,
-    currentDate.getDate(),
-  );
+  const [currentDate, setCurrentDate] = useState(date ? date : new Date());
+  const flatListRef = useRef<FlatList<any>>(null);
+  const dates = getDatesInMonths({
+    year: currentDate.getFullYear(),
+    month: currentDate.getMonth(),
+  });
 
-  const nextMonth = new Date(
-    currentDate.getFullYear(),
-    currentDate.getMonth() + 1,
-    currentDate.getDate(),
-  );
+  useEffect(() => {
+    flatListRef.current?.scrollToIndex({index: 1, animated: false});
 
-  const scrollToMiddleCalendar = (): void => {
-    scrollRef.current?.scrollTo({
-      x: Math.floor(layoutWidth),
-      animated: false,
-    });
-  };
-
-  const scrollEffect = (e: NativeSyntheticEvent<NativeScrollEvent>): void => {
-    const xValue = Math.floor(e.nativeEvent.contentOffset.x);
-    const maxLayoutFloor = Math.floor(layoutWidth) * 2;
-
-    if (!layoutWidth || layoutWidth === 1) {
-      return;
+    if (initialSelectedDate) {
+      setSelectedDateObject({date: initialSelectedDate});
     }
+  }, [initialSelectedDate]);
 
-    if (xValue === 0) {
-      if (scrollRef && scrollRef.current) {
-        scrollToMiddleCalendar();
-        setCurrentDate(prevMonth);
+  const onViewableItemsChanged: FlatListProps<any>['onViewableItemsChanged'] =
+    ({viewableItems}) => {
+      switch (viewableItems[0].index) {
+        case 0:
+          setIndex(0);
+          break;
+        case 2:
+          setIndex(2);
+          break;
       }
-    } else if (xValue === maxLayoutFloor) {
-      if (scrollRef && scrollRef.current) {
-        scrollToMiddleCalendar();
-        setCurrentDate(nextMonth);
-      }
-    }
-  };
-
-  const changeMonth = (toPrevMonth?: boolean): void => {
-    if (toPrevMonth) {
-      const update = prevMonth;
-
-      setCurrentDate(update);
-
-      return onDateChanged?.(update);
-    }
-
-    const update = nextMonth;
-
-    setCurrentDate(update);
-
-    return onDateChanged?.(update);
-  };
-
-  const renderCalendars = (): JSX.Element => {
-    const renderCalendar = (displayDate: Date): JSX.Element => {
-      const monthName = monthFormatter.format(displayDate);
-      const year = displayDate.getFullYear();
-      const month = displayDate.getMonth();
-
-      const lastDate = new Date(year, month + 1, 0).getDate();
-      const firstWeekday = new Date(year, month, 1).getDay();
-      const lastWeekday = new Date(year, month, lastDate).getDay();
-
-      const weekdays: JSX.Element[] = [];
-
-      for (let idx = 0; idx <= 6; idx++) {
-        const matchMonth = new Date(2020, 5, idx);
-
-        const weekDay = matchMonth.toLocaleString('default', {
-          weekday: 'narrow',
-        });
-
-        weekdays.push(
-          <View style={{width: 47.14}}>
-            <Text style={styles.weekdayText}>{weekDay}</Text>
-          </View>,
-        );
-      }
-
-      const prevDates: Date[] = [];
-
-      for (let idx = 0; idx < firstWeekday; idx++) {
-        // eslint-disable-next-line @typescript-eslint/no-shadow
-        const date = new Date(year, month, 0);
-
-        date.setDate(date.getDate() - idx);
-        prevDates.unshift(date);
-      }
-
-      const dates: Date[] = [];
-
-      for (let idx = 1; idx <= lastDate; idx++) {
-        dates.push(new Date(year, month, idx));
-      }
-
-      const nextDates: Date[] = [];
-
-      if (6 - lastWeekday >= 1) {
-        for (let idx = 1; idx <= 6 - lastWeekday; idx++) {
-          nextDates.push(new Date(year, month + 1, idx));
-        }
-      }
-
-      const calendarDates: Date[] = [...prevDates, ...dates, ...nextDates];
-
-      const markedDates = markedDayEvents.map((eventDates) =>
-        eventDates.selectedEventDate.getDate(),
-      );
-
-      const markedMonths = markedDayEvents.map(
-        (eventMonths) => eventMonths.selectedEventDate.getMonth() - 1,
-      );
-
-      const markedYears = markedDayEvents.map((eventYears) =>
-        eventYears.selectedEventDate.getFullYear(),
-      );
-
-      const renderDates = (dateItem: Date): JSX.Element => {
-        const itemYear = dateItem.getFullYear();
-        const itemMonth = dateItem.getMonth();
-        const itemDay = dateItem.getDate();
-        const itemDate = new Date(itemYear, itemMonth, itemDay);
-
-        // eslint-disable-next-line @typescript-eslint/no-shadow
-        const isToday = (dateItem: Date): boolean => {
-          const today = new Date();
-
-          return (
-            dateItem.getDate() === today.getDate() &&
-            dateItem.getMonth() === today.getMonth() &&
-            dateItem.getFullYear() === today.getFullYear()
-          );
-        };
-
-        const hasEvent = (): boolean => {
-          return (
-            markedDates.includes(itemDay) &&
-            markedMonths.includes(itemMonth) &&
-            markedYears.includes(itemYear)
-          );
-        };
-
-        // eslint-disable-next-line @typescript-eslint/no-shadow
-        const isSelected = (dateItem: Date): boolean => {
-          return (
-            dateItem.getDate() === selectedDate?.getDate() &&
-            dateItem.getMonth() === selectedDate?.getMonth() &&
-            dateItem.getFullYear() === selectedDate?.getFullYear()
-          );
-        };
-
-        if (itemMonth !== month) {
-          return (
-            <View key={`${itemMonth}-${itemDay}`} style={styles.defaultView}>
-              <Text
-                style={[styles.otherDaysText, {color: theme.text.disabled}]}
-              >{`${itemDay}`}</Text>
-            </View>
-          );
-        } else if (isToday(dateItem)) {
-          return (
-            <View key={`${itemMonth}-${itemDay}`} style={styles.currentDayView}>
-              <Text style={styles.currentDayText}>{`${itemDay}`}</Text>
-            </View>
-          );
-        } else if (hasEvent() && isSelected(dateItem)) {
-          return (
-            <TouchableOpacity
-              key={`${itemMonth}-${itemDay}`}
-              onPress={(): void => {
-                selectDate?.(itemDate);
-                setEventDay(itemDay);
-              }}
-            >
-              <View style={styles.activeView}>
-                <Text style={styles.activeText}>{`${itemDay}`}</Text>
-                <View style={styles.mark} />
-              </View>
-            </TouchableOpacity>
-          );
-        } else if (hasEvent()) {
-          return (
-            <TouchableOpacity
-              key={`${itemMonth}-${itemDay}`}
-              onPress={(): void => selectDate?.(itemDate)}
-            >
-              <View style={styles.defaultView}>
-                <Text style={[styles.inactiveText]}>{`${itemDay}`}</Text>
-                <View style={styles.mark} />
-              </View>
-            </TouchableOpacity>
-          );
-        } else if (isSelected(dateItem)) {
-          return (
-            <TouchableOpacity
-              key={`${itemMonth}-${itemDay}`}
-              onPress={(): void => selectDate?.(itemDate)}
-            >
-              <View
-                style={[styles.activeView, {backgroundColor: theme.bg.paper}]}
-              >
-                <Text
-                  style={[styles.activeText, {color: theme.text.basic}]}
-                >{`${itemDay}`}</Text>
-              </View>
-            </TouchableOpacity>
-          );
-        }
-
-        return (
-          <TouchableOpacity
-            key={`${itemMonth}-${itemDay}`}
-            onPress={(): void => selectDate?.(itemDate)}
-          >
-            <View style={styles.defaultView}>
-              <Text
-                style={[styles.inactiveText, {color: theme.text.basic}]}
-              >{`${itemDay}`}</Text>
-            </View>
-          </TouchableOpacity>
-        );
-      };
-
-      const renderEvent = (): JSX.Element[] => {
-        return markedDayEvents.map((markedDayEvent, i) => {
-          if (
-            markedDates[i] === eventDay &&
-            markedMonths.includes(month) &&
-            markedYears.includes(year)
-          ) {
-            return (
-              <View key={`${eventDay}-${i}`} style={styles.eventContainer}>
-                <Text style={styles.eventDate}>
-                  {markedDayEvents[i].selectedEventDate.getDate()}
-                </Text>
-                <Text style={styles.eventText}>
-                  {markedDayEvents[i].events}
-                </Text>
-              </View>
-            );
-          }
-
-          return <View key="none" />;
-        });
-      };
-
-      return (
-        <View key={`${year}-${monthName}`} style={styles.calendarContainer}>
-          <View style={styles.headerStyle}>
-            <TouchableOpacity onPress={(): void => changeMonth(true)}>
-              <Text style={[styles.arrowText, {color: theme.role.primary}]}>
-                {' '}
-                &#8249;
-              </Text>
-            </TouchableOpacity>
-            <View style={styles.titleContainer}>
-              <Text style={[styles.titleText, {color: theme.text.basic}]}>
-                {monthName}
-              </Text>
-              <Text style={[styles.yearText, {color: theme.text.basic}]}>
-                {year}
-              </Text>
-            </View>
-            <TouchableOpacity onPress={(): void => changeMonth(false)}>
-              <Text style={styles.arrowText}>&#8250;</Text>
-            </TouchableOpacity>
-          </View>
-          <View style={styles.rowContainer}>{weekdays}</View>
-          <FlatList
-            data={calendarDates}
-            keyExtractor={(item, id) => `${item}-${id}`}
-            numColumns={7}
-            renderItem={({item}) => renderDates(item)}
-            scrollEnabled={false}
-            style={styles.dayContainer}
-          />
-          {renderEvent()}
-        </View>
-      );
     };
 
-    return (
-      <View style={styles.rowContainer}>
-        {renderCalendar(prevMonth)}
-        {renderCalendar(currentDate)}
-        {renderCalendar(nextMonth)}
-      </View>
-    );
-  };
+  // https://github.com/facebook/react-native/issues/30171#issuecomment-820833606
+  const viewabilityConfigCallbackPairs = useRef([
+    {
+      viewabilityConfig: {
+        itemVisiblePercentThreshold: 50,
+      },
+      onViewableItemsChanged,
+    },
+  ]);
 
   return (
-    <SafeAreaView
-      onLayout={(e): void => {
-        setLayoutWidth(e.nativeEvent.layout.width);
-        scrollToMiddleCalendar();
-      }}
-      style={styles.wrapperContainer}
+    <View
+      style={[
+        css`
+          width: ${width + 'px'};
+        `,
+        style,
+      ]}
     >
-      <ScrollView
-        contentOffset={{x: layoutWidth, y: 0}}
+      {renderHeader ? renderHeader(currentDate) : null}
+      {!renderHeader ? (
+        <MonthHeader
+          date={currentDate}
+          iconLeft={headerIconLeft}
+          iconRight={headerIconRIght}
+          onChange={(monthDate: Date) => {
+            setCurrentDate(monthDate);
+            flatListRef.current?.scrollToIndex({index: 1, animated: false});
+          }}
+          styles={styles?.header}
+        />
+      ) : null}
+
+      {renderWeekday ? renderWeekday(currentDate) : null}
+      {!renderWeekday ? (
+        <WeekdayItem locale={locale} styles={styles?.weekday} width={width} />
+      ) : null}
+      <FlatList
+        data={dates}
         horizontal
-        onMomentumScrollEnd={scrollEffect}
+        keyExtractor={(_, i) => `calendar-${i}`}
+        onScrollToIndexFailed={() => {
+          const wait = new Promise((resolve) => setTimeout(resolve, 500));
+          wait.then(() => {
+            flatListRef.current?.scrollToIndex({index: 1, animated: false});
+          });
+        }}
         pagingEnabled
-        ref={scrollRef}
+        ref={flatListRef}
+        renderItem={({item}) => (
+          <CalendarItem
+            events={events}
+            onDatePress={(selectedDateObj) => {
+              onSelectDate?.(selectedDateObj.date);
+              setSelectedDateObject(selectedDateObj);
+
+              if (selectedDateObj.isNextMonth || selectedDateObj.isPrevMonth) {
+                setCurrentDate(selectedDateObj.date);
+                flatListRef.current?.scrollToIndex({index: 1, animated: false});
+              }
+            }}
+            dateObjects={item}
+            width={width}
+            selectedDateObject={selectedDateObject}
+            showNextDates={showNextDates}
+            showPrevDates={showPrevDates}
+            renderDate={renderDate}
+            styles={styles?.date}
+          />
+        )}
         scrollEventThrottle={16}
-      >
-        {renderCalendars()}
-      </ScrollView>
-    </SafeAreaView>
+        onScrollEndDrag={() => {
+          if (index !== 1) {
+            setCurrentDate(
+              index === 0
+                ? subMonths(currentDate, 1)
+                : addMonths(currentDate, 1),
+            );
+            flatListRef.current?.scrollToIndex({index: 1, animated: false});
+          }
+        }}
+        // https://stackoverflow.com/a/60320726/8841562
+        showsHorizontalScrollIndicator={false}
+        viewabilityConfigCallbackPairs={viewabilityConfigCallbackPairs.current}
+      />
+    </View>
   );
 }
 
