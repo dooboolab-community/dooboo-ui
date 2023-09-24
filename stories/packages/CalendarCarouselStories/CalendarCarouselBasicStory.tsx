@@ -42,7 +42,7 @@ function CalendarCarouselBasicStory(): JSX.Element {
         headerIconLeft={
           <Icon color={theme.text.basic} name="ArrowCircleLeft" size={18} />
         }
-        headerIconRIght={
+        headerIconRight={
           <Icon color={theme.text.basic} name="ArrowCircleRight" size={18} />
         }
         initialSelectedDate={new Date(2024, 11, 4)}

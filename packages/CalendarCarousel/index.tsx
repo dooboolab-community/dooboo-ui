@@ -126,10 +126,9 @@ function CalendarCarousel({
         style,
       ]}
     >
-      {renderHeader && renderHeader(currentDate)}
-      {!renderHeader && (
+      {renderHeader ? renderHeader(currentDate) : null}
+      {!renderHeader ? (
         <MonthHeader
-          styles={styles?.header}
           date={currentDate}
           iconLeft={headerIconLeft}
           iconRight={headerIconRight}
@@ -138,15 +137,26 @@ function CalendarCarousel({
             flatListRef.current?.scrollToIndex({index: 1, animated: false});
             onChangeMonth?.(monthDate);
           }}
+          styles={styles?.header}
         />
-      )}
+      ) : null}
 
-      {renderWeekday && renderWeekday(currentDate)}
-      {!renderWeekday && (
-        <WeekdayItem width={width} locale={locale} styles={styles?.weekday} />
-      )}
+      {renderWeekday ? renderWeekday(currentDate) : null}
+      {!renderWeekday ? (
+        <WeekdayItem locale={locale} styles={styles?.weekday} width={width} />
+      ) : null}
       <FlatList
-        showsHorizontalScrollIndicator={false}
+        data={dates}
+        horizontal
+        keyExtractor={(_, i) => `calendar-${i}`}
+        onScrollToIndexFailed={() => {
+          const wait = new Promise((resolve) => setTimeout(resolve, 500));
+          wait.then(() => {
+            flatListRef.current?.scrollToIndex({index: 1, animated: false});
+          });
+        }}
+        pagingEnabled
+        ref={flatListRef}
         renderItem={({item}) => (
           <CalendarItem
             events={events}
@@ -168,12 +178,7 @@ function CalendarCarousel({
             styles={styles?.date}
           />
         )}
-        horizontal
-        ref={flatListRef}
-        data={dates}
-        keyExtractor={(_, i) => `calendar-${i}`}
         scrollEventThrottle={16}
-        viewabilityConfigCallbackPairs={viewabilityConfigCallbackPairs.current}
         onScrollEndDrag={() => {
           if (index !== 1) {
             setCurrentDate(
@@ -185,13 +190,8 @@ function CalendarCarousel({
           }
         }}
         // https://stackoverflow.com/a/60320726/8841562
-        onScrollToIndexFailed={() => {
-          const wait = new Promise((resolve) => setTimeout(resolve, 500));
-          wait.then(() => {
-            flatListRef.current?.scrollToIndex({index: 1, animated: false});
-          });
-        }}
-        pagingEnabled
+        showsHorizontalScrollIndicator={false}
+        viewabilityConfigCallbackPairs={viewabilityConfigCallbackPairs.current}
       />
     </View>
   );
