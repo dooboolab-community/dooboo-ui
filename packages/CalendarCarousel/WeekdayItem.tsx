@@ -2,7 +2,6 @@ import type {StyleProp, TextStyle, ViewStyle} from 'react-native';
 import {Text, View} from 'react-native';
 import {useTheme} from '@dooboo-ui/theme';
 import {css} from '@emotion/native';
-import en from 'date-fns/esm/locale/en-US';
 
 interface Prop {
   locale?: Locale;
@@ -17,12 +16,12 @@ interface Prop {
 
 export default function WeekdayItem({
   width = 350,
-  locale = en,
+  locale,
   styles,
 }: Prop): JSX.Element {
   const {theme} = useTheme();
-  const weekdays = [...Array(7).keys()].map((i) =>
-    locale.localize?.day(i, {width: 'abbreviated'}),
+  const weekdays = [...Array(7).keys()].map(
+    (i) => locale?.localize?.day(i, {width: 'abbreviated'}),
   );
 
   return (

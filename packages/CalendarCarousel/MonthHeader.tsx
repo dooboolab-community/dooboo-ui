@@ -8,8 +8,8 @@ import {getNextMonth, getPreviousMonth} from './utils';
 interface Prop {
   date: Date;
   onChange: (date: Date) => void;
-  iconLeft: JSX.Element;
-  iconRight: JSX.Element;
+  iconLeft?: JSX.Element;
+  iconRight?: JSX.Element;
   styles?: {
     container?: StyleProp<ViewStyle>;
     text?: StyleProp<TextStyle>;
@@ -41,7 +41,6 @@ export default function MonthHeader({
           onChange(previous);
         }}
       >
-        {/* Icon style이 StyleProp<ViewStyle>형식을 지원하지 않음. */}
         {iconLeft || null}
       </TouchableOpacity>
 

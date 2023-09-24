@@ -20,13 +20,14 @@ import WeekdayItem from './WeekdayItem';
 type CalendarCarouselProps = {
   initialSelectedDate?: Date;
   locale?: Locale;
-  headerIconLeft?: JSX.Element;
-  headerIconRIght?: JSX.Element;
   width?: number;
+  headerIconLeft?: JSX.Element;
+  headerIconRight?: JSX.Element;
   date?: Date;
   showPrevDates?: boolean;
   showNextDates?: boolean;
   events?: Date[];
+  onChangeMonth?: (date: Date) => void;
   onSelectDate?: (date: Date) => void;
   style?: Omit<ViewStyle, 'width'>;
   styles?: {
@@ -62,14 +63,15 @@ function CalendarCarousel({
   width = 300,
   date,
   events,
+  headerIconLeft,
+  headerIconRight,
   showNextDates,
   showPrevDates,
   styles,
   initialSelectedDate,
-  headerIconLeft,
-  headerIconRIght,
   onSelectDate,
   renderHeader,
+  onChangeMonth,
   renderWeekday,
   renderDate,
 }: CalendarCarouselProps): JSX.Element {
@@ -124,36 +126,27 @@ function CalendarCarousel({
         style,
       ]}
     >
-      {renderHeader ? renderHeader(currentDate) : null}
-      {!renderHeader ? (
+      {renderHeader && renderHeader(currentDate)}
+      {!renderHeader && (
         <MonthHeader
+          styles={styles?.header}
           date={currentDate}
           iconLeft={headerIconLeft}
-          iconRight={headerIconRIght}
+          iconRight={headerIconRight}
           onChange={(monthDate: Date) => {
             setCurrentDate(monthDate);
             flatListRef.current?.scrollToIndex({index: 1, animated: false});
+            onChangeMonth?.(monthDate);
           }}
-          styles={styles?.header}
         />
-      ) : null}
+      )}
 
-      {renderWeekday ? renderWeekday(currentDate) : null}
-      {!renderWeekday ? (
-        <WeekdayItem locale={locale} styles={styles?.weekday} width={width} />
-      ) : null}
+      {renderWeekday && renderWeekday(currentDate)}
+      {!renderWeekday && (
+        <WeekdayItem width={width} locale={locale} styles={styles?.weekday} />
+      )}
       <FlatList
-        data={dates}
-        horizontal
-        keyExtractor={(_, i) => `calendar-${i}`}
-        onScrollToIndexFailed={() => {
-          const wait = new Promise((resolve) => setTimeout(resolve, 500));
-          wait.then(() => {
-            flatListRef.current?.scrollToIndex({index: 1, animated: false});
-          });
-        }}
-        pagingEnabled
-        ref={flatListRef}
+        showsHorizontalScrollIndicator={false}
         renderItem={({item}) => (
           <CalendarItem
             events={events}
@@ -175,7 +168,12 @@ function CalendarCarousel({
             styles={styles?.date}
           />
         )}
+        horizontal
+        ref={flatListRef}
+        data={dates}
+        keyExtractor={(_, i) => `calendar-${i}`}
         scrollEventThrottle={16}
+        viewabilityConfigCallbackPairs={viewabilityConfigCallbackPairs.current}
         onScrollEndDrag={() => {
           if (index !== 1) {
             setCurrentDate(
@@ -187,8 +185,13 @@ function CalendarCarousel({
           }
         }}
         // https://stackoverflow.com/a/60320726/8841562
-        showsHorizontalScrollIndicator={false}
-        viewabilityConfigCallbackPairs={viewabilityConfigCallbackPairs.current}
+        onScrollToIndexFailed={() => {
+          const wait = new Promise((resolve) => setTimeout(resolve, 500));
+          wait.then(() => {
+            flatListRef.current?.scrollToIndex({index: 1, animated: false});
+          });
+        }}
+        pagingEnabled
       />
     </View>
   );
