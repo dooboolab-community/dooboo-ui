@@ -105,7 +105,7 @@
     "typescript": "^5.2.2"
   },
   "resolutions": {
-    "expo-font": "~11.4.0"
+    "expo-font": "~11.6.0"
   },
   "workspaces": {
     "packages": [
