@@ -42,6 +42,7 @@ function NetworkImage(props: Props): JSX.Element {
         // @ts-ignore
         resizeMethod="resize"
         resizeMode="cover"
+        // @ts-ignore
         source={loadingSource ?? logo}
       />
     );

@@ -1,14 +1,13 @@
 import type {MutableRefObject} from 'react';
 import {useEffect, useRef, useState} from 'react';
 import {View} from 'react-native';
-import type {ThemeContext} from '@dooboo-ui/theme';
+import type {ThemeContext, ThemeProps} from '@dooboo-ui/theme';
 import {ThemeProvider, useTheme} from '@dooboo-ui/theme';
-import {css} from '@emotion/native';
 import {loadAsync} from 'expo-font';
 
 import type {AlertDialogContext} from '../modals/AlertDialog';
 import AlertDialog from '../modals/AlertDialog';
-import type {SnackbarContext} from '../modals/Snackbar';
+import type {SnackbarContext, SnackbarOptions} from '../modals/Snackbar';
 import Snackbar from '../modals/Snackbar';
 import createCtx from '../utils/createCtx';
 
@@ -22,15 +21,11 @@ export type DoobooContext = {
   alertDialog: AlertDialogContext;
 } & ThemeContext;
 
-export type DoobooProviderProps = {
-  children?: JSX.Element;
-};
-
 const [useCtx, Provider] = createCtx<DoobooContext>(
   'dooboo-ui modals should be used within DoobooProvider.',
 );
 
-function DoobooProvider({children}: DoobooProviderProps): JSX.Element {
+function DoobooProvider({children}: {children: JSX.Element}): JSX.Element {
   const [assetLoaded, setAssetLoaded] = useState(false);
 
   useEffect(() => {
@@ -81,12 +76,7 @@ function DoobooProvider({children}: DoobooProviderProps): JSX.Element {
   };
 
   return (
-    <View
-      style={css`
-        flex: 1;
-        align-self: stretch;
-      `}
-    >
+    <View style={{flex: 1, alignSelf: 'stretch'}}>
       <Provider
         value={{
           ...themeContext,
@@ -103,9 +93,17 @@ function DoobooProvider({children}: DoobooProviderProps): JSX.Element {
   );
 }
 
+export type DoobooProviderProps = {
+  themeConfig?: Omit<ThemeProps, 'children'>;
+  snackbarConfig?: SnackbarOptions;
+  children: JSX.Element;
+};
+
 function DoobooWithThemeProvider(props: DoobooProviderProps): JSX.Element {
+  const {themeConfig} = props;
+
   return (
-    <ThemeProvider>
+    <ThemeProvider {...themeConfig}>
       <DoobooProvider {...props} />
     </ThemeProvider>
   );
