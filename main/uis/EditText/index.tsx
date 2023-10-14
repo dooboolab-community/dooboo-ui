@@ -319,7 +319,7 @@ export function EditText({
             placeholderTextColor={placeholderColor || theme.text.placeholder}
             ref={inputRef}
             secureTextEntry={secureTextEntry}
-            selectionColor={colors.focused || theme.text.basic}
+            selectionColor={theme.role.underlay}
             style={[
               // Stretch input in order to make remaining space clickable
               css`
