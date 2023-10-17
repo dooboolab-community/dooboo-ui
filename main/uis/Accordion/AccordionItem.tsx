@@ -121,6 +121,7 @@ export function AccordionItem<T, K>({
         css`
           background-color: transparent;
           overflow: hidden;
+          flex-direction: column-reverse;
         `,
         styles?.container,
       ]}
@@ -151,31 +152,6 @@ export function AccordionItem<T, K>({
           </ItemTouch>
         ))}
       </View>
-      {/* Title */}
-      <TitleTouch
-        activeOpacity={activeOpacity}
-        onPress={() => setCollapsed(!collapsed)}
-        style={[
-          css`
-            justify-content: ${toggleElementPosition === 'right'
-              ? 'space-between'
-              : 'flex-start'};
-          `,
-          styles?.titleContainer,
-        ]}
-        testID={`title-${testID}`}
-      >
-        {toggleElementPosition === 'left' ? toggleElContainer : null}
-        {typeof data.title === 'string' && !renderTitle ? (
-          <Typography.Heading4 style={styles?.titleText}>
-            {data.title}
-          </Typography.Heading4>
-        ) : (
-          renderTitle?.(data.title as T)
-        )}
-        {toggleElementPosition === 'right' ? toggleElContainer : null}
-      </TitleTouch>
-
       {/* Item */}
       <Animated.View
         accessibilityState={{expanded: !collapsed}}
@@ -207,6 +183,31 @@ export function AccordionItem<T, K>({
           </ItemTouch>
         ))}
       </Animated.View>
+
+      {/* Title */}
+      <TitleTouch
+        activeOpacity={activeOpacity}
+        onPress={() => setCollapsed(!collapsed)}
+        style={[
+          css`
+            justify-content: ${toggleElementPosition === 'right'
+              ? 'space-between'
+              : 'flex-start'};
+          `,
+          styles?.titleContainer,
+        ]}
+        testID={`title-${testID}`}
+      >
+        {toggleElementPosition === 'left' ? toggleElContainer : null}
+        {typeof data.title === 'string' && !renderTitle ? (
+          <Typography.Heading4 style={styles?.titleText}>
+            {data.title}
+          </Typography.Heading4>
+        ) : (
+          renderTitle?.(data.title as T)
+        )}
+        {toggleElementPosition === 'right' ? toggleElContainer : null}
+      </TitleTouch>
     </Animated.View>
   );
 }
