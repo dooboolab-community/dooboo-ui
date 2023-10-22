@@ -30,19 +30,17 @@ export type DateItemProp = {
   styles?: DateItemStyles;
 };
 
-export default function DateItem(props: DateItemProp): JSX.Element {
+export default function DateItem({
+  isEvent,
+  dateObject,
+  calendarWidth,
+  onPress,
+  selected = false,
+  styles,
+  showNextDates = true,
+  showPrevDates = true,
+}: DateItemProp): JSX.Element {
   const {theme} = useTheme();
-
-  const {
-    isEvent,
-    dateObject,
-    calendarWidth,
-    onPress,
-    selected = false,
-    styles,
-    showNextDates = true,
-    showPrevDates = true,
-  } = props;
 
   const {isNextMonth, isPrevMonth} = dateObject;
   const dateWidth = calendarWidth - 24;
@@ -90,6 +88,13 @@ export default function DateItem(props: DateItemProp): JSX.Element {
         },
         isEvent && styles?.event,
       ]}
+      testID={
+        isPrevMonth
+          ? 'prev-dateItem'
+          : isNextMonth
+          ? 'next-dateItem'
+          : 'dateItem'
+      }
     >
       <Text
         numberOfLines={1}

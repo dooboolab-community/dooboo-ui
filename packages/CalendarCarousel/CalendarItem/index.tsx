@@ -33,19 +33,17 @@ interface CalendarItemProp {
   }) => JSX.Element;
 }
 
-export default function CalendarItem(props: CalendarItemProp): JSX.Element {
-  const {
-    dateObjects,
-    selectedDateObject,
-    width,
-    events,
-    showPrevDates = false,
-    showNextDates = false,
-    styles,
-    onDatePress,
-    renderDate,
-  } = props;
-
+export default function CalendarItem({
+  dateObjects,
+  selectedDateObject,
+  width,
+  events,
+  showPrevDates = false,
+  showNextDates = false,
+  styles,
+  onDatePress,
+  renderDate,
+}: CalendarItemProp): JSX.Element {
   const onPressDateItem = (date: DateObject): void => {
     onDatePress?.(date);
   };
@@ -77,14 +75,14 @@ export default function CalendarItem(props: CalendarItemProp): JSX.Element {
 
           return (
             <DateItem
-              isEvent={events?.includes(dateObj.date)}
-              showPrevDates={showPrevDates}
-              showNextDates={showNextDates}
-              selected={selected}
-              key={`${dateObj}-${i}`}
-              dateObject={dateObj}
               calendarWidth={width}
+              dateObject={dateObj}
+              isEvent={events?.includes(dateObj.date)}
+              key={`${dateObj}-${i}`}
               onPress={onPressDateItem}
+              selected={selected}
+              showNextDates={showNextDates}
+              showPrevDates={showPrevDates}
               styles={styles}
             />
           );
