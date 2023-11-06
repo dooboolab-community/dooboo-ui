@@ -7059,10 +7059,10 @@ commander@~2.13.0:
   resolved "https://registry.yarnpkg.com/commander/-/commander-2.13.0.tgz#6964bca67685df7c1f1430c584f07d7597885b9c"
   integrity sha512-MVuS359B+YzaWqjCL/c+22gfryv+mCBPHAv3zyVI2GN8EY6IRP8VwtasXn8jyyhvvq84R4ImN1OKRtcbIasjYA==
 
-commitlint-plugin-function-rules@^2.0.2:
-  version "2.0.2"
-  resolved "https://registry.yarnpkg.com/commitlint-plugin-function-rules/-/commitlint-plugin-function-rules-2.0.2.tgz#391b584da8a6fde0f88b1ae2063e4fe2065d6b07"
-  integrity sha512-SZIn5H3pTzZo1wlef17lYeduFDUHklvtYW9+jFs3uoXkezLbxTN13CrV9g2I9NRc9bhrW8RdkOesV2dZA224sg==
+commitlint-plugin-function-rules@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/commitlint-plugin-function-rules/-/commitlint-plugin-function-rules-3.0.0.tgz#d89a6af40195aed910a1ccbb7e62eaac516c1665"
+  integrity sha512-Z8ovQJ3bQLC1tOJejFFeI8IMTZfLJMd2yrp/jgXZXQ2gG5Lq4EHiWsc2G5UeFLhpuN88g2SuhJonCg8/Ays47w==
 
 common-path-prefix@^3.0.0:
   version "3.0.0"
