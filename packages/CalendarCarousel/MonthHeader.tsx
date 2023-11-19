@@ -40,6 +40,7 @@ export default function MonthHeader({
           const previous = getPreviousMonth(date);
           onChange(previous);
         }}
+        testID="month-header-prev-btn"
       >
         {iconLeft || null}
       </TouchableOpacity>
@@ -53,6 +54,7 @@ export default function MonthHeader({
           `,
           styles?.text,
         ]}
+        testID="month-header-title"
       >
         {date.getFullYear()}년 {date.getMonth() + 1}월
       </Text>
@@ -61,6 +63,7 @@ export default function MonthHeader({
           const next = getNextMonth(date);
           onChange(next);
         }}
+        testID="month-header-next-btn"
       >
         {iconRight || null}
       </TouchableOpacity>

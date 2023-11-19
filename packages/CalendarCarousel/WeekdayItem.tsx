@@ -45,6 +45,7 @@ export default function WeekdayItem({
               styles?.container,
               (index === 0 || index === 6) && styles?.weekendContainer,
             ]}
+            testID="weekday"
           >
             <Text
               style={[
