@@ -18,6 +18,8 @@ import {LoadingIndicator} from '../LoadingIndicator';
 
 type Styles = {
   container?: StyleProp<ViewStyle>;
+  content?: StyleProp<ViewStyle>;
+  loading?: StyleProp<ViewStyle>;
   text?: StyleProp<TextStyle>;
   disabled?: StyleProp<ViewStyle>;
   disabledText?: StyleProp<TextStyle>;
@@ -250,19 +252,26 @@ export function Button({
           type={type}
         >
           <View
-            style={css`
-              flex-direction: row;
-              align-items: center;
-              opacity: ${loading ? '0' : '1'};
-            `}
+            style={[
+              css`
+                flex-direction: row;
+                align-items: center;
+                opacity: ${loading ? '0' : '1'};
+                gap: 8px;
+              `,
+              styles?.content,
+            ]}
           >
             {children}
           </View>
           <View
-            style={css`
-              position: absolute;
-              opacity: ${loading ? '1' : '0'};
-            `}
+            style={[
+              css`
+                position: absolute;
+                opacity: ${loading ? '1' : '0'};
+              `,
+              styles?.loading,
+            ]}
           >
             {loadingView}
           </View>
@@ -270,14 +279,16 @@ export function Button({
       );
     },
     [
-      loading,
+      innerDisabled,
+      size,
       compositeStyles.container,
       compositeStyles.hovered,
       compositeStyles.disabled,
       hovered,
-      innerDisabled,
       type,
-      size,
+      loading,
+      styles?.content,
+      styles?.loading,
     ],
   );
 

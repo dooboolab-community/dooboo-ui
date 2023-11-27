@@ -17,7 +17,7 @@ interface Props {
   style?: StyleProp<ViewStyle>;
   styles?: Styles;
   color?: string;
-  size?: 'small' | 'large';
+  size?: ActivityIndicator['props']['size'];
   imgSource?: string | ImageSourcePropType;
   customElement?: JSX.Element | (() => JSX.Element);
 }
