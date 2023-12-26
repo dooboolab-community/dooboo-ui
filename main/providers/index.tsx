@@ -1,9 +1,9 @@
 import type {MutableRefObject} from 'react';
-import {useEffect, useRef, useState} from 'react';
+import {useRef} from 'react';
 import {View} from 'react-native';
 import type {ThemeContext, ThemeProps} from '@dooboo-ui/theme';
 import {ThemeProvider, useTheme} from '@dooboo-ui/theme';
-import {loadAsync} from 'expo-font';
+import {useFonts} from 'expo-font';
 
 import type {AlertDialogContext} from '../modals/AlertDialog';
 import AlertDialog from '../modals/AlertDialog';
@@ -26,22 +26,12 @@ const [useCtx, Provider] = createCtx<DoobooContext>(
 );
 
 function DoobooProvider({children}: {children: JSX.Element}): JSX.Element {
-  const [assetLoaded, setAssetLoaded] = useState(false);
-
-  useEffect(() => {
-    const loadAsset = async (): Promise<void> => {
-      await loadAsync({
-        doobooui: require('../uis/Icon/doobooui.ttf'),
-        'Pretendard-Bold': require('../uis/Icon/Pretendard-Bold.otf'),
-        Pretendard: require('../uis/Icon/Pretendard-Regular.otf'),
-        'Pretendard-Thin': require('../uis/Icon/Pretendard-Thin.otf'),
-      });
-
-      setAssetLoaded(true);
-    };
-
-    loadAsset();
-  }, []);
+  const [assetLoaded] = useFonts({
+    doobooui: require('../uis/Icon/doobooui.ttf'),
+    'Pretendard-Bold': require('../uis/Icon/Pretendard-Bold.otf'),
+    Pretendard: require('../uis/Icon/Pretendard-Regular.otf'),
+    'Pretendard-Thin': require('../uis/Icon/Pretendard-Thin.otf'),
+  });
 
   const themeContext = useTheme();
 
