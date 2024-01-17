@@ -95,13 +95,13 @@ export function SwitchToggle({
     container = size === 'large'
       ? largeContainer
       : size === 'small'
-      ? smallContainer
-      : mediumContainer,
+        ? smallContainer
+        : mediumContainer,
     circle = size === 'large'
       ? largeCircle
       : size === 'small'
-      ? smallCircle
-      : mediumCircle,
+        ? smallCircle
+        : mediumCircle,
     button,
     onElementContainer,
     offElementContainer,

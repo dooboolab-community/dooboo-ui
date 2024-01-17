@@ -143,10 +143,10 @@ export function IconButton({
     size === 'large'
       ? 32
       : size === 'medium'
-      ? 24
-      : size === 'small'
-      ? 16
-      : size;
+        ? 24
+        : size === 'small'
+          ? 16
+          : size;
   const borderWidthStr = `${borderWidth}px`;
   const borderRadiusStr = `99px`;
 

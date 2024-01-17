@@ -76,8 +76,8 @@ function AccordionCustom(): JSX.Element {
                       text === 'User'
                         ? 'AutoAwesome'
                         : text === 'Puzz'
-                        ? 'QuestBoxFill'
-                        : 'House'
+                          ? 'QuestBoxFill'
+                          : 'House'
                     }
                     size={14}
                     style={css`
@@ -119,8 +119,8 @@ function AccordionCustom(): JSX.Element {
                   key === 'HEADING_1'
                     ? 'HouseFill'
                     : key === 'HEADING_2'
-                    ? 'Star'
-                    : 'Bookmark'
+                      ? 'Star'
+                      : 'Bookmark'
                 }
                 size={14}
                 style={css`

@@ -1,5 +1,9 @@
 {
   "reject": [
+    "@storybook/*",
+    // Emotion version affects the theme variables
+    "@emotion/react",
+    "@emotion/native"
     // "react",
     // "react-native",
     // "@types/react",
