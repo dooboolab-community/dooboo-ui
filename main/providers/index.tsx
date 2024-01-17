@@ -25,7 +25,7 @@ const [useCtx, Provider] = createCtx<DoobooContext>(
   'dooboo-ui modals should be used within DoobooProvider.',
 );
 
-function DoobooProvider({children}: {children: JSX.Element}): JSX.Element {
+function AppProvider({children}: {children: JSX.Element}): JSX.Element {
   const [assetLoaded] = useFonts({
     doobooui: require('../uis/Icon/doobooui.ttf'),
     'Pretendard-Bold': require('../uis/Icon/Pretendard-Bold.otf'),
@@ -94,7 +94,7 @@ function DoobooWithThemeProvider(props: DoobooProviderProps): JSX.Element {
 
   return (
     <ThemeProvider {...themeConfig}>
-      <DoobooProvider {...props} />
+      <AppProvider {...props} />
     </ThemeProvider>
   );
 }
