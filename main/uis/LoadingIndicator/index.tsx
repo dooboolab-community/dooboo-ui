@@ -65,8 +65,8 @@ export function LoadingIndicator({
             size === 'large'
               ? {width: 50, height: 50}
               : size === 'small'
-              ? {width: 30, height: 30}
-              : undefined,
+                ? {width: 30, height: 30}
+                : undefined,
             styles?.image,
           ]}
         />

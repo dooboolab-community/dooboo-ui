@@ -88,10 +88,10 @@ const ButtonStyles = ({
       type === 'text'
         ? '8px'
         : size === 'large'
-        ? '16px 32px'
-        : size === 'small'
-        ? '8px 16px'
-        : '12px 24px',
+          ? '16px 32px'
+          : size === 'small'
+            ? '8px 16px'
+            : '12px 24px',
     backgroundColor,
     borderWidth: type === 'outlined' ? '1px' : undefined,
     borderColor,

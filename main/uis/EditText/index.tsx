@@ -155,12 +155,12 @@ export function EditText({
   const defaultColor = !editable
     ? colors.disabled || theme.text.disabled
     : error
-    ? colors.error || theme.text.validation
-    : focused
-    ? colors.focused || theme.text.basic
-    : hovered
-    ? colors.hovered || theme.text.basic
-    : colors.placeholder || theme.text.placeholder;
+      ? colors.error || theme.text.validation
+      : focused
+        ? colors.focused || theme.text.basic
+        : hovered
+          ? colors.hovered || theme.text.basic
+          : colors.placeholder || theme.text.placeholder;
 
   // Default label placeholder color has different value compared to default input placeholder color
   const labelPlaceholderColor = defaultColor ===
@@ -171,12 +171,12 @@ export function EditText({
   const status: EditTextStatus = !editable
     ? 'disabled'
     : error
-    ? 'error'
-    : hovered
-    ? 'hovered'
-    : focused
-    ? 'focused'
-    : 'basic';
+      ? 'error'
+      : hovered
+        ? 'hovered'
+        : focused
+          ? 'focused'
+          : 'basic';
 
   const renderLabel = (): JSX.Element | null => {
     // eslint-disable-next-line react/no-unstable-nested-components

@@ -90,13 +90,10 @@ function Snackbar(
         setOptions(snackbarOptions);
       }
 
-      timer = setTimeout(
-        () => {
-          setVisible(false);
-          clearTimer();
-        },
-        snackbarOptions?.timer ?? SnackbarTimer.SHORT,
-      );
+      timer = setTimeout(() => {
+        setVisible(false);
+        clearTimer();
+      }, snackbarOptions?.timer ?? SnackbarTimer.SHORT);
     },
     close: () => {
       setVisible(false);
