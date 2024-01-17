@@ -1,5 +1,11 @@
 import type {MutableRefObject, ReactNode, RefObject} from 'react';
-import React, {isValidElement, useRef, useState} from 'react';
+import React, {
+  isValidElement,
+  useCallback,
+  useMemo,
+  useRef,
+  useState,
+} from 'react';
 import type {
   StyleProp,
   TextInputProps,
@@ -22,7 +28,7 @@ import {Icon} from '../Icon';
 
 import GlobalStyles from './style';
 
-type Styles = {
+export type EditTextStyles = {
   container?: StyleProp<ViewStyle>;
   label?: StyleProp<TextStyle>;
   inputContainer?: StyleProp<TextStyle>;
@@ -50,7 +56,7 @@ export type EditTextProps = {
   required?: boolean;
 
   style?: StyleProp<ViewStyle>;
-  styles?: Styles;
+  styles?: EditTextStyles;
 
   // Components
   label?: string | RenderType;
@@ -163,10 +169,18 @@ export function EditText({
           : colors.placeholder || theme.text.placeholder;
 
   // Default label placeholder color has different value compared to default input placeholder color
-  const labelPlaceholderColor = defaultColor ===
-    (colors.placeholder || theme.text.placeholder) && {
-    color: colors.placeholder || theme.text.disabled,
-  };
+  const labelPlaceholderColor = useMemo(
+    () =>
+      defaultColor === (colors.placeholder || theme.text.placeholder) && {
+        color: colors.placeholder || theme.text.disabled,
+      },
+    [
+      colors.placeholder,
+      defaultColor,
+      theme.text.disabled,
+      theme.text.placeholder,
+    ],
+  );
 
   const status: EditTextStatus = !editable
     ? 'disabled'
@@ -178,7 +192,7 @@ export function EditText({
           ? 'focused'
           : 'basic';
 
-  const renderLabel = (): JSX.Element | null => {
+  const renderLabel = useCallback((): JSX.Element | null => {
     // eslint-disable-next-line react/no-unstable-nested-components
     function Wrapper({children}: {children: ReactNode}): JSX.Element {
       return (
@@ -224,48 +238,69 @@ export function EditText({
     ) : label ? (
       <Wrapper>{label(status)}</Wrapper>
     ) : null;
-  };
+  }, [
+    decoration,
+    defaultColor,
+    focused,
+    label,
+    labelPlaceholderColor,
+    required,
+    status,
+    styles?.label,
+    theme.role.danger,
+  ]);
 
-  const renderContainer = (children: ReactNode): JSX.Element => {
-    return (
-      <TouchableWithoutFeedback
-        onPress={() => inputRef.current?.focus()}
-        testID="container-touch"
-      >
-        <View
-          style={[
-            defaultContainerStyle,
-            css`
-              flex-direction: ${direction};
-              align-items: ${direction === 'row' ? 'center' : 'flex-start'};
-              justify-content: ${direction === 'row'
-                ? 'flex-start'
-                : 'space-between'};
-              border-color: ${labelPlaceholderColor
-                ? labelPlaceholderColor.color
-                : defaultColor};
-            `,
-            decoration === 'boxed'
-              ? css`
-                  border-radius: 4px;
-                  border-width: 1px;
-                  padding-left: 12px;
-                  padding-right: 12px;
-                `
-              : css`
-                  border-bottom-width: 1px;
-                `,
-            styles?.container,
-          ]}
-          testID="container"
+  const renderContainer = useCallback(
+    (children: ReactNode): JSX.Element => {
+      return (
+        <TouchableWithoutFeedback
+          onPress={() => inputRef.current?.focus()}
+          testID="container-touch"
         >
-          {children}
-        </View>
-      </TouchableWithoutFeedback>
-    );
-  };
+          <View
+            style={[
+              defaultContainerStyle,
+              css`
+                flex-direction: ${direction};
+                align-items: ${direction === 'row' ? 'center' : 'flex-start'};
+                justify-content: ${direction === 'row'
+                  ? 'flex-start'
+                  : 'space-between'};
+                border-color: ${labelPlaceholderColor
+                  ? labelPlaceholderColor.color
+                  : defaultColor};
+              `,
+              decoration === 'boxed'
+                ? css`
+                    border-radius: 4px;
+                    border-width: 1px;
+                    padding-left: 12px;
+                    padding-right: 12px;
+                  `
+                : css`
+                    border-bottom-width: 1px;
+                  `,
+              styles?.container,
+            ]}
+            testID="container"
+          >
+            {children}
+          </View>
+        </TouchableWithoutFeedback>
+      );
+    },
+    [
+      decoration,
+      defaultColor,
+      defaultContainerStyle,
+      direction,
+      inputRef,
+      labelPlaceholderColor,
+      styles?.container,
+    ],
+  );
 
-  const renderInput = (): JSX.Element | null => {
+  const renderInput = useCallback((): JSX.Element | null => {
     return (
       <View
         style={[
@@ -362,9 +397,37 @@ export function EditText({
         </>
       </View>
     );
-  };
+  }, [
+    autoCapitalize,
+    autoComplete,
+    decoration,
+    defaultColor,
+    direction,
+    editable,
+    endElement,
+    inputRef,
+    maxLength,
+    multiline,
+    numberOfLines,
+    onBlur,
+    onChange,
+    onChangeText,
+    onFocus,
+    onSubmitEditing,
+    placeholder,
+    placeholderColor,
+    secureTextEntry,
+    startElement,
+    styles?.input,
+    styles?.inputContainer,
+    testID,
+    textInputProps,
+    theme.role.underlay,
+    theme.text.placeholder,
+    value,
+  ]);
 
-  const renderError = (): JSX.Element | null => {
+  const renderError = useCallback((): JSX.Element | null => {
     return error ? (
       typeof error === 'string' ? (
         <Text
@@ -383,9 +446,9 @@ export function EditText({
         error?.(status)
       )
     ) : null;
-  };
+  }, [error, status, styles?.error, theme.text.validation]);
 
-  const renderCounter = (): JSX.Element | null => {
+  const renderCounter = useCallback((): JSX.Element | null => {
     if (hideCounter) {
       return null;
     }
@@ -401,7 +464,13 @@ export function EditText({
         ]}
       >{`${value.length}/${maxLength}`}</Text>
     ) : null;
-  };
+  }, [
+    hideCounter,
+    maxLength,
+    styles?.counter,
+    theme.text.placeholder,
+    value.length,
+  ]);
 
   return (
     <>
