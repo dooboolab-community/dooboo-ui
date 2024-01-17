@@ -1,5 +1,6 @@
 {
   "reject": [
+    "@storybook/*"
     // "react",
     // "react-native",
     // "@types/react",
