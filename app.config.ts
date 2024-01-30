@@ -1,5 +1,6 @@
 export default {
   expo: {
+    plugins: [['expo-font', {fonts: ['main/uis/Icon/*']}]],
     name: 'dooboo-ui',
     slug: 'dooboo-ui',
     privacy: 'public',
@@ -10,7 +11,7 @@ export default {
     assetBundlePatterns: ['**/*'],
     splash: {
       image: './assets/splash.png',
-      resizeMode: 'contain',
+      resizeMode: 'cover',
       backgroundColor: '#ffffff',
     },
     web: {
