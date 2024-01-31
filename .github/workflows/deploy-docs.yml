@@ -12,12 +12,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master
-
-      - name: Set up Node.js
-        uses: actions/setup-node@master
+      - uses: actions/setup-node@v4
         with:
-          node-version: '18'
-          check-latest: false
+          node-version: 20.x
 
       - name: Install Expo CLI
         run: yarn global add expo-cli
