@@ -35,7 +35,7 @@
     "@emotion/native": "11.11.0",
     "@emotion/react": "11.11.1",
     "@expo/match-media": "^0.4.0",
-    "@expo/webpack-config": "~19.0.1",
+    "@expo/metro-runtime": "^3.1.2",
     "@react-native-async-storage/async-storage": "1.21.0",
     "expo": "~50.0.5",
     "expo-font": "~11.10.2",
@@ -103,9 +103,6 @@
     "ts-jest": "^29.1.2",
     "ts-node": "^10.9.2",
     "typescript": "5.3.3"
-  },
-  "resolutions": {
-    "expo-font": "~11.4.0"
   },
   "workspaces": {
     "packages": [

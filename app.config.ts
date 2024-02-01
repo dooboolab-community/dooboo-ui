@@ -16,6 +16,7 @@ export default {
     },
     web: {
       favicon: './assets/icon.png',
+      bundler: 'metro',
     },
   },
 };
