@@ -2,8 +2,15 @@ import '@testing-library/jest-native/extend-expect';
 import 'jest-plugin-context/setup';
 import 'givens/setup';
 
-jest.mock('expo-font');
 jest.mock('react-native/Libraries/Animated/NativeAnimatedHelper');
+
+jest.mock('expo-font', () => {
+  return {
+    loadAsync: jest.fn().mockResolvedValue(true),
+    isLoaded: jest.fn().mockReturnValue(true),
+    useFonts: () => [],
+  };
+});
 
 process.on('unhandledRejection', (err) => {
   // eslint-disable-next-line jest/no-jasmine-globals
