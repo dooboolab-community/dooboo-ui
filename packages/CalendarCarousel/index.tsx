@@ -149,36 +149,6 @@ function CalendarCarousel({
         data={dates}
         horizontal
         keyExtractor={(_, i) => `calendar-${i}`}
-        onScrollToIndexFailed={() => {
-          const wait = new Promise((resolve) => setTimeout(resolve, 500));
-          wait.then(() => {
-            flatListRef.current?.scrollToIndex({index: 1, animated: false});
-          });
-        }}
-        pagingEnabled
-        ref={flatListRef}
-        renderItem={({item}) => (
-          <CalendarItem
-            events={events}
-            onDatePress={(selectedDateObj) => {
-              onSelectDate?.(selectedDateObj.date);
-              setSelectedDateObject(selectedDateObj);
-
-              if (selectedDateObj.isNextMonth || selectedDateObj.isPrevMonth) {
-                setCurrentDate(selectedDateObj.date);
-                flatListRef.current?.scrollToIndex({index: 1, animated: false});
-              }
-            }}
-            dateObjects={item}
-            width={width}
-            selectedDateObject={selectedDateObject}
-            showNextDates={showNextDates}
-            showPrevDates={showPrevDates}
-            renderDate={renderDate}
-            styles={styles?.date}
-          />
-        )}
-        scrollEventThrottle={16}
         onScrollEndDrag={() => {
           if (index !== 1) {
             setCurrentDate(
@@ -189,6 +159,36 @@ function CalendarCarousel({
             flatListRef.current?.scrollToIndex({index: 1, animated: false});
           }
         }}
+        onScrollToIndexFailed={() => {
+          const wait = new Promise((resolve) => setTimeout(resolve, 500));
+          wait.then(() => {
+            flatListRef.current?.scrollToIndex({index: 1, animated: false});
+          });
+        }}
+        pagingEnabled
+        ref={flatListRef}
+        renderItem={({item}) => (
+          <CalendarItem
+            dateObjects={item}
+            events={events}
+            onDatePress={(selectedDateObj) => {
+              onSelectDate?.(selectedDateObj.date);
+              setSelectedDateObject(selectedDateObj);
+
+              if (selectedDateObj.isNextMonth || selectedDateObj.isPrevMonth) {
+                setCurrentDate(selectedDateObj.date);
+                flatListRef.current?.scrollToIndex({index: 1, animated: false});
+              }
+            }}
+            renderDate={renderDate}
+            selectedDateObject={selectedDateObject}
+            showNextDates={showNextDates}
+            showPrevDates={showPrevDates}
+            styles={styles?.date}
+            width={width}
+          />
+        )}
+        scrollEventThrottle={16}
         // https://stackoverflow.com/a/60320726/8841562
         showsHorizontalScrollIndicator={false}
         viewabilityConfigCallbackPairs={viewabilityConfigCallbackPairs.current}
