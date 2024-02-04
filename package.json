@@ -12,6 +12,7 @@
     "lint:ci": "commitlint --from HEAD~0 --to HEAD --verbose",
     "tsc": "tsc",
     "start": "expo start",
+    "start:reset": "watchman watch-del-all && lsof -t -i :8081 | xargs kill && expo start-c",
     "jest": "jest --runInBand",
     "android": "expo start --android",
     "ios": "expo start --ios",

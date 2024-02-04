@@ -3,7 +3,6 @@ import React from 'react';
 import {View} from 'react-native';
 import styled, {css} from '@emotion/native';
 import {action} from '@storybook/addon-actions';
-import {boolean, number} from '@storybook/addon-knobs';
 
 import {useDooboo} from '../../../main';
 import {Accordion} from '../../../main/uis/Accordion';
@@ -20,31 +19,7 @@ const CustomStyledItem = styled.Text`
 type AccordionTitle = {key: string; text: string};
 type AccordionItem = {text: string};
 
-const data = [
-  {
-    title: {
-      key: 'HEADING_1',
-      text: 'accordion heading 1',
-    },
-    items: [{text: 'User'}, {text: 'Mail'}, {text: 'Text'}],
-  },
-  {
-    title: {
-      key: 'HEADING_2',
-      text: 'accordion heading 2',
-    },
-    items: [{text: 'Movie'}, {text: 'Image'}, {text: 'File'}],
-  },
-  {
-    title: {
-      key: 'HEADING_3',
-      text: 'accordion heading 3',
-    },
-    items: [{text: 'TicTok'}, {text: 'Youtube'}, {text: 'Puzz'}],
-  },
-];
-
-function AccordionCustom(): JSX.Element {
+function AccordionCustom(props): JSX.Element {
   const {theme} = useDooboo();
 
   return (
@@ -54,10 +29,6 @@ function AccordionCustom(): JSX.Element {
           Custom Style
         </StoryTitle>
         <Accordion<AccordionTitle, AccordionItem>
-          activeOpacity={number('activeOpacity', 1)}
-          animDuration={number('animDuration', 200)}
-          collapseOnStart={boolean('collapseOnStart', true)}
-          data={data}
           onPressItem={action('onPressItem')}
           renderItem={({text}) => {
             if (text === 'User' || text === 'Image' || text === 'Puzz') {
@@ -129,7 +100,6 @@ function AccordionCustom(): JSX.Element {
               />
             </View>
           )}
-          shouldAnimate={boolean('shouldAnimate', true)}
           styles={{
             titleContainer: css`
               padding-right: 0;
@@ -139,6 +109,7 @@ function AccordionCustom(): JSX.Element {
             <Icon color={theme.text.basic} name="ArrowCircleDown" size={16} />
           }
           toggleElementPosition="left"
+          {...props}
         />
       </StoryContainer>
     </ScrollContainer>
