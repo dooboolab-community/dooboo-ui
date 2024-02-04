@@ -26,7 +26,7 @@
     "postbuild": "cp ./main/react-native.config.cjs ./lib/react-native.config.cjs && rm -rf ./lib/tsconfig* && cp README.md ./lib/README.md && cp -R main/__assets__ lib && cp ./main/uis/Icon/**.otf ./lib/uis/Icon/",
     "build:storybook": "expo export -p web",
     "build:storybook:web": "storybook dev -p 6006",
-    "deploy:storybook": "gh-pages -d dist",
+    "deploy:storybook": "gh-pages -t -d dist",
     "build:packages": "lerna exec -- yarn build",
     "install:packages": "lerna exec -- yarn",
     "upgrade:packages": "lerna exec -- ncu -u && yarn install:packages",

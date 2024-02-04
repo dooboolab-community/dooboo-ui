@@ -1,6 +1,9 @@
 export default {
   expo: {
     plugins: [['expo-font', {fonts: ['main/uis/Icon/*']}]],
+    experiments: {
+      baseUrl: '/dooboo-ui',
+    },
     name: 'dooboo-ui',
     slug: 'dooboo-ui',
     privacy: 'public',

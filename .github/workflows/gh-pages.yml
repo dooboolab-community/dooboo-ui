@@ -38,4 +38,6 @@ jobs:
           github_token: ${{secrets.GITHUB_TOKEN}}
           publish_branch: gh-pages
           publish_dir: ./dist
+          # Required in Expo
+          enable_jekyll: false
           SCRIPT_MODE: true
