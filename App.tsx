@@ -1,32 +1,93 @@
+import '@storybook/addon-ondevice-notes/register';
+import '@storybook/addon-ondevice-controls/register';
+import '@storybook/addon-ondevice-backgrounds/register';
+import '@storybook/addon-ondevice-actions/register';
 import '@expo/match-media';
-import './storybook/addons';
 
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import {configure, getStorybookUI} from '@storybook/react-native';
+import {withBackgrounds} from '@storybook/addon-ondevice-backgrounds';
+import type {Preview} from '@storybook/react';
+import {start} from '@storybook/react-native';
 
-const storiesOfUIs = require.context('./stories/uis', true, /\.stories\.tsx$/);
+const stories: Parameters<typeof start>[0]['storyEntries'] = [
+  {
+    titlePrefix: 'UI',
+    directory: './stories/uis',
+    files: '**/*.stories.?(ts|tsx|js|jsx)',
+    importPathMatcher:
+      /^\.(?:(?:^|\/|(?:(?:(?!(?:^|\/)\.).)*?)\/)(?!\.)(?=.)[^/]*?\.stories\.(?:ts|tsx|js|jsx)?)$/,
+    // @ts-ignore
+    req: require.context(
+      './stories/uis',
+      true,
+      /^\.(?:(?:^|\/|(?:(?:(?!(?:^|\/)\.).)*?)\/)(?!\.)(?=.)[^/]*?\.stories\.(?:ts|tsx|js|jsx)?)$/,
+    ),
+  },
+  {
+    titlePrefix: 'Modal',
+    directory: './stories/modals',
+    files: '**/*.stories.?(ts|tsx|js|jsx)',
+    importPathMatcher:
+      /^\.(?:(?:^|\/|(?:(?:(?!(?:^|\/)\.).)*?)\/)(?!\.)(?=.)[^/]*?\.stories\.(?:ts|tsx|js|jsx)?)$/,
+    // @ts-ignore
+    req: require.context(
+      './stories/modals',
+      true,
+      /^\.(?:(?:^|\/|(?:(?:(?!(?:^|\/)\.).)*?)\/)(?!\.)(?=.)[^/]*?\.stories\.(?:ts|tsx|js|jsx)?)$/,
+    ),
+  },
+  {
+    titlePrefix: 'Package',
+    directory: './stories/packages',
+    files: '**/*.stories.?(ts|tsx|js|jsx)',
+    importPathMatcher:
+      /^\.(?:(?:^|\/|(?:(?:(?!(?:^|\/)\.).)*?)\/)(?!\.)(?=.)[^/]*?\.stories\.(?:ts|tsx|js|jsx)?)$/,
+    // @ts-ignore
+    req: require.context(
+      './stories/packages',
+      true,
+      /^\.(?:(?:^|\/|(?:(?:(?!(?:^|\/)\.).)*?)\/)(?!\.)(?=.)[^/]*?\.stories\.(?:ts|tsx|js|jsx)?)$/,
+    ),
+  },
+];
 
-const storiesOfModals = require.context(
-  './stories/modals',
-  true,
-  /\.stories\.tsx$/,
-);
+// @ts-ignore
+global.STORIES = stories;
 
-const storiesOfPackages = require.context(
-  './stories/packages',
-  true,
-  /\.stories\.tsx$/,
-);
+const preview: Preview = {
+  decorators: [withBackgrounds],
 
-const getStories = (): any => {
-  storiesOfUIs.keys().forEach((filename) => storiesOfUIs(filename));
-  storiesOfModals.keys().forEach((filename) => storiesOfModals(filename));
-  storiesOfPackages.keys().forEach((filename) => storiesOfPackages(filename));
+  parameters: {
+    backgrounds: {
+      default: 'plain',
+      values: [
+        {name: 'plain', value: 'white'},
+        {name: 'warm', value: 'hotpink'},
+        {name: 'cool', value: 'deepskyblue'},
+      ],
+    },
+    actions: {argTypesRegex: '^on[A-Z].*'},
+    controls: {
+      matchers: {
+        color: /(background|color)$/i,
+        date: /Date$/,
+      },
+    },
+  },
 };
 
-configure(getStories, module);
+const view = start({
+  annotations: [
+    preview,
+    require('@storybook/react-native/dist/preview'),
+    require('@storybook/addon-actions/preview'),
+  ],
+  storyEntries: global.STORIES,
+});
 
-export default getStorybookUI({
-  // @ts-ignore
-  asyncStorage: AsyncStorage,
+export default view.getStorybookUI({
+  storage: {
+    getItem: AsyncStorage.getItem,
+    setItem: AsyncStorage.setItem,
+  },
 });
