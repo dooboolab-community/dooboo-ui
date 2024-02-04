@@ -1,6 +1,3 @@
-import 'intl';
-import 'intl/locale-data/jsonp/en';
-
 // Caveat: Expo web needs React to be imported
 import React from 'react';
 import {withActions} from '@storybook/addon-actions';
