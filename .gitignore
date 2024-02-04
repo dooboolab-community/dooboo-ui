@@ -12,7 +12,6 @@ package-lock.json
 # Expo
 .expo/*
 **/.expo
-web-build/
 dist/
 
 # Storybook build

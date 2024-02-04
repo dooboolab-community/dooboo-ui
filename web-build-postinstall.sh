@@ -1,1 +1,1 @@
-sed -i 's/\/dooboo-ui/./g' web-build/index.html
+sed -i 's/\/dooboo-ui/./g' dist/index.html

@@ -37,5 +37,5 @@ jobs:
         with:
           github_token: ${{secrets.GITHUB_TOKEN}}
           publish_branch: gh-pages
-          publish_dir: ./web-build
+          publish_dir: ./dist
           SCRIPT_MODE: true
