@@ -3,6 +3,7 @@ import {useRef} from 'react';
 import {View} from 'react-native';
 import type {ThemeContext, ThemeProps} from '@dooboo-ui/theme';
 import {ThemeProvider, useTheme} from '@dooboo-ui/theme';
+import {css} from '@emotion/native';
 import {useFonts} from 'expo-font';
 
 import type {AlertDialogContext} from '../modals/AlertDialog';
@@ -66,7 +67,11 @@ function AppProvider({children}: {children: JSX.Element}): JSX.Element {
   };
 
   return (
-    <View style={{flex: 1, alignSelf: 'stretch'}}>
+    <View
+      style={css`
+        flex: 1;
+      `}
+    >
       <Provider
         value={{
           ...themeContext,
@@ -75,10 +80,14 @@ function AppProvider({children}: {children: JSX.Element}): JSX.Element {
           alertDialog: alertDialogContext,
         }}
       >
-        {children}
+        {!assetLoaded ? null : (
+          <>
+            {children}
+            <Snackbar ref={snackbar} />
+            <AlertDialog ref={alertDialog} />
+          </>
+        )}
       </Provider>
-      <Snackbar ref={snackbar} />
-      <AlertDialog ref={alertDialog} />
     </View>
   );
 }
