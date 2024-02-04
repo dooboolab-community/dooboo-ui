@@ -1,9 +1,13 @@
+import type {ComponentProps} from 'react';
+import {action} from '@storybook/addon-actions';
 import type {Meta, StoryObj} from '@storybook/react';
 
+import type {Accordion} from '../../../main';
 import {DoobooProvider} from '../../../main';
 
 import AccordionBasicStory from './AccordionBasicStory';
 
+// @ts-ignore
 const meta = {
   title: 'Accordion',
   component: AccordionBasicStory,
@@ -14,7 +18,7 @@ const meta = {
       </DoobooProvider>
     ),
   ],
-} satisfies Meta<typeof AccordionBasicStory>;
+} satisfies Meta<ComponentProps<typeof Accordion>>;
 
 export default meta;
 
@@ -22,20 +26,20 @@ type Story = StoryObj<typeof meta>;
 
 export const Basic: Story = {
   args: {
-    activityOpacity: 0.8,
     animDuration: 200,
     collapseOnStart: true,
+    onPressItem: action('onPressItem'),
     data: [
       {
-        title: 'Lists',
+        title: 'Item 1',
         items: ['User', 'Mail', 'Text'],
       },
       {
-        title: 'Lists',
+        title: 'Item 2',
         items: ['User', 'Mail', 'Text'],
       },
       {
-        title: 'Lists',
+        title: 'Item 3',
         items: ['User', 'Mail', 'Text'],
       },
     ],

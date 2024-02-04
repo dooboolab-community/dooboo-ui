@@ -37,11 +37,7 @@ function Checkboxes({
   checked: boolean;
 }): JSX.Element {
   return (
-    <View
-      style={{
-        flexWrap: 'wrap',
-      }}
-    >
+    <View style={{flexWrap: 'wrap'}}>
       {checkboxColors.map((color, i) => (
         <LabelWrapper key={`${color}_${i}`} label={color}>
           <Checkbox

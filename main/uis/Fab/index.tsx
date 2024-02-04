@@ -6,10 +6,10 @@ import type {ButtonSizeType} from '../Button';
 import type {IconName} from '../Icon';
 import {IconButton} from '../IconButton';
 
-interface Styles {
+type Styles = {
   Fab?: StyleProp<ViewStyle>;
   FabItem?: StyleProp<ViewStyle>;
-}
+};
 
 export type FabProps = {
   isActive: boolean;

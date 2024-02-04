@@ -1,37 +1,33 @@
 // Caveat: Expo web needs React to be imported
+import type {ComponentProps} from 'react';
 import React, {useState} from 'react';
 import {View} from 'react-native';
 
 import {RadioGroup} from '../../../main';
-import type {RadioButtonType} from '../../../main/uis/RadioGroup';
-import {ScrollContainer, StoryContainer, StoryTitle} from '../../GlobalStyles';
+import {ScrollContainer, StoryContainer} from '../../GlobalStyles';
 
-const types = ['primary', 'secondary', 'success', 'info', 'warning', 'danger'];
-const data = ['Person', 'Animal', 'Bird', 'Other'];
-
-function RadioButtonBasicStory(): JSX.Element {
-  const [selectedValue, setSelectedValue] = useState<string>(data[0]);
+function RadioButtonBasicStory({
+  type,
+  data = [],
+  title,
+}: ComponentProps<typeof RadioGroup>): JSX.Element {
+  // @ts-ignore
+  const [selectedValue, setSelectedValue] = useState<string>(data?.[0]);
 
   return (
     <ScrollContainer>
       <StoryContainer>
-        <StoryTitle>Basic</StoryTitle>
-        {types.map((el, i) => {
-          return (
-            <View
-              key={`${el}-${i}`}
-              style={{flexDirection: 'row', marginTop: 24}}
-            >
-              <RadioGroup
-                data={data}
-                selectValue={(value) => setSelectedValue(value)}
-                selectedValue={selectedValue}
-                title={el}
-                type={el as RadioButtonType}
-              />
-            </View>
-          );
-        })}
+        <View style={{flexDirection: 'row', marginTop: 24}}>
+          <RadioGroup
+            data={data}
+            selectValue={(value) =>
+              setSelectedValue(value as unknown as string)
+            }
+            selectedValue={selectedValue}
+            title={title}
+            type={type}
+          />
+        </View>
       </StoryContainer>
     </ScrollContainer>
   );

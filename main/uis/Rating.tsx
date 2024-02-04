@@ -1,8 +1,7 @@
 // React import is needed for expo-web
 import React, {useState} from 'react';
 import type {StyleProp, ViewStyle} from 'react-native';
-import {View} from 'react-native';
-import {TouchableOpacity} from 'react-native-gesture-handler';
+import {Pressable, View} from 'react-native';
 import styled, {css} from '@emotion/native';
 
 import type {IconName} from './Icon';
@@ -107,7 +106,7 @@ export function Rating({
             style={{position: 'absolute'}}
           />
         )}
-        <TouchableOpacity
+        <Pressable
           accessibilityRole="button"
           disabled={disabled}
           onPress={() => handlePress(position, true)}
@@ -119,8 +118,8 @@ export function Rating({
               backgroundColor: 'transparent',
             }}
           />
-        </TouchableOpacity>
-        <TouchableOpacity
+        </Pressable>
+        <Pressable
           accessibilityRole="button"
           disabled={disabled}
           onPress={() => handlePress(position)}
@@ -132,7 +131,7 @@ export function Rating({
               backgroundColor: 'transparent',
             }}
           />
-        </TouchableOpacity>
+        </Pressable>
       </StarContainer>
     );
   };

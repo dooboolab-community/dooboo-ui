@@ -1,5 +1,3 @@
-// Caveat: Expo web needs React to be imported
-import React from 'react';
 import styled from '@emotion/native';
 
 import {ProgressBar} from '../../../main';
@@ -28,6 +26,7 @@ const SubTitle = styled.Text`
 `;
 
 function ProgressBarBasicStory(): JSX.Element {
+  // props: ComponentProps<typeof ProgressBar>,
   return (
     <StoryContainer>
       <StoryTitle>Basic</StoryTitle>

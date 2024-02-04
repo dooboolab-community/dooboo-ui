@@ -56,7 +56,6 @@ global.STORIES = stories;
 
 const preview: Preview = {
   decorators: [withBackgrounds],
-
   parameters: {
     backgrounds: {
       default: 'plain',
