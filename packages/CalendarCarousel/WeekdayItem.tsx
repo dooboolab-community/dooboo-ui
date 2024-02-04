@@ -20,8 +20,8 @@ export default function WeekdayItem({
   styles,
 }: Prop): JSX.Element {
   const {theme} = useTheme();
-  const weekdays = [...Array(7).keys()].map(
-    (i) => locale?.localize?.day(i, {width: 'abbreviated'}),
+  const weekdays = [...Array(7).keys()].map((i) =>
+    locale?.localize?.day(i, {width: 'abbreviated'}),
   );
 
   return (

@@ -92,8 +92,8 @@ export default function DateItem({
         isPrevMonth
           ? 'prev-dateItem'
           : isNextMonth
-          ? 'next-dateItem'
-          : 'dateItem'
+            ? 'next-dateItem'
+            : 'dateItem'
       }
     >
       <Text
