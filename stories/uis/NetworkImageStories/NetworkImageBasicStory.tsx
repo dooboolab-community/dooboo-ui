@@ -1,4 +1,5 @@
 // Caveat: Expo web needs React to be imported
+import type {ComponentProps} from 'react';
 import React from 'react';
 import {View} from 'react-native';
 import {useTheme} from '@dooboo-ui/theme';
@@ -11,7 +12,9 @@ const ScrollContainer = styled.ScrollView`
   background-color: ${({theme}) => theme.bg.basic};
 `;
 
-function NetworkImageBasicStory(): JSX.Element {
+function NetworkImageBasicStory({
+  url,
+}: ComponentProps<typeof NetworkImage>): JSX.Element {
   const {theme} = useTheme();
 
   return (
@@ -28,7 +31,7 @@ function NetworkImageBasicStory(): JSX.Element {
           margin: 20,
           alignSelf: 'center',
         }}
-        url="https://upload.wikimedia.org/wikipedia/commons/6/69/Very_Large_Telescope_Ready_for_Action_%28ESO%29.jpg"
+        url={url}
       />
 
       <View style={{width: 300, height: 300, margin: 20}}>

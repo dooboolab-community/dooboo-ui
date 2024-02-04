@@ -8,14 +8,14 @@ const Container = styled.View`
   flex-direction: column;
 `;
 
-interface Styles {
+type Styles = {
   container?: StyleProp<ViewStyle>;
   titleContainer?: StyleProp<ViewStyle>;
   titleText?: StyleProp<TextStyle>;
   itemContainer?: StyleProp<ViewStyle>;
   itemText?: StyleProp<TextStyle>;
   toggleElement?: StyleProp<ViewStyle>;
-}
+};
 
 export type AccordionBaseProps<T = string, K = string> = {
   data: AccordionItemDataType<T, K>[];

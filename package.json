@@ -12,6 +12,7 @@
     "lint:ci": "commitlint --from HEAD~0 --to HEAD --verbose",
     "tsc": "tsc",
     "start": "expo start",
+    "start:reset": "watchman watch-del-all && lsof -t -i :8081 | xargs kill && expo start -c",
     "jest": "jest --runInBand",
     "android": "expo start --android",
     "ios": "expo start --ios",
@@ -24,11 +25,13 @@
     "cp:main": "cp -r main/* ./lib",
     "postbuild": "cp ./main/react-native.config.cjs ./lib/react-native.config.cjs && rm -rf ./lib/tsconfig* && cp README.md ./lib/README.md && cp -R main/__assets__ lib && cp ./main/uis/Icon/**.otf ./lib/uis/Icon/",
     "build:storybook": "NODE_OPTIONS=--openssl-legacy-provider expo export:web && sh web-build-postinstall.sh",
+    "build:storybook:web": "storybook dev -p 6006",
     "deploy:storybook": "gh-pages -d web-build",
     "build:packages": "lerna exec -- yarn build",
     "install:packages": "lerna exec -- yarn",
     "upgrade:packages": "lerna exec -- ncu -u && yarn install:packages",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "storybook:web": "storybook dev -p 6006"
   },
   "dependencies": {
     "@dooboo-ui/theme": "^0.12.16",
@@ -64,30 +67,33 @@
     "@jest/types": "^29.6.3",
     "@react-native-community/datetimepicker": "7.6.1",
     "@react-native-community/slider": "4.4.2",
-    "@storybook/addon-actions": "^6.5.16",
-    "@storybook/addon-knobs": "^6.4.0",
-    "@storybook/addon-ondevice-actions": "^6.5.3",
-    "@storybook/addon-ondevice-knobs": "^6.5.3",
-    "@storybook/addons": "^6.5.16",
+    "@storybook/addon-ondevice-actions": "^7.6.11",
+    "@storybook/addon-ondevice-backgrounds": "^7.6.11",
+    "@storybook/addon-ondevice-controls": "^7.6.11",
+    "@storybook/addon-ondevice-knobs": "^7.6.14",
+    "@storybook/addon-ondevice-notes": "^7.6.11",
+    "@storybook/addon-react-native-web": "^0.0.22",
+    "@storybook/addons": "^7.6.12",
     "@storybook/preset-typescript": "^3.0.0",
-    "@storybook/react": "^6.5.16",
-    "@storybook/react-native": "6.5.6",
-    "@storybook/react-native-server": "6.5.6",
-    "@testing-library/jest-dom": "^6.4.1",
+    "@storybook/react": "^7.6.10",
+    "@storybook/react-native": "^7.6.11",
+    "@storybook/react-webpack5": "^7.6.10",
     "@testing-library/jest-native": "^5.4.3",
     "@testing-library/react-hooks": "^8.0.1",
     "@testing-library/react-native": "^12.4.3",
     "@types/jest": "^29.5.11",
     "@types/jest-plugin-context": "^2.9.7",
     "@types/node": "^20.11.15",
-    "@types/react": "~18.2.51",
+    "@types/react": "~18.2.45",
     "@types/react-dom": "~18.0.10",
     "@types/react-responsive": "^8.0.8",
     "@types/react-test-renderer": "^18.0.7",
     "babel-loader": "^9.1.3",
+    "babel-plugin-react-native-web": "^0.19.10",
     "babel-preset-expo": "^9.5.2",
     "babel-preset-react-app": "^10.0.1",
     "commitlint-plugin-function-rules": "^3.0.0",
+    "cross-env": "^7.0.3",
     "eslint": "^8.56.0",
     "eslint-plugin-storybook": "^0.6.15",
     "gh-pages": "^6.1.1",
@@ -99,13 +105,25 @@
     "lerna": "^8.0.2",
     "prettier": "^3.2.4",
     "react-test-renderer": "^18.2.0",
+    "storybook": "^7.6.10",
     "ts-jest": "^29.1.2",
     "ts-node": "^10.9.2",
-    "typescript": "5.3.3"
+    "typescript": "^5.3.0"
   },
   "workspaces": {
     "packages": [
       "packages/*"
     ]
+  },
+  "resolutions": {
+    "react-docgen-typescript": "2.2.2"
+  },
+  "overrides": {
+    "react-docgen-typescript": "2.2.2"
+  },
+  "pnpm": {
+    "overrides": {
+      "react-docgen-typescript": "2.2.2"
+    }
   }
 }
