@@ -1,8 +1,0 @@
-{
-  "background_color": "#ffffff",
-  "display": "standalone",
-  "lang": "en",
-  "name": "dooboo-ui",
-  "short_name": "dooboo-ui",
-  "start_url": "/?utm_source=web_app_manifest"
-}
