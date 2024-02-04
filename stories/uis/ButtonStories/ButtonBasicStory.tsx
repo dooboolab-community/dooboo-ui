@@ -1,15 +1,14 @@
 import type {ComponentProps} from 'react';
 
 import {Button} from '../../../main';
-import {StoryContainer, StoryTitle} from '../../GlobalStyles';
+import {StoryWrapper} from '../../Common';
 
-function ButtonBasicStory(props: ComponentProps<typeof Button>): JSX.Element {
+export default function ButtonBasicStory(
+  props: ComponentProps<typeof Button>,
+): JSX.Element {
   return (
-    <StoryContainer>
-      <StoryTitle>Basic</StoryTitle>
+    <StoryWrapper>
       <Button {...props} />
-    </StoryContainer>
+    </StoryWrapper>
   );
 }
-
-export default ButtonBasicStory;

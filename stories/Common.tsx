@@ -1,6 +1,8 @@
 // Caveat: Expo web needs React to be imported
+import type {ReactNode} from 'react';
 import React, {useState} from 'react';
 import {StatusBar, View} from 'react-native';
+import {css} from '@emotion/native';
 
 import {
   DoobooProvider,
@@ -10,13 +12,13 @@ import {
   useDooboo,
 } from '../main';
 
-import {StoryContainer} from './GlobalStyles';
+import {ScrollContainer, StoryContainer} from './GlobalStyles';
 
 type ContainerProps = {
-  children: JSX.Element;
+  children: ReactNode;
 };
 
-export function StoryWrapper({children}: ContainerProps): JSX.Element {
+function Wrapper({children}: ContainerProps): JSX.Element {
   const {themeType, changeThemeType, assetLoaded} = useDooboo();
   const [on, off] = useState(themeType === 'dark');
 
@@ -28,11 +30,13 @@ export function StoryWrapper({children}: ContainerProps): JSX.Element {
     <StoryContainer>
       <StatusBar barStyle="dark-content" />
       <View
-        style={{
-          flexDirection: 'row',
-          alignItems: 'center',
-          justifyContent: 'flex-end',
-        }}
+        style={css`
+          margin-bottom: 12px;
+
+          flex-direction: row;
+          align-items: center;
+          justify-content: flex-end;
+        `}
       >
         <Typography.Heading3>{themeType}</Typography.Heading3>
         <SwitchToggle
@@ -42,18 +46,26 @@ export function StoryWrapper({children}: ContainerProps): JSX.Element {
             changeThemeType();
           }}
           size="small"
-          style={{padding: 8}}
+          style={css`
+            padding: 8px;
+          `}
         />
       </View>
-      {children}
+      <View
+        style={css`
+          flex: 1;
+        `}
+      >
+        <ScrollContainer>{children}</ScrollContainer>
+      </View>
     </StoryContainer>
   );
 }
 
-export function renderStory(el: JSX.Element): JSX.Element {
+export function StoryWrapper({children}: {children: ReactNode}): JSX.Element {
   return (
     <DoobooProvider>
-      <StoryWrapper>{el}</StoryWrapper>
+      <Wrapper>{children}</Wrapper>
     </DoobooProvider>
   );
 }

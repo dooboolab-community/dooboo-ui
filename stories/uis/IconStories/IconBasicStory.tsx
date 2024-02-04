@@ -1,35 +1,34 @@
-// Caveat: Expo web needs React to be imported
 import type {ComponentProps} from 'react';
 import {View} from 'react-native';
 import styled, {css} from '@emotion/native';
 
 import {Icon, Typography} from '../../../main';
-
-const StoryContainer = styled.View`
-  flex: 1;
-  align-self: stretch;
-  background-color: ${({theme}) => theme.bg.basic};
-`;
+import {StoryWrapper} from '../../Common';
 
 const StyledIcon = styled(Icon)`
   padding: 8px;
 `;
 
-function IconBasicStory({name}: ComponentProps<typeof Icon>): JSX.Element {
+export default function IconBasicStory({
+  name,
+}: ComponentProps<typeof Icon>): JSX.Element {
   return (
-    <StoryContainer>
+    <StoryWrapper>
       <View
         style={css`
           align-items: center;
         `}
       >
         <StyledIcon name={name} size={16} />
-        <Typography.Body2 style={{fontSize: 12, textAlign: 'center'}}>
+        <Typography.Body2
+          style={css`
+            font-size: 12px;
+            text-align: center;
+          `}
+        >
           {name}
         </Typography.Body2>
       </View>
-    </StoryContainer>
+    </StoryWrapper>
   );
 }
-
-export default IconBasicStory;

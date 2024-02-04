@@ -6,14 +6,14 @@ import {boolean, number} from '@storybook/addon-knobs';
 
 import type {ButtonType} from '../../../main';
 import {IconButton} from '../../../main';
-import {StoryContainer, StorySection, StoryTitle} from '../../GlobalStyles';
+import {StoryWrapper} from '../../Common';
+import {StorySection} from '../../GlobalStyles';
 
-function IconButtonBasicStory(): JSX.Element {
+export default function IconButtonBasicStory(): JSX.Element {
   const types: ButtonType[] = ['text', 'solid', 'outlined'];
 
   return (
-    <StoryContainer>
-      <StoryTitle>Basic</StoryTitle>
+    <StoryWrapper>
       <StorySection>
         {types.map((type) => (
           <IconButton
@@ -30,8 +30,6 @@ function IconButtonBasicStory(): JSX.Element {
           />
         ))}
       </StorySection>
-    </StoryContainer>
+    </StoryWrapper>
   );
 }
-
-export default IconButtonBasicStory;

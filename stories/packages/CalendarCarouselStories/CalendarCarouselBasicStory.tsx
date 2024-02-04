@@ -1,18 +1,12 @@
 // Caveat: Expo web needs React to be imported
 import React from 'react';
 import {useTheme} from '@dooboo-ui/theme';
-import styled, {css} from '@emotion/native';
+import {css} from '@emotion/native';
 import {ko} from 'date-fns/locale';
 
 import {Icon} from '../../../main/uis/Icon';
 import CalendarCarousel from '../../../packages/CalendarCarousel';
-
-const Container = styled.SafeAreaView`
-  flex: 1;
-  align-self: stretch;
-
-  align-items: center;
-`;
+import {StoryWrapper} from '../../Common';
 
 function CalendarCarouselBasicStory(): JSX.Element {
   const {theme} = useTheme();
@@ -37,7 +31,7 @@ function CalendarCarouselBasicStory(): JSX.Element {
   // ];
 
   return (
-    <Container>
+    <StoryWrapper>
       <CalendarCarousel
         headerIconLeft={
           <Icon color={theme.text.basic} name="ArrowCircleLeft" size={18} />
@@ -54,7 +48,7 @@ function CalendarCarouselBasicStory(): JSX.Element {
         `}
         width={350}
       />
-    </Container>
+    </StoryWrapper>
   );
 }
 

@@ -8,9 +8,9 @@ import {Button, Icon} from '../../../main';
 import type {EditTextStatus} from '../../../main/uis/EditText';
 import {EditText} from '../../../main/uis/EditText';
 import {Typography} from '../../../main/uis/Typography';
-import {ScrollContainer, StoryContainer} from '../../GlobalStyles';
+import {StoryWrapper} from '../../Common';
 
-function EditTextBasicStory(): JSX.Element {
+export default function EditTextBasicStory(): JSX.Element {
   const {theme} = useTheme();
   const [text, setText] = useState<string>('');
 
@@ -31,207 +31,196 @@ function EditTextBasicStory(): JSX.Element {
   };
 
   return (
-    <StoryContainer>
-      <Typography.Heading1>EditText</Typography.Heading1>
-      <ScrollContainer
-        contentContainerStyle={{
-          justifyContent: 'center',
-          alignItems: 'center',
-        }}
-        scrollIndicatorInsets={{right: 0}}
-      >
-        <EditText
-          editable={boolean('editable', true)}
-          onChangeText={(str) => onTextChanged(str)}
-          placeholder="Basic text input"
-          secureTextEntry={boolean('secureTextEntry', false)}
-          style={{marginTop: 20}}
-          value={text}
-        />
+    <StoryWrapper>
+      <EditText
+        editable={boolean('editable', true)}
+        onChangeText={(str) => onTextChanged(str)}
+        placeholder="Basic text input"
+        secureTextEntry={boolean('secureTextEntry', false)}
+        style={{marginTop: 20}}
+        value={text}
+      />
 
-        <EditText
-          editable={boolean('editable', true)}
-          onChangeText={(str) => onTextChanged(str)}
-          placeholder="Secure text input"
-          secureTextEntry={true}
-          style={{marginTop: 20}}
-          value={text}
-        />
+      <EditText
+        editable={boolean('editable', true)}
+        onChangeText={(str) => onTextChanged(str)}
+        placeholder="Secure text input"
+        secureTextEntry={true}
+        style={{marginTop: 20}}
+        value={text}
+      />
 
-        <EditText
-          direction="column"
-          editable={boolean('editable', true)}
-          endElement={
-            text ? (
-              <Button
-                onPress={() => onTextChanged('')}
-                text={
-                  <Icon color={theme.role.primary} name="XCircle" size={18} />
-                }
-                type="text"
-              />
-            ) : null
-          }
-          label="Column"
-          maxLength={240}
-          onChangeText={(str) => onTextChanged(str)}
-          placeholder="direction: column"
-          secureTextEntry={boolean('secureTextEntry', false)}
-          startElement={
+      <EditText
+        direction="column"
+        editable={boolean('editable', true)}
+        endElement={
+          text ? (
             <Button
               onPress={() => onTextChanged('')}
-              text={<Icon color={theme.role.primary} name="MapPin" size={18} />}
+              text={
+                <Icon color={theme.role.primary} name="XCircle" size={18} />
+              }
               type="text"
             />
-          }
-          style={css`
-            margin-top: 20px;
-          `}
-          value={text}
-        />
+          ) : null
+        }
+        label="Column"
+        maxLength={240}
+        onChangeText={(str) => onTextChanged(str)}
+        placeholder="direction: column"
+        secureTextEntry={boolean('secureTextEntry', false)}
+        startElement={
+          <Button
+            onPress={() => onTextChanged('')}
+            text={<Icon color={theme.role.primary} name="MapPin" size={18} />}
+            type="text"
+          />
+        }
+        style={css`
+          margin-top: 20px;
+        `}
+        value={text}
+      />
 
-        <EditText
-          direction="row"
-          editable={boolean('editable', true)}
-          endElement={
-            text ? (
-              <Button
-                onPress={() => onTextChanged('')}
-                text={
-                  <Icon color={theme.role.primary} name="XCircle" size={18} />
-                }
-                type="text"
-              />
-            ) : null
-          }
-          label="Row"
-          maxLength={240}
-          onChangeText={(str) => onTextChanged(str)}
-          placeholder="direction: row"
-          secureTextEntry={boolean('secureTextEntry', false)}
-          style={css`
-            margin-top: 20px;
-          `}
-          value={text}
-        />
-
-        <EditText
-          decoration="boxed"
-          direction="column"
-          editable={boolean('editable', true)}
-          endElement={
-            text ? (
-              <Button
-                onPress={() => onTextChanged('')}
-                text={
-                  <Icon color={theme.role.primary} name="XCircle" size={18} />
-                }
-                type="text"
-              />
-            ) : null
-          }
-          maxLength={200}
-          onChangeText={(str) => onTextChanged(str)}
-          placeholder="decoration: boxed with max length"
-          secureTextEntry={boolean('secureTextEntry', false)}
-          startElement={
+      <EditText
+        direction="row"
+        editable={boolean('editable', true)}
+        endElement={
+          text ? (
             <Button
               onPress={() => onTextChanged('')}
-              text={<Icon color={theme.role.primary} name="MapPin" size={18} />}
+              text={
+                <Icon color={theme.role.primary} name="XCircle" size={18} />
+              }
               type="text"
             />
-          }
-          style={css`
-            margin-top: 20px;
-          `}
-          value={text}
-        />
+          ) : null
+        }
+        label="Row"
+        maxLength={240}
+        onChangeText={(str) => onTextChanged(str)}
+        placeholder="direction: row"
+        secureTextEntry={boolean('secureTextEntry', false)}
+        style={css`
+          margin-top: 20px;
+        `}
+        value={text}
+      />
 
-        <EditText
-          decoration="boxed"
-          direction="column"
-          editable={boolean('editable', true)}
-          endElement={
-            text ? (
-              <Button
-                onPress={() => onTextChanged('')}
-                text={
-                  <Icon color={theme.role.primary} name="XCircle" size={18} />
-                }
-                type="text"
-              />
-            ) : null
-          }
-          label="Boxed"
-          multiline
-          onChangeText={(str) => onTextChanged(str)}
-          placeholder="decoration: boxed"
-          required
-          secureTextEntry={boolean('secureTextEntry', false)}
-          style={css`
-            margin-top: 20px;
-          `}
-          value={text}
-        />
+      <EditText
+        decoration="boxed"
+        direction="column"
+        editable={boolean('editable', true)}
+        endElement={
+          text ? (
+            <Button
+              onPress={() => onTextChanged('')}
+              text={
+                <Icon color={theme.role.primary} name="XCircle" size={18} />
+              }
+              type="text"
+            />
+          ) : null
+        }
+        maxLength={200}
+        onChangeText={(str) => onTextChanged(str)}
+        placeholder="decoration: boxed with max length"
+        secureTextEntry={boolean('secureTextEntry', false)}
+        startElement={
+          <Button
+            onPress={() => onTextChanged('')}
+            text={<Icon color={theme.role.primary} name="MapPin" size={18} />}
+            type="text"
+          />
+        }
+        style={css`
+          margin-top: 20px;
+        `}
+        value={text}
+      />
 
-        <EditText
-          direction="column"
-          editable={boolean('editable', true)}
-          label="multiline"
-          multiline={true}
-          onChangeText={(str) => onTextChanged(str)}
-          placeholder="multiline example"
-          secureTextEntry={boolean('secureTextEntry', false)}
-          style={{marginTop: 20}}
-          value={text}
-        />
+      <EditText
+        decoration="boxed"
+        direction="column"
+        editable={boolean('editable', true)}
+        endElement={
+          text ? (
+            <Button
+              onPress={() => onTextChanged('')}
+              text={
+                <Icon color={theme.role.primary} name="XCircle" size={18} />
+              }
+              type="text"
+            />
+          ) : null
+        }
+        label="Boxed"
+        multiline
+        onChangeText={(str) => onTextChanged(str)}
+        placeholder="decoration: boxed"
+        required
+        secureTextEntry={boolean('secureTextEntry', false)}
+        style={css`
+          margin-top: 20px;
+        `}
+        value={text}
+      />
 
-        <EditText
-          direction="row"
-          editable={boolean('editable', true)}
-          error="This is error message"
-          label="Email"
-          onChangeText={(str) => onTextChanged(str)}
-          placeholder="Error example"
-          secureTextEntry={boolean('secureTextEntry', false)}
-          style={{marginTop: 20}}
-          value={text}
-        />
+      <EditText
+        direction="column"
+        editable={boolean('editable', true)}
+        label="multiline"
+        multiline={true}
+        onChangeText={(str) => onTextChanged(str)}
+        placeholder="multiline example"
+        secureTextEntry={boolean('secureTextEntry', false)}
+        style={{marginTop: 20}}
+        value={text}
+      />
 
-        <EditText
-          direction="row"
-          editable={false}
-          label="Email"
-          onChangeText={(str) => onTextChanged(str)}
-          placeholder="Disabled example"
-          secureTextEntry={boolean('secureTextEntry', false)}
-          style={{marginTop: 20}}
-          value={text}
-        />
+      <EditText
+        direction="row"
+        editable={boolean('editable', true)}
+        error="This is error message"
+        label="Email"
+        onChangeText={(str) => onTextChanged(str)}
+        placeholder="Error example"
+        secureTextEntry={boolean('secureTextEntry', false)}
+        style={{marginTop: 20}}
+        value={text}
+      />
 
-        <EditText
-          editable={boolean('editable', true)}
-          label={renderCustomLabel}
-          onChangeText={(str) => onTextChanged(str)}
-          placeholder="Custom label example"
-          secureTextEntry={boolean('secureTextEntry', false)}
-          style={{marginTop: 20}}
-          value={text}
-        />
+      <EditText
+        direction="row"
+        editable={false}
+        label="Email"
+        onChangeText={(str) => onTextChanged(str)}
+        placeholder="Disabled example"
+        secureTextEntry={boolean('secureTextEntry', false)}
+        style={{marginTop: 20}}
+        value={text}
+      />
 
-        <EditText
-          editable={boolean('editable', true)}
-          error="error text"
-          maxLength={10}
-          onChangeText={(str) => onTextChanged(str)}
-          placeholder="Please write text"
-          secureTextEntry={boolean('secureTextEntry', false)}
-          style={{marginTop: 20, marginBottom: 80}}
-          value={text}
-        />
-      </ScrollContainer>
-    </StoryContainer>
+      <EditText
+        editable={boolean('editable', true)}
+        label={renderCustomLabel}
+        onChangeText={(str) => onTextChanged(str)}
+        placeholder="Custom label example"
+        secureTextEntry={boolean('secureTextEntry', false)}
+        style={{marginTop: 20}}
+        value={text}
+      />
+
+      <EditText
+        editable={boolean('editable', true)}
+        error="error text"
+        maxLength={10}
+        onChangeText={(str) => onTextChanged(str)}
+        placeholder="Please write text"
+        secureTextEntry={boolean('secureTextEntry', false)}
+        style={{marginTop: 20, marginBottom: 80}}
+        value={text}
+      />
+    </StoryWrapper>
   );
 }
-
-export default EditTextBasicStory;

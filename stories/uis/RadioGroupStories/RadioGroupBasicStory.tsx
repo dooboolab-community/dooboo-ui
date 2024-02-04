@@ -4,9 +4,9 @@ import React, {useState} from 'react';
 import {View} from 'react-native';
 
 import {RadioGroup} from '../../../main';
-import {ScrollContainer, StoryContainer} from '../../GlobalStyles';
+import {StoryWrapper} from '../../Common';
 
-function RadioButtonBasicStory({
+export default function RadioButtonBasicStory({
   type,
   data = [],
   title,
@@ -15,22 +15,16 @@ function RadioButtonBasicStory({
   const [selectedValue, setSelectedValue] = useState<string>(data?.[0]);
 
   return (
-    <StoryContainer>
-      <ScrollContainer>
-        <View style={{flexDirection: 'row', marginTop: 24}}>
-          <RadioGroup
-            data={data}
-            selectValue={(value) =>
-              setSelectedValue(value as unknown as string)
-            }
-            selectedValue={selectedValue}
-            title={title}
-            type={type}
-          />
-        </View>
-      </ScrollContainer>
-    </StoryContainer>
+    <StoryWrapper>
+      <View style={{flexDirection: 'row', marginTop: 24}}>
+        <RadioGroup
+          data={data}
+          selectValue={(value) => setSelectedValue(value as unknown as string)}
+          selectedValue={selectedValue}
+          title={title}
+          type={type}
+        />
+      </View>
+    </StoryWrapper>
   );
 }
-
-export default RadioButtonBasicStory;

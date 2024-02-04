@@ -4,7 +4,7 @@ import {View} from 'react-native';
 import {boolean} from '@storybook/addon-knobs';
 
 import {Checkbox, Typography} from '../../../main';
-import {ScrollContainer, StoryContainer, StoryTitle} from '../../GlobalStyles';
+import {StoryWrapper} from '../../Common';
 import {checkboxColors} from '../const';
 
 function LabelWrapper({
@@ -62,22 +62,12 @@ function Checkboxes({
   );
 }
 
-function CheckboxBasicStory(): JSX.Element {
+export default function CheckboxBasicStory(): JSX.Element {
   const [checked, setChecked] = useState<boolean>(false);
 
   return (
-    <StoryContainer>
-      <StoryTitle>Basic</StoryTitle>
-      <ScrollContainer
-        contentContainerStyle={{
-          justifyContent: 'center',
-          alignItems: 'center',
-        }}
-      >
-        <Checkboxes checked={checked} setChecked={setChecked} />
-      </ScrollContainer>
-    </StoryContainer>
+    <StoryWrapper>
+      <Checkboxes checked={checked} setChecked={setChecked} />
+    </StoryWrapper>
   );
 }
-
-export default CheckboxBasicStory;

@@ -3,15 +3,14 @@ import React, {useState} from 'react';
 import {css} from '@emotion/native';
 
 import {Fab, Typography} from '../../../main';
-import {StoryContainer, StoryTitle} from '../../GlobalStyles';
+import {StoryWrapper} from '../../Common';
 
-function FabBasicStory(): JSX.Element {
+export default function FabBasicStory(): JSX.Element {
   const [selectedItem, setSelectedItem] = useState('none');
   const [active, setActive] = useState(false);
 
   return (
-    <StoryContainer>
-      <StoryTitle>Basic</StoryTitle>
+    <StoryWrapper>
       <Typography.Heading2>{`clicked item: ${selectedItem}`}</Typography.Heading2>
       <Fab
         icons={['MagnifyingGlass', 'Heart']}
@@ -28,8 +27,6 @@ function FabBasicStory(): JSX.Element {
           bottom: 30px;
         `}
       />
-    </StoryContainer>
+    </StoryWrapper>
   );
 }
-
-export default FabBasicStory;

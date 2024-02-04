@@ -12,7 +12,7 @@ const ScrollContainer = styled.ScrollView`
   background-color: ${({theme}) => theme.bg.basic};
 `;
 
-function NetworkImageBasicStory({
+export default function NetworkImageBasicStory({
   url,
 }: ComponentProps<typeof NetworkImage>): JSX.Element {
   const {theme} = useTheme();
@@ -66,5 +66,3 @@ function NetworkImageBasicStory({
     </ScrollContainer>
   );
 }
-
-export default NetworkImageBasicStory;

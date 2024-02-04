@@ -1,16 +1,8 @@
 import styled from '@emotion/native';
 
 import {ProgressBar} from '../../../main';
+import {StoryWrapper} from '../../Common';
 import {StoryTitle} from '../../GlobalStyles';
-
-const StoryContainer = styled.View`
-  flex: 1;
-  width: 100%;
-  align-self: stretch;
-  background-color: ${({theme}) => theme.bg.basic};
-  justify-content: center;
-  align-items: center;
-`;
 
 const Section = styled.View`
   width: 90%;
@@ -25,10 +17,9 @@ const SubTitle = styled.Text`
   color: ${({theme}) => theme.role.primary};
 `;
 
-function ProgressBarBasicStory(): JSX.Element {
-  // props: ComponentProps<typeof ProgressBar>,
+export default function ProgressBarBasicStory(): JSX.Element {
   return (
-    <StoryContainer>
+    <StoryWrapper>
       <StoryTitle>Basic</StoryTitle>
       <Section>
         <SubTitle>Info</SubTitle>
@@ -46,8 +37,6 @@ function ProgressBarBasicStory(): JSX.Element {
         <SubTitle>Success</SubTitle>
         <ProgressBar type="success" value={100} />
       </Section>
-    </StoryContainer>
+    </StoryWrapper>
   );
 }
-
-export default ProgressBarBasicStory;

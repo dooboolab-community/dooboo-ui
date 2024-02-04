@@ -1,5 +1,4 @@
-// Caveat: Expo web needs React to be imported
-import React, {useEffect, useState} from 'react';
+import {useEffect, useState} from 'react';
 import {
   boolean as booleanInput,
   number,
@@ -9,9 +8,9 @@ import {
 
 import type {ButtonColorType} from '../../../main';
 import {ProgressCircle} from '../../../main';
-import {StoryContainer, StoryTitle} from '../../GlobalStyles';
+import {StoryWrapper} from '../../Common';
 
-function ProgressCircleBasicStory(): JSX.Element {
+export default function ProgressCircleBasicStory(): JSX.Element {
   const progressInput = numberInput('progress', 0);
   const autoPlay = booleanInput('auto play', true);
 
@@ -60,15 +59,12 @@ function ProgressCircleBasicStory(): JSX.Element {
   }, [progressInput, autoPlay]);
 
   return (
-    <StoryContainer>
-      <StoryTitle>Basic</StoryTitle>
+    <StoryWrapper>
       <ProgressCircle
         baseStrokeWidth={baseStrokeWidth}
         color={color}
         progress={progress}
       />
-    </StoryContainer>
+    </StoryWrapper>
   );
 }
-
-export default ProgressCircleBasicStory;
