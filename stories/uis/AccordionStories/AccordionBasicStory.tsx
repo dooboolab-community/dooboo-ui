@@ -10,12 +10,12 @@ const ScrollContainer = styled.ScrollView`
 
 function AccordionBasic(props: ComponentProps<typeof Accordion>): JSX.Element {
   return (
-    <ScrollContainer>
-      <StoryContainer>
-        <StoryTitle style={{fontSize: 18, marginBottom: 8}}>Basic</StoryTitle>
+    <StoryContainer>
+      <StoryTitle>Basic</StoryTitle>
+      <ScrollContainer>
         <Accordion {...props} />
-      </StoryContainer>
-    </ScrollContainer>
+      </ScrollContainer>
+    </StoryContainer>
   );
 }
 

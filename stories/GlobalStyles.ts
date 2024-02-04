@@ -13,7 +13,7 @@ export const ScrollContainer = styled.ScrollView`
 `;
 
 export const StoryTitle = styled.Text`
-  margin: 8px 0;
+  margin: 8px 0 24px;
   font-size: 18px;
   font-family: Pretendard-Bold;
   color: ${({theme}) => theme.text.basic};

@@ -23,11 +23,11 @@ function AccordionCustom(props): JSX.Element {
   const {theme} = useDooboo();
 
   return (
-    <ScrollContainer>
-      <StoryContainer>
-        <StoryTitle style={{fontSize: 18, marginBottom: 8}}>
-          Custom Style
-        </StoryTitle>
+    <StoryContainer>
+      <StoryTitle style={{fontSize: 18, marginBottom: 8}}>
+        Custom Style
+      </StoryTitle>
+      <ScrollContainer>
         <Accordion<AccordionTitle, AccordionItem>
           onPressItem={action('onPressItem')}
           renderItem={({text}) => {
@@ -111,8 +111,8 @@ function AccordionCustom(props): JSX.Element {
           toggleElementPosition="left"
           {...props}
         />
-      </StoryContainer>
-    </ScrollContainer>
+      </ScrollContainer>
+    </StoryContainer>
   );
 }
 

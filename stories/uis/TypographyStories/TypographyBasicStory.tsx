@@ -7,9 +7,9 @@ import {ScrollContainer, StoryContainer} from '../../GlobalStyles';
 
 function TypographyBasicStory(): JSX.Element {
   return (
-    <ScrollContainer>
-      <StoryContainer>
-        <Typography.Title>Title</Typography.Title>
+    <StoryContainer>
+      <Typography.Title>Title</Typography.Title>
+      <ScrollContainer>
         <View style={{height: 8}} />
         <Typography.Heading1>Heading1</Typography.Heading1>
         <View style={{height: 8}} />
@@ -28,8 +28,8 @@ function TypographyBasicStory(): JSX.Element {
         <Typography.Body3>Body3</Typography.Body3>
         <View style={{height: 8}} />
         <Typography.Body4>Body4</Typography.Body4>
-      </StoryContainer>
-    </ScrollContainer>
+      </ScrollContainer>
+    </StoryContainer>
   );
 }
 

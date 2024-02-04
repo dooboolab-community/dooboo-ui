@@ -66,17 +66,17 @@ function CheckboxBasicStory(): JSX.Element {
   const [checked, setChecked] = useState<boolean>(false);
 
   return (
-    <ScrollContainer
-      contentContainerStyle={{
-        justifyContent: 'center',
-        alignItems: 'center',
-      }}
-    >
-      <StoryContainer>
-        <StoryTitle>Basic</StoryTitle>
+    <StoryContainer>
+      <StoryTitle>Basic</StoryTitle>
+      <ScrollContainer
+        contentContainerStyle={{
+          justifyContent: 'center',
+          alignItems: 'center',
+        }}
+      >
         <Checkboxes checked={checked} setChecked={setChecked} />
-      </StoryContainer>
-    </ScrollContainer>
+      </ScrollContainer>
+    </StoryContainer>
   );
 }
 

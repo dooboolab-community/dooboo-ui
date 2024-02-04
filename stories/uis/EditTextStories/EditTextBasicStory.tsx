@@ -31,15 +31,15 @@ function EditTextBasicStory(): JSX.Element {
   };
 
   return (
-    <ScrollContainer
-      contentContainerStyle={{
-        justifyContent: 'center',
-        alignItems: 'center',
-      }}
-      scrollIndicatorInsets={{right: 0}}
-    >
-      <StoryContainer>
-        <Typography.Heading1>EditText</Typography.Heading1>
+    <StoryContainer>
+      <Typography.Heading1>EditText</Typography.Heading1>
+      <ScrollContainer
+        contentContainerStyle={{
+          justifyContent: 'center',
+          alignItems: 'center',
+        }}
+        scrollIndicatorInsets={{right: 0}}
+      >
         <EditText
           editable={boolean('editable', true)}
           onChangeText={(str) => onTextChanged(str)}
@@ -229,8 +229,8 @@ function EditTextBasicStory(): JSX.Element {
           style={{marginTop: 20, marginBottom: 80}}
           value={text}
         />
-      </StoryContainer>
-    </ScrollContainer>
+      </ScrollContainer>
+    </StoryContainer>
   );
 }
 

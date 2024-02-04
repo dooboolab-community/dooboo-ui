@@ -15,8 +15,8 @@ function RadioButtonBasicStory({
   const [selectedValue, setSelectedValue] = useState<string>(data?.[0]);
 
   return (
-    <ScrollContainer>
-      <StoryContainer>
+    <StoryContainer>
+      <ScrollContainer>
         <View style={{flexDirection: 'row', marginTop: 24}}>
           <RadioGroup
             data={data}
@@ -28,8 +28,8 @@ function RadioButtonBasicStory({
             type={type}
           />
         </View>
-      </StoryContainer>
-    </ScrollContainer>
+      </ScrollContainer>
+    </StoryContainer>
   );
 }
 

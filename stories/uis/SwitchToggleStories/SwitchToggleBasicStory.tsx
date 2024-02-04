@@ -12,9 +12,9 @@ function SwitchToggleBasicStory(): JSX.Element {
   const {theme} = useTheme();
 
   return (
-    <ScrollContainer>
-      <StoryContainer>
-        <StoryTitle>Basic</StoryTitle>
+    <StoryContainer>
+      <StoryTitle>Basic</StoryTitle>
+      <ScrollContainer>
         <SwitchToggle isOn={on} onPress={() => off(!on)} />
 
         <View style={{height: 40}} />
@@ -50,8 +50,8 @@ function SwitchToggleBasicStory(): JSX.Element {
             },
           }}
         />
-      </StoryContainer>
-    </ScrollContainer>
+      </ScrollContainer>
+    </StoryContainer>
   );
 }
 

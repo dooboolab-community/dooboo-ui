@@ -8,12 +8,12 @@ function ButtonGroupBasic(
   props: ComponentProps<typeof ButtonGroup>,
 ): JSX.Element {
   return (
-    <ScrollView contentContainerStyle={{flexDirection: 'column'}}>
-      <StoryContainer>
-        <StoryTitle style={{fontSize: 18, marginBottom: 8}}>Basic</StoryTitle>
+    <StoryContainer>
+      <StoryTitle>Basic</StoryTitle>
+      <ScrollView contentContainerStyle={{flexDirection: 'column'}}>
         <ButtonGroup {...props} />
-      </StoryContainer>
-    </ScrollView>
+      </ScrollView>
+    </StoryContainer>
   );
 }
 
