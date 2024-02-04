@@ -13,6 +13,7 @@ package-lock.json
 .expo/*
 **/.expo
 web-build/
+dist/
 
 # Storybook build
 packages/*/lib
