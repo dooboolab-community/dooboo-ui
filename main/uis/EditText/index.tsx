@@ -53,20 +53,17 @@ type CustomRenderType =
 export type EditTextProps = {
   testID?: TextInputProps['testID'];
   inputRef?: MutableRefObject<TextInput | undefined> | RefObject<TextInput>;
-  required?: boolean;
-
   style?: StyleProp<ViewStyle>;
   styles?: EditTextStyles;
 
   // Components
-  label?: string | RenderType;
-  error?: string | RenderType;
   startElement?: JSX.Element | CustomRenderType;
   endElement?: JSX.Element | CustomRenderType;
-
+  required?: boolean;
+  label?: string | RenderType;
+  error?: string | RenderType;
   direction?: 'row' | 'column';
   decoration?: 'underline' | 'boxed';
-
   value?: TextInputProps['value'];
   multiline?: TextInputProps['multiline'];
   onChange?: TextInputProps['onChange'];

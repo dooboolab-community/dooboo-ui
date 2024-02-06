@@ -112,7 +112,8 @@ export function Checkbox({
             padding: 6px 0;
 
             flex-direction: row;
-            column-gap: 6px;
+            column-gap: 2px;
+            align-items: center;
           `,
           styles?.container,
         ]}

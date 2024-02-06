@@ -1,16 +1,12 @@
 import type {ComponentProps} from 'react';
 import type {Meta, StoryObj} from '@storybook/react';
 
-import {DoobooProvider} from '../../../main';
-import type Snackbar from '../../../main/modals/Snackbar';
-import {StoryContainer} from '../../GlobalStyles';
-
-import Component from './SnackbarBasicStory';
+import {DoobooProvider, ProgressCircle} from '../../main';
+import {StoryContainer} from '../GlobalStyles';
 
 const meta = {
-  title: 'Snackbar',
-  component: Component,
-  argTypes: {},
+  title: 'ProgressCircle',
+  component: (props) => <ProgressCircle {...props} />,
   decorators: [
     (Story) => (
       <DoobooProvider>
@@ -20,12 +16,14 @@ const meta = {
       </DoobooProvider>
     ),
   ],
-} satisfies Meta<ComponentProps<typeof Snackbar>>;
+} satisfies Meta<ComponentProps<typeof ProgressCircle>>;
 
 export default meta;
 
 type Story = StoryObj<typeof meta>;
 
 export const Basic: Story = {
-  args: {},
+  args: {
+    progress: 0.5,
+  },
 };

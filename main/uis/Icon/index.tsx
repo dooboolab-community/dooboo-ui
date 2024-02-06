@@ -3782,14 +3782,14 @@ export const doobooIconList = [
 export type IconNames = typeof doobooIconList;
 export type IconName = IconNames[number];
 
-type Props = {
+export type IconProps = {
   name: IconName;
   size?: number;
   color?: string;
   style?: ViewStyle;
 };
 
-const Ico: FC<Props> = createIconSetFromIcoMoon(
+const Ico: FC<IconProps> = createIconSetFromIcoMoon(
   collectingFontIconSelection,
   'doobooui',
   require('./doobooui.ttf'),

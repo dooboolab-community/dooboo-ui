@@ -18,13 +18,13 @@ const Container = styled.View`
   align-items: center;
 `;
 
-interface Props {
+type Props = {
   style?: StyleProp<ViewStyle>;
   url: string | undefined;
   loadingSource?: ImageSourcePropType | JSX.Element;
   imageProps?: Partial<ImageProps>;
   shouldFixImageRatio?: boolean;
-}
+};
 
 function NetworkImage(props: Props): JSX.Element {
   const {themeType} = useTheme();

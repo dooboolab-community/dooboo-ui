@@ -13,14 +13,14 @@ type Styles = {
   image?: ImageStyle;
 };
 
-interface Props {
+type Props = {
   style?: StyleProp<ViewStyle>;
   styles?: Styles;
   color?: string;
   size?: ActivityIndicator['props']['size'];
   imgSource?: string | ImageSourcePropType;
   customElement?: JSX.Element | (() => JSX.Element);
-}
+};
 
 export function LoadingIndicator({
   customElement,

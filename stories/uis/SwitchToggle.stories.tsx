@@ -1,15 +1,12 @@
 import type {ComponentProps} from 'react';
 import type {Meta, StoryObj} from '@storybook/react';
 
-import {DoobooProvider} from '../../../main';
-import type Snackbar from '../../../main/modals/Snackbar';
-import {StoryContainer} from '../../GlobalStyles';
-
-import Component from './SnackbarBasicStory';
+import {DoobooProvider, SwitchToggle} from '../../main';
+import {StoryContainer} from '../GlobalStyles';
 
 const meta = {
-  title: 'Snackbar',
-  component: Component,
+  title: 'SwitchToggle',
+  component: (props) => <SwitchToggle {...props} />,
   argTypes: {},
   decorators: [
     (Story) => (
@@ -20,12 +17,14 @@ const meta = {
       </DoobooProvider>
     ),
   ],
-} satisfies Meta<ComponentProps<typeof Snackbar>>;
+} satisfies Meta<ComponentProps<typeof SwitchToggle>>;
 
 export default meta;
 
 type Story = StoryObj<typeof meta>;
 
 export const Basic: Story = {
-  args: {},
+  args: {
+    isOn: false,
+  },
 };

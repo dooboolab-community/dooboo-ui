@@ -347,6 +347,7 @@ export function Button({
       style={[
         style,
         css`
+          flex-direction: row;
           border-radius: ${borderRadius + 'px'};
         `,
       ]}

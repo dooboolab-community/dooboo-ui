@@ -3,6 +3,7 @@ import type {Meta, StoryObj} from '@storybook/react';
 
 import {DoobooProvider} from '../../../main';
 import type AlertDialog from '../../../main/modals/AlertDialog';
+import {StoryContainer} from '../../GlobalStyles';
 
 import Component from './AlertDialogBasicStory';
 
@@ -13,7 +14,9 @@ const meta = {
   decorators: [
     (Story) => (
       <DoobooProvider>
-        <Story />
+        <StoryContainer>
+          <Story />
+        </StoryContainer>
       </DoobooProvider>
     ),
   ],
