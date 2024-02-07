@@ -6,7 +6,6 @@ on:
 
 jobs:
   build_and_preview:
-    if: ${{ github.event.label.name == 'preview' }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master
@@ -22,9 +21,9 @@ jobs:
 
       - name: Install packages and build storybook
         run: |
-          yarn preinstall
           yarn install --network-concurrency 1
-          yarn build
+          yarn pre
+          yarn storybook:build
 
       - name: Deploy to firebase
         uses: FirebaseExtended/action-hosting-deploy@v0
