@@ -16,7 +16,7 @@ export default async (): Promise<Config.InitialOptions> => {
     testMatch: ['**/__tests__/**/*.ts?(x)', '**/?(*.)+(spec|test).ts?(x)'],
     moduleFileExtensions: ['js', 'ts', 'tsx', 'svg', 'png', 'json'],
     globals: {
-      'ts-jest': {tsconfig: 'tsconfig.spec.json'},
+      'ts-jest': {tsconfig: 'tsconfig.json'},
     },
     modulePathIgnorePatterns: [
       '<rootDir>/lib/',

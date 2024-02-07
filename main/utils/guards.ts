@@ -1,4 +1,5 @@
 import React, {cloneElement} from 'react';
+import type {ViewStyle} from 'react-native';
 import {
   Button,
   Image,
@@ -10,7 +11,6 @@ import {
   TouchableWithoutFeedback,
   View,
 } from 'react-native';
-import type {StyleProps} from 'react-native-reanimated';
 
 import {Icon} from '../uis/Icon';
 
@@ -62,7 +62,7 @@ type CloneElemColorsParams = {
   /**
    * Extra style to be applied.
    */
-  style?: StyleProps;
+  style?: ViewStyle;
 };
 
 /**
