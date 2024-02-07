@@ -1,4 +1,5 @@
 import type {ComponentProps} from 'react';
+import {css} from '@emotion/native';
 import type {Meta, StoryObj} from '@storybook/react';
 
 import {Accordion} from '../../main';
@@ -10,7 +11,11 @@ const meta = {
   component: (props) => <Accordion {...props} />,
   decorators: [
     (Story) => (
-      <StoryWrapper>
+      <StoryWrapper
+        style={css`
+          height: 400px;
+        `}
+      >
         <Story />
       </StoryWrapper>
     ),

@@ -22,7 +22,11 @@ const meta = {
   },
   decorators: [
     (Story) => (
-      <StoryWrapper>
+      <StoryWrapper
+        style={css`
+          height: 300px;
+        `}
+      >
         <Story />
       </StoryWrapper>
     ),

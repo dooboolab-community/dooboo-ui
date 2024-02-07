@@ -1,9 +1,8 @@
 import {type ComponentProps} from 'react';
-import {Text} from 'react-native';
 import type {Meta, StoryObj} from '@storybook/react';
 
 import type {CheckboxColor} from '../../main';
-import {Checkbox} from '../../main';
+import {Checkbox, Typography} from '../../main';
 import {StoryWrapper} from '../Common';
 
 const colors: CheckboxColor[] = [
@@ -44,7 +43,7 @@ type Story = StoryObj<typeof meta>;
 export const Basic: Story = {
   args: {
     color: 'primary',
-    endElement: <Text>Click Checkbox!</Text>,
+    endElement: <Typography.Body1>Click Checkbox!</Typography.Body1>,
     checked: false,
     onPress: () => {},
   },
