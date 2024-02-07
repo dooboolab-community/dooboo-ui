@@ -41,7 +41,7 @@ type Story = StoryObj<typeof meta>;
 export const Basic: Story = {
   args: {
     allowHalfRating: true,
-    color: '#000000',
+    color: '#666666',
     direction: 'horizontal',
     disabled: false,
     iconType: 'star',

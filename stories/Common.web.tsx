@@ -33,20 +33,13 @@ function WrapperWeb({children, style}: ContainerProps): JSX.Element {
       style={[
         css`
           background-color: ${isDark ? '#1E1D1D' : '#EDEDED'};
-          height: 200px;
           padding: 24px;
         `,
         style,
       ]}
     >
       <StatusBar barStyle={isDark ? 'light-content' : 'dark-content'} />
-      <View
-        style={css`
-          flex: 1;
-        `}
-      >
-        {children}
-      </View>
+      {children}
     </View>
   );
 }

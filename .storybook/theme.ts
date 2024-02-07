@@ -1,11 +1,16 @@
 import {create} from '@storybook/theming';
 
-export const lightTheme = create({
-  base: 'light',
+const commonTheme = {
   brandTitle: 'dooboo-ui',
-  brandUrl: 'https://dooboolab.github.io/dooboo-ui',
-  brandImage: '/assets/icon.png',
+  brandUrl: 'https://dooboo-ui.dooboolab.com',
+  brandImage: '/static/icon.png',
+  brandTarget: '_self',
+  stylePreview: true,
+};
 
+export const lightTheme = create({
+  ...commonTheme,
+  base: 'light',
   colorPrimary: 'black',
   colorSecondary: '#00D9D5',
 
@@ -36,18 +41,15 @@ export const lightTheme = create({
 });
 
 export const darkTheme = create({
+  ...commonTheme,
   base: 'dark',
-  brandTitle: 'dooboo-ui',
-  brandUrl: 'https://dooboolab.github.io/dooboo-ui',
-  brandImage: '/assets/icon.png',
-
   colorPrimary: 'white',
-  colorSecondary: '#585DFA',
+  colorSecondary: '#1E1D1D',
 
   // UI
-  appBg: 'black',
-  appContentBg: '#1E1E1E',
-  appBorderColor: '#1E1E1E',
+  appBg: '#1D1E1E',
+  appContentBg: '#1D1E1E',
+  appBorderColor: '#1D1E1E',
   appBorderRadius: 1,
 
   // Typography
@@ -61,7 +63,7 @@ export const darkTheme = create({
   // Toolbar default and active colors
   barTextColor: '#EDEDED',
   barSelectedColor: '#585DFA',
-  barBg: 'black',
+  barBg: '#1D1E1E',
 
   // Form colors
   inputBg: 'black',
@@ -69,5 +71,5 @@ export const darkTheme = create({
   inputTextColor: 'white',
   inputBorderRadius: 1,
 
-  appPreviewBg: '#1E1E1E',
+  appPreviewBg: '#1D1E1E',
 });

@@ -7,6 +7,7 @@ module.exports = {
   addons: [
     '@storybook/addon-links',
     '@storybook/addon-essentials',
+    '@storybook/addon-docs',
     '@storybook/addon-react-native-web',
     'storybook-dark-mode',
   ],

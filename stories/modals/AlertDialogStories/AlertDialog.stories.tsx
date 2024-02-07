@@ -8,7 +8,7 @@ import {StoryWrapper} from '../../Common';
 import Component from './AlertDialogBasicStory';
 
 const meta = {
-  title: 'Components/AlertDialog',
+  title: 'Modals/AlertDialog',
   component: Component,
   argTypes: {},
   decorators: [

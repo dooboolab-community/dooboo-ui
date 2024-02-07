@@ -1,11 +1,12 @@
-import React from 'react';
+import React, {useState} from 'react';
 import type {Preview} from '@storybook/react';
 import {darkTheme, lightTheme} from './theme';
 import {DocsContainer} from '@storybook/addon-docs';
+import addons, {useChannel} from '@storybook/addons';
 
 import {useDarkMode} from 'storybook-dark-mode';
 
-const preview: Preview = {
+export const preview: Preview = {
   parameters: {
     actions: {argTypesRegex: '^on[A-Z].*'},
     controls: {
@@ -19,28 +20,20 @@ const preview: Preview = {
       light: lightTheme,
     },
     docs: {
-      container: ({children, context}) => (
-        <DocsContainer
-          context={{
-            ...context,
-            storyById: (id) => {
-              const storyContext = context.storyById(id);
-              return {
-                ...storyContext,
-                parameters: {
-                  ...storyContext?.parameters,
-                  docs: {
-                    ...storyContext?.parameters?.docs,
-                    theme: useDarkMode() ? darkTheme : lightTheme,
-                  },
-                },
-              };
-            },
-          }}
-        >
-          {children}
-        </DocsContainer>
-      ),
+      // https://github.com/hipstersmoothie/storybook-dark-mode/issues/180#issuecomment-1140553924
+      container: (props) => {
+        const isDark = useDarkMode();
+        const {id: storyId, storyById} = props.context;
+
+        const {
+          parameters: {docs = {}},
+        } = storyById(storyId);
+
+        docs.theme = isDark ? darkTheme : lightTheme;
+
+        const currentProps = {...props, theme: isDark ? darkTheme : lightTheme};
+        return React.createElement(DocsContainer, currentProps);
+      },
     },
     options: {
       storySort: (a, b) => {
@@ -52,7 +45,8 @@ const preview: Preview = {
         const sectionMap = {
           overview: 1,
           components: 2,
-          packages: 3,
+          modals: 3,
+          packages: 4,
         };
         return (sectionMap[sectionA] || 0) - (sectionMap[sectionB] || 0);
       },
@@ -76,7 +70,7 @@ const preview: Preview = {
       hierarchyRootSeparator: /\|/,
       isToolshown: true,
       showPanel: true,
-      panelPosition: "bottom",
+      panelPosition: 'bottom',
     },
   },
 };

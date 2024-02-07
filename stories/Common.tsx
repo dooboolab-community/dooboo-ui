@@ -23,7 +23,7 @@ type ContainerProps = {
 
 function Wrapper({children, style}: ContainerProps): JSX.Element {
   const {themeType, changeThemeType, assetLoaded} = useDooboo();
-  const [on, off] = useState(themeType === 'dark');
+  const [isDark, setIsDark] = useState(themeType === 'dark');
 
   if (!assetLoaded) {
     return <LoadingIndicator />;
@@ -43,9 +43,9 @@ function Wrapper({children, style}: ContainerProps): JSX.Element {
       >
         <Typography.Heading3>{themeType}</Typography.Heading3>
         <SwitchToggle
-          isOn={on}
+          isOn={isDark}
           onPress={() => {
-            off(!on);
+            setIsDark(!isDark);
             changeThemeType();
           }}
           size="small"

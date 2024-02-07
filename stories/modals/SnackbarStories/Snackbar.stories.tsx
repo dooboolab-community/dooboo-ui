@@ -8,7 +8,7 @@ import {StoryWrapper} from '../../Common';
 import Component from './SnackbarBasicStory';
 
 const meta = {
-  title: 'Components/Snackbar',
+  title: 'Modals/Snackbar',
   component: Component,
   argTypes: {},
   decorators: [
