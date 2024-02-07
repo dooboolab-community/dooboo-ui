@@ -2,7 +2,7 @@
 import type {ReactNode} from 'react';
 import React, {useEffect} from 'react';
 import type {ViewStyle} from 'react-native';
-import {StatusBar, View} from 'react-native';
+import {View} from 'react-native';
 import {css} from '@emotion/native';
 import {useDarkMode} from 'storybook-dark-mode';
 
@@ -22,7 +22,8 @@ function WrapperWeb({children, style}: ContainerProps): JSX.Element {
     if (storybookTheme !== themeType) {
       changeThemeType();
     }
-  }, [changeThemeType, storybookTheme, themeType]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [storybookTheme, themeType]);
 
   if (!assetLoaded) {
     return <LoadingIndicator />;
@@ -38,7 +39,6 @@ function WrapperWeb({children, style}: ContainerProps): JSX.Element {
         style,
       ]}
     >
-      <StatusBar barStyle={isDark ? 'light-content' : 'dark-content'} />
       {children}
     </View>
   );
