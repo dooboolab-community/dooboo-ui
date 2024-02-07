@@ -1,10 +1,10 @@
 import {type ComponentProps} from 'react';
 import {Text} from 'react-native';
-import {action} from '@storybook/addon-actions';
+import {css} from '@emotion/native';
 import type {Meta, StoryObj} from '@storybook/react';
 
 import type {CheckboxColor} from '../../main';
-import {Checkbox, DoobooProvider} from '../../main';
+import {Checkbox} from '../../main';
 import {StoryWrapper} from '../Common';
 
 const colors: CheckboxColor[] = [
@@ -17,7 +17,7 @@ const colors: CheckboxColor[] = [
 ];
 
 const meta = {
-  title: 'Checkbox',
+  title: 'Components/Checkbox',
   component: (props) => <Checkbox {...props} />,
   argTypes: {
     color: {
@@ -31,11 +31,9 @@ const meta = {
   },
   decorators: [
     (Story) => (
-      <DoobooProvider>
-        <StoryWrapper>
-          <Story />
-        </StoryWrapper>
-      </DoobooProvider>
+      <StoryWrapper>
+        <Story />
+      </StoryWrapper>
     ),
   ],
 } satisfies Meta<ComponentProps<typeof Checkbox>>;
@@ -47,8 +45,16 @@ type Story = StoryObj<typeof meta>;
 export const Basic: Story = {
   args: {
     color: 'primary',
-    endElement: <Text>Click Checkbox!</Text>,
+    endElement: (
+      <Text
+        style={css`
+          color: #999;
+        `}
+      >
+        Click Checkbox!
+      </Text>
+    ),
     checked: false,
-    onPress: action('onCheck'),
+    onPress: () => {},
   },
 };

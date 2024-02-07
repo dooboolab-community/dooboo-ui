@@ -1,12 +1,11 @@
 import type {ComponentProps} from 'react';
 import type {Meta, StoryObj} from '@storybook/react';
 
-import {DoobooProvider} from '../../main';
 import CalendarCarousel from '../../packages/CalendarCarousel';
-import {StoryContainer} from '../GlobalStyles';
+import {StoryWrapper} from '../Common';
 
 const meta = {
-  title: 'CalendarCarousel',
+  title: 'Packages/CalendarCarousel',
   component: (props) => (
     <CalendarCarousel
       initialSelectedDate={new Date(2024, 11, 4)}
@@ -42,11 +41,9 @@ const meta = {
   },
   decorators: [
     (Story) => (
-      <DoobooProvider>
-        <StoryContainer>
-          <Story />
-        </StoryContainer>
-      </DoobooProvider>
+      <StoryWrapper>
+        <Story />
+      </StoryWrapper>
     ),
   ],
 } satisfies Meta<ComponentProps<typeof CalendarCarousel>>;

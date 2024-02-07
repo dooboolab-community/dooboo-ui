@@ -1,9 +1,11 @@
 // Caveat: Expo web needs React to be imported
 import type {ReactNode} from 'react';
 import React, {useState} from 'react';
+import type {ViewStyle} from 'react-native';
 import {StatusBar, View} from 'react-native';
 import {css} from '@emotion/native';
 
+// import {useDarkMode} from 'storybook-dark-mode';
 import {
   DoobooProvider,
   LoadingIndicator,
@@ -16,11 +18,12 @@ import {ScrollContainer, StoryContainer} from './GlobalStyles';
 
 type ContainerProps = {
   children: ReactNode;
+  style?: ViewStyle;
 };
 
-function Wrapper({children}: ContainerProps): JSX.Element {
+function Wrapper({children, style}: ContainerProps): JSX.Element {
   const {themeType, changeThemeType, assetLoaded} = useDooboo();
-  const [on, off] = useState(themeType === 'dark');
+  const [isDark, setIsDark] = useState(themeType === 'dark');
 
   if (!assetLoaded) {
     return <LoadingIndicator />;
@@ -40,9 +43,9 @@ function Wrapper({children}: ContainerProps): JSX.Element {
       >
         <Typography.Heading3>{themeType}</Typography.Heading3>
         <SwitchToggle
-          isOn={on}
+          isOn={isDark}
           onPress={() => {
-            off(!on);
+            setIsDark(!isDark);
             changeThemeType();
           }}
           size="small"
@@ -51,21 +54,27 @@ function Wrapper({children}: ContainerProps): JSX.Element {
           `}
         />
       </View>
-      <View
-        style={css`
+      <ScrollContainer
+        contentContainerStyle={css`
           flex: 1;
         `}
       >
-        <ScrollContainer>{children}</ScrollContainer>
-      </View>
+        <View style={style}>{children}</View>
+      </ScrollContainer>
     </StoryContainer>
   );
 }
 
-export function StoryWrapper({children}: {children: ReactNode}): JSX.Element {
+export function StoryWrapper({
+  children,
+  style,
+}: {
+  children: ReactNode;
+  style?: ViewStyle;
+}): JSX.Element {
   return (
     <DoobooProvider>
-      <Wrapper>{children}</Wrapper>
+      <Wrapper style={style}>{children}</Wrapper>
     </DoobooProvider>
   );
 }

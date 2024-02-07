@@ -3,12 +3,9 @@ on:
   pull_request:
     branches:
       - main
-    paths:
-      - 'docs/**'
 
 jobs:
   build_and_preview:
-    if: ${{ github.event.label.name == 'preview' }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master
@@ -17,25 +14,24 @@ jobs:
           node-version: 20.x
           check-latest: false
 
-      - name: Install Expo CLI
-        run: yarn global add expo-cli
+      - name: Setup expo cli
+        uses: expo/expo-github-action@v8
+        with:
+          expo-version: 4.x
 
       - name: Install packages and build storybook
         run: |
-          pushd ./docs
-          yarn preinstall
           yarn install --network-concurrency 1
-          yarn build
-          popd
+          yarn pre
+          yarn storybook:build
 
       - name: Deploy to firebase
         uses: FirebaseExtended/action-hosting-deploy@v0
         with:
-          entryPoint: './docs'
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
           firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_DOOBOOLAB_2F044 }}'
           projectId: dooboolab-2f044
           target: dooboo-ui
-          expires: 14d
+          expires: 7d
         env:
           FIREBASE_CLI_PREVIEWS: hostingchannels

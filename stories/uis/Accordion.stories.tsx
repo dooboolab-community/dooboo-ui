@@ -1,21 +1,23 @@
 import type {ComponentProps} from 'react';
-import {action} from '@storybook/addon-actions';
+import {css} from '@emotion/native';
 import type {Meta, StoryObj} from '@storybook/react';
 
-import {Accordion, DoobooProvider} from '../../main';
+import {Accordion} from '../../main';
 import {StoryWrapper} from '../Common';
 
 // @ts-ignore
 const meta = {
-  title: 'Accordion',
+  title: 'Components/Accordion',
   component: (props) => <Accordion {...props} />,
   decorators: [
     (Story) => (
-      <DoobooProvider>
-        <StoryWrapper>
-          <Story />
-        </StoryWrapper>
-      </DoobooProvider>
+      <StoryWrapper
+        style={css`
+          height: 400px;
+        `}
+      >
+        <Story />
+      </StoryWrapper>
     ),
   ],
 } satisfies Meta<ComponentProps<typeof Accordion>>;
@@ -28,7 +30,7 @@ export const Basic: Story = {
   args: {
     animDuration: 200,
     collapseOnStart: true,
-    onPressItem: action('onPressItem'),
+    onPressItem: () => {},
     data: [
       {
         title: 'Item 1',

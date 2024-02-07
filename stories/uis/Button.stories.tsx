@@ -1,9 +1,8 @@
 import type {ComponentProps} from 'react';
-import {action} from '@storybook/addon-actions';
 import type {Meta, StoryObj} from '@storybook/react';
 
 import type {ButtonColorType, ButtonSizeType, ButtonType} from '../../main';
-import {Button, DoobooProvider} from '../../main';
+import {Button} from '../../main';
 import {StoryWrapper} from '../Common';
 
 const buttonTypes: ButtonType[] = ['outlined', 'solid', 'text'];
@@ -20,7 +19,7 @@ const buttonColors: ButtonColorType[] = [
 ];
 
 const meta = {
-  title: 'Button',
+  title: 'Components/Button',
   component: (props) => <Button {...props} />,
   argTypes: {
     type: {
@@ -38,11 +37,9 @@ const meta = {
   },
   decorators: [
     (Story) => (
-      <DoobooProvider>
-        <StoryWrapper>
-          <Story />
-        </StoryWrapper>
-      </DoobooProvider>
+      <StoryWrapper>
+        <Story />
+      </StoryWrapper>
     ),
   ],
 } satisfies Meta<ComponentProps<typeof Button>>;
@@ -57,6 +54,6 @@ export const Basic: Story = {
     color: 'primary',
     text: 'Button',
     size: 'medium',
-    onPress: action('onPressItem'),
+    onPress: () => {},
   },
 };

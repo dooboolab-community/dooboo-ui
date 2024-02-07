@@ -1,23 +1,25 @@
 import type {ComponentProps} from 'react';
+import {css} from '@emotion/native';
 import type {Meta, StoryObj} from '@storybook/react';
 
-import {DoobooProvider} from '../../../main';
 import type Snackbar from '../../../main/modals/Snackbar';
-import {StoryContainer} from '../../GlobalStyles';
+import {StoryWrapper} from '../../Common';
 
 import Component from './SnackbarBasicStory';
 
 const meta = {
-  title: 'Snackbar',
+  title: 'Modals/Snackbar',
   component: Component,
   argTypes: {},
   decorators: [
     (Story) => (
-      <DoobooProvider>
-        <StoryContainer>
-          <Story />
-        </StoryContainer>
-      </DoobooProvider>
+      <StoryWrapper
+        style={css`
+          height: 600px;
+        `}
+      >
+        <Story />
+      </StoryWrapper>
     ),
   ],
 } satisfies Meta<ComponentProps<typeof Snackbar>>;

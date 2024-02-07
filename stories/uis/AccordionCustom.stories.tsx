@@ -1,29 +1,22 @@
 import {Text, View} from 'react-native';
 import {css} from '@emotion/native';
-import {action} from '@storybook/addon-actions';
 import type {Meta, StoryObj} from '@storybook/react';
 
-import {
-  Accordion,
-  DoobooProvider,
-  Icon,
-  Typography,
-  useDooboo,
-} from '../../main';
+import {Accordion, Icon, Typography, useDooboo} from '../../main';
 import {StoryWrapper} from '../Common';
 
 type AccordionTitle = {key: string; text: string};
 type AccordionItem = {text: string};
 
 const meta = {
-  title: 'Accordion',
+  title: 'Components/Accordion',
   component: (props) => {
     // eslint-disable-next-line react-hooks/rules-of-hooks
     const {theme} = useDooboo();
 
     return (
       <Accordion<AccordionTitle, AccordionItem>
-        onPressItem={action('onPressItem')}
+        onPressItem={() => {}}
         renderItem={({text}) => {
           if (text === 'User' || text === 'Image' || text === 'Puzz') {
             return (
@@ -153,11 +146,9 @@ const meta = {
   },
   decorators: [
     (Story) => (
-      <DoobooProvider>
-        <StoryWrapper>
-          <Story />
-        </StoryWrapper>
-      </DoobooProvider>
+      <StoryWrapper>
+        <Story />
+      </StoryWrapper>
     ),
   ],
 } satisfies Meta<typeof Accordion<AccordionTitle, AccordionItem>>;

@@ -1,11 +1,11 @@
 import type {ComponentProps} from 'react';
 import type {Meta, StoryObj} from '@storybook/react';
 
-import {ButtonGroup, DoobooProvider} from '../../main';
+import {ButtonGroup} from '../../main';
 import {StoryWrapper} from '../Common';
 
 const meta = {
-  title: 'ButtonGroup',
+  title: 'Components/ButtonGroup',
   component: (props) => <ButtonGroup {...props} />,
   argTypes: {
     color: {
@@ -23,11 +23,9 @@ const meta = {
   },
   decorators: [
     (Story) => (
-      <DoobooProvider>
-        <StoryWrapper>
-          <Story />
-        </StoryWrapper>
-      </DoobooProvider>
+      <StoryWrapper>
+        <Story />
+      </StoryWrapper>
     ),
   ],
 } satisfies Meta<ComponentProps<typeof ButtonGroup>>;

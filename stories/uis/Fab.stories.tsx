@@ -1,13 +1,12 @@
 import type {ComponentProps} from 'react';
 import {css} from '@emotion/native';
-import {action} from '@storybook/addon-actions';
 import type {Meta, StoryObj} from '@storybook/react';
 
-import {DoobooProvider, Fab} from '../../main';
-import {StoryContainer} from '../GlobalStyles';
+import {Fab} from '../../main';
+import {StoryWrapper} from '../Common';
 
 const meta = {
-  title: 'Fab',
+  title: 'Components/Fab',
   component: (props) => <Fab {...props} />,
   argTypes: {
     icons: {
@@ -16,7 +15,6 @@ const meta = {
     },
     isActive: {
       type: 'boolean',
-      defaultValue: true,
     },
     style: css`
       bottom: 30px;
@@ -24,11 +22,13 @@ const meta = {
   },
   decorators: [
     (Story) => (
-      <DoobooProvider>
-        <StoryContainer>
-          <Story />
-        </StoryContainer>
-      </DoobooProvider>
+      <StoryWrapper
+        style={css`
+          height: 300px;
+        `}
+      >
+        <Story />
+      </StoryWrapper>
     ),
   ],
 } satisfies Meta<ComponentProps<typeof Fab>>;
@@ -42,9 +42,8 @@ export const Basic: Story = {
     icons: ['MagnifyingGlass', 'Heart'],
     isActive: true,
     animationDuration: 300,
-    buttonSize: 60,
     fabIcon: 'Plus',
-    onPressFab: action('onPressFab'),
-    onPressItem: action('onPressItem'),
+    onPressFab: () => {},
+    onPressItem: () => {},
   },
 };

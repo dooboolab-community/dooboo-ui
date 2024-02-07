@@ -1,6 +1,6 @@
 import React, {useLayoutEffect, useMemo, useRef} from 'react';
 import type {LayoutChangeEvent, StyleProp, ViewStyle} from 'react-native';
-import {Animated, Easing, View} from 'react-native';
+import {Animated, Easing, Platform, View} from 'react-native';
 
 import type {ButtonSizeType} from '../Button';
 import type {IconName} from '../Icon';
@@ -33,7 +33,10 @@ function FloatingActionButtons({
   onPressFab,
   onPressItem,
   buttonSize = 'medium',
-  gap = 6,
+  gap = Platform.select({
+    web: 60,
+    default: 12,
+  }),
   animationDuration = 200,
 }: FabProps): JSX.Element {
   const {Fab, FabItem} = styles ?? {};
@@ -80,8 +83,6 @@ function FloatingActionButtons({
           right: 10,
           bottom: 10,
           zIndex: 999,
-          flex: 1,
-          alignSelf: 'stretch',
         },
         style,
       ]}

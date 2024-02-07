@@ -1,12 +1,11 @@
 import type {ComponentProps} from 'react';
-import {action} from '@storybook/addon-actions';
 import type {Meta, StoryObj} from '@storybook/react';
 
-import {DoobooProvider, EditText} from '../../main';
+import {EditText} from '../../main';
 import {StoryWrapper} from '../Common';
 
 const meta = {
-  title: 'EditText',
+  title: 'Components/EditText',
   component: (props) => <EditText {...props} />,
   argTypes: {
     required: {type: 'boolean'},
@@ -32,11 +31,9 @@ const meta = {
   },
   decorators: [
     (Story) => (
-      <DoobooProvider>
-        <StoryWrapper>
-          <Story />
-        </StoryWrapper>
-      </DoobooProvider>
+      <StoryWrapper>
+        <Story />
+      </StoryWrapper>
     ),
   ],
 } satisfies Meta<ComponentProps<typeof EditText>>;
@@ -47,7 +44,7 @@ type Story = StoryObj<typeof meta>;
 
 export const Basic: Story = {
   args: {
-    onChangeText: (text: string) => action(text),
+    onChangeText: () => {},
     direction: 'column',
     decoration: 'boxed',
     editable: true,

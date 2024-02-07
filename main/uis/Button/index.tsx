@@ -334,31 +334,36 @@ export function Button({
   );
 
   return (
-    <TouchableHighlight
-      activeOpacity={activeOpacity}
-      delayPressIn={30}
-      disabled={innerDisabled || loading || !onPress}
-      hitSlop={hitSlop}
-      onPress={onPress}
-      ref={Platform.select({
-        web: ref,
-        default: undefined,
-      })}
-      style={[
-        style,
-        css`
-          flex-direction: row;
-          border-radius: ${borderRadius + 'px'};
-        `,
-      ]}
-      testID={testID}
-      underlayColor={type === 'text' ? 'transparent' : theme.role.underlay}
-      {...touchableHighlightProps}
+    <View
+      style={css`
+        flex-direction: row;
+      `}
     >
-      {renderContainer({
-        children: ChildView,
-        loadingView: LoadingView,
-      })}
-    </TouchableHighlight>
+      <TouchableHighlight
+        activeOpacity={activeOpacity}
+        delayPressIn={30}
+        disabled={innerDisabled || loading || !onPress}
+        hitSlop={hitSlop}
+        onPress={onPress}
+        ref={Platform.select({
+          web: ref,
+          default: undefined,
+        })}
+        style={[
+          style,
+          css`
+            border-radius: ${borderRadius + 'px'};
+          `,
+        ]}
+        testID={testID}
+        underlayColor={type === 'text' ? 'transparent' : theme.role.underlay}
+        {...touchableHighlightProps}
+      >
+        {renderContainer({
+          children: ChildView,
+          loadingView: LoadingView,
+        })}
+      </TouchableHighlight>
+    </View>
   );
 }

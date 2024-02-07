@@ -3,10 +3,11 @@ import {View} from 'react-native';
 import {css} from '@emotion/native';
 import type {Meta, StoryObj} from '@storybook/react';
 
-import {DoobooProvider, Typography} from '../../main';
+import {Typography} from '../../main';
+import {StoryWrapper} from '../Common';
 
 const meta = {
-  title: 'Typography',
+  title: 'Components/Typography',
   component: (props) => (
     <View
       style={css`
@@ -30,9 +31,9 @@ const meta = {
   argTypes: {},
   decorators: [
     (Story) => (
-      <DoobooProvider>
+      <StoryWrapper>
         <Story />
-      </DoobooProvider>
+      </StoryWrapper>
     ),
   ],
 } satisfies Meta<ComponentProps<typeof Typography.Body1>>;

@@ -1,20 +1,18 @@
 import type {ComponentProps} from 'react';
 import type {Meta, StoryObj} from '@storybook/react';
 
-import {DoobooProvider, SwitchToggle} from '../../main';
-import {StoryContainer} from '../GlobalStyles';
+import {SwitchToggle} from '../../main';
+import {StoryWrapper} from '../Common';
 
 const meta = {
-  title: 'SwitchToggle',
+  title: 'Components/SwitchToggle',
   component: (props) => <SwitchToggle {...props} />,
   argTypes: {},
   decorators: [
     (Story) => (
-      <DoobooProvider>
-        <StoryContainer>
-          <Story />
-        </StoryContainer>
-      </DoobooProvider>
+      <StoryWrapper>
+        <Story />
+      </StoryWrapper>
     ),
   ],
 } satisfies Meta<ComponentProps<typeof SwitchToggle>>;

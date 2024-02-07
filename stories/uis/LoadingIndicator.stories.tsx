@@ -1,11 +1,11 @@
 import type {ComponentProps} from 'react';
 import type {Meta, StoryObj} from '@storybook/react';
 
-import {DoobooProvider, LoadingIndicator} from '../../main';
-import {StoryContainer} from '../GlobalStyles';
+import {LoadingIndicator} from '../../main';
+import {StoryWrapper} from '../Common';
 
 const meta = {
-  title: 'LoadingIndicator',
+  title: 'Components/LoadingIndicator',
   component: (props) => <LoadingIndicator {...props} />,
   argTypes: {
     size: {
@@ -15,11 +15,9 @@ const meta = {
   },
   decorators: [
     (Story) => (
-      <DoobooProvider>
-        <StoryContainer>
-          <Story />
-        </StoryContainer>
-      </DoobooProvider>
+      <StoryWrapper>
+        <Story />
+      </StoryWrapper>
     ),
   ],
 } satisfies Meta<ComponentProps<typeof LoadingIndicator>>;

@@ -3,11 +3,11 @@ import {View} from 'react-native';
 import {css} from '@emotion/native';
 import type {Meta, StoryObj} from '@storybook/react';
 
-import {doobooIconList, DoobooProvider, Icon, Typography} from '../../main';
-import {StoryContainer} from '../GlobalStyles';
+import {doobooIconList, Icon, Typography} from '../../main';
+import {StoryWrapper} from '../Common';
 
 const meta = {
-  title: 'Icon',
+  title: 'Components/Icon',
   component: (props) => (
     <View
       style={css`
@@ -33,11 +33,9 @@ const meta = {
   },
   decorators: [
     (Story) => (
-      <DoobooProvider>
-        <StoryContainer>
-          <Story />
-        </StoryContainer>
-      </DoobooProvider>
+      <StoryWrapper>
+        <Story />
+      </StoryWrapper>
     ),
   ],
 } satisfies Meta<ComponentProps<typeof Icon>>;
