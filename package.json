@@ -1,5 +1,5 @@
 {
-  "homepage": "https://dooboolab.github.io/dooboo-ui",
+  "homepage": "https://dooboo-ui.dooboolab.com",
   "private": true,
   "main": "node_modules/expo/AppEntry.js",
   "scripts": {
@@ -25,7 +25,7 @@
     "cp:main": "cp -r main/* ./lib",
     "postbuild": "cp ./main/react-native.config.cjs ./lib/react-native.config.cjs && rm -rf ./lib/tsconfig* && cp README.md ./lib/README.md && cp -R main/__assets__ lib && cp ./main/uis/Icon/**.otf ./lib/uis/Icon/",
     "storybook": "storybook dev -p 6006",
-    "storybook:build": "storybook build --docs -o ./doc-build -c ./.storybook && cp -r ./public/* ./doc-build/static",
+    "storybook:build": "storybook build --docs -o ./doc-build -c ./.storybook",
     "storybook:serve": "npx http-server ./doc-build",
     "export": "expo export -p web",
     "storybook-generate": "sb-rn-get-stories",
