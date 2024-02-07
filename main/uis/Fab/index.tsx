@@ -33,7 +33,7 @@ function FloatingActionButtons({
   onPressFab,
   onPressItem,
   buttonSize = 'medium',
-  gap = 6,
+  gap = 12,
   animationDuration = 200,
 }: FabProps): JSX.Element {
   const {Fab, FabItem} = styles ?? {};
@@ -80,8 +80,6 @@ function FloatingActionButtons({
           right: 10,
           bottom: 10,
           zIndex: 999,
-          flex: 1,
-          alignSelf: 'stretch',
         },
         style,
       ]}

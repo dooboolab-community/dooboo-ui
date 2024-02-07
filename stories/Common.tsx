@@ -4,6 +4,7 @@ import React, {useState} from 'react';
 import {StatusBar, View} from 'react-native';
 import {css} from '@emotion/native';
 
+// import {useDarkMode} from 'storybook-dark-mode';
 import {
   DoobooProvider,
   LoadingIndicator,
@@ -51,13 +52,13 @@ function Wrapper({children}: ContainerProps): JSX.Element {
           `}
         />
       </View>
-      <View
-        style={css`
+      <ScrollContainer
+        contentContainerStyle={css`
           flex: 1;
         `}
       >
-        <ScrollContainer>{children}</ScrollContainer>
-      </View>
+        {children}
+      </ScrollContainer>
     </StoryContainer>
   );
 }

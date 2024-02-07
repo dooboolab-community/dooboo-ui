@@ -30,7 +30,7 @@ jobs:
 
       - name: Install packages and build storybook
         run: |
-          yarn build:storybook
+          yarn export
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3

@@ -1,4 +1,3 @@
-import type {ReactNode} from 'react';
 import React, {useRef} from 'react';
 import type {StyleProp, TouchableHighlightProps, ViewStyle} from 'react-native';
 import {Platform, TouchableHighlight, View} from 'react-native';
@@ -121,7 +120,6 @@ export function IconButton({
 }: IconButtonProps): JSX.Element {
   const ref = useRef<TouchableHighlight>(null);
   const hovered = useHover(ref);
-
   const {theme} = useTheme();
 
   const {
@@ -147,6 +145,7 @@ export function IconButton({
         : size === 'small'
           ? 16
           : size;
+
   const borderWidthStr = `${borderWidth}px`;
   const borderRadiusStr = `99px`;
 
@@ -184,62 +183,61 @@ export function IconButton({
     ],
   };
 
-  const renderContainer = (children: ReactNode): JSX.Element => {
-    return (
-      <View
-        style={[
-          css`
-            padding: 4px;
-            border-radius: ${borderRadiusStr};
-
-            flex-direction: row;
-            justify-content: center;
-            align-items: center;
-          `,
-          compositeStyles.container,
-          hovered && !disabled && compositeStyles.hovered,
-          disabled && compositeStyles.disabled,
-        ]}
-        testID={loading ? 'loading-view' : 'button-container'}
-      >
-        {children}
-      </View>
-    );
-  };
-
-  const renderLoading = (): JSX.Element =>
-    loadingElement ?? (
-      <LoadingIndicator color={theme.text.basic} size="small" />
-    );
-
-  const renderIcon = (): JSX.Element =>
-    iconElement || (
-      <Icon color={iconColor} name={icon || 'QuestBoxFill'} size={iconSize} />
-    );
-
   return (
-    <TouchableHighlight
-      activeOpacity={activeOpacity}
-      delayPressIn={50}
-      disabled={disabled || loading}
-      onPress={onPress}
-      ref={Platform.select({
-        web: ref,
-        default: undefined,
-      })}
+    <View
       style={[
         css`
-          width: ${iconSize + 24 + 'px'};
-          height: ${iconSize + 24 + 'px'};
+          flex-direction: row;
           border-radius: ${borderRadiusStr};
         `,
         style,
       ]}
-      testID={testID}
-      underlayColor={theme.role.underlay}
-      {...touchableHighlightProps}
     >
-      {renderContainer(loading ? renderLoading() : renderIcon())}
-    </TouchableHighlight>
+      <TouchableHighlight
+        activeOpacity={activeOpacity}
+        delayPressIn={50}
+        disabled={disabled || loading}
+        onPress={onPress}
+        ref={Platform.select({
+          web: ref,
+          default: undefined,
+        })}
+        style={css`
+          border-radius: ${borderRadiusStr};
+        `}
+        testID={testID}
+        underlayColor={theme.role.underlay}
+        {...touchableHighlightProps}
+      >
+        <View
+          style={[
+            css`
+              padding: 4px;
+              border-radius: ${borderRadiusStr};
+
+              flex-direction: row;
+              justify-content: center;
+              align-items: center;
+            `,
+            compositeStyles.container,
+            hovered && !disabled && compositeStyles.hovered,
+            disabled && compositeStyles.disabled,
+          ]}
+          testID={loading ? 'loading-view' : 'button-container'}
+        >
+          {loading
+            ? loadingElement || (
+                <LoadingIndicator color={theme.text.basic} size="small" />
+              )
+            : iconElement || (
+                <Icon
+                  color={iconColor}
+                  name={icon || 'QuestBoxFill'}
+                  size={iconSize}
+                />
+              )}
+        </View>
+      </TouchableHighlight>
+    </View>
   );
 }
