@@ -1,5 +1,4 @@
 import type {ComponentProps} from 'react';
-import {action} from '@storybook/addon-actions';
 import type {Meta, StoryObj} from '@storybook/react';
 
 import type {ButtonColorType, ButtonSizeType, ButtonType} from '../../main';
@@ -57,6 +56,6 @@ export const Basic: Story = {
     color: 'primary',
     text: 'Button',
     size: 'medium',
-    onPress: action('onPressItem'),
+    onPress: () => {},
   },
 };

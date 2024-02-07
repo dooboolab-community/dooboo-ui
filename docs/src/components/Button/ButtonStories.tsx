@@ -2,7 +2,6 @@ import type {ComponentProps} from 'react';
 import {useState} from 'react';
 import {Image, View} from 'react-native';
 import {css} from '@emotion/native';
-import {action} from '@storybook/addon-actions';
 import type {Meta, Story} from '@storybook/react/types-6-0';
 import type {ButtonColorType, ButtonSizeType, ButtonType} from 'dooboo-ui';
 import {Button, DoobooProvider} from 'dooboo-ui';
@@ -151,7 +150,6 @@ export function ButtonElementStory(): JSX.Element {
           loading={googleLoading}
           onPress={(): void => {
             setGoogleLoading(true);
-            action('google btn clicked');
 
             const timeout = setTimeout(() => {
               setGoogleLoading(false);
@@ -181,7 +179,6 @@ export function ButtonElementStory(): JSX.Element {
           loading={facebookLoading}
           onPress={(): void => {
             setFacebookLoading(true);
-            action('facebook btn clicked');
 
             const timeout = setTimeout(() => {
               setFacebookLoading(false);

@@ -1,6 +1,5 @@
 import {Text, View} from 'react-native';
 import {css} from '@emotion/native';
-import {action} from '@storybook/addon-actions';
 import type {Meta, StoryObj} from '@storybook/react';
 
 import {
@@ -23,7 +22,7 @@ const meta = {
 
     return (
       <Accordion<AccordionTitle, AccordionItem>
-        onPressItem={action('onPressItem')}
+        onPressItem={() => {}}
         renderItem={({text}) => {
           if (text === 'User' || text === 'Image' || text === 'Puzz') {
             return (

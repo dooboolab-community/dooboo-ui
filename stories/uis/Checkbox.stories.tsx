@@ -1,6 +1,5 @@
 import {type ComponentProps} from 'react';
 import {Text} from 'react-native';
-import {action} from '@storybook/addon-actions';
 import type {Meta, StoryObj} from '@storybook/react';
 
 import type {CheckboxColor} from '../../main';
@@ -49,6 +48,6 @@ export const Basic: Story = {
     color: 'primary',
     endElement: <Text>Click Checkbox!</Text>,
     checked: false,
-    onPress: action('onCheck'),
+    onPress: () => {},
   },
 };

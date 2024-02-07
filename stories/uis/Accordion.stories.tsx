@@ -1,5 +1,4 @@
 import type {ComponentProps} from 'react';
-import {action} from '@storybook/addon-actions';
 import type {Meta, StoryObj} from '@storybook/react';
 
 import {Accordion, DoobooProvider} from '../../main';
@@ -28,7 +27,7 @@ export const Basic: Story = {
   args: {
     animDuration: 200,
     collapseOnStart: true,
-    onPressItem: action('onPressItem'),
+    onPressItem: () => {},
     data: [
       {
         title: 'Item 1',

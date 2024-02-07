@@ -1,5 +1,4 @@
 import type {ComponentProps} from 'react';
-import {action} from '@storybook/addon-actions';
 import type {Meta, Story} from '@storybook/react/types-6-0';
 import {DoobooProvider, IconButton} from 'dooboo-ui';
 import {useDarkMode} from 'storybook-dark-mode';
@@ -13,7 +12,7 @@ export default {
 type IconButtonProps = ComponentProps<typeof IconButton>;
 
 const initialProps: IconButtonProps = {
-  onPress: action('icon btn clicked'),
+  onPress: () => {},
   icon: 'Airplane',
 };
 
