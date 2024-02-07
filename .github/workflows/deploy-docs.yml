@@ -4,8 +4,6 @@ on:
   push:
     branches:
       - main
-    paths:
-      - 'docs/**'
 
 jobs:
   build_and_deploy:
@@ -16,20 +14,19 @@ jobs:
         with:
           node-version: 20.x
 
-      - name: Install Expo CLI
-        run: yarn global add expo-cli
-
+      - name: Setup expo cli
+        uses: expo/expo-github-action@v8
+        with:
+          expo-version: 4.x
+  
       - name: Install packages and build storybook
         run: |
-          pushd ./docs
           yarn install --network-concurrency 1
           yarn build
-          popd
 
       - name: Deploy to firebase
         uses: FirebaseExtended/action-hosting-deploy@v0
         with:
-          entryPoint: './docs'
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
           firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_DOOBOOLAB_2F044 }}'
           channelId: live
