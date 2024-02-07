@@ -5,7 +5,7 @@ import {ProgressCircle} from '../../main';
 import {StoryWrapper} from '../Common';
 
 const meta = {
-  title: 'ProgressCircle',
+  title: 'Components/ProgressCircle',
   component: (props) => <ProgressCircle {...props} />,
   decorators: [
     (Story) => (

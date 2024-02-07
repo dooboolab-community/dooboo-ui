@@ -19,7 +19,7 @@ const buttonColors: ButtonColorType[] = [
 ];
 
 const meta = {
-  title: 'Button',
+  title: 'Components/Button',
   component: (props) => <Button {...props} />,
   argTypes: {
     type: {

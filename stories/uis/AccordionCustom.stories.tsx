@@ -9,7 +9,7 @@ type AccordionTitle = {key: string; text: string};
 type AccordionItem = {text: string};
 
 const meta = {
-  title: 'Accordion',
+  title: 'Components/Accordion',
   component: (props) => {
     // eslint-disable-next-line react-hooks/rules-of-hooks
     const {theme} = useDooboo();

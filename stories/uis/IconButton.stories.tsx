@@ -5,7 +5,7 @@ import {IconButton} from '../../main';
 import {StoryWrapper} from '../Common';
 
 const meta = {
-  title: 'IconButton',
+  title: 'Components/IconButton',
   component: (props) => <IconButton {...props} />,
   argTypes: {
     type: {

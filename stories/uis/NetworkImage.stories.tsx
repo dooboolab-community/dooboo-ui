@@ -6,7 +6,7 @@ import {NetworkImage} from '../../main';
 import {StoryWrapper} from '../Common';
 
 const meta = {
-  title: 'NetworkImage',
+  title: 'Components/NetworkImage',
   component: (props) => (
     <NetworkImage
       style={css`

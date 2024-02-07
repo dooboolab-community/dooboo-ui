@@ -6,7 +6,7 @@ import {RadioGroup} from '../../main';
 import {StoryWrapper} from '../Common';
 
 const meta = {
-  title: 'RadioGroup',
+  title: 'Components/RadioGroup',
   component: (props) => <RadioGroup {...props} />,
   argTypes: {
     type: {

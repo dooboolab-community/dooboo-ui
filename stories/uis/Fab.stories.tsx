@@ -6,7 +6,7 @@ import {Fab} from '../../main';
 import {StoryWrapper} from '../Common';
 
 const meta = {
-  title: 'Fab',
+  title: 'Components/Fab',
   component: (props) => <Fab {...props} />,
   argTypes: {
     icons: {

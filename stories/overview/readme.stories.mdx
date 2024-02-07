@@ -1,0 +1,189 @@
+import {Meta} from '@storybook/addon-docs';
+
+<Meta title="Overview/Getting Started" />
+
+# dooboo-ui
+
+> [Expo](https://expo.io) first [React Native](https://reactnative.dev) UI components. Simple and flexible which also supports theming with default colors.
+
+![Supports Expo iOS](https://img.shields.io/badge/iOS-4630EB.svg?style=flat-square&logo=APPLE&labelColor=999999&logoColor=fff)
+![Supports Expo Android](https://img.shields.io/badge/Android-4630EB.svg?style=flat-square&logo=ANDROID&labelColor=A4C639&logoColor=fff)
+![Supports Expo Web](https://img.shields.io/badge/web-4630EB.svg?style=flat-square&logo=GOOGLE-CHROME&labelColor=4285F4&logoColor=fff)
+
+[![Npm Version](http://img.shields.io/npm/v/dooboo-ui.svg?style=flat-square)](https://npmjs.org/package/dooboo-ui)
+[![Downloads](http://img.shields.io/npm/dm/dooboo-ui.svg?style=flat-square)](https://npmjs.org/package/dooboo-ui)
+[![codecov](https://codecov.io/gh/dooboolab-community/dooboo-ui/branch/main/graph/badge.svg?token=ncTMAOVpOM)](https://codecov.io/gh/dooboolab-community/dooboo-ui)
+[![CI](https://github.com/dooboolab-community/dooboo-ui/actions/workflows/ci.yml/badge.svg)](https://github.com/dooboolab-community/dooboo-ui/actions/workflows/ci.yml)
+[![gh-pages](https://github.com/dooboolab-community/dooboo-ui/actions/workflows/gh-pages.yml/badge.svg)](https://dooboolab.github.io/dooboo-ui)
+[![Publish](https://github.com/dooboolab-community/dooboo-ui/actions/workflows/publish.yml/badge.svg)](https://github.com/dooboolab-community/dooboo-ui/actions/workflows/publish.yml)
+[![Sponsor](https://opencollective.com/dooboo-ui/tiers/badge.svg?style=shield)](https://opencollective.com/dooboo-ui/tiers/badge.svg)
+![License](http://img.shields.io/npm/l/dooboo-ui.svg?style=flat-square)
+
+We are passionate about [react-hooks](https://code.fb.com/open-source/react-hooks) and are excited to share our [react-native](https://facebook.github.io/react-native) UI components, crafted using hooks within [function components](https://reactjs.org/docs/components-and-props.html#function-and-class-components). `dooboo-ui` is constructed using our preferred technologies, including [emotion](https://emotion.sh/docs/@emotion/native), [typescript](https://www.typescriptlang.org/), [jest](https://jestjs.io), [react-native-testing-library](https://github.com/callstack/react-native-testing-library), [expo](https://expo.io), and [storybook](https://storybook.js.org).
+
+## Philosophy
+
+`dooboo-ui` is designed to offer user-friendly, lightweight, and adaptable UI components, emphasizing customizable `theme` variations and a responsive layout.
+
+## Announcement
+
+This project has evolved from [dooboo-ui-legacy](https://github.com/dooboolab-community/dooboo-ui-legacy) as a part of our rejuvenation initiative. Our decision to transition was spurred by a sponsor's desire to revamp the project with enhanced design communication and functionalities. We're excited to further this project, blending the visions of a diverse community. The project's version will commence with `dooboo-ui@0.1.0` in the [npm registry](https://www.npmjs.com).
+
+## Install
+
+### Expo
+
+```sh
+expo install dooboo-ui @emotion/react @emotion/native @expo/vector-icons react-native-gesture-handler react-native-svg expo-screen-orientation @expo/match-media
+```
+
+### React Native CLI
+
+```sh
+# When using yarn
+yarn add dooboo-ui @emotion/react @emotion/native @expo/vector-icons react-native-gesture-handler react-native-svg expo-screen-orientation @expo/match-media
+
+# Install expo modules
+npx install-expo-modules@latest
+```
+
+### dooboo-cli
+
+Easily initialize your boilerplate code using `dooboo-ui` with the help of [dooboo-cli](https://github.com/dooboolab-community/dooboo-cli).
+
+## Usage
+
+We're dedicated to helping [expo](https://expo.io) users craft code efficiently and reliably across all platforms, with a current focus on `iOS`, `android`, and `web`. For an in-depth understanding of our project's direction, refer to the [issue discussing the unification of dooboo-ui-legacy](https://github.com/dooboolab-community/dooboo-ui-legacy/issues/194).
+
+Starting from version `0.2.0`, it's advisable to encase your App with `DoobooProvider`. This ensures the seamless application of themes and UI elements from `dooboo-ui`. Note: The original `ThemeProvider` is now integrated within `DoobooProvider`.
+
+```tsx
+import {DoobooProvider} from 'dooboo-ui';
+
+<DoobooProvider>
+  <App />
+</DoobooProvider>;
+```
+
+## Theming
+
+Refer to [how to theme your app](?path=/docs/overview-theming--page) for guidance. A key update in version `0.2.0` is our recommendation to use `DoobooProvider` over `ThemeProvider` in your application.
+
+## Installing Fonts (Recommended)
+
+In `dooboo-ui`, our default font is [Pretendard](https://github.com/orioncactus/pretendard). The font families we use include `Pretandard`, `Pretendard-Bold`, and `Pretendard-Thin`. Starting from version `0.2.1`, these fonts are automatically installed when you add `dooboo-ui`. Still, it's essential to verify if the fonts have loaded correctly using `assetLoaded` from the `DoobooProvider`.
+
+```tsx
+import {useDooboo} from 'dooboo-ui';
+
+const {assetLoaded} = useDooboo();
+
+if (!assetLoaded) {
+  // Render loading state
+  return ...;
+}
+
+return <Main/>
+```
+
+## Font Icons Integration
+
+`dooboo-ui` supports [Phosphoricons](https://phosphoricons.com). To use them, leverage the `Icon` component.
+
+```js
+import {Icon} from 'dooboo-ui';
+
+...
+
+<Icon name="..." color="#AAA" size={32} />;
+```
+
+## Compatibility
+
+| Package                  | Version  |
+|:------------------------:|:--------:|
+| react                    | >=16.13  |
+| react-native             | >=0.58   |
+| emotion                  | >=11.0.0 |
+| emotion/react            | >=11.0.0 |
+| emotion/native           | >=11.0.0 |
+| @expo/vector-icons       | \*       |
+
+## Standalone Components in `@dooboo-ui/*`
+
+Certain components aren't bundled with the `dooboo-ui` package due to dependencies that might bulk up the package. Instead, they are managed separately using [Lerna](https://lerna.js.org/) for a mono-repo approach. For an in-depth overview, check out the [dooboo-ui-strategy](https://github.com/dooboolab-community/dooboo-ui/pull/49).
+
+- **[CalendarCarousel](https://github.com/dooboolab-community/dooboo-ui/tree/main/packages/CalendarCarousel)**
+- **[GiftedChat](https://github.com/dooboolab-community/dooboo-ui/tree/main/packages/GiftedChat)**
+- **[PinchZoom](https://github.com/dooboolab-community/dooboo-ui/tree/main/packages/PinchZoom)**
+
+## Troubleshooting
+
+### Resolving Errors in Expo Web with "dooboo-ui"
+
+If you're encountering errors when using "dooboo-ui" with expo-web, follow these steps to configure webpack:
+
+#### 1. Add `@expo/webpack-config` to Your Expo Project
+
+Install the necessary package:
+
+```sh
+yarn add @expo/webpack-config
+```
+
+#### 2. Configure Webpack
+
+Create a `webpack.config.js` file in your project root. Then, add the following configuration:
+
+```javascript
+const createExpoWebpackConfigAsync = require('@expo/webpack-config');
+
+module.exports = async function (env, argv) {
+  const config = await createExpoWebpackConfigAsync(
+    {
+      ...env,
+      babel: {
+        dangerouslyAddModulePathsToTranspile: ['dooboo-ui'],
+      },
+    },
+    argv,
+  );
+  return config;
+};
+```
+
+For more context on this solution, refer to this related [issue](https://forums.expo.io/t/error-when-running-expo-start-web/33096/3).
+
+## Sponsors
+
+Support this project by becoming a sponsor. Your logo will show up here with
+a link to your website. [Become a sponsor](https://opencollective.com/dooboolab-community#sponsor).
+
+<a
+  href="https://opencollective.com/dooboolab-community#sponsors"
+  target="_blank"
+>
+  <img src="https://opencollective.com/dooboolab-community/sponsors.svg?width=890" />
+</a>
+
+### Backers
+
+Please be our [Backers](https://opencollective.com/dooboolab-community#backers).
+
+<a
+  href="https://opencollective.com/dooboolab-community#backers"
+  target="_blank"
+>
+  <img src="https://opencollective.com/dooboolab-community/backers.svg?width=890" />
+</a>
+
+### Contributing
+
+Please make sure to read the [Contributing Guide](https://dooboo-ui.dooboolab.com/?path=/docs/contributing-contributing--page) before making a pull request.
+Thank you to all the people who helped to maintain and upgrade this project!
+
+[![a relative link](https://opencollective.com/dooboolab-community/contributors.svg?width=890&button=true)](https://opencollective.com/dooboolab-community)
+
+## License
+
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fdooboolab%2Fdooboo-ui.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Fdooboolab%2Fdooboo-ui?ref=badge_shield)

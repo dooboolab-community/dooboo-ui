@@ -5,7 +5,7 @@ import {SwitchToggle} from '../../main';
 import {StoryWrapper} from '../Common';
 
 const meta = {
-  title: 'SwitchToggle',
+  title: 'Components/SwitchToggle',
   component: (props) => <SwitchToggle {...props} />,
   argTypes: {},
   decorators: [

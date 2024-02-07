@@ -6,7 +6,7 @@ import CalendarCarousel from '../../packages/CalendarCarousel';
 import {StoryContainer} from '../GlobalStyles';
 
 const meta = {
-  title: 'CalendarCarousel',
+  title: 'Packages/CalendarCarousel',
   component: (props) => (
     <CalendarCarousel
       initialSelectedDate={new Date(2024, 11, 4)}

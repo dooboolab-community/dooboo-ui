@@ -5,7 +5,7 @@ import {EditText} from '../../main';
 import {StoryWrapper} from '../Common';
 
 const meta = {
-  title: 'EditText',
+  title: 'Components/EditText',
   component: (props) => <EditText {...props} />,
   argTypes: {
     required: {type: 'boolean'},

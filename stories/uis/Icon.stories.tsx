@@ -7,7 +7,7 @@ import {doobooIconList, Icon, Typography} from '../../main';
 import {StoryWrapper} from '../Common';
 
 const meta = {
-  title: 'Icon',
+  title: 'Components/Icon',
   component: (props) => (
     <View
       style={css`

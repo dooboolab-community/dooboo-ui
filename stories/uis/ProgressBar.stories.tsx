@@ -5,7 +5,7 @@ import {ProgressBar} from '../../main';
 import {StoryWrapper} from '../Common';
 
 const meta = {
-  title: 'ProgressBar',
+  title: 'Components/ProgressBar',
   component: (props) => <ProgressBar {...props} />,
   argTypes: {},
   decorators: [

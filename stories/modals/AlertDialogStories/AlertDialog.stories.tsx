@@ -8,7 +8,7 @@ import {StoryContainer} from '../../GlobalStyles';
 import Component from './AlertDialogBasicStory';
 
 const meta = {
-  title: 'AlertDialog',
+  title: 'Components/AlertDialog',
   component: Component,
   argTypes: {},
   decorators: [

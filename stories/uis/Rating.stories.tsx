@@ -5,7 +5,7 @@ import {Rating} from '../../main';
 import {StoryWrapper} from '../Common';
 
 const meta = {
-  title: 'Rating',
+  title: 'Components/Rating',
   component: (props) => <Rating {...props} />,
   argTypes: {
     iconType: {

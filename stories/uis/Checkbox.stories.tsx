@@ -16,7 +16,7 @@ const colors: CheckboxColor[] = [
 ];
 
 const meta = {
-  title: 'Checkbox',
+  title: 'Components/Checkbox',
   component: (props) => <Checkbox {...props} />,
   argTypes: {
     color: {

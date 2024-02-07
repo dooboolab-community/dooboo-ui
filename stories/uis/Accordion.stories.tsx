@@ -6,7 +6,7 @@ import {StoryWrapper} from '../Common';
 
 // @ts-ignore
 const meta = {
-  title: 'Accordion',
+  title: 'Components/Accordion',
   component: (props) => <Accordion {...props} />,
   decorators: [
     (Story) => (

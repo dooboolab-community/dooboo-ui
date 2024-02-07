@@ -7,7 +7,7 @@ import {Typography} from '../../main';
 import {StoryWrapper} from '../Common';
 
 const meta = {
-  title: 'Typography',
+  title: 'Components/Typography',
   component: (props) => (
     <View
       style={css`

@@ -8,7 +8,7 @@ import {StoryContainer} from '../GlobalStyles';
 import Component from './PinchZoomStories/PinchZoomImageListStory';
 
 const meta = {
-  title: 'PinchZoom',
+  title: 'Packages/PinchZoom',
   // @ts-ignore
   component: Component,
   argTypes: {},

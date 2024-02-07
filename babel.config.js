@@ -20,6 +20,7 @@ module.exports = (api) => {
       '@babel/plugin-syntax-dynamic-import',
       '@babel/plugin-transform-modules-commonjs',
       'react-native-reanimated/plugin',
+      ['babel-plugin-react-docgen-typescript', {exclude: 'node_modules'}],
     ],
   };
 };

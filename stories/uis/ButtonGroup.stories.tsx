@@ -5,7 +5,7 @@ import {ButtonGroup} from '../../main';
 import {StoryWrapper} from '../Common';
 
 const meta = {
-  title: 'ButtonGroup',
+  title: 'Components/ButtonGroup',
   component: (props) => <ButtonGroup {...props} />,
   argTypes: {
     color: {

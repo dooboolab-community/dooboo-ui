@@ -5,7 +5,7 @@ import {LoadingIndicator} from '../../main';
 import {StoryWrapper} from '../Common';
 
 const meta = {
-  title: 'LoadingIndicator',
+  title: 'Components/LoadingIndicator',
   component: (props) => <LoadingIndicator {...props} />,
   argTypes: {
     size: {

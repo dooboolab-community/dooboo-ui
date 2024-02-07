@@ -8,7 +8,7 @@ import {StoryContainer} from '../../GlobalStyles';
 import Component from './SnackbarBasicStory';
 
 const meta = {
-  title: 'Snackbar',
+  title: 'Components/Snackbar',
   component: Component,
   argTypes: {},
   decorators: [
