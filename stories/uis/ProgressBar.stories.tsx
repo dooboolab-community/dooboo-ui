@@ -1,8 +1,8 @@
 import type {ComponentProps} from 'react';
 import type {Meta, StoryObj} from '@storybook/react';
 
-import {DoobooProvider, ProgressBar} from '../../main';
-import {StoryContainer} from '../GlobalStyles';
+import {ProgressBar} from '../../main';
+import {StoryWrapper} from '../Common';
 
 const meta = {
   title: 'ProgressBar',
@@ -10,11 +10,9 @@ const meta = {
   argTypes: {},
   decorators: [
     (Story) => (
-      <DoobooProvider>
-        <StoryContainer>
-          <Story />
-        </StoryContainer>
-      </DoobooProvider>
+      <StoryWrapper>
+        <Story />
+      </StoryWrapper>
     ),
   ],
 } satisfies Meta<ComponentProps<typeof ProgressBar>>;

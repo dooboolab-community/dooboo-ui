@@ -1,7 +1,7 @@
 import type {ComponentProps} from 'react';
 import type {Meta, StoryObj} from '@storybook/react';
 
-import {Accordion, DoobooProvider} from '../../main';
+import {Accordion} from '../../main';
 import {StoryWrapper} from '../Common';
 
 // @ts-ignore
@@ -10,11 +10,9 @@ const meta = {
   component: (props) => <Accordion {...props} />,
   decorators: [
     (Story) => (
-      <DoobooProvider>
-        <StoryWrapper>
-          <Story />
-        </StoryWrapper>
-      </DoobooProvider>
+      <StoryWrapper>
+        <Story />
+      </StoryWrapper>
     ),
   ],
 } satisfies Meta<ComponentProps<typeof Accordion>>;

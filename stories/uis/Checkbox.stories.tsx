@@ -3,7 +3,7 @@ import {Text} from 'react-native';
 import type {Meta, StoryObj} from '@storybook/react';
 
 import type {CheckboxColor} from '../../main';
-import {Checkbox, DoobooProvider} from '../../main';
+import {Checkbox} from '../../main';
 import {StoryWrapper} from '../Common';
 
 const colors: CheckboxColor[] = [
@@ -30,11 +30,9 @@ const meta = {
   },
   decorators: [
     (Story) => (
-      <DoobooProvider>
-        <StoryWrapper>
-          <Story />
-        </StoryWrapper>
-      </DoobooProvider>
+      <StoryWrapper>
+        <Story />
+      </StoryWrapper>
     ),
   ],
 } satisfies Meta<ComponentProps<typeof Checkbox>>;

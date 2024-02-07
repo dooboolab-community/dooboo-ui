@@ -1,8 +1,8 @@
 import type {ComponentProps} from 'react';
 import type {Meta, StoryObj} from '@storybook/react';
 
-import {DoobooProvider, IconButton} from '../../main';
-import {StoryContainer} from '../GlobalStyles';
+import {IconButton} from '../../main';
+import {StoryWrapper} from '../Common';
 
 const meta = {
   title: 'IconButton',
@@ -24,11 +24,9 @@ const meta = {
   },
   decorators: [
     (Story) => (
-      <DoobooProvider>
-        <StoryContainer>
-          <Story />
-        </StoryContainer>
-      </DoobooProvider>
+      <StoryWrapper>
+        <Story />
+      </StoryWrapper>
     ),
   ],
 } satisfies Meta<ComponentProps<typeof IconButton>>;

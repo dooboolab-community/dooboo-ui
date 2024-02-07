@@ -2,7 +2,7 @@ import type {ComponentProps} from 'react';
 import type {Meta, StoryObj} from '@storybook/react';
 
 import type {ButtonColorType, ButtonSizeType, ButtonType} from '../../main';
-import {Button, DoobooProvider} from '../../main';
+import {Button} from '../../main';
 import {StoryWrapper} from '../Common';
 
 const buttonTypes: ButtonType[] = ['outlined', 'solid', 'text'];
@@ -37,11 +37,9 @@ const meta = {
   },
   decorators: [
     (Story) => (
-      <DoobooProvider>
-        <StoryWrapper>
-          <Story />
-        </StoryWrapper>
-      </DoobooProvider>
+      <StoryWrapper>
+        <Story />
+      </StoryWrapper>
     ),
   ],
 } satisfies Meta<ComponentProps<typeof Button>>;

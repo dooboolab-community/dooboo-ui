@@ -2,13 +2,7 @@ import {Text, View} from 'react-native';
 import {css} from '@emotion/native';
 import type {Meta, StoryObj} from '@storybook/react';
 
-import {
-  Accordion,
-  DoobooProvider,
-  Icon,
-  Typography,
-  useDooboo,
-} from '../../main';
+import {Accordion, Icon, Typography, useDooboo} from '../../main';
 import {StoryWrapper} from '../Common';
 
 type AccordionTitle = {key: string; text: string};
@@ -152,11 +146,9 @@ const meta = {
   },
   decorators: [
     (Story) => (
-      <DoobooProvider>
-        <StoryWrapper>
-          <Story />
-        </StoryWrapper>
-      </DoobooProvider>
+      <StoryWrapper>
+        <Story />
+      </StoryWrapper>
     ),
   ],
 } satisfies Meta<typeof Accordion<AccordionTitle, AccordionItem>>;
