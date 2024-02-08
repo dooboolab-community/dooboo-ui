@@ -51,8 +51,14 @@ export function StoryWrapper({
   children: ReactNode;
   style: ViewStyle;
 }): JSX.Element {
+  const isDark = useDarkMode();
+
   return (
-    <DoobooProvider>
+    <DoobooProvider
+      themeConfig={{
+        initialThemeType: isDark ? 'dark' : 'light',
+      }}
+    >
       <WrapperWeb style={style}>{children}</WrapperWeb>
     </DoobooProvider>
   );
