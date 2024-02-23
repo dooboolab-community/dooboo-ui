@@ -93,7 +93,7 @@ const ButtonStyles = ({
             ? '8px 16px'
             : '12px 24px',
     backgroundColor,
-    borderWidth: type === 'outlined' ? '1px' : undefined,
+    borderWidth: '1px',
     borderColor,
     textColor,
     disabledBackgroundColor:
@@ -334,36 +334,30 @@ export function Button({
   );
 
   return (
-    <View
-      style={css`
-        flex-direction: row;
-      `}
+    <TouchableHighlight
+      activeOpacity={activeOpacity}
+      delayPressIn={30}
+      disabled={innerDisabled || loading || !onPress}
+      hitSlop={hitSlop}
+      onPress={onPress}
+      ref={Platform.select({
+        web: ref,
+        default: undefined,
+      })}
+      style={[
+        style,
+        css`
+          border-radius: ${borderRadius + 'px'};
+        `,
+      ]}
+      testID={testID}
+      underlayColor={type === 'text' ? 'transparent' : theme.role.underlay}
+      {...touchableHighlightProps}
     >
-      <TouchableHighlight
-        activeOpacity={activeOpacity}
-        delayPressIn={30}
-        disabled={innerDisabled || loading || !onPress}
-        hitSlop={hitSlop}
-        onPress={onPress}
-        ref={Platform.select({
-          web: ref,
-          default: undefined,
-        })}
-        style={[
-          style,
-          css`
-            border-radius: ${borderRadius + 'px'};
-          `,
-        ]}
-        testID={testID}
-        underlayColor={type === 'text' ? 'transparent' : theme.role.underlay}
-        {...touchableHighlightProps}
-      >
-        {renderContainer({
-          children: ChildView,
-          loadingView: LoadingView,
-        })}
-      </TouchableHighlight>
-    </View>
+      {renderContainer({
+        children: ChildView,
+        loadingView: LoadingView,
+      })}
+    </TouchableHighlight>
   );
 }
