@@ -56,8 +56,8 @@ const ButtonStyles = ({
 }): {
   padding?: string;
   backgroundColor?: string;
-  borderColor?: string;
-  borderWidth?: string;
+  borderColor: string;
+  borderWidth: string | number;
   textColor?: string;
   disabledBackgroundColor: string;
   disabledBorderColor: string;
@@ -92,8 +92,8 @@ const ButtonStyles = ({
           : size === 'small'
             ? '8px 16px'
             : '12px 24px',
-    backgroundColor,
-    borderWidth: '1px',
+    backgroundColor: type !== 'text' ? backgroundColor : 'transparent',
+    borderWidth: type !== 'text' ? '1px' : 0,
     borderColor,
     textColor,
     disabledBackgroundColor:
