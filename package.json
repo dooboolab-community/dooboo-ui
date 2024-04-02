@@ -95,7 +95,7 @@
     "babel-plugin-react-native-web": "^0.19.10",
     "babel-preset-expo": "^9.5.2",
     "babel-preset-react-app": "^10.0.1",
-    "commitlint-plugin-function-rules": "^3.0.0",
+    "commitlint-plugin-function-rules": "^4.0.0",
     "cross-env": "^7.0.3",
     "eslint": "^8.56.0",
     "eslint-plugin-storybook": "^0.6.15",
