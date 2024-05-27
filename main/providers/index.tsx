@@ -10,6 +10,7 @@ import type {AlertDialogContext} from '../modals/AlertDialog';
 import AlertDialog from '../modals/AlertDialog';
 import type {SnackbarContext, SnackbarOptions} from '../modals/Snackbar';
 import Snackbar from '../modals/Snackbar';
+import {LoadingIndicator} from '../uis/LoadingIndicator';
 import createCtx from '../utils/createCtx';
 
 export type {ThemeContext} from '@dooboo-ui/theme';
@@ -80,7 +81,15 @@ function AppProvider({children}: {children: JSX.Element}): JSX.Element {
           alertDialog: alertDialogContext,
         }}
       >
-        {!assetLoaded ? null : (
+        {!assetLoaded ? (
+          <LoadingIndicator
+            style={css`
+              align-self: stretch;
+              flex: 1;
+              justify-content: center;
+            `}
+          />
+        ) : (
           <>
             {children}
             <Snackbar ref={snackbar} />

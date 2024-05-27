@@ -227,7 +227,16 @@ export function IconButton({
         >
           {loading
             ? loadingElement || (
-                <LoadingIndicator color={theme.text.basic} size="small" />
+                <LoadingIndicator
+                  color={theme.text.disabled}
+                  size="small"
+                  style={css`
+                    justify-content: center;
+                    align-items: center;
+                    height: ${iconSize + 'px'};
+                    width: ${iconSize + 'px'};
+                  `}
+                />
               )
             : iconElement || (
                 <Icon
