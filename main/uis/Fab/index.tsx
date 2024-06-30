@@ -12,11 +12,11 @@ type Styles = {
 };
 
 export type FabProps = {
-  isActive: boolean;
-  icons: IconName[];
+  isActive?: boolean;
+  icons?: IconName[];
   animationDuration?: number;
   onPressFab: () => void;
-  onPressItem: (item?: IconName) => void;
+  onPressItem?: (item?: IconName) => void;
   buttonSize?: ButtonSizeType | number;
   fabIcon?: IconName;
   gap?: number;
@@ -25,11 +25,11 @@ export type FabProps = {
 };
 
 function FloatingActionButtons({
-  isActive,
+  isActive = false,
   style,
   styles,
   fabIcon = 'Plus',
-  icons,
+  icons = [],
   onPressFab,
   onPressItem,
   buttonSize = 'medium',
@@ -101,7 +101,7 @@ function FloatingActionButtons({
           >
             <IconButton
               icon={icon}
-              onPress={() => onPressItem(icon)}
+              onPress={() => onPressItem?.(icon)}
               size={buttonSize}
               testID={icon}
             />
