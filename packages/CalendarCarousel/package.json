@@ -23,7 +23,7 @@
   },
   "homepage": "https://github.com/dooboolab-community/dooboo-ui#readme",
   "dependencies": {
-    "date-fns": "^2.30.0",
+    "date-fns": "^4.0.0",
     "dooboolab-welcome": "^1.3.2"
   },
   "devDependencies": {
