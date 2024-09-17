@@ -31,6 +31,7 @@ import GlobalStyles from './style';
 
 export type EditTextStyles = {
   container?: StyleProp<ViewStyle>;
+  labelContainer?: StyleProp<ViewStyle>;
   label?: StyleProp<TextStyle>;
   inputContainer?: StyleProp<TextStyle>;
   input?: StyleProp<TextStyle>;
@@ -198,12 +199,15 @@ export const EditText = forwardRef<TextInput, EditTextProps>(
       function Wrapper({children}: {children: ReactNode}): JSX.Element {
         return (
           <View
-            style={css`
-              margin-bottom: ${decoration === 'boxed' ? '14px' : 0};
+            style={[
+              css`
+                margin-bottom: ${decoration === 'boxed' ? '14px' : 0};
 
-              flex-direction: row;
-              align-items: center;
-            `}
+                flex-direction: row;
+                align-items: center;
+              `,
+              styles?.labelContainer,
+            ]}
           >
             {children}
             {required ? (
@@ -248,6 +252,7 @@ export const EditText = forwardRef<TextInput, EditTextProps>(
       required,
       status,
       styles?.label,
+      styles?.labelContainer,
       theme.role.danger,
     ]);
 

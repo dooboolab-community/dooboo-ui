@@ -1,5 +1,3 @@
-const {maxLineLength} = require('@commitlint/ensure');
-
 const bodyMaxLineLength = 500;
 
 const validateBodyMaxLengthIgnoringDeps = (parsedCommit) => {
