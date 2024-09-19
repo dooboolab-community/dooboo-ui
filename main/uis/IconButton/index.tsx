@@ -118,7 +118,7 @@ export function IconButton({
   activeOpacity = 0.95,
   touchableHighlightProps,
 }: IconButtonProps): JSX.Element {
-  const ref = useRef<TouchableHighlight>(null);
+  const ref = useRef<React.ElementRef<typeof TouchableHighlight>>(null);
   const hovered = useHover(ref);
   const {theme} = useTheme();
 

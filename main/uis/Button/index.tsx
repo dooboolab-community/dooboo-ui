@@ -162,7 +162,7 @@ export function Button({
   loadingColor,
   hitSlop = {top: 8, bottom: 8, left: 8, right: 8},
 }: Props): JSX.Element {
-  const ref = useRef<TouchableHighlight>(null);
+  const ref = useRef<React.ElementRef<typeof TouchableHighlight>>(null);
   const hovered = useHover(ref);
   const {theme} = useTheme();
   const innerDisabled = disabled || !onPress;
