@@ -1,3 +1,3 @@
 ## Contribution Guide
 
-[dooboo-ui.dooboolab.com](https://dooboo-ui.dooboolab.com/?path=/story/contributing-contributing--page)
+[dooboo-ui.hyo.dev](https://dooboo-ui.hyo.dev/?path=/story/contributing-contributing--page)

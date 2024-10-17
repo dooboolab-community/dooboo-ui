@@ -2,7 +2,7 @@ import {create} from '@storybook/theming';
 
 const commonTheme = {
   brandTitle: 'dooboo-ui',
-  brandUrl: 'https://dooboo-ui.dooboolab.com',
+  brandUrl: 'https://dooboo-ui.hyo.dev',
   brandImage: '/icon.png',
   brandTarget: '_self',
   stylePreview: true,

@@ -1,11 +1,11 @@
 {
-  "homepage": "https://dooboo-ui.dooboolab.com",
+  "homepage": "https://dooboo-ui.hyo.dev",
   "private": true,
   "main": "node_modules/expo/AppEntry.js",
   "scripts": {
     "pre": "lerna run clean && lerna clean --yes && lerna run build",
     "predeploy": "yarn build",
-    "postinstall": "dooboolab-welcome postinstall",
+    "postinstall": "hyochan-welcome postinstall",
     "publish": "yarn build && cd lib && npm publish && cd ..",
     "publish:packages": "yarn pre && yarn build:packages && lerna exec -- npm publish",
     "lint": "eslint main packages stories --ext .ts,.tsx,.js,.jsx",

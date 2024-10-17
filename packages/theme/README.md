@@ -10,4 +10,4 @@ yarn add @dooboo-ui/theme
 
 ## Usage
 
-Documented in [dooboo-ui.dooboolab.com](https://dooboo-ui.dooboolab.com/?path=/docs/overview-theming--page).
+Documented in [dooboo-ui.hyo.dev](https://dooboo-ui.hyo.dev/?path=/docs/overview-theming--page).

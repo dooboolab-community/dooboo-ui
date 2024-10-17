@@ -2,7 +2,7 @@
   "name": "@dooboo-ui/theme",
   "version": "0.12.16",
   "description": "dooboo-ui theme provider",
-  "homepage": "https://github.com/dooboolab-community/dooboo-ui#readme",
+  "homepage": "https://github.com/hyochan/dooboo-ui#readme",
   "license": "ISC",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
@@ -28,7 +28,7 @@
     "theme",
     "dooboo-theme",
     "dooboo-ui",
-    "dooboolab"
+    "hyochan"
   ],
   "dependencies": {
     "@expo/match-media": "^0.4.0",

@@ -16,12 +16,12 @@ resolved or fixed by this PR._
 I added the following tests:
 
 _Replace this with a list of the tests that you added as part of this PR. A change in behavior with no test covering it
-will likely get reverted accidentally sooner or later. PRs must include tests for all changed/updated/fixed behaviors. See [Test Coverage](https://codecov.io/gh/dooboolab-community/dooboo-ui)._
+will likely get reverted accidentally sooner or later. PRs must include tests for all changed/updated/fixed behaviors. See [Test Coverage](https://codecov.io/gh/hyochan/dooboo-ui)._
 
 ## Checklist
 
 Before you create this PR confirms that it meets all requirements listed below by checking the relevant checkboxes (`[x]`). This will ensure a smooth and quick review process.
 
-- [ ] I read the [Contributor Guide](https://github.com/dooboolab-community/dooboo-ui/blob/main/CONTRIBUTING.md) and followed the process outlined there for submitting PRs.
+- [ ] I read the [Contributor Guide](https://github.com/hyochan/dooboo-ui/blob/main/CONTRIBUTING.md) and followed the process outlined there for submitting PRs.
 - [ ] Run `yarn test:all` and make sure nothing fails.
 - [ ] I am willing to follow-up on review comments in a timely manner.

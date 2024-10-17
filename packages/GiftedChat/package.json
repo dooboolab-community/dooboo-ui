@@ -15,15 +15,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/dooboolab-community/dooboo-ui.git",
+    "url": "https://github.com/hyochan/dooboo-ui.git",
     "directory": "packages/GiftedChat"
   },
   "bugs": {
-    "url": "https://github.com/dooboolab-community/dooboo-ui/issues"
+    "url": "https://github.com/hyochan/dooboo-ui/issues"
   },
-  "homepage": "https://github.com/dooboolab-community/dooboo-ui#readme",
+  "homepage": "https://github.com/hyochan/dooboo-ui#readme",
   "dependencies": {
-    "dooboolab-welcome": "^1.3.2"
+    "hyochan-welcome": "^1.0.1"
   },
   "devDependencies": {
     "@emotion/native": "^11.0.0",
@@ -45,6 +45,6 @@
     "react-hook",
     "react-native",
     "dooboo-ui",
-    "dooboolab"
+    "hyochan"
   ]
 }
